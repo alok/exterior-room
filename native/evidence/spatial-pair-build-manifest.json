@@ -1,0 +1,118 @@
+{
+  "createdUTC": "2026-10-23T12:25:30.942034+00:00",
+  "scope": "Prepared operator-assisted sphere-pair harness; UI not yet executed",
+  "simulator": "1D261881-0A0F-4DE0-B704-12644E606348",
+  "sourceAndEvidence": [
+    {
+      "path": "native/PolynomialUITests/PolynomialSpatialPairUITests.swift",
+      "sha256": "0b984cb74b3bc9fe24aa7dd626c5f7bddf090d1d04d9db432c7e9465a05eb910",
+      "bytes": 7514
+    },
+    {
+      "path": "native/Sources/PolynomialModel.swift",
+      "sha256": "4bc25d19533ae8984d189423cb40ef49664555cfead28b0e946b43b0b672b702",
+      "bytes": 57626
+    },
+    {
+      "path": "native/Sources/PolynomialSpace.swift",
+      "sha256": "e05f2f1e70e5678499304ff95f973693d4ea9dfe6548bcafadc411119af197a0",
+      "bytes": 27853
+    },
+    {
+      "path": "native/Sources/PolynomialRoomApp.swift",
+      "sha256": "b8b7f7efa3641e6c525cf0bf317ae6a00f2b6caa1da768f071722df14b1dcd07",
+      "bytes": 17377
+    },
+    {
+      "path": "native/scripts/run-ui-tests.py",
+      "sha256": "91a751ea6737f4b79d6dc785f47723920e3c5033a7581024e663b52dac9fd428",
+      "bytes": 3539
+    },
+    {
+      "path": "native/scripts/capture_coordinator.py",
+      "sha256": "be2c2113b3ca08ed2ad3ef6969578c321dc5c430e9f1f8d152c00712bbc24006",
+      "bytes": 7598
+    },
+    {
+      "path": "native/ExteriorRoom.xcodeproj/project.pbxproj",
+      "sha256": "ac8f7db423f9f55e59b6671c574e89254b09f70f8b212d40ea3ac91dd81b4c5f",
+      "bytes": 38723
+    },
+    {
+      "path": "native/ModelTests/PolynomialPairingTests.swift",
+      "sha256": "ecf6c8fdeef12b7075f5459790a9326d792b4c361e6dae84f3e9c84a1b46cc29",
+      "bytes": 14168
+    },
+    {
+      "path": "lean/Polynomial/fixtures/spatial-pair-native-cases.json",
+      "sha256": "b87bd024b49e5b1be854db8ad580f175351fb7882ec2879c80a7565f066c922a",
+      "bytes": 65221
+    },
+    {
+      "path": "native/evidence/spatial-pair-build.txt",
+      "sha256": "929cc18a8cfe25c5e501f1949133f045c928ea5c15e3647101fe5a6758c92238",
+      "bytes": 111052
+    },
+    {
+      "path": "native/evidence/spatial-pair-model-tests.txt",
+      "sha256": "8e10c6c7778b1169fafc687be7d83e4b592ba3d4efb18825290541752520545a",
+      "bytes": 45639
+    }
+  ],
+  "binaries": [
+    {
+      "path": "native/.build/Build/Products/Debug-xrsimulator/PolynomialRoom.app/PolynomialRoom",
+      "sha256": "6d91035edfee710ee5bd77159200850c623c0a93f6b6ed36d287eb5cd208948f",
+      "bytes": 40144
+    },
+    {
+      "path": "native/.build/Build/Products/Debug-xrsimulator/PolynomialRoom.app/PolynomialRoom.debug.dylib",
+      "sha256": "bda29e7e16c539e770ba6919f0640543f033afd669e14d9e878ed52193c5ccd5",
+      "bytes": 4301416
+    },
+    {
+      "path": "native/.build/Build/Products/Debug-xrsimulator/PolynomialRoomUITests-Runner.app/PlugIns/PolynomialRoomUITests.xctest/PolynomialRoomUITests",
+      "sha256": "d6a8f3bf9efcdb360bcb5c92900dcc98e58ac6dd556b356cbf21cc7af8b3a922",
+      "bytes": 663384
+    },
+    {
+      "path": "lean/.lake/build/bin/polynomial_service",
+      "sha256": "d6f909065f501b827c8d5646aebe4b2dd723d06a6e9d5ba3ad2f183f6ede44c4",
+      "bytes": 101713072
+    }
+  ],
+  "testCommand": "python3 scripts/run-ui-tests.py --scheme PolynomialRoom --spatial-pair-probe",
+  "operatorTimeoutSecondsPerPhase": 120,
+  "phase1": {
+    "primary": [
+      1,
+      -1,
+      2
+    ],
+    "actualSphere": [
+      3,
+      0,
+      3
+    ],
+    "normal": [
+      1,
+      -2,
+      -1
+    ],
+    "members": 18
+  },
+  "phase2": {
+    "primary": [
+      3,
+      0,
+      3
+    ],
+    "actualSphere": [
+      3,
+      0,
+      3
+    ],
+    "expected": "same primitive direction error; Pair next remains armed; no accepted-scene revision change"
+  },
+  "noModelInjection": true
+}

@@ -1,0 +1,130 @@
+{
+  "scope": "Silent app-only simulator regression recordings; not external sphere/sky or physical input evidence",
+  "videos": [
+    {
+      "run": "20261023T124456Z",
+      "source": "native/evidence/screenshots/20261023T124456Z/lean-starscape-native-source-input.mov",
+      "sourceSHA256": "ed6788c273be7bc349b4f7ff610712885329a5dff80d51eb1df284e071224e3f",
+      "path": "artifacts/videos/lean-starscape-native-device-pose-preview.mp4",
+      "sha256": "b9c95c2fef9b3530475efd9f16f4670b9e646fd9a36e0577624382c8aad880bb",
+      "bytes": 796747,
+      "command": [
+        "ffmpeg",
+        "-hide_banner",
+        "-nostdin",
+        "-y",
+        "-i",
+        "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/evidence/screenshots/20261023T124456Z/lean-starscape-native-source-input.mov",
+        "-an",
+        "-vf",
+        "scale=1920:-2",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "fast",
+        "-crf",
+        "24",
+        "-threads",
+        "2",
+        "-movflags",
+        "+faststart",
+        "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/artifacts/videos/lean-starscape-native-device-pose-preview.mp4"
+      ],
+      "durationSeconds": 66.409424,
+      "streams": [
+        {
+          "codec": "h264",
+          "type": "video",
+          "width": 1920,
+          "height": 1080
+        }
+      ],
+      "decodedSuccessfully": true,
+      "audioStreams": 0
+    },
+    {
+      "run": "20261023T124640Z",
+      "source": "native/evidence/screenshots/20261023T124640Z/lean-starscape-native-source-morph.mov",
+      "sourceSHA256": "11a494dc303fcb2bad5f1ed4896f025794d892da9782862cab2a13e65f9017c6",
+      "path": "artifacts/videos/lean-starscape-native-device-pose-morph.mp4",
+      "sha256": "d5f0f0d8fb507ed5678da9b932672704d10cedb8ceabe975c5df8b9d91d3b597",
+      "bytes": 980244,
+      "command": [
+        "ffmpeg",
+        "-hide_banner",
+        "-nostdin",
+        "-y",
+        "-i",
+        "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/evidence/screenshots/20261023T124640Z/lean-starscape-native-source-morph.mov",
+        "-an",
+        "-vf",
+        "scale=1920:-2",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "fast",
+        "-crf",
+        "24",
+        "-threads",
+        "2",
+        "-movflags",
+        "+faststart",
+        "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/artifacts/videos/lean-starscape-native-device-pose-morph.mp4"
+      ],
+      "durationSeconds": 87.253833,
+      "streams": [
+        {
+          "codec": "h264",
+          "type": "video",
+          "width": 1920,
+          "height": 1080
+        }
+      ],
+      "decodedSuccessfully": true,
+      "audioStreams": 0
+    }
+  ],
+  "inspection": {
+    "scope": "Representative frames, not physical input acceptance",
+    "previewSeconds": [
+      24,
+      45,
+      64
+    ],
+    "morphSeconds": [
+      20,
+      40,
+      80
+    ],
+    "observations": [
+      "Preview: D5 Roots, accepted moved Roots, then installed Origin device pose with zero spatial callbacks.",
+      "Morph: intermediate75percent, full identity projection, then accepted swipe with retained plane and4229forms."
+    ],
+    "frames": [
+      {
+        "path": "native/evidence/device-pose-video-frames/morph-20s.png",
+        "sha256": "3a9d5f6775b9116440503f4a3dca65939f027130edbf08f1d4a40b2d63abf6f9"
+      },
+      {
+        "path": "native/evidence/device-pose-video-frames/morph-40s.png",
+        "sha256": "8575e8bb82aac807bd41062f3905763d771832a0d855d0aa0fe74cbb4d0a2b6e"
+      },
+      {
+        "path": "native/evidence/device-pose-video-frames/morph-80s.png",
+        "sha256": "8bfbb6b1c523ed132fd49dd414e79c5784911d07e60db0a45b0bebc72271fce3"
+      },
+      {
+        "path": "native/evidence/device-pose-video-frames/preview-24s.png",
+        "sha256": "7d890c8502c12337dcc19fe9fead5383ace8f270158e10d9244cf1ae1c1159dd"
+      },
+      {
+        "path": "native/evidence/device-pose-video-frames/preview-45s.png",
+        "sha256": "1ce3a8797551c443beae32a8b9c8bf83a32cbc8b9fd245775482d6306f0599dc"
+      },
+      {
+        "path": "native/evidence/device-pose-video-frames/preview-64s.png",
+        "sha256": "21910d84541277b8d354234220ddb3913d22cf69f5a75f0c985ddd2af6b0bba2"
+      }
+    ]
+  }
+}

@@ -14,7 +14,7 @@ import time
 import uuid
 
 
-def enable_capture(xctestrun, destination, gesture_probe=False, target_name="ExteriorRoomUITests"):
+def enable_capture(xctestrun, destination, gesture_probe=False, target_name="ExteriorRoomUITests", spatial_pair_probe=False, spatial_origin_probe=False):
     if Path(xctestrun).parent.resolve() != Path(destination).parent.resolve():
         raise ValueError("Keep the configured .xctestrun beside the original so __TESTROOT__ still resolves")
     data = plistlib.loads(Path(xctestrun).read_bytes())
@@ -27,6 +27,10 @@ def enable_capture(xctestrun, destination, gesture_probe=False, target_name="Ext
             target.setdefault("EnvironmentVariables", {})["EXTERIOR_CAPTURE_HANDSHAKE"] = "1"
             if gesture_probe:
                 target["EnvironmentVariables"]["EXTERIOR_GESTURE_PROBE"] = "1"
+            if spatial_pair_probe:
+                target["EnvironmentVariables"]["POLYNOMIAL_SPATIAL_PAIR_PROBE"] = "1"
+            if spatial_origin_probe:
+                target["EnvironmentVariables"]["POLYNOMIAL_SPATIAL_ORIGIN_PROBE"] = "1"
             enabled += 1
     if not enabled:
         raise ValueError(f"The generated test run contains no {target_name} target")

@@ -1,0 +1,12 @@
+{
+  "action": "video-stop",
+  "name": "lean-starscape-native-source-morph",
+  "id": "3E29BADD-5808-4F2D-A0F3-226E16778F72",
+  "createdAt": 1792759703.960441,
+  "startedAt": 1792759703.967934,
+  "exitCode": 0,
+  "error": null,
+  "sha256": "11a494dc303fcb2bad5f1ed4896f025794d892da9782862cab2a13e65f9017c6",
+  "file": "lean-starscape-native-source-morph.mov",
+  "finishedAt": 1792759704.3748999
+}

@@ -76,7 +76,8 @@ See the [native preview/render update](docs/NATIVE_PREVIEW_RENDER_UPDATE.md),
 
 ## What matches, and what is still missing
 
-The [native preview/render update](docs/NATIVE_PREVIEW_RENDER_UPDATE.md),
+The [native spatial acceptance update](docs/NATIVE_SPATIAL_ACCEPTANCE_UPDATE.md),
+[native preview/render update](docs/NATIVE_PREVIEW_RENDER_UPDATE.md),
 [source-morph update](docs/SOURCE_MORPH_UPDATE.md),
 [source-catalogue update](docs/SOURCE_CATALOGUE_UPDATE.md),
 [linked-roots update](docs/LINKED_ROOTS_UPDATE.md),
@@ -92,7 +93,7 @@ Full functional or visual parity has **not** been established.
 | Linked Möbius motion, Snap and Identity | Browser 2D/3D pointer motion and synthetic controller motion tested. Native Roots swipe and directional controls tested. Origin free-space drag is implemented and model-tested, but actual input remains unverified. |
 | Roots chart | Browser shows linked 3D/UHP panes together on wide windows, with an optional Klein model. Native now has a separate linked UHP Roots window with selection, pairing, labels and geodesics. Other source models and theme controls remain gaps. |
 | Selection and hover | Browser polynomial hover and picking are exercised. Native Roots has actual simulator tap/pair evidence and a cancellable Lean hover inspector; its pointer-hover callback remains unverified because visionOS XCUI excludes hover. Physical gaze/pinch and explicit controller bindings are unverified. |
-| Density and crop | Separate Canonical ball and Source depth modes. The preceding source receipt rendered 769,788 buffered forms at depth96 with an explicit upper-cap notice; depth24 has 14,966. Native supports R24/28,832 canonical forms with a 40,000-form budget. Browser held-drag recropping passes actual input tests. Native release recropping and the unchanged strict held-preview test now pass: one temporary catalogue published 1.23 seconds before gesture end in the recorded Source16 gesture. Broader dense interaction performance remains unverified. |
+| Density and crop | Separate Canonical ball and Source depth modes. The preceding source receipt rendered 769,788 buffered forms at depth96 with an explicit upper-cap notice; depth24 identity has 14,966. Some transformed Source24 catalogues omit the other signed block under the original source's scan guard and explicitly report incomplete. Native supports R24/28,832 canonical forms with a 40,000-form budget. Browser held-drag recropping passes actual input tests. Native release recropping and the unchanged strict held-preview test pass. Bounded CPU preparation timings are recorded separately; broader dense interaction performance remains unverified. |
 | Origin, Inhabit, Overview, Reset | Tested on each route. Camera offsets, field of view, materials and control layouts differ. |
 | Headsets | Synthetic WebXR runs real Three.js rendering/handlers with supplied poses. visionOS Simulator runs the native app. Neither establishes physical tracking, compositor behavior, comfort or hardware performance. |
 
@@ -136,6 +137,15 @@ server does not configure HTTPS or public hosting.
 
 ## Tested evidence
 
+- [Spatial pairing fixtures, density limits and native input status](docs/NATIVE_SPATIAL_ACCEPTANCE_UPDATE.md):
+  169 model tests, an unsigned simulator build, both unchanged actual-XCUI
+  preview/morph regressions, 48 exact Lean requests and a bounded
+  12-configuration native CPU benchmark. The simulator captured an installed
+  device pose; actual free-space dragging remains unverified.
+  The prepared sphere-pair probe requires actual simulator input; it has not
+  passed. These additions do not expand the 17-law proof claim.
+  [Fresh preview/Origin clip](artifacts/videos/lean-starscape-native-device-pose-preview.mp4) ·
+  [fresh morph/Roots clip](artifacts/videos/lean-starscape-native-device-pose-morph.mp4).
 - [Current browser morph/recrop clip](artifacts/videos/lean-starscape-browser-morph.mp4),
   [native morph/Roots clip with restored projected stars](artifacts/videos/lean-starscape-native-morph-depth-fix.mp4),
   and [synthetic WebXR clip](artifacts/videos/lean-starscape-webxr-morph.mp4).

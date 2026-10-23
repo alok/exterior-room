@@ -1,0 +1,74 @@
+[
+  {
+    "name": "source-input-00-actual-shared-roots-pair",
+    "action": "screenshot",
+    "createdAt": 1792759522.0868468,
+    "id": "5C3785D5-37F9-4BA7-98F0-6B9190E3757E",
+    "file": "001-source-input-00-actual-shared-roots-pair.png",
+    "startedAt": 1792759522.110253,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "068a5d95e7cfecfd9fb0335fba1f0886f40c9901ad56ad7be732a7b91ebfc6e3",
+    "finishedAt": 1792759528.4165041
+  },
+  {
+    "name": "source-input-01-d5-complete-root-arc",
+    "action": "screenshot",
+    "createdAt": 1792759543.0305882,
+    "id": "1D6EBD64-BBDC-4529-BABB-D935E3B24F84",
+    "file": "002-source-input-01-d5-complete-root-arc.png",
+    "startedAt": 1792759543.0353768,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "d4accc6e5a4139c88fb48d2c3e4fe244da85b720f9ea4d30b83705786396629f",
+    "finishedAt": 1792759543.412801
+  },
+  {
+    "id": "37B0FDDD-4DCE-4107-86F7-3D15871C252E",
+    "name": "source-input-02-held-preview-result",
+    "createdAt": 1792759553.1460419,
+    "action": "screenshot",
+    "file": "003-source-input-02-held-preview-result.png",
+    "startedAt": 1792759553.1558511,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "6c2bec0c59220263f629a6abe3ea0065b67d77a117ba210d14f0d8b5bd7dbfa4",
+    "finishedAt": 1792759555.648677
+  },
+  {
+    "name": "source-input-03-final-half-morph",
+    "action": "screenshot",
+    "createdAt": 1792759567.138767,
+    "id": "4146E43E-3A6F-42FB-B0DE-99F326E69612",
+    "file": "004-source-input-03-final-half-morph.png",
+    "startedAt": 1792759567.142109,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "2f681ef160e644a73e5fda2f27e6856d541726901504159560ac39354b54a826",
+    "finishedAt": 1792759567.372101
+  },
+  {
+    "name": "source-input-04-final-full-morph",
+    "action": "screenshot",
+    "createdAt": 1792759573.59657,
+    "id": "2A8C5F38-7EEA-44C7-94D4-593684ED6D5C",
+    "file": "005-source-input-04-final-full-morph.png",
+    "startedAt": 1792759573.616821,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "0142dee3251fb82d2601109a4fdadf3979da5ac89b92fe2324aa4e99fd0fdb3c",
+    "finishedAt": 1792759576.0806668
+  },
+  {
+    "name": "source-input-05-origin-ready-for-host-probe",
+    "id": "BE2F6943-7C91-4BA4-859E-4DF9960CC770",
+    "createdAt": 1792759578.862118,
+    "action": "screenshot",
+    "file": "006-source-input-05-origin-ready-for-host-probe.png",
+    "startedAt": 1792759578.892034,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "d64770f77f16d6963f7d69efe392aaafd6f923805134723c44e516e3172fe26a",
+    "finishedAt": 1792759579.182425
+  }
+]

@@ -45,7 +45,7 @@ One unchanged Lean service process handled nine sequential requests: one exact p
 - Only the `PolynomialRenderPlan.make(...)` invocation lies between the two `DispatchTime.now().uptimeNanoseconds` readings. Input decoding, membership/incidence setup, settings construction, summaries, checksum consumption, output and teardown lie outside this interval.
 - A verbatim data-declaration prefix of `PolynomialModel.swift` is compiled before `enum PolynomialCatalogueMode:` to avoid compiling the unrelated Observable app model. All appearance, action, catalogue, Source morph and render-plan functions come directly from the unchanged current native source files.
 
-The project Debug setting explicitly uses `SWIFT_OPTIMIZATION_LEVEL=-Onone` at [project.pbxproj:668](../../native/ExteriorRoom.xcodeproj/project.pbxproj#L668). The benchmark sets that same optimization level explicitly, but runs against the macOS SDK as a standalone program; it is not the visionOS app build. Source hashes, compiler version, exact commands, input hash and compiled binary hash are in [execution.json](execution.json). Source files and the Lean service hash were unchanged after execution. Peak RSS was not collected.
+The project Debug setting explicitly uses `SWIFT_OPTIMIZATION_LEVEL=-Onone` in [project.pbxproj](../../native/ExteriorRoom.xcodeproj/project.pbxproj). The benchmark sets that same optimization level explicitly, but runs against the macOS SDK as a standalone program; it is not the visionOS app build. Source hashes, compiler version, exact commands, input hash and compiled binary hash are in [execution.json](execution.json). Source files and the Lean service hash were unchanged after execution. Peak RSS was not collected.
 
 ## Receipt and reproduction
 

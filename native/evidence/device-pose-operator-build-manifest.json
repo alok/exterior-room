@@ -1,0 +1,50 @@
+{
+  "createdUTC": "2026-10-23T12:51:49.331586+00:00",
+  "scope": "Test-only addition of optional operator Origin Reset/Exit/re-entry assertions; no operator test executed. Product app binaries are byte-identical to the two passed headless regressions.",
+  "baselineManifest": {
+    "path": "native/evidence/device-pose-build-manifest.json",
+    "sha256": "74c85477f08d5fa290df57d6c9f0436bf9ad66167e2528d6b8668c09d9cf6a1b",
+    "bytes": 9469
+  },
+  "regressionReceipt": {
+    "path": "native/evidence/device-pose-ui-regression-receipt.json",
+    "sha256": "f74aa450eb2cff04c2acc084568ef61037d268ea45f724fba3878e57f614fd24",
+    "bytes": 8256
+  },
+  "changedTestSource": {
+    "path": "native/PolynomialUITests/PolynomialSpatialPairUITests.swift",
+    "sha256": "5a12c787475504ce2ee7651a5cdfbf20cccc6d25313423f6092afd909cc1919d",
+    "bytes": 12012
+  },
+  "buildLog": {
+    "path": "native/evidence/device-pose-operator-build.txt",
+    "sha256": "47e09819b689e5d52486e86e775d2b904384d1e5037d40d88d3fb894615e963b",
+    "bytes": 54146
+  },
+  "binaries": [
+    {
+      "path": "native/.build/Build/Products/Debug-xrsimulator/PolynomialRoom.app/PolynomialRoom",
+      "sha256": "6d91035edfee710ee5bd77159200850c623c0a93f6b6ed36d287eb5cd208948f",
+      "bytes": 40144
+    },
+    {
+      "path": "native/.build/Build/Products/Debug-xrsimulator/PolynomialRoom.app/PolynomialRoom.debug.dylib",
+      "sha256": "b8dd53e632e8f9d94e0a61989c7ef65a1e6edb08d4f6f95c0c99b0f53bb35e62",
+      "bytes": 4532344
+    },
+    {
+      "path": "native/.build/Build/Products/Debug-xrsimulator/PolynomialRoomUITests-Runner.app/PlugIns/PolynomialRoomUITests.xctest/PolynomialRoomUITests",
+      "sha256": "60952b00e3d9d756a5766228e65a92963614bd9a07ee4dea7ee9f9a226b2491b",
+      "bytes": 715672
+    },
+    {
+      "path": "lean/.lake/build/bin/polynomial_service",
+      "sha256": "d6f909065f501b827c8d5646aebe4b2dd723d06a6e9d5ba3ad2f183f6ede44c4",
+      "bytes": 101713072
+    }
+  ],
+  "unchangedAppAndBackend": true,
+  "build": "TEST BUILD SUCCEEDED",
+  "actualSpherePairAcceptance": "pending supported external Device Hub access",
+  "actualSkyDragAcceptance": "pending supported external Device Hub access"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "lean-starscape-native-source-input",
+  "action": "video-stop",
+  "createdAt": 1792759579.203428,
+  "id": "31B4BFFA-770B-4225-BB02-4D1FBCD199F2",
+  "startedAt": 1792759579.344975,
+  "exitCode": 0,
+  "error": null,
+  "sha256": "ed6788c273be7bc349b4f7ff610712885329a5dff80d51eb1df284e071224e3f",
+  "file": "lean-starscape-native-source-input.mov",
+  "finishedAt": 1792759580.6282399
+}

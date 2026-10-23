@@ -16,6 +16,7 @@
 		1FAB36CD5448A4DE4D02B334 /* polynomial-swipe-case.json in Resources */ = {isa = PBXBuildFile; fileRef = 388C96A4CDFD4395B7B6DEEE /* polynomial-swipe-case.json */; };
 		2EB6050E37AC89D3FC1C173B /* PolynomialRoomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5563AE84371E63A82B3C5F69 /* PolynomialRoomUITests.swift */; };
 		33DE466043214461952020E2 /* ExteriorRoomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339B63D12BC52434920A7638 /* ExteriorRoomUITests.swift */; };
+		49D58E2A13E01724B02AC689 /* PolynomialSpatialPairUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CC9FE08E300135A12523C7 /* PolynomialSpatialPairUITests.swift */; };
 		4FD733AF793BB84A28C732F3 /* polynomial-export-receipt.json in Resources */ = {isa = PBXBuildFile; fileRef = E2C2BBC2863FD250E8F6D489 /* polynomial-export-receipt.json */; };
 		59502650CF1C188D3B3D09DC /* polynomial-export-receipt.json in Resources */ = {isa = PBXBuildFile; fileRef = E2C2BBC2863FD250E8F6D489 /* polynomial-export-receipt.json */; };
 		5ADE8D6248852511B77C7747 /* PolynomialAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36C0C9846474138FF9D8FC4 /* PolynomialAppearance.swift */; };
@@ -31,6 +32,7 @@
 		9EEF5CA420B42FA0111180C6 /* PolynomialAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9446F04D88C5F8780ED8391F /* PolynomialAction.swift */; };
 		A222147B6C168A1B3DE437D7 /* SimulatorCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10FAE16EC1A894EF25B21CE /* SimulatorCapture.swift */; };
 		A45410BD8EB7EA0DD1398D07 /* PolynomialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3704BC174D87770542FC3 /* PolynomialModel.swift */; };
+		A92484B21EC1ED01793BFC38 /* PolynomialDevicePose.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE93D0DAB285B64DF97BCA0C /* PolynomialDevicePose.swift */; };
 		AEDE03D08985D2DFF73ECA13 /* PolynomialRoomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D9A7AC7242AD59FE61899 /* PolynomialRoomApp.swift */; };
 		B441B792C72FF52C04D2FC06 /* polynomial-action-receipt.json in Resources */ = {isa = PBXBuildFile; fileRef = 360482516E0B7032BFD3D6FA /* polynomial-action-receipt.json */; };
 		BA030C25F4CDEF64CF6CCBC2 /* PolynomialTransformControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEF36B1640E131A1316BD2B /* PolynomialTransformControls.swift */; };
@@ -90,6 +92,7 @@
 		6BE00D30AE5C614D1DE7C894 /* polynomial-test-cases.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "polynomial-test-cases.json"; sourceTree = "<group>"; };
 		6C37C7FC5CD632979BE9E697 /* ExteriorSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExteriorSpace.swift; sourceTree = "<group>"; };
 		82E5A1453EA53382645D249B /* PolynomialRootsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialRootsView.swift; sourceTree = "<group>"; };
+		88CC9FE08E300135A12523C7 /* PolynomialSpatialPairUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialSpatialPairUITests.swift; sourceTree = "<group>"; };
 		9446F04D88C5F8780ED8391F /* PolynomialAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialAction.swift; sourceTree = "<group>"; };
 		96354C34E98C320B9286C8FE /* polynomial-default.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "polynomial-default.json"; sourceTree = "<group>"; };
 		9D1125617602A7C3976E1646 /* polynomial-cloud-r6.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "polynomial-cloud-r6.json"; sourceTree = "<group>"; };
@@ -105,6 +108,7 @@
 		E8AF104AF681A926D688035E /* LeanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanModel.swift; sourceTree = "<group>"; };
 		E9997D7E0D9CABE49C25EE86 /* ExteriorRoomUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ExteriorRoomUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED4DBBD0B47409A390D166D1 /* PolynomialRootsGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialRootsGeometry.swift; sourceTree = "<group>"; };
+		EE93D0DAB285B64DF97BCA0C /* PolynomialDevicePose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialDevicePose.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -131,6 +135,7 @@
 			children = (
 				5563AE84371E63A82B3C5F69 /* PolynomialRoomUITests.swift */,
 				56C10370F4B0AC33DFA54C1E /* PolynomialSourceMorphUITests.swift */,
+				88CC9FE08E300135A12523C7 /* PolynomialSpatialPairUITests.swift */,
 			);
 			path = PolynomialUITests;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 				9446F04D88C5F8780ED8391F /* PolynomialAction.swift */,
 				A36C0C9846474138FF9D8FC4 /* PolynomialAppearance.swift */,
 				4E74549C6473B80A342750EF /* PolynomialCatalogue.swift */,
+				EE93D0DAB285B64DF97BCA0C /* PolynomialDevicePose.swift */,
 				3AB3704BC174D87770542FC3 /* PolynomialModel.swift */,
 				DC5A30954755D4DFFC4D4EBF /* PolynomialRenderPlan.swift */,
 				589D9A7AC7242AD59FE61899 /* PolynomialRoomApp.swift */,
@@ -350,6 +356,7 @@
 				9EEF5CA420B42FA0111180C6 /* PolynomialAction.swift in Sources */,
 				5ADE8D6248852511B77C7747 /* PolynomialAppearance.swift in Sources */,
 				88D1810A88C738760479C752 /* PolynomialCatalogue.swift in Sources */,
+				A92484B21EC1ED01793BFC38 /* PolynomialDevicePose.swift in Sources */,
 				A45410BD8EB7EA0DD1398D07 /* PolynomialModel.swift in Sources */,
 				08F8B70A1684EF1E6D6992CF /* PolynomialRenderPlan.swift in Sources */,
 				AEDE03D08985D2DFF73ECA13 /* PolynomialRoomApp.swift in Sources */,
@@ -378,6 +385,7 @@
 			files = (
 				2EB6050E37AC89D3FC1C173B /* PolynomialRoomUITests.swift in Sources */,
 				DACEB54BF8F2F8C5172E4326 /* PolynomialSourceMorphUITests.swift in Sources */,
+				49D58E2A13E01724B02AC689 /* PolynomialSpatialPairUITests.swift in Sources */,
 				A222147B6C168A1B3DE437D7 /* SimulatorCapture.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

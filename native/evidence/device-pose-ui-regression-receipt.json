@@ -1,0 +1,206 @@
+{
+  "createdUTC": "2026-10-23T12:49:35.217058+00:00",
+  "scope": "Frozen current app and exact test binaries used for two unchanged headless simulator regressions. No externally operated sphere or sky input.",
+  "buildManifest": {
+    "path": "native/evidence/device-pose-build-manifest.json",
+    "sha256": "74c85477f08d5fa290df57d6c9f0436bf9ad66167e2528d6b8668c09d9cf6a1b",
+    "bytes": 9469
+  },
+  "runs": [
+    {
+      "run": "20261023T124456Z",
+      "method": "testActualSharedRootsPairAndHeldSourcePreview",
+      "result": "passed",
+      "tests": 1,
+      "failures": 0,
+      "durationSeconds": 79.454,
+      "log": {
+        "path": "native/evidence/ui-tests-20261023T124456Z.txt",
+        "sha256": "1bb8ebe14176b5f644ad20190425766bf3cc0d942f350dad7bf353ca0c4f1456",
+        "bytes": 44838
+      },
+      "parsedReceipts": {
+        "path": "native/evidence/device-pose-held-ui-124456.json",
+        "sha256": "71fd4efe1f3a223b835a1e823fcc28874e7864924c4f337b6954a8ed0574d120",
+        "bytes": 12807
+      },
+      "capturesManifest": {
+        "path": "native/evidence/screenshots/20261023T124456Z/captures.json",
+        "sha256": "1108dcfc809f07be66f459d57b170baf4b892aa0e73b436594b17674fe1b2871",
+        "bytes": 2575
+      },
+      "screenshots": [
+        {
+          "path": "native/evidence/screenshots/20261023T124456Z/001-source-input-00-actual-shared-roots-pair.png",
+          "sha256": "068a5d95e7cfecfd9fb0335fba1f0886f40c9901ad56ad7be732a7b91ebfc6e3",
+          "bytes": 572353
+        },
+        {
+          "path": "native/evidence/screenshots/20261023T124456Z/002-source-input-01-d5-complete-root-arc.png",
+          "sha256": "d4accc6e5a4139c88fb48d2c3e4fe244da85b720f9ea4d30b83705786396629f",
+          "bytes": 602217
+        },
+        {
+          "path": "native/evidence/screenshots/20261023T124456Z/003-source-input-02-held-preview-result.png",
+          "sha256": "6c2bec0c59220263f629a6abe3ea0065b67d77a117ba210d14f0d8b5bd7dbfa4",
+          "bytes": 646904
+        },
+        {
+          "path": "native/evidence/screenshots/20261023T124456Z/004-source-input-03-final-half-morph.png",
+          "sha256": "2f681ef160e644a73e5fda2f27e6856d541726901504159560ac39354b54a826",
+          "bytes": 646341
+        },
+        {
+          "path": "native/evidence/screenshots/20261023T124456Z/005-source-input-04-final-full-morph.png",
+          "sha256": "0142dee3251fb82d2601109a4fdadf3979da5ac89b92fe2324aa4e99fd0fdb3c",
+          "bytes": 563492
+        },
+        {
+          "path": "native/evidence/screenshots/20261023T124456Z/006-source-input-05-origin-ready-for-host-probe.png",
+          "sha256": "d64770f77f16d6963f7d69efe392aaafd6f923805134723c44e516e3172fe26a",
+          "bytes": 733873
+        }
+      ],
+      "rawVideos": [
+        {
+          "path": "native/evidence/screenshots/20261023T124456Z/lean-starscape-native-source-input.mov",
+          "sha256": "ed6788c273be7bc349b4f7ff610712885329a5dff80d51eb1df284e071224e3f",
+          "bytes": 13290138
+        }
+      ],
+      "stages": [
+        "source-input-00-actual-shared-roots-pair",
+        "source-input-01-d5-complete-root-arc",
+        "source-input-02-held-preview-result",
+        "source-input-03-final-half-morph",
+        "source-input-04-final-full-morph",
+        "source-input-05-origin-ready-for-host-probe"
+      ]
+    },
+    {
+      "run": "20261023T124640Z",
+      "method": "testSourceMorphLinkedRootsDragAndSharedPairing",
+      "result": "passed",
+      "tests": 1,
+      "failures": 0,
+      "durationSeconds": 99.466,
+      "log": {
+        "path": "native/evidence/ui-tests-20261023T124640Z.txt",
+        "sha256": "04a87dea3d27673c8b9d580c23d8847ec60d1d4c56f3b1a4f086faad43ba875a",
+        "bytes": 50603
+      },
+      "parsedReceipts": {
+        "path": "native/evidence/device-pose-morph-ui-124640.json",
+        "sha256": "20ace2a9f5dccc7285b2cbd5bdbfe3ec6d3dd8174f8e45b80f4e73274c94a9fb",
+        "bytes": 13134
+      },
+      "capturesManifest": {
+        "path": "native/evidence/screenshots/20261023T124640Z/captures.json",
+        "sha256": "91bf752f5bda43b4cd8bd5ff861be948f3ef8c62f36f4626789ea7c14c20f43d",
+        "bytes": 2988
+      },
+      "screenshots": [
+        {
+          "path": "native/evidence/screenshots/20261023T124640Z/001-source-morph-00-p0-unit-pair.png",
+          "sha256": "6ae9b1b027e40dd3c7adbe08dc136b2f2c40edaa104334c11848868157bb1592",
+          "bytes": 481129
+        },
+        {
+          "path": "native/evidence/screenshots/20261023T124640Z/002-source-morph-01-p50-unit-pair.png",
+          "sha256": "69bc697ce18463c7469331a65d8cb84818c4fa283b204b44893d1b446e34070e",
+          "bytes": 620150
+        },
+        {
+          "path": "native/evidence/screenshots/20261023T124640Z/003-source-morph-02-p100-animated-unit-pair.png",
+          "sha256": "9efca0b251377ef2aeb269ca3ee23e3a01a6e2ce49067d8a1040fddf3439211d",
+          "bytes": 546706
+        },
+        {
+          "path": "native/evidence/screenshots/20261023T124640Z/004-source-morph-03-d5-p100-linked-roots.png",
+          "sha256": "baef1e6646858f94e41717902a30620592e29340fb8cc13a4e74311dc7e046c1",
+          "bytes": 615783
+        },
+        {
+          "path": "native/evidence/screenshots/20261023T124640Z/005-source-morph-04-actual-roots-swipe.png",
+          "sha256": "520b1dfa3ddd40bdb2ebede2c5992a4321b1e0bfe33b924774df5efe5bc7fc35",
+          "bytes": 593165
+        },
+        {
+          "path": "native/evidence/screenshots/20261023T124640Z/006-source-morph-05-roots-closed-unoccluded-scene.png",
+          "sha256": "00614778f64b16e59095e235b102347b1db811663f28dbbcaaff59bbc7f05d6c",
+          "bytes": 547473
+        },
+        {
+          "path": "native/evidence/screenshots/20261023T124640Z/007-source-morph-06-reset-clears-pairing.png",
+          "sha256": "96693c64b86f629fe6f89b1d3433be608fbb54ceee1882659d382a401efe5599",
+          "bytes": 509133
+        }
+      ],
+      "rawVideos": [
+        {
+          "path": "native/evidence/screenshots/20261023T124640Z/lean-starscape-native-source-morph.mov",
+          "sha256": "11a494dc303fcb2bad5f1ed4896f025794d892da9782862cab2a13e65f9017c6",
+          "bytes": 15468905
+        }
+      ],
+      "stages": [
+        "source-morph-00-p0-unit-pair",
+        "source-morph-01-p50-unit-pair",
+        "source-morph-02-p100-animated-unit-pair",
+        "source-morph-03-d5-p100-linked-roots",
+        "source-morph-04-actual-roots-swipe",
+        "source-morph-05-roots-closed-unoccluded-scene",
+        "source-morph-06-reset-clears-pairing"
+      ]
+    }
+  ],
+  "heldPreview": {
+    "before": 0,
+    "after": 1,
+    "finalMatrix": "M = [16519, 9024, 16210, 14909]",
+    "finalStatus": "Live Lean \u00b7 4206 signed triples \u00b7 source depth 16",
+    "publicationEvents": [
+      {
+        "detail": "points=4208 acceptedScene=5",
+        "milliseconds": 40659.68894958496,
+        "sequence": 21,
+        "matrix": [
+          15832,
+          8499,
+          15372,
+          14569
+        ],
+        "kind": "catalogue-published",
+        "generation": 8
+      }
+    ],
+    "releaseEvent": {
+      "detail": "roots",
+      "milliseconds": 42423.70796203613,
+      "sequence": 26,
+      "matrix": [
+        16519,
+        9024,
+        16210,
+        14909
+      ],
+      "kind": "drag-release",
+      "generation": 8
+    },
+    "lastPublishedBeforeReleaseMs": 1764.0190124511719
+  },
+  "poseObservation": {
+    "capture": "native/evidence/screenshots/20261023T124456Z/006-source-input-05-origin-ready-for-host-probe.png",
+    "observedText": "Device pose installed for placement 1 \u00b7 device center, not head center",
+    "spatialChanged": 0,
+    "spatialEnded": 0,
+    "boundary": "The simulator measured and installed a pose; this is not spatial gesture or physical headset acceptance."
+  },
+  "limitations": [
+    "External Device Hub sphere pairing and upper/lower sky drags not run because supported computer-control attachment timed out. Not a permission denial.",
+    "Pointer hover and physical headset/controller input unverified.",
+    "Native density remains bounded to R24/40000 catalogue points.",
+    "CPU renderer update timings are not headset FPS."
+  ],
+  "proofScope": "Exact Lean service and 17 public laws unchanged."
+}

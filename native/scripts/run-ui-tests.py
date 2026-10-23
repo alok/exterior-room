@@ -14,18 +14,30 @@ parser.add_argument("--simulator", default="1D261881-0A0F-4DE0-B704-12644E606348
                     help="UUID of a task-owned visionOS simulator")
 parser.add_argument("--gesture-probe", action="store_true",
                     help="Run only the public XCUI screen-projected endpoint drag probe")
+parser.add_argument("--spatial-pair-probe", action="store_true",
+                    help="Opt in to the operator-assisted actual Device Hub sphere-pair test (120 s per phase)")
+parser.add_argument("--spatial-origin-probe", action="store_true",
+                    help="Opt in to real external Origin sky drags after device-pose installation (120 s per nappe)")
 parser.add_argument("--scheme", choices=["ExteriorRoom", "PolynomialRoom"], default="ExteriorRoom")
 parser.add_argument("--test-class", help="Override the selected scheme UI test class")
 parser.add_argument("--test-name", help="Run one named method on the selected scheme's UI test class")
 arguments = parser.parse_args()
 simulator: str = arguments.simulator
+if arguments.spatial_pair_probe or arguments.spatial_origin_probe:
+    if simulator != "1D261881-0A0F-4DE0-B704-12644E606348" or arguments.scheme != "PolynomialRoom" or arguments.gesture_probe:
+        parser.error("Spatial operator probes are restricted to PolynomialRoom on this task's own simulator")
+    if arguments.spatial_pair_probe and arguments.spatial_origin_probe:
+        parser.error("Select exactly one operator probe")
+    arguments.test_class = "PolynomialSpatialPairUITests"
+    arguments.test_name = "testActualDeviceHubSpherePairing" if arguments.spatial_pair_probe else "testActualDeviceHubOriginUpperAndLower"
 products: Path = root / ".build/Build/Products"
 original: Path = products / f"{arguments.scheme}_xrsimulator27.2-arm64.xctestrun"
 configured: Path = products / f"{arguments.scheme}-capture.xctestrun"
 gesture_probe = arguments.gesture_probe or arguments.test_name in {
     "testActionCheckpointAndOriginDrag", "testWindowDiskDragAndImmersiveResult",
     "testKleinDiskSwipeAndAcceptedScene"}
-enable_capture(original, configured, gesture_probe=gesture_probe, target_name=f"{arguments.scheme}UITests")
+enable_capture(original, configured, gesture_probe=gesture_probe, target_name=f"{arguments.scheme}UITests",
+               spatial_pair_probe=arguments.spatial_pair_probe,spatial_origin_probe=arguments.spatial_origin_probe)
 os.environ["DEVELOPER_DIR"] = "/Applications/Xcode-27.2.0-Beta.2.app/Contents/Developer"
 run_id: str = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
 coordinator = CaptureCoordinator(simulator, root / "evidence/screenshots" / run_id,

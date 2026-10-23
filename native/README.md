@@ -64,7 +64,7 @@ gesture ownership, cancellation and callback/rejection diagnostics. Actual
 spatial input acceptance is distinct from its passing model tests. Physical
 headset input and performance remain unverified.
 
-The current source-morph/input work passes **147 model tests** and an unsigned
+Published checkpoint `42f7ec09` passed **147 model tests** and an unsigned
 visionOS 27.2 simulator test build. Run `20261023T115306Z` passed the matched
 morph sequence in 110.561 seconds: P0/P0.5/P1, timed Project/Lift, D5, an actual
 Roots swipe, shared pairing cancellation and Reset. The transparent cone, screen
@@ -87,9 +87,28 @@ The original `110630Z`, `113815Z` and `115041Z` failed preview runs remain prese
 release-only success was not counted as interim acceptance. No test assertion or
 hold duration was weakened.
 
+The spatial-placement candidate passes **169 model tests**, including
+one-shot device-pose lifecycle and renderer installation gating. Origin and
+Inhabit use a frozen measured device frame when available. This is a device
+pose, not an exact head/eye center. No authorization is requested; missing pose
+leaves an explicit fallback status and spatial dragging disabled. See the
+[spatial continuation](../docs/NATIVE_SPATIAL_ACCEPTANCE_UPDATE.md) for the exact
+scope, model receipts and remaining actual-input checks.
+
+The current unsigned build passed the unchanged strict held-preview regression
+`20261023T124456Z` in **79.454 seconds** and matched morph regression
+`20261023T124640Z` in **99.466 seconds**. A validated temporary catalogue published
+**1.764 seconds before release**. The final Origin screenshot visibly confirms
+that a device pose was measured and installed; spatial changed/ended counters
+remain zero. See the [frozen build manifest](evidence/device-pose-build-manifest.json),
+[UI regression receipt](evidence/device-pose-ui-regression-receipt.json) and
+[silent clips](evidence/device-pose-videos.json). The operator harness is a separate
+opt-in test; these passes do not establish actual free-space input.
+
 Actual free-space Origin and sphere-pairing input remain unverified in this app.
-The supported Device Hub connection timed out (`timeoutReached −10005`) before
-host input; this was an access failure, not permission denial or hardware evidence.
+The supported Device Hub connection timed out after selecting our QA simulator;
+the selection was confirmed independently, but no sphere/sky probe started.
+This was an access failure, not permission denial or hardware evidence.
 The existing native pointer-hover XCTest limitation remains. Physical headset
 input, native R48/R96 and broader dense interaction performance remain unverified.
 
@@ -110,16 +129,35 @@ The existing background capture runner targets that owned simulator. These are
 separate focused tests, not a claim that the entire UI suite passed:
 
 ```sh
-# Passed matched morph run20261023T115306Z with restored projected bodies.
+# Passed current matched morph run20261023T124640Z with restored projected bodies.
 python3 scripts/run-ui-tests.py --scheme PolynomialRoom \
   --test-class PolynomialSourceMorphUITests \
   --test-name testSourceMorphLinkedRootsDragAndSharedPairing
 
-# Passed unchanged strict held-preview run20261023T120502Z; requires the current Lean backend.
+# Passed unchanged strict held-preview run20261023T124456Z; requires the current Lean backend.
 python3 scripts/run-ui-tests.py --scheme PolynomialRoom \
   --test-class PolynomialSourceMorphUITests \
   --test-name testActualSharedRootsPairAndHeldSourcePreview
 ```
+
+The operator-assisted tests below are **prepared, not yet executed**. Each is
+restricted to the owned simulator UUID and skips without its explicit opt-in.
+XCTest prepares ordinary controls; it does not inject a sphere selection or sky
+motion. After a `SPATIAL_PAIR_READY` or `SPATIAL_ORIGIN_READY` log line, an operator
+has up to 120 seconds to use the public Device Hub Select input route. Coordinate
+that host-input window before launching either command:
+
+```sh
+python3 scripts/run-ui-tests.py --scheme PolynomialRoom --spatial-pair-probe
+python3 scripts/run-ui-tests.py --scheme PolynomialRoom --spatial-origin-probe
+```
+
+The pair test checks the actual raw `(3,0,3)` sphere against `(1,-1,2)`, normal
+`(1,-2,-1)`, 18 R6 members, then same-direction refusal with pairing still armed.
+The Origin test waits for renderer-installed device pose, requires actual
+accepted matrix changes in both nappes with unit/pair identities preserved, and
+checks Reset, Exit and re-entry into the default unpaired Overview. Callback
+counts are recorded; an eventual pass alone would not establish first-click success.
 
 The second command translates to
 `-only-testing:PolynomialRoomUITests/PolynomialSourceMorphUITests/testActualSharedRootsPairAndHeldSourcePreview`
@@ -145,10 +183,17 @@ renderer behavior; it retains the selected point and Lean-identified interior
 plane members at full brightness. Glyphs have physical size and perspective;
 they are not the browser's pixel-clamped point sprites.
 
-Overview offers three stationary object orientations. Origin places the
-coefficient origin once at the head center; its nappe toggle changes orientation.
+Overview offers three stationary object orientations. Origin accepts one fully
+tracked device pose per placement epoch, polling for up to three seconds, then
+stops its own transient ARKit session. It freezes the complete device translation
+and rotation; a nappe flip retains that pose and changes only the cone orientation.
+The device frame is not a measured head/eye center. Input waits for the matching
+pose to be installed in RealityKit, and frame changes cancel active spatial drags.
+If no supported authorization-free pose is available, the one-time head-anchor
+fallback remains visible with an explicit status and spatial dragging disabled.
+No permission request or persistent world anchor is created.
 The zero polynomial is not a selectable projective point. Inhabit places the
-chosen point 35 cm ahead and 8 cm below the head center once, using native offset
+chosen point 35 cm ahead and 8 cm below the sampled device frame once, using native offset
 `(0,−0.08,−0.35)` metres; later selection does not move the viewer. This differs
 from the browser's `(0.1,0.12,0.1)` scene-coordinate offset.
 Reset restores the canonical default, R6 and Overview, clears the pair and

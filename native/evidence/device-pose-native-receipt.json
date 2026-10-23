@@ -1,0 +1,106 @@
+{
+  "createdUTC": "2026-10-23T12:53:01.456883+00:00",
+  "identity": "Lean Starscape / PolynomialRoom",
+  "simulator": "1D261881-0A0F-4DE0-B704-12644E606348",
+  "result": "One-shot device-pose placement implemented, model/unsigned build/headless regressions passed; external spatial operator acceptance pending.",
+  "implementation": [
+    "One fully tracked finite rigid device pose accepted per placement epoch; no authorization requests or persistent anchors.",
+    "Dedicated transient ARKit session stops after success/failure/cancellation/timeout, with compensating stop for late uncancellable startup.",
+    "Renderer installs full device transform followed by local nappe/Inhabit transform; input waits for matching epoch+poseUUID+placement token.",
+    "Nappe flip freezes pose and cancels prior input; stale query/renderer acknowledgement cannot unlock after reset/leave/re-entry.",
+    "Overview exact signed collision picking and Lean algebra protocols preserved."
+  ],
+  "validation": {
+    "models": 169,
+    "modelFailures": 0,
+    "modelDurationSeconds": 9.014,
+    "unsignedBuild": "passed",
+    "strictHeldPreview": {
+      "run": "20261023T124456Z",
+      "tests": 1,
+      "failures": 0,
+      "durationSeconds": 79.454,
+      "cataloguePublishedBeforeReleaseMs": 1764.0190124511719,
+      "releasedMatrix": [
+        16519,
+        9024,
+        16210,
+        14909
+      ],
+      "releasedCatalogueCount": 4206
+    },
+    "matchedMorph": {
+      "run": "20261023T124640Z",
+      "tests": 1,
+      "failures": 0,
+      "durationSeconds": 99.466,
+      "releasedMatrix": [
+        22885,
+        10556,
+        14031,
+        10842
+      ],
+      "releasedCatalogueCount": 4229
+    },
+    "operatorHarness": "Compiled only; final test-only re-entry assertion changed UI-test binary, not app/backend",
+    "actualPoseObservation": "Current Origin screenshot visibly confirms installed device pose; changed0/ended0, no gesture attempted."
+  },
+  "receipts": [
+    {
+      "path": "native/evidence/spatial-pair-build-manifest.json",
+      "sha256": "0f4dfda39296e15772e07d18507640708d6fadb987112366a698fb6ce6d98c8d",
+      "bytes": 3692
+    },
+    {
+      "path": "native/evidence/device-pose-build-manifest.json",
+      "sha256": "74c85477f08d5fa290df57d6c9f0436bf9ad66167e2528d6b8668c09d9cf6a1b",
+      "bytes": 9469
+    },
+    {
+      "path": "native/evidence/device-pose-ui-regression-receipt.json",
+      "sha256": "f74aa450eb2cff04c2acc084568ef61037d268ea45f724fba3878e57f614fd24",
+      "bytes": 8256
+    },
+    {
+      "path": "native/evidence/device-pose-operator-build-manifest.json",
+      "sha256": "c4f1bcc378be13d00a2053c352fdaebc3a3999b316924b56400d4e4f234f5781",
+      "bytes": 2183
+    },
+    {
+      "path": "native/evidence/device-pose-videos.json",
+      "sha256": "4f1e487c37ac8ee2abcd97a7dacb6ee7a34f00052677aca1db48e7b37dca4001",
+      "bytes": 4280
+    }
+  ],
+  "videos": [
+    {
+      "path": "artifacts/videos/lean-starscape-native-device-pose-preview.mp4",
+      "sha256": "b9c95c2fef9b3530475efd9f16f4670b9e646fd9a36e0577624382c8aad880bb",
+      "bytes": 796747
+    },
+    {
+      "path": "artifacts/videos/lean-starscape-native-device-pose-morph.mp4",
+      "sha256": "d5f0f0d8fb507ed5678da9b932672704d10cedb8ceabe975c5df8b9d91d3b597",
+      "bytes": 980244
+    }
+  ],
+  "sourceProvenance": "Canonical65d50122cfefac86e7626308eaa189dbf5878a7c; exact read-only source hashes in build manifest; GPL/Stange attribution retained.",
+  "proofBoundary": "Device pose, input transforms, collision geometry and rendering are platform/UI operations; exact Lean service and 17 general laws unchanged.",
+  "pending": [
+    {
+      "action": "Externally controlled sphere-pair and upper/lower sky-drag probes",
+      "target": "Task-owned simulator 1D261881 via public Device Hub Select input",
+      "status": "not started; supported control access timed out",
+      "reason": "Cua Device Hub attachment/selection timed out; no permission denial and no new access requested.",
+      "completed": "Harness/build/models/headless regressions and actual pose installation observation."
+    },
+    "Physical headset/hand/controller input and pointer hover remain unverified.",
+    "Native R48/R96 remain unsupported; point catalogue cap 40,000 and R24.",
+    "Floating Roots window still partly occludes the 3D scene; browser/native framing, materials and glyph footprints differ."
+  ],
+  "operatorCommands": [
+    "python3 scripts/run-ui-tests.py --scheme PolynomialRoom --spatial-pair-probe",
+    "python3 scripts/run-ui-tests.py --scheme PolynomialRoom --spatial-origin-probe"
+  ],
+  "noPublicationByThisAgent": true
+}

@@ -2,6 +2,7 @@
 // Alok Singh with OpenAI Codex, 2026-10-23. Fixtures are actual compiled Lean responses.
 import CryptoKit
 import XCTest
+import simd
 @testable import ExteriorRoomCore
 
 private struct PolynomialFixtures: Sendable {
@@ -193,11 +194,20 @@ private actor PolynomialTransport {
     PolynomialModel(cloudData: fixtures.cloud, inspectionData: fixtures.initial,
       transport: { try await transport.send($0) })
   }
+  /// Explicit model-only placement fixture; this is not a tracking query or gesture acceptance.
+  private func installTestDevicePose(_ model:PolynomialModel) throws {
+    model.spaceOpen=true
+    if model.currentDevicePose == nil {
+      let request=try XCTUnwrap(model.beginDevicePoseQuery())
+      XCTAssertTrue(model.acceptDevicePose(.success(matrix_identity_float4x4),for:request))
+    }
+    XCTAssertTrue(model.acknowledgeDevicePoseInstalled(try XCTUnwrap(model.devicePoseInstallToken)))
+  }
 
   func testSpatialOriginDragUsesSameExactActionAndRejectsStaleCrossSurfaceEnd() async throws {
     let fixture=try PolynomialFixtures(),transport=PolynomialTransport(fixture),model=model(fixture,transport)
     model.beginSpatialDrag(direction:[0,2,0]); XCTAssertNil(model.actionPreview)
-    model.place(.origin(lower:false)); model.beginSpatialDrag(direction:[0,2,0])
+    model.place(.origin(lower:false));try installTestDevicePose(model); model.beginSpatialDrag(direction:[0,2,0])
     model.updateSpatialDrag(direction:[2,3,1],force:true)
     XCTAssertTrue(model.ownsSpatialDrag); XCTAssertNotNil(model.actionPreview)
     XCTAssertTrue(model.commitSpatialDrag()); await model.waitForPending()
@@ -211,12 +221,13 @@ private actor PolynomialTransport {
   }
   func testSpatialCancelNappeFlipAndOutsideInteriorCannotCommitAnOldPreview() async throws {
     let fixture=try PolynomialFixtures(),transport=PolynomialTransport(fixture),model=model(fixture,transport)
-    model.place(.origin(lower:false)); let revision=model.sceneRevision
+    model.place(.origin(lower:false));try installTestDevicePose(model); let revision=model.sceneRevision
     model.beginSpatialDrag(direction:[0,2,0]); model.updateSpatialDrag(direction:[2,3,1],force:true)
     model.cancelSpatialDrag(); XCTAssertNil(model.actionPreview); XCTAssertEqual(model.sceneRevision,revision)
     model.beginSpatialDrag(direction:[0,2,0]); model.updateSpatialDrag(direction:[2,3,1],force:true)
-    model.placement = .origin(lower:true)
+    model.flipOriginNappe()
     XCTAssertFalse(model.commitSpatialDrag()); XCTAssertNil(model.actionPreview)
+    try installTestDevicePose(model)
     model.beginSpatialDrag(direction:[2,1,0]); XCTAssertNil(model.actionPreview)
     model.updateSpatialDrag(direction:[0,-2,0],force:true)
     XCTAssertNotNil(model.actionPreview); XCTAssertFalse(model.commitSpatialDrag())
@@ -354,6 +365,7 @@ private actor PolynomialTransport {
         model.updateActionDrag(to:[2,0],force:true)
         XCTAssertTrue(model.commitActionDrag())
       default:
+        try installTestDevicePose(model)
         model.beginSpatialDrag(direction:[0,2,0]); model.updateSpatialDrag(direction:[0,2,0])
         model.updateSpatialDrag(direction:[2,3,1]); model.updateSpatialDrag(direction:[2,1,0],force:true)
         XCTAssertTrue(model.commitSpatialDrag())

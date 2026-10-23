@@ -1,0 +1,255 @@
+{
+  "createdUTC": "2026-10-23T12:44:52.531713+00:00",
+  "scope": "Unsigned device-pose candidate; model and fake-session tests passed; simulator UI regression pending; external spatial input unverified",
+  "simulator": "1D261881-0A0F-4DE0-B704-12644E606348",
+  "modelTests": {
+    "count": 169,
+    "failures": 0,
+    "durationSeconds": 9.014
+  },
+  "build": "TEST BUILD SUCCEEDED",
+  "sources": [
+    {
+      "path": "native/Sources/ExteriorRoomApp.swift",
+      "sha256": "185fa622d5dc6c3ec4977060a365e7b0e4c277cda058d9cee7afa5cd926f34b6",
+      "bytes": 7185
+    },
+    {
+      "path": "native/Sources/ExteriorSpace.swift",
+      "sha256": "3f9b87c227e7c1c4a77b332a18731820edc4dd4b5a16f2275a2705e44e71d4e4",
+      "bytes": 9679
+    },
+    {
+      "path": "native/Sources/LeanModel.swift",
+      "sha256": "992903c6a9ca6bfb35b64628e3ed7f1717266541f5643850f477b0ce62d42c93",
+      "bytes": 8847
+    },
+    {
+      "path": "native/Sources/PolynomialAction.swift",
+      "sha256": "f0a361b821fbec3747e0828809368ab60591ba3be54d325d294ad3b442b19a92",
+      "bytes": 16967
+    },
+    {
+      "path": "native/Sources/PolynomialAppearance.swift",
+      "sha256": "209ad4c7d39f99cc0e397d5bbfc50014dbcb1866c91443c0713b135bc09218e1",
+      "bytes": 4745
+    },
+    {
+      "path": "native/Sources/PolynomialCatalogue.swift",
+      "sha256": "e29ab4df034a58e2d39df7830bbd687d74e0052c2f20a54eed0eaa2dc43eb7f5",
+      "bytes": 9940
+    },
+    {
+      "path": "native/Sources/PolynomialDevicePose.swift",
+      "sha256": "ff0d347498b162c30499dcda95701e555665763b63c1bbcf804a2415f0795ccf",
+      "bytes": 9282
+    },
+    {
+      "path": "native/Sources/PolynomialModel.swift",
+      "sha256": "411726355c54d7e6dae23b0ee5e08690079cdbb71626cee48ff01b07a630805f",
+      "bytes": 61902
+    },
+    {
+      "path": "native/Sources/PolynomialRenderPlan.swift",
+      "sha256": "62b5f558ecece4459e27b79d363a30ad5099834bb48b27f73f254195b56aa2ae",
+      "bytes": 9028
+    },
+    {
+      "path": "native/Sources/PolynomialRoomApp.swift",
+      "sha256": "a233ee8dec2c0e1386d34328f447b989297410fd7703b4e7758d64ecf3f10e68",
+      "bytes": 17827
+    },
+    {
+      "path": "native/Sources/PolynomialRootsGeometry.swift",
+      "sha256": "cea6f5c8c7cc3686418d21ac55dcd94302c6775c2b4e6ec100f3a56e5f85dc85",
+      "bytes": 13348
+    },
+    {
+      "path": "native/Sources/PolynomialRootsView.swift",
+      "sha256": "0bc394f7e4c17faccc611ca8fa1fa41621cb37b03d3a31c352dc017c0ad8bcb8",
+      "bytes": 20070
+    },
+    {
+      "path": "native/Sources/PolynomialSourceMorph.swift",
+      "sha256": "9740abb77001c4662222de69208263d9fb59158fa32f40b19cd765bb332a4ca8",
+      "bytes": 4732
+    },
+    {
+      "path": "native/Sources/PolynomialSpace.swift",
+      "sha256": "68e34ba78399022b8b4076f3157a19e2b3ce55cf5cd6cf985b4633d7a7366176",
+      "bytes": 30109
+    },
+    {
+      "path": "native/Sources/PolynomialSpatialInput.swift",
+      "sha256": "c53ecea77ea66c5f371d4ee7a165bc1f97ba754b22c00bd98f02746c7cc895a6",
+      "bytes": 2439
+    },
+    {
+      "path": "native/Sources/PolynomialTransformControls.swift",
+      "sha256": "032c95311c6cae8bde6646d71152ac0794ea0c2d849bfd421280b67bc1912422",
+      "bytes": 8926
+    },
+    {
+      "path": "native/Sources/PolynomialViridis.swift",
+      "sha256": "885fae4705ce971eae95a3141313038af79b6bb62215798dcb5725266b95ceed",
+      "bytes": 9877
+    },
+    {
+      "path": "native/PolynomialUITests/PolynomialRoomUITests.swift",
+      "sha256": "f9fbea4b744b1acc741aecece861c4c65966cff77ba9c833c22a10c90a6f67a8",
+      "bytes": 35779
+    },
+    {
+      "path": "native/PolynomialUITests/PolynomialSourceMorphUITests.swift",
+      "sha256": "206e14a455d0f5aae7e88194ffe22cd227f537da764d5b90211577c9ba2c08e1",
+      "bytes": 14073
+    },
+    {
+      "path": "native/PolynomialUITests/PolynomialSpatialPairUITests.swift",
+      "sha256": "52f7edce1d4f2c020fed1d0715950fb009f15642990d7ef1dfc253b2dcb10035",
+      "bytes": 11238
+    },
+    {
+      "path": "native/UITests/SimulatorCapture.swift",
+      "sha256": "2d74184a0145dd698ab0900e2d38469ac41021b09493e5dbb364315f8f2478de",
+      "bytes": 3478
+    },
+    {
+      "path": "native/Package.swift",
+      "sha256": "23f6a56913bb7d313db180a83bbc7d8b1d063964c602fcd0a2fe910b81385f0b",
+      "bytes": 909
+    },
+    {
+      "path": "native/project.yml",
+      "sha256": "30b343c71bf728409360888e6b72d2f1a2f285ca8036c26fb5c2806aab9866e4",
+      "bytes": 2879
+    },
+    {
+      "path": "native/ExteriorRoom.xcodeproj/project.pbxproj",
+      "sha256": "cdc2d2bf58eab7824fb628c5632b9adb0ac0c09d5a60e73fb5191beab76d7c0c",
+      "bytes": 39213
+    },
+    {
+      "path": "native/ModelTests/LeanModelTests.swift",
+      "sha256": "ce4b2e4af9f4b8ec95f407aac4c19673dbb707eb25b19ddfd02fb147ccd3af3f",
+      "bytes": 11014
+    },
+    {
+      "path": "native/ModelTests/PolynomialActionTests.swift",
+      "sha256": "e0e8b314b6cb86dfd1570313b6963a736f544549426be6b9c3f56a7b147bb6f1",
+      "bytes": 16111
+    },
+    {
+      "path": "native/ModelTests/PolynomialAppearanceTests.swift",
+      "sha256": "ee868526d77c4904e158766f23d91e0ef1a55917e69d539f0c18aa226068b610",
+      "bytes": 8303
+    },
+    {
+      "path": "native/ModelTests/PolynomialCatalogueTests.swift",
+      "sha256": "dd7a66b1388985aed9f595ac98f1a778c5e1447f1380f05d82d77d471f1198ae",
+      "bytes": 14056
+    },
+    {
+      "path": "native/ModelTests/PolynomialDevicePoseTests.swift",
+      "sha256": "fb2bafa15b8a48745a053bf77853f451079774e4d5d99a6c5556b42cf4b8421c",
+      "bytes": 10600
+    },
+    {
+      "path": "native/ModelTests/PolynomialModelTests.swift",
+      "sha256": "67d867804ed8f632a67e13deb9ae8f26a29af748ed3544d09ddf80f78cd82267",
+      "bytes": 94246
+    },
+    {
+      "path": "native/ModelTests/PolynomialPairingTests.swift",
+      "sha256": "ecf6c8fdeef12b7075f5459790a9326d792b4c361e6dae84f3e9c84a1b46cc29",
+      "bytes": 14168
+    },
+    {
+      "path": "native/ModelTests/PolynomialPoseModelTests.swift",
+      "sha256": "9a9a4eda6c83a5dfa6a88ffc08f8829c9e35b2da27919de25d817f3078243fcc",
+      "bytes": 7487
+    },
+    {
+      "path": "native/ModelTests/PolynomialRenderPlanTests.swift",
+      "sha256": "59d06edd5c7e2af9179e2b339e163d7c0206196103680d3d7dc6c5c8ad7373ce",
+      "bytes": 21371
+    },
+    {
+      "path": "native/ModelTests/PolynomialRootsGeometryTests.swift",
+      "sha256": "c6237fcaa711f46b9a8793b7d981ea1777610fa23c0ee5285b3f7f210663f236",
+      "bytes": 28420
+    },
+    {
+      "path": "native/ModelTests/PolynomialSourceMorphTests.swift",
+      "sha256": "78cdbef93446af0c7fa1cb636437e5a7de49c84f511d0b68bb3f603de6380be1",
+      "bytes": 9007
+    },
+    {
+      "path": "native/ModelTests/PolynomialSpatialInputTests.swift",
+      "sha256": "af2d5a1caa44a6f987f29c3cce813fa27d528facb0fc8bfb36c899424c865d20",
+      "bytes": 1363
+    },
+    {
+      "path": "native/scripts/run-ui-tests.py",
+      "sha256": "86f7d57fadcf35ed31627a22a26f8ec82c55ef5d5aae92a1b54fd74e83592ce7",
+      "bytes": 4027
+    },
+    {
+      "path": "native/scripts/capture_coordinator.py",
+      "sha256": "e84b20bfe1aa0d400e5728e8d7587429e0a18cea6a5d043ae2b989a430997e87",
+      "bytes": 7751
+    },
+    {
+      "path": "native/evidence/device-pose-build.txt",
+      "sha256": "60cd2112f539f43d992730d0f302a25b01e6641c385e7ce5a32604a9bf14ad3e",
+      "bytes": 112077
+    },
+    {
+      "path": "native/evidence/device-pose-model-tests.txt",
+      "sha256": "b28cd698a0508d448b72133501a1c94d703ea1e017401efe0161c01f33a13e4f",
+      "bytes": 51928
+    }
+  ],
+  "binaries": [
+    {
+      "path": "native/.build/Build/Products/Debug-xrsimulator/PolynomialRoom.app/PolynomialRoom",
+      "sha256": "6d91035edfee710ee5bd77159200850c623c0a93f6b6ed36d287eb5cd208948f",
+      "bytes": 40144
+    },
+    {
+      "path": "native/.build/Build/Products/Debug-xrsimulator/PolynomialRoom.app/PolynomialRoom.debug.dylib",
+      "sha256": "b8dd53e632e8f9d94e0a61989c7ef65a1e6edb08d4f6f95c0c99b0f53bb35e62",
+      "bytes": 4532344
+    },
+    {
+      "path": "native/.build/Build/Products/Debug-xrsimulator/PolynomialRoomUITests-Runner.app/PlugIns/PolynomialRoomUITests.xctest/PolynomialRoomUITests",
+      "sha256": "5db0510dac98e59aa8d6cbb09fc9387e3d852824cec8c83ade392fa950b8993d",
+      "bytes": 712504
+    },
+    {
+      "path": "lean/.lake/build/bin/polynomial_service",
+      "sha256": "d6f909065f501b827c8d5646aebe4b2dd723d06a6e9d5ba3ad2f183f6ede44c4",
+      "bytes": 101713072
+    }
+  ],
+  "canonicalPlacementCommit": "65d50122cfefac86e7626308eaa189dbf5878a7c",
+  "canonicalReadOnlySources": [
+    {
+      "path": "/Users/alokbeniwal/Documents/Codex/2026-10-21/task-7/FareyVision/Farey/Sources/DevicePoseQuery.swift",
+      "sha256": "064f0c6973e9e5589c192a8cadc6c2c220576c8786793e9805ba52502b55d696",
+      "bytes": 3515
+    },
+    {
+      "path": "/Users/alokbeniwal/Documents/Codex/2026-10-21/task-7/FareyVision/Farey/Sources/StarscapeRenderer.swift",
+      "sha256": "f0ac94f656b409c9dc52dce794f627edcb8dd398dfbcd51a240d7d770e818bac",
+      "bytes": 20036
+    },
+    {
+      "path": "/Users/alokbeniwal/Documents/Codex/2026-10-21/task-7/FareyVision/Farey/Sources/FareyImmersiveView.swift",
+      "sha256": "cbaba9885781c8e190529a766be6ffaccfe24ab021f00fb4064e4944c1bff24a",
+      "bytes": 18139
+    }
+  ],
+  "previousPairingBaseline": "native/evidence/spatial-pair-build-manifest.json",
+  "boundary": "Device pose and renderer/input transforms are approximate platform/UI behavior; exact Lean protocols and 17 public laws are unchanged."
+}

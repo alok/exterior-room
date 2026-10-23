@@ -2,6 +2,7 @@
 // Alok Singh with OpenAI Codex, 2026-10-23. Exact data comes from polynomial_service.
 import Foundation
 import Observation
+import simd
 
 struct PolynomialHeader: Decodable {
   let ok: Bool
@@ -204,6 +205,40 @@ enum PolynomialPlacement: Equatable {
     guard let data=try? JSONEncoder().encode(previewEvents) else { return "[]" }
     return String(decoding:data,as:UTF8.self)
   }
+  struct SpatialTapDiagnostic: Codable {
+    let callback:Int, revision:Int, entity:String, rootLocal:[Double], resolved:[Int]?, disposition:String
+  }
+  private(set) var spatialTapCallbacks = 0
+  private(set) var lastSpatialTap:SpatialTapDiagnostic?
+  var spatialPickReadyRevision = -1
+  var spatialPickChunkCount = 0
+  var spatialPickJSON:String {
+    struct State:Encodable {
+      let selected:[Int]?, pair:[Int]?, normal:[Int]?, equation:String?, members:Int
+      let revision:Int, readyRevision:Int, chunks:Int, callbacks:Int
+      let spatialCallbacks:Int,spatialReleases:Int,poseEpoch:Int?,poseReady:Bool,action:[Int],spatialStatus:String
+      let busy:Bool, pairNext:Bool, ready:Bool, error:String?, tap:SpatialTapDiagnostic?
+    }
+    let state=State(selected:inspection?.point,pair:displayedPair,normal:plane?.normal,equation:plane?.equation,
+      members:points.filter(\.necklace).count,revision:sceneRevision,readyRevision:spatialPickReadyRevision,
+      chunks:spatialPickChunkCount,callbacks:spatialTapCallbacks,
+      spatialCallbacks:spatialInputCallbacks,spatialReleases:spatialInputReleases,poseEpoch:currentDevicePose?.epoch,
+      poseReady:spatialPoseReady,action:action?.matrix ?? [1,0,0,1],spatialStatus:spatialInputStatus,busy:busy,pairNext:pairNext,
+      ready:spatialPickReadyRevision == sceneRevision && spatialPickChunkCount > 0 && !busy && actionPreview == nil,
+      error:error,tap:lastSpatialTap)
+    guard let data=try? JSONEncoder().encode(state) else { return "{}" }
+    return String(decoding:data,as:UTF8.self)
+  }
+  func traceSpatialTap(entity:String,local:SIMD3<Float>,resolved:[Int]?,disposition:String) {
+    guard previewDiagnosticsEnabled else { return }
+    spatialTapCallbacks += 1
+    let event=SpatialTapDiagnostic(callback:spatialTapCallbacks,revision:sceneRevision,entity:entity,
+      rootLocal:[Double(local.x),Double(local.y),Double(local.z)],resolved:resolved,disposition:disposition)
+    lastSpatialTap=event
+    let detail=(try? JSONEncoder().encode(event)).map { String(decoding:$0,as:UTF8.self) } ?? "unencodable tap"
+    tracePreview("spatial-tap",detail:detail)
+    print("POLYNOMIAL_SPATIAL_TAP: \(detail)")
+  }
   func tracePreview(_ kind:String,matrix:[Int]? = nil,requestID:Int? = nil,generation:Int? = nil,detail:String = "",milliseconds:Double? = nil) {
     guard previewDiagnosticsEnabled else { return }
     previewEventSequence += 1
@@ -220,10 +255,74 @@ enum PolynomialPlacement: Equatable {
       eye:placement.isOrigin ? 1:0,sigma:starSize,whole:catalogue.whole,dust:catalogue.dust,screen:showSourceScreen,hasPlane:plane != nil)
   }
   var viewpoint = 0
-  var placement = PolynomialPlacement.overview
-  var placementEpoch = 0
+  private(set) var placement = PolynomialPlacement.overview
+  private(set) var placementEpoch = 0
   var rendererStats = "Renderer waiting"
-  var spaceOpen = false
+  var spaceOpen = false {
+    didSet { if !spaceOpen { cancelActionDrag(); invalidateDevicePose() } }
+  }
+  struct DevicePoseRequest:Equatable { let epoch:Int,generation:Int }
+  struct DevicePose {
+    let epoch:Int,id:UUID,matrix:simd_float4x4
+  }
+  struct DevicePoseInstallToken:Equatable {
+    let epoch:Int,id:UUID,placement:PolynomialPlacement
+  }
+  private var devicePoseGeneration=0
+  private var requestedPoseEpoch:Int?
+  private(set) var devicePose:DevicePose?
+  private(set) var installedDevicePose:DevicePoseInstallToken?
+  private(set) var devicePoseStatus="Device pose not requested"
+  var devicePoseTaskID:Int { spaceOpen && placement != .overview ? placementEpoch:-1 }
+  var currentDevicePose:DevicePose? {
+    guard spaceOpen,placement != .overview,let pose=devicePose,pose.epoch == placementEpoch else { return nil }
+    return pose
+  }
+  var devicePoseInstallToken:DevicePoseInstallToken? {
+    currentDevicePose.map { .init(epoch:$0.epoch,id:$0.id,placement:placement) }
+  }
+  var spatialPoseReady:Bool {
+    guard placement.isOrigin,let token=devicePoseInstallToken else { return false }
+    return installedDevicePose == token
+  }
+  private func invalidateDevicePose() {
+    devicePoseGeneration += 1;requestedPoseEpoch=nil;devicePose=nil;installedDevicePose=nil
+    devicePoseStatus="Device pose not requested"
+  }
+  func beginDevicePoseQuery() -> DevicePoseRequest? {
+    guard spaceOpen,placement != .overview,requestedPoseEpoch != placementEpoch else { return nil }
+    cancelSpatialDrag();installedDevicePose=nil;requestedPoseEpoch=placementEpoch;devicePoseGeneration += 1
+    devicePoseStatus="Measuring one device pose · spatial input paused"
+    return .init(epoch:placementEpoch,generation:devicePoseGeneration)
+  }
+  @discardableResult func acceptDevicePose(_ result:Result<simd_float4x4,PolynomialDevicePoseQuery.Failure>,for request:DevicePoseRequest) -> Bool {
+    guard spaceOpen,placement != .overview,request.epoch == placementEpoch,
+      request.generation == devicePoseGeneration,requestedPoseEpoch == request.epoch,devicePose == nil else { return false }
+    // A completed failure consumes the request too; a late duplicate completion cannot install another frame.
+    devicePoseGeneration += 1
+    cancelSpatialDrag();installedDevicePose=nil
+    switch result {
+    case .success(let matrix):
+      guard PolynomialDevicePoseQuery.isRigid(matrix) else {
+        devicePoseStatus="Device pose rejected · spatial input off";return false
+      }
+      devicePose = .init(epoch:request.epoch,id:UUID(),matrix:matrix)
+      devicePoseStatus="Device pose measured · waiting for scene placement"
+      tracePreview("device-pose-measured",detail:"epoch=\(request.epoch)")
+      return true
+    case .failure(let reason):
+      devicePoseStatus="No device pose: \(reason) · spatial input off"
+      return false
+    }
+  }
+  @discardableResult func acknowledgeDevicePoseInstalled(_ token:DevicePoseInstallToken) -> Bool {
+    guard token == devicePoseInstallToken else { return false }
+    guard installedDevicePose != token else { return true }
+    cancelSpatialDrag();installedDevicePose=token
+    devicePoseStatus="Device pose installed for placement \(token.epoch) · device center, not head center"
+    tracePreview("device-pose-installed",detail:"epoch=\(token.epoch) placement=\(token.placement)")
+    return true
+  }
   var rootsOpen = false
   var transitioning = false
   var points: [PolynomialPoint] = []
@@ -379,7 +478,15 @@ enum PolynomialPlacement: Equatable {
     let index = Self.nextSequence.firstIndex(of: selected) ?? -1
     select(Self.nextSequence[(index + 1) % Self.nextSequence.count])
   }
-  func place(_ next: PolynomialPlacement) { cancelActionDrag(); placement = next; placementEpoch += 1 }
+  func place(_ next: PolynomialPlacement) {
+    cancelActionDrag();invalidateDevicePose();placement=next;placementEpoch += 1
+  }
+  /// A nappe flip changes the input frame but keeps this epoch's single measured device pose.
+  func flipOriginNappe() {
+    guard case .origin(let lower)=placement else { return }
+    cancelActionDrag();installedDevicePose=nil;placement = .origin(lower:!lower)
+    if currentDevicePose != nil { devicePoseStatus="Device pose measured · waiting for nappe placement" }
+  }
   func requestAction(_ matrix: [Int]) {
     guard matrix.count == 4, matrix.allSatisfy({ (-1_000_000...1_000_000).contains($0) }),
       matrix[0]*matrix[3]-matrix[1]*matrix[2] > 0 else {
@@ -461,6 +568,7 @@ enum PolynomialPlacement: Equatable {
   }
   func beginSpatialDrag(direction:SIMD3<Double>) {
     guard placement.isOrigin,!busy else { spatialInputStatus="Spatial drag requires Origin and an idle scene"; return }
+    guard spatialPoseReady else { cancelSpatialDrag();spatialInputStatus="Device pose is not installed for this placement";return }
     cancelActionDrag(); hover(nil); dragSurface = .spatial
     spatialEpoch=placementEpoch; spatialPlacement=placement; spatialNeedsAnchor=true; spatialMoved=false
     tracePreview("drag-begin",detail:"spatial")
@@ -469,7 +577,7 @@ enum PolynomialPlacement: Equatable {
   func updateSpatialDrag(direction:SIMD3<Double>,force:Bool = false) {
     spatialInputCallbacks += 1
     guard dragSurface == .spatial else { spatialInputStatus="Spatial callback no longer owns preview"; return }
-    guard placement.isOrigin,!busy,spatialEpoch == placementEpoch,spatialPlacement == placement else {
+    guard placement.isOrigin,!busy,spatialPoseReady,spatialEpoch == placementEpoch,spatialPlacement == placement else {
       cancelSpatialDrag(); spatialInputStatus="Placement changed · spatial preview cancelled"; return
     }
     guard let point=PolynomialSpatialInput.upperPoint(direction:direction) else {
@@ -494,7 +602,7 @@ enum PolynomialPlacement: Equatable {
   @discardableResult func commitSpatialDrag() -> Bool {
     spatialInputReleases += 1
     if dragSurface == .spatial { flushDeferredDragSample() }
-    guard dragSurface == .spatial,spatialMoved,placement.isOrigin,
+    guard dragSurface == .spatial,spatialMoved,placement.isOrigin,spatialPoseReady,
       spatialEpoch == placementEpoch,spatialPlacement == placement else {
       cancelSpatialDrag(); spatialInputStatus="No moved spatial sample to commit"; return false
     }

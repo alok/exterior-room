@@ -2,6 +2,8 @@
 // Rendering and once-head placement adapted from FareyVision ca809d2975a37a318a425e4b9dd73560b07faf39,
 // Farey/Sources/StarscapeRenderer.swift and FareyImmersiveView.swift.
 // Alok Singh with OpenAI Codex, 2026-10-23: consume exact Lean data; all meshes remain approximate.
+// Explicit one-shot device placement adapted from FareyVision 65d50122cfefac86e7626308eaa189dbf5878a7c,
+// StarscapeRenderer.place and FareyImmersiveView. Device pose is distinct from head-center tracking.
 import RealityKit
 import SwiftUI
 
@@ -31,8 +33,14 @@ import SwiftUI
       }
     }
     .gesture(SpatialTapGesture().targetedToAnyEntity().onEnded { value in
-      guard model.placement == .overview, !model.busy, model.actionPreview == nil else { return }
-      if let point = renderer.pick(value.convert(value.location3D,from:.local,to:renderer.root),entity:value.entity,revision:model.sceneRevision) {
+      let local=value.convert(value.location3D,from:.local,to:renderer.root)
+      guard model.placement == .overview, !model.busy, model.actionPreview == nil else {
+        model.traceSpatialTap(entity:value.entity.name,local:local,resolved:nil,disposition:"guard rejected")
+        return
+      }
+      let point=renderer.pick(local,entity:value.entity,revision:model.sceneRevision)
+      model.traceSpatialTap(entity:value.entity.name,local:local,resolved:point?.abc,disposition:point == nil ? "batch miss; try named entity":"resolved batch identity")
+      if let point {
         model.pick(point.abc)
       } else { Self.select(value.entity,model:model) }
     })
@@ -40,6 +48,9 @@ import SwiftUI
       .updating($spatialDragging) { _,active,_ in active=true }
       .onChanged { value in
         guard renderer.isSpatialTarget(value.entity) else { return }
+        guard renderer.hasInstalledDevicePose(model),model.spatialPoseReady else {
+          spatialAttempted=false;model.cancelSpatialDrag();return
+        }
         let local=value.convert(value.location3D,from:.local,to:renderer.root)
         let direction=SIMD3(Double(local.x),Double(local.y),Double(local.z))
         if !spatialAttempted {
@@ -48,6 +59,9 @@ import SwiftUI
       }
       .onEnded { value in
         guard spatialAttempted else { return }
+        guard renderer.hasInstalledDevicePose(model),model.spatialPoseReady else {
+          spatialAttempted=false;model.cancelSpatialDrag();return
+        }
         let local=value.convert(value.location3D,from:.local,to:renderer.root)
         model.updateSpatialDrag(direction:SIMD3(Double(local.x),Double(local.y),Double(local.z)),force:true)
         spatialAttempted=false; model.commitSpatialDrag()
@@ -59,6 +73,12 @@ import SwiftUI
       }}
     }
     .onAppear { model.spaceOpen = true }
+    .task(id:model.devicePoseTaskID) {
+      guard let request=model.beginDevicePoseQuery() else { return }
+      let result=await PolynomialDevicePoseQuery.once()
+      guard !Task.isCancelled else { return }
+      model.acceptDevicePose(result,for:request)
+    }
     .onDisappear {
       model.cancelPairing(); model.cancelSpatialDrag(); spatialAttempted=false
       activation?.cancel(); activation = nil
@@ -81,6 +101,8 @@ import SwiftUI
   private let cloud = Entity(), guides = Entity(), projection = Entity(), selection = Entity(), plane = Entity(), picking = Entity()
   private let projectionDots = Entity(), projectionGuides = Entity()
   private var headAnchor: AnchorEntity?
+  private var renderedDevicePose:PolynomialModel.DevicePoseInstallToken?
+  private var pendingPoseAcknowledgement:PolynomialModel.DevicePoseInstallToken?
   private var placement = PolynomialPlacement.overview
   private var anchorEpoch = -1
   private var sceneKey = ""
@@ -135,6 +157,10 @@ import SwiftUI
   }
 
   func isSpatialTarget(_ entity:Entity) -> Bool { entity === spatialSky || collisionRanges[entity.name] != nil }
+  func hasInstalledDevicePose(_ model:PolynomialModel) -> Bool {
+    guard let token=model.devicePoseInstallToken else { return false }
+    return renderedDevicePose == token
+  }
   func prepareSpatialTarget(_ model:PolynomialModel) async {
     do {
       let mesh=PolynomialSpatialInput.shell()
@@ -148,9 +174,20 @@ import SwiftUI
   func render(_ model: PolynomialModel) {
     scale = 0.96 / Float(model.displayedRadius)
     actionRows = model.displayActionRows
-    place(model.placement,epoch:model.placementEpoch,viewpoint:model.viewpoint)
+    place(model.placement,epoch:model.placementEpoch,viewpoint:model.viewpoint,devicePose:model.currentDevicePose?.matrix)
+    let token=model.devicePoseInstallToken
+    renderedDevicePose=token
+    if let token,model.installedDevicePose != token,pendingPoseAcknowledgement != token {
+      pendingPoseAcknowledgement=token
+      Task { @MainActor [weak self,weak model] in
+        guard let self,let model else { return }
+        if self.pendingPoseAcknowledgement == token { self.pendingPoseAcknowledgement=nil }
+        guard self.renderedDevicePose == token else { return }
+        model.acknowledgeDevicePoseInstalled(token)
+      }
+    }
     projection.isEnabled = model.renderCatalogue != nil ? model.showSourceScreen && !model.placement.isOrigin : model.showProjection; guides.isEnabled = model.showCone
-    spatialSky.isEnabled=model.placement.isOrigin && model.spatialTargetReady && !model.busy
+    spatialSky.isEnabled=model.placement.isOrigin && model.spatialTargetReady && model.spatialPoseReady && hasInstalledDevicePose(model) && !model.busy
       && (model.actionPreview == nil || model.ownsSpatialDrag)
     picking.isEnabled = model.placement == .overview && !model.busy && model.actionPreview == nil
       && collisionRevision == model.sceneRevision && !model.projectionAnimating && !renderingFailed
@@ -306,6 +343,10 @@ import SwiftUI
         collisionSnapshot = snapshot; collisionRanges = ranges; collisionRevision = revision; collisionKey = key
         requestedCollisionKey = ""
         picking.isEnabled = model.placement == .overview && !model.busy && model.actionPreview == nil && !model.projectionAnimating && !renderingFailed
+        if model.previewDiagnosticsEnabled {
+          model.spatialPickReadyRevision=revision; model.spatialPickChunkCount=ready.count
+          model.tracePreview("spatial-picking-ready",detail:"revision=\(revision) identities=\(snapshot.glyphs.count) chunks=\(ready.count)")
+        }
         print("POLYNOMIAL_PICKING_READY: \(snapshot.glyphs.count) identities · \(ready.count) collision chunks")
       } catch {
         if version == collisionGeneration { requestedCollisionKey = "" }
@@ -313,31 +354,41 @@ import SwiftUI
     }
   }
 
-  private func place(_ next: PolynomialPlacement, epoch: Int, viewpoint: Int) {
+  private func place(_ next: PolynomialPlacement, epoch: Int, viewpoint: Int,devicePose:simd_float4x4?) {
     let anchored = next != .overview
-    if anchored && (headAnchor == nil || anchorEpoch != epoch) {
+    let fresh=anchorEpoch != epoch || (placement == .overview) != (next == .overview)
+    if !anchored {
+      if root.parent !== stage { stage.addChild(root) }
+      headAnchor?.removeFromParent();headAnchor=nil
+    } else if devicePose != nil {
+      headAnchor?.removeFromParent();headAnchor=nil
+      if root.parent !== anchorHost { anchorHost.addChild(root) }
+      if fresh { inhabitOffset=nil }
+    } else if headAnchor == nil || fresh {
       headAnchor?.removeFromParent()
       let anchor = AnchorEntity(.head); anchor.anchoring.trackingMode = .once
       anchor.name = "polynomial-head-anchor-once"; anchorHost.addChild(anchor); anchor.addChild(root)
-      headAnchor = anchor; anchorEpoch = epoch
+      headAnchor = anchor
       inhabitOffset = nil
-    } else if !anchored && headAnchor != nil {
-      stage.addChild(root); headAnchor?.removeFromParent(); headAnchor = nil
     }
+    if anchored { anchorEpoch=epoch }
     placement = next
+    var local=Transform()
     switch next {
     case .overview:
       let view = min(2, max(0, viewpoint))
       let yaw: [Float] = [0.4806, 0.4806 + .pi / 3, 0], pitch: [Float] = [0.2814,0.2814,0]
-      root.position = [0,1.4,-3.1]
-      root.orientation = simd_quatf(angle: pitch[view], axis: [1,0,0]) * simd_quatf(angle: -yaw[view], axis: [0,1,0])
+      local.translation = [0,1.4,-3.1]
+      local.rotation = simd_quatf(angle: pitch[view], axis: [1,0,0]) * simd_quatf(angle: -yaw[view], axis: [0,1,0])
     case .origin(let lower):
-      root.position = .zero; root.orientation = simd_quatf(angle: lower ? .pi / 2 : -.pi / 2, axis: [1,0,0])
+      local.rotation = simd_quatf(angle: lower ? .pi / 2 : -.pi / 2, axis: [1,0,0])
     case .inhabit(let xyz):
-      root.orientation = .init(angle: 0, axis: [0,1,0])
       if inhabitOffset == nil { inhabitOffset = mapped(SIMD3(Float(xyz[0]),Float(xyz[1]),Float(xyz[2])) * scale) }
-      root.position = SIMD3<Float>(0,-0.08,-0.35) - (inhabitOffset ?? .zero)
+      local.translation = SIMD3<Float>(0,-0.08,-0.35) - (inhabitOffset ?? .zero)
     }
+    if case .origin(let lower)=next,let devicePose {
+      root.transform=Transform(matrix:PolynomialSpatialInput.originPlacement(devicePose:devicePose,lower:lower))
+    } else { root.transform = devicePose.map { Transform(matrix:$0*local.matrix) } ?? local }
   }
 
   private func cone(sourceHeight:Float?) {

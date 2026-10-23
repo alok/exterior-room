@@ -77,13 +77,22 @@ struct PolynomialControls: View {
         Button("Reset") { model.reset() }.accessibilityIdentifier("poly-reset")
       }
       if case .origin(let lower) = model.placement {
-        Button(lower ? "Face upper nappe" : "Face lower nappe") { model.placement = .origin(lower:!lower) }
+        Button(lower ? "Face upper nappe" : "Face lower nappe") { model.flipOriginNappe() }
           .accessibilityIdentifier("poly-flip-nappe")
       }
       Text(placementText).font(.caption).foregroundStyle(.secondary).accessibilityIdentifier("poly-placement")
+      if model.placement != .overview {
+        Text(model.devicePoseStatus).font(.caption2).foregroundStyle(model.currentDevicePose == nil ? Color.orange:Color.secondary)
+          .accessibilityIdentifier("poly-device-pose")
+      }
       if ProcessInfo.processInfo.environment["POLYNOMIAL_GESTURE_DIAGNOSTICS"] == "1" {
         Text("Spatial target \(model.spatialTargetReady ? "ready":"pending") · changed \(model.spatialInputCallbacks) · ended \(model.spatialInputReleases) · \(model.spatialInputStatus)")
           .font(.caption2.monospaced()).accessibilityIdentifier("poly-spatial-diagnostic")
+        Text("Sphere taps \(model.spatialTapCallbacks) · collision revision \(model.spatialPickReadyRevision)")
+          .font(.caption2.monospaced()).accessibilityIdentifier("poly-spatial-pick-state")
+          .accessibilityValue(model.spatialPickJSON)
+        Text("Spatial input trace").font(.caption2).accessibilityIdentifier("poly-spatial-pick-trace")
+          .accessibilityValue(model.previewTraceJSON)
       }
       HStack {
         Button("Roots…") { openWindow(id:"polynomial-roots") }.accessibilityIdentifier("poly-roots-open")
@@ -246,8 +255,12 @@ struct PolynomialControls: View {
   private var placementText: String {
     switch model.placement {
     case .overview: "Overview · stationary object"
-    case .origin: "Origin placed once at head center · select with controls"
-    case .inhabit: "Inhabit · point placed 35 cm ahead · select with controls"
+    case .origin: model.currentDevicePose == nil
+      ? "Origin · temporary head placement · spatial drag unavailable"
+      : "Origin · fixed at the sampled device pose · move the forms by dragging"
+    case .inhabit: model.currentDevicePose == nil
+      ? "Inhabit · temporary head placement · device pose pending"
+      : "Inhabit · fixed 35 cm ahead of the sampled device pose"
     }
   }
   private func choose(_ point: [Int]) { entry = point.map(String.init).joined(separator:", "); model.select(point) }

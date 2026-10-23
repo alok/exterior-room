@@ -4,8 +4,14 @@
 // (canonical HEAD 11d58f12f9dba6ea421c3e0fbb90b4f92471f09d, 2026-10-23).
 // Input mapping and mesh geometry are approximate UI operations, not Lean proofs.
 import Foundation
+import simd
 
 enum PolynomialSpatialInput {
+  /// Explicit world placement used by the renderer. The local cone origin is the sampled device origin;
+  /// the existing upper/lower nappe rotation is applied in that device frame, not around world zero.
+  static func originPlacement(devicePose:simd_float4x4,lower:Bool) -> simd_float4x4 {
+    devicePose * simd_float4x4(simd_quatf(angle:lower ? .pi/2:-.pi/2,axis:[1,0,0]))
+  }
   static func upperPoint(direction:SIMD3<Double>) -> SIMD2<Double>? {
     guard (0..<3).allSatisfy({direction[$0].isFinite}),abs(direction.y)>1e-8 else { return nil }
     return PolynomialMobius.kleinToUpper([direction.x/direction.y,direction.z/direction.y])
