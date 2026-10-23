@@ -1,0 +1,8 @@
+CAPTURE original-p0: 177416 nonblack pixels; constructors 254, setters 254
+CAPTURE original-p50: 177418 nonblack pixels; constructors 254, setters 508
+CAPTURE original-p1: 177418 nonblack pixels; constructors 254, setters 762
+CAPTURE cached-p0: 177416 nonblack pixels; constructors 254, setters 0
+CAPTURE cached-p50: 177418 nonblack pixels; constructors 254, setters 229
+CAPTURE cached-p1: 177418 nonblack pixels; constructors 254, setters 458
+CAPTURE shared-line-box-p1: 177418 nonblack pixels; constructors 254, setters 254
+Completed seven serial optimization captures; receipt.json written.

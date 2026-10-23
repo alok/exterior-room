@@ -1,0 +1,86 @@
+[
+  {
+    "name": "source-morph-00-p0-unit-pair",
+    "id": "9FAFFAFA-B237-460D-AB98-B555BC597514",
+    "action": "screenshot",
+    "createdAt": 1792756412.412991,
+    "file": "001-source-morph-00-p0-unit-pair.png",
+    "startedAt": 1792756412.429541,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "dd4cefd28c8e58e4227e78bc451e69bae04c8571cbb16dcbf1032311b10de64d",
+    "finishedAt": 1792756412.88122
+  },
+  {
+    "name": "source-morph-01-p50-unit-pair",
+    "id": "8EDA35D0-DFC6-40A7-A46D-33F6CD7E1114",
+    "action": "screenshot",
+    "createdAt": 1792756419.859056,
+    "file": "002-source-morph-01-p50-unit-pair.png",
+    "startedAt": 1792756419.878974,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "ebcc6acf28c1b23ba7c162d0d29091783be598335987914ff5e1edbd5fc8fba0",
+    "finishedAt": 1792756429.939096
+  },
+  {
+    "name": "source-morph-02-p100-animated-unit-pair",
+    "id": "AA14B1E1-B13F-4D59-85F4-4286F6AEDE28",
+    "action": "screenshot",
+    "createdAt": 1792756456.647174,
+    "file": "003-source-morph-02-p100-animated-unit-pair.png",
+    "startedAt": 1792756456.6554291,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "3937194b87b0c96a18d1e7986124c2cc8fc52bab711780e05efe3ec43783f0e8",
+    "finishedAt": 1792756457.5259762
+  },
+  {
+    "action": "screenshot",
+    "createdAt": 1792756465.879095,
+    "id": "7DB6E6C5-E6E3-447A-B5A0-BFB2D0B473E4",
+    "name": "source-morph-03-d5-p100-linked-roots",
+    "file": "004-source-morph-03-d5-p100-linked-roots.png",
+    "startedAt": 1792756465.893188,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "7a182648c79185f2a0158ae47e3a904e4ea06905d33867ab32c2474e97786a88",
+    "finishedAt": 1792756466.191921
+  },
+  {
+    "action": "screenshot",
+    "createdAt": 1792756477.226171,
+    "id": "4AC3F81A-4B50-4CE2-A0FA-AAC5626DFEC8",
+    "name": "source-morph-04-actual-roots-swipe",
+    "file": "005-source-morph-04-actual-roots-swipe.png",
+    "startedAt": 1792756477.2491431,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "7d2e3986a1f0ddde106c8f4fa2e38840575dfcf11d0b3b4bb861b9f382a7206d",
+    "finishedAt": 1792756477.603267
+  },
+  {
+    "action": "screenshot",
+    "name": "source-morph-05-roots-closed-unoccluded-scene",
+    "createdAt": 1792756488.162173,
+    "id": "99CEC6C2-5608-43A5-A358-667413C0BFFC",
+    "file": "006-source-morph-05-roots-closed-unoccluded-scene.png",
+    "startedAt": 1792756488.1853728,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "7f438718995db738b5fe8f381c1047857899304a39448deb4a2abb50e178a3ce",
+    "finishedAt": 1792756490.229627
+  },
+  {
+    "action": "screenshot",
+    "createdAt": 1792756496.420948,
+    "id": "E5765620-A243-4C46-9F9D-4F93F82BE48E",
+    "name": "source-morph-06-reset-clears-pairing",
+    "file": "007-source-morph-06-reset-clears-pairing.png",
+    "startedAt": 1792756496.486696,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "287ff8c14a492f5707f7dc8b1832bb67a6d2a2945a1f5e04c4743357baf5d996",
+    "finishedAt": 1792756497.2461739
+  }
+]

@@ -1,0 +1,72 @@
+{
+  "scope": "Host loopback baseline, serial requests outside simulator; no renderer load attribution",
+  "matrix": [
+    16567,
+    9107,
+    16025,
+    14845
+  ],
+  "depth": 16,
+  "requests": [
+    {
+      "repeat": 0,
+      "operation": "catalogue",
+      "milliseconds": 17.314290991635062,
+      "status": 200,
+      "bytes": 137955,
+      "ok": true,
+      "count": 4203,
+      "total": 4203
+    },
+    {
+      "repeat": 0,
+      "operation": "membersCatalogue",
+      "milliseconds": 1.473540993174538,
+      "status": 200,
+      "bytes": 1010,
+      "ok": true,
+      "count": 67,
+      "total": 4203
+    },
+    {
+      "repeat": 1,
+      "operation": "catalogue",
+      "milliseconds": 7.392624989734031,
+      "status": 200,
+      "bytes": 137955,
+      "ok": true,
+      "count": 4203,
+      "total": 4203
+    },
+    {
+      "repeat": 1,
+      "operation": "membersCatalogue",
+      "milliseconds": 0.7966249977471307,
+      "status": 200,
+      "bytes": 1010,
+      "ok": true,
+      "count": 67,
+      "total": 4203
+    },
+    {
+      "repeat": 2,
+      "operation": "catalogue",
+      "milliseconds": 7.027500003459863,
+      "status": 200,
+      "bytes": 137955,
+      "ok": true,
+      "count": 4203,
+      "total": 4203
+    },
+    {
+      "repeat": 2,
+      "operation": "membersCatalogue",
+      "milliseconds": 0.8112499926937744,
+      "status": 200,
+      "bytes": 1010,
+      "ok": true,
+      "count": 67,
+      "total": 4203
+    }
+  ]
+}

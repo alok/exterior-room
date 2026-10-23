@@ -1,0 +1,52 @@
+{
+  "scope": "Unchanged strict native held-preview input test120502 with exactInt-recurring Lean backend; prior failed probe clips/receipts preserved.",
+  "nativeBuildManifest": "native/evidence/preview-worker-build-manifest.json",
+  "currentBackendManifest": "native/evidence/preview-recurrence-build-manifest.json",
+  "backendSHA256": "d6f909065f501b827c8d5646aebe4b2dd723d06a6e9d5ba3ad2f183f6ede44c4",
+  "file": "artifacts/videos/lean-starscape-native-held-preview-accepted.mp4",
+  "sha256": "386f7d530e4a7677ef09b917a4179d172a75248d3e6412936d2e5542d51c463d",
+  "bytes": 1061045,
+  "duration": 55.833333,
+  "codec": "h264",
+  "width": 1920,
+  "height": 1080,
+  "audioStreams": 0,
+  "conversion": "Video-onlyH264,1920x1080,CRF22,veryfast,one thread; no trimming orretiming.",
+  "rawFile": "native/evidence/screenshots/20261023T120502Z/lean-starscape-native-source-input.mov",
+  "rawSHA256": "12c508ce6e1381d26630cfc3ab51a0a5d53989d46d2333220040aa013bf384b4",
+  "uiRun": "20261023T120502Z",
+  "uiResult": "PASS1test0fail66.969s; strictpreviewcount0\u21921; publication1233.216msbeforeactualdragended.",
+  "decodedSamples": [
+    {
+      "seconds": 2,
+      "file": "lean-starscape-native-held-preview-accepted-0.jpg",
+      "sha256": "0ba0a92f720ae4b325f304cf89e9ab13de007317cbbf763fd2ba600bac0bd42c"
+    },
+    {
+      "seconds": 27.9166665,
+      "file": "lean-starscape-native-held-preview-accepted-1.jpg",
+      "sha256": "97de6c8fbac49a15014cdcdcc17d7a21d8c1735de0b958ce4e8d14450a814068"
+    },
+    {
+      "seconds": 53.833333,
+      "file": "lean-starscape-native-held-preview-accepted-2.jpg",
+      "sha256": "ccbc273ab61f43a9bcd8c0d8b0f6c17f4413ac1e3ae0e2b2a79664d5756c2c28"
+    },
+    {
+      "seconds": 52.16985607147217,
+      "file": "artifacts/videos/lean-starscape-native-held-preview-accepted-poster.jpg",
+      "sha256": "914cbab3a1402c83d77541df06a0dcbd1c88eef06f61eef44efcc815266a37ff"
+    }
+  ],
+  "poster": "artifacts/videos/lean-starscape-native-held-preview-accepted-poster.jpg",
+  "visualInspection": {
+    "startMiddleEndDecodedAndReviewed": true,
+    "observations": [
+      "Start shows canonical R6 cone and controls.",
+      "Middle frame27.9167s visibly shows an active approximate Roots drag preview before release. The exact pre-release catalogue publication is established by the model timeline and unchanged strict assertion.",
+      "End shows Origin-ready spatial rendering; no Origin gesture was performed.",
+      "Poster shows the accepted transformed P100 disk with selected/pair markers and dense primitive bodies."
+    ],
+    "limits": "Simulator-only supported XCUI Roots input; no physical headset/free-space gesture claim; camera, materials and physical-sphere footprint differ from browser."
+  }
+}

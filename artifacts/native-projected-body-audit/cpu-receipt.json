@@ -1,0 +1,39 @@
+{
+  "scope": "Actual CPU functions; model data declarations copied verbatim before PolynomialCatalogueMode. No UI/macro model class compiled.",
+  "sourceSHA256": {
+    "native/Sources/PolynomialAppearance.swift": "209ad4c7d39f99cc0e397d5bbfc50014dbcb1866c91443c0713b135bc09218e1",
+    "native/Sources/PolynomialViridis.swift": "885fae4705ce971eae95a3141313038af79b6bb62215798dcb5725266b95ceed",
+    "native/Sources/PolynomialAction.swift": "f0a361b821fbec3747e0828809368ab60591ba3be54d325d294ad3b442b19a92",
+    "native/Sources/PolynomialRenderPlan.swift": "62b5f558ecece4459e27b79d363a30ad5099834bb48b27f73f254195b56aa2ae",
+    "native/Sources/PolynomialCatalogue.swift": "e29ab4df034a58e2d39df7830bbd687d74e0052c2f20a54eed0eaa2dc43eb7f5",
+    "native/Sources/PolynomialSourceMorph.swift": "9740abb77001c4662222de69208263d9fb59158fa32f40b19cd765bb332a4ca8"
+  },
+  "modelDataPrefixSHA256": "edb9773864c8afc4bddcd32ed56d97dbff5028e341557f54f486485dd74d2bc0",
+  "compileCommand": [
+    "/Applications/Xcode-27.2.0-Beta.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+    "-parse-as-library",
+    "-target",
+    "arm64-apple-macosx26.0",
+    "-sdk",
+    "/Applications/Xcode-27.2.0-Beta.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk",
+    "-module-cache-path",
+    "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/artifacts/native-projected-body-audit/module-cache",
+    "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/artifacts/native-projected-body-audit/model-types.swift",
+    "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/Sources/PolynomialAppearance.swift",
+    "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/Sources/PolynomialViridis.swift",
+    "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/Sources/PolynomialAction.swift",
+    "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/Sources/PolynomialRenderPlan.swift",
+    "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/Sources/PolynomialCatalogue.swift",
+    "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/Sources/PolynomialSourceMorph.swift",
+    "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/artifacts/native-projected-body-audit/plan-probe.swift",
+    "-o",
+    "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/artifacts/native-projected-body-audit/plan-probe"
+  ],
+  "compileExit": 0,
+  "runCommand": [
+    "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/artifacts/native-projected-body-audit/plan-probe",
+    "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/artifacts/native-projected-body-audit/lean-d16.json",
+    "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/artifacts/native-projected-body-audit/plan-d16.json"
+  ],
+  "runExit": 0
+}

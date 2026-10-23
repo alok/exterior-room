@@ -1,0 +1,56 @@
+{
+  "schema": "native-guide-probe-execution/v1",
+  "recordedAtUTC": "2026-10-23T11:40:21.342622+00:00",
+  "workingDirectory": "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11",
+  "source": "artifacts/native-projected-body-audit/guide-probe.swift",
+  "sourceSHA256": "02739c818185f436a6115044cd8e500d8e1f83b48283d7968b394df0c4b2b98f",
+  "binary": "/tmp/exteriorroom-guide-probe",
+  "compile": {
+    "arguments": [
+      "xcrun",
+      "--sdk",
+      "macosx",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-module-cache-path",
+      "/tmp/exteriorroom-guide-probe-module-cache",
+      "-target",
+      "arm64-apple-macos26.0",
+      "artifacts/native-projected-body-audit/guide-probe.swift",
+      "-o",
+      "/tmp/exteriorroom-guide-probe"
+    ],
+    "environment": {
+      "DEVELOPER_DIR": "/Applications/Xcode-27.2.0-Beta.2.app/Contents/Developer"
+    },
+    "exitCode": 0,
+    "elapsedSeconds": 10.53,
+    "log": "artifacts/native-projected-body-audit/guide-compile.txt",
+    "logSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "inputs": [
+    {
+      "path": "artifacts/native-projected-body-audit/plan-d16.json",
+      "sha256": "95c3c0e0bcb3349fb05520926d27b8017d4964f1d2a0dd883c1a7e961a1ad4ea"
+    },
+    {
+      "path": "artifacts/native-projected-body-audit/lean-d16.json",
+      "sha256": "a8234b7f66bcf82153cfe9e8b149e94b5648031468ddc837a5e6a006d9e5bccb"
+    }
+  ],
+  "runtime": {
+    "status": "not invoked; awaiting coordinated GPU execution",
+    "arguments": [
+      "/tmp/exteriorroom-guide-probe",
+      "artifacts/native-projected-body-audit/plan-d16.json",
+      "artifacts/native-projected-body-audit/lean-d16.json",
+      "artifacts/native-projected-body-audit/gpu-guides-local"
+    ],
+    "plannedSerialCaptures": 7,
+    "framesPerCapture": 4,
+    "scope": "macOS offscreen guide-occlusion diagnostic; no app UI/headset acceptance"
+  },
+  "binarySHA256": "915da9d51016b949626d9079c2355f7e93388f66bdc62dca7d33a7b6e2ab3b3a"
+}

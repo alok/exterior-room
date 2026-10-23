@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "engineAvailable": true,
+  "engineSha256": "934ff0b8305cd0d76d79bfd06bbca594bf6feb35d72fe0d7a8acaa665906cc68",
+  "engine": "compiled Lean executable",
+  "hashScope": "executable on disk; next evaluation restarts after a binary change",
+  "protocol": "exterior-room/1",
+  "maxRequestBytes": 65536,
+  "componentBounds": [
+    -12,
+    12
+  ],
+  "scale": 4,
+  "polynomialEngineAvailable": true,
+  "polynomialEngineSha256": "d6f909065f501b827c8d5646aebe4b2dd723d06a6e9d5ba3ad2f183f6ede44c4",
+  "polynomialMaxResponseBytes": 2097152
+}

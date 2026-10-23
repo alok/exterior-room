@@ -6,6 +6,29 @@ clips use a generic emulation stripe; their actual input route is specified belo
 The production application, WebGL rendering, raycasts and compiled Lean requests
 are real. No audio, private browser tabs or host desktop were recorded.
 
+## Native preview and projected stars — 2026-10-23
+
+[Accepted held preview](lean-starscape-native-held-preview-accepted.mp4):
+55.833 seconds, 1920×1080, video-only. The unchanged strict simulator test passes
+with the exact-integer catalogue optimization: one temporary Lean catalogue
+publishes 1.23 seconds before actual Roots drag end. P50/P100 and Origin
+target readiness follow. The latter is not a free-space gesture test.
+[Metadata and hashes](lean-starscape-native-held-preview-accepted-metadata.json).
+
+[Matched morph with restored projected stars](lean-starscape-native-morph-depth-fix.mp4):
+96.947 seconds, 1920×1080, video-only. Actual simulator controls exercise the same
+Source16 unit/pair through projection 0/.5/1, both animation directions, D5,
+Roots swipe, shared pairing cancellation and Reset. The transparent-guide depth
+fix is present. This run used the pre-optimization Lean backend; its native app
+binary is the same one used by the accepted held-preview run.
+
+The [earlier failed held-preview probe](lean-starscape-native-preview-worker-probe.mp4)
+remains unchanged. Its 36.217-second recording and the matched morph share
+[dated metadata](lean-starscape-native-preview-worker-metadata.json).
+All three recordings exclude host UI and audio, have no trimming or speed change,
+and have inspected decoded frames. [Acceptance, matched screenshots and limits](../../docs/NATIVE_PREVIEW_RENDER_UPDATE.md)
+separate timing evidence from visual correspondence and physical-headset gaps.
+
 ## Linked browser panes — 2026-10-23 continuation
 
 [Simultaneous 3D and upper-half-plane roots](lean-starscape-linked-panes.mp4):

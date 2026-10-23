@@ -1,0 +1,14 @@
+{
+  "recordedAtUTC": "2026-10-23T11:36:00.256819+00:00",
+  "arguments": [
+    "/tmp/exteriorroom-render-probe",
+    "artifacts/native-projected-body-audit/plan-d16.json",
+    "artifacts/native-projected-body-audit/gpu-ab-local"
+  ],
+  "status": "completed",
+  "exitCode": 0,
+  "seconds": 8.303450708001037,
+  "scope": "Same local compiled offscreen probe outside execution sandbox; no UI, network, simulator or OS permission changes",
+  "binarySHA256": "3f7e909c711db1944c9a310d3a7154b0bbe98f8a7f966c7bf87fc7d6066d28ba",
+  "sourceSHA256": "af61efa8c10cce6caec24ff6bd5af33f08067ec20cc21090a5d7815011ae1096"
+}

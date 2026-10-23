@@ -1,0 +1,53 @@
+{
+  "schema": "native-render-probe-execution/v1",
+  "recordedAtUTC": "2026-10-23T11:33:43.447892+00:00",
+  "workingDirectory": "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11",
+  "source": "artifacts/native-projected-body-audit/render-probe.swift",
+  "sourceSHA256": "af61efa8c10cce6caec24ff6bd5af33f08067ec20cc21090a5d7815011ae1096",
+  "input": "artifacts/native-projected-body-audit/plan-d16.json",
+  "inputSHA256": "95c3c0e0bcb3349fb05520926d27b8017d4964f1d2a0dd883c1a7e961a1ad4ea",
+  "binary": "/tmp/exteriorroom-render-probe",
+  "binarySHA256": "3f7e909c711db1944c9a310d3a7154b0bbe98f8a7f966c7bf87fc7d6066d28ba",
+  "compile": {
+    "environment": {
+      "DEVELOPER_DIR": "/Applications/Xcode-27.2.0-Beta.2.app/Contents/Developer"
+    },
+    "arguments": [
+      "xcrun",
+      "--sdk",
+      "macosx",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-module-cache-path",
+      "/tmp/exteriorroom-render-probe-module-cache",
+      "-target",
+      "arm64-apple-macos26.0",
+      "artifacts/native-projected-body-audit/render-probe.swift",
+      "-o",
+      "/tmp/exteriorroom-render-probe"
+    ],
+    "exitCode": 0,
+    "status": "completed successfully; no compiler remains running"
+  },
+  "runtime": {
+    "status": "failed; no retry or escalation",
+    "arguments": [
+      "/tmp/exteriorroom-render-probe",
+      "artifacts/native-projected-body-audit/plan-d16.json",
+      "artifacts/native-projected-body-audit/gpu-ab"
+    ],
+    "plannedSerialCaptures": 9,
+    "plannedFramesPerCapture": 4,
+    "scope": "macOS offscreen RealityRenderer body-only diagnostic; no UI/simulator/headset acceptance",
+    "startedAtUTC": "2026-10-23T11:34:31.012357+00:00",
+    "log": "artifacts/native-projected-body-audit/gpu-run.txt",
+    "timeoutSeconds": 120,
+    "exitCode": 1,
+    "elapsedSeconds": 0.128,
+    "finishedAtUTC": "2026-10-23T11:34:31.140460+00:00",
+    "logSHA256": "ca9a4877d841c6233d516bd9566077ab2b703c4f4da5fd3971408f09a4d55250",
+    "outputs": []
+  }
+}

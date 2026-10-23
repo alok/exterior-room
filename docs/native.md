@@ -12,7 +12,18 @@ pairing and action state with the 3D scene. Actual pointer hover, physical input
 and free-space controller SL₂ dragging remain unverified or absent; this is not a
 claim of complete canonical Starscape parity.
 
-## Source morph and input continuation
+## Current preview and projected-star acceptance
+
+The [native continuation](NATIVE_PREVIEW_RENDER_UPDATE.md) records the current
+147-model-test result, restored projected stars in matched simulator input, and
+the unchanged strict held-preview test passing in run `20261023T120502Z`.
+A temporary Lean catalogue published 1.23 seconds before gesture end. The
+17 public laws are unchanged; exact integer catalogue optimization is backed
+by 60 full-response comparisons and 121 existing checks. Physical-headset,
+free-space Origin, spatial sphere pairing and actual pointer-hover acceptance
+remain gaps. The sections below preserve earlier checkpoint evidence.
+
+## Source morph and input checkpoint (11c907b)
 
 The current native source route implements the source world-projection morph,
 independent screen, Whole/Dust and plane body opacity, source Roots picking and

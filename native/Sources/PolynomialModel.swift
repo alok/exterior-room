@@ -189,8 +189,29 @@ enum PolynomialPlacement: Equatable {
   private(set) var previewCatalogueStatus = ""
   private var previewCatalogueGeneration = 0
   private var previewCatalogueTask:Task<Void,Never>?
+  private var previewWorkerTask:Task<PreviewWorkerOutcome,Never>?
   private var pendingPreviewMatrix:[Int]?
   private var lastCatalogueStart = 0.0
+  struct PreviewEvent: Codable, Sendable {
+    let sequence:Int, milliseconds:Double, kind:String, generation:Int
+    let matrix:[Int]?, requestID:Int?, detail:String
+  }
+  var previewDiagnosticsEnabled = ProcessInfo.processInfo.environment["POLYNOMIAL_GESTURE_DIAGNOSTICS"] == "1"
+  private(set) var previewEvents:[PreviewEvent] = []
+  private var previewEventSequence = 0
+  private let previewEventEpoch = Date.timeIntervalSinceReferenceDate
+  var previewTraceJSON:String {
+    guard let data=try? JSONEncoder().encode(previewEvents) else { return "[]" }
+    return String(decoding:data,as:UTF8.self)
+  }
+  func tracePreview(_ kind:String,matrix:[Int]? = nil,requestID:Int? = nil,generation:Int? = nil,detail:String = "",milliseconds:Double? = nil) {
+    guard previewDiagnosticsEnabled else { return }
+    previewEventSequence += 1
+    previewEvents.append(PreviewEvent(sequence:previewEventSequence,
+      milliseconds:milliseconds ?? (Date.timeIntervalSinceReferenceDate-previewEventEpoch)*1000,
+      kind:kind,generation:generation ?? previewCatalogueGeneration,matrix:matrix,requestID:requestID,detail:detail))
+    if previewEvents.count > 64 { previewEvents.removeFirst(previewEvents.count-64) }
+  }
   var renderPoints:[PolynomialPoint] { previewPoints ?? points }
   var renderCatalogue:PolynomialCatalogueMetadata? { previewCatalogue ?? catalogue }
   var sourceMorphSettings:PolynomialSourceMorph.Settings? {
@@ -242,6 +263,12 @@ enum PolynomialPlacement: Equatable {
   private var hoverPending: Task<Void, Never>?
   private var inspectionCache: [String:PolynomialInspection] = [:]
   private var lastPreviewTime = 0.0
+  private enum DeferredDragSample {
+    case klein(SIMD2<Double>), roots(SIMD2<Double>), spatial(SIMD3<Double>)
+  }
+  private var deferredDragSample:DeferredDragSample?
+  private var deferredDragTask:Task<Void,Never>?
+  private var deferredDragGeneration = 0
   var source = "Bundled Lean export"
   private var cached: [PolynomialPoint] = []
   private var cacheKey = ""
@@ -401,17 +428,18 @@ enum PolynomialPlacement: Equatable {
     actionPreview = PolynomialActionPreview(matrix:(action?.matrix ?? [1,0,0,1]).map(Double.init),
       kleinPoint:point,inputRevision:sceneRevision)
     lastPreviewTime = 0; actionRevision += 1
+    tracePreview("drag-begin",detail:"klein")
   }
   func updateActionDrag(to point: SIMD2<Double>, force: Bool = false) {
     guard dragSurface == .klein else { return }
     guard placement.isOrigin, !busy, var preview = actionPreview,
       preview.inputRevision == sceneRevision else { cancelActionDrag(); return }
+    guard preview.update(kleinPoint:point) else { tracePreview("sample-invalid",detail:"klein; last valid sample retained"); return }
     // Bound rendering work on the Mac; this is an approximate interactive preview.
     let now = Date.timeIntervalSinceReferenceDate
-    guard force || now-lastPreviewTime >= 0.08 else { return }
-    if preview.update(kleinPoint:point) {
-      actionPreview = preview; actionRevision += 1; lastPreviewTime = now; schedulePreviewCatalogue()
-    }
+    guard force || now-lastPreviewTime >= 0.08 else { deferDragSample(.klein(point),until:lastPreviewTime+0.08); return }
+    discardDeferredDragSample()
+    actionPreview = preview; actionRevision += 1; lastPreviewTime = now; schedulePreviewCatalogue()
   }
   /// Upper-half-plane dragging is independent of the ambient 3D viewpoint, as in the source Roots window.
   func beginRootsDrag(at point: SIMD2<Double>) {
@@ -420,18 +448,22 @@ enum PolynomialPlacement: Equatable {
     actionPreview = PolynomialActionPreview(matrix:(action?.matrix ?? [1,0,0,1]).map(Double.init),
       upperPoint:point,inputRevision:sceneRevision)
     lastPreviewTime = 0; actionRevision += 1
+    tracePreview("drag-begin",detail:"roots")
   }
   func updateRootsDrag(to point: SIMD2<Double>, force: Bool = false) {
     guard dragSurface == .roots else { return }
     guard !busy, var preview = actionPreview, preview.inputRevision == sceneRevision else { cancelActionDrag(); return }
+    guard preview.update(upperPoint:point) else { tracePreview("sample-invalid",detail:"roots; last valid sample retained"); return }
     let now = Date.timeIntervalSinceReferenceDate
-    guard force || now-lastPreviewTime >= 0.08 else { return }
-    if preview.update(upperPoint:point) { actionPreview = preview; actionRevision += 1; lastPreviewTime = now; schedulePreviewCatalogue() }
+    guard force || now-lastPreviewTime >= 0.08 else { deferDragSample(.roots(point),until:lastPreviewTime+0.08); return }
+    discardDeferredDragSample()
+    actionPreview = preview; actionRevision += 1; lastPreviewTime = now; schedulePreviewCatalogue()
   }
   func beginSpatialDrag(direction:SIMD3<Double>) {
     guard placement.isOrigin,!busy else { spatialInputStatus="Spatial drag requires Origin and an idle scene"; return }
     cancelActionDrag(); hover(nil); dragSurface = .spatial
     spatialEpoch=placementEpoch; spatialPlacement=placement; spatialNeedsAnchor=true; spatialMoved=false
+    tracePreview("drag-begin",detail:"spatial")
     updateSpatialDrag(direction:direction,force:true)
   }
   func updateSpatialDrag(direction:SIMD3<Double>,force:Bool = false) {
@@ -441,6 +473,7 @@ enum PolynomialPlacement: Equatable {
       cancelSpatialDrag(); spatialInputStatus="Placement changed · spatial preview cancelled"; return
     }
     guard let point=PolynomialSpatialInput.upperPoint(direction:direction) else {
+      flushDeferredDragSample()
       spatialNeedsAnchor=true; spatialInputStatus="Outside cone interior · waiting for a new anchor"; return
     }
     if spatialNeedsAnchor {
@@ -448,7 +481,9 @@ enum PolynomialPlacement: Equatable {
       spatialNeedsAnchor=false; spatialInputStatus="Spatial direction anchored"; actionRevision += 1; return
     }
     let now=Date.timeIntervalSinceReferenceDate
-    guard force || now-lastPreviewTime >= 0.08,var preview=actionPreview else { return }
+    guard force || now-lastPreviewTime >= 0.08 else { deferDragSample(.spatial(direction),until:lastPreviewTime+0.08); return }
+    discardDeferredDragSample()
+    guard var preview=actionPreview else { return }
     let before=preview.matrix
     if preview.update(upperPoint:point) {
       actionPreview=preview; actionRevision += 1; lastPreviewTime=now
@@ -458,6 +493,7 @@ enum PolynomialPlacement: Equatable {
   }
   @discardableResult func commitSpatialDrag() -> Bool {
     spatialInputReleases += 1
+    if dragSurface == .spatial { flushDeferredDragSample() }
     guard dragSurface == .spatial,spatialMoved,placement.isOrigin,
       spatialEpoch == placementEpoch,spatialPlacement == placement else {
       cancelSpatialDrag(); spatialInputStatus="No moved spatial sample to commit"; return false
@@ -471,6 +507,7 @@ enum PolynomialPlacement: Equatable {
     cancelActionDrag(); spatialInputStatus="Spatial preview cancelled · accepted scene retained"
   }
   func cancelActionDrag() {
+    discardDeferredDragSample()
     cancelPreviewCatalogue()
     dragSurface = nil
     if actionPreview != nil { actionPreview = nil; actionRevision += 1 }
@@ -480,13 +517,49 @@ enum PolynomialPlacement: Equatable {
   @discardableResult func commitRootsDrag() -> Bool { commitDrag(from:.roots) }
   @discardableResult func commitActionDrag() -> Bool { commitDrag(from:.klein) }
   private func commitDrag(from surface:DragSurface) -> Bool {
-    guard dragSurface == surface, let preview = actionPreview else { return false }
+    guard dragSurface == surface else { return false }
+    flushDeferredDragSample()
+    guard let preview = actionPreview else { return false }
     let matrix = snapOnRelease && preview.inputRevision == sceneRevision
       ? PolynomialMobius.nearestIntegral(preview.matrix) : preview.commitMatrix(ifRevision:sceneRevision)
+    tracePreview("drag-release",matrix:matrix,detail:String(describing:surface))
     cancelActionDrag()
     guard let matrix else { error = "Drag sample could not be committed; accepted transform retained."; return false }
     if snapOnRelease { absorbAction(matrix) } else { requestAction(matrix) }
     return true
+  }
+  /// Keep the last input in the bounded render interval; a stationary hold must not lose it.
+  /// Cancellation/owner changes invalidate the timer before another surface can use its sample.
+  private func deferDragSample(_ sample:DeferredDragSample,until deadline:Double) {
+    deferredDragSample=sample
+    tracePreview("sample-deferred",detail:"latest input retained until render interval ends")
+    guard deferredDragTask == nil else { return }
+    let token=deferredDragGeneration,revision=sceneRevision,owner=dragSurface
+    deferredDragTask=Task {
+      let delay=max(0,deadline-Date.timeIntervalSinceReferenceDate)
+      if delay > 0 { try? await Task.sleep(for:.seconds(delay)) }
+      guard !Task.isCancelled,token == deferredDragGeneration,sceneRevision == revision,
+        dragSurface == owner,let sample=deferredDragSample else { return }
+      deferredDragTask=nil; deferredDragSample=nil
+      tracePreview("sample-flushed")
+      applyDeferredDragSample(sample)
+    }
+  }
+  private func flushDeferredDragSample() {
+    guard let sample=deferredDragSample else { return }
+    discardDeferredDragSample()
+    tracePreview("sample-flushed",detail:"last valid sample before release/domain exit")
+    applyDeferredDragSample(sample)
+  }
+  private func applyDeferredDragSample(_ sample:DeferredDragSample) {
+    switch sample {
+    case .klein(let point): updateActionDrag(to:point,force:true)
+    case .roots(let point): updateRootsDrag(to:point,force:true)
+    case .spatial(let point): updateSpatialDrag(direction:point,force:true)
+    }
+  }
+  private func discardDeferredDragSample() {
+    deferredDragGeneration += 1; deferredDragTask?.cancel(); deferredDragTask=nil; deferredDragSample=nil
   }
   var displayActionRows: [Double] {
     if let preview = actionPreview, let rows = PolynomialMobius.coefficientRows(preview.matrix) { return rows }
@@ -707,87 +780,191 @@ enum PolynomialPlacement: Equatable {
   }
   func waitForPreviewCatalogue() async { await previewCatalogueTask?.value }
   private func cancelPreviewCatalogue() {
+    if previewCatalogueTask != nil || previewPoints != nil {
+      tracePreview("catalogue-cancel",detail:"pending=\(previewCatalogueTask != nil) published=\(previewPoints != nil)")
+    }
     previewCatalogueGeneration += 1; previewCatalogueTask?.cancel(); previewCatalogueTask=nil
+    previewWorkerTask?.cancel(); previewWorkerTask=nil
     pendingPreviewMatrix=nil; previewCatalogueStatus=""
     if previewPoints != nil { previewPoints=nil; previewCatalogue=nil; previewCatalogueRevision += 1 }
   }
   private func schedulePreviewCatalogue() {
     guard let accepted=catalogue,let preview=actionPreview else { return }
     guard let matrix=preview.commitMatrix(ifRevision:sceneRevision) else {
-      previewCatalogueGeneration += 1; previewCatalogueTask?.cancel(); previewCatalogueTask=nil; pendingPreviewMatrix=nil
+      tracePreview("sample-unquantizable")
+      previewCatalogueGeneration += 1; previewCatalogueTask?.cancel(); previewCatalogueTask=nil
+      previewWorkerTask?.cancel(); previewWorkerTask=nil; pendingPreviewMatrix=nil
       previewCatalogueStatus="Preview sample cannot be quantized · last crop retained"; return
     }
     let basis=previewCatalogue?.matrix ?? accepted.matrix
-    guard PolynomialCataloguePreviewPolicy.displacement(basis.map(Double.init),preview.matrix) >= PolynomialCataloguePreviewPolicy.threshold else {
+    let distance=PolynomialCataloguePreviewPolicy.displacement(basis.map(Double.init),preview.matrix)
+    guard distance >= PolynomialCataloguePreviewPolicy.threshold else {
+      tracePreview("sample-below-threshold",matrix:matrix,detail:String(format:"distance=%.6f",distance))
       // A gesture can return to the displayed crop while an older, distant request is pending.
       // Invalidate that response without discarding the currently displayed preview.
       if previewCatalogueTask != nil {
-        previewCatalogueGeneration += 1; previewCatalogueTask?.cancel(); previewCatalogueTask=nil; pendingPreviewMatrix=nil
+        previewCatalogueGeneration += 1; previewCatalogueTask?.cancel(); previewCatalogueTask=nil
+        previewWorkerTask?.cancel(); previewWorkerTask=nil; pendingPreviewMatrix=nil
         previewCatalogueStatus=previewPoints == nil ? "":"Live Lean preview crop · selection remains accepted"
       }
       return
     }
     pendingPreviewMatrix=matrix
+    tracePreview("catalogue-queued",matrix:matrix,detail:String(format:"distance=%.6f",distance))
     guard previewCatalogueTask == nil else { return }
     let token=previewCatalogueGeneration,revision=sceneRevision,normal=plane?.normal
+    // Launch the first detached worker synchronously from the input callback. Creating only
+    // an inherited MainActor Task allows the next RealityKit redraw to delay even the I/O start.
+    let first = Date.timeIntervalSinceReferenceDate-lastCatalogueStart >= 0.15
+      ? startPreviewWorker(accepted:accepted,normal:normal,token:token) : nil
     previewCatalogueTask = Task {
-      while !Task.isCancelled,token == previewCatalogueGeneration,let candidate=pendingPreviewMatrix {
-        pendingPreviewMatrix=nil
-        let wait=0.15-(Date.timeIntervalSinceReferenceDate-lastCatalogueStart)
-        if wait > 0 { try? await Task.sleep(for:.seconds(wait)) }
-        guard !Task.isCancelled,token == previewCatalogueGeneration else { return }
-        lastCatalogueStart=Date.timeIntervalSinceReferenceDate
-        previewCatalogueStatus="Lean preview catalogue pending · last accepted crop visible"
-        do {
-          let loaded=try await loadPreviewCatalogue(matrix:candidate,accepted:accepted,normal:normal)
-          guard !Task.isCancelled,token == previewCatalogueGeneration,sceneRevision == revision,
-            actionPreview != nil else { return }
-          if pendingPreviewMatrix == nil || pendingPreviewMatrix == candidate {
-            pendingPreviewMatrix=nil
-            previewPoints=loaded.0; previewCatalogue=loaded.1; previewCatalogueRevision += 1
-            previewCatalogueAcceptances += 1
-            print("POLYNOMIAL_PREVIEW_CATALOGUE: matrix=\(candidate) points=\(loaded.0.count) acceptedScene=\(sceneRevision) previewOnly=true")
-            previewCatalogueStatus="Live Lean preview crop · \(loaded.0.count) signed identities · selection remains accepted"
-          }
-        } catch {
+      var active=first
+      while active != nil || (!Task.isCancelled && token == previewCatalogueGeneration) {
+        if active == nil {
+          guard pendingPreviewMatrix != nil else { break }
+          let wait=0.15-(Date.timeIntervalSinceReferenceDate-lastCatalogueStart)
+          if wait > 0 { try? await Task.sleep(for:.seconds(wait)) }
+          // Read the newest candidate after the spacing interval, not before it.
           guard !Task.isCancelled,token == previewCatalogueGeneration else { return }
+          active=startPreviewWorker(accepted:accepted,normal:normal,token:token)
+        }
+        guard let work=active else { break }
+        let outcome=await withTaskCancellationHandler {
+          await work.task.value
+        } onCancel: { work.task.cancel() }
+        for event in outcome.events {
+          tracePreview(event.kind,matrix:work.matrix,requestID:event.requestID,generation:token,
+            detail:event.detail,milliseconds:event.milliseconds)
+        }
+        tracePreview("worker-resumed",matrix:work.matrix,generation:token)
+        guard !Task.isCancelled,token == previewCatalogueGeneration,sceneRevision == revision,
+          actionPreview != nil else { tracePreview("catalogue-stale",matrix:work.matrix,generation:token); return }
+        previewWorkerTask=nil
+        switch outcome.result {
+        case .success(let loaded):
+          if pendingPreviewMatrix == nil || pendingPreviewMatrix == work.matrix {
+            pendingPreviewMatrix=nil
+            previewPoints=loaded.points; previewCatalogue=loaded.metadata; previewCatalogueRevision += 1
+            previewCatalogueAcceptances += 1
+            tracePreview("catalogue-published",matrix:work.matrix,generation:token,detail:"points=\(loaded.points.count) acceptedScene=\(sceneRevision)")
+            print("POLYNOMIAL_PREVIEW_CATALOGUE: matrix=\(work.matrix) points=\(loaded.points.count) acceptedScene=\(sceneRevision) previewOnly=true")
+            previewCatalogueStatus="Live Lean preview crop · \(loaded.points.count) signed identities · selection remains accepted"
+          } else { tracePreview("catalogue-superseded",matrix:work.matrix,generation:token) }
+        case .failure(let error):
+          tracePreview("catalogue-failed",matrix:work.matrix,generation:token,detail:error.localizedDescription)
           previewCatalogueStatus="Preview recrop unavailable · previous preview retained"
         }
+        active=nil
       }
-      if token == previewCatalogueGeneration { previewCatalogueTask=nil }
+      if token == previewCatalogueGeneration { previewCatalogueTask=nil; previewWorkerTask=nil }
     }
   }
-  private func loadPreviewCatalogue(matrix:[Int],accepted:PolynomialCatalogueMetadata,normal:[Int]?) async throws -> ([PolynomialPoint],PolynomialCatalogueMetadata) {
-    var points:[PolynomialPoint]=[],metadata:PolynomialCatalogueMetadata?,offset=0,seen=Set<String>()
-    repeat {
-      let page:PolynomialCataloguePage=try await call(["op":"catalogue","depth":accepted.depth,
-        "matrix":matrix,"whole":accepted.whole,"dust":accepted.dust,"offset":offset,"limit":16384])
-      guard page.matches(depth:accepted.depth,matrix:matrix,whole:accepted.whole,dust:accepted.dust,offset:offset),
-        metadata == nil || page.metadata.sameCatalogue(as:metadata!),page.metadata.total <= PolynomialRenderPlan.maximumPoints,
-        !page.points.isEmpty || page.metadata.total == 0,page.points.allSatisfy({seen.insert($0.id).inserted}) else { throw URLError(.cannotParseResponse) }
-      if let previous=points.last,let first=page.points.first,offset != page.metadata.upperCount {
-        guard previous.abc.lexicographicallyPrecedes(first.abc) else { throw URLError(.cannotParseResponse) }
-      }
-      points += page.points; metadata=page.metadata
-      guard let next=page.nextOffset else {
-        guard points.count == page.metadata.total else { throw URLError(.cannotParseResponse) }; break
-      }
-      guard next == points.count,next > offset else { throw URLError(.cannotParseResponse) }; offset=next
-    } while !Task.isCancelled
-    try Task.checkCancellation()
-    guard let metadata else { throw URLError(.cannotParseResponse) }
-    if let normal {
-      let membership:PolynomialCatalogueMembers=try await call(["op":"membersCatalogue","depth":accepted.depth,
-        "matrix":matrix,"whole":accepted.whole,"dust":accepted.dust,"normal":normal])
-      guard membership.matches(metadata:metadata,normal:normal,points:points) else { throw URLError(.cannotParseResponse) }
-      let indices=Set(membership.indices)
-      points=points.enumerated().map { i,p in PolynomialPoint(abc:p.abc,xyz:p.xyz,delta:p.delta,kind:p.kind,
-        divisor:p.divisor,onPlane:PolynomialSourceMorph.incident(p.abc,normal:normal),necklace:indices.contains(i)) }
+  private struct PreviewWorkerContext: Sendable {
+    let matrix:[Int], accepted:PolynomialCatalogueMetadata, normal:[Int]?
+    let endpoint:URL, firstRequestID:Int, requestBudget:Int, maximumPoints:Int, epoch:Double
+    let diagnostics:Bool, transport:Transport
+  }
+  private struct PreviewWorkerEvent: Sendable {
+    let kind:String, milliseconds:Double, requestID:Int?, detail:String
+  }
+  private struct PreviewLoaded: Sendable {
+    let points:[PolynomialPoint], metadata:PolynomialCatalogueMetadata
+  }
+  private struct PreviewWorkerOutcome: Sendable {
+    let result:Result<PreviewLoaded,any Error>, events:[PreviewWorkerEvent]
+  }
+  private struct PreviewWork {
+    let matrix:[Int], task:Task<PreviewWorkerOutcome,Never>
+  }
+  private func startPreviewWorker(accepted:PolynomialCatalogueMetadata,normal:[Int]?,token:Int) -> PreviewWork? {
+    guard let matrix=pendingPreviewMatrix,let root=URL(string:server),
+      ["http","https"].contains(root.scheme),root.host != nil else {
+      pendingPreviewMatrix=nil; previewCatalogueStatus="Preview recrop unavailable · previous preview retained"; return nil
     }
-    return (points,metadata)
+    pendingPreviewMatrix=nil
+    let maximum=PolynomialRenderPlan.maximumPoints,firstID=requestID+1
+    let budget=(maximum+16383)/16384+1
+    // At most ceil(cap/16384) catalogue pages and one membership response.
+    requestID += budget
+    let context=PreviewWorkerContext(matrix:matrix,accepted:accepted,normal:normal,
+      endpoint:root.appendingPathComponent("api/polynomial"),firstRequestID:firstID,requestBudget:budget,maximumPoints:maximum,
+      epoch:previewEventEpoch,diagnostics:previewDiagnosticsEnabled,transport:transport)
+    lastCatalogueStart=Date.timeIntervalSinceReferenceDate
+    tracePreview("catalogue-start",matrix:matrix,generation:token)
+    previewCatalogueStatus="Lean preview catalogue pending · last accepted crop visible"
+    let task=Task.detached(priority:.userInitiated) { await Self.loadPreviewCatalogue(context) }
+    previewWorkerTask=task
+    return PreviewWork(matrix:matrix,task:task)
+  }
+  nonisolated private static func loadPreviewCatalogue(_ context:PreviewWorkerContext) async -> PreviewWorkerOutcome {
+    var events:[PreviewWorkerEvent]=[],requestID=context.firstRequestID
+    func record(_ kind:String,id:Int? = nil,detail:String = "") {
+      guard context.diagnostics else { return }
+      events.append(PreviewWorkerEvent(kind:kind,milliseconds:(Date.timeIntervalSinceReferenceDate-context.epoch)*1000,
+        requestID:id,detail:detail))
+    }
+    func call<T:Decodable>(_ input:[String:Any]) async throws -> T {
+      try Task.checkCancellation()
+      guard requestID < context.firstRequestID+context.requestBudget else { throw URLError(.cannotParseResponse) }
+      let id=requestID; requestID += 1
+      var object=input; object["id"]=id
+      var request=URLRequest(url:context.endpoint)
+      request.httpMethod="POST"; request.timeoutInterval=15
+      request.setValue("application/json",forHTTPHeaderField:"Content-Type")
+      request.httpBody=try JSONSerialization.data(withJSONObject:object)
+      record("transport-start",id:id,detail:input["op"] as? String ?? "")
+      let (data,response)=try await context.transport(request)
+      record("transport-response",id:id,detail:"\(input["op"] as? String ?? "") bytes=\(data.count)")
+      try Task.checkCancellation()
+      guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw URLError(.badServerResponse) }
+      let header=try JSONDecoder().decode(PolynomialHeader.self,from:data)
+      guard header.recognized,header.id == id else { throw URLError(.cannotParseResponse) }
+      guard header.ok else { throw NSError(domain:"LeanPolynomial",code:1,
+        userInfo:[NSLocalizedDescriptionKey:header.error ?? "Lean rejected this request."]) }
+      return try JSONDecoder().decode(T.self,from:data)
+    }
+    record("worker-start")
+    do {
+      let matrix=context.matrix,accepted=context.accepted
+      var points:[PolynomialPoint]=[],metadata:PolynomialCatalogueMetadata?,offset=0,seen=Set<String>()
+      repeat {
+        let page:PolynomialCataloguePage=try await call(["op":"catalogue","depth":accepted.depth,
+          "matrix":matrix,"whole":accepted.whole,"dust":accepted.dust,"offset":offset,"limit":16384])
+        guard page.matches(depth:accepted.depth,matrix:matrix,whole:accepted.whole,dust:accepted.dust,offset:offset),
+          metadata == nil || page.metadata.sameCatalogue(as:metadata!),page.metadata.total <= context.maximumPoints,
+          page.count == min(16384,page.metadata.total-offset)
+        else { throw URLError(.cannotParseResponse) }
+        let pagePoints=page.points
+        guard !pagePoints.isEmpty || page.metadata.total == 0,pagePoints.allSatisfy({seen.insert($0.id).inserted})
+        else { throw URLError(.cannotParseResponse) }
+        if let previous=points.last,let first=pagePoints.first,offset != page.metadata.upperCount {
+          guard previous.abc.lexicographicallyPrecedes(first.abc) else { throw URLError(.cannotParseResponse) }
+        }
+        points += pagePoints; metadata=page.metadata
+        guard let next=page.nextOffset else {
+          guard points.count == page.metadata.total else { throw URLError(.cannotParseResponse) }; break
+        }
+        guard next == points.count,next > offset else { throw URLError(.cannotParseResponse) }; offset=next
+      } while !Task.isCancelled
+      try Task.checkCancellation()
+      guard let metadata else { throw URLError(.cannotParseResponse) }
+      if let normal=context.normal {
+        let membership:PolynomialCatalogueMembers=try await call(["op":"membersCatalogue","depth":accepted.depth,
+          "matrix":matrix,"whole":accepted.whole,"dust":accepted.dust,"normal":normal])
+        guard membership.matches(metadata:metadata,normal:normal,points:points) else { throw URLError(.cannotParseResponse) }
+        let indices=Set(membership.indices)
+        points=points.enumerated().map { i,p in PolynomialPoint(abc:p.abc,xyz:p.xyz,delta:p.delta,kind:p.kind,
+          divisor:p.divisor,onPlane:PolynomialSourceMorph.incident(p.abc,normal:normal),necklace:indices.contains(i)) }
+      }
+      try Task.checkCancellation(); record("worker-complete",detail:"points=\(points.count)")
+      return PreviewWorkerOutcome(result:.success(PreviewLoaded(points:points,metadata:metadata)),events:events)
+    } catch {
+      record(Task.isCancelled ? "worker-cancelled":"worker-failed",detail:error.localizedDescription)
+      return PreviewWorkerOutcome(result:.failure(error),events:events)
+    }
   }
 
-  private func call<T: Decodable>(_ input: [String: Any]) async throws -> T {
+  private func call<T: Decodable>(_ input: [String: Any],previewGeneration:Int? = nil) async throws -> T {
     try Task.checkCancellation()
     guard let root = URL(string: server), ["http", "https"].contains(root.scheme), root.host != nil else { throw URLError(.badURL) }
     requestID += 1; let id = requestID
@@ -796,7 +973,9 @@ enum PolynomialPlacement: Equatable {
     request.httpMethod = "POST"; request.timeoutInterval = 15
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     request.httpBody = try JSONSerialization.data(withJSONObject: object)
+    if let previewGeneration { tracePreview("transport-start",matrix:input["matrix"] as? [Int],requestID:id,generation:previewGeneration,detail:input["op"] as? String ?? "") }
     let (data, response) = try await transport(request)
+    if let previewGeneration { tracePreview("transport-response",matrix:input["matrix"] as? [Int],requestID:id,generation:previewGeneration,detail:"\(input["op"] as? String ?? "") bytes=\(data.count)") }
     guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw URLError(.badServerResponse) }
     let header = try JSONDecoder().decode(PolynomialHeader.self, from: data)
     guard header.recognized, header.id == id else { throw URLError(.cannotParseResponse) }

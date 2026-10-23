@@ -64,31 +64,34 @@ gesture ownership, cancellation and callback/rejection diagnostics. Actual
 spatial input acceptance is distinct from its passing model tests. Physical
 headset input and performance remain unverified.
 
-The current source-morph/input work passes **141 model tests** and an unsigned
-visionOS 27.2 simulator test build. The current actual morph sequence passed one
-UI test in 144.799 s, with P0/P0.5/P1, timed Project/Lift, D5, an accepted Roots swipe,
-shared pairing cancellation and Reset. Its swipe accepted on release; it did
-not observe an interim preview catalogue. See the latest
-[source-morph receipt](evidence/source-morph-native-receipt.json) for the final
-focused-input outcome, source hashes and current screenshots/video. The separate
-110630Z test verified the real shared Pair tap and held-drag release but failed
-its interim-preview assertion: two changes, one end, zero preview catalogues,
-then accepted `M=[16567,9107,16025,14845]` with the signed unit/pair intact.
-Whether the preview task reached transport before release is unresolved; the
-completed XCTest has no app console log. Origin host-input verification could
-not start because the existing Device Hub computer-control read timed out
-(`timeoutReached −10005`); no permission denial or host input occurred. Spatial
-pairing/Origin drag and physical input therefore remain unverified. The older
-[density receipt](evidence/catalogue-native-receipt.json) remains historical.
+The current source-morph/input work passes **147 model tests** and an unsigned
+visionOS 27.2 simulator test build. Run `20261023T115306Z` passed the matched
+morph sequence in 110.561 seconds: P0/P0.5/P1, timed Project/Lift, D5, an actual
+Roots swipe, shared pairing cancellation and Reset. The transparent cone, screen
+and plane fans now retain depth reads without writing depth, fixing the sparse
+projected disk. Actual matched screenshots show the restored primitive pattern;
+physical sphere footprint, materials, framing and window layout still differ
+from the browser.
 
+Run `20261023T120502Z` then passed the unchanged strict held-input test in
+66.969 seconds. One validated temporary catalogue published **1.233 seconds
+before gesture end**, after an obsolete response was discarded. The exact
+released matrix `[16491,8977,16312,14943]` retained the unit/pair, 4,205 forms and
+64 plane members. P50/P100 and Origin target readiness also passed. This run used
+the exact-integer Lean cold-scan optimization; the preceding matched morph used
+the same native app with the older backend.
 
-The current P100 native disk is visibly almost empty except for selected/pair
-markers, unlike the corresponding browser disk; P50 is also sparser. CPU data
-retains the bodies and positive primitive material alpha. Physical sphere sizing
-without the browser minimum pixel footprint, linear-light opacity conversion,
-and instanced material/depth handling are concrete differences or investigation
-candidates, not an established cause. This unresolved renderer discrepancy means
-numerical fixture agreement does not establish visual parity.
+See the [current held-input receipt](evidence/preview-recurrence-native-receipt.json)
+and [diagnosis, matched screenshots and clips](../docs/NATIVE_PREVIEW_RENDER_UPDATE.md).
+The original `110630Z`, `113815Z` and `115041Z` failed preview runs remain preserved;
+release-only success was not counted as interim acceptance. No test assertion or
+hold duration was weakened.
+
+Actual free-space Origin and sphere-pairing input remain unverified in this app.
+The supported Device Hub connection timed out (`timeoutReached −10005`) before
+host input; this was an access failure, not permission denial or hardware evidence.
+The existing native pointer-hover XCTest limitation remains. Physical headset
+input, native R48/R96 and broader dense interaction performance remain unverified.
 
 Reproduce the current model/build checks from `native/`:
 
@@ -107,12 +110,12 @@ The existing background capture runner targets that owned simulator. These are
 separate focused tests, not a claim that the entire UI suite passed:
 
 ```sh
-# Passed current run111156Z, including the final source Roots/sky build.
+# Passed matched morph run20261023T115306Z with restored projected bodies.
 python3 scripts/run-ui-tests.py --scheme PolynomialRoom \
   --test-class PolynomialSourceMorphUITests \
   --test-name testSourceMorphLinkedRootsDragAndSharedPairing
 
-# Current known failing regression: no interim Lean crop observed during held drag.
+# Passed unchanged strict held-preview run20261023T120502Z; requires the current Lean backend.
 python3 scripts/run-ui-tests.py --scheme PolynomialRoom \
   --test-class PolynomialSourceMorphUITests \
   --test-name testActualSharedRootsPairAndHeldSourcePreview
@@ -120,9 +123,10 @@ python3 scripts/run-ui-tests.py --scheme PolynomialRoom \
 
 The second command translates to
 `-only-testing:PolynomialRoomUITests/PolynomialSourceMorphUITests/testActualSharedRootsPairAndHeldSourcePreview`
-with `test-without-building`; its assertion is intentionally retained. The failed
-run stopped before its final morph/Origin steps. Coordinate foreground use with
-other simulator owners before reproducing input tests.
+with `test-without-building`; its assertion is unchanged. The current run passes
+through its final morph/Origin-ready steps; earlier failed runs remain historical
+evidence. Coordinate foreground use with other simulator owners before reproducing
+input tests.
 
 Launch and Reset select `(1,-1,2)`, displaying `x² − x + 2`. Spacing is presentation
 only; Lean's raw polynomial label remains unchanged. Next follows the canonical cycle:

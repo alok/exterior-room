@@ -1,0 +1,15 @@
+{
+  "arguments": [
+    "/tmp/exteriorroom-optimization-probe",
+    "artifacts/native-projected-body-audit/plan-d16.json",
+    "artifacts/native-projected-body-audit/lean-d16.json",
+    "artifacts/native-projected-body-audit/gpu-optimization-local"
+  ],
+  "startedAtUTC": "2026-10-23T11:47:09.671763+00:00",
+  "scope": "Bounded serial macOS offscreen comparison of material-cache and shared-line-box rendering; no UI, simulator, network or OS permission changes",
+  "binarySHA256": "24dde2c8eaf9000883dafd5effd5495c240ddace9c45a8282a803a1b9c29115b",
+  "sourceSHA256": "a1ebbb8de82ec5a75c5942a9a859af75285091ed0fc3b4825df5aef5b1df0066",
+  "status": "completed",
+  "exitCode": 0,
+  "seconds": 7.5389987920061685
+}

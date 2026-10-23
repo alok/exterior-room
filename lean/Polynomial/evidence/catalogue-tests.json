@@ -3,10 +3,10 @@
   "requests": 121,
   "sourceFixtureCases": 5,
   "actualReceiptCases": 18,
-  "binarySHA256": "738fc7b541e5a3de310b4e3b905efdac7794eae90f196817a850a01e90df6c78",
+  "binarySHA256": "d6f909065f501b827c8d5646aebe4b2dd723d06a6e9d5ba3ad2f183f6ede44c4",
   "maxResponseBytes": 557047,
-  "slowestRequestMs": 66.337,
-  "totalServiceMs": 218.593,
+  "slowestRequestMs": 32.343,
+  "totalServiceMs": 134.299,
   "kernelEnumerationCompletenessProof": false,
   "existingGenericLawsUnchanged": 17
 }

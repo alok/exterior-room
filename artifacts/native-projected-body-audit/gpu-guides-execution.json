@@ -1,0 +1,15 @@
+{
+  "arguments": [
+    "/tmp/exteriorroom-guide-probe",
+    "artifacts/native-projected-body-audit/plan-d16.json",
+    "artifacts/native-projected-body-audit/lean-d16.json",
+    "artifacts/native-projected-body-audit/gpu-guides-local"
+  ],
+  "startedAtUTC": "2026-10-23T11:40:59.692690+00:00",
+  "scope": "Bounded serial macOS offscreen RealityRenderer guide diagnostic outside execution sandbox; no UI, simulator, network or OS permission changes",
+  "binarySHA256": "915da9d51016b949626d9079c2355f7e93388f66bdc62dca7d33a7b6e2ab3b3a",
+  "sourceSHA256": "02739c818185f436a6115044cd8e500d8e1f83b48283d7968b394df0c4b2b98f",
+  "status": "completed",
+  "exitCode": 0,
+  "seconds": 11.045728500001132
+}

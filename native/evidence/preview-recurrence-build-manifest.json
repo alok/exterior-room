@@ -1,0 +1,22 @@
+{
+  "createdUTC": "2026-10-23T12:04:59.230142+00:00",
+  "scope": "Unchanged native binary, test gesture, hold duration, and strict assertion; new exactInt Lean catalogue optimization only.",
+  "binaries": [
+    {
+      "path": "lean/.lake/build/bin/polynomial_service",
+      "sha256": "d6f909065f501b827c8d5646aebe4b2dd723d06a6e9d5ba3ad2f183f6ede44c4",
+      "bytes": 101713072
+    },
+    {
+      "path": "native/.build/Build/Products/Debug-xrsimulator/PolynomialRoom.app/PolynomialRoom",
+      "sha256": "6d91035edfee710ee5bd77159200850c623c0a93f6b6ed36d287eb5cd208948f",
+      "bytes": 40144
+    },
+    {
+      "path": "native/.build/Build/Products/Debug-xrsimulator/PolynomialRoom.app/PolynomialRoom.debug.dylib",
+      "sha256": "5064ca0b28a26d94abd06bb1ed4544e2b3fc43c8b7cbcdefd8926aff561a9b7b",
+      "bytes": 4202792
+    }
+  ],
+  "nativeSourceManifest": "native/evidence/preview-worker-build-manifest.json"
+}

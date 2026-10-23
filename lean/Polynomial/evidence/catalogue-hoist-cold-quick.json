@@ -1,0 +1,39 @@
+{
+  "result": "passed",
+  "scope": "Single bounded serial cold request per fresh executable, complete type-aware JSON equality; no statistical timing claim",
+  "request": {
+    "id": 1,
+    "op": "catalogue",
+    "depth": 16,
+    "matrix": [
+      16478,
+      8954,
+      16361,
+      14960
+    ],
+    "offset": 0,
+    "limit": 16384
+  },
+  "runs": [
+    {
+      "binary": "/tmp/exteriorroom-polynomial-before-catalogue-hoist",
+      "binarySHA256": "738fc7b541e5a3de310b4e3b905efdac7794eae90f196817a850a01e90df6c78",
+      "milliseconds": 1602.6514999975916,
+      "responseBytes": 138126,
+      "responseSHA256": "3936dd9c90af47b9bb361f9eaeed4326212046a745acacc8b78625ab0cd3accb",
+      "ok": true,
+      "total": 4204
+    },
+    {
+      "binary": "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/lean/.lake/build/bin/polynomial_service",
+      "binarySHA256": "3eedd104a90e432cb631cc11725966fc5304bafdfb3b6f71e68b609f9741baa6",
+      "milliseconds": 1008.1498749932507,
+      "responseBytes": 138126,
+      "responseSHA256": "3936dd9c90af47b9bb361f9eaeed4326212046a745acacc8b78625ab0cd3accb",
+      "ok": true,
+      "total": 4204
+    }
+  ],
+  "speedup": 1.5896956789369447,
+  "allFieldsEqual": true
+}

@@ -112,19 +112,50 @@ def build (config : Config) : Except String Result := do
     let d := Mobius.determinant config.matrix
     let radius : Int := radius
     let maximum := 36*radius*radius*d*d
+    -- Keep the same exact predicate and cube order, but compute the action's
+    -- matrix coefficients once and its a/b contributions outside the c loop.
+    let rows := Mobius.rows config.matrix
+    let m00 := rows[0]!
+    let m01 := rows[1]!
+    let m02 := rows[2]!
+    let m10 := rows[3]!
+    let m11 := rows[4]!
+    let m12 := rows[5]!
+    let m20 := rows[6]!
+    let m21 := rows[7]!
+    let m22 := rows[8]!
+    let start : Int := -(bound : Int)
+    let slopeNorm := normSquared ⟨m02,m12,m22⟩
+    let secondDifference := 50*slopeNorm
     for ai in [:width] do
       let a := (ai : Int)-(bound : Int)
+      let a0 := m00*a
+      let a1 := m10*a
+      let a2 := m20*a
       for bi in [:width] do
         let b := (bi : Int)-(bound : Int)
+        let ab0 := a0+m01*b
+        let ab1 := a1+m11*b
+        let ab2 := a2+m21*b
+        let start0 := ab0+m02*start
+        let start1 := ab1+m12*start
+        let start2 := ab2+m22*start
+        -- For Q(x)=2*x.a²+x.b²+2*x.c² and fixed slope u, the exact
+        -- first difference of 25*Q(x+c*u) is 25*(2*B(x+c*u,u)+Q(u));
+        -- its second difference is the constant 50*Q(u).
+        let mut value := 25*normSquared ⟨start0,start1,start2⟩
+        let mut difference := 25*(2*(2*start0*m02+start1*m12+2*start2*m22)+slopeNorm)
         for ci in [:width] do
           let c := (ci : Int)-(bound : Int)
           let point : Point := ⟨a,b,c⟩
           if !point.isZero && !isUpper point then
-            let moved := Mobius.apply config.matrix point
-            if 25*normSquared moved <= maximum then
+            if value <= maximum then
               if points.size >= outputLimit then
                 throw "Catalogue output budget exceeded; reduce depth."
               points := points.push point
+          -- Advance after every cube candidate, including excluded zero/upper points.
+          value := value+difference
+          difference := difference+secondDifference
   return ⟨config,points,upperPoints.size,upperCap,bound,omitted,candidates⟩
 
 end Polynomial.Catalogue

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "5BAF8A96-FED0-4CD9-9E28-D27EF42970C8",
+    "name": "source-input-00-actual-shared-roots-pair",
+    "action": "screenshot",
+    "createdAt": 1792755519.507193,
+    "file": "001-source-input-00-actual-shared-roots-pair.png",
+    "startedAt": 1792755519.5290408,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "f67ab42b0d05df271d29f80ce70cff4310677ff84aa4e5389ad83e34563f500b",
+    "finishedAt": 1792755520.192402
+  },
+  {
+    "id": "90EDD1F6-B625-46BA-9C99-0DA48229D51A",
+    "name": "source-input-01-d5-complete-root-arc",
+    "action": "screenshot",
+    "createdAt": 1792755535.469969,
+    "file": "002-source-input-01-d5-complete-root-arc.png",
+    "startedAt": 1792755535.604203,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "b55bebb73db4dc44ec95419c28fed9f0ba34d646cc02e536ffa070d4747bfb8b",
+    "finishedAt": 1792755535.927552
+  },
+  {
+    "createdAt": 1792755546.605336,
+    "action": "screenshot",
+    "name": "source-input-02-held-preview-result",
+    "id": "6018CD69-D21A-4800-BD0C-5DDF3CEED9E1",
+    "file": "003-source-input-02-held-preview-result.png",
+    "startedAt": 1792755546.7397819,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "9eec5d3c7d93736834e0d9b93e87a89f68181680c48f6fb6a56e8947128af816",
+    "finishedAt": 1792755550.763445
+  }
+]

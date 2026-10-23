@@ -1,0 +1,590 @@
+{
+  "schema": "source-projection-sparsity-oracle-v1",
+  "referenceCommit": "11c907b1",
+  "observedHEAD": "11c907b1382833d332d66e384b8a385eca3ac9d5",
+  "sourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+  "files": {
+    "lean/Polynomial/source_projection_fixture.mjs": "40b0ca9c76032f139b92f72a2e497f69fa48bb7950220a7fa4ba2cd4713e257d",
+    "web/polynomial/source-projection.js": "cc30e5bdfa2e28355e2d63764eed056ef0b967a3dc80ccea36f3fa68dd102690",
+    "web/polynomial/catalogue-display.js": "bb3392bdafa286e2e5db44bca3f8f1a967447bf4f524b624a5575f1048814d54",
+    "web/polynomial/point-cloud.js": "6ef7ac11adaaef877d6cec58932c4cc6149a3f560c1aa3305aea6a0353468e99",
+    "web/polynomial/appearance.js": "b100e06391936d7142853db7afc294b8c83c121d71b8b3f6f0d9a6e847cef9b1",
+    "web/polynomial/app.js": "0d3dc8055df2c65a51b3e7f384848a2e6c1748f0d436a0760aa3993ce31787e5",
+    "native/Sources/PolynomialSourceMorph.swift": "9740abb77001c4662222de69208263d9fb59158fa32f40b19cd765bb332a4ca8",
+    "native/Sources/PolynomialRenderPlan.swift": "62b5f558ecece4459e27b79d363a30ad5099834bb48b27f73f254195b56aa2ae",
+    "native/Sources/PolynomialSpace.swift": "c7836bd5a8ff7e1902d43d3ec1954732f094adc16cc80256a014da1566ed7051",
+    "native/Sources/PolynomialAppearance.swift": "209ad4c7d39f99cc0e397d5bbfc50014dbcb1866c91443c0713b135bc09218e1"
+  },
+  "settings": {
+    "depth": 16,
+    "matrix": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "selected": [
+      1,
+      0,
+      1
+    ],
+    "second": [
+      1,
+      1,
+      1
+    ],
+    "normal": [
+      1,
+      0,
+      -1
+    ],
+    "whole": true,
+    "dust": false,
+    "screen": true,
+    "heightFraction": 0.6,
+    "height": 9.6,
+    "eye": 0,
+    "sigma": 1,
+    "theme": "dark"
+  },
+  "catalogue": {
+    "total": 4406,
+    "upper": 3725,
+    "otherRadius": 6
+  },
+  "summaries": [
+    {
+      "progress": 0,
+      "buffered": 4406,
+      "positiveBodies": 450,
+      "pickableBodies": 386,
+      "positiveByKind": {
+        "null": 24,
+        "exterior": 318,
+        "upper": 54,
+        "lower": 54
+      },
+      "positivePrimitiveUpper": 51,
+      "positiveMultipleUpper": 3,
+      "positiveOnPlane": 50,
+      "positivePrimitiveUpperOnPlane": 7,
+      "sourceBodyRadius": {
+        "min": 0.11999999731779099,
+        "p10": 0.15000000596046448,
+        "median": 0.15000000596046448,
+        "p90": 0.15000000596046448,
+        "max": 0.20250000059604645
+      },
+      "sourceUpperBodyRadius": {
+        "min": 0.14579999446868896,
+        "p10": 0.15000000596046448,
+        "median": 0.15000000596046448,
+        "p90": 0.20250000059604645,
+        "max": 0.20250000059604645
+      },
+      "sourcePrimitiveUpperBodyRadius": {
+        "min": 0.15000000596046448,
+        "p10": 0.15000000596046448,
+        "median": 0.15000000596046448,
+        "p90": 0.20250000059604645,
+        "max": 0.20250000059604645
+      },
+      "sourceBodyAlpha": {
+        "min": 0.007266634609550238,
+        "p10": 0.012576930224895477,
+        "median": 0.44999998807907104,
+        "p90": 0.44999998807907104,
+        "max": 0.8999999761581421
+      },
+      "nativeEndpointBinSimulation": {
+        "retainedInstances": 2239,
+        "positiveMaterialBodies": 400,
+        "retainedZeroMaterialInstances": 1839,
+        "retainedZeroMaterialUpper": 1799,
+        "zeroMaterialDespitePositiveBody": 50,
+        "zeroedByKind": {
+          "null": 0,
+          "exterior": 32,
+          "upper": 10,
+          "lower": 8
+        },
+        "maximumAlphaError": 0.033333309491475394
+      },
+      "currentJSComparison": {
+        "maximumAlphaError": 0,
+        "maximumRadiusError": 0,
+        "disagreementsAbove2eMinus6": 0
+      },
+      "physicalPrimitiveUpperRadius": {
+        "native": {
+          "min": 0.009000000357627868,
+          "p10": 0.009000000357627868,
+          "median": 0.009000000357627868,
+          "p90": 0.012150000035762786,
+          "max": 0.012150000035762786
+        },
+        "browser": {
+          "min": 0.024000000953674317,
+          "p10": 0.024000000953674317,
+          "median": 0.024000000953674317,
+          "p90": 0.032400000095367434,
+          "max": 0.032400000095367434
+        }
+      }
+    },
+    {
+      "progress": 0.5,
+      "buffered": 4406,
+      "positiveBodies": 2239,
+      "pickableBodies": 1839,
+      "positiveByKind": {
+        "null": 24,
+        "exterior": 318,
+        "upper": 1843,
+        "lower": 54
+      },
+      "positivePrimitiveUpper": 1577,
+      "positiveMultipleUpper": 266,
+      "positiveOnPlane": 145,
+      "positivePrimitiveUpperOnPlane": 71,
+      "sourceBodyRadius": {
+        "min": 0.0649958923459053,
+        "p10": 0.08306361734867096,
+        "median": 0.09565510600805283,
+        "p90": 0.15000000596046448,
+        "max": 0.2573249936103821
+      },
+      "sourceUpperBodyRadius": {
+        "min": 0.0649958923459053,
+        "p10": 0.07934721559286118,
+        "median": 0.09374061971902847,
+        "p90": 0.10941900312900543,
+        "max": 0.2573249936103821
+      },
+      "sourcePrimitiveUpperBodyRadius": {
+        "min": 0.08201085031032562,
+        "p10": 0.08846715837717056,
+        "median": 0.09467484802007675,
+        "p90": 0.11148577928543091,
+        "max": 0.2573249936103821
+      },
+      "sourceBodyAlpha": {
+        "min": 0.012576930224895477,
+        "p10": 0.05459354445338249,
+        "median": 0.12999999523162842,
+        "p90": 0.44999998807907104,
+        "max": 0.8999999761581421
+      },
+      "nativeEndpointBinSimulation": {
+        "retainedInstances": 2239,
+        "positiveMaterialBodies": 2199,
+        "retainedZeroMaterialInstances": 40,
+        "retainedZeroMaterialUpper": 0,
+        "zeroMaterialDespitePositiveBody": 40,
+        "zeroedByKind": {
+          "null": 0,
+          "exterior": 32,
+          "upper": 0,
+          "lower": 8
+        },
+        "maximumAlphaError": 0.033333309491475394
+      },
+      "currentJSComparison": {
+        "maximumAlphaError": 0,
+        "maximumRadiusError": 0,
+        "disagreementsAbove2eMinus6": 0
+      },
+      "physicalPrimitiveUpperRadius": {
+        "native": {
+          "min": 0.004920651018619537,
+          "p10": 0.005308029502630233,
+          "median": 0.005680490881204605,
+          "p90": 0.006689146757125854,
+          "max": 0.015439499616622923
+        },
+        "browser": {
+          "min": 0.0131217360496521,
+          "p10": 0.01415474534034729,
+          "median": 0.015147975683212281,
+          "p90": 0.017837724685668944,
+          "max": 0.041171998977661134
+        }
+      }
+    },
+    {
+      "progress": 1,
+      "buffered": 4406,
+      "positiveBodies": 1973,
+      "pickableBodies": 1919,
+      "positiveByKind": {
+        "null": 24,
+        "exterior": 318,
+        "upper": 1577,
+        "lower": 54
+      },
+      "positivePrimitiveUpper": 1577,
+      "positiveMultipleUpper": 0,
+      "positiveOnPlane": 111,
+      "positivePrimitiveUpperOnPlane": 71,
+      "sourceBodyRadius": {
+        "min": 0.014021697454154491,
+        "p10": 0.02815772220492363,
+        "median": 0.043189726769924164,
+        "p90": 0.15000000596046448,
+        "max": 0.2879999876022339
+      },
+      "sourceUpperBodyRadius": {
+        "min": 0.014021697454154491,
+        "p10": 0.026934323832392693,
+        "median": 0.03879835829138756,
+        "p90": 0.06665181368589401,
+        "max": 0.2879999876022339
+      },
+      "sourcePrimitiveUpperBodyRadius": {
+        "min": 0.014021697454154491,
+        "p10": 0.026934323832392693,
+        "median": 0.03879835829138756,
+        "p90": 0.06665181368589401,
+        "max": 0.2879999876022339
+      },
+      "sourceBodyAlpha": {
+        "min": 0.012576930224895477,
+        "p10": 0.10918708890676498,
+        "median": 0.25999999046325684,
+        "p90": 0.44999998807907104,
+        "max": 0.949999988079071
+      },
+      "nativeEndpointBinSimulation": {
+        "retainedInstances": 2239,
+        "positiveMaterialBodies": 1933,
+        "retainedZeroMaterialInstances": 306,
+        "retainedZeroMaterialUpper": 266,
+        "zeroMaterialDespitePositiveBody": 40,
+        "zeroedByKind": {
+          "null": 0,
+          "exterior": 32,
+          "upper": 0,
+          "lower": 8
+        },
+        "maximumAlphaError": 0.033333309491475394
+      },
+      "currentJSComparison": {
+        "maximumAlphaError": 0,
+        "maximumRadiusError": 0,
+        "disagreementsAbove2eMinus6": 0
+      },
+      "physicalPrimitiveUpperRadius": {
+        "native": {
+          "min": 0.0008413018472492695,
+          "p10": 0.0016160594299435614,
+          "median": 0.0023279014974832532,
+          "p90": 0.00399910882115364,
+          "max": 0.01727999925613403
+        },
+        "browser": {
+          "min": 0.002243471592664719,
+          "p10": 0.004309491813182831,
+          "median": 0.0062077373266220095,
+          "p90": 0.010664290189743042,
+          "max": 0.04607999801635742
+        }
+      }
+    }
+  ],
+  "probes": [
+    {
+      "progress": 0,
+      "points": [
+        {
+          "name": "unit-selected",
+          "abc": [
+            1,
+            0,
+            1
+          ],
+          "sourceXYZ": [
+            0,
+            2,
+            0
+          ],
+          "displayXYZ": [
+            0,
+            2,
+            0
+          ],
+          "radius": 0.20250000059604645,
+          "alpha": 0.44999998807907104,
+          "passesSourceAlphaPickGate": true
+        },
+        {
+          "name": "paired",
+          "abc": [
+            1,
+            1,
+            1
+          ],
+          "sourceXYZ": [
+            1,
+            2,
+            0
+          ],
+          "displayXYZ": [
+            -1,
+            2,
+            0
+          ],
+          "radius": 0.20250000059604645,
+          "alpha": 0.44999998807907104,
+          "passesSourceAlphaPickGate": true
+        },
+        {
+          "name": "nonprimitive-upper",
+          "abc": [
+            2,
+            0,
+            2
+          ],
+          "sourceXYZ": [
+            0,
+            4,
+            0
+          ],
+          "displayXYZ": [
+            0,
+            4,
+            0
+          ],
+          "radius": 0.14579999446868896,
+          "alpha": 0.44999998807907104,
+          "passesSourceAlphaPickGate": true
+        },
+        {
+          "name": "off-plane-upper",
+          "abc": [
+            1,
+            -1,
+            2
+          ],
+          "sourceXYZ": [
+            -1,
+            3,
+            -1
+          ],
+          "displayXYZ": [
+            1,
+            3,
+            1
+          ],
+          "radius": 0.15000000596046448,
+          "alpha": 0.25999999046325684,
+          "passesSourceAlphaPickGate": true
+        }
+      ]
+    },
+    {
+      "progress": 0.5,
+      "points": [
+        {
+          "name": "unit-selected",
+          "abc": [
+            1,
+            0,
+            1
+          ],
+          "sourceXYZ": [
+            0,
+            5.800000190734863,
+            0
+          ],
+          "displayXYZ": [
+            0,
+            5.800000190734863,
+            0
+          ],
+          "radius": 0.2573249936103821,
+          "alpha": 0.699999988079071,
+          "passesSourceAlphaPickGate": true
+        },
+        {
+          "name": "paired",
+          "abc": [
+            1,
+            1,
+            1
+          ],
+          "sourceXYZ": [
+            2.9000000953674316,
+            5.800000190734863,
+            0
+          ],
+          "displayXYZ": [
+            -2.9000000953674316,
+            5.800000190734863,
+            0
+          ],
+          "radius": 0.24558334052562714,
+          "alpha": 0.699999988079071,
+          "passesSourceAlphaPickGate": true
+        },
+        {
+          "name": "nonprimitive-upper",
+          "abc": [
+            2,
+            0,
+            2
+          ],
+          "sourceXYZ": [
+            0,
+            6.800000190734863,
+            0
+          ],
+          "displayXYZ": [
+            0,
+            6.800000190734863,
+            0
+          ],
+          "radius": 0.148049995303154,
+          "alpha": 0.3499999940395355,
+          "passesSourceAlphaPickGate": true
+        },
+        {
+          "name": "off-plane-upper",
+          "abc": [
+            1,
+            -1,
+            2
+          ],
+          "sourceXYZ": [
+            -2.0999999046325684,
+            6.300000190734863,
+            -2.0999999046325684
+          ],
+          "displayXYZ": [
+            2.0999999046325684,
+            6.300000190734863,
+            2.0999999046325684
+          ],
+          "radius": 0.16515402495861053,
+          "alpha": 0.25999999046325684,
+          "passesSourceAlphaPickGate": true
+        }
+      ]
+    },
+    {
+      "progress": 1,
+      "points": [
+        {
+          "name": "unit-selected",
+          "abc": [
+            1,
+            0,
+            1
+          ],
+          "sourceXYZ": [
+            0,
+            9.600000381469727,
+            0
+          ],
+          "displayXYZ": [
+            0,
+            9.600000381469727,
+            0
+          ],
+          "radius": 0.2879999876022339,
+          "alpha": 0.949999988079071,
+          "passesSourceAlphaPickGate": true
+        },
+        {
+          "name": "paired",
+          "abc": [
+            1,
+            1,
+            1
+          ],
+          "sourceXYZ": [
+            4.800000190734863,
+            9.600000381469727,
+            0
+          ],
+          "displayXYZ": [
+            -4.800000190734863,
+            9.600000381469727,
+            0
+          ],
+          "radius": 0.26801419258117676,
+          "alpha": 0.949999988079071,
+          "passesSourceAlphaPickGate": true
+        },
+        {
+          "name": "nonprimitive-upper",
+          "abc": [
+            2,
+            0,
+            2
+          ],
+          "sourceXYZ": [
+            0,
+            9.600000381469727,
+            0
+          ],
+          "displayXYZ": [
+            0,
+            9.600000381469727,
+            0
+          ],
+          "radius": 0.14399999380111694,
+          "alpha": 0,
+          "passesSourceAlphaPickGate": false
+        },
+        {
+          "name": "off-plane-upper",
+          "abc": [
+            1,
+            -1,
+            2
+          ],
+          "sourceXYZ": [
+            -3.200000047683716,
+            9.600000381469727,
+            -3.200000047683716
+          ],
+          "displayXYZ": [
+            3.200000047683716,
+            9.600000381469727,
+            3.200000047683716
+          ],
+          "radius": 0.1803080439567566,
+          "alpha": 0.25999999046325684,
+          "passesSourceAlphaPickGate": true
+        }
+      ]
+    }
+  ],
+  "rendererDifferences": {
+    "browser": {
+      "representation": "GL_POINTS circular antialias coverage",
+      "minimumRadiusCSSPixels": 1,
+      "subminimumAlpha": "(raw radius / 1 CSS px)^2",
+      "kneeCSSPixels": 2.5,
+      "maximumRadiusCSSPixels": 9,
+      "depth": "Every Source body alpha is below .999, so vFaint=1 and fragment depth=1; material still depth-tests. Zero body alpha discards fragments.",
+      "scale": 0.16
+    },
+    "native": {
+      "representation": "12-slice/8-ring instanced sphere, radius physical source radius times .96/depth",
+      "minimumPixelRadius": "No camera-dependent minimum footprint in PolynomialRenderPlan/PolynomialSpace",
+      "material": "UnlitMaterial(applyPostProcessToneMap:false), transparent opacity uses linearLightOpacity(endpoint-bin alpha,semantic RGB)",
+      "depth": "readsDepth/writesDepth/opacityThreshold not explicitly assigned in reviewed material() helper; runtime defaults not measured",
+      "zeroAlpha": "Crop-valid source radius>0 retains instance even when material alpha=0; an explicit browser fragment discard has no explicit native counterpart in app code",
+      "scale": 0.06
+    },
+    "framing": "Browser R16 reset distance=sqrt(2.4²+1.5²+4.6²)*2≈10.80, FOV45. Native root at(0,1.4,-3.1), rotated, scale.06. Physical sizes alone do not establish angular/pixel-size parity."
+  },
+  "limits": [
+    "Offline extracted source numerical routines and current JavaScript helpers only; no UI/GPU/native model execution/build in this audit.",
+    "Positive opacity is not a screen-space visible-pixel count; projection overlap, framing, occlusion, raster coverage and compositing remain unmeasured.",
+    "Native endpoint-bin numbers simulate the reviewed Swift expression, not actual material blending.",
+    "The source bundle must be supplied locally with the recorded SHA256; this script does not download it.",
+    "Exact signed identity/action and Lean proof claims are unchanged. These are renderer diagnostics."
+  ]
+}

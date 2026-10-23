@@ -15,8 +15,11 @@ upper-star morph and temporary Lean catalogues during held drags. Canonical ball
 retains its separate fixed crop and `Y=4` overlay. Source caps and native R24
 batching remain explicit. The dated rows remain evidence of their own runs;
 current simulator morph controls, linked Roots swipe and shared pairing have
-actual input evidence. Native held-preview recropping failed its acceptance
-assertion; free-space Origin input remains unverified.
+actual input evidence. The [native preview/render continuation](NATIVE_PREVIEW_RENDER_UPDATE.md)
+fixes transparent-guide occlusion and preserves exact held-preview timing evidence.
+The unchanged native held-preview assertion now passes after exact Lean cold-scan
+optimization; earlier failed runs remain preserved. Free-space Origin input
+remains unverified.
 
 The [deployed-source audit](source-projection-morph-audit.md) evaluates 48 cases
 from the pinned Starscape script: identity/D5, projection `0,.5,1`, signed and
@@ -441,7 +444,9 @@ morph are implemented, with current evidence and remaining differences recorded
 in the [morph update](SOURCE_MORPH_UPDATE.md). Current simulator evidence covers
 morph controls and linked Roots gestures, including shared Pair next followed
 by an actual Roots tap. It does not establish sphere-based spatial pairing.
-The held-preview acceptance assertion failed; successful release recropping
-does not substitute for it. Main
+The unchanged held-preview acceptance assertion now passes in run
+`20261023T120502Z`: an interim catalogue published 1.23 seconds before gesture end.
+Its actual-input receipt is separate from the earlier failures and from
+unverified high-density or physical-input behavior. Main
 Chrome was rechecked by URL and its `Emulation.setFocusEmulationEnabled` command
 timed out; IAB acceptance is explicitly a different browser surface.

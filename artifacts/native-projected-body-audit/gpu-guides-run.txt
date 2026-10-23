@@ -1,0 +1,8 @@
+CAPTURE body-only: 13242 nonblack pixels
+CAPTURE body-plus-screen: 22197 nonblack pixels
+CAPTURE body-plus-plane: 166964 nonblack pixels
+CAPTURE body-plus-cone: 97828 nonblack pixels
+CAPTURE body-plus-all-guides: 177418 nonblack pixels
+CAPTURE body-plus-all-guide-fans-no-depth-write: 177418 nonblack pixels
+CAPTURE body-plus-all-guides-no-depth-write: 177418 nonblack pixels
+Completed seven serial guide captures; receipt.json written.

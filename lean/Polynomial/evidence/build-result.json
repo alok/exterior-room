@@ -11,7 +11,7 @@
   ],
   "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
   "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
-  "binarySHA256": "738fc7b541e5a3de310b4e3b905efdac7794eae90f196817a850a01e90df6c78",
+  "binarySHA256": "d6f909065f501b827c8d5646aebe4b2dd723d06a6e9d5ba3ad2f183f6ede44c4",
   "binaryBytes": 101713072,
   "sources": [
     {
@@ -32,7 +32,7 @@
     },
     {
       "path": "lean/Polynomial/Catalogue.lean",
-      "sha256": "9c7c870010243f4c95d373e4cb344a3f58fa96d0719a8f9679483f33068fcbf2"
+      "sha256": "d138fbea3ef9f5cf22e35a36c31ddef47ded1c980869d324af983f706138376d"
     },
     {
       "path": "lean/Polynomial/Main.lean",

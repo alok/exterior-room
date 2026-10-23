@@ -1,0 +1,95 @@
+{
+  "scope": "Host loopback serial cold/warm comparison; 2M is new raw cache key for the same projective action, then repeated, then original M from actual115041 input. Not simulator network latency.",
+  "requests": [
+    {
+      "matrix": [
+        32956,
+        17908,
+        32722,
+        29920
+      ],
+      "operation": "catalogue",
+      "milliseconds": 1678.9007500046864,
+      "status": 200,
+      "bytes": 138137,
+      "ok": true,
+      "count": 4204,
+      "total": 4204
+    },
+    {
+      "matrix": [
+        32956,
+        17908,
+        32722,
+        29920
+      ],
+      "operation": "membersCatalogue",
+      "milliseconds": 0.9024580067489296,
+      "status": 200,
+      "bytes": 1002,
+      "ok": true,
+      "count": 63,
+      "total": 4204
+    },
+    {
+      "matrix": [
+        32956,
+        17908,
+        32722,
+        29920
+      ],
+      "operation": "catalogue",
+      "milliseconds": 6.782083000871353,
+      "status": 200,
+      "bytes": 138137,
+      "ok": true,
+      "count": 4204,
+      "total": 4204
+    },
+    {
+      "matrix": [
+        32956,
+        17908,
+        32722,
+        29920
+      ],
+      "operation": "membersCatalogue",
+      "milliseconds": 0.8379999926546589,
+      "status": 200,
+      "bytes": 1002,
+      "ok": true,
+      "count": 63,
+      "total": 4204
+    },
+    {
+      "matrix": [
+        16478,
+        8954,
+        16361,
+        14960
+      ],
+      "operation": "catalogue",
+      "milliseconds": 1516.2770829920191,
+      "status": 200,
+      "bytes": 138129,
+      "ok": true,
+      "count": 4204,
+      "total": 4204
+    },
+    {
+      "matrix": [
+        16478,
+        8954,
+        16361,
+        14960
+      ],
+      "operation": "membersCatalogue",
+      "milliseconds": 0.8127499895635992,
+      "status": 200,
+      "bytes": 994,
+      "ok": true,
+      "count": 63,
+      "total": 4204
+    }
+  ]
+}

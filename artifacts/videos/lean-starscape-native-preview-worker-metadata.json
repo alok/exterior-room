@@ -1,0 +1,99 @@
+{
+  "scope": "Current frozen native combined build, simulator-only silent app recordings. Prior published videos are untouched.",
+  "conversion": "Video-only H264, scale1920x1080, CRF22, veryfast,1thread, no trim or retiming.",
+  "buildManifest": "native/evidence/preview-worker-build-manifest.json",
+  "clips": [
+    {
+      "file": "artifacts/videos/lean-starscape-native-preview-worker-probe.mp4",
+      "sha256": "f6e915e18a7ee7cf6ab9a4de771475395ca0a6e5b2e8e41be978e1b111e81dd8",
+      "bytes": 724242,
+      "duration": 36.216667,
+      "codec": "h264",
+      "width": 1920,
+      "height": 1080,
+      "audioStreams": 0,
+      "rawFile": "native/evidence/screenshots/20261023T115041Z/lean-starscape-native-source-input.mov",
+      "rawSHA256": "c94a501237dd02a8347e3a53c1a0e281ce856e8769bd7f356302994fb5e2f07a",
+      "uiRun": "20261023T115041Z",
+      "acceptance": "FAILED strict held-preview assertion; shared Roots pairing and release accepted",
+      "poster": "artifacts/videos/lean-starscape-native-preview-worker-probe-poster.jpg",
+      "decodedSamples": [
+        {
+          "seconds": 2,
+          "file": "lean-starscape-native-preview-worker-probe-0.jpg",
+          "sha256": "40172de080d77009ae3e7ab4b83bbf4dd3742570dc957e80a8feb91bbddaa924"
+        },
+        {
+          "seconds": 18.1083335,
+          "file": "lean-starscape-native-preview-worker-probe-1.jpg",
+          "sha256": "b98c3aacfd868d48c8d495d8f153ac8162f703a3bb0df6a2e7475012f859d757"
+        },
+        {
+          "seconds": 34.216667,
+          "file": "lean-starscape-native-preview-worker-probe-2.jpg",
+          "sha256": "9a442ec536f4fa8416cbb90035dd3009a9451b02c971ca90d131022ac495c29e"
+        },
+        {
+          "seconds": 35.001482009887695,
+          "file": "artifacts/videos/lean-starscape-native-preview-worker-probe-poster.jpg",
+          "sha256": "d1d399d3438f4f5ca1f1ed05ac4d95cb20a31dd0b4dafc1aac3c41557a3422a5"
+        }
+      ],
+      "visualInspection": {
+        "decodedStartMiddleEndReviewed": true,
+        "observations": [
+          "Start: canonical R6 cone and controls.",
+          "Middle: exact D5 linked Roots and scene.",
+          "End: actual release accepted; selected/pair labels retained. This clip does not show an accepted held preview."
+        ],
+        "limitations": "Simulator capture; camera, lighting, physical sphere footprint and alpha bins differ from browser. No physical headset or free-space input claim."
+      }
+    },
+    {
+      "file": "artifacts/videos/lean-starscape-native-morph-depth-fix.mp4",
+      "sha256": "2857bb4623e367ca3b12eac59be07a2e08b0e657db8fead600f1cb0d1e629bf2",
+      "bytes": 1519601,
+      "duration": 96.94685,
+      "codec": "h264",
+      "width": 1920,
+      "height": 1080,
+      "audioStreams": 0,
+      "rawFile": "native/evidence/screenshots/20261023T115306Z/lean-starscape-native-source-morph.mov",
+      "rawSHA256": "d79136dfbc70c151a7ad0789a501e7ca3bdf15e636c3af859fb566b583c7bc72",
+      "uiRun": "20261023T115306Z",
+      "acceptance": "PASSED morph, exact D5, actual Roots release, shared pairing/reset",
+      "poster": "artifacts/videos/lean-starscape-native-morph-depth-fix-poster.jpg",
+      "decodedSamples": [
+        {
+          "seconds": 2,
+          "file": "lean-starscape-native-morph-depth-fix-0.jpg",
+          "sha256": "290618b7eb1317c75c2c1ac21ce3ec4bd68bdf26a71aa21ad68be75061776768"
+        },
+        {
+          "seconds": 48.473425,
+          "file": "lean-starscape-native-morph-depth-fix-1.jpg",
+          "sha256": "a16b10097be8b478c88ae0c4f1fd73301561f2fe2583ebadda95f96c1d2fab04"
+        },
+        {
+          "seconds": 94.94685,
+          "file": "lean-starscape-native-morph-depth-fix-2.jpg",
+          "sha256": "e1ba49558bad73c1b26bd3768d0d91ccc73dfa96149da470fcfe1df82bee0f0a"
+        },
+        {
+          "seconds": 55.53747606277466,
+          "file": "artifacts/videos/lean-starscape-native-morph-depth-fix-poster.jpg",
+          "sha256": "68076f0f6432fa96e73e797c3fb4d36d1a151d1a43e458c5c6636f488cd94df4"
+        }
+      ],
+      "visualInspection": {
+        "decodedStartMiddleEndReviewed": true,
+        "observations": [
+          "Start: canonical R6 scene before Source mode.",
+          "Middle: P100 projected primitive-body pattern visibly fills the disk.",
+          "End: Reset returns canonical R6/default selection and clears pairing."
+        ],
+        "limitations": "Simulator capture; camera, lighting, physical sphere footprint and alpha bins differ from browser. No physical headset or free-space input claim."
+      }
+    }
+  ]
+}

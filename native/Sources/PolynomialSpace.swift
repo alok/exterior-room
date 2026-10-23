@@ -91,6 +91,8 @@ import SwiftUI
   private var inhabitOffset: SIMD3<Float>?
   private var materials: [UInt32: UnlitMaterial] = [:]
   private let glyph: MeshResource
+  private let lineMesh = MeshResource.generateBox(size: [1,1,1])
+  private let timingDiagnostics = ProcessInfo.processInfo.environment["POLYNOMIAL_GESTURE_DIAGNOSTICS"] == "1"
   private var batches:[UInt64:InstanceBatch] = [:]
   private var radialBatch:InstanceBatch?
   private var scale: Float = 0.16
@@ -102,9 +104,11 @@ import SwiftUI
 
   @MainActor private final class InstanceBatch {
     let entity:ModelEntity, data:LowLevelInstanceData
-    init(mesh:MeshResource,material:UnlitMaterial,count:Int) throws {
+    var materialAlpha:Double
+    init(mesh:MeshResource,material:UnlitMaterial,count:Int,alpha:Double = 1) throws {
       data = try LowLevelInstanceData(instanceCount:count,instanceCapacity:max(1,count*2))
       entity = ModelEntity(mesh:mesh,materials:[material])
+      materialAlpha = alpha
     }
     func update(mesh:MeshResource,positions:[SIMD3<Float>],factors:[Float]) throws {
       data.instanceCount = positions.count
@@ -162,6 +166,7 @@ import SwiftUI
       normal:focusNormal,keep:model.inspection?.point ?? [],projection:model.showProjection,catalogue:model.renderCatalogue,sourceMorph:model.sourceMorphSettings) else {
         renderFailure("Invalid display coordinates",model:model); return
       }
+    let planFinished = Date.timeIntervalSinceReferenceDate
     let reach=snapshot.glyphs.reduce(Float(0)) { greatest,glyph in max(greatest,simd_length(glyph.position)+glyph.collisionRadius) }
     spatialSky.scale=SIMD3(repeating:PolynomialSpatialInput.shellScale(reach:reach))
     do {
@@ -169,14 +174,17 @@ import SwiftUI
         batches.removeValue(forKey:key)?.entity.removeFromParent()
       }
       for (key,indices) in snapshot.batches {
+        let alpha = snapshot.materialAlpha[key] ?? 1
         var batch = batches[key]
         if batch == nil || batch!.data.instanceCapacity < indices.count {
           batch?.entity.removeFromParent()
-          batch = try InstanceBatch(mesh:glyph,material:material(PolynomialRenderPlan.color(UInt32(key&0xFFFFFF)),alpha:snapshot.materialAlpha[key] ?? 1),count:indices.count)
+          batch = try InstanceBatch(mesh:glyph,material:material(PolynomialRenderPlan.color(UInt32(key&0xFFFFFF)),alpha:alpha),count:indices.count,alpha:alpha)
           batches[key] = batch; cloud.addChild(batch!.entity)
         }
-        if model.renderCatalogue != nil {
-          batch!.entity.model?.materials = [material(PolynomialRenderPlan.color(UInt32(key&0xFFFFFF)),alpha:snapshot.materialAlpha[key] ?? 1)]
+        // A source key fixes the color, but its opacity changes during the morph.
+        if model.renderCatalogue != nil && batch!.materialAlpha != alpha {
+          batch!.entity.model?.materials = [material(PolynomialRenderPlan.color(UInt32(key&0xFFFFFF)),alpha:alpha)]
+          batch!.materialAlpha = alpha
         }
         try batch!.update(mesh:glyph,positions:indices.map { snapshot.glyphs[$0].position },factors:indices.map { snapshot.glyphs[$0].factor })
       }
@@ -192,6 +200,7 @@ import SwiftUI
       renderFailure(error.localizedDescription,model:model)
       return
     }
+    let instancesFinished = Date.timeIntervalSinceReferenceDate
     cloud.isEnabled = true; plane.isEnabled = true; selection.isEnabled = true
     renderingFailed = false
     // Fixed reference guides do not rebuild for every action or selection.
@@ -200,13 +209,16 @@ import SwiftUI
       guides.children.removeAll(); projectionGuides.children.removeAll()
       cone(sourceHeight:model.sourceMorphSettings.map { Float($0.height)*scale }); guideKey=nextGuideKey
     }
+    let guidesFinished = Date.timeIntervalSinceReferenceDate
     let planeKey="\(model.sceneRevision)-\(model.actionRevision)-\(model.previewCatalogueRevision)-\(model.displayedRadius)"
     let rebuildPlane=model.renderCatalogue == nil || sourcePlaneKey != planeKey
     if rebuildPlane { plane.children.removeAll(); sourcePlaneKey=planeKey }
-    selection.children.removeAll()
     for entry in snapshot.glyphs where model.renderCatalogue == nil && entry.point.necklace && entry.opacity > 0 {
       marker(at:entry.position,factor:entry.factor*1.55,rgb:PolynomialAppearance.amber,parent:plane)
     }
+    let selectionStarted = Date.timeIntervalSinceReferenceDate
+    var planeMilliseconds = (selectionStarted-guidesFinished)*1000
+    selection.children.removeAll()
     if let morph=model.sourceMorphSettings {
       for (detail,color) in [(model.inspection,SIMD3<Double>(1,1,1)),(model.pairedInspection,PolynomialAppearance.amber)] {
         guard let detail,let shown=PolynomialMobius.mapDisplayCoordinates(rows:actionRows,SIMD3(Double(detail.xyz[0]),Double(detail.xyz[1]),Double(detail.xyz[2]))) else { continue }
@@ -233,12 +245,20 @@ import SwiftUI
         }
       }
     }
+    let selectionFinished = Date.timeIntervalSinceReferenceDate
     if rebuildPlane,let cutting = model.plane { drawPlane(cutting,radius:Float(model.displayedRadius),showProjection:model.renderCatalogue == nil && model.showProjection,source:model.renderCatalogue != nil) }
     if model.renderCatalogue == nil,let second = model.displayedPair,let entry = snapshot.glyphs.first(where: { $0.point.abc == second && $0.opacity > 0 }) {
       marker(at:entry.position,factor:entry.factor*1.9,rgb:PolynomialAppearance.amber,parent:plane)
     }
     sceneKey = nextScene
-    let milliseconds = (Date.timeIntervalSinceReferenceDate-started)*1000
+    let finished = Date.timeIntervalSinceReferenceDate
+    planeMilliseconds += (finished-selectionFinished)*1000
+    let milliseconds = (finished-started)*1000
+    if timingDiagnostics {
+      print(String(format:"POLYNOMIAL_RENDER_TIMING: plan=%.3f instances=%.3f guides=%.3f plane=%.3f selection=%.3f total=%.3f ms preview=%@ batches=%d",
+        (planFinished-started)*1000,(instancesFinished-planFinished)*1000,(guidesFinished-instancesFinished)*1000,
+        planeMilliseconds,(selectionFinished-selectionStarted)*1000,milliseconds,model.actionPreview == nil ? "false":"true",snapshot.batches.count))
+    }
     let morphSummary = model.sourceMorphSettings.map { " · morph \(Int(($0.progress*100).rounded()))% · h \(String(format:"%.1f",$0.height))" } ?? ""
     let visibilitySummary = model.renderCatalogue == nil ? "" : "\(snapshot.glyphs.filter{$0.opacity > 0}.count) visible bodies · "
     let memberLabel = model.renderCatalogue == nil ? "plane rings":"plane-highlight bodies"
@@ -404,7 +424,8 @@ import SwiftUI
     let a = transform ? mapped(from) : from, b = transform ? mapped(to) : to
     let delta = b-a, length = simd_length(delta)
     guard length > 0.00001 else { return }
-    let entity = ModelEntity(mesh: .generateBox(size: [0.002,length,0.002]),materials:[material(rgb,alpha:alpha)])
+    let entity = ModelEntity(mesh: lineMesh,materials:[material(rgb,alpha:alpha)])
+    entity.scale = [0.002,length,0.002]
     entity.position = (a+b)/2; entity.orientation = simd_quatf(from:[0,1,0],to:delta/length)
     parent.addChild(entity)
   }
@@ -415,6 +436,8 @@ import SwiftUI
     descriptor.primitives = .triangles((1..<(vertices.count-1)).flatMap { [0,UInt32($0),UInt32($0+1)] })
     guard let mesh = try? MeshResource.generate(from: [descriptor]) else { return }
     var material = material(rgb,alpha:alpha); material.faceCulling = .none
+    // Translucent reference surfaces must not occlude the stars inside them.
+    material.writesDepth = false
     parent.addChild(ModelEntity(mesh:mesh,materials:[material]))
   }
 }

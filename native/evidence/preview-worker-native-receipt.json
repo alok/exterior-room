@@ -1,0 +1,395 @@
+{
+  "schema": "lean-starscape-native-preview-worker-v1",
+  "createdUTC": "2026-10-23T11:58:57.352812+00:00",
+  "scope": "Frozen native worker and translucent-guide fix, before any subsequent independent Lean catalogue optimization. Earlier published receipts/videos remain immutable.",
+  "sourceBaseline": "11c907b",
+  "sourceAndBuildManifest": {
+    "path": "native/evidence/preview-worker-build-manifest.json",
+    "sha256": "5094ff95d866ef4f7e93fef56c7d863d43b5fc0630745454907c517263e768ea",
+    "bytes": 4716
+  },
+  "simulator": {
+    "uuid": "1D261881-0A0F-4DE0-B704-12644E606348",
+    "sdk": "visionOS Simulator27.2",
+    "minimumOS": "visionOS26",
+    "physicalHardwareTested": false,
+    "signing": "disabled"
+  },
+  "changes": [
+    "Coalesce latest valid samples inside80ms without losing stationary holds; flush last valid owned sample before release, including invalid final endpoints.",
+    "Read latest pending catalogue after150ms request spacing.",
+    "Start immutable Sendable preview worker immediately offMainActor; network/decode/validation are detached, publication retains generation/revision/active-owner/latest-candidate guards.",
+    "Reserve disjoint request IDs with exact page-size validation and an independent per-worker budget.",
+    "Record off-main timestamps separately from actor resumption; input times use only SwiftUI event deltas.",
+    "Capture Roots action rows/catalogue outside per-point loops.",
+    "Renderer owner corrected translucent fan depth writes, reused unit box meshes and skipped unchanged material assignment."
+  ],
+  "models": {
+    "command": "cd native && swift test -j 2",
+    "tests": 147,
+    "failures": 0,
+    "seconds": 9.376,
+    "log": "native/evidence/preview-worker-model-tests.txt",
+    "newRegressions": [
+      "last non-force sample inside throttle publishes while held",
+      "latest candidate replaces unsent request during spacing",
+      "deferred sample cannot mutate a new owner/reset",
+      "Roots/Klein/spatial release commits last valid deferred sample",
+      "worker I/O/validation completes during deliberately occupiedMainActor; publication waits",
+      "malformed short page cannot exhaust reserved IDs"
+    ]
+  },
+  "build": {
+    "result": "TEST BUILD SUCCEEDED",
+    "log": "native/evidence/preview-worker-build.txt",
+    "unsigned": true,
+    "jobs": 2,
+    "scheme": "PolynomialRoom",
+    "command": "xcodebuild -project ExteriorRoom.xcodeproj -scheme PolynomialRoom -sdk xrsimulator27.2 -destination platform=visionOS Simulator,id=1D261881-0A0F-4DE0-B704-12644E606348 -derivedDataPath .build CODE_SIGNING_ALLOWED=NO ARCHS=arm64 SWIFT_COMPILATION_MODE=wholemodule -jobs 2 build-for-testing"
+  },
+  "ui": [
+    {
+      "run": "20261023T113815Z",
+      "scope": "Intermediate pre-detached-worker diagnostic; not current source snapshot",
+      "method": "testActualSharedRootsPairAndHeldSourcePreview",
+      "tests": 1,
+      "failures": 1,
+      "seconds": 51.521,
+      "strictAssertionUnchanged": true,
+      "acceptedPreviewCrops": 0,
+      "queueToTaskStartMs": 759.47,
+      "requestCancelledBeforeResponse": true,
+      "inputAgeDiagnosticValid": false,
+      "receipt": "native/evidence/preview-timing-ui-113815.json"
+    },
+    {
+      "run": "20261023T115041Z",
+      "scope": "Frozen current combined native build",
+      "method": "testActualSharedRootsPairAndHeldSourcePreview",
+      "tests": 1,
+      "failures": 1,
+      "seconds": 47.015,
+      "strictAssertionUnchanged": true,
+      "actualChangedCallbacks": 3,
+      "actualEndedCallbacks": 1,
+      "acceptedPreviewCrops": 0,
+      "queueToWorkerStartMs": 1.291,
+      "firstCatalogueHTTPms": 866.39,
+      "firstWorkerTotalMs": 901.69,
+      "firstResult": "Correctly rejected as superseded by newer actual input",
+      "latestRequestToReleaseMs": 1245.553,
+      "latestResult": "Cancelled on release before catalogue response",
+      "releasedMatrix": [
+        16478,
+        8954,
+        16361,
+        14960
+      ],
+      "releasedCatalogueCount": 4204,
+      "bufferedPlaneMembers": 63,
+      "signedSelection": [
+        1,
+        0,
+        1
+      ],
+      "signedPair": [
+        1,
+        1,
+        1
+      ],
+      "receipt": "native/evidence/preview-worker-ui-115041.json"
+    },
+    {
+      "run": "20261023T115306Z",
+      "scope": "Frozen current combined native build",
+      "method": "testSourceMorphLinkedRootsDragAndSharedPairing",
+      "tests": 1,
+      "failures": 0,
+      "seconds": 110.561,
+      "screenshots": 7,
+      "verified": [
+        "P0/P50/P100 controls",
+        "both timed projection directions",
+        "D5 exact action and transformed readouts",
+        "actual Roots swipe accepted on release",
+        "shared Pair next and Cancel across windows",
+        "close Roots clears pairing",
+        "Reset restores canonical R6/default identity"
+      ],
+      "releasedMatrix": [
+        22885,
+        10556,
+        14031,
+        10842
+      ],
+      "releasedCatalogueCount": 4229,
+      "duringSwipePreview": "not observed; accepted release only",
+      "receipt": "native/evidence/preview-worker-morph-ui-115306.json"
+    }
+  ],
+  "reproduceUI": {
+    "held": "cd native && python3 scripts/run-ui-tests.py --scheme PolynomialRoom --test-class PolynomialSourceMorphUITests --test-name testActualSharedRootsPairAndHeldSourcePreview",
+    "morph": "cd native && python3 scripts/run-ui-tests.py --scheme PolynomialRoom --test-class PolynomialSourceMorphUITests --test-name testSourceMorphLinkedRootsDragAndSharedPairing"
+  },
+  "performance": {
+    "scope": "Observed CPU update times and HTTP timings, not FPS or hardware benchmarks",
+    "warmBaselineWarning": "Earlier7\u201317ms host catalogue measurement reused an already-loaded matrix. It does not characterize cold computation.",
+    "coldWarm": {
+      "newProjectivelyEquivalent2Mms": 1678.901,
+      "sameKeyWarmMs": 6.782,
+      "originalMAfterCacheReplacementMs": 1516.277,
+      "membersMsRange": [
+        0.812,
+        0.902
+      ]
+    },
+    "renderHUDms": {
+      "heldReleasedScene": 442.1,
+      "sourceP0Initial": 603.4,
+      "sourceP50": 252.4,
+      "sourceP100": 250.8,
+      "D5P100": 154.3,
+      "actualSwipeAcceptedP100": 515.4
+    },
+    "P100": {
+      "buffered": 4406,
+      "instances": 2239,
+      "visibleBodies": 1973,
+      "colorBatches": 254,
+      "planeHighlightBodies": 111
+    }
+  },
+  "visualInspection": {
+    "nativeP100PatternRestored": true,
+    "currentScreenshot": "native/evidence/screenshots/20261023T115306Z/003-source-morph-02-p100-animated-unit-pair.png",
+    "videoStartMiddleEndDecodedAndReviewed": true,
+    "metadata": "artifacts/videos/lean-starscape-native-preview-worker-metadata.json",
+    "claim": "The near-empty projected disk defect is corrected in actual simulator captures. Full browser/native pixel or material parity is not claimed."
+  },
+  "boundaries": [
+    "17 existing Lean laws and executable exact protocol are unchanged by these native changes.",
+    "Approximate gesture/display math and quantization remain renderer/client behavior; accepted releases come from actual Lean.",
+    "147 model tests do not prove actual spatial interaction. Roots input was exercised by supported XCUI; native free-space pairing/Origin drag and physical headset remain unverified.",
+    "Strict held-preview acceptance remains FAILED under the captured cold catalogue latency; no assertion or hold duration was weakened.",
+    "Floating Roots can occlude the scene; physical sphere sizing, alpha bins, camera/materials differ from browser."
+  ],
+  "blockers": {
+    "permissionDenied": false,
+    "pending": "Cold catalogue latency still prevents the captured strict held-preview scenario. Independent backend optimization is outside this frozen receipt.",
+    "completed": "Native deferred-sample bugs, initial actor scheduling stall, request-ID budget validation and guide-depth rendering defect addressed; source/model/build and actual morph evidence captured."
+  },
+  "screenshots": [
+    {
+      "run": "20261023T115041Z",
+      "stage": "source-input-00-actual-shared-roots-pair",
+      "path": "native/evidence/screenshots/20261023T115041Z/001-source-input-00-actual-shared-roots-pair.png",
+      "sha256": "4084399194d4a9323610217dd9fc5c7c9496f017ba8a048971fe9cbb019b219a",
+      "bytes": 574274
+    },
+    {
+      "run": "20261023T115041Z",
+      "stage": "source-input-01-d5-complete-root-arc",
+      "path": "native/evidence/screenshots/20261023T115041Z/002-source-input-01-d5-complete-root-arc.png",
+      "sha256": "6e09cbcec8e719b558be99cc164f1a80d0c4f4158757a881bd1c1f19a05090b7",
+      "bytes": 599473
+    },
+    {
+      "run": "20261023T115041Z",
+      "stage": "source-input-02-held-preview-result",
+      "path": "native/evidence/screenshots/20261023T115041Z/003-source-input-02-held-preview-result.png",
+      "sha256": "dc8d2c1ad579e6da6329ef1edfd6d10035592d746b930bca44085136048941cb",
+      "bytes": 641041
+    },
+    {
+      "run": "20261023T115306Z",
+      "stage": "source-morph-00-p0-unit-pair",
+      "path": "native/evidence/screenshots/20261023T115306Z/001-source-morph-00-p0-unit-pair.png",
+      "sha256": "dd4cefd28c8e58e4227e78bc451e69bae04c8571cbb16dcbf1032311b10de64d",
+      "bytes": 479039
+    },
+    {
+      "run": "20261023T115306Z",
+      "stage": "source-morph-01-p50-unit-pair",
+      "path": "native/evidence/screenshots/20261023T115306Z/002-source-morph-01-p50-unit-pair.png",
+      "sha256": "ebcc6acf28c1b23ba7c162d0d29091783be598335987914ff5e1edbd5fc8fba0",
+      "bytes": 618283
+    },
+    {
+      "run": "20261023T115306Z",
+      "stage": "source-morph-02-p100-animated-unit-pair",
+      "path": "native/evidence/screenshots/20261023T115306Z/003-source-morph-02-p100-animated-unit-pair.png",
+      "sha256": "3937194b87b0c96a18d1e7986124c2cc8fc52bab711780e05efe3ec43783f0e8",
+      "bytes": 545003
+    },
+    {
+      "run": "20261023T115306Z",
+      "stage": "source-morph-03-d5-p100-linked-roots",
+      "path": "native/evidence/screenshots/20261023T115306Z/004-source-morph-03-d5-p100-linked-roots.png",
+      "sha256": "7a182648c79185f2a0158ae47e3a904e4ea06905d33867ab32c2474e97786a88",
+      "bytes": 612595
+    },
+    {
+      "run": "20261023T115306Z",
+      "stage": "source-morph-04-actual-roots-swipe",
+      "path": "native/evidence/screenshots/20261023T115306Z/005-source-morph-04-actual-roots-swipe.png",
+      "sha256": "7d2e3986a1f0ddde106c8f4fa2e38840575dfcf11d0b3b4bb861b9f382a7206d",
+      "bytes": 589706
+    },
+    {
+      "run": "20261023T115306Z",
+      "stage": "source-morph-05-roots-closed-unoccluded-scene",
+      "path": "native/evidence/screenshots/20261023T115306Z/006-source-morph-05-roots-closed-unoccluded-scene.png",
+      "sha256": "7f438718995db738b5fe8f381c1047857899304a39448deb4a2abb50e178a3ce",
+      "bytes": 544185
+    },
+    {
+      "run": "20261023T115306Z",
+      "stage": "source-morph-06-reset-clears-pairing",
+      "path": "native/evidence/screenshots/20261023T115306Z/007-source-morph-06-reset-clears-pairing.png",
+      "sha256": "287ff8c14a492f5707f7dc8b1832bb67a6d2a2945a1f5e04c4743357baf5d996",
+      "bytes": 507870
+    }
+  ],
+  "evidence": [
+    {
+      "path": "native/evidence/preview-worker-build-manifest.json",
+      "sha256": "5094ff95d866ef4f7e93fef56c7d863d43b5fc0630745454907c517263e768ea",
+      "bytes": 4716
+    },
+    {
+      "path": "native/evidence/preview-worker-build.txt",
+      "sha256": "581fd3913cf142d21057d135768f19860714dfd734749a24aee46044de99b797",
+      "bytes": 63923
+    },
+    {
+      "path": "native/evidence/preview-worker-model-tests.txt",
+      "sha256": "1f52a3215a324a69fa4e30bba8177162fa3fc2d94c01b39cf32306013c27fd1b",
+      "bytes": 44997
+    },
+    {
+      "path": "native/evidence/ui-tests-20261023T113815Z.txt",
+      "sha256": "172f8ef05fb3ca4a9ca9df51de7f40b0b31ad11b4a42a342695103d0daaf4297",
+      "bytes": 29777
+    },
+    {
+      "path": "native/evidence/ui-tests-20261023T115041Z.txt",
+      "sha256": "dac454d7a003fd73ea8a4cc0e33433299607b220dc496ef2fb0f40027ba709af",
+      "bytes": 31657
+    },
+    {
+      "path": "native/evidence/ui-tests-20261023T115306Z.txt",
+      "sha256": "1bb31126f0c874e05bc192ccb33baf911adaa8f1e5842e51392dcedda2d749de",
+      "bytes": 47032
+    },
+    {
+      "path": "native/evidence/preview-timing-ui-113815.json",
+      "sha256": "e88ba51574ac75f2c4481f258625a1bac040206504af20e40237fbbcd61146e3",
+      "bytes": 8745
+    },
+    {
+      "path": "native/evidence/preview-worker-ui-115041.json",
+      "sha256": "2cfe15bf05b2ce324c4d27b5e56ec16c66e4f0aa7229ea64a63a0ece54bfed79",
+      "bytes": 12584
+    },
+    {
+      "path": "native/evidence/preview-worker-morph-ui-115306.json",
+      "sha256": "2da3b51be2d64ace6d028d04a8e7826d747d24afcc2ee7e0ab8403a6b88c6e6e",
+      "bytes": 11622
+    },
+    {
+      "path": "native/evidence/preview-timing-http-baseline.json",
+      "sha256": "65ee9659b013c0ca1946e8c55e0526412d06d80784153f16d46a9cd8138d5886",
+      "bytes": 1461
+    },
+    {
+      "path": "native/evidence/preview-worker-http-cold-warm.json",
+      "sha256": "bad85a500d9068998c06053ffa41581fceb17f3d2529abff3b34dd7552a8bffd",
+      "bytes": 1884
+    },
+    {
+      "path": "artifacts/videos/lean-starscape-native-preview-worker-metadata.json",
+      "sha256": "75f30bb3dd52cb6a519168295583b76c35ab32f8ef34d803a799edfff660c394",
+      "bytes": 4584
+    },
+    {
+      "path": "artifacts/videos/lean-starscape-native-preview-worker-probe.mp4",
+      "sha256": "f6e915e18a7ee7cf6ab9a4de771475395ca0a6e5b2e8e41be978e1b111e81dd8",
+      "bytes": 724242
+    },
+    {
+      "path": "artifacts/videos/lean-starscape-native-preview-worker-probe-poster.jpg",
+      "sha256": "d1d399d3438f4f5ca1f1ed05ac4d95cb20a31dd0b4dafc1aac3c41557a3422a5",
+      "bytes": 47404
+    },
+    {
+      "path": "artifacts/videos/lean-starscape-native-morph-depth-fix.mp4",
+      "sha256": "2857bb4623e367ca3b12eac59be07a2e08b0e657db8fead600f1cb0d1e629bf2",
+      "bytes": 1519601
+    },
+    {
+      "path": "artifacts/videos/lean-starscape-native-morph-depth-fix-poster.jpg",
+      "sha256": "68076f0f6432fa96e73e797c3fb4d36d1a151d1a43e458c5c6636f488cd94df4",
+      "bytes": 42060
+    },
+    {
+      "path": "native/evidence/screenshots/20261023T115041Z/captures.json",
+      "sha256": "ffad420399dbffcae61e6ba44c10b4f85041d61dbc04504b306ce42e6bbbe6fd",
+      "bytes": 1293
+    },
+    {
+      "path": "native/evidence/screenshots/20261023T115041Z/001-source-input-00-actual-shared-roots-pair.png",
+      "sha256": "4084399194d4a9323610217dd9fc5c7c9496f017ba8a048971fe9cbb019b219a",
+      "bytes": 574274
+    },
+    {
+      "path": "native/evidence/screenshots/20261023T115041Z/002-source-input-01-d5-complete-root-arc.png",
+      "sha256": "6e09cbcec8e719b558be99cc164f1a80d0c4f4158757a881bd1c1f19a05090b7",
+      "bytes": 599473
+    },
+    {
+      "path": "native/evidence/screenshots/20261023T115041Z/003-source-input-02-held-preview-result.png",
+      "sha256": "dc8d2c1ad579e6da6329ef1edfd6d10035592d746b930bca44085136048941cb",
+      "bytes": 641041
+    },
+    {
+      "path": "native/evidence/screenshots/20261023T115306Z/captures.json",
+      "sha256": "4a92d4eceecc907a62cc14c0297bd472dcbfac46849161b84e8bfac929525277",
+      "bytes": 2986
+    },
+    {
+      "path": "native/evidence/screenshots/20261023T115306Z/001-source-morph-00-p0-unit-pair.png",
+      "sha256": "dd4cefd28c8e58e4227e78bc451e69bae04c8571cbb16dcbf1032311b10de64d",
+      "bytes": 479039
+    },
+    {
+      "path": "native/evidence/screenshots/20261023T115306Z/002-source-morph-01-p50-unit-pair.png",
+      "sha256": "ebcc6acf28c1b23ba7c162d0d29091783be598335987914ff5e1edbd5fc8fba0",
+      "bytes": 618283
+    },
+    {
+      "path": "native/evidence/screenshots/20261023T115306Z/003-source-morph-02-p100-animated-unit-pair.png",
+      "sha256": "3937194b87b0c96a18d1e7986124c2cc8fc52bab711780e05efe3ec43783f0e8",
+      "bytes": 545003
+    },
+    {
+      "path": "native/evidence/screenshots/20261023T115306Z/004-source-morph-03-d5-p100-linked-roots.png",
+      "sha256": "7a182648c79185f2a0158ae47e3a904e4ea06905d33867ab32c2474e97786a88",
+      "bytes": 612595
+    },
+    {
+      "path": "native/evidence/screenshots/20261023T115306Z/005-source-morph-04-actual-roots-swipe.png",
+      "sha256": "7d2e3986a1f0ddde106c8f4fa2e38840575dfcf11d0b3b4bb861b9f382a7206d",
+      "bytes": 589706
+    },
+    {
+      "path": "native/evidence/screenshots/20261023T115306Z/006-source-morph-05-roots-closed-unoccluded-scene.png",
+      "sha256": "7f438718995db738b5fe8f381c1047857899304a39448deb4a2abb50e178a3ce",
+      "bytes": 544185
+    },
+    {
+      "path": "native/evidence/screenshots/20261023T115306Z/007-source-morph-06-reset-clears-pairing.png",
+      "sha256": "287ff8c14a492f5707f7dc8b1832bb67a6d2a2945a1f5e04c4743357baf5d996",
+      "bytes": 507870
+    }
+  ]
+}

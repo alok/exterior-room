@@ -1,0 +1,987 @@
+{
+  "alphaInput" : "already corrected actual RealityKit opacity; no second correction",
+  "background" : "opaque black",
+  "cameraLookDirection" : [
+    0,
+    0,
+    -1
+  ],
+  "cameraPosition" : [
+    0,
+    1.6000000000000001,
+    0
+  ],
+  "captures" : [
+    {
+      "batches" : 254,
+      "bgraSHA256" : "01ca42c5dc877a97ea694914652638edb77d51a2306b473b63557bd20c4d33a8",
+      "depthMode" : "UnlitMaterial defaults",
+      "inputState" : "p0",
+      "instances" : 2239,
+      "instancesWithPositiveMaterialAlpha" : 400,
+      "meanMaxRGB" : 0.36793863932291665,
+      "modelComponentMaterialReadback" : {
+        "checkedBatches" : 254,
+        "firstEightMaterials" : [
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8594995782",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8597951024",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020994883030653,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020994883030653,
+            "key" : "8880208454",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.01268478948622942,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.01268478948622942,
+            "key" : "8883163696",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "9128811402",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "9128878471",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "9129208451",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "9129471616",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          }
+        ],
+        "maxAlphaDifferenceFromIntendedFloat" : 0,
+        "missingUnlitMaterial" : 0
+      },
+      "name" : "cold-p0",
+      "nonblackPixels" : 8497,
+      "peakRGB" : 255,
+      "pixelsMaxRGBAbove4" : 8401,
+      "pixelsMaxRGBAbove16" : 7786
+    },
+    {
+      "batches" : 254,
+      "bgraSHA256" : "dd45ccdf5a0e5013cf65abe24e10f0dfbea4ab9fe26f7d25ee1bb895698ea654",
+      "depthMode" : "UnlitMaterial defaults",
+      "inputState" : "p50",
+      "instances" : 2239,
+      "instancesWithPositiveMaterialAlpha" : 2199,
+      "meanMaxRGB" : 0.77409016927083329,
+      "modelComponentMaterialReadback" : {
+        "checkedBatches" : 254,
+        "firstEightMaterials" : [
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8594995782",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8597951024",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020994883030653,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020994883030653,
+            "key" : "8880208454",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.01268478948622942,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.01268478948622942,
+            "key" : "8883163696",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.0095691177994012833,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.0095691177994012833,
+            "key" : "9128811402",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.0091514764353632927,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.0091514764353632927,
+            "key" : "9128878471",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.0085938014090061188,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.0085938014090061188,
+            "key" : "9129208451",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.0083690444007515907,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.0083690444007515907,
+            "key" : "9129471616",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          }
+        ],
+        "maxAlphaDifferenceFromIntendedFloat" : 0,
+        "missingUnlitMaterial" : 0
+      },
+      "name" : "updated-p50",
+      "nonblackPixels" : 26078,
+      "peakRGB" : 255,
+      "pixelsMaxRGBAbove4" : 25663,
+      "pixelsMaxRGBAbove16" : 20106
+    },
+    {
+      "batches" : 254,
+      "bgraSHA256" : "38d8e9280f74cb37ca5ac726e94cfdee54db39a16d5a25f4f65db3295a3098f2",
+      "depthMode" : "UnlitMaterial defaults",
+      "inputState" : "p1",
+      "instances" : 2239,
+      "instancesWithPositiveMaterialAlpha" : 1933,
+      "meanMaxRGB" : 0.56139892578124995,
+      "modelComponentMaterialReadback" : {
+        "checkedBatches" : 254,
+        "firstEightMaterials" : [
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8594995782",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8597951024",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020994883030653,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020994883030653,
+            "key" : "8880208454",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.01268478948622942,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.01268478948622942,
+            "key" : "8883163696",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.022359296679496765,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.022359296679496765,
+            "key" : "9128811402",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.021720165386795998,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.021720165386795998,
+            "key" : "9128878471",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020857270807027817,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020857270807027817,
+            "key" : "9129208451",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020506231114268303,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020506231114268303,
+            "key" : "9129471616",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          }
+        ],
+        "maxAlphaDifferenceFromIntendedFloat" : 0,
+        "missingUnlitMaterial" : 0
+      },
+      "name" : "updated-p1",
+      "nonblackPixels" : 13242,
+      "peakRGB" : 255,
+      "pixelsMaxRGBAbove4" : 13145,
+      "pixelsMaxRGBAbove16" : 12289
+    },
+    {
+      "batches" : 254,
+      "bgraSHA256" : "38d8e9280f74cb37ca5ac726e94cfdee54db39a16d5a25f4f65db3295a3098f2",
+      "depthMode" : "UnlitMaterial defaults",
+      "inputState" : "p1",
+      "instances" : 2239,
+      "instancesWithPositiveMaterialAlpha" : 1933,
+      "meanMaxRGB" : 0.56139892578124995,
+      "modelComponentMaterialReadback" : {
+        "checkedBatches" : 254,
+        "firstEightMaterials" : [
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8594995782",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8597951024",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020994883030653,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020994883030653,
+            "key" : "8880208454",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.01268478948622942,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.01268478948622942,
+            "key" : "8883163696",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.022359296679496765,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.022359296679496765,
+            "key" : "9128811402",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.021720165386795998,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.021720165386795998,
+            "key" : "9128878471",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020857270807027817,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020857270807027817,
+            "key" : "9129208451",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020506231114268303,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020506231114268303,
+            "key" : "9129471616",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          }
+        ],
+        "maxAlphaDifferenceFromIntendedFloat" : 0,
+        "missingUnlitMaterial" : 0
+      },
+      "name" : "updated-p1-recreate-model",
+      "nonblackPixels" : 13242,
+      "peakRGB" : 255,
+      "pixelsMaxRGBAbove4" : 13145,
+      "pixelsMaxRGBAbove16" : 12289
+    },
+    {
+      "batches" : 254,
+      "bgraSHA256" : "38d8e9280f74cb37ca5ac726e94cfdee54db39a16d5a25f4f65db3295a3098f2",
+      "depthMode" : "UnlitMaterial defaults",
+      "inputState" : "p1",
+      "instances" : 2239,
+      "instancesWithPositiveMaterialAlpha" : 1933,
+      "meanMaxRGB" : 0.56139892578124995,
+      "modelComponentMaterialReadback" : {
+        "checkedBatches" : 254,
+        "firstEightMaterials" : [
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8594995782",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8597951024",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020994883030653,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020994883030653,
+            "key" : "8880208454",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.01268478948622942,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.01268478948622942,
+            "key" : "8883163696",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.022359296679496765,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.022359296679496765,
+            "key" : "9128811402",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.021720165386795998,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.021720165386795998,
+            "key" : "9128878471",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020857270807027817,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020857270807027817,
+            "key" : "9129208451",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020506231114268303,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020506231114268303,
+            "key" : "9129471616",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          }
+        ],
+        "maxAlphaDifferenceFromIntendedFloat" : 0,
+        "missingUnlitMaterial" : 0
+      },
+      "name" : "fresh-p1",
+      "nonblackPixels" : 13242,
+      "peakRGB" : 255,
+      "pixelsMaxRGBAbove4" : 13145,
+      "pixelsMaxRGBAbove16" : 12289
+    },
+    {
+      "batches" : 254,
+      "bgraSHA256" : "bc2295ecb6061f4d0f4a948058dc462cd5d04e9e34df1a7337ae994f515f267c",
+      "depthMode" : "writesDepth=false,readsDepth=true",
+      "inputState" : "p0",
+      "instances" : 2239,
+      "instancesWithPositiveMaterialAlpha" : 400,
+      "meanMaxRGB" : 0.37263102213541666,
+      "modelComponentMaterialReadback" : {
+        "checkedBatches" : 254,
+        "firstEightMaterials" : [
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8594995782",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : false
+          },
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8597951024",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : false
+          },
+          {
+            "alpha" : 0.020994883030653,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020994883030653,
+            "key" : "8880208454",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : false
+          },
+          {
+            "alpha" : 0.01268478948622942,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.01268478948622942,
+            "key" : "8883163696",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : false
+          },
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "9128811402",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : false
+          },
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "9128878471",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : false
+          },
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "9129208451",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : false
+          },
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "9129471616",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : false
+          }
+        ],
+        "maxAlphaDifferenceFromIntendedFloat" : 0,
+        "missingUnlitMaterial" : 0
+      },
+      "name" : "no-depth-writes-cold-p0",
+      "nonblackPixels" : 8518,
+      "peakRGB" : 255,
+      "pixelsMaxRGBAbove4" : 8422,
+      "pixelsMaxRGBAbove16" : 7819
+    },
+    {
+      "batches" : 254,
+      "bgraSHA256" : "0f2291f358102129267b4849b252121d4aeb31b5a1cc09af5ff8a2ffeb604b1e",
+      "depthMode" : "writesDepth=false,readsDepth=true",
+      "inputState" : "p1",
+      "instances" : 2239,
+      "instancesWithPositiveMaterialAlpha" : 1933,
+      "meanMaxRGB" : 0.56883870442708329,
+      "modelComponentMaterialReadback" : {
+        "checkedBatches" : 254,
+        "firstEightMaterials" : [
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8594995782",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : false
+          },
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8597951024",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : false
+          },
+          {
+            "alpha" : 0.020994883030653,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020994883030653,
+            "key" : "8880208454",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : false
+          },
+          {
+            "alpha" : 0.01268478948622942,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.01268478948622942,
+            "key" : "8883163696",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : false
+          },
+          {
+            "alpha" : 0.022359296679496765,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.022359296679496765,
+            "key" : "9128811402",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : false
+          },
+          {
+            "alpha" : 0.021720165386795998,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.021720165386795998,
+            "key" : "9128878471",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : false
+          },
+          {
+            "alpha" : 0.020857270807027817,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020857270807027817,
+            "key" : "9129208451",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : false
+          },
+          {
+            "alpha" : 0.020506231114268303,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020506231114268303,
+            "key" : "9129471616",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : false
+          }
+        ],
+        "maxAlphaDifferenceFromIntendedFloat" : 0,
+        "missingUnlitMaterial" : 0
+      },
+      "name" : "no-depth-writes-updated-p1",
+      "nonblackPixels" : 13263,
+      "peakRGB" : 255,
+      "pixelsMaxRGBAbove4" : 13166,
+      "pixelsMaxRGBAbove16" : 12322
+    },
+    {
+      "batches" : 254,
+      "bgraSHA256" : "0f2291f358102129267b4849b252121d4aeb31b5a1cc09af5ff8a2ffeb604b1e",
+      "depthMode" : "writesDepth=false,readsDepth=true",
+      "inputState" : "p1",
+      "instances" : 2239,
+      "instancesWithPositiveMaterialAlpha" : 1933,
+      "meanMaxRGB" : 0.56883870442708329,
+      "modelComponentMaterialReadback" : {
+        "checkedBatches" : 254,
+        "firstEightMaterials" : [
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8594995782",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : false
+          },
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8597951024",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : false
+          },
+          {
+            "alpha" : 0.020994883030653,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020994883030653,
+            "key" : "8880208454",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : false
+          },
+          {
+            "alpha" : 0.01268478948622942,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.01268478948622942,
+            "key" : "8883163696",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : false
+          },
+          {
+            "alpha" : 0.022359296679496765,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.022359296679496765,
+            "key" : "9128811402",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : false
+          },
+          {
+            "alpha" : 0.021720165386795998,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.021720165386795998,
+            "key" : "9128878471",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : false
+          },
+          {
+            "alpha" : 0.020857270807027817,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020857270807027817,
+            "key" : "9129208451",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : false
+          },
+          {
+            "alpha" : 0.020506231114268303,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020506231114268303,
+            "key" : "9129471616",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : false
+          }
+        ],
+        "maxAlphaDifferenceFromIntendedFloat" : 0,
+        "missingUnlitMaterial" : 0
+      },
+      "name" : "no-depth-writes-fresh-p1",
+      "nonblackPixels" : 13263,
+      "peakRGB" : 255,
+      "pixelsMaxRGBAbove4" : 13166,
+      "pixelsMaxRGBAbove16" : 12322
+    },
+    {
+      "batches" : 194,
+      "bgraSHA256" : "0a0b558ffce5c8f90cdfad9c2b158d4d1577da7cb824acf3de484f78b76fa814",
+      "depthMode" : "UnlitMaterial defaults",
+      "inputState" : "p1-omit-zero-material-alpha",
+      "instances" : 1933,
+      "instancesWithPositiveMaterialAlpha" : 1933,
+      "meanMaxRGB" : 0.56242919921875001,
+      "modelComponentMaterialReadback" : {
+        "checkedBatches" : 194,
+        "firstEightMaterials" : [
+          {
+            "alpha" : 0.020994883030653,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020994883030653,
+            "key" : "8880208454",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.01268478948622942,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.01268478948622942,
+            "key" : "8883163696",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.022359296679496765,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.022359296679496765,
+            "key" : "9128811402",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.021720165386795998,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.021720165386795998,
+            "key" : "9128878471",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020857270807027817,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020857270807027817,
+            "key" : "9129208451",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020506231114268303,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020506231114268303,
+            "key" : "9129471616",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020421318709850311,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020421318709850311,
+            "key" : "9129602943",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.023957997560501099,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.023957997560501099,
+            "key" : "9129848206",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          }
+        ],
+        "maxAlphaDifferenceFromIntendedFloat" : 0,
+        "missingUnlitMaterial" : 0
+      },
+      "name" : "fresh-p1-omit-zero-alpha",
+      "nonblackPixels" : 13263,
+      "peakRGB" : 255,
+      "pixelsMaxRGBAbove4" : 13166,
+      "pixelsMaxRGBAbove16" : 12310
+    }
+  ],
+  "defaultMaterialFaceCulling" : "back",
+  "defaultMaterialReadsDepth" : true,
+  "defaultMaterialWritesDepth" : true,
+  "defaultVersusNoDepthWritesFreshP1" : {
+    "changedRGBPixels" : 470,
+    "maxChannelDifference" : 249,
+    "rmsChannelDifference" : 0.535542047171083
+  },
+  "defaultVersusOmittingZeroAlphaP1" : {
+    "changedRGBPixels" : 36,
+    "maxChannelDifference" : 63,
+    "rmsChannelDifference" : 0.16532582386969813
+  },
+  "framesPerState" : 4,
+  "freshUnlitMaterial" : {
+    "alpha" : 1,
+    "blending" : "opaque",
+    "faceCulling" : "back",
+    "opacityThreshold" : null,
+    "readsDepth" : true,
+    "writesDepth" : true
+  },
+  "freshUnlitMaterialAfterTransparentHalf" : {
+    "alpha" : 0.5,
+    "blending" : "transparent",
+    "faceCulling" : "back",
+    "opacityThreshold" : null,
+    "readsDepth" : true,
+    "writesDepth" : true
+  },
+  "guidesAndSelection" : false,
+  "height" : 960,
+  "inputSHA256" : "95c3c0e0bcb3349fb05520926d27b8017d4964f1d2a0dd883c1a7e961a1ad4ea",
+  "noDepthWritesUpdatedVersusFreshP1" : {
+    "changedRGBPixels" : 0,
+    "maxChannelDifference" : 0,
+    "rmsChannelDifference" : 0
+  },
+  "pixelFormat" : "bgra8Unorm_srgb",
+  "platform" : "Version 27.0.1 (Build 26A434)",
+  "rootPitchRadians" : 0.28139999999999998,
+  "rootPosition" : [
+    0,
+    1.3999999999999999,
+    -3.1000000000000001
+  ],
+  "rootYawRadians" : -0.48060000000000003,
+  "schema" : "native-render-probe-result\/v1",
+  "scope" : "macOS RealityRenderer body-only offscreen diagnostic; not visionOS UI\/headset acceptance",
+  "toneMapping" : false,
+  "updatedVersusFreshP1" : {
+    "changedRGBPixels" : 0,
+    "maxChannelDifference" : 0,
+    "rmsChannelDifference" : 0
+  },
+  "updatedVersusRecreatedModelP1" : {
+    "changedRGBPixels" : 0,
+    "maxChannelDifference" : 0,
+    "rmsChannelDifference" : 0
+  },
+  "verticalFOVDegrees" : 60,
+  "width" : 1280
+}

@@ -81,3 +81,16 @@ native/evidence/screenshots/20261023T105050Z/
 native/evidence/ui-tests-20261023T105050Z.txt
 native/evidence/screenshots/20261023T110630Z/*video*
 native/evidence/screenshots/20261023T111156Z/*video*
+
+# Background rendering probes publish source and receipts, not compiler caches.
+artifacts/**/module-cache/
+artifacts/native-projected-body-audit/plan-probe
+artifacts/native-projected-body-audit/render-probe
+artifacts/native-projected-body-audit/plan-d16.json
+artifacts/native-projected-body-audit/*compile.txt
+native/evidence/screenshots/20261023T113815Z/*video*
+native/evidence/screenshots/20261023T115041Z/*video*
+native/evidence/screenshots/20261023T115306Z/*video*
+native/evidence/screenshots/20261023T120502Z/*video*
+native/evidence/preview-worker-video-export.txt
+native/evidence/preview-recurrence-video-export.txt

@@ -1,0 +1,3643 @@
+{
+  "schema": "polynomial-catalogue-cold-differential-v1",
+  "result": "passed",
+  "startedUTC": "2026-10-23T12:03:23.133574+00:00",
+  "execution": "sequential fresh processes; one Lean worker at a time",
+  "timingScope": "stdin write through complete stdout line, excluding JSON decoding; process start recorded separately",
+  "comparison": "all decoded fields and scalar types; ordered arrays preserved; object-key ordering ignored",
+  "sourceOracle": "not run by this script; test_catalogue.py is separate",
+  "scenarios": [
+    {
+      "name": "source16-15192",
+      "requests": [
+        {
+          "label": "cold-page-0",
+          "request": {
+            "id": 1,
+            "op": "catalogue",
+            "depth": 16,
+            "matrix": [
+              15192,
+              7950,
+              14719,
+              14285
+            ],
+            "offset": 0,
+            "limit": 16384
+          },
+          "baseline": {
+            "label": "cold-page-0",
+            "request": {
+              "id": 1,
+              "op": "catalogue",
+              "depth": 16,
+              "matrix": [
+                15192,
+                7950,
+                14719,
+                14285
+              ],
+              "offset": 0,
+              "limit": 16384
+            },
+            "elapsedMs": 869.147,
+            "responseBytes": 136398,
+            "responseSHA256": "2560d94d1daf0742617df5c55071b5ce0683a279fbae24b5d4c0a1660510f196",
+            "ok": true
+          },
+          "candidate": {
+            "label": "cold-page-0",
+            "request": {
+              "id": 1,
+              "op": "catalogue",
+              "depth": 16,
+              "matrix": [
+                15192,
+                7950,
+                14719,
+                14285
+              ],
+              "offset": 0,
+              "limit": 16384
+            },
+            "elapsedMs": 190.115,
+            "responseBytes": 136398,
+            "responseSHA256": "2560d94d1daf0742617df5c55071b5ce0683a279fbae24b5d4c0a1660510f196",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-same-config-members",
+          "request": {
+            "id": 2,
+            "op": "membersCatalogue",
+            "depth": 16,
+            "matrix": [
+              15192,
+              7950,
+              14719,
+              14285
+            ],
+            "normal": [
+              1,
+              0,
+              -1
+            ]
+          },
+          "baseline": {
+            "label": "warm-same-config-members",
+            "request": {
+              "id": 2,
+              "op": "membersCatalogue",
+              "depth": 16,
+              "matrix": [
+                15192,
+                7950,
+                14719,
+                14285
+              ],
+              "normal": [
+                1,
+                0,
+                -1
+              ]
+            },
+            "elapsedMs": 0.204,
+            "responseBytes": 1111,
+            "responseSHA256": "fb1ec2d567404f43237e9fe90d2a297ef09ab932d1f01be8b1a40f7bf2729a61",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-same-config-members",
+            "request": {
+              "id": 2,
+              "op": "membersCatalogue",
+              "depth": 16,
+              "matrix": [
+                15192,
+                7950,
+                14719,
+                14285
+              ],
+              "normal": [
+                1,
+                0,
+                -1
+              ]
+            },
+            "elapsedMs": 0.223,
+            "responseBytes": 1111,
+            "responseSHA256": "fb1ec2d567404f43237e9fe90d2a297ef09ab932d1f01be8b1a40f7bf2729a61",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-repeat-page-0",
+          "request": {
+            "id": 3,
+            "op": "catalogue",
+            "depth": 16,
+            "matrix": [
+              15192,
+              7950,
+              14719,
+              14285
+            ],
+            "offset": 0,
+            "limit": 16384
+          },
+          "baseline": {
+            "label": "warm-repeat-page-0",
+            "request": {
+              "id": 3,
+              "op": "catalogue",
+              "depth": 16,
+              "matrix": [
+                15192,
+                7950,
+                14719,
+                14285
+              ],
+              "offset": 0,
+              "limit": 16384
+            },
+            "elapsedMs": 4.018,
+            "responseBytes": 136398,
+            "responseSHA256": "929802e1bd796aacf33021c6bc2308487ad12606ebe1f39c7d15e3277a954b2b",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-repeat-page-0",
+            "request": {
+              "id": 3,
+              "op": "catalogue",
+              "depth": 16,
+              "matrix": [
+                15192,
+                7950,
+                14719,
+                14285
+              ],
+              "offset": 0,
+              "limit": 16384
+            },
+            "elapsedMs": 4.22,
+            "responseBytes": 136398,
+            "responseSHA256": "929802e1bd796aacf33021c6bc2308487ad12606ebe1f39c7d15e3277a954b2b",
+            "ok": true
+          },
+          "equal": true
+        }
+      ],
+      "result": "passed",
+      "baselineProcessStartMs": 3.393,
+      "candidateProcessStartMs": 3.088,
+      "coldBaselineMs": 869.147,
+      "coldCandidateMs": 190.115
+    },
+    {
+      "name": "source16-16478",
+      "requests": [
+        {
+          "label": "cold-page-0",
+          "request": {
+            "id": 1,
+            "op": "catalogue",
+            "depth": 16,
+            "matrix": [
+              16478,
+              8954,
+              16361,
+              14960
+            ],
+            "offset": 0,
+            "limit": 16384
+          },
+          "baseline": {
+            "label": "cold-page-0",
+            "request": {
+              "id": 1,
+              "op": "catalogue",
+              "depth": 16,
+              "matrix": [
+                16478,
+                8954,
+                16361,
+                14960
+              ],
+              "offset": 0,
+              "limit": 16384
+            },
+            "elapsedMs": 1504.133,
+            "responseBytes": 138126,
+            "responseSHA256": "3936dd9c90af47b9bb361f9eaeed4326212046a745acacc8b78625ab0cd3accb",
+            "ok": true
+          },
+          "candidate": {
+            "label": "cold-page-0",
+            "request": {
+              "id": 1,
+              "op": "catalogue",
+              "depth": 16,
+              "matrix": [
+                16478,
+                8954,
+                16361,
+                14960
+              ],
+              "offset": 0,
+              "limit": 16384
+            },
+            "elapsedMs": 268.04,
+            "responseBytes": 138126,
+            "responseSHA256": "3936dd9c90af47b9bb361f9eaeed4326212046a745acacc8b78625ab0cd3accb",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-same-config-members",
+          "request": {
+            "id": 2,
+            "op": "membersCatalogue",
+            "depth": 16,
+            "matrix": [
+              16478,
+              8954,
+              16361,
+              14960
+            ],
+            "normal": [
+              1,
+              0,
+              -1
+            ]
+          },
+          "baseline": {
+            "label": "warm-same-config-members",
+            "request": {
+              "id": 2,
+              "op": "membersCatalogue",
+              "depth": 16,
+              "matrix": [
+                16478,
+                8954,
+                16361,
+                14960
+              ],
+              "normal": [
+                1,
+                0,
+                -1
+              ]
+            },
+            "elapsedMs": 0.163,
+            "responseBytes": 991,
+            "responseSHA256": "67e6c1d41574d4e40577de263fbd3654c16c2e8f83c28568729f33853841be62",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-same-config-members",
+            "request": {
+              "id": 2,
+              "op": "membersCatalogue",
+              "depth": 16,
+              "matrix": [
+                16478,
+                8954,
+                16361,
+                14960
+              ],
+              "normal": [
+                1,
+                0,
+                -1
+              ]
+            },
+            "elapsedMs": 0.164,
+            "responseBytes": 991,
+            "responseSHA256": "67e6c1d41574d4e40577de263fbd3654c16c2e8f83c28568729f33853841be62",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-repeat-page-0",
+          "request": {
+            "id": 3,
+            "op": "catalogue",
+            "depth": 16,
+            "matrix": [
+              16478,
+              8954,
+              16361,
+              14960
+            ],
+            "offset": 0,
+            "limit": 16384
+          },
+          "baseline": {
+            "label": "warm-repeat-page-0",
+            "request": {
+              "id": 3,
+              "op": "catalogue",
+              "depth": 16,
+              "matrix": [
+                16478,
+                8954,
+                16361,
+                14960
+              ],
+              "offset": 0,
+              "limit": 16384
+            },
+            "elapsedMs": 3.894,
+            "responseBytes": 138126,
+            "responseSHA256": "b357cdfa8c127a55682c3b91153319bae45fe9cb9d9d1b830cfec0b174640b01",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-repeat-page-0",
+            "request": {
+              "id": 3,
+              "op": "catalogue",
+              "depth": 16,
+              "matrix": [
+                16478,
+                8954,
+                16361,
+                14960
+              ],
+              "offset": 0,
+              "limit": 16384
+            },
+            "elapsedMs": 4.063,
+            "responseBytes": 138126,
+            "responseSHA256": "b357cdfa8c127a55682c3b91153319bae45fe9cb9d9d1b830cfec0b174640b01",
+            "ok": true
+          },
+          "equal": true
+        }
+      ],
+      "result": "passed",
+      "baselineProcessStartMs": 3.622,
+      "candidateProcessStartMs": 2.835,
+      "coldBaselineMs": 1504.133,
+      "coldCandidateMs": 268.04
+    },
+    {
+      "name": "identity6-signed-multiples",
+      "requests": [
+        {
+          "label": "cold-page-0",
+          "request": {
+            "id": 1,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 16384
+          },
+          "baseline": {
+            "label": "cold-page-0",
+            "request": {
+              "id": 1,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 16384
+            },
+            "elapsedMs": 21.106,
+            "responseBytes": 6251,
+            "responseSHA256": "a0e376a1b7b0a3b45f999b946481308afe8036f9cb36b49ea16afdb97c3f6157",
+            "ok": true
+          },
+          "candidate": {
+            "label": "cold-page-0",
+            "request": {
+              "id": 1,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 16384
+            },
+            "elapsedMs": 20.071,
+            "responseBytes": 6251,
+            "responseSHA256": "a0e376a1b7b0a3b45f999b946481308afe8036f9cb36b49ea16afdb97c3f6157",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-same-config-members",
+          "request": {
+            "id": 2,
+            "op": "membersCatalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "normal": [
+              1,
+              0,
+              -1
+            ]
+          },
+          "baseline": {
+            "label": "warm-same-config-members",
+            "request": {
+              "id": 2,
+              "op": "membersCatalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "normal": [
+                1,
+                0,
+                -1
+              ]
+            },
+            "elapsedMs": 0.074,
+            "responseBytes": 714,
+            "responseSHA256": "0b97f3879735707c49390a35da3229d103f14c37cd5810bbd9ab86c128863a06",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-same-config-members",
+            "request": {
+              "id": 2,
+              "op": "membersCatalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "normal": [
+                1,
+                0,
+                -1
+              ]
+            },
+            "elapsedMs": 0.115,
+            "responseBytes": 714,
+            "responseSHA256": "0b97f3879735707c49390a35da3229d103f14c37cd5810bbd9ab86c128863a06",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-repeat-page-0",
+          "request": {
+            "id": 3,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 16384
+          },
+          "baseline": {
+            "label": "warm-repeat-page-0",
+            "request": {
+              "id": 3,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 16384
+            },
+            "elapsedMs": 0.326,
+            "responseBytes": 6251,
+            "responseSHA256": "502558766bf40447484e17cac3996a303f245beae4a3cc54349542b652824e1b",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-repeat-page-0",
+            "request": {
+              "id": 3,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 16384
+            },
+            "elapsedMs": 0.321,
+            "responseBytes": 6251,
+            "responseSHA256": "502558766bf40447484e17cac3996a303f245beae4a3cc54349542b652824e1b",
+            "ok": true
+          },
+          "equal": true
+        }
+      ],
+      "result": "passed",
+      "baselineProcessStartMs": 2.497,
+      "candidateProcessStartMs": 3.054,
+      "coldBaselineMs": 21.106,
+      "coldCandidateMs": 20.071
+    },
+    {
+      "name": "identity12-exact-norm-boundary",
+      "requests": [
+        {
+          "label": "cold-page-0",
+          "request": {
+            "id": 1,
+            "op": "catalogue",
+            "depth": 12,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 16384
+          },
+          "baseline": {
+            "label": "cold-page-0",
+            "request": {
+              "id": 1,
+              "op": "catalogue",
+              "depth": 12,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 16384
+            },
+            "elapsedMs": 21.717,
+            "responseBytes": 53884,
+            "responseSHA256": "09bb5544ef7fa3ce8f5319ca693ef76492ff4437a087cb9b34dafc4c1a47edfe",
+            "ok": true
+          },
+          "candidate": {
+            "label": "cold-page-0",
+            "request": {
+              "id": 1,
+              "op": "catalogue",
+              "depth": 12,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 16384
+            },
+            "elapsedMs": 21.318,
+            "responseBytes": 53884,
+            "responseSHA256": "09bb5544ef7fa3ce8f5319ca693ef76492ff4437a087cb9b34dafc4c1a47edfe",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-same-config-members",
+          "request": {
+            "id": 2,
+            "op": "membersCatalogue",
+            "depth": 12,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "normal": [
+              1,
+              0,
+              -1
+            ]
+          },
+          "baseline": {
+            "label": "warm-same-config-members",
+            "request": {
+              "id": 2,
+              "op": "membersCatalogue",
+              "depth": 12,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "normal": [
+                1,
+                0,
+                -1
+              ]
+            },
+            "elapsedMs": 0.173,
+            "responseBytes": 1128,
+            "responseSHA256": "23027f5c821e7846e7d9ae0b7cbef39519caf5c75d7826715b43bdd7a3e3085d",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-same-config-members",
+            "request": {
+              "id": 2,
+              "op": "membersCatalogue",
+              "depth": 12,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "normal": [
+                1,
+                0,
+                -1
+              ]
+            },
+            "elapsedMs": 0.219,
+            "responseBytes": 1128,
+            "responseSHA256": "23027f5c821e7846e7d9ae0b7cbef39519caf5c75d7826715b43bdd7a3e3085d",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-repeat-page-0",
+          "request": {
+            "id": 3,
+            "op": "catalogue",
+            "depth": 12,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 16384
+          },
+          "baseline": {
+            "label": "warm-repeat-page-0",
+            "request": {
+              "id": 3,
+              "op": "catalogue",
+              "depth": 12,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 16384
+            },
+            "elapsedMs": 1.778,
+            "responseBytes": 53884,
+            "responseSHA256": "a929f1adf1a04626b59519f8a261fbcf7834519b1bf08dc698896483dda1883a",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-repeat-page-0",
+            "request": {
+              "id": 3,
+              "op": "catalogue",
+              "depth": 12,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 16384
+            },
+            "elapsedMs": 1.915,
+            "responseBytes": 53884,
+            "responseSHA256": "a929f1adf1a04626b59519f8a261fbcf7834519b1bf08dc698896483dda1883a",
+            "ok": true
+          },
+          "equal": true
+        }
+      ],
+      "result": "passed",
+      "baselineProcessStartMs": 3.1,
+      "candidateProcessStartMs": 4.061,
+      "coldBaselineMs": 21.717,
+      "coldCandidateMs": 21.318
+    },
+    {
+      "name": "rational-d5",
+      "requests": [
+        {
+          "label": "cold-page-0",
+          "request": {
+            "id": 1,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              3,
+              1,
+              1,
+              2
+            ],
+            "offset": 0,
+            "limit": 16384
+          },
+          "baseline": {
+            "label": "cold-page-0",
+            "request": {
+              "id": 1,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                3,
+                1,
+                1,
+                2
+              ],
+              "offset": 0,
+              "limit": 16384
+            },
+            "elapsedMs": 18.432,
+            "responseBytes": 6510,
+            "responseSHA256": "19f34c92d4dc4e94ffee587164eb97874a3f1b8e8ccf38c5995d9fb520d4fe6a",
+            "ok": true
+          },
+          "candidate": {
+            "label": "cold-page-0",
+            "request": {
+              "id": 1,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                3,
+                1,
+                1,
+                2
+              ],
+              "offset": 0,
+              "limit": 16384
+            },
+            "elapsedMs": 19.471,
+            "responseBytes": 6510,
+            "responseSHA256": "19f34c92d4dc4e94ffee587164eb97874a3f1b8e8ccf38c5995d9fb520d4fe6a",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-same-config-members",
+          "request": {
+            "id": 2,
+            "op": "membersCatalogue",
+            "depth": 6,
+            "matrix": [
+              3,
+              1,
+              1,
+              2
+            ],
+            "normal": [
+              1,
+              0,
+              -1
+            ]
+          },
+          "baseline": {
+            "label": "warm-same-config-members",
+            "request": {
+              "id": 2,
+              "op": "membersCatalogue",
+              "depth": 6,
+              "matrix": [
+                3,
+                1,
+                1,
+                2
+              ],
+              "normal": [
+                1,
+                0,
+                -1
+              ]
+            },
+            "elapsedMs": 0.084,
+            "responseBytes": 692,
+            "responseSHA256": "51e6ec84f563fda2f883581226806751841c6aa03cfec99627d22c87b6ead2d8",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-same-config-members",
+            "request": {
+              "id": 2,
+              "op": "membersCatalogue",
+              "depth": 6,
+              "matrix": [
+                3,
+                1,
+                1,
+                2
+              ],
+              "normal": [
+                1,
+                0,
+                -1
+              ]
+            },
+            "elapsedMs": 0.09,
+            "responseBytes": 692,
+            "responseSHA256": "51e6ec84f563fda2f883581226806751841c6aa03cfec99627d22c87b6ead2d8",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-repeat-page-0",
+          "request": {
+            "id": 3,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              3,
+              1,
+              1,
+              2
+            ],
+            "offset": 0,
+            "limit": 16384
+          },
+          "baseline": {
+            "label": "warm-repeat-page-0",
+            "request": {
+              "id": 3,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                3,
+                1,
+                1,
+                2
+              ],
+              "offset": 0,
+              "limit": 16384
+            },
+            "elapsedMs": 0.245,
+            "responseBytes": 6510,
+            "responseSHA256": "6a8cd07d964eafcca4d7f8580b4d9a9a91bfe2037beeff493cb0fec0fc866141",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-repeat-page-0",
+            "request": {
+              "id": 3,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                3,
+                1,
+                1,
+                2
+              ],
+              "offset": 0,
+              "limit": 16384
+            },
+            "elapsedMs": 0.26,
+            "responseBytes": 6510,
+            "responseSHA256": "6a8cd07d964eafcca4d7f8580b4d9a9a91bfe2037beeff493cb0fec0fc866141",
+            "ok": true
+          },
+          "equal": true
+        }
+      ],
+      "result": "passed",
+      "baselineProcessStartMs": 3.026,
+      "candidateProcessStartMs": 2.748,
+      "coldBaselineMs": 18.432,
+      "coldCandidateMs": 19.471
+    },
+    {
+      "name": "identity6-pages17",
+      "requests": [
+        {
+          "label": "cold-page-0",
+          "request": {
+            "id": 1,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "cold-page-0",
+            "request": {
+              "id": 1,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 18.724,
+            "responseBytes": 1155,
+            "responseSHA256": "503325c03f546024c7f2843b956597c4b53a533fdd30fc970bdc94943eaea9a6",
+            "ok": true
+          },
+          "candidate": {
+            "label": "cold-page-0",
+            "request": {
+              "id": 1,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 19.393,
+            "responseBytes": 1155,
+            "responseSHA256": "503325c03f546024c7f2843b956597c4b53a533fdd30fc970bdc94943eaea9a6",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-page-17",
+          "request": {
+            "id": 2,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 17,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-page-17",
+            "request": {
+              "id": 2,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 17,
+              "limit": 17
+            },
+            "elapsedMs": 0.15,
+            "responseBytes": 1152,
+            "responseSHA256": "142a9fac03665b5d7ce334a4e5d5f8c24b4e2880f43925f0c5fe1f2b262db3d5",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-page-17",
+            "request": {
+              "id": 2,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 17,
+              "limit": 17
+            },
+            "elapsedMs": 0.113,
+            "responseBytes": 1152,
+            "responseSHA256": "142a9fac03665b5d7ce334a4e5d5f8c24b4e2880f43925f0c5fe1f2b262db3d5",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-page-34",
+          "request": {
+            "id": 3,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 34,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-page-34",
+            "request": {
+              "id": 3,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 34,
+              "limit": 17
+            },
+            "elapsedMs": 0.094,
+            "responseBytes": 1157,
+            "responseSHA256": "ce6904f435a72ee059188e417a04f7b41c133eac66baf2f24e9081df2b784255",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-page-34",
+            "request": {
+              "id": 3,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 34,
+              "limit": 17
+            },
+            "elapsedMs": 0.084,
+            "responseBytes": 1157,
+            "responseSHA256": "ce6904f435a72ee059188e417a04f7b41c133eac66baf2f24e9081df2b784255",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-page-51",
+          "request": {
+            "id": 4,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 51,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-page-51",
+            "request": {
+              "id": 4,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 51,
+              "limit": 17
+            },
+            "elapsedMs": 0.099,
+            "responseBytes": 1163,
+            "responseSHA256": "1dbacfa7a4faf16c9cf1295a098f9478502981d7fe710c39043102a661bee9a4",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-page-51",
+            "request": {
+              "id": 4,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 51,
+              "limit": 17
+            },
+            "elapsedMs": 0.113,
+            "responseBytes": 1163,
+            "responseSHA256": "1dbacfa7a4faf16c9cf1295a098f9478502981d7fe710c39043102a661bee9a4",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-page-68",
+          "request": {
+            "id": 5,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 68,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-page-68",
+            "request": {
+              "id": 5,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 68,
+              "limit": 17
+            },
+            "elapsedMs": 0.062,
+            "responseBytes": 1163,
+            "responseSHA256": "fca71b26e8a7e8580a6b8533a1b9e7f155085207f513b8cbb66cfa0ebf6afcf8",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-page-68",
+            "request": {
+              "id": 5,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 68,
+              "limit": 17
+            },
+            "elapsedMs": 0.06,
+            "responseBytes": 1163,
+            "responseSHA256": "fca71b26e8a7e8580a6b8533a1b9e7f155085207f513b8cbb66cfa0ebf6afcf8",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-page-85",
+          "request": {
+            "id": 6,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 85,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-page-85",
+            "request": {
+              "id": 6,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 85,
+              "limit": 17
+            },
+            "elapsedMs": 0.086,
+            "responseBytes": 1170,
+            "responseSHA256": "b04b1f95d3afe31edea250333c0d8a15a764e2b5518e08d19e2b33d8f8475cc5",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-page-85",
+            "request": {
+              "id": 6,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 85,
+              "limit": 17
+            },
+            "elapsedMs": 0.067,
+            "responseBytes": 1170,
+            "responseSHA256": "b04b1f95d3afe31edea250333c0d8a15a764e2b5518e08d19e2b33d8f8475cc5",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-page-102",
+          "request": {
+            "id": 7,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 102,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-page-102",
+            "request": {
+              "id": 7,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 102,
+              "limit": 17
+            },
+            "elapsedMs": 0.085,
+            "responseBytes": 1170,
+            "responseSHA256": "72fc4e9bf02ce22ef49a64f79d02f14e47cca7c681ab2074fb3831ea0adcaf59",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-page-102",
+            "request": {
+              "id": 7,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 102,
+              "limit": 17
+            },
+            "elapsedMs": 0.057,
+            "responseBytes": 1170,
+            "responseSHA256": "72fc4e9bf02ce22ef49a64f79d02f14e47cca7c681ab2074fb3831ea0adcaf59",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-page-119",
+          "request": {
+            "id": 8,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 119,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-page-119",
+            "request": {
+              "id": 8,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 119,
+              "limit": 17
+            },
+            "elapsedMs": 0.061,
+            "responseBytes": 1177,
+            "responseSHA256": "ca2b5106a096a38b0b2b72d1b7ca759922cb45acb23ab634210777d45f3d8645",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-page-119",
+            "request": {
+              "id": 8,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 119,
+              "limit": 17
+            },
+            "elapsedMs": 0.078,
+            "responseBytes": 1177,
+            "responseSHA256": "ca2b5106a096a38b0b2b72d1b7ca759922cb45acb23ab634210777d45f3d8645",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-page-136",
+          "request": {
+            "id": 9,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 136,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-page-136",
+            "request": {
+              "id": 9,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 136,
+              "limit": 17
+            },
+            "elapsedMs": 0.057,
+            "responseBytes": 1182,
+            "responseSHA256": "57168902beef44b0f1fa86c1934aca235a6b92b3c2b5bf18b9e0ebf01a9ca362",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-page-136",
+            "request": {
+              "id": 9,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 136,
+              "limit": 17
+            },
+            "elapsedMs": 0.052,
+            "responseBytes": 1182,
+            "responseSHA256": "57168902beef44b0f1fa86c1934aca235a6b92b3c2b5bf18b9e0ebf01a9ca362",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-page-153",
+          "request": {
+            "id": 10,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 153,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-page-153",
+            "request": {
+              "id": 10,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 153,
+              "limit": 17
+            },
+            "elapsedMs": 0.057,
+            "responseBytes": 1179,
+            "responseSHA256": "ab569a1a65746c92ef97238b24b64ec21b22a16a35aa1444148cdf79a8ea80a2",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-page-153",
+            "request": {
+              "id": 10,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 153,
+              "limit": 17
+            },
+            "elapsedMs": 0.085,
+            "responseBytes": 1179,
+            "responseSHA256": "ab569a1a65746c92ef97238b24b64ec21b22a16a35aa1444148cdf79a8ea80a2",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-page-170",
+          "request": {
+            "id": 11,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 170,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-page-170",
+            "request": {
+              "id": 11,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 170,
+              "limit": 17
+            },
+            "elapsedMs": 0.058,
+            "responseBytes": 1179,
+            "responseSHA256": "13931458ff88f435c2a48da59303e3495adf357f04395ec152685eca243c7525",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-page-170",
+            "request": {
+              "id": 11,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 170,
+              "limit": 17
+            },
+            "elapsedMs": 0.052,
+            "responseBytes": 1179,
+            "responseSHA256": "13931458ff88f435c2a48da59303e3495adf357f04395ec152685eca243c7525",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-page-187",
+          "request": {
+            "id": 12,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 187,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-page-187",
+            "request": {
+              "id": 12,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 187,
+              "limit": 17
+            },
+            "elapsedMs": 0.059,
+            "responseBytes": 1159,
+            "responseSHA256": "e2f54f884483f3202a3c25b1e4c558cb866c9e8322124946ec1b20902f63c1e0",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-page-187",
+            "request": {
+              "id": 12,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 187,
+              "limit": 17
+            },
+            "elapsedMs": 0.048,
+            "responseBytes": 1159,
+            "responseSHA256": "e2f54f884483f3202a3c25b1e4c558cb866c9e8322124946ec1b20902f63c1e0",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-page-204",
+          "request": {
+            "id": 13,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 204,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-page-204",
+            "request": {
+              "id": 13,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 204,
+              "limit": 17
+            },
+            "elapsedMs": 0.06,
+            "responseBytes": 925,
+            "responseSHA256": "197e81ce7a79078e88218e6591130123df79317b67ddc6ee8247c2a32005b52a",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-page-204",
+            "request": {
+              "id": 13,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 204,
+              "limit": 17
+            },
+            "elapsedMs": 0.075,
+            "responseBytes": 925,
+            "responseSHA256": "197e81ce7a79078e88218e6591130123df79317b67ddc6ee8247c2a32005b52a",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-same-config-members",
+          "request": {
+            "id": 14,
+            "op": "membersCatalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "normal": [
+              1,
+              0,
+              -1
+            ]
+          },
+          "baseline": {
+            "label": "warm-same-config-members",
+            "request": {
+              "id": 14,
+              "op": "membersCatalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "normal": [
+                1,
+                0,
+                -1
+              ]
+            },
+            "elapsedMs": 0.046,
+            "responseBytes": 715,
+            "responseSHA256": "5615626767ed49ea1e92f9feb2a5b3590ba93675cf38d26a80597380195a8638",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-same-config-members",
+            "request": {
+              "id": 14,
+              "op": "membersCatalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "normal": [
+                1,
+                0,
+                -1
+              ]
+            },
+            "elapsedMs": 0.063,
+            "responseBytes": 715,
+            "responseSHA256": "5615626767ed49ea1e92f9feb2a5b3590ba93675cf38d26a80597380195a8638",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-repeat-page-0",
+          "request": {
+            "id": 15,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-repeat-page-0",
+            "request": {
+              "id": 15,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.055,
+            "responseBytes": 1156,
+            "responseSHA256": "ac06e0a3dcd87110aed22d8ac0cdb859be1575fcd797156a4063fe1b23a5e15c",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-repeat-page-0",
+            "request": {
+              "id": 15,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.064,
+            "responseBytes": 1156,
+            "responseSHA256": "ac06e0a3dcd87110aed22d8ac0cdb859be1575fcd797156a4063fe1b23a5e15c",
+            "ok": true
+          },
+          "equal": true
+        }
+      ],
+      "result": "passed",
+      "baselineProcessStartMs": 3.037,
+      "candidateProcessStartMs": 2.59,
+      "coldBaselineMs": 18.724,
+      "coldCandidateMs": 19.393
+    },
+    {
+      "name": "other-scan-source-limit",
+      "requests": [
+        {
+          "label": "cold-page-0",
+          "request": {
+            "id": 1,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              6,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 16384
+          },
+          "baseline": {
+            "label": "cold-page-0",
+            "request": {
+              "id": 1,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                6,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 16384
+            },
+            "elapsedMs": 18.861,
+            "responseBytes": 6765,
+            "responseSHA256": "9e1a35ec37a22e73d1889229431c9ca6d818d2fb8d18e05eac0566aa2ee54ab0",
+            "ok": true
+          },
+          "candidate": {
+            "label": "cold-page-0",
+            "request": {
+              "id": 1,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                6,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 16384
+            },
+            "elapsedMs": 18.95,
+            "responseBytes": 6765,
+            "responseSHA256": "9e1a35ec37a22e73d1889229431c9ca6d818d2fb8d18e05eac0566aa2ee54ab0",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-same-config-members",
+          "request": {
+            "id": 2,
+            "op": "membersCatalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              6,
+              0,
+              1
+            ],
+            "normal": [
+              1,
+              0,
+              -1
+            ]
+          },
+          "baseline": {
+            "label": "warm-same-config-members",
+            "request": {
+              "id": 2,
+              "op": "membersCatalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                6,
+                0,
+                1
+              ],
+              "normal": [
+                1,
+                0,
+                -1
+              ]
+            },
+            "elapsedMs": 0.109,
+            "responseBytes": 636,
+            "responseSHA256": "dee919c433f9d96081b0f20e26ad297e838c07e5fe818f7af436febd634a3a2c",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-same-config-members",
+            "request": {
+              "id": 2,
+              "op": "membersCatalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                6,
+                0,
+                1
+              ],
+              "normal": [
+                1,
+                0,
+                -1
+              ]
+            },
+            "elapsedMs": 0.096,
+            "responseBytes": 636,
+            "responseSHA256": "dee919c433f9d96081b0f20e26ad297e838c07e5fe818f7af436febd634a3a2c",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-repeat-page-0",
+          "request": {
+            "id": 3,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              6,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 16384
+          },
+          "baseline": {
+            "label": "warm-repeat-page-0",
+            "request": {
+              "id": 3,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                6,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 16384
+            },
+            "elapsedMs": 0.267,
+            "responseBytes": 6765,
+            "responseSHA256": "7e9a7570189539f2b06fb3e49262e54480e15f54c905623effc52cdad8518403",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-repeat-page-0",
+            "request": {
+              "id": 3,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                6,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 16384
+            },
+            "elapsedMs": 0.264,
+            "responseBytes": 6765,
+            "responseSHA256": "7e9a7570189539f2b06fb3e49262e54480e15f54c905623effc52cdad8518403",
+            "ok": true
+          },
+          "equal": true
+        }
+      ],
+      "result": "passed",
+      "baselineProcessStartMs": 3.144,
+      "candidateProcessStartMs": 2.687,
+      "coldBaselineMs": 18.861,
+      "coldCandidateMs": 18.95
+    },
+    {
+      "name": "upper-cap96",
+      "requests": [
+        {
+          "label": "cold-page-0",
+          "request": {
+            "id": 1,
+            "op": "catalogue",
+            "depth": 96,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "whole": false,
+            "offset": 0,
+            "limit": 1
+          },
+          "baseline": {
+            "label": "cold-page-0",
+            "request": {
+              "id": 1,
+              "op": "catalogue",
+              "depth": 96,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "whole": false,
+              "offset": 0,
+              "limit": 1
+            },
+            "elapsedMs": 24.674,
+            "responseBytes": 760,
+            "responseSHA256": "c8bf3645a5ae3502cca3aadfd14282b2d7f5f775ba06ad27159096d441527a03",
+            "ok": true
+          },
+          "candidate": {
+            "label": "cold-page-0",
+            "request": {
+              "id": 1,
+              "op": "catalogue",
+              "depth": 96,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "whole": false,
+              "offset": 0,
+              "limit": 1
+            },
+            "elapsedMs": 25.271,
+            "responseBytes": 760,
+            "responseSHA256": "c8bf3645a5ae3502cca3aadfd14282b2d7f5f775ba06ad27159096d441527a03",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-cap-last",
+          "request": {
+            "id": 2,
+            "op": "catalogue",
+            "depth": 96,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "whole": false,
+            "offset": 599999,
+            "limit": 1
+          },
+          "baseline": {
+            "label": "warm-cap-last",
+            "request": {
+              "id": 2,
+              "op": "catalogue",
+              "depth": 96,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "whole": false,
+              "offset": 599999,
+              "limit": 1
+            },
+            "elapsedMs": 0.112,
+            "responseBytes": 770,
+            "responseSHA256": "fdb8c419145b2c624467730d4b0053c255a1d4afccf76903e144980900313baa",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-cap-last",
+            "request": {
+              "id": 2,
+              "op": "catalogue",
+              "depth": 96,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "whole": false,
+              "offset": 599999,
+              "limit": 1
+            },
+            "elapsedMs": 0.107,
+            "responseBytes": 770,
+            "responseSHA256": "fdb8c419145b2c624467730d4b0053c255a1d4afccf76903e144980900313baa",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-cap-middle",
+          "request": {
+            "id": 3,
+            "op": "catalogue",
+            "depth": 96,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "whole": false,
+            "offset": 300000,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-cap-middle",
+            "request": {
+              "id": 3,
+              "op": "catalogue",
+              "depth": 96,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "whole": false,
+              "offset": 300000,
+              "limit": 17
+            },
+            "elapsedMs": 0.236,
+            "responseBytes": 1316,
+            "responseSHA256": "6e6810f147dfba9554266aac09cdb26b4e3e235cf9d4aefd2c274df8e8ae36ed",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-cap-middle",
+            "request": {
+              "id": 3,
+              "op": "catalogue",
+              "depth": 96,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "whole": false,
+              "offset": 300000,
+              "limit": 17
+            },
+            "elapsedMs": 0.082,
+            "responseBytes": 1316,
+            "responseSHA256": "6e6810f147dfba9554266aac09cdb26b4e3e235cf9d4aefd2c274df8e8ae36ed",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-repeat-page-0",
+          "request": {
+            "id": 4,
+            "op": "catalogue",
+            "depth": 96,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "whole": false,
+            "offset": 0,
+            "limit": 1
+          },
+          "baseline": {
+            "label": "warm-repeat-page-0",
+            "request": {
+              "id": 4,
+              "op": "catalogue",
+              "depth": 96,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "whole": false,
+              "offset": 0,
+              "limit": 1
+            },
+            "elapsedMs": 0.074,
+            "responseBytes": 760,
+            "responseSHA256": "46048cf4a017b87931b24bea7308eeb21dc01be9487f19959dbe6be98d0cb3ec",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-repeat-page-0",
+            "request": {
+              "id": 4,
+              "op": "catalogue",
+              "depth": 96,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "whole": false,
+              "offset": 0,
+              "limit": 1
+            },
+            "elapsedMs": 0.067,
+            "responseBytes": 760,
+            "responseSHA256": "46048cf4a017b87931b24bea7308eeb21dc01be9487f19959dbe6be98d0cb3ec",
+            "ok": true
+          },
+          "equal": true
+        }
+      ],
+      "result": "passed",
+      "baselineProcessStartMs": 2.832,
+      "candidateProcessStartMs": 3.382,
+      "coldBaselineMs": 24.674,
+      "coldCandidateMs": 25.271
+    },
+    {
+      "name": "errors-preserve-cache",
+      "requests": [
+        {
+          "label": "cold-page-0",
+          "request": {
+            "id": 1,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "cold-page-0",
+            "request": {
+              "id": 1,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 19.988,
+            "responseBytes": 1155,
+            "responseSHA256": "503325c03f546024c7f2843b956597c4b53a533fdd30fc970bdc94943eaea9a6",
+            "ok": true
+          },
+          "candidate": {
+            "label": "cold-page-0",
+            "request": {
+              "id": 1,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 18.61,
+            "responseBytes": 1155,
+            "responseSHA256": "503325c03f546024c7f2843b956597c4b53a533fdd30fc970bdc94943eaea9a6",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "error-c-envelope12",
+          "request": {
+            "id": 2,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              12,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "error-c-envelope12",
+            "request": {
+              "id": 2,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                12,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.099,
+            "responseBytes": 220,
+            "responseSHA256": "1bf7fb37d44fbbd2c82ab208d04ea77d344c6b976b8468c45b9a9875edcac075",
+            "ok": false
+          },
+          "candidate": {
+            "label": "error-c-envelope12",
+            "request": {
+              "id": 2,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                12,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.06,
+            "responseBytes": 220,
+            "responseSHA256": "1bf7fb37d44fbbd2c82ab208d04ea77d344c6b976b8468c45b9a9875edcac075",
+            "ok": false
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-after-c-envelope12",
+          "request": {
+            "id": 3,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-after-c-envelope12",
+            "request": {
+              "id": 3,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.087,
+            "responseBytes": 1155,
+            "responseSHA256": "96e580e8226e5161064ab202ab6e41319310248378d142eb4c5d524a03efa5b5",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-after-c-envelope12",
+            "request": {
+              "id": 3,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.091,
+            "responseBytes": 1155,
+            "responseSHA256": "96e580e8226e5161064ab202ab6e41319310248378d142eb4c5d524a03efa5b5",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "error-c-envelope13",
+          "request": {
+            "id": 4,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              13,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "error-c-envelope13",
+            "request": {
+              "id": 4,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                13,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.048,
+            "responseBytes": 220,
+            "responseSHA256": "d6befa84d6380973045a786b286b270e3113467f69dd891b7a2751c6625b8b5e",
+            "ok": false
+          },
+          "candidate": {
+            "label": "error-c-envelope13",
+            "request": {
+              "id": 4,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                13,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.042,
+            "responseBytes": 220,
+            "responseSHA256": "d6befa84d6380973045a786b286b270e3113467f69dd891b7a2751c6625b8b5e",
+            "ok": false
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-after-c-envelope13",
+          "request": {
+            "id": 5,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-after-c-envelope13",
+            "request": {
+              "id": 5,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.08,
+            "responseBytes": 1155,
+            "responseSHA256": "b4ed3cdac33b617339df64c3a45696a3afb32bc788501806923afa1d651feb45",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-after-c-envelope13",
+            "request": {
+              "id": 5,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.111,
+            "responseBytes": 1155,
+            "responseSHA256": "b4ed3cdac33b617339df64c3a45696a3afb32bc788501806923afa1d651feb45",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "error-extreme-envelope",
+          "request": {
+            "id": 6,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              1000000,
+              1
+            ],
+            "offset": 0,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "error-extreme-envelope",
+            "request": {
+              "id": 6,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                1000000,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.034,
+            "responseBytes": 220,
+            "responseSHA256": "f22534e0dc0b689dc08b0b4954ae70b7e3a678cdf9a326a67faced31e409791a",
+            "ok": false
+          },
+          "candidate": {
+            "label": "error-extreme-envelope",
+            "request": {
+              "id": 6,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                1000000,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.047,
+            "responseBytes": 220,
+            "responseSHA256": "f22534e0dc0b689dc08b0b4954ae70b7e3a678cdf9a326a67faced31e409791a",
+            "ok": false
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-after-extreme-envelope",
+          "request": {
+            "id": 7,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-after-extreme-envelope",
+            "request": {
+              "id": 7,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.079,
+            "responseBytes": 1155,
+            "responseSHA256": "0f26c806d240b8701a8e7a4977a5709ba9724d99ce63898158a0c2471b4224d3",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-after-extreme-envelope",
+            "request": {
+              "id": 7,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.09,
+            "responseBytes": 1155,
+            "responseSHA256": "0f26c806d240b8701a8e7a4977a5709ba9724d99ce63898158a0c2471b4224d3",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "error-depth-low",
+          "request": {
+            "id": 8,
+            "op": "catalogue",
+            "depth": 3,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "error-depth-low",
+            "request": {
+              "id": 8,
+              "op": "catalogue",
+              "depth": 3,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.055,
+            "responseBytes": 184,
+            "responseSHA256": "1b1760f5aefea955b2aad6d3d18b65ddc9facd5d40f094fb933bb40ba98b7854",
+            "ok": false
+          },
+          "candidate": {
+            "label": "error-depth-low",
+            "request": {
+              "id": 8,
+              "op": "catalogue",
+              "depth": 3,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.062,
+            "responseBytes": 184,
+            "responseSHA256": "1b1760f5aefea955b2aad6d3d18b65ddc9facd5d40f094fb933bb40ba98b7854",
+            "ok": false
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-after-depth-low",
+          "request": {
+            "id": 9,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-after-depth-low",
+            "request": {
+              "id": 9,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.073,
+            "responseBytes": 1155,
+            "responseSHA256": "b4721a5ac2bbc93cbe5486bc75c6417477ea1ab86b7cc47a02abb432db02f550",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-after-depth-low",
+            "request": {
+              "id": 9,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.081,
+            "responseBytes": 1155,
+            "responseSHA256": "b4721a5ac2bbc93cbe5486bc75c6417477ea1ab86b7cc47a02abb432db02f550",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "error-depth-high",
+          "request": {
+            "id": 10,
+            "op": "catalogue",
+            "depth": 97,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "error-depth-high",
+            "request": {
+              "id": 10,
+              "op": "catalogue",
+              "depth": 97,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.027,
+            "responseBytes": 185,
+            "responseSHA256": "d0cab80cc2244309db46b1a10f7a81f4c6ba4a6fff5247f6bdb087c2354b3e8d",
+            "ok": false
+          },
+          "candidate": {
+            "label": "error-depth-high",
+            "request": {
+              "id": 10,
+              "op": "catalogue",
+              "depth": 97,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.03,
+            "responseBytes": 185,
+            "responseSHA256": "d0cab80cc2244309db46b1a10f7a81f4c6ba4a6fff5247f6bdb087c2354b3e8d",
+            "ok": false
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-after-depth-high",
+          "request": {
+            "id": 11,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-after-depth-high",
+            "request": {
+              "id": 11,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.049,
+            "responseBytes": 1156,
+            "responseSHA256": "9dcd8c56955301d1658dcbe2f7e6501bbe1605a53aa8fcabfeaca31cc78b5444",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-after-depth-high",
+            "request": {
+              "id": 11,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.059,
+            "responseBytes": 1156,
+            "responseSHA256": "9dcd8c56955301d1658dcbe2f7e6501bbe1605a53aa8fcabfeaca31cc78b5444",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "error-singular",
+          "request": {
+            "id": 12,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "offset": 0,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "error-singular",
+            "request": {
+              "id": 12,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.054,
+            "responseBytes": 197,
+            "responseSHA256": "1580d80c50f6f4f7bd053c57308052c29f32562fbf9cfcd2e0ece0416b54cd46",
+            "ok": false
+          },
+          "candidate": {
+            "label": "error-singular",
+            "request": {
+              "id": 12,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.025,
+            "responseBytes": 197,
+            "responseSHA256": "1580d80c50f6f4f7bd053c57308052c29f32562fbf9cfcd2e0ece0416b54cd46",
+            "ok": false
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-after-singular",
+          "request": {
+            "id": 13,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-after-singular",
+            "request": {
+              "id": 13,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.078,
+            "responseBytes": 1156,
+            "responseSHA256": "4e8455c5d20e033d3ffe568b6ddec36b1400f3e7179c84c3300a929ce9f7eeb9",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-after-singular",
+            "request": {
+              "id": 13,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.058,
+            "responseBytes": 1156,
+            "responseSHA256": "4e8455c5d20e033d3ffe568b6ddec36b1400f3e7179c84c3300a929ce9f7eeb9",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "error-entry-bound",
+          "request": {
+            "id": 14,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1000001,
+              0,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "error-entry-bound",
+            "request": {
+              "id": 14,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1000001,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.034,
+            "responseBytes": 204,
+            "responseSHA256": "fb6870735cb2a51d6bbdc17de62835d21f677c38d09482fbadd0a20115a00050",
+            "ok": false
+          },
+          "candidate": {
+            "label": "error-entry-bound",
+            "request": {
+              "id": 14,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1000001,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.024,
+            "responseBytes": 204,
+            "responseSHA256": "fb6870735cb2a51d6bbdc17de62835d21f677c38d09482fbadd0a20115a00050",
+            "ok": false
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-after-entry-bound",
+          "request": {
+            "id": 15,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-after-entry-bound",
+            "request": {
+              "id": 15,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.096,
+            "responseBytes": 1156,
+            "responseSHA256": "ac06e0a3dcd87110aed22d8ac0cdb859be1575fcd797156a4063fe1b23a5e15c",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-after-entry-bound",
+            "request": {
+              "id": 15,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.055,
+            "responseBytes": 1156,
+            "responseSHA256": "ac06e0a3dcd87110aed22d8ac0cdb859be1575fcd797156a4063fe1b23a5e15c",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "error-whole-type",
+          "request": {
+            "id": 16,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 17,
+            "whole": 1
+          },
+          "baseline": {
+            "label": "error-whole-type",
+            "request": {
+              "id": 16,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17,
+              "whole": 1
+            },
+            "elapsedMs": 0.027,
+            "responseBytes": 160,
+            "responseSHA256": "a27f7923e88fc0ca2ac21d30cc052abc763a4d81c53ddb7c78be2f34f1245991",
+            "ok": false
+          },
+          "candidate": {
+            "label": "error-whole-type",
+            "request": {
+              "id": 16,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17,
+              "whole": 1
+            },
+            "elapsedMs": 0.042,
+            "responseBytes": 160,
+            "responseSHA256": "a27f7923e88fc0ca2ac21d30cc052abc763a4d81c53ddb7c78be2f34f1245991",
+            "ok": false
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-after-whole-type",
+          "request": {
+            "id": 17,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-after-whole-type",
+            "request": {
+              "id": 17,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.065,
+            "responseBytes": 1156,
+            "responseSHA256": "0a6f9425739f67f6e5f38bba0d4c5899a4e75c584ccfdeda46f1af965cf5541e",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-after-whole-type",
+            "request": {
+              "id": 17,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.074,
+            "responseBytes": 1156,
+            "responseSHA256": "0a6f9425739f67f6e5f38bba0d4c5899a4e75c584ccfdeda46f1af965cf5541e",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "error-negative-offset",
+          "request": {
+            "id": 18,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": -1,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "error-negative-offset",
+            "request": {
+              "id": 18,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": -1,
+              "limit": 17
+            },
+            "elapsedMs": 0.033,
+            "responseBytes": 170,
+            "responseSHA256": "785c37098d01aa3cd8b85516718e4e129fa9ac18ac7c0096e859d1b926ec8fc7",
+            "ok": false
+          },
+          "candidate": {
+            "label": "error-negative-offset",
+            "request": {
+              "id": 18,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": -1,
+              "limit": 17
+            },
+            "elapsedMs": 0.061,
+            "responseBytes": 170,
+            "responseSHA256": "785c37098d01aa3cd8b85516718e4e129fa9ac18ac7c0096e859d1b926ec8fc7",
+            "ok": false
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-after-negative-offset",
+          "request": {
+            "id": 19,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-after-negative-offset",
+            "request": {
+              "id": 19,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.093,
+            "responseBytes": 1156,
+            "responseSHA256": "ae38bda006d8df61c83ea9d2910011d4c788ada288b8fea2c7f6972f5773fd33",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-after-negative-offset",
+            "request": {
+              "id": 19,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.065,
+            "responseBytes": 1156,
+            "responseSHA256": "ae38bda006d8df61c83ea9d2910011d4c788ada288b8fea2c7f6972f5773fd33",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "error-page-limit",
+          "request": {
+            "id": 20,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 16385
+          },
+          "baseline": {
+            "label": "error-page-limit",
+            "request": {
+              "id": 20,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 16385
+            },
+            "elapsedMs": 0.038,
+            "responseBytes": 188,
+            "responseSHA256": "34f23d26acae19e80448b2f2f81b0a3043a03f4e14b3696bc26f8f285423b718",
+            "ok": false
+          },
+          "candidate": {
+            "label": "error-page-limit",
+            "request": {
+              "id": 20,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 16385
+            },
+            "elapsedMs": 0.055,
+            "responseBytes": 188,
+            "responseSHA256": "34f23d26acae19e80448b2f2f81b0a3043a03f4e14b3696bc26f8f285423b718",
+            "ok": false
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-after-page-limit",
+          "request": {
+            "id": 21,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-after-page-limit",
+            "request": {
+              "id": 21,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.058,
+            "responseBytes": 1156,
+            "responseSHA256": "a324aa1f586a624c411b9c22a7d8ddc20c5c2426282808929e768448f2090c49",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-after-page-limit",
+            "request": {
+              "id": 21,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.066,
+            "responseBytes": 1156,
+            "responseSHA256": "a324aa1f586a624c411b9c22a7d8ddc20c5c2426282808929e768448f2090c49",
+            "ok": true
+          },
+          "equal": true
+        },
+        {
+          "label": "error-zero-normal",
+          "request": {
+            "id": 22,
+            "op": "membersCatalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "normal": [
+              0,
+              0,
+              0
+            ]
+          },
+          "baseline": {
+            "label": "error-zero-normal",
+            "request": {
+              "id": 22,
+              "op": "membersCatalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "normal": [
+                0,
+                0,
+                0
+              ]
+            },
+            "elapsedMs": 0.033,
+            "responseBytes": 176,
+            "responseSHA256": "756798cdc82251aa2d29b0f162ebf70654c2da7a9da19e9eda6fae1336b46b21",
+            "ok": false
+          },
+          "candidate": {
+            "label": "error-zero-normal",
+            "request": {
+              "id": 22,
+              "op": "membersCatalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "normal": [
+                0,
+                0,
+                0
+              ]
+            },
+            "elapsedMs": 0.041,
+            "responseBytes": 176,
+            "responseSHA256": "756798cdc82251aa2d29b0f162ebf70654c2da7a9da19e9eda6fae1336b46b21",
+            "ok": false
+          },
+          "equal": true
+        },
+        {
+          "label": "warm-repeat-page-0",
+          "request": {
+            "id": 23,
+            "op": "catalogue",
+            "depth": 6,
+            "matrix": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "offset": 0,
+            "limit": 17
+          },
+          "baseline": {
+            "label": "warm-repeat-page-0",
+            "request": {
+              "id": 23,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.089,
+            "responseBytes": 1156,
+            "responseSHA256": "35078403a71ff7132643dc499f5bcbc523df34067d311f3a0404dafb063c120d",
+            "ok": true
+          },
+          "candidate": {
+            "label": "warm-repeat-page-0",
+            "request": {
+              "id": 23,
+              "op": "catalogue",
+              "depth": 6,
+              "matrix": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "offset": 0,
+              "limit": 17
+            },
+            "elapsedMs": 0.053,
+            "responseBytes": 1156,
+            "responseSHA256": "35078403a71ff7132643dc499f5bcbc523df34067d311f3a0404dafb063c120d",
+            "ok": true
+          },
+          "equal": true
+        }
+      ],
+      "result": "passed",
+      "baselineProcessStartMs": 3.852,
+      "candidateProcessStartMs": 3.766,
+      "coldBaselineMs": 19.988,
+      "coldCandidateMs": 18.61
+    }
+  ],
+  "provenance": {
+    "baseline": {
+      "binary": "/private/tmp/exteriorroom-polynomial-before-catalogue-hoist",
+      "binarySHA256": "738fc7b541e5a3de310b4e3b905efdac7794eae90f196817a850a01e90df6c78",
+      "sourceDirectory": "/private/tmp/exteriorroom-polynomial-baseline-sources.v2Wqb9",
+      "sourceSHA256": {
+        "Core.lean": "9c534e70fbd0b3d48068da84beeff6c4771c8406d5bf86df42ee5eef153a7f75",
+        "Transform.lean": "bedd7d1c4476a90e8b4e6a026a4b1a7d348a097d0eac02aa5e418f38a26f68dd",
+        "Catalogue.lean": "9c7c870010243f4c95d373e4cb344a3f58fa96d0719a8f9679483f33068fcbf2",
+        "Main.lean": "89cb61270e14139d134a15ee1fedb95686240def7620dfe778cf86faf1536e55",
+        "Proofs.lean": "728f62ba63538040c7edbfe00c750d45adcc692d2b1c68f2fc57794b8529c13b",
+        "TransformProofs.lean": "50f1d4a165d601026818b2888bfd0d7ba3f65c0405cdd1f7cda6b1c97529a874"
+      }
+    },
+    "candidate": {
+      "binary": "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/lean/.lake/build/bin/polynomial_service",
+      "binarySHA256": "d6f909065f501b827c8d5646aebe4b2dd723d06a6e9d5ba3ad2f183f6ede44c4",
+      "sourceDirectory": "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/lean/Polynomial",
+      "sourceSHA256": {
+        "Core.lean": "9c534e70fbd0b3d48068da84beeff6c4771c8406d5bf86df42ee5eef153a7f75",
+        "Transform.lean": "bedd7d1c4476a90e8b4e6a026a4b1a7d348a097d0eac02aa5e418f38a26f68dd",
+        "Catalogue.lean": "d138fbea3ef9f5cf22e35a36c31ddef47ded1c980869d324af983f706138376d",
+        "Main.lean": "89cb61270e14139d134a15ee1fedb95686240def7620dfe778cf86faf1536e55",
+        "Proofs.lean": "728f62ba63538040c7edbfe00c750d45adcc692d2b1c68f2fc57794b8529c13b",
+        "TransformProofs.lean": "50f1d4a165d601026818b2888bfd0d7ba3f65c0405cdd1f7cda6b1c97529a874"
+      }
+    }
+  },
+  "benchmarkScriptSHA256": "70222f7ad57859c9f535a0ae214ca7a975195dab14f794d7c39a2b57ad71586e",
+  "unchangedProofFiles": {
+    "Proofs.lean": "728f62ba63538040c7edbfe00c750d45adcc692d2b1c68f2fc57794b8529c13b",
+    "TransformProofs.lean": "50f1d4a165d601026818b2888bfd0d7ba3f65c0405cdd1f7cda6b1c97529a874"
+  },
+  "requestsCompared": 60,
+  "finishedUTC": "2026-10-23T12:03:26.602125+00:00"
+}

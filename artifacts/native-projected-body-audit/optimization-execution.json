@@ -1,0 +1,56 @@
+{
+  "schema": "native-optimization-probe-execution/v1",
+  "recordedAtUTC": "2026-10-23T11:46:41.956735+00:00",
+  "workingDirectory": "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11",
+  "source": "artifacts/native-projected-body-audit/optimization-probe.swift",
+  "sourceSHA256": "a1ebbb8de82ec5a75c5942a9a859af75285091ed0fc3b4825df5aef5b1df0066",
+  "binary": "/tmp/exteriorroom-optimization-probe",
+  "compile": {
+    "arguments": [
+      "xcrun",
+      "--sdk",
+      "macosx",
+      "swiftc",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-module-cache-path",
+      "/tmp/exteriorroom-optimization-probe-module-cache",
+      "-target",
+      "arm64-apple-macos26.0",
+      "artifacts/native-projected-body-audit/optimization-probe.swift",
+      "-o",
+      "/tmp/exteriorroom-optimization-probe"
+    ],
+    "environment": {
+      "DEVELOPER_DIR": "/Applications/Xcode-27.2.0-Beta.2.app/Contents/Developer"
+    },
+    "exitCode": 0,
+    "elapsedSeconds": 19.871,
+    "log": "artifacts/native-projected-body-audit/optimization-compile.txt",
+    "logSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "inputs": [
+    {
+      "path": "artifacts/native-projected-body-audit/plan-d16.json",
+      "sha256": "95c3c0e0bcb3349fb05520926d27b8017d4964f1d2a0dd883c1a7e961a1ad4ea"
+    },
+    {
+      "path": "artifacts/native-projected-body-audit/lean-d16.json",
+      "sha256": "a8234b7f66bcf82153cfe9e8b149e94b5648031468ddc837a5e6a006d9e5bccb"
+    }
+  ],
+  "runtime": {
+    "status": "not invoked; awaiting parent-coordinated GPU execution",
+    "arguments": [
+      "/tmp/exteriorroom-optimization-probe",
+      "artifacts/native-projected-body-audit/plan-d16.json",
+      "artifacts/native-projected-body-audit/lean-d16.json",
+      "artifacts/native-projected-body-audit/gpu-optimization-local"
+    ],
+    "plannedSerialCaptures": 7,
+    "framesPerCapture": 4,
+    "scope": "macOS offscreen optimization equivalence diagnostic; no app UI/headset acceptance"
+  },
+  "binarySHA256": "24dde2c8eaf9000883dafd5effd5495c240ddace9c45a8282a803a1b9c29115b"
+}

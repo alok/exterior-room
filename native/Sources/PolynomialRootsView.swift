@@ -14,6 +14,7 @@ struct PolynomialRootsView: View {
   @State private var zoomStart: PolynomialRootsGeometry.Viewport?
   @State private var callbacks = 0
   @State private var releases = 0
+  @State private var firstInputTime:Date?
   @State private var taps = 0
   @State private var tapText = "No tap received"
   @State private var gestureText = "Drag a root to move the cloud."
@@ -50,11 +51,12 @@ struct PolynomialRootsView: View {
       }
       GeometryReader { geometry in
         if let frame = viewport?.resized(to:geometry.size) ?? PolynomialRootsGeometry.Viewport(size:geometry.size) {
-          let dots = PolynomialRootsGeometry.dots(points:model.renderPoints.filter { model.renderCatalogue == nil || $0.divisor == 1 },rows:model.displayActionRows,viewport:frame,sigma:model.starSize,preservingSourceOrder:model.renderCatalogue != nil)
+          let rows=model.displayActionRows,catalogue=model.renderCatalogue
+          let dots = PolynomialRootsGeometry.dots(points:model.renderPoints.filter { catalogue == nil || $0.divisor == 1 },rows:rows,viewport:frame,sigma:model.starSize,preservingSourceOrder:catalogue != nil)
             .filter { dot in
-              guard dot.intersects(frame), let shown = PolynomialMobius.mapDisplayCoordinates(rows:model.displayActionRows,
+              guard dot.intersects(frame), let shown = PolynomialMobius.mapDisplayCoordinates(rows:rows,
                 SIMD3(Double(dot.point.xyz[0]),Double(dot.point.xyz[1]),Double(dot.point.xyz[2]))) else { return false }
-              return PolynomialRenderPlan.catalogueOpacity(point:dot.point,shown:shown,catalogue:model.renderCatalogue) > 0
+              return PolynomialRenderPlan.catalogueOpacity(point:dot.point,shown:shown,catalogue:catalogue) > 0
             }
           Canvas { context, _ in draw(dots,frame:frame,in:&context) }
             .background(.black).clipped().contentShape(Rectangle())
@@ -66,6 +68,10 @@ struct PolynomialRootsView: View {
               .updating($dragActive) { _, state, _ in state = true }
               .onChanged { value in
                 callbacks += 1
+                if firstInputTime == nil { firstInputTime=value.time }
+                model.tracePreview("roots-changed",detail:String(format:"x=%.2f y=%.2f startX=%.2f startY=%.2f inputElapsedMs=%.2f width=%.2f height=%.2f",
+                  value.location.x,value.location.y,value.startLocation.x,value.startLocation.y,
+                  value.time.timeIntervalSince(firstInputTime ?? value.time)*1000,frame.size.width,frame.size.height))
                 guard !model.busy else { gestureText = "Waiting for Lean · accepted scene retained"; return }
                 switch effectiveMode {
                 case .move:
@@ -83,12 +89,13 @@ struct PolynomialRootsView: View {
               }
               .onEnded { value in
                 releases += 1
+                model.tracePreview("roots-ended",detail:String(format:"x=%.2f y=%.2f inputElapsedMs=%.2f",value.location.x,value.location.y,value.time.timeIntervalSince(firstInputTime ?? value.time)*1000))
                 if effectiveMode == .move, dragAttempted {
                   if let current = frame.root(at:value.location) { model.updateRootsDrag(to:current,force:true) }
                   dragAttempted = false
                   gestureText = model.commitRootsDrag() ? "Released declared sample to Lean" : "No owned valid move sample"
                 }
-                panStart = nil
+                panStart = nil; firstInputTime=nil
               })
             .simultaneousGesture(SpatialTapGesture().onEnded { value in
               taps += 1
@@ -113,7 +120,10 @@ struct PolynomialRootsView: View {
               }
             }
             .onAppear { if viewport == nil { viewport = frame } }
-            .onChange(of:geometry.size) { _, size in cancelPreview(); model.hover(nil); viewport = viewport?.resized(to:size) }
+            .onChange(of:geometry.size) { old, size in
+              model.tracePreview("roots-resize",detail:"\(old.width)x\(old.height) → \(size.width)x\(size.height)")
+              cancelPreview("resize"); model.hover(nil); viewport = viewport?.resized(to:size)
+            }
         }
       }.frame(minHeight:300).layoutPriority(1)
       HStack {
@@ -169,6 +179,9 @@ struct PolynomialRootsView: View {
           .font(.caption2.monospaced()).accessibilityIdentifier("poly-roots-matrix")
         Text("Preview crops accepted: \(model.previewCatalogueAcceptances)")
           .font(.caption2.monospaced()).accessibilityIdentifier("poly-roots-preview-count")
+        Text("Preview diagnostics: \(model.previewEvents.count) events")
+          .font(.caption2.monospaced()).accessibilityIdentifier("poly-roots-preview-trace")
+          .accessibilityValue(model.previewTraceJSON)
         Text(viewport.map { String(format:"Chart center %.4f, %.4f · scale %.4f",$0.center.x,$0.center.y,$0.scale) } ?? "Chart fit")
           .font(.caption2.monospaced()).accessibilityIdentifier("poly-roots-viewport")
       }
@@ -179,10 +192,10 @@ struct PolynomialRootsView: View {
         .font(.caption2).foregroundStyle(.secondary).frame(maxWidth:.infinity,alignment:.leading)
     }.controlSize(.small).padding(12).frame(minWidth:420,minHeight:560).background(.black)
       .onAppear { model.rootsOpen = true; if model.pairNext { mode = .pair } }
-      .onDisappear { model.rootsOpen = false; cancelPreview(); model.hover(nil); model.cancelPairing() }
-      .onChange(of:mode) { _, _ in cancelPreview(); model.hover(nil) }
+      .onDisappear { model.rootsOpen = false; cancelPreview("disappear"); model.hover(nil); model.cancelPairing() }
+      .onChange(of:mode) { _, _ in cancelPreview("mode changed"); model.hover(nil) }
       .onChange(of:model.pairNext) { _, armed in
-        cancelPreview()
+        cancelPreview("shared pair changed")
         if armed { mode = .pair }
         else if mode == .pair { mode = .select }
       }
@@ -191,7 +204,7 @@ struct PolynomialRootsView: View {
         if !active {
           Task { @MainActor in
             await Task.yield()
-            if !dragActive, dragAttempted { cancelPreview(); gestureText = "Move cancelled · accepted scene retained" }
+            if !dragActive, dragAttempted { cancelPreview("gesture state inactive"); gestureText = "Move cancelled · accepted scene retained" }
           }
         }
       }
@@ -209,9 +222,9 @@ struct PolynomialRootsView: View {
       }
     })
   }
-  private func cancelPreview() {
-    if dragAttempted { model.cancelRootsDrag() }
-    dragAttempted = false; panStart = nil; zoomStart = nil
+  private func cancelPreview(_ reason:String = "view control") {
+    if dragAttempted { model.tracePreview("roots-cancel",detail:reason); model.cancelRootsDrag() }
+    dragAttempted = false; panStart = nil; zoomStart = nil; firstInputTime=nil
   }
   private func chartValue(_ frame:PolynomialRootsGeometry.Viewport) -> String {
     let status = model.actionPreview != nil ? "Approximate move preview" : (model.action?.matrix ?? [1,0,0,1]) == [1,0,0,1] ? "g = identity" : "g moved"
@@ -242,7 +255,8 @@ struct PolynomialRootsView: View {
   }
   private func draw(_ dots:[PolynomialRootsGeometry.Dot],frame:PolynomialRootsGeometry.Viewport,in context:inout GraphicsContext) {
     let rows = model.displayActionRows
-    let sourceMode = model.renderCatalogue != nil
+    let catalogue=model.renderCatalogue
+    let sourceMode = catalogue != nil
     let normal:SIMD3<Double>? = !sourceMode && model.planeFocus ? model.plane.flatMap {
       PolynomialMobius.mapPlaneNormal(rows:rows,SIMD3(Double($0.cartesianNormal[0]),Double($0.cartesianNormal[1]),Double($0.cartesianNormal[2])))
     } : nil
@@ -259,7 +273,7 @@ struct PolynomialRootsView: View {
       let radius = dot.drawnRadius
       let p = dot.point, xyz = SIMD3(Double(p.xyz[0]),Double(p.xyz[1]),Double(p.xyz[2]))
       let position = PolynomialMobius.mapDisplayCoordinates(rows:rows,xyz) ?? xyz
-      let crop = PolynomialRenderPlan.catalogueOpacity(point:p,shown:position,catalogue:model.renderCatalogue)
+      let crop = PolynomialRenderPlan.catalogueOpacity(point:p,shown:position,catalogue:catalogue)
       if sourceMode {
         context.opacity = PolynomialRootsGeometry.sourceBodyOpacity(dot,crop:crop,hasPlane:model.plane != nil)
       } else {

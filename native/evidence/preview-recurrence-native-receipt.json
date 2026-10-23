@@ -1,0 +1,239 @@
+{
+  "schema": "lean-starscape-native-held-preview-acceptance-v1",
+  "createdUTC": "2026-10-23T12:10:22.656312+00:00",
+  "scope": "One unchanged supported-XCUI held Roots drag against optimized exactInt Lean catalogue backend. No native source, native binary, test gesture, hold duration or strict assertion changed after the115041 failure.",
+  "result": "PASS",
+  "nativeBuild": {
+    "path": "native/evidence/preview-worker-build-manifest.json",
+    "bytes": 4716,
+    "sha256": "5094ff95d866ef4f7e93fef56c7d863d43b5fc0630745454907c517263e768ea"
+  },
+  "priorReceipt": {
+    "path": "native/evidence/preview-worker-native-receipt.json",
+    "bytes": 16833,
+    "sha256": "971470858f5de89e9e9bafda38b29fb6a0677397ee0a36d3d16daa57e6c38df6"
+  },
+  "currentBackendManifest": {
+    "path": "native/evidence/preview-recurrence-build-manifest.json",
+    "bytes": 917,
+    "sha256": "087fa979e5a4e3c6a1dbe7ffc0187fcd916296dc20283be2deb9ee1e062c4e23"
+  },
+  "backendSHA256": "d6f909065f501b827c8d5646aebe4b2dd723d06a6e9d5ba3ad2f183f6ede44c4",
+  "backendChange": "ExactInt invariant hoisting and quadratic finite differences; original signed identity order/caps/filters/protocol unchanged. Independent backend agent verified60 complete old/new JSON comparisons and121 catalogue regressions.",
+  "unchangedNativeModels": {
+    "tests": 147,
+    "failures": 0,
+    "seconds": 9.376,
+    "log": "native/evidence/preview-worker-model-tests.txt",
+    "rerunRequired": false
+  },
+  "ui": {
+    "run": "20261023T120502Z",
+    "test": "PolynomialSourceMorphUITests.testActualSharedRootsPairAndHeldSourcePreview",
+    "tests": 1,
+    "failures": 0,
+    "testSeconds": 66.969,
+    "xcodeSessionSeconds": 71.009,
+    "screenshots": 6,
+    "simulatorUUID": "1D261881-0A0F-4DE0-B704-12644E606348",
+    "nativeAppUnsigned": true,
+    "changedCallbacks": 3,
+    "endedCallbacks": 1,
+    "strictAssertionUnchanged": true,
+    "previewBefore": 0,
+    "previewAfter": 1,
+    "selected": [
+      1,
+      0,
+      1
+    ],
+    "paired": [
+      1,
+      1,
+      1
+    ],
+    "delta": -4,
+    "releasedMatrix": [
+      16491,
+      8977,
+      16312,
+      14943
+    ],
+    "releasedCatalogueCount": 4205,
+    "bufferedInteriorPlaneMembers": 64,
+    "subsequentChecks": [
+      "P50accepted scene",
+      "P100accepted scene",
+      "Origin target-ready state only"
+    ]
+  },
+  "acceptedTimeline": {
+    "clock": "milliseconds since model initialization; worker timestamps captured off-main; sequence is ingestion order",
+    "latestMatrix": [
+      16491,
+      8977,
+      16312,
+      14943
+    ],
+    "workerStartedMs": 34289.77596759796,
+    "catalogueRequestStartedMs": 34289.9010181427,
+    "catalogueResponseMs": 34547.80399799347,
+    "workerCompletedMs": 34576.57706737518,
+    "publishedMs": 34576.7240524292,
+    "dragEndedMs": 35809.9399805069,
+    "dragReleasedMs": 35818.85898113251,
+    "publicationBeforeEndedMs": 1233.2159280776978,
+    "publicationBeforeReleaseMs": 1242.134928703308,
+    "catalogueHTTPMs": 257.90297985076904,
+    "workerTotalMs": 286.8010997772217,
+    "firstCompletedCandidate": "Discarded as superseded; latest-candidate guard remained intact.",
+    "acceptedSceneDuringPublication": 5,
+    "previewCatalogueOnly": true
+  },
+  "renderHUD": {
+    "scope": "Observed CPU scene-update timings, not FPS or headset performance",
+    "acceptedReleasedP0Ms": 429.3,
+    "acceptedP50Ms": 380.3,
+    "acceptedP100Ms": 375.6,
+    "OriginReadyMs": 30.2,
+    "P100VisibleBodies": 2130,
+    "P100Instances": 2417,
+    "buffered": 4205,
+    "P100ColorBatches": 468,
+    "P100PlaneHighlightedBodies": 64
+  },
+  "video": {
+    "path": "artifacts/videos/lean-starscape-native-held-preview-accepted.mp4",
+    "duration": 55.833333,
+    "bytes": 1061045,
+    "sha256": "386f7d530e4a7677ef09b917a4179d172a75248d3e6412936d2e5542d51c463d",
+    "codec": "h264",
+    "width": 1920,
+    "height": 1080,
+    "audioStreams": 0,
+    "decodedStartMiddleEndInspected": true,
+    "metadata": "artifacts/videos/lean-starscape-native-held-preview-accepted-metadata.json"
+  },
+  "limits": [
+    "This passes the one captured R16Source/Whole held-Roots scenario; it is not a guarantee for all depths, matrices, network conditions or gesture paths.",
+    "No physical headset, native free-space pairing or Origin drag was tested. Origin target-ready is not input acceptance.",
+    "Float gesture preview, quantization and renderer remain approximate; exact catalogue/action responses are from executable Lean. Existing17 public laws are unchanged.",
+    "Previous113815 and115041 strict failures, old binary hashes and prior videos are preserved; this receipt supersedes only the latest acceptance status."
+  ],
+  "blockers": {
+    "permissionDenied": false,
+    "heldPreviewRegression": "closed for the unchanged captured test",
+    "remaining": "Physical headset and free-space interaction acceptance remain unverified."
+  },
+  "reproduce": "cd native && python3 scripts/run-ui-tests.py --scheme PolynomialRoom --test-class PolynomialSourceMorphUITests --test-name testActualSharedRootsPairAndHeldSourcePreview",
+  "screenshots": [
+    {
+      "stage": "source-input-00-actual-shared-roots-pair",
+      "path": "native/evidence/screenshots/20261023T120502Z/001-source-input-00-actual-shared-roots-pair.png",
+      "bytes": 574337,
+      "sha256": "2a9d983fea9b03876609ac66bcb67e17abe37402a3672883a7bc91d710f2a90b"
+    },
+    {
+      "stage": "source-input-01-d5-complete-root-arc",
+      "path": "native/evidence/screenshots/20261023T120502Z/002-source-input-01-d5-complete-root-arc.png",
+      "bytes": 599474,
+      "sha256": "e3df0ad16843a0a212f1b38132186a83fc34d6db228df61c93021c43bdda709c"
+    },
+    {
+      "stage": "source-input-02-held-preview-result",
+      "path": "native/evidence/screenshots/20261023T120502Z/003-source-input-02-held-preview-result.png",
+      "bytes": 644076,
+      "sha256": "427cc6769b402e6ec996785fcac2852fd9e0d21d0828a1e137d3dee8a3a37be2"
+    },
+    {
+      "stage": "source-input-03-final-half-morph",
+      "path": "native/evidence/screenshots/20261023T120502Z/004-source-input-03-final-half-morph.png",
+      "bytes": 642200,
+      "sha256": "6d0e3794685ef3d71d261a15f8af34052f364b3ad30c1fe1ba4671348106fb01"
+    },
+    {
+      "stage": "source-input-04-final-full-morph",
+      "path": "native/evidence/screenshots/20261023T120502Z/005-source-input-04-final-full-morph.png",
+      "bytes": 558009,
+      "sha256": "3fd7fd0415171d5428d3008ed140d61ef3dcf5f50706b0501f03767e53f57562"
+    },
+    {
+      "stage": "source-input-05-origin-ready-for-host-probe",
+      "path": "native/evidence/screenshots/20261023T120502Z/006-source-input-05-origin-ready-for-host-probe.png",
+      "bytes": 721649,
+      "sha256": "9c7cb42503bd8203a47bf1fceebadf7e17b4b346fe9d70d2d1877d1bfc2b3a80"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "native/evidence/preview-recurrence-build-manifest.json",
+      "bytes": 917,
+      "sha256": "087fa979e5a4e3c6a1dbe7ffc0187fcd916296dc20283be2deb9ee1e062c4e23"
+    },
+    {
+      "path": "native/evidence/preview-recurrence-health.json",
+      "bytes": 548,
+      "sha256": "cb32e5fca6b3bdba2185c6ce70a1eecb12ac4b0951d2a8c45ce0a55c15542ed0"
+    },
+    {
+      "path": "native/evidence/preview-recurrence-ui-120502.json",
+      "bytes": 16599,
+      "sha256": "cef84a51720d4fe1cd2590c7965d04f8b578614c17b7cf421167c8a10b04c281"
+    },
+    {
+      "path": "native/evidence/ui-tests-20261023T120502Z.txt",
+      "bytes": 44139,
+      "sha256": "bc72c4be681719cd5c21134c55d199150f5827d830babb726b128faebe775e8f"
+    },
+    {
+      "path": "artifacts/videos/lean-starscape-native-held-preview-accepted.mp4",
+      "bytes": 1061045,
+      "sha256": "386f7d530e4a7677ef09b917a4179d172a75248d3e6412936d2e5542d51c463d"
+    },
+    {
+      "path": "artifacts/videos/lean-starscape-native-held-preview-accepted-metadata.json",
+      "bytes": 2745,
+      "sha256": "1869b60eeac14c0ae0c793a54a6132a4f4ee5ec9987cd9f79e69c11db3c8e949"
+    },
+    {
+      "path": "artifacts/videos/lean-starscape-native-held-preview-accepted-poster.jpg",
+      "bytes": 42266,
+      "sha256": "914cbab3a1402c83d77541df06a0dcbd1c88eef06f61eef44efcc815266a37ff"
+    },
+    {
+      "path": "native/evidence/screenshots/20261023T120502Z/captures.json",
+      "bytes": 2571,
+      "sha256": "100f2b2b91fe595f2a5418498008fb21720ec433ef5229f4357d1a9260390bcb"
+    },
+    {
+      "path": "native/evidence/screenshots/20261023T120502Z/001-source-input-00-actual-shared-roots-pair.png",
+      "bytes": 574337,
+      "sha256": "2a9d983fea9b03876609ac66bcb67e17abe37402a3672883a7bc91d710f2a90b"
+    },
+    {
+      "path": "native/evidence/screenshots/20261023T120502Z/002-source-input-01-d5-complete-root-arc.png",
+      "bytes": 599474,
+      "sha256": "e3df0ad16843a0a212f1b38132186a83fc34d6db228df61c93021c43bdda709c"
+    },
+    {
+      "path": "native/evidence/screenshots/20261023T120502Z/003-source-input-02-held-preview-result.png",
+      "bytes": 644076,
+      "sha256": "427cc6769b402e6ec996785fcac2852fd9e0d21d0828a1e137d3dee8a3a37be2"
+    },
+    {
+      "path": "native/evidence/screenshots/20261023T120502Z/004-source-input-03-final-half-morph.png",
+      "bytes": 642200,
+      "sha256": "6d0e3794685ef3d71d261a15f8af34052f364b3ad30c1fe1ba4671348106fb01"
+    },
+    {
+      "path": "native/evidence/screenshots/20261023T120502Z/005-source-input-04-final-full-morph.png",
+      "bytes": 558009,
+      "sha256": "3fd7fd0415171d5428d3008ed140d61ef3dcf5f50706b0501f03767e53f57562"
+    },
+    {
+      "path": "native/evidence/screenshots/20261023T120502Z/006-source-input-05-origin-ready-for-host-probe.png",
+      "bytes": 721649,
+      "sha256": "9c7cb42503bd8203a47bf1fceebadf7e17b4b346fe9d70d2d1877d1bfc2b3a80"
+    }
+  ]
+}

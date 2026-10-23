@@ -1,0 +1,15 @@
+native/evidence/preview-recurrence-build-manifest.json
+native/evidence/preview-recurrence-health.json
+native/evidence/preview-recurrence-ui-120502.json
+native/evidence/ui-tests-20261023T120502Z.txt
+artifacts/videos/lean-starscape-native-held-preview-accepted.mp4
+artifacts/videos/lean-starscape-native-held-preview-accepted-metadata.json
+artifacts/videos/lean-starscape-native-held-preview-accepted-poster.jpg
+native/evidence/screenshots/20261023T120502Z/captures.json
+native/evidence/screenshots/20261023T120502Z/001-source-input-00-actual-shared-roots-pair.png
+native/evidence/screenshots/20261023T120502Z/002-source-input-01-d5-complete-root-arc.png
+native/evidence/screenshots/20261023T120502Z/003-source-input-02-held-preview-result.png
+native/evidence/screenshots/20261023T120502Z/004-source-input-03-final-half-morph.png
+native/evidence/screenshots/20261023T120502Z/005-source-input-04-final-full-morph.png
+native/evidence/screenshots/20261023T120502Z/006-source-input-05-origin-ready-for-host-probe.png
+native/evidence/preview-recurrence-native-receipt.json

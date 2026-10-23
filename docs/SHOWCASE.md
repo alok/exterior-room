@@ -34,7 +34,8 @@ kernel proof. Lean runs on the Mac; it is not embedded in the browser or visionO
 
 For the native route, open `native/ExteriorRoom.xcodeproj`, choose
 `PolynomialRoom`, and use the task-owned visionOS Simulator.
-Use the same port-8787 bridge. The saved [native clip](../artifacts/videos/polynomial-native-simulator.mp4)
+Use the same port-8787 bridge. The saved [native morph clip](../artifacts/videos/lean-starscape-native-morph-depth-fix.mp4)
+and [accepted held-preview clip](../artifacts/videos/lean-starscape-native-held-preview-accepted.mp4)
 and [browser controller clip](../artifacts/videos/polynomial-controller-sequence.mp4)
 are available if someone has no build environment. The latter uses synthetic
 WebXR input and says so on screen; neither clip establishes physical-headset use.
@@ -49,9 +50,11 @@ Native/browser layouts and camera placement differ; native currently caps the
 cloud at R24/40,000 forms, while the browser explicitly supports R96. Source
 depth has a different point set and reports its own caps. Its morph and during-drag
 recropping are now implemented; current evidence and visual differences are in the
-[morph update](SOURCE_MORPH_UPDATE.md). Native morph controls and linked Roots
-swipe pass simulator acceptance; native held-preview recropping failed its
-separate assertion and remains a gap.
+[native continuation](NATIVE_PREVIEW_RENDER_UPDATE.md). Native morph controls,
+linked Roots swipe and the unchanged strict held-preview assertion pass simulator
+acceptance. In the latter run, the temporary catalogue published 1.23 seconds
+before gesture end; this is a bounded Source16 test, not high-density performance
+acceptance.
 Physical headset tests
 and main Chrome connection acceptance are still separate gaps.
 Native generators, Snap, directional movement and a direct disk element-swipe

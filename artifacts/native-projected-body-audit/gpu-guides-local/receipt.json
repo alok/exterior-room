@@ -1,0 +1,1418 @@
+{
+  "allGuidesVersusAllNoDepthWrite" : {
+    "changedRGBPixels" : 84653,
+    "maxChannelDifference" : 253,
+    "rmsChannelDifference" : 4.3875374053684082
+  },
+  "allGuidesVersusFansNoDepthWrite" : {
+    "changedRGBPixels" : 83528,
+    "maxChannelDifference" : 253,
+    "rmsChannelDifference" : 4.3031346450509194
+  },
+  "background" : "opaque black",
+  "bodyInput" : "identical P1 exported mesh\/transforms\/radii and already-corrected material alpha in every capture",
+  "cameraLookDirection" : [
+    0,
+    0,
+    -1
+  ],
+  "cameraPosition" : [
+    0,
+    1.6000000000000001,
+    0
+  ],
+  "captures" : [
+    {
+      "baselineBodyVisibility" : {
+        "baselineBrightPixelsNowBelowQuarterBrightness" : 0,
+        "baselineMaxRGBAbove16Pixels" : 12289
+      },
+      "bgraSHA256" : "38d8e9280f74cb37ca5ac726e94cfdee54db39a16d5a25f4f65db3295a3098f2",
+      "bodyInstances" : 2239,
+      "bodyMaterialReadback" : {
+        "checkedBatches" : 254,
+        "firstEightMaterials" : [
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8594995782",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8597951024",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020994883030653,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020994883030653,
+            "key" : "8880208454",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.01268478948622942,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.01268478948622942,
+            "key" : "8883163696",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.022359296679496765,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.022359296679496765,
+            "key" : "9128811402",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.021720165386795998,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.021720165386795998,
+            "key" : "9128878471",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020857270807027817,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020857270807027817,
+            "key" : "9129208451",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020506231114268303,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020506231114268303,
+            "key" : "9129471616",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          }
+        ],
+        "maxAlphaDifferenceFromIntendedFloat" : 0,
+        "missingUnlitMaterial" : 0
+      },
+      "differenceFromBodyOnly" : {
+        "changedRGBPixels" : 0,
+        "maxChannelDifference" : 0,
+        "rmsChannelDifference" : 0
+      },
+      "guideDepthMode" : "defaults",
+      "guideMaterials" : [
+
+      ],
+      "guides" : {
+        "cone" : false,
+        "plane" : false,
+        "screen" : false
+      },
+      "meanMaxRGB" : 0.56139892578124995,
+      "name" : "body-only",
+      "nonblackPixels" : 13242,
+      "peakRGB" : 255,
+      "pixelsMaxRGBAbove4" : 13145,
+      "pixelsMaxRGBAbove16" : 12289,
+      "positiveMaterialBodyInstances" : 1933
+    },
+    {
+      "baselineBodyVisibility" : {
+        "baselineBrightPixelsNowBelowQuarterBrightness" : 0,
+        "baselineMaxRGBAbove16Pixels" : 12289
+      },
+      "bgraSHA256" : "c6ab08b181b5369f1e105c5dd2961628e24de01463cb180633034f1bfded8ab5",
+      "bodyInstances" : 2239,
+      "bodyMaterialReadback" : {
+        "checkedBatches" : 254,
+        "firstEightMaterials" : [
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8594995782",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8597951024",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020994883030653,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020994883030653,
+            "key" : "8880208454",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.01268478948622942,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.01268478948622942,
+            "key" : "8883163696",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.022359296679496765,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.022359296679496765,
+            "key" : "9128811402",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.021720165386795998,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.021720165386795998,
+            "key" : "9128878471",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020857270807027817,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020857270807027817,
+            "key" : "9129208451",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020506231114268303,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020506231114268303,
+            "key" : "9129471616",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          }
+        ],
+        "maxAlphaDifferenceFromIntendedFloat" : 0,
+        "missingUnlitMaterial" : 0
+      },
+      "differenceFromBodyOnly" : {
+        "changedRGBPixels" : 14176,
+        "maxChannelDifference" : 255,
+        "rmsChannelDifference" : 4.9608374333739844
+      },
+      "guideDepthMode" : "defaults",
+      "guideMaterials" : [
+        {
+          "alpha" : 0.010321963578462601,
+          "blending" : "transparent",
+          "entityCount" : 1,
+          "faceCulling" : "none",
+          "geometry" : "triangle fan",
+          "name" : "screen-fan",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.10000000000000001,
+          "readsDepth" : true,
+          "rgb" : [
+            0.32941176470588235,
+            0.9137254901960784,
+            0.96078431372549022
+          ],
+          "writesDepth" : true
+        },
+        {
+          "alpha" : 0.60454738140106201,
+          "blending" : "transparent",
+          "entityCount" : 64,
+          "faceCulling" : "back",
+          "geometry" : "0.002m box line",
+          "name" : "screen-ring-line",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.80000000000000004,
+          "readsDepth" : true,
+          "rgb" : [
+            0.32941176470588235,
+            0.9137254901960784,
+            0.96078431372549022
+          ],
+          "writesDepth" : true
+        }
+      ],
+      "guides" : {
+        "cone" : false,
+        "plane" : false,
+        "screen" : true
+      },
+      "meanMaxRGB" : 0.9746419270833333,
+      "name" : "body-plus-screen",
+      "nonblackPixels" : 22197,
+      "peakRGB" : 255,
+      "pixelsMaxRGBAbove4" : 22100,
+      "pixelsMaxRGBAbove16" : 21511,
+      "positiveMaterialBodyInstances" : 1933
+    },
+    {
+      "baselineBodyVisibility" : {
+        "baselineBrightPixelsNowBelowQuarterBrightness" : 60,
+        "baselineMaxRGBAbove16Pixels" : 12289
+      },
+      "bgraSHA256" : "bc248538ce42d6ca42b9dd04309b8c6a114d6457f75a08302bb3fb8ea5cdda27",
+      "bodyInstances" : 2239,
+      "bodyMaterialReadback" : {
+        "checkedBatches" : 254,
+        "firstEightMaterials" : [
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8594995782",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8597951024",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020994883030653,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020994883030653,
+            "key" : "8880208454",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.01268478948622942,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.01268478948622942,
+            "key" : "8883163696",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.022359296679496765,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.022359296679496765,
+            "key" : "9128811402",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.021720165386795998,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.021720165386795998,
+            "key" : "9128878471",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020857270807027817,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020857270807027817,
+            "key" : "9129208451",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020506231114268303,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020506231114268303,
+            "key" : "9129471616",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          }
+        ],
+        "maxAlphaDifferenceFromIntendedFloat" : 0,
+        "missingUnlitMaterial" : 0
+      },
+      "differenceFromBodyOnly" : {
+        "changedRGBPixels" : 164270,
+        "maxChannelDifference" : 223,
+        "rmsChannelDifference" : 6.1028513319054625
+      },
+      "guideDepthMode" : "defaults",
+      "guideMaterials" : [
+        {
+          "alpha" : 0.0035010159481316805,
+          "blending" : "transparent",
+          "entityCount" : 1,
+          "faceCulling" : "none",
+          "geometry" : "triangle fan",
+          "name" : "cutting-plane-fan",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.044999999999999998,
+          "readsDepth" : true,
+          "rgb" : [
+            1,
+            0.72941176470588232,
+            0.41960784313725491
+          ],
+          "writesDepth" : true
+        },
+        {
+          "alpha" : 0.10048151016235352,
+          "blending" : "transparent",
+          "entityCount" : 64,
+          "faceCulling" : "back",
+          "geometry" : "0.002m box line",
+          "name" : "cutting-plane-edge",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.34999999999999998,
+          "readsDepth" : true,
+          "rgb" : [
+            1,
+            0.72941176470588232,
+            0.41960784313725491
+          ],
+          "writesDepth" : true
+        },
+        {
+          "alpha" : 0.44798842072486877,
+          "blending" : "transparent",
+          "entityCount" : 2,
+          "faceCulling" : "back",
+          "geometry" : "0.002m box line",
+          "name" : "cutting-plane-endpoint",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.69999999999999996,
+          "readsDepth" : true,
+          "rgb" : [
+            1,
+            0.72941176470588232,
+            0.41960784313725491
+          ],
+          "writesDepth" : true
+        }
+      ],
+      "guides" : {
+        "cone" : false,
+        "plane" : true,
+        "screen" : false
+      },
+      "meanMaxRGB" : 3.0521166992187498,
+      "name" : "body-plus-plane",
+      "nonblackPixels" : 166964,
+      "peakRGB" : 255,
+      "pixelsMaxRGBAbove4" : 166942,
+      "pixelsMaxRGBAbove16" : 166449,
+      "positiveMaterialBodyInstances" : 1933
+    },
+    {
+      "baselineBodyVisibility" : {
+        "baselineBrightPixelsNowBelowQuarterBrightness" : 3842,
+        "baselineMaxRGBAbove16Pixels" : 12289
+      },
+      "bgraSHA256" : "8c5106bd44f1f7a8504ccbd9f071ce8f73748ca8755ad73fafdcda80c2c9d279",
+      "bodyInstances" : 2239,
+      "bodyMaterialReadback" : {
+        "checkedBatches" : 254,
+        "firstEightMaterials" : [
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8594995782",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8597951024",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020994883030653,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020994883030653,
+            "key" : "8880208454",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.01268478948622942,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.01268478948622942,
+            "key" : "8883163696",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.022359296679496765,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.022359296679496765,
+            "key" : "9128811402",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.021720165386795998,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.021720165386795998,
+            "key" : "9128878471",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020857270807027817,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020857270807027817,
+            "key" : "9129208451",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020506231114268303,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020506231114268303,
+            "key" : "9129471616",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          }
+        ],
+        "maxAlphaDifferenceFromIntendedFloat" : 0,
+        "missingUnlitMaterial" : 0
+      },
+      "differenceFromBodyOnly" : {
+        "changedRGBPixels" : 93749,
+        "maxChannelDifference" : 253,
+        "rmsChannelDifference" : 4.079152003240158
+      },
+      "guideDepthMode" : "defaults",
+      "guideMaterials" : [
+        {
+          "alpha" : 0.0014659467851743102,
+          "blending" : "transparent",
+          "entityCount" : 2,
+          "faceCulling" : "none",
+          "geometry" : "triangle fan",
+          "name" : "cone-fan",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.017999999999999999,
+          "readsDepth" : true,
+          "rgb" : [
+            0.32941176470588235,
+            0.9137254901960784,
+            0.96078431372549022
+          ],
+          "writesDepth" : true
+        },
+        {
+          "alpha" : 0.063474275171756744,
+          "blending" : "transparent",
+          "entityCount" : 128,
+          "faceCulling" : "back",
+          "geometry" : "0.002m box line",
+          "name" : "cone-ring-line",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.26000000000000001,
+          "readsDepth" : true,
+          "rgb" : [
+            0.47058823529411764,
+            0.58823529411764708,
+            0.6588235294117647
+          ],
+          "writesDepth" : true
+        },
+        {
+          "alpha" : 0.063474275171756744,
+          "blending" : "transparent",
+          "entityCount" : 16,
+          "faceCulling" : "back",
+          "geometry" : "0.002m box line",
+          "name" : "cone-radial-line",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.26000000000000001,
+          "readsDepth" : true,
+          "rgb" : [
+            0.47058823529411764,
+            0.58823529411764708,
+            0.6588235294117647
+          ],
+          "writesDepth" : true
+        }
+      ],
+      "guides" : {
+        "cone" : true,
+        "plane" : false,
+        "screen" : false
+      },
+      "meanMaxRGB" : 1.0414518229166667,
+      "name" : "body-plus-cone",
+      "nonblackPixels" : 97828,
+      "peakRGB" : 255,
+      "pixelsMaxRGBAbove4" : 97668,
+      "pixelsMaxRGBAbove16" : 12564,
+      "positiveMaterialBodyInstances" : 1933
+    },
+    {
+      "baselineBodyVisibility" : {
+        "baselineBrightPixelsNowBelowQuarterBrightness" : 800,
+        "baselineMaxRGBAbove16Pixels" : 12289
+      },
+      "bgraSHA256" : "5127c19616ffcd254032bd4d79a84910d51b247619f0d89ee93ae628f1755fa3",
+      "bodyInstances" : 2239,
+      "bodyMaterialReadback" : {
+        "checkedBatches" : 254,
+        "firstEightMaterials" : [
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8594995782",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8597951024",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020994883030653,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020994883030653,
+            "key" : "8880208454",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.01268478948622942,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.01268478948622942,
+            "key" : "8883163696",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.022359296679496765,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.022359296679496765,
+            "key" : "9128811402",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.021720165386795998,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.021720165386795998,
+            "key" : "9128878471",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020857270807027817,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020857270807027817,
+            "key" : "9129208451",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020506231114268303,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020506231114268303,
+            "key" : "9129471616",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          }
+        ],
+        "maxAlphaDifferenceFromIntendedFloat" : 0,
+        "missingUnlitMaterial" : 0
+      },
+      "differenceFromBodyOnly" : {
+        "changedRGBPixels" : 175958,
+        "maxChannelDifference" : 253,
+        "rmsChannelDifference" : 7.9164516144036678
+      },
+      "guideDepthMode" : "defaults",
+      "guideMaterials" : [
+        {
+          "alpha" : 0.0014659467851743102,
+          "blending" : "transparent",
+          "entityCount" : 2,
+          "faceCulling" : "none",
+          "geometry" : "triangle fan",
+          "name" : "cone-fan",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.017999999999999999,
+          "readsDepth" : true,
+          "rgb" : [
+            0.32941176470588235,
+            0.9137254901960784,
+            0.96078431372549022
+          ],
+          "writesDepth" : true
+        },
+        {
+          "alpha" : 0.063474275171756744,
+          "blending" : "transparent",
+          "entityCount" : 128,
+          "faceCulling" : "back",
+          "geometry" : "0.002m box line",
+          "name" : "cone-ring-line",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.26000000000000001,
+          "readsDepth" : true,
+          "rgb" : [
+            0.47058823529411764,
+            0.58823529411764708,
+            0.6588235294117647
+          ],
+          "writesDepth" : true
+        },
+        {
+          "alpha" : 0.063474275171756744,
+          "blending" : "transparent",
+          "entityCount" : 16,
+          "faceCulling" : "back",
+          "geometry" : "0.002m box line",
+          "name" : "cone-radial-line",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.26000000000000001,
+          "readsDepth" : true,
+          "rgb" : [
+            0.47058823529411764,
+            0.58823529411764708,
+            0.6588235294117647
+          ],
+          "writesDepth" : true
+        },
+        {
+          "alpha" : 0.010321963578462601,
+          "blending" : "transparent",
+          "entityCount" : 1,
+          "faceCulling" : "none",
+          "geometry" : "triangle fan",
+          "name" : "screen-fan",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.10000000000000001,
+          "readsDepth" : true,
+          "rgb" : [
+            0.32941176470588235,
+            0.9137254901960784,
+            0.96078431372549022
+          ],
+          "writesDepth" : true
+        },
+        {
+          "alpha" : 0.60454738140106201,
+          "blending" : "transparent",
+          "entityCount" : 64,
+          "faceCulling" : "back",
+          "geometry" : "0.002m box line",
+          "name" : "screen-ring-line",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.80000000000000004,
+          "readsDepth" : true,
+          "rgb" : [
+            0.32941176470588235,
+            0.9137254901960784,
+            0.96078431372549022
+          ],
+          "writesDepth" : true
+        },
+        {
+          "alpha" : 0.0035010159481316805,
+          "blending" : "transparent",
+          "entityCount" : 1,
+          "faceCulling" : "none",
+          "geometry" : "triangle fan",
+          "name" : "cutting-plane-fan",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.044999999999999998,
+          "readsDepth" : true,
+          "rgb" : [
+            1,
+            0.72941176470588232,
+            0.41960784313725491
+          ],
+          "writesDepth" : true
+        },
+        {
+          "alpha" : 0.10048151016235352,
+          "blending" : "transparent",
+          "entityCount" : 64,
+          "faceCulling" : "back",
+          "geometry" : "0.002m box line",
+          "name" : "cutting-plane-edge",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.34999999999999998,
+          "readsDepth" : true,
+          "rgb" : [
+            1,
+            0.72941176470588232,
+            0.41960784313725491
+          ],
+          "writesDepth" : true
+        },
+        {
+          "alpha" : 0.44798842072486877,
+          "blending" : "transparent",
+          "entityCount" : 2,
+          "faceCulling" : "back",
+          "geometry" : "0.002m box line",
+          "name" : "cutting-plane-endpoint",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.69999999999999996,
+          "readsDepth" : true,
+          "rgb" : [
+            1,
+            0.72941176470588232,
+            0.41960784313725491
+          ],
+          "writesDepth" : true
+        }
+      ],
+      "guides" : {
+        "cone" : true,
+        "plane" : true,
+        "screen" : true
+      },
+      "meanMaxRGB" : 3.1289892578125,
+      "name" : "body-plus-all-guides",
+      "nonblackPixels" : 177418,
+      "peakRGB" : 255,
+      "pixelsMaxRGBAbove4" : 177395,
+      "pixelsMaxRGBAbove16" : 164961,
+      "positiveMaterialBodyInstances" : 1933
+    },
+    {
+      "baselineBodyVisibility" : {
+        "baselineBrightPixelsNowBelowQuarterBrightness" : 0,
+        "baselineMaxRGBAbove16Pixels" : 12289
+      },
+      "bgraSHA256" : "b35d6efc29c34e1d86d4fddf1eafe7a1eeced291c293da1c5d6d187ecf5f6dd3",
+      "bodyInstances" : 2239,
+      "bodyMaterialReadback" : {
+        "checkedBatches" : 254,
+        "firstEightMaterials" : [
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8594995782",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8597951024",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020994883030653,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020994883030653,
+            "key" : "8880208454",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.01268478948622942,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.01268478948622942,
+            "key" : "8883163696",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.022359296679496765,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.022359296679496765,
+            "key" : "9128811402",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.021720165386795998,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.021720165386795998,
+            "key" : "9128878471",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020857270807027817,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020857270807027817,
+            "key" : "9129208451",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020506231114268303,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020506231114268303,
+            "key" : "9129471616",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          }
+        ],
+        "maxAlphaDifferenceFromIntendedFloat" : 0,
+        "missingUnlitMaterial" : 0
+      },
+      "differenceFromBodyOnly" : {
+        "changedRGBPixels" : 175935,
+        "maxChannelDifference" : 255,
+        "rmsChannelDifference" : 8.8175720173062349
+      },
+      "guideDepthMode" : "fansNoWrites",
+      "guideMaterials" : [
+        {
+          "alpha" : 0.0014659467851743102,
+          "blending" : "transparent",
+          "entityCount" : 2,
+          "faceCulling" : "none",
+          "geometry" : "triangle fan",
+          "name" : "cone-fan",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.017999999999999999,
+          "readsDepth" : true,
+          "rgb" : [
+            0.32941176470588235,
+            0.9137254901960784,
+            0.96078431372549022
+          ],
+          "writesDepth" : false
+        },
+        {
+          "alpha" : 0.063474275171756744,
+          "blending" : "transparent",
+          "entityCount" : 128,
+          "faceCulling" : "back",
+          "geometry" : "0.002m box line",
+          "name" : "cone-ring-line",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.26000000000000001,
+          "readsDepth" : true,
+          "rgb" : [
+            0.47058823529411764,
+            0.58823529411764708,
+            0.6588235294117647
+          ],
+          "writesDepth" : true
+        },
+        {
+          "alpha" : 0.063474275171756744,
+          "blending" : "transparent",
+          "entityCount" : 16,
+          "faceCulling" : "back",
+          "geometry" : "0.002m box line",
+          "name" : "cone-radial-line",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.26000000000000001,
+          "readsDepth" : true,
+          "rgb" : [
+            0.47058823529411764,
+            0.58823529411764708,
+            0.6588235294117647
+          ],
+          "writesDepth" : true
+        },
+        {
+          "alpha" : 0.010321963578462601,
+          "blending" : "transparent",
+          "entityCount" : 1,
+          "faceCulling" : "none",
+          "geometry" : "triangle fan",
+          "name" : "screen-fan",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.10000000000000001,
+          "readsDepth" : true,
+          "rgb" : [
+            0.32941176470588235,
+            0.9137254901960784,
+            0.96078431372549022
+          ],
+          "writesDepth" : false
+        },
+        {
+          "alpha" : 0.60454738140106201,
+          "blending" : "transparent",
+          "entityCount" : 64,
+          "faceCulling" : "back",
+          "geometry" : "0.002m box line",
+          "name" : "screen-ring-line",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.80000000000000004,
+          "readsDepth" : true,
+          "rgb" : [
+            0.32941176470588235,
+            0.9137254901960784,
+            0.96078431372549022
+          ],
+          "writesDepth" : true
+        },
+        {
+          "alpha" : 0.0035010159481316805,
+          "blending" : "transparent",
+          "entityCount" : 1,
+          "faceCulling" : "none",
+          "geometry" : "triangle fan",
+          "name" : "cutting-plane-fan",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.044999999999999998,
+          "readsDepth" : true,
+          "rgb" : [
+            1,
+            0.72941176470588232,
+            0.41960784313725491
+          ],
+          "writesDepth" : false
+        },
+        {
+          "alpha" : 0.10048151016235352,
+          "blending" : "transparent",
+          "entityCount" : 64,
+          "faceCulling" : "back",
+          "geometry" : "0.002m box line",
+          "name" : "cutting-plane-edge",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.34999999999999998,
+          "readsDepth" : true,
+          "rgb" : [
+            1,
+            0.72941176470588232,
+            0.41960784313725491
+          ],
+          "writesDepth" : true
+        },
+        {
+          "alpha" : 0.44798842072486877,
+          "blending" : "transparent",
+          "entityCount" : 2,
+          "faceCulling" : "back",
+          "geometry" : "0.002m box line",
+          "name" : "cutting-plane-endpoint",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.69999999999999996,
+          "readsDepth" : true,
+          "rgb" : [
+            1,
+            0.72941176470588232,
+            0.41960784313725491
+          ],
+          "writesDepth" : true
+        }
+      ],
+      "guides" : {
+        "cone" : true,
+        "plane" : true,
+        "screen" : true
+      },
+      "meanMaxRGB" : 3.6468863932291669,
+      "name" : "body-plus-all-guide-fans-no-depth-write",
+      "nonblackPixels" : 177418,
+      "peakRGB" : 255,
+      "pixelsMaxRGBAbove4" : 177418,
+      "pixelsMaxRGBAbove16" : 168024,
+      "positiveMaterialBodyInstances" : 1933
+    },
+    {
+      "baselineBodyVisibility" : {
+        "baselineBrightPixelsNowBelowQuarterBrightness" : 0,
+        "baselineMaxRGBAbove16Pixels" : 12289
+      },
+      "bgraSHA256" : "cb940db63987c18adbc661ad5c75898100d2fc5a1b6d3c426348f00dc1e14ff8",
+      "bodyInstances" : 2239,
+      "bodyMaterialReadback" : {
+        "checkedBatches" : 254,
+        "firstEightMaterials" : [
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8594995782",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0,
+            "key" : "8597951024",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020994883030653,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020994883030653,
+            "key" : "8880208454",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.01268478948622942,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.01268478948622942,
+            "key" : "8883163696",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.022359296679496765,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.022359296679496765,
+            "key" : "9128811402",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.021720165386795998,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.021720165386795998,
+            "key" : "9128878471",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020857270807027817,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020857270807027817,
+            "key" : "9129208451",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          },
+          {
+            "alpha" : 0.020506231114268303,
+            "blending" : "transparent",
+            "faceCulling" : "back",
+            "intendedAlpha" : 0.020506231114268303,
+            "key" : "9129471616",
+            "opacityThreshold" : null,
+            "readsDepth" : true,
+            "writesDepth" : true
+          }
+        ],
+        "maxAlphaDifferenceFromIntendedFloat" : 0,
+        "missingUnlitMaterial" : 0
+      },
+      "differenceFromBodyOnly" : {
+        "changedRGBPixels" : 175935,
+        "maxChannelDifference" : 255,
+        "rmsChannelDifference" : 8.9301283519786256
+      },
+      "guideDepthMode" : "allNoWrites",
+      "guideMaterials" : [
+        {
+          "alpha" : 0.0014659467851743102,
+          "blending" : "transparent",
+          "entityCount" : 2,
+          "faceCulling" : "none",
+          "geometry" : "triangle fan",
+          "name" : "cone-fan",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.017999999999999999,
+          "readsDepth" : true,
+          "rgb" : [
+            0.32941176470588235,
+            0.9137254901960784,
+            0.96078431372549022
+          ],
+          "writesDepth" : false
+        },
+        {
+          "alpha" : 0.063474275171756744,
+          "blending" : "transparent",
+          "entityCount" : 128,
+          "faceCulling" : "back",
+          "geometry" : "0.002m box line",
+          "name" : "cone-ring-line",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.26000000000000001,
+          "readsDepth" : true,
+          "rgb" : [
+            0.47058823529411764,
+            0.58823529411764708,
+            0.6588235294117647
+          ],
+          "writesDepth" : false
+        },
+        {
+          "alpha" : 0.063474275171756744,
+          "blending" : "transparent",
+          "entityCount" : 16,
+          "faceCulling" : "back",
+          "geometry" : "0.002m box line",
+          "name" : "cone-radial-line",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.26000000000000001,
+          "readsDepth" : true,
+          "rgb" : [
+            0.47058823529411764,
+            0.58823529411764708,
+            0.6588235294117647
+          ],
+          "writesDepth" : false
+        },
+        {
+          "alpha" : 0.010321963578462601,
+          "blending" : "transparent",
+          "entityCount" : 1,
+          "faceCulling" : "none",
+          "geometry" : "triangle fan",
+          "name" : "screen-fan",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.10000000000000001,
+          "readsDepth" : true,
+          "rgb" : [
+            0.32941176470588235,
+            0.9137254901960784,
+            0.96078431372549022
+          ],
+          "writesDepth" : false
+        },
+        {
+          "alpha" : 0.60454738140106201,
+          "blending" : "transparent",
+          "entityCount" : 64,
+          "faceCulling" : "back",
+          "geometry" : "0.002m box line",
+          "name" : "screen-ring-line",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.80000000000000004,
+          "readsDepth" : true,
+          "rgb" : [
+            0.32941176470588235,
+            0.9137254901960784,
+            0.96078431372549022
+          ],
+          "writesDepth" : false
+        },
+        {
+          "alpha" : 0.0035010159481316805,
+          "blending" : "transparent",
+          "entityCount" : 1,
+          "faceCulling" : "none",
+          "geometry" : "triangle fan",
+          "name" : "cutting-plane-fan",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.044999999999999998,
+          "readsDepth" : true,
+          "rgb" : [
+            1,
+            0.72941176470588232,
+            0.41960784313725491
+          ],
+          "writesDepth" : false
+        },
+        {
+          "alpha" : 0.10048151016235352,
+          "blending" : "transparent",
+          "entityCount" : 64,
+          "faceCulling" : "back",
+          "geometry" : "0.002m box line",
+          "name" : "cutting-plane-edge",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.34999999999999998,
+          "readsDepth" : true,
+          "rgb" : [
+            1,
+            0.72941176470588232,
+            0.41960784313725491
+          ],
+          "writesDepth" : false
+        },
+        {
+          "alpha" : 0.44798842072486877,
+          "blending" : "transparent",
+          "entityCount" : 2,
+          "faceCulling" : "back",
+          "geometry" : "0.002m box line",
+          "name" : "cutting-plane-endpoint",
+          "opacityThreshold" : null,
+          "rawAlpha" : 0.69999999999999996,
+          "readsDepth" : true,
+          "rgb" : [
+            1,
+            0.72941176470588232,
+            0.41960784313725491
+          ],
+          "writesDepth" : false
+        }
+      ],
+      "guides" : {
+        "cone" : true,
+        "plane" : true,
+        "screen" : true
+      },
+      "meanMaxRGB" : 3.6635278320312499,
+      "name" : "body-plus-all-guides-no-depth-write",
+      "nonblackPixels" : 177418,
+      "peakRGB" : 255,
+      "pixelsMaxRGBAbove4" : 177418,
+      "pixelsMaxRGBAbove16" : 168024,
+      "positiveMaterialBodyInstances" : 1933
+    }
+  ],
+  "depth" : 16,
+  "framesPerState" : 4,
+  "guideAlpha" : "native linearLightOpacity once; no opacity\/radius gain",
+  "height" : 960,
+  "inputSHA256" : "95c3c0e0bcb3349fb05520926d27b8017d4964f1d2a0dd883c1a7e961a1ad4ea",
+  "leanInputSHA256" : "a8234b7f66bcf82153cfe9e8b149e94b5648031468ddc837a5e6a006d9e5bccb",
+  "nativeFormulaSources" : {
+    "native\/Sources\/PolynomialAppearance.swift" : "209ad4c7d39f99cc0e397d5bbfc50014dbcb1866c91443c0713b135bc09218e1",
+    "native\/Sources\/PolynomialSourceMorph.swift" : "9740abb77001c4662222de69208263d9fb59158fa32f40b19cd765bb332a4ca8",
+    "native\/Sources\/PolynomialSpace.swift" : "c7836bd5a8ff7e1902d43d3ec1954732f094adc16cc80256a014da1566ed7051"
+  },
+  "nativeRelevantChildOrder" : [
+    "guides",
+    "cloud",
+    "projection",
+    "plane"
+  ],
+  "pairCartesianNormal" : [
+    0,
+    0,
+    -2
+  ],
+  "pairEndpointValues" : [
+    -1,
+    1
+  ],
+  "pixelFormat" : "bgra8Unorm_srgb",
+  "platform" : "Version 27.0.1 (Build 26A434)",
+  "rootPitchRadians" : 0.28139999999999998,
+  "rootPosition" : [
+    0,
+    1.3999999999999999,
+    -3.1000000000000001
+  ],
+  "rootYawRadians" : -0.48060000000000003,
+  "schema" : "native-guide-probe-result\/v1",
+  "scope" : "macOS offscreen body-plus-guide occlusion diagnostic; not visionOS UI\/headset acceptance",
+  "sourceHeight" : 9.5999999999999996,
+  "sourceHeightMetres" : 0.57600003480911255,
+  "toneMapping" : false,
+  "verticalFOVDegrees" : 60,
+  "width" : 1280
+}

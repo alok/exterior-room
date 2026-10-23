@@ -118,7 +118,7 @@ private func changedPolynomial(_ data: Data, field: String, value: Any) throws -
 private actor PolynomialTransport {
   enum Corruption: Sendable {
     case wrongID, falseOK, wrongSchema, wrongCommit, wrongGeometry
-    case wrongActionCommit, missingActionCheck, wrongActionPoint
+    case wrongActionCommit, missingActionCheck, wrongActionPoint, shortCataloguePage
   }
   struct Pending {
     let request: URLRequest
@@ -135,6 +135,9 @@ private actor PolynomialTransport {
   func hold(operation: String = "inspect") { heldOperation = operation }
   func count(operation: String) -> Int { operationCounts[operation, default: 0] }
   func totalCount() -> Int { operationCounts.values.reduce(0, +) }
+  func matrix(forHeld id:Int) throws -> [Int] {
+    try XCTUnwrap(polynomialObject(XCTUnwrap(held[id]?.request.httpBody))["matrix"] as? [Int])
+  }
   func send(_ request: URLRequest) async throws -> (Data, URLResponse) {
     let input = try polynomialObject(XCTUnwrap(request.httpBody))
     let id = try XCTUnwrap(input["id"] as? Int)
@@ -166,6 +169,13 @@ private actor PolynomialTransport {
     case .wrongActionCommit: data = try changedPolynomial(data, field: "actionSourceCommit", value: "unrecognized-action")
     case .missingActionCheck: data = try changedPolynomial(data, field: "checks", value: ["positiveDeterminant": true])
     case .wrongActionPoint: data = try changedPolynomial(data, field: "point", value: [1,0,1])
+    case .shortCataloguePage:
+      var object=try polynomialObject(data)
+      object["count"]=1; object["nextOffset"]=(object["offset"] as? Int ?? 0)+1
+      for key in ["abc","xyz"] { object[key]=Array(try XCTUnwrap(object[key] as? [Int]).prefix(3)) }
+      for key in ["delta","kind","divisor"] { object[key]=Array(try XCTUnwrap(object[key] as? [Int]).prefix(1)) }
+      object["primitive"]=Array(try XCTUnwrap(object["primitive"] as? [Bool]).prefix(1))
+      data=try JSONSerialization.data(withJSONObject:object)
     case nil: break
     }
     pending.continuation.resume(returning: (data, response(pending.request)))
@@ -228,6 +238,135 @@ private actor PolynomialTransport {
     model.cancelRootsDrag()
     XCTAssertNil(model.previewCatalogue); XCTAssertNil(model.previewPoints)
     XCTAssertEqual(model.renderPoints.map(\.id),ids); XCTAssertEqual(model.sceneRevision,revision)
+  }
+  // A bounded, deliberate UI-actor stall distinguishes detached work from an inherited
+  // Task that merely starts after the renderer releases MainActor. No simulator claim.
+  nonisolated private func blockCurrentThreadForWorkerTest() { Thread.sleep(forTimeInterval:0.3) }
+  func testPreviewWorkerCompletesIOAndValidationWhileMainActorIsOccupied() async throws {
+    let fixture=try PolynomialFixtures(),transport=PolynomialTransport(fixture),model=model(fixture,transport)
+    model.previewDiagnosticsEnabled=true
+    model.select([1,0,1],pair:[1,1,1]); await model.waitForPending()
+    model.catalogueMode = .source; model.refresh(); await model.waitForPending()
+    let revision=model.sceneRevision,identities=model.points.map(\.id)
+    model.beginRootsDrag(at:[0,1]); model.updateRootsDrag(to:[0,2],force:true)
+    blockCurrentThreadForWorkerTest()
+    model.tracePreview("test-main-actor-unblocked")
+    XCTAssertNil(model.previewCatalogue,"Only MainActor may publish the completed immutable result")
+    await model.waitForPreviewCatalogue()
+    let complete=try XCTUnwrap(model.previewEvents.first { $0.kind == "worker-complete" })
+    let resumed=try XCTUnwrap(model.previewEvents.first { $0.kind == "worker-resumed" })
+    let unblocked=try XCTUnwrap(model.previewEvents.first { $0.kind == "test-main-actor-unblocked" })
+    XCTAssertLessThan(complete.milliseconds,unblocked.milliseconds)
+    XCTAssertGreaterThanOrEqual(resumed.milliseconds,unblocked.milliseconds)
+    XCTAssertEqual(model.previewCatalogue?.matrix,[2,0,0,1]); XCTAssertEqual(model.previewCatalogueAcceptances,1)
+    XCTAssertEqual(model.sceneRevision,revision); XCTAssertEqual(model.points.map(\.id),identities)
+    XCTAssertEqual(model.displayedPair,[1,1,1]); model.cancelRootsDrag()
+  }
+  func testShortPreviewPageCannotExhaustReservedRequestIDsOrPublish() async throws {
+    let fixture=try PolynomialFixtures(),transport=PolynomialTransport(fixture),model=model(fixture,transport)
+    model.previewDiagnosticsEnabled=true
+    model.catalogueMode = .source; model.refresh(); await model.waitForPending()
+    let revision=model.sceneRevision,identities=model.points.map(\.id),before=await transport.totalCount()
+    await transport.hold(operation:"catalogue")
+    model.beginRootsDrag(at:[0,1]); model.updateRootsDrag(to:[0,2],force:true)
+    let held=try await transport.waitForHeld(1)
+    try await transport.reply(held[0],corrupt:.shortCataloguePage)
+    await model.waitForPreviewCatalogue()
+    let after=await transport.totalCount()
+    XCTAssertEqual(after,before+1,"A short page must fail before issuing unreserved continuation IDs")
+    XCTAssertNil(model.previewCatalogue); XCTAssertEqual(model.previewCatalogueAcceptances,0)
+    XCTAssertEqual(model.sceneRevision,revision); XCTAssertEqual(model.points.map(\.id),identities)
+    XCTAssertTrue(model.previewCatalogueStatus.contains("unavailable")); model.cancelRootsDrag()
+  }
+  func testHeldFinalNonForceInputSurvivesRenderThrottleAndPublishesBeforeRelease() async throws {
+    let fixture=try PolynomialFixtures(),transport=PolynomialTransport(fixture),model=model(fixture,transport)
+    model.previewDiagnosticsEnabled=true
+    model.select([1,0,1],pair:[1,1,1]); await model.waitForPending()
+    model.catalogueMode = .source; model.refresh(); await model.waitForPending()
+    let revision=model.sceneRevision,identities=model.points.map(\.id)
+    model.beginRootsDrag(at:[0,1])
+    model.updateRootsDrag(to:[0,1]) // First event consumes the render interval below the crop threshold.
+    model.updateRootsDrag(to:[0,2]) // Final real input lands in the same interval; no release follows.
+    for _ in 0..<500 where model.previewCatalogueAcceptances == 0 { try await Task.sleep(for:.milliseconds(1)) }
+    XCTAssertEqual(model.previewCatalogue?.matrix,[2,0,0,1])
+    XCTAssertEqual(model.previewCatalogueAcceptances,1)
+    XCTAssertEqual(model.sceneRevision,revision); XCTAssertEqual(model.points.map(\.id),identities)
+    XCTAssertEqual(model.displayedPair,[1,1,1]); XCTAssertNotNil(model.actionPreview)
+    let kinds=model.previewEvents.map(\.kind)
+    for expected in ["sample-deferred","sample-flushed","catalogue-queued","catalogue-start","transport-start","transport-response","catalogue-published"] {
+      XCTAssertTrue(kinds.contains(expected),"Missing diagnostic stage \(expected)")
+    }
+    XCTAssertFalse(kinds.contains("drag-release"),"Preview must publish during the hold, before any release")
+    model.cancelRootsDrag(); XCTAssertNil(model.previewCatalogue)
+  }
+  func testUnsentPreviewCandidateIsReplacedDuringRequestSpacing() async throws {
+    let fixture=try PolynomialFixtures(),transport=PolynomialTransport(fixture),model=model(fixture,transport)
+    model.previewDiagnosticsEnabled=true
+    model.catalogueMode = .source; model.refresh(); await model.waitForPending()
+    model.beginRootsDrag(at:[0,1]); model.updateRootsDrag(to:[0,2],force:true)
+    await model.waitForPreviewCatalogue()
+    await transport.hold(operation:"catalogue")
+    model.updateRootsDrag(to:[0,4],force:true)
+    try await Task.sleep(for:.milliseconds(15)) // Let the request-spacing timer begin.
+    model.updateRootsDrag(to:[0,1],force:true) // Replace the not-yet-sent4 with identity.
+    let held=try await transport.waitForHeld(1),sent=try await transport.matrix(forHeld:held[0])
+    XCTAssertEqual(sent,[1,0,0,1],"Do not send an obsolete candidate captured before the timer")
+    if sent != [1,0,0,1] { model.cancelRootsDrag() }
+    try await transport.reply(held[0]); await model.waitForPreviewCatalogue()
+    XCTAssertEqual(model.previewCatalogue?.matrix,[1,0,0,1])
+    XCTAssertFalse(model.previewEvents.contains { $0.kind == "transport-start" && $0.matrix == [4,0,0,1] })
+    model.cancelRootsDrag()
+  }
+  func testDeferredInputCannotMutateANewGestureOwnerOrResetScene() async throws {
+    let fixture=try PolynomialFixtures(),transport=PolynomialTransport(fixture),model=model(fixture,transport)
+    model.previewDiagnosticsEnabled=true
+    model.catalogueMode = .source; model.refresh(); await model.waitForPending()
+    let before=await transport.count(operation:"catalogue")
+    model.beginRootsDrag(at:[0,1]); model.updateRootsDrag(to:[0,1]); model.updateRootsDrag(to:[0,2])
+    model.place(.origin(lower:false)); model.beginActionDrag(at:[0,0])
+    let current=model.actionPreview
+    try await Task.sleep(for:.milliseconds(120))
+    XCTAssertEqual(model.actionPreview,current); XCTAssertNil(model.previewCatalogue)
+    let after=await transport.count(operation:"catalogue"); XCTAssertEqual(after,before)
+    model.cancelActionDrag()
+    model.beginRootsDrag(at:[0,1]); model.updateRootsDrag(to:[0,1]); model.updateRootsDrag(to:[0,2])
+    model.reset(); await model.waitForPending(); try await Task.sleep(for:.milliseconds(120))
+    XCTAssertNil(model.actionPreview); XCTAssertNil(model.previewCatalogue); XCTAssertEqual(model.catalogueMode,.ball)
+    XCTAssertEqual(model.inspection?.point,[1,-1,2])
+    for _ in 0..<100 { model.tracePreview("bounded-trace-test") }
+    XCTAssertEqual(model.previewEvents.count,64)
+    let events=try JSONDecoder().decode([PolynomialModel.PreviewEvent].self,from:Data(model.previewTraceJSON.utf8))
+    XCTAssertEqual(events.map(\.sequence),events.map(\.sequence).sorted())
+  }
+  func testReleaseOutsideDomainCommitsLastValidDeferredSampleAndCancelsTimer() async throws {
+    for surface in ["roots","klein","spatial"] {
+      let fixture=try PolynomialFixtures(),transport=PolynomialTransport(fixture),model=model(fixture,transport)
+      model.previewDiagnosticsEnabled=true
+      model.select([1,0,1]); await model.waitForPending()
+      if surface != "roots" { model.place(.origin(lower:false)) }
+      switch surface {
+      case "roots":
+        model.beginRootsDrag(at:[0,1]); model.updateRootsDrag(to:[0,1]); model.updateRootsDrag(to:[1,1])
+        model.updateRootsDrag(to:[1,-1],force:true)
+        XCTAssertTrue(model.commitRootsDrag())
+      case "klein":
+        model.beginActionDrag(at:[0,0]); model.updateActionDrag(to:[0,0]); model.updateActionDrag(to:[2.0/3,1.0/3])
+        model.updateActionDrag(to:[2,0],force:true)
+        XCTAssertTrue(model.commitActionDrag())
+      default:
+        model.beginSpatialDrag(direction:[0,2,0]); model.updateSpatialDrag(direction:[0,2,0])
+        model.updateSpatialDrag(direction:[2,3,1]); model.updateSpatialDrag(direction:[2,1,0],force:true)
+        XCTAssertTrue(model.commitSpatialDrag())
+      }
+      await model.waitForPending()
+      XCTAssertNil(model.error,"\(surface)")
+      XCTAssertEqual(model.action?.matrix,[3,1,1,2],"\(surface) must commit the last valid direction")
+      let revision=model.sceneRevision,count=await transport.totalCount()
+      try await Task.sleep(for:.milliseconds(120))
+      let laterCount=await transport.totalCount()
+      XCTAssertEqual(laterCount,count); XCTAssertEqual(model.sceneRevision,revision)
+      XCTAssertNil(model.actionPreview); XCTAssertNil(model.previewCatalogue)
+    }
   }
   func testPreviewLatestRequestWinsAndCancellationIgnoresLateMembership() async throws {
     let fixture=try PolynomialFixtures(),transport=PolynomialTransport(fixture),model=model(fixture,transport)

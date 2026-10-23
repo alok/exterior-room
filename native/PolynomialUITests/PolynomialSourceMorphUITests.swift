@@ -47,6 +47,8 @@ import XCTest
       "poly-roots-selection","poly-roots-plane","poly-roots-preview-count","poly-roots-preview-catalogue"] {
       receipt[id] = label(app,id)
     }
+    let trace=app.staticTexts["poly-roots-preview-trace"]
+    receipt["previewTrace"] = trace.exists ? (trace.value as? String ?? "(no accessibility value)") : "(absent)"
     let data = try JSONSerialization.data(withJSONObject:receipt,options:[.sortedKeys,.prettyPrinted])
     let attachment = XCTAttachment(data:data,uniformTypeIdentifier:"public.json")
     attachment.name = stage + "-receipt"; attachment.lifetime = .keepAlways; add(attachment)
@@ -89,6 +91,8 @@ import XCTest
     let finish=chart.coordinate(withNormalizedOffset:CGVector(dx:0.15,dy:0.05))
     start.press(forDuration:0.25,thenDragTo:finish,withVelocity:.slow,thenHoldForDuration:2)
     let diagnostic=XCTAttachment(string:"Before \(before) · frame \(chart.frame)\n\(label(app,"poly-roots-gesture"))\n\(label(app,"poly-roots-preview-count"))")
+    let previewTrace=XCTAttachment(string:app.staticTexts["poly-roots-preview-trace"].value as? String ?? "no trace")
+    previewTrace.name="held-source-preview-timeline"; previewTrace.lifetime = .keepAlways; add(previewTrace)
     diagnostic.name="held-source-preview-input"; diagnostic.lifetime = .keepAlways; add(diagnostic)
     let after=previewCount(app)
     try capture("source-input-02-held-preview-result",app,extra:["matrixBefore":before,"previewBefore":String(count),"previewAfter":String(after)])

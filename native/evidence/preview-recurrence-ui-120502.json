@@ -1,0 +1,512 @@
+{
+  "uiResult": "PASSED unchanged strict held-preview assertion and full subsequent P50/P100/Origin-ready sequence",
+  "nativeSourceUnchanged": true,
+  "backendSHA256": "d6f909065f501b827c8d5646aebe4b2dd723d06a6e9d5ba3ad2f183f6ede44c4",
+  "receipts": [
+    {
+      "poly-count": "480 signed triples \u00b7 R6",
+      "poly-members": "22 buffered interior triples on the plane",
+      "poly-plane": "2a \u22122c = 0 \u00b7 -1 and 1",
+      "poly-projection-height-value": "(absent)",
+      "poly-projection-value": "(absent)",
+      "poly-render-stats": "480 instances \u00b7 480 buffered \u00b7 15 color batches \u00b7 0 projected \u00b7 22 plane rings \u00b7 68.6 ms update",
+      "poly-roots-gesture": "Changed 0 \u00b7 ended 0 \u00b7 Drag a root to move the cloud.",
+      "poly-roots-matrix": "M = [1, 0, 0, 1]",
+      "poly-roots-plane": "2a \u22122c = 0 \u00b7 -1 and 1",
+      "poly-roots-preview-catalogue": "(absent)",
+      "poly-roots-preview-count": "Preview crops accepted: 0",
+      "poly-roots-selection": "x\u00b2 + 1 \u00b7 (1, 0, 1) \u00b7 \u0394 = -4",
+      "poly-state": "(1, 0, 1) \u00b7 \u0394 = -4",
+      "poly-status": "Live Lean \u00b7 480 signed triples",
+      "previewTrace": [
+        {
+          "kind": "roots-resize",
+          "sequence": 1,
+          "generation": 3,
+          "milliseconds": 10661.144971847534,
+          "detail": "476.0x345.5 \u2192 476.0x325.0"
+        },
+        {
+          "kind": "roots-resize",
+          "sequence": 2,
+          "generation": 4,
+          "milliseconds": 11416.247010231018,
+          "detail": "476.0x325.0 \u2192 476.0x345.5"
+        }
+      ],
+      "stage": "source-input-00-actual-shared-roots-pair"
+    },
+    {
+      "poly-count": "4406 signed triples \u00b7 depth 16",
+      "poly-members": "152 buffered interior triples on the plane",
+      "poly-plane": "Base 2a \u22122c = 0 \u00b7 -1 and 1 \u00b7 shown \u2248 -2.000 and 1.333",
+      "poly-projection-height-value": "60%",
+      "poly-projection-value": "0%",
+      "poly-render-stats": "450 visible bodies \u00b7 2239 instances \u00b7 4406 buffered \u00b7 286 color batches \u00b7 0 projected \u00b7 50 plane-highlight bodies \u00b7 158.7 ms update \u00b7 morph 0% \u00b7 h 9.6",
+      "poly-roots-gesture": "Changed 0 \u00b7 ended 0 \u00b7 Drag a root to move the cloud.",
+      "poly-roots-matrix": "M = [3, 1, 1, 2]",
+      "poly-roots-plane": "Base 2a \u22122c = 0 \u00b7 -1 and 1 \u00b7 shown \u2248 -2.000 and 1.333",
+      "poly-roots-preview-catalogue": "(absent)",
+      "poly-roots-preview-count": "Preview crops accepted: 0",
+      "poly-roots-selection": "x\u00b2 + 1 \u00b7 (1, 0, 1) \u00b7 \u0394 = -4",
+      "poly-state": "(1, 0, 1) \u00b7 \u0394 = -4",
+      "poly-status": "Live Lean \u00b7 4406 signed triples \u00b7 source depth 16",
+      "previewTrace": [
+        {
+          "kind": "roots-resize",
+          "generation": 3,
+          "milliseconds": 10661.144971847534,
+          "detail": "476.0x345.5 \u2192 476.0x325.0",
+          "sequence": 1
+        },
+        {
+          "kind": "roots-resize",
+          "generation": 4,
+          "milliseconds": 11416.247010231018,
+          "detail": "476.0x325.0 \u2192 476.0x345.5",
+          "sequence": 2
+        }
+      ],
+      "stage": "source-input-01-d5-complete-root-arc"
+    },
+    {
+      "matrixBefore": "M = [3, 1, 1, 2]",
+      "poly-count": "4205 signed triples \u00b7 depth 16",
+      "poly-members": "64 buffered interior triples on the plane",
+      "poly-plane": "Base 2a \u22122c = 0 \u00b7 -1 and 1 \u00b7 shown \u2248 5.489 and 0.815",
+      "poly-projection-height-value": "60%",
+      "poly-projection-value": "0%",
+      "poly-render-stats": "458 visible bodies \u00b7 2417 instances \u00b7 4205 buffered \u00b7 468 color batches \u00b7 0 projected \u00b7 32 plane-highlight bodies \u00b7 429.3 ms update \u00b7 morph 0% \u00b7 h 9.6",
+      "poly-roots-gesture": "Changed 3 \u00b7 ended 1 \u00b7 Released declared sample to Lean",
+      "poly-roots-matrix": "M = [16491, 8977, 16312, 14943]",
+      "poly-roots-plane": "Base 2a \u22122c = 0 \u00b7 -1 and 1 \u00b7 shown \u2248 5.489 and 0.815",
+      "poly-roots-preview-catalogue": "(absent)",
+      "poly-roots-preview-count": "Preview crops accepted: 1",
+      "poly-roots-selection": "x\u00b2 + 1 \u00b7 (1, 0, 1) \u00b7 \u0394 = -4",
+      "poly-state": "(1, 0, 1) \u00b7 \u0394 = -4",
+      "poly-status": "Live Lean \u00b7 4205 signed triples \u00b7 source depth 16",
+      "previewAfter": "1",
+      "previewBefore": "0",
+      "previewTrace": [
+        {
+          "milliseconds": 10661.144971847534,
+          "sequence": 1,
+          "generation": 3,
+          "kind": "roots-resize",
+          "detail": "476.0x345.5 \u2192 476.0x325.0"
+        },
+        {
+          "sequence": 2,
+          "milliseconds": 11416.247010231018,
+          "kind": "roots-resize",
+          "detail": "476.0x325.0 \u2192 476.0x345.5",
+          "generation": 4
+        },
+        {
+          "sequence": 3,
+          "milliseconds": 33142.84002780914,
+          "kind": "roots-changed",
+          "detail": "x=149.12 y=173.41 startX=142.80 startY=172.75 inputElapsedMs=0.00 width=476.00 height=345.50",
+          "generation": 7
+        },
+        {
+          "sequence": 4,
+          "milliseconds": 33142.958998680115,
+          "kind": "drag-begin",
+          "detail": "roots",
+          "generation": 8
+        },
+        {
+          "sequence": 5,
+          "milliseconds": 33143.041014671326,
+          "kind": "sample-below-threshold",
+          "matrix": [
+            13235,
+            4467,
+            4949,
+            9226
+          ],
+          "detail": "distance=0.049483",
+          "generation": 8
+        },
+        {
+          "sequence": 6,
+          "milliseconds": 33672.20997810364,
+          "kind": "roots-changed",
+          "detail": "x=290.62 y=188.08 startX=142.80 startY=172.75 inputElapsedMs=533.33 width=476.00 height=345.50",
+          "generation": 8
+        },
+        {
+          "sequence": 7,
+          "milliseconds": 33672.29700088501,
+          "kind": "catalogue-queued",
+          "matrix": [
+            7704,
+            4069,
+            7475,
+            7193
+          ],
+          "detail": "distance=1.072014",
+          "generation": 8
+        },
+        {
+          "sequence": 8,
+          "milliseconds": 33672.3290681839,
+          "kind": "catalogue-start",
+          "matrix": [
+            7704,
+            4069,
+            7475,
+            7193
+          ],
+          "detail": "",
+          "generation": 8
+        },
+        {
+          "sequence": 9,
+          "milliseconds": 33994.49300765991,
+          "kind": "roots-changed",
+          "detail": "x=309.40 y=190.03 startX=142.80 startY=172.75 inputElapsedMs=850.00 width=476.00 height=345.50",
+          "generation": 8
+        },
+        {
+          "sequence": 10,
+          "milliseconds": 33994.56298351288,
+          "kind": "catalogue-queued",
+          "matrix": [
+            16491,
+            8977,
+            16312,
+            14943
+          ],
+          "detail": "distance=1.200317",
+          "generation": 8
+        },
+        {
+          "sequence": 11,
+          "milliseconds": 33672.37603664398,
+          "kind": "worker-start",
+          "matrix": [
+            7704,
+            4069,
+            7475,
+            7193
+          ],
+          "detail": "",
+          "generation": 8
+        },
+        {
+          "matrix": [
+            7704,
+            4069,
+            7475,
+            7193
+          ],
+          "detail": "catalogue",
+          "sequence": 12,
+          "requestID": 16,
+          "milliseconds": 33672.46198654175,
+          "generation": 8,
+          "kind": "transport-start"
+        },
+        {
+          "matrix": [
+            7704,
+            4069,
+            7475,
+            7193
+          ],
+          "detail": "catalogue bytes=136526",
+          "sequence": 13,
+          "requestID": 16,
+          "milliseconds": 33839.82503414154,
+          "generation": 8,
+          "kind": "transport-response"
+        },
+        {
+          "milliseconds": 33864.022970199585,
+          "requestID": 17,
+          "matrix": [
+            7704,
+            4069,
+            7475,
+            7193
+          ],
+          "sequence": 14,
+          "generation": 8,
+          "detail": "membersCatalogue",
+          "kind": "transport-start"
+        },
+        {
+          "milliseconds": 33866.65201187134,
+          "requestID": 17,
+          "matrix": [
+            7704,
+            4069,
+            7475,
+            7193
+          ],
+          "sequence": 15,
+          "generation": 8,
+          "detail": "membersCatalogue bytes=1073",
+          "kind": "transport-response"
+        },
+        {
+          "milliseconds": 33870.47898769379,
+          "generation": 8,
+          "detail": "points=4209",
+          "matrix": [
+            7704,
+            4069,
+            7475,
+            7193
+          ],
+          "kind": "worker-complete",
+          "sequence": 16
+        },
+        {
+          "milliseconds": 34289.715051651,
+          "generation": 8,
+          "detail": "",
+          "matrix": [
+            7704,
+            4069,
+            7475,
+            7193
+          ],
+          "kind": "worker-resumed",
+          "sequence": 17
+        },
+        {
+          "sequence": 18,
+          "detail": "",
+          "milliseconds": 34289.72005844116,
+          "generation": 8,
+          "matrix": [
+            7704,
+            4069,
+            7475,
+            7193
+          ],
+          "kind": "catalogue-superseded"
+        },
+        {
+          "sequence": 19,
+          "detail": "",
+          "milliseconds": 34289.74902629852,
+          "generation": 8,
+          "matrix": [
+            16491,
+            8977,
+            16312,
+            14943
+          ],
+          "kind": "catalogue-start"
+        },
+        {
+          "sequence": 20,
+          "detail": "",
+          "milliseconds": 34289.77596759796,
+          "generation": 8,
+          "matrix": [
+            16491,
+            8977,
+            16312,
+            14943
+          ],
+          "kind": "worker-start"
+        },
+        {
+          "milliseconds": 34289.9010181427,
+          "requestID": 20,
+          "sequence": 21,
+          "matrix": [
+            16491,
+            8977,
+            16312,
+            14943
+          ],
+          "generation": 8,
+          "detail": "catalogue",
+          "kind": "transport-start"
+        },
+        {
+          "kind": "transport-response",
+          "detail": "catalogue bytes=138116",
+          "milliseconds": 34547.80399799347,
+          "matrix": [
+            16491,
+            8977,
+            16312,
+            14943
+          ],
+          "sequence": 22,
+          "requestID": 20,
+          "generation": 8
+        },
+        {
+          "kind": "transport-start",
+          "detail": "membersCatalogue",
+          "milliseconds": 34570.53899765015,
+          "matrix": [
+            16491,
+            8977,
+            16312,
+            14943
+          ],
+          "sequence": 23,
+          "requestID": 21,
+          "generation": 8
+        },
+        {
+          "kind": "transport-response",
+          "detail": "membersCatalogue bytes=995",
+          "milliseconds": 34573.26900959015,
+          "matrix": [
+            16491,
+            8977,
+            16312,
+            14943
+          ],
+          "sequence": 24,
+          "requestID": 21,
+          "generation": 8
+        },
+        {
+          "sequence": 25,
+          "detail": "points=4205",
+          "milliseconds": 34576.57706737518,
+          "generation": 8,
+          "matrix": [
+            16491,
+            8977,
+            16312,
+            14943
+          ],
+          "kind": "worker-complete"
+        },
+        {
+          "sequence": 26,
+          "detail": "",
+          "milliseconds": 34576.68101787567,
+          "generation": 8,
+          "matrix": [
+            16491,
+            8977,
+            16312,
+            14943
+          ],
+          "kind": "worker-resumed"
+        },
+        {
+          "sequence": 27,
+          "detail": "points=4205 acceptedScene=5",
+          "milliseconds": 34576.7240524292,
+          "generation": 8,
+          "matrix": [
+            16491,
+            8977,
+            16312,
+            14943
+          ],
+          "kind": "catalogue-published"
+        },
+        {
+          "sequence": 28,
+          "detail": "x=309.40 y=190.03 inputElapsedMs=850.00",
+          "milliseconds": 35809.9399805069,
+          "generation": 8,
+          "kind": "roots-ended"
+        },
+        {
+          "sequence": 29,
+          "detail": "distance=0.000072",
+          "milliseconds": 35810.06300449371,
+          "generation": 8,
+          "matrix": [
+            16491,
+            8977,
+            16312,
+            14943
+          ],
+          "kind": "sample-below-threshold"
+        },
+        {
+          "detail": "roots",
+          "kind": "drag-release",
+          "matrix": [
+            16491,
+            8977,
+            16312,
+            14943
+          ],
+          "generation": 8,
+          "sequence": 30,
+          "milliseconds": 35818.85898113251
+        },
+        {
+          "detail": "pending=false published=true",
+          "kind": "catalogue-cancel",
+          "generation": 8,
+          "sequence": 31,
+          "milliseconds": 35818.8910484314
+        }
+      ],
+      "stage": "source-input-02-held-preview-result"
+    },
+    {
+      "poly-count": "4205 signed triples \u00b7 depth 16",
+      "poly-members": "64 buffered interior triples on the plane",
+      "poly-plane": "Base 2a \u22122c = 0 \u00b7 -1 and 1 \u00b7 shown \u2248 5.489 and 0.815",
+      "poly-projection-height-value": "60%",
+      "poly-projection-value": "50%",
+      "poly-render-stats": "2417 visible bodies \u00b7 2417 instances \u00b7 4205 buffered \u00b7 468 color batches \u00b7 0 projected \u00b7 72 plane-highlight bodies \u00b7 380.3 ms update \u00b7 morph 50% \u00b7 h 9.6",
+      "poly-roots-gesture": "(absent)",
+      "poly-roots-matrix": "(absent)",
+      "poly-roots-plane": "(absent)",
+      "poly-roots-preview-catalogue": "(absent)",
+      "poly-roots-preview-count": "(absent)",
+      "poly-roots-selection": "(absent)",
+      "poly-state": "(1, 0, 1) \u00b7 \u0394 = -4",
+      "poly-status": "Live Lean \u00b7 4205 signed triples \u00b7 source depth 16",
+      "previewTrace": "(absent)",
+      "stage": "source-input-03-final-half-morph"
+    },
+    {
+      "poly-count": "4205 signed triples \u00b7 depth 16",
+      "poly-members": "64 buffered interior triples on the plane",
+      "poly-plane": "Base 2a \u22122c = 0 \u00b7 -1 and 1 \u00b7 shown \u2248 5.489 and 0.815",
+      "poly-projection-height-value": "60%",
+      "poly-projection-value": "100%",
+      "poly-render-stats": "2130 visible bodies \u00b7 2417 instances \u00b7 4205 buffered \u00b7 468 color batches \u00b7 0 projected \u00b7 64 plane-highlight bodies \u00b7 375.6 ms update \u00b7 morph 100% \u00b7 h 9.6",
+      "poly-roots-gesture": "(absent)",
+      "poly-roots-matrix": "(absent)",
+      "poly-roots-plane": "(absent)",
+      "poly-roots-preview-catalogue": "(absent)",
+      "poly-roots-preview-count": "(absent)",
+      "poly-roots-selection": "(absent)",
+      "poly-state": "(1, 0, 1) \u00b7 \u0394 = -4",
+      "poly-status": "Live Lean \u00b7 4205 signed triples \u00b7 source depth 16",
+      "previewTrace": "(absent)",
+      "stage": "source-input-04-final-full-morph"
+    },
+    {
+      "poly-count": "4205 signed triples \u00b7 depth 16",
+      "poly-members": "64 buffered interior triples on the plane",
+      "poly-plane": "Base 2a \u22122c = 0 \u00b7 -1 and 1 \u00b7 shown \u2248 5.489 and 0.815",
+      "poly-projection-height-value": "60%",
+      "poly-projection-value": "100%",
+      "poly-render-stats": "1757 visible bodies \u00b7 2417 instances \u00b7 4205 buffered \u00b7 455 color batches \u00b7 0 projected \u00b7 64 plane-highlight bodies \u00b7 30.2 ms update \u00b7 morph 100% \u00b7 h 9.6",
+      "poly-roots-gesture": "(absent)",
+      "poly-roots-matrix": "(absent)",
+      "poly-roots-plane": "(absent)",
+      "poly-roots-preview-catalogue": "(absent)",
+      "poly-roots-preview-count": "(absent)",
+      "poly-roots-selection": "(absent)",
+      "poly-state": "(1, 0, 1) \u00b7 \u0394 = -4",
+      "poly-status": "Live Lean \u00b7 4205 signed triples \u00b7 source depth 16",
+      "previewTrace": "(absent)",
+      "stage": "source-input-05-origin-ready-for-host-probe"
+    }
+  ]
+}

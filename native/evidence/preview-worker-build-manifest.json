@@ -1,0 +1,133 @@
+{
+  "createdUTC": "2026-10-23T11:56:24.503062+00:00",
+  "scope": "Frozen native sources and actual unsigned build used by UI115041 and115306; Lean binary recorded before independent backend optimization rebuild.",
+  "sources": [
+    {
+      "path": "native/Sources/PolynomialSpace.swift",
+      "bytes": 27235,
+      "sha256": "2ef58e419e53157a90d2d66cc6cb827091a3d176a71064ecdd89372ea0298101"
+    },
+    {
+      "path": "native/Sources/PolynomialTransformControls.swift",
+      "bytes": 8926,
+      "sha256": "032c95311c6cae8bde6646d71152ac0794ea0c2d849bfd421280b67bc1912422"
+    },
+    {
+      "path": "native/Sources/ExteriorRoomApp.swift",
+      "bytes": 7185,
+      "sha256": "185fa622d5dc6c3ec4977060a365e7b0e4c277cda058d9cee7afa5cd926f34b6"
+    },
+    {
+      "path": "native/Sources/PolynomialModel.swift",
+      "bytes": 55784,
+      "sha256": "4e4d0338282c36d8d95e12b12f6716a9c063462e1581c0a900317e5e1d7d6e47"
+    },
+    {
+      "path": "native/Sources/PolynomialAppearance.swift",
+      "bytes": 4745,
+      "sha256": "209ad4c7d39f99cc0e397d5bbfc50014dbcb1866c91443c0713b135bc09218e1"
+    },
+    {
+      "path": "native/Sources/PolynomialCatalogue.swift",
+      "bytes": 9940,
+      "sha256": "e29ab4df034a58e2d39df7830bbd687d74e0052c2f20a54eed0eaa2dc43eb7f5"
+    },
+    {
+      "path": "native/Sources/PolynomialSpatialInput.swift",
+      "bytes": 2046,
+      "sha256": "bae34e8259354060a040baeebc22faa3f1dc545bfb7fc0559a9374ee885df3c1"
+    },
+    {
+      "path": "native/Sources/LeanModel.swift",
+      "bytes": 8847,
+      "sha256": "992903c6a9ca6bfb35b64628e3ed7f1717266541f5643850f477b0ce62d42c93"
+    },
+    {
+      "path": "native/Sources/PolynomialSourceMorph.swift",
+      "bytes": 4732,
+      "sha256": "9740abb77001c4662222de69208263d9fb59158fa32f40b19cd765bb332a4ca8"
+    },
+    {
+      "path": "native/Sources/PolynomialRootsView.swift",
+      "bytes": 20070,
+      "sha256": "0bc394f7e4c17faccc611ca8fa1fa41621cb37b03d3a31c352dc017c0ad8bcb8"
+    },
+    {
+      "path": "native/Sources/PolynomialAction.swift",
+      "bytes": 16967,
+      "sha256": "f0a361b821fbec3747e0828809368ab60591ba3be54d325d294ad3b442b19a92"
+    },
+    {
+      "path": "native/Sources/PolynomialViridis.swift",
+      "bytes": 9877,
+      "sha256": "885fae4705ce971eae95a3141313038af79b6bb62215798dcb5725266b95ceed"
+    },
+    {
+      "path": "native/Sources/PolynomialRoomApp.swift",
+      "bytes": 16963,
+      "sha256": "dbf7ccd79c2017efd2888cde32f5ef1ef833a18d256a420ed9d2ac2ac145cf69"
+    },
+    {
+      "path": "native/Sources/PolynomialRootsGeometry.swift",
+      "bytes": 13348,
+      "sha256": "cea6f5c8c7cc3686418d21ac55dcd94302c6775c2b4e6ec100f3a56e5f85dc85"
+    },
+    {
+      "path": "native/Sources/PolynomialRenderPlan.swift",
+      "bytes": 9028,
+      "sha256": "62b5f558ecece4459e27b79d363a30ad5099834bb48b27f73f254195b56aa2ae"
+    },
+    {
+      "path": "native/Sources/ExteriorSpace.swift",
+      "bytes": 9679,
+      "sha256": "3f9b87c227e7c1c4a77b332a18731820edc4dd4b5a16f2275a2705e44e71d4e4"
+    },
+    {
+      "path": "native/Package.swift",
+      "bytes": 879,
+      "sha256": "047ebf9ccf7db12f700cb3360ea2a885deaa62595f4fdaff8a9357f31eff11a6"
+    },
+    {
+      "path": "native/ExteriorRoom.xcodeproj/project.pbxproj",
+      "bytes": 38185,
+      "sha256": "fb5a6eb257b126f7c3f3d37cb7d940dea27421bef75b92ddc306a12dd1643a3f"
+    },
+    {
+      "path": "native/PolynomialUITests/PolynomialSourceMorphUITests.swift",
+      "bytes": 14073,
+      "sha256": "206e14a455d0f5aae7e88194ffe22cd227f537da764d5b90211577c9ba2c08e1"
+    },
+    {
+      "path": "native/ModelTests/PolynomialModelTests.swift",
+      "bytes": 93606,
+      "sha256": "e42a02e1f766cc65ee8de573a2ea97c05b5317a1ae01da4e21eb2f363fbc59cf"
+    },
+    {
+      "path": "native/scripts/run-ui-tests.py",
+      "bytes": 2917,
+      "sha256": "0caaf92ac8790e8c54da0cbdc9ea345d8e48772f1a0c4d33bfb41e2b4526f471"
+    },
+    {
+      "path": "native/scripts/capture_coordinator.py",
+      "bytes": 7451,
+      "sha256": "30ea5485c3258accdeb93f1336d2f1bce4d45fef3b7573ed9c3d4ae3588d998e"
+    }
+  ],
+  "binaries": [
+    {
+      "path": "native/.build/Build/Products/Debug-xrsimulator/PolynomialRoom.app/PolynomialRoom",
+      "bytes": 40144,
+      "sha256": "6d91035edfee710ee5bd77159200850c623c0a93f6b6ed36d287eb5cd208948f"
+    },
+    {
+      "path": "native/.build/Build/Products/Debug-xrsimulator/PolynomialRoom.app/PolynomialRoom.debug.dylib",
+      "bytes": 4202792,
+      "sha256": "5064ca0b28a26d94abd06bb1ed4544e2b3fc43c8b7cbcdefd8926aff561a9b7b"
+    },
+    {
+      "path": "lean/.lake/build/bin/polynomial_service",
+      "bytes": 101713072,
+      "sha256": "738fc7b541e5a3de310b4e3b905efdac7794eae90f196817a850a01e90df6c78"
+    }
+  ]
+}

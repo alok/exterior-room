@@ -1,0 +1,38 @@
+[
+  {
+    "name": "source-input-00-actual-shared-roots-pair",
+    "action": "screenshot",
+    "id": "1F1EBA0C-EA0D-4578-A4A3-A03A9EDF452C",
+    "createdAt": 1792756266.951532,
+    "file": "001-source-input-00-actual-shared-roots-pair.png",
+    "startedAt": 1792756266.968537,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "4084399194d4a9323610217dd9fc5c7c9496f017ba8a048971fe9cbb019b219a",
+    "finishedAt": 1792756267.3213382
+  },
+  {
+    "name": "source-input-01-d5-complete-root-arc",
+    "action": "screenshot",
+    "id": "BA82D1BA-FEEB-49C1-B5B7-79FF8F29AD82",
+    "createdAt": 1792756281.637683,
+    "file": "002-source-input-01-d5-complete-root-arc.png",
+    "startedAt": 1792756281.752224,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "6e09cbcec8e719b558be99cc164f1a80d0c4f4158757a881bd1c1f19a05090b7",
+    "finishedAt": 1792756282.919022
+  },
+  {
+    "action": "screenshot",
+    "id": "B205397E-BA6C-4B0F-BAA5-F4492F26E68B",
+    "name": "source-input-02-held-preview-result",
+    "createdAt": 1792756292.6225271,
+    "file": "003-source-input-02-held-preview-result.png",
+    "startedAt": 1792756292.624789,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "dc8d2c1ad579e6da6329ef1edfd6d10035592d746b930bca44085136048941cb",
+    "finishedAt": 1792756293.0597062
+  }
+]

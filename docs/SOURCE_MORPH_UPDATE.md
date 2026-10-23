@@ -1,5 +1,9 @@
 # Source projection and live recropping — 23 October 2026
 
+This is the `11c907b` checkpoint. The [native preview/render continuation](NATIVE_PREVIEW_RENDER_UPDATE.md)
+contains the subsequent guide-occlusion fix, performance diagnosis and new acceptance evidence.
+Original failures and capture receipts below are preserved.
+
 This checkpoint continues the same Starscape app from `1a8212f`. The primary
 entry remains `/polynomial/` (also served at `/`). The separate canonical Farey
 checkout and port 8778 were not modified.

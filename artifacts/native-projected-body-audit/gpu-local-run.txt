@@ -1,0 +1,10 @@
+CAPTURE cold-p0: 8497 nonblack pixels
+CAPTURE updated-p50: 26078 nonblack pixels
+CAPTURE updated-p1: 13242 nonblack pixels
+CAPTURE updated-p1-recreate-model: 13242 nonblack pixels
+CAPTURE fresh-p1: 13242 nonblack pixels
+CAPTURE no-depth-writes-cold-p0: 8518 nonblack pixels
+CAPTURE no-depth-writes-updated-p1: 13263 nonblack pixels
+CAPTURE no-depth-writes-fresh-p1: 13263 nonblack pixels
+CAPTURE fresh-p1-omit-zero-alpha: 13263 nonblack pixels
+Completed nine serial offscreen captures; receipt.json written.
