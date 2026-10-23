@@ -1,0 +1,12 @@
+.DS_Store
+__pycache__/
+.venv/
+lean/.lake/
+lean/.cache/
+native/.build/
+native/.build-device/
+native/.derivedData/
+native/DerivedData/
+*.log
+*.pid
+artifacts/browser-profile/
