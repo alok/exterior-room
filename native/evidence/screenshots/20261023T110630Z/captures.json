@@ -1,0 +1,38 @@
+[
+  {
+    "id": "D349CB66-DCCF-4179-9B84-0DD38781ADE4",
+    "createdAt": 1792753614.8705769,
+    "name": "source-input-00-actual-shared-roots-pair",
+    "action": "screenshot",
+    "file": "001-source-input-00-actual-shared-roots-pair.png",
+    "startedAt": 1792753614.8769338,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "b5b1fc5243259ce098a3763fa49f0d51b630c4d205486046cd286f185aebedac",
+    "finishedAt": 1792753625.0806332
+  },
+  {
+    "id": "F07BD368-491B-4751-8DC9-5E461D1732FF",
+    "createdAt": 1792753641.417033,
+    "name": "source-input-01-d5-complete-root-arc",
+    "action": "screenshot",
+    "file": "002-source-input-01-d5-complete-root-arc.png",
+    "startedAt": 1792753641.5055401,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "b55bebb73db4dc44ec95419c28fed9f0ba34d646cc02e536ffa070d4747bfb8b",
+    "finishedAt": 1792753642.020434
+  },
+  {
+    "createdAt": 1792753652.273875,
+    "name": "source-input-02-held-preview-result",
+    "id": "2DBE5B5A-00F4-438A-BC7F-1D71AB4464D2",
+    "action": "screenshot",
+    "file": "003-source-input-02-held-preview-result.png",
+    "startedAt": 1792753652.283194,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "23caecf201c04899802673040b8914b821b17deec0ee60cc13aa0a5750f33be7",
+    "finishedAt": 1792753653.1832802
+  }
+]

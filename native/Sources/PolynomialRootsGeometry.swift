@@ -103,6 +103,8 @@ enum PolynomialRootsGeometry {
     var opacity: Double { radius < 0.6 ? (radius / 0.6) * (radius / 0.6) : 1 }
     var isDrawable: Bool { radius > 0.08 }
     var ringRadius: Double { drawnRadius + 3 }
+    /// Ordinary source viewer Xt uses its own minimum; canonical rings remain unchanged.
+    var sourceRingRadius: Double { max(5,radius + 4) }
     var labelPosition: CGPoint {
       CGPoint(x: Double(center.x) + max(8, radius + 7), y: Double(center.y) + max(8, radius + 6))
     }
@@ -124,7 +126,8 @@ enum PolynomialRootsGeometry {
   }
 
   /// Ascending radius order puts larger, usually primitive, representatives on top of coincident multiples.
-  static func dots(points: [PolynomialPoint], rows: [Double], viewport: Viewport, sigma: Double = 1) -> [Dot] {
+  static func dots(points: [PolynomialPoint], rows: [Double], viewport: Viewport, sigma: Double = 1,
+    preservingSourceOrder:Bool = false) -> [Dot] {
     guard rows.count == 9, rows.allSatisfy(\.isFinite), sigma.isFinite, sigma > 0 else { return [] }
     let radiusScale = 0.03 * sigma * viewport.scale
     guard radiusScale.isFinite, radiusScale > 0 else { return [] }
@@ -141,9 +144,56 @@ enum PolynomialRootsGeometry {
       guard radius.isFinite, radius > 0, let center = viewport.screen(root), root.y > 0 else { continue }
       result.append((index, Dot(point: point, root: root, center: center, radius: radius)))
     }
+    if preservingSourceOrder { return result.map(\.dot) }
     return result.sorted {
       $0.dot.radius == $1.dot.radius ? $0.index < $1.index : $0.dot.radius < $1.dot.radius
     }.map(\.dot)
+  }
+
+  /// Source viewer Jt/Xt (SHA256 f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b).
+  /// An inspection supplies the signed identity, primitive representative and discriminant.
+  /// Only the approximate root/radius use the positive primitive representative. The returned
+  /// point keeps the original signed identity; it is a visual ring, never an added pick target.
+  /// No catalogue, crop, body opacity or primitive-body filter applies to these selected rings.
+  static func sourceSelectionRing(inspection detail:PolynomialInspection,rows:[Double],
+    viewport:Viewport,sigma:Double = 1) -> Dot? {
+    guard detail.isValid, ["upper","lower"].contains(detail.kind), detail.primitive[0] > 0 else { return nil }
+    let divisorSquared = detail.divisor * detail.divisor
+    guard detail.delta % divisorSquared == 0 else { return nil }
+    let abc = detail.primitive
+    let visual = PolynomialPoint(abc:abc,xyz:[-abc[1],abc[0]+abc[2],abc[2]-abc[0]],
+      delta:detail.delta/divisorSquared,kind:2,divisor:1,onPlane:false,necklace:false)
+    guard let dot = dots(points:[visual],rows:rows,viewport:viewport,sigma:sigma).first else { return nil }
+    let identity = PolynomialPoint(abc:detail.point,xyz:detail.xyz,delta:detail.delta,
+      kind:detail.kind == "lower" ? 3:2,divisor:detail.divisor,onPlane:false,necklace:false)
+    return Dot(point:identity,root:dot.root,center:dot.center,radius:dot.radius)
+  }
+
+  /// Source 2D body alpha: crop × (no plane/on plane ? 1 : .26 in the dark theme),
+  /// followed by the ordinary tiny-dot footprint attenuation. This is not Euclidean plane fade.
+  static func sourceBodyOpacity(_ dot:Dot,crop:Double,hasPlane:Bool) -> Double {
+    dot.opacity * sourceBodyAlpha(dot.point,crop:crop,hasPlane:hasPlane)
+  }
+  static func sourceBodyAlpha(_ point:PolynomialPoint,crop:Double,hasPlane:Bool) -> Double {
+    guard crop.isFinite else { return 0 }
+    return max(0,min(1,crop)) * (hasPlane && !point.onPlane ? 0.26:1)
+  }
+
+  /// Source bn: pre-raster packed alpha gate, expanded hit radius, then radius-biased score.
+  /// The caller preserves catalogue order; exact score ties retain its first signed identity.
+  /// Body footprint attenuation is deliberately absent from this picking gate.
+  static func pickSource(_ dots:[Dot],at location:CGPoint,hasPlane:Bool,crop:(Dot)->Double) -> Dot? {
+    guard location.x.isFinite, location.y.isFinite else { return nil }
+    var best:Dot?, bestScore = Double.infinity
+    for dot in dots {
+      guard dot.radius.isFinite, dot.radius > 0, dot.center.x.isFinite, dot.center.y.isFinite,
+        Double(Float(sourceBodyAlpha(dot.point,crop:crop(dot),hasPlane:hasPlane))) >= 0.05 else { continue }
+      let distance = hypot(Double(dot.center.x-location.x),Double(dot.center.y-location.y))
+      guard distance <= max(7,dot.radius+4) else { continue }
+      let score = distance - 0.8*min(dot.radius,12)
+      if score < bestScore { best = dot; bestScore = score }
+    }
+    return best
   }
 
   /// Renderer-only upper-half-plane geodesic through two already transformed real endpoints.

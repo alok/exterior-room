@@ -43,9 +43,9 @@ final class PolynomialRenderPlanTests: XCTestCase {
         XCTAssertLessThan(snapshot.batches.count, points.count)
         for (key, batch) in snapshot.batches {
           for index in batch {
-            XCTAssertEqual(snapshot.glyphs[index].colorKey, key)
+            XCTAssertEqual(UInt64(snapshot.glyphs[index].colorKey), key)
             let expected = PolynomialAppearance.color(points[index], colorLower: colorLower, palette: palette)
-            let displayed = Plan.color(key)
+            let displayed = Plan.color(UInt32(key & 0xFFFFFF))
             for component in 0..<3 {
               XCTAssertEqual(displayed[component], expected[component], accuracy: 0.5/255 + 1e-12,
                 "Batch grouping may quantize to RGB8 but must preserve each semantic color.")
@@ -118,7 +118,7 @@ final class PolynomialRenderPlanTests: XCTestCase {
     let tied = Plan.Snapshot(glyphs: [
       Plan.Glyph(point:glyph.point,position:.zero,factor:1,colorKey:0,opacity:1),
       Plan.Glyph(point:positive,position:.zero,factor:1,colorKey:0,opacity:1)
-    ], batches: [0:[0,1]], radialPositions: [], scale: snapshot.scale)
+    ], batches: [0:[0,1]], materialAlpha:[:], radialPositions: [], scale: snapshot.scale)
     XCTAssertEqual(tied.pick(at: .zero)?.abc, [-1,0,-1])
     XCTAssertEqual(tied.pick(at: .zero, range: 1..<2)?.abc, [1,0,1])
   }
@@ -130,7 +130,7 @@ final class PolynomialRenderPlanTests: XCTestCase {
     let glyphs = (0..<count).map { index in
       Plan.Glyph(point:point,position:[Float(index)*0.05,0,0],factor:1,colorKey:0,opacity:1)
     }
-    let snapshot = Plan.Snapshot(glyphs:glyphs,batches:[0:Array(0..<count)],radialPositions:[],scale:1)
+    let snapshot = Plan.Snapshot(glyphs:glyphs,batches:[0:Array(0..<count)],materialAlpha:[:],radialPositions:[],scale:1)
     let chunks = Plan.collisionChunks(snapshot)
     XCTAssertEqual(chunks.count, 2)
     XCTAssertEqual(chunks.flatMap { Array($0.range) }, Array(glyphs.indices))
@@ -174,6 +174,28 @@ final class PolynomialRenderPlanTests: XCTestCase {
       XCTAssertGreaterThan(length(normal), 0)
       XCTAssertGreaterThan(dot(normal,(a+b+c)/3), 0, "Sphere triangles must face outward with back-face culling.")
     }
+  }
+
+  func testSourceMorphKeepsMaterialPartitionsStableWhilePositionsAndAlphaChange() throws {
+    let (page,_,_)=try catalogue(matrix:[1,0,0,1])
+    var snapshots:[Plan.Snapshot]=[]
+    for progress in [0.0,0.5,1.0] {
+      let settings=PolynomialSourceMorph.Settings(depth:6,progress:progress,whole:true)
+      snapshots.append(try XCTUnwrap(Plan.make(points:page.points,rows:identityRows,radius:6,origin:false,
+        starSize:1,colorLower:false,palette:"viridis",normal:nil,keep:[],projection:progress > 0,
+        catalogue:page.metadata,sourceMorph:settings)))
+    }
+    XCTAssertEqual(snapshots[0].batches,snapshots[1].batches)
+    XCTAssertEqual(snapshots[1].batches,snapshots[2].batches)
+    XCTAssertNotEqual(snapshots[0].materialAlpha,snapshots[2].materialAlpha)
+    for snapshot in snapshots {
+      XCTAssertTrue(snapshot.radialPositions.isEmpty,"Source projection moves original glyphs; no duplicate overlay")
+      XCTAssertTrue(snapshot.materialAlpha.values.allSatisfy {(0...1).contains($0)})
+    }
+    let i=try XCTUnwrap(page.points.firstIndex{$0.abc == [1,0,1]})
+    XCTAssertEqual(snapshots[0].glyphs[i].opacity,0,"Whole radial fade at this R6 extension hides unit body, not its separate selected marker")
+    XCTAssertGreaterThan(snapshots[2].glyphs[i].opacity,0)
+    XCTAssertEqual(snapshots[2].glyphs[i].position.y,Float(3.6)*snapshots[2].scale,accuracy:1e-6)
   }
 
   func testSourceCatalogueVisibilityMatchesAuditedCountsWithoutDiscardingIdentities() throws {

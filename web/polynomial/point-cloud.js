@@ -1,45 +1,58 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Adapted from FareyVision ca809d2 by Alok Singh with OpenAI Codex, 2026-10-23.
-// One GL_POINTS draw for the whole lattice. Positions are exact integers in display units (the object is
-// scaled to world size). The shader consumes Lean's accepted discriminant and applies the same size model as
+// One GL_POINTS draw for the whole lattice. Positions are unprojected transformed display coordinates
+// (the object is scaled to world size). Canonical mode consumes Lean's accepted discriminant and uses
 // appearance.js: perspective radius × source factor, her origin-eye rule, minimum footprint with
 // (px/min)² alpha, cube-root growth above the knee, cap and overview fog.
+// Source catalogue mode instead uses source-projection.js's audited geometry,
+// physical radius and body alpha, followed by this renderer's footprint/fog.
 import * as THREE from '../vendor/three.module.js';
 import { glyphRadius, sizePixels, decode, categoryPalettes, paletteSample, palettePosition, orbitFactorFromData } from './appearance.js';
 import {catalogueUniform,catalogueFadeGLSL} from './catalogue-display.js';
+import {sourceProjectionGLSL} from './source-projection.js';
 
 const vertexShader = `
 attribute float aFactor;
 attribute float aDelta;
 attribute float aKind;
+attribute float aPrimitive;
+attribute float aOnPlane;
 attribute vec3 color;
 uniform float uGlyph, uHalfH, uDpr, uOrigin;
 uniform vec3 uFog, uSize, uKeep, uCatalogue;
 uniform vec4 uFocus;
 uniform vec2 uFocusFade;
+uniform vec2 uProjection;
+uniform vec4 uSource;
+uniform float uSourceSigma, uSourceFocus;
 varying vec3 vColor;
 varying float vPx, vSize, vFaint, vAlpha;
 ${catalogueFadeGLSL}
+${sourceProjectionGLSL}
 void main() {
-  vec4 mv = modelViewMatrix * vec4(position, 1.0);
+  bool source=uCatalogue.z>.5;
+  vec3 worldPosition=source?sourceProjectionPosition(position,aKind,uProjection):position;
+  vec4 mv = modelViewMatrix * vec4(worldPosition, 1.0);
   gl_Position = projectionMatrix * mv;
   float depth = -mv.z;
   float f = aFactor;
   float delta = aDelta;
   if (uOrigin > 0.5) f = delta < 0.0 ? 0.4 * pow(-delta, 0.25) / sqrt(abs(position.y)) : 1.0;
-  float px = depth > 0.0 ? uGlyph * f * projectionMatrix[1][1] * uHalfH / depth : 0.0;
+  float radius=uGlyph*f;
+  if(source)radius=sourceWorldRadius(delta,aKind,aPrimitive,position.y,uProjection,uOrigin,uSource.x,uSourceSigma,uSourceFocus,aOnPlane)*length(modelMatrix[0].xyz);
+  float px = depth > 0.0 ? radius * projectionMatrix[1][1] * uHalfH / depth : 0.0;
   float dim = 1.0;
   vFaint = 0.0;
   if (px < uSize.x) { float r = px / uSize.x; dim = r * r; px = uSize.x; vFaint = 1.0; }
   else if (px > uSize.y) px = uSize.y * pow(px / uSize.y, 1.0 / 3.0);
   px = min(px, uSize.z);
   dim *= 1.0 - uFog.z * smoothstep(uFog.x, uFog.y, depth);
-  float catalogueAlpha=catalogueOpacity(position,aKind,uCatalogue);
+  float catalogueAlpha=source?sourceWorldOpacity(position,aKind,aPrimitive,uCatalogue,uProjection,uOrigin,uSource,uSourceFocus,aOnPlane):catalogueOpacity(position,aKind,uCatalogue);
   dim*=catalogueAlpha;
   if(catalogueAlpha<.999)vFaint=1.0;
   // Optional plane focus (a viewing aid): uFocus.xyz is the unit display normal, w enables it. Opacity falls
   // with Euclidean display distance to the plane over uFocusFade.x, to the floor uFocusFade.y; members stay 1.
-  if (uFocus.w > 0.5 && position != uKeep) {
+  if (!source && uFocus.w > 0.5 && position != uKeep) {
     float fade = mix(1.0, uFocusFade.y, smoothstep(0.0, uFocusFade.x, abs(dot(uFocus.xyz, position))));
     dim *= fade;
     if (fade < 0.999) vFaint = 1.0;
@@ -70,6 +83,11 @@ export function pointCloudMaterial() {
       uFocus: { value: new THREE.Vector4(0, 1, 0, 0) }, uFocusFade: { value: new THREE.Vector2(1, 0.12) },
       uFog: { value: new THREE.Vector3(0, 1, 0) }, uSize: { value: new THREE.Vector3(sizePixels.min, sizePixels.knee, sizePixels.cap) },
       uCatalogue: { value: new THREE.Vector3(1,1,0) },
+      // Source geometry/appearance uses unprojected position plus these uniforms.
+      // Source Whole, Dust, screen and light-theme controls; canonical ignores them.
+      uProjection: { value: new THREE.Vector2(0,4) },
+      uSource: { value: new THREE.Vector4(1,0,1,0) },
+      uSourceSigma: { value: 1 }, uSourceFocus: { value: 0 },
     },
     vertexShader, fragmentShader, transparent: true,
   });
@@ -100,6 +118,9 @@ export function pointCloud(lattice, material, symmetric, categories) {
   // WebGL attributes cannot be bound to a float shader attribute without conversion.
   geometry.setAttribute('aDelta', new THREE.BufferAttribute(new Float32Array(lattice.delta), 1));
   geometry.setAttribute('aKind', new THREE.BufferAttribute(new Float32Array(lattice.kind), 1));
+  geometry.setAttribute('aPrimitive', new THREE.BufferAttribute(Float32Array.from(lattice.divisor,d=>d===1?1:0), 1));
+  // App fills this with sourcePlaneMask's exact display-only incidence bits.
+  geometry.setAttribute('aOnPlane', new THREE.BufferAttribute(new Float32Array(lattice.count), 1));
   geometry.setAttribute('color', new THREE.BufferAttribute(fillColors(lattice, symmetric, categories), 3, true));
   geometry.setAttribute('aFactor', new THREE.BufferAttribute(fillFactors(lattice, symmetric, () => false), 1));
   material.uniforms.uCatalogue.value.set(...catalogueUniform(lattice));

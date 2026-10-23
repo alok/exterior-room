@@ -12,6 +12,50 @@ pairing and action state with the 3D scene. Actual pointer hover, physical input
 and free-space controller SL₂ dragging remain unverified or absent; this is not a
 claim of complete canonical Starscape parity.
 
+## Source morph and input continuation
+
+The current native source route implements the source world-projection morph,
+independent screen, Whole/Dust and plane body opacity, source Roots picking and
+uncropped signed selection rings. Source mode starts at depth 16 when entering
+from a smaller canonical crop. Source projection uses height 0.6R by default;
+canonical projection remains its earlier radial overlay. Stable RealityKit
+materials quantize opacity to 16 endpoint levels; this is a renderer approximation,
+separate from the 48 source cases/408 Float32 body values replayed by tests.
+
+**141 native model tests pass**, and the current unsigned simulator build passes.
+The current 111156Z actual UI sequence passed 1/1 in 144.799 s: P0/.5/1, timed Project/Lift,
+D5, actual Roots swipe/release, shared pairing cancellation and Reset. The final
+110630Z sequence verified actual main-panel Pair next→Roots point tap, then D5
+and a held Roots drag; its interim-preview assertion failed (58.407s). Two changed
+callbacks and one release produced accepted matrix `[16567,9107,16025,14845]`,
+retaining the unit/pair and 4,203 signed forms, but no completed preview catalogue
+was observed during the hold. This is release acceptance, not verified continuous
+recropping. Model tests do exercise latest-request, cancellation and failure rollback.
+The diagnostic evidence does not establish whether a preview request reached
+transport before release cancelled it.
+
+A persistent Origin collision shell and scoped drag mapping are implemented and
+model-tested. Actual host Origin/spatial-pair verification could not start:
+the parent’s supported read of Device Hub timed out twice with
+`timeoutReached −10005`; no permission denial or host input occurred. No physical
+headset evidence is claimed. Native Roots now fits within the current guest frame,
+but partially covers the 3D scene; the final refreshed morph clip uses the current centered Roots placement.
+
+
+The current P100 native disk is visibly almost empty except for selected/pair
+markers, unlike the corresponding browser disk; P50 is also sparser. CPU data
+retains the bodies and positive primitive material alpha. Physical sphere sizing
+without the browser minimum pixel footprint, linear-light opacity conversion,
+and instanced material/depth handling are concrete differences or investigation
+candidates, not an established cause. This unresolved renderer discrepancy means
+numerical fixture agreement does not establish visual parity.
+
+See the [frozen native receipt](../native/evidence/source-morph-native-receipt.json),
+[native guide](../native/README.md),
+[passed morph video](../artifacts/videos/lean-starscape-native-source-morph.mp4), and
+[current input diagnostic video](../artifacts/videos/lean-starscape-native-source-input.mp4).
+The following older sections preserve their historical limits and evidence.
+
 ## Archived Exterior Room
 
 ## Implemented

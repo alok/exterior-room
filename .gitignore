@@ -64,3 +64,20 @@ artifacts/catalogue-video-encode.txt
 # Intermediate catalogue captures precede final fade/projection fixes.
 native/evidence/screenshots/20261023T100145Z/
 native/evidence/ui-tests-20261023T100145Z.txt
+
+# Intermediate source-morph diagnostics remain local; curated receipts/clips are separate.
+artifacts/browser-morph-encode.txt
+artifacts/screenshots/morph-20261023/states.json
+native/evidence/diagnostics-104414Z/
+native/evidence/screenshots/20261023T104414Z/
+native/evidence/ui-tests-20261023T104414Z.txt
+artifacts/screenshots/morph-final-20261023/states.json
+artifacts/screenshots/morph-final-20261023/production-state.json
+native/evidence/diagnostics-110630Z/
+native/evidence/catalogue-project.txt
+native/evidence/morph-video-export.txt
+native/evidence/source-input-video-export.txt
+native/evidence/screenshots/20261023T105050Z/
+native/evidence/ui-tests-20261023T105050Z.txt
+native/evidence/screenshots/20261023T110630Z/*video*
+native/evidence/screenshots/20261023T111156Z/*video*

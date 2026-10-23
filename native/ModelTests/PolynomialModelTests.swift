@@ -27,7 +27,8 @@ private struct PolynomialFixtures: Sendable {
     let polarRoot = try polynomialObject(Data(contentsOf:native.appendingPathComponent("Resources/polynomial-polar-lean-cases.json")))
     let catalogueRoot = try polynomialObject(Data(contentsOf:native.deletingLastPathComponent().appendingPathComponent("lean/Polynomial/fixtures/catalogue-native-cases.json")))
     let densityRoot = try polynomialObject(Data(contentsOf:native.appendingPathComponent("ModelTests/Fixtures/polynomial-density-cases.json")))
-    density = try XCTUnwrap(densityRoot["cases"] as? [[String:Any]]).map { try JSONSerialization.data(withJSONObject:$0) }
+    let previewRoot = try polynomialObject(Data(contentsOf:native.appendingPathComponent("ModelTests/Fixtures/polynomial-preview-cases.json")))
+    density = try (XCTUnwrap(densityRoot["cases"] as? [[String:Any]]) + XCTUnwrap(previewRoot["cases"] as? [[String:Any]])).map { try JSONSerialization.data(withJSONObject:$0) }
     catalogues = try XCTUnwrap(catalogueRoot["cases"] as? [[String:Any]]).map { try JSONSerialization.data(withJSONObject:$0) }
     polar = try XCTUnwrap(polarRoot["cases"] as? [[String:Any]]).map { try JSONSerialization.data(withJSONObject:$0) }
   }
@@ -181,6 +182,110 @@ private actor PolynomialTransport {
   private func model(_ fixtures: PolynomialFixtures, _ transport: PolynomialTransport) -> PolynomialModel {
     PolynomialModel(cloudData: fixtures.cloud, inspectionData: fixtures.initial,
       transport: { try await transport.send($0) })
+  }
+
+  func testSpatialOriginDragUsesSameExactActionAndRejectsStaleCrossSurfaceEnd() async throws {
+    let fixture=try PolynomialFixtures(),transport=PolynomialTransport(fixture),model=model(fixture,transport)
+    model.beginSpatialDrag(direction:[0,2,0]); XCTAssertNil(model.actionPreview)
+    model.place(.origin(lower:false)); model.beginSpatialDrag(direction:[0,2,0])
+    model.updateSpatialDrag(direction:[2,3,1],force:true)
+    XCTAssertTrue(model.ownsSpatialDrag); XCTAssertNotNil(model.actionPreview)
+    XCTAssertTrue(model.commitSpatialDrag()); await model.waitForPending()
+    XCTAssertNil(model.error); XCTAssertEqual(model.action?.matrix,[3,1,1,2])
+    let accepted=model.action?.matrix,revision=model.sceneRevision
+    model.beginSpatialDrag(direction:[0,2,0]); model.updateSpatialDrag(direction:[2,3,1],force:true)
+    model.beginRootsDrag(at:[0,1]); model.updateRootsDrag(to:[0,2],force:true)
+    let roots=model.actionPreview
+    XCTAssertFalse(model.commitSpatialDrag()); XCTAssertEqual(model.actionPreview,roots)
+    model.cancelRootsDrag(); XCTAssertEqual(model.action?.matrix,accepted); XCTAssertEqual(model.sceneRevision,revision)
+  }
+  func testSpatialCancelNappeFlipAndOutsideInteriorCannotCommitAnOldPreview() async throws {
+    let fixture=try PolynomialFixtures(),transport=PolynomialTransport(fixture),model=model(fixture,transport)
+    model.place(.origin(lower:false)); let revision=model.sceneRevision
+    model.beginSpatialDrag(direction:[0,2,0]); model.updateSpatialDrag(direction:[2,3,1],force:true)
+    model.cancelSpatialDrag(); XCTAssertNil(model.actionPreview); XCTAssertEqual(model.sceneRevision,revision)
+    model.beginSpatialDrag(direction:[0,2,0]); model.updateSpatialDrag(direction:[2,3,1],force:true)
+    model.placement = .origin(lower:true)
+    XCTAssertFalse(model.commitSpatialDrag()); XCTAssertNil(model.actionPreview)
+    model.beginSpatialDrag(direction:[2,1,0]); XCTAssertNil(model.actionPreview)
+    model.updateSpatialDrag(direction:[0,-2,0],force:true)
+    XCTAssertNotNil(model.actionPreview); XCTAssertFalse(model.commitSpatialDrag())
+    XCTAssertEqual(model.sceneRevision,revision); XCTAssertNil(model.action)
+  }
+
+  func testPreviewRecropPublishesOnlyEphemeralSignedCatalogueAndCancelRestoresAccepted() async throws {
+    let fixture=try PolynomialFixtures(), transport=PolynomialTransport(fixture), model=model(fixture,transport)
+    model.select([1,0,1],pair:[1,1,1]); await model.waitForPending()
+    model.catalogueMode = .source; model.refresh(); await model.waitForPending()
+    let ids=model.points.map(\.id),revision=model.sceneRevision
+    model.beginRootsDrag(at:[0,1]); model.updateRootsDrag(to:[0,2],force:true)
+    await model.waitForPreviewCatalogue()
+    XCTAssertEqual(model.previewCatalogue?.matrix,[2,0,0,1]); XCTAssertEqual(model.renderPoints.count,186)
+    XCTAssertEqual(model.renderPoints.filter(\.necklace).count,10)
+    XCTAssertEqual(model.points.map(\.id),ids); XCTAssertEqual(model.sceneRevision,revision)
+    XCTAssertEqual(model.catalogue?.matrix,[1,0,0,1]); XCTAssertEqual(model.displayedPair,[1,1,1])
+    XCTAssertFalse(model.busy); XCTAssertNotNil(model.actionPreview)
+    model.cancelRootsDrag()
+    XCTAssertNil(model.previewCatalogue); XCTAssertNil(model.previewPoints)
+    XCTAssertEqual(model.renderPoints.map(\.id),ids); XCTAssertEqual(model.sceneRevision,revision)
+  }
+  func testPreviewLatestRequestWinsAndCancellationIgnoresLateMembership() async throws {
+    let fixture=try PolynomialFixtures(),transport=PolynomialTransport(fixture),model=model(fixture,transport)
+    model.select([1,0,1],pair:[1,1,1]); await model.waitForPending()
+    model.catalogueMode = .source; model.refresh(); await model.waitForPending()
+    let ids=model.points.map(\.id),revision=model.sceneRevision
+    await transport.hold(operation:"membersCatalogue")
+    model.beginRootsDrag(at:[0,1]); model.updateRootsDrag(to:[0,2],force:true)
+    let first=try await transport.waitForHeld(1)
+    model.updateRootsDrag(to:[0,4],force:true)
+    try await transport.reply(first[0])
+    let second=try await transport.waitForHeld(2)
+    XCTAssertNil(model.previewPoints,"Obsolete candidate cannot publish while newer sample is pending")
+    model.cancelRootsDrag(); try await transport.reply(second[1])
+    for _ in 0..<5 { await Task.yield() }
+    XCTAssertNil(model.previewPoints); XCTAssertEqual(model.sceneRevision,revision)
+    XCTAssertEqual(model.points.map(\.id),ids); XCTAssertEqual(model.displayedPair,[1,1,1])
+  }
+  func testFailedPreviewRecropKeepsPreviousPreviewAndAcceptedPair() async throws {
+    let fixture=try PolynomialFixtures(),transport=PolynomialTransport(fixture),model=model(fixture,transport)
+    model.select([1,0,1],pair:[1,1,1]); await model.waitForPending()
+    model.catalogueMode = .source; model.refresh(); await model.waitForPending()
+    model.beginRootsDrag(at:[0,1]); model.updateRootsDrag(to:[0,2],force:true); await model.waitForPreviewCatalogue()
+    let previous=model.renderPoints.map(\.id)
+    await transport.hold(operation:"catalogue")
+    model.updateRootsDrag(to:[0,4],force:true)
+    let held=try await transport.waitForHeld(1); try await transport.reply(held[0],corrupt:.wrongGeometry)
+    await model.waitForPreviewCatalogue()
+    XCTAssertEqual(model.renderPoints.map(\.id),previous); XCTAssertEqual(model.previewCatalogue?.matrix,[2,0,0,1])
+    XCTAssertTrue(model.previewCatalogueStatus.contains("unavailable")); XCTAssertEqual(model.previewCatalogueAcceptances,1)
+    XCTAssertEqual(model.catalogue?.matrix,[1,0,0,1]); XCTAssertEqual(model.displayedPair,[1,1,1])
+    model.cancelRootsDrag()
+  }
+
+  func testReturningDragToAcceptedCropInvalidatesDistantPendingReply() async throws {
+    let fixture=try PolynomialFixtures(),transport=PolynomialTransport(fixture),model=model(fixture,transport)
+    model.catalogueMode = .source; model.refresh(); await model.waitForPending()
+    await transport.hold(operation:"catalogue")
+    model.beginRootsDrag(at:[0,1]); model.updateRootsDrag(to:[0,2],force:true)
+    let held=try await transport.waitForHeld(1)
+    model.updateRootsDrag(to:[0,1],force:true); try await transport.reply(held[0])
+    for _ in 0..<5 { await Task.yield() }
+    XCTAssertNil(model.previewPoints); XCTAssertEqual(model.renderPoints.count,212)
+    XCTAssertNotNil(model.actionPreview)
+    model.cancelRootsDrag()
+  }
+  func testSourceProjectionChangesNoExactCatalogueOrIdentityAndReducedMotionIsImmediate() async throws {
+    let fixture=try PolynomialFixtures(),transport=PolynomialTransport(fixture),model=model(fixture,transport)
+    model.catalogueMode = .source; model.refresh(); await model.waitForPending()
+    let count=await transport.totalCount(),revision=model.sceneRevision,ids=model.points.map(\.id)
+    model.setProjection(true,reducedMotion:true)
+    XCTAssertEqual(model.projectionProgress,1); XCTAssertFalse(model.projectionAnimating)
+    model.setProjectionProgress(0.5); model.projectionHeightFraction=0.75
+    XCTAssertEqual(model.sourceMorphSettings?.height,4.5)
+    XCTAssertEqual(model.sceneRevision,revision); XCTAssertEqual(model.points.map(\.id),ids)
+    let after=await transport.totalCount(); XCTAssertEqual(after,count)
+    model.reset(); await model.waitForPending()
+    XCTAssertEqual(model.projectionProgress,0); XCTAssertEqual(model.projectionHeightFraction,0.6)
   }
 
   func testR24PagesKeepAllActualLeanSignedIdentitiesAndReset() async throws {

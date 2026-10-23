@@ -54,3 +54,21 @@ refusals are in the [source catalogue update](../../docs/SOURCE_CATALOGUE_UPDATE
 The compiled service passed 121 catalogue requests and exported 18 actual-response
 cases for native decoder/render tests. This is executable Lean, with no new
 enumeration-completeness theorem; the existing 17 algebraic laws are unchanged.
+
+## Source morph and temporary catalogue previews
+
+The renderer's held-drag pipeline requests actual Lean catalogues and exact
+membership at bounded quantized action samples. It stages them separately from
+accepted state; cancellation discards them, and release validates the exact action
+before publishing a matching catalogue. The floating drag, refresh threshold and
+asynchronous scheduling are client behavior, not new Lean theorems.
+
+`source_projection_fixture.mjs` verifies the pinned deployed Starscape script's
+SHA-256 and evaluates its actual numerical routines with inert renderer adapters.
+The 48 cases in `fixtures/source-projection-morph.json` record identity/D5 at
+projection 0, .5 and 1, including source position, radius, opacity, selection rings
+and plane/screen arguments, with both raw and Float32-packed values. This is an
+independent numerical oracle for browser/native renderer tests. It does not
+execute a GPU or certify UI/headset behavior, and it does not change the **17**
+kernel-checked algebraic laws. See the [source audit](../../docs/source-projection-morph-audit.md)
+and [current integration evidence](../../docs/SOURCE_MORPH_UPDATE.md).

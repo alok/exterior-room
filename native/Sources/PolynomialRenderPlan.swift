@@ -17,7 +17,8 @@ enum PolynomialRenderPlan {
   }
   struct Snapshot: Sendable {
     let glyphs: [Glyph]
-    let batches: [UInt32:[Int]]
+    let batches: [UInt64:[Int]]
+    let materialAlpha:[UInt64:Double]
     let radialPositions: [SIMD3<Float>]
     let scale: Float
     /// The closest accepted glyph to a collision-surface hit. This is approximate UI picking.
@@ -27,7 +28,7 @@ enum PolynomialRenderPlan {
       for index in range ?? glyphs.indices {
         guard glyphs.indices.contains(index) else { continue }
         let glyph = glyphs[index]
-        guard glyph.opacity > 0 else { continue }
+        guard glyph.opacity >= 0.06 else { continue }
         let d = location-glyph.position
         let squared = d.x*d.x+d.y*d.y+d.z*d.z
         guard squared <= glyph.collisionRadius*glyph.collisionRadius*1.01 else { continue }
@@ -49,34 +50,56 @@ enum PolynomialRenderPlan {
     SIMD3(Double((key>>16)&255),Double((key>>8)&255),Double(key&255))/255
   }
   static func make(points:[PolynomialPoint], rows:[Double], radius:Int, origin:Bool,
-    starSize:Double, colorLower:Bool, palette:String, normal:SIMD3<Double>?, keep:[Int], projection:Bool, catalogue:PolynomialCatalogueMetadata? = nil) -> Snapshot? {
+    starSize:Double, colorLower:Bool, palette:String, normal:SIMD3<Double>?, keep:[Int], projection:Bool, catalogue:PolynomialCatalogueMetadata? = nil, sourceMorph:PolynomialSourceMorph.Settings? = nil) -> Snapshot? {
     guard radius > 0, points.count <= maximumPoints, starSize.isFinite, starSize > 0 else { return nil }
     let scale = Float(0.96/Double(radius))
     var glyphs:[Glyph] = []; glyphs.reserveCapacity(points.count)
-    var batches:[UInt32:[Int]] = [:], radial:[SIMD3<Float>] = []
+    var batches:[UInt64:[Int]] = [:], alphas:[UInt64:Double] = [:], radial:[SIMD3<Float>] = []
     if projection { radial.reserveCapacity(points.count/3) }
     for p in points {
       let base = SIMD3(Double(p.xyz[0]),Double(p.xyz[1]),Double(p.xyz[2]))
       guard let shown = PolynomialMobius.mapDisplayCoordinates(rows:rows,base),
         (0..<3).allSatisfy({ shown[$0].isFinite }) else { return nil }
-      let position = SIMD3(Float(shown.x),Float(shown.y),Float(shown.z))*scale
+      let sourceBody = sourceMorph.map { PolynomialSourceMorph.body(point:p,shown:shown,settings:$0) }
+      let position = (sourceBody?.position ?? SIMD3(Float(shown.x),Float(shown.y),Float(shown.z)))*scale
       let baseFactor = origin && p.delta < 0
         ? Float(0.4*pow(Double(-p.delta),0.25)/sqrt(max(0.000001,abs(shown.y))))
         : PolynomialAppearance.radiusFactor(p,colorLower:colorLower,atOrigin:false)
-      let factor = Float(starSize)*baseFactor*(p.necklace && p.kind == 2 && !origin ? 1.35:1)
+      let factor = sourceBody.map { max(0.000001,$0.radius*scale/0.0075) }
+        ?? Float(starSize)*baseFactor*(p.necklace && p.kind == 2 && !origin ? 1.35:1)
       let fade = normal.map { PolynomialAppearance.focusFade(p,position:shown,normal:$0,radius:radius,keep:keep) } ?? 1
       guard (0..<3).allSatisfy({ position[$0].isFinite }), factor.isFinite, factor > 0 else { return nil }
-      let opacity = catalogueOpacity(point:p,shown:shown,catalogue:catalogue)
-      let key = colorKey(PolynomialAppearance.color(p,colorLower:colorLower,palette:palette)*fade*opacity)
-      if opacity > 0 { batches[key,default:[]].append(glyphs.count) }
-      glyphs.append(Glyph(point:p,position:position,factor:factor,colorKey:key,opacity:opacity))
-      if projection, opacity > 0, p.delta < 0, catalogue == nil || (p.kind == 2 && p.divisor == 1), abs(position.y) > 0.000001 {
+      let opacity = sourceBody.map { Double($0.alpha) } ?? catalogueOpacity(point:p,shown:shown,catalogue:catalogue)
+      let rgb = PolynomialAppearance.color(p,colorLower:colorLower,palette:palette)
+      let rgbKey = sourceBody == nil ? colorKey(rgb*fade*opacity) : colorKey(rgb)
+      var key=UInt64(rgbKey),materialAlpha=1.0
+      if var settings=sourceMorph {
+        // Stable 16-level endpoint bins keep entities/buffers reusable throughout a morph.
+        // Only RealityKit material opacity is quantized; numerical source body outputs remain intact.
+        settings.progress=0
+        let start=Double(PolynomialSourceMorph.body(point:p,shown:shown,settings:settings).alpha)
+        settings.progress=1
+        let primitive=PolynomialPoint(abc:p.abc,xyz:p.xyz,delta:p.delta,kind:p.kind,divisor:1,onPlane:p.onPlane,necklace:p.necklace)
+        let end=Double(PolynomialSourceMorph.body(point:primitive,shown:shown,settings:settings).alpha)
+        let startBin=UInt64(max(0,min(15,(start*15).rounded()))),endBin=UInt64(max(0,min(15,(end*15).rounded())))
+        let nonprimitive=p.kind == 2 && p.divisor != 1
+        key |= startBin<<24 | endBin<<28 | (nonprimitive ? UInt64(1)<<32:0) | UInt64(1)<<33
+        let progress=sourceMorph!.progress
+        materialAlpha=(Double(startBin)+(Double(endBin)-Double(startBin))*progress)/15
+        if nonprimitive { materialAlpha *= 1-progress }
+      }
+      // Crop-zero entries stay absent. Whole-zero and primitive-fading entries retain stable buffers.
+      if sourceBody.map({$0.radius > 0}) ?? (opacity > 0) {
+        batches[key,default:[]].append(glyphs.count); alphas[key]=materialAlpha
+      }
+      glyphs.append(Glyph(point:p,position:position,factor:factor,colorKey:rgbKey,opacity:opacity))
+      if projection, sourceMorph == nil, opacity > 0, p.delta < 0, catalogue == nil || (p.kind == 2 && p.divisor == 1), abs(position.y) > 0.000001 {
         let projected = position*(4*scale/position.y)
         guard (0..<3).allSatisfy({ projected[$0].isFinite }) else { return nil }
         radial.append(projected)
       }
     }
-    return Snapshot(glyphs:glyphs,batches:batches,radialPositions:radial,scale:scale)
+    return Snapshot(glyphs:glyphs,batches:batches,materialAlpha:alphas,radialPositions:radial,scale:scale)
   }
   /// Audited source display clipping; this does not change the accepted signed catalogue.
   static func catalogueOpacity(point:PolynomialPoint,shown:SIMD3<Double>,catalogue:PolynomialCatalogueMetadata?) -> Double {
@@ -101,7 +124,7 @@ enum PolynomialRenderPlan {
       var indices:[UInt16] = []; indices.reserveCapacity(range.count*24)
       for i in range {
         let glyph = snapshot.glyphs[i]
-        guard glyph.opacity > 0 else { continue }
+        guard glyph.opacity >= 0.06 else { continue }
         let offset = UInt16(positions.count)
         positions += directions.map { glyph.position+$0*glyph.collisionRadius }
         indices += faces.map { offset+$0 }

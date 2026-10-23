@@ -1,9 +1,34 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import {interiorIndices,fillRootPositions,pickRoot,orderRootsByRadius,rootSortWorkspace} from '../web/polynomial/klein-data.js';
 import {transformPackedPositions} from '../web/polynomial/mobius-render.js';
+import {sourcePlaneMask,sourceRootOpacity} from '../web/polynomial/source-projection.js';
+import {normalize} from '../web/polynomial/mobius.js';
 
 const l={count:5,kind:new Uint8Array([2,3,2,0,1]),delta:new Int32Array([-4,-4,-16,1,0]),xyz:new Float32Array([0,2,0,0,-2,0,0,4,0,1,0,0,0,0,0])};
+
+test('Source-only picking matches six independently evaluated bn source cases while Canonical retains its rule',()=>{
+  const fixture=JSON.parse(fs.readFileSync(new URL('../lean/Polynomial/fixtures/source-roots-marker.json',import.meta.url)));
+  assert.equal(fixture.sourceSHA256,'f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b');
+  assert.equal(fixture.pickerCases.length,6);
+  for(const c of fixture.pickerCases){
+    const points=c.candidates,s=c.settings,count=points.length;
+    const lattice={count,abc:Int32Array.from(points.flatMap(p=>p.abc)),xyz:Float32Array.from(points.flatMap(p=>{const[a,b,c]=p.abc;return[-b,a+c,c-a];})),kind:new Uint8Array(count).fill(2),divisor:new Uint8Array(count).fill(1),delta:Int32Array.from(points,p=>-p.baseK),catalogue:{kind:'source',depth:s.R,otherRadius:Math.round(.4*s.R)}};
+    const xyz=transformPackedPositions(lattice.xyz,normalize(s.matrix)),planeMask=sourcePlaneMask(lattice,s.normal),model=s.model===0?'klein':'half-plane';
+    const indices=interiorIndices(lattice,{model}),scale=fixture.viewport.scale;
+    // Source model0's chart is translated up by one; our Klein center is zero.
+    const cx=fixture.viewport.width/2-c.cursor[0],cy=fixture.viewport.height/2-(s.model===0?scale:0)-c.cursor[1];
+    points.forEach((p,i)=>assert.equal(sourceRootOpacity(lattice,xyz,i,{planeMask}),p.alpha,`${c.name} packed alpha`));
+    const index=pickRoot(lattice,xyz,indices,scale,cx,cy,10,{model,sigma:s.sigma,planeMask});
+    assert.equal(index,c.expectedIndex,c.name);
+    assert.deepEqual(index>=0?points[index].abc:null,c.expectedABC,c.name);
+    if(c.name==='farther-larger-beats-centred-small'){
+      const canonical={...lattice,catalogue:null};
+      assert.equal(pickRoot(canonical,xyz,indices,scale,cx,cy,10,{model,sigma:s.sigma}),1,'canonical retains nearest-center/tie rule');
+    }
+  }
+});
 test('packed root buffer keeps every interior sign and multiple, excluding other classes',()=>{
   const indices=interiorIndices(l);assert.deepEqual([...indices],[0,1,2]);
   const original=l.xyz.slice(),moved=transformPackedPositions(l.xyz,[1,1,0,1]);

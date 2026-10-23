@@ -1,0 +1,4183 @@
+{
+  "schema": "starscape-source-morph-ui-receipt-v1",
+  "baselineCommit": "1a8212f1662baa2aab7ea7ce4a9fe4c58110345c",
+  "date": "2026-10-23",
+  "browser": "supported in-app browser on M4 Max; main Chrome attach timed out at Emulation.setFocusEmulationEnabled",
+  "input": "actual DOM/pointer/keys; QA XR controls synthesize device poses and trigger events, never app state",
+  "proofBoundary": "17 unchanged kernel laws; numerical renderer/interaction checks are not proofs",
+  "desktopFinal": [
+    {
+      "label": "01-identity-p0",
+      "at": "2026-10-23T10:56:07.426Z",
+      "selected": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        1,
+        1,
+        1
+      ],
+      "radius": 16,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "source",
+      "cloudCount": 4406,
+      "renderCloudCount": 4406,
+      "catalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "acceptedCatalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "visiblePointCount": 2239,
+      "worldVisiblePointCount": 386,
+      "visibleRootCount": 1577,
+      "projectionProgress": 0,
+      "sourceScreen": true,
+      "screenHeight": 9.6,
+      "spatialSelection": [
+        0,
+        2,
+        0
+      ],
+      "action": {
+        "phase": "identity",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "displayedSelection": [
+          0,
+          2,
+          0
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "idle",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": null,
+        "requestedMatrix": null,
+        "starts": 0,
+        "publications": 0,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          74.0485327313769
+        ],
+        "padding": 20
+      },
+      "xr": false,
+      "xrMode": "overview",
+      "panes": {
+        "space": true,
+        "roots": true,
+        "wide": true
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 0.7000000029802322,
+        "motion": 0.7999999970197678,
+        "roots": 0.09999999403953552,
+        "factors": 0.30000001192092896
+      }
+    },
+    {
+      "label": "02-identity-p100",
+      "at": "2026-10-23T10:56:07.906Z",
+      "selected": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        1,
+        1,
+        1
+      ],
+      "radius": 16,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "source",
+      "cloudCount": 4406,
+      "renderCloudCount": 4406,
+      "catalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "acceptedCatalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "visiblePointCount": 2239,
+      "worldVisiblePointCount": 1919,
+      "visibleRootCount": 1577,
+      "projectionProgress": 1,
+      "sourceScreen": true,
+      "screenHeight": 9.6,
+      "spatialSelection": [
+        0,
+        9.6,
+        0
+      ],
+      "action": {
+        "phase": "identity",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "displayedSelection": [
+          0,
+          2,
+          0
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "idle",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": null,
+        "requestedMatrix": null,
+        "starts": 0,
+        "publications": 0,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          74.0485327313769
+        ],
+        "padding": 20
+      },
+      "xr": false,
+      "xrMode": "overview",
+      "panes": {
+        "space": true,
+        "roots": true,
+        "wide": true
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 0.7000000029802322,
+        "motion": 0.7999999970197678,
+        "roots": 0.9000000059604645,
+        "factors": 0.30000001192092896
+      }
+    },
+    {
+      "label": "03-identity-p50",
+      "at": "2026-10-23T10:56:20.695Z",
+      "selected": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        1,
+        1,
+        1
+      ],
+      "radius": 16,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "source",
+      "cloudCount": 4406,
+      "renderCloudCount": 4406,
+      "catalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "acceptedCatalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "visiblePointCount": 2239,
+      "worldVisiblePointCount": 1839,
+      "visibleRootCount": 1577,
+      "projectionProgress": 0.5,
+      "sourceScreen": true,
+      "screenHeight": 9.6,
+      "spatialSelection": [
+        0,
+        5.8,
+        0
+      ],
+      "action": {
+        "phase": "identity",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "displayedSelection": [
+          0,
+          2,
+          0
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "idle",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": null,
+        "requestedMatrix": null,
+        "starts": 0,
+        "publications": 0,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          74.0485327313769
+        ],
+        "padding": 20
+      },
+      "xr": false,
+      "xrMode": "overview",
+      "panes": {
+        "space": true,
+        "roots": true,
+        "wide": true
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 0.7000000029802322,
+        "motion": 0.7999999970197678,
+        "roots": 0.6000000089406967,
+        "factors": 0.30000001192092896
+      }
+    },
+    {
+      "label": "04-d5-p50",
+      "at": "2026-10-23T10:56:21.119Z",
+      "selected": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        1,
+        1,
+        1
+      ],
+      "radius": 16,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "source",
+      "cloudCount": 4406,
+      "renderCloudCount": 4406,
+      "catalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:3,1,1,2:1:0",
+        "depth": 16,
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 5,
+        "coefficientRows": [
+          4,
+          -2,
+          1,
+          -4,
+          7,
+          -6,
+          1,
+          -3,
+          9
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 16
+      },
+      "acceptedCatalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:3,1,1,2:1:0",
+        "depth": 16,
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 5,
+        "coefficientRows": [
+          4,
+          -2,
+          1,
+          -4,
+          7,
+          -6,
+          1,
+          -3,
+          9
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 16
+      },
+      "visiblePointCount": 2247,
+      "worldVisiblePointCount": 1850,
+      "visibleRootCount": 1577,
+      "projectionProgress": 0.5,
+      "sourceScreen": true,
+      "screenHeight": 9.6,
+      "spatialSelection": [
+        4.199999999999999,
+        6.299999999999999,
+        2.0999999999999996
+      ],
+      "action": {
+        "phase": "accepted",
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "g": [
+          1.3416407864998738,
+          0.4472135954999579,
+          0.4472135954999579,
+          0.8944271909999159
+        ],
+        "imageNumerator": [
+          5,
+          -10,
+          10
+        ],
+        "denominator": 5,
+        "delta": -4,
+        "displayedSelection": [
+          2,
+          3,
+          1
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "idle",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": null,
+        "requestedMatrix": null,
+        "starts": 0,
+        "publications": 0,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          74.0485327313769
+        ],
+        "padding": 20
+      },
+      "xr": false,
+      "xrMode": "overview",
+      "panes": {
+        "space": true,
+        "roots": true,
+        "wide": true
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 1,
+        "motion": 0.29999999701976776,
+        "roots": 0.09999999403953552,
+        "factors": 0.29999999701976776
+      }
+    },
+    {
+      "label": "05-held-preview",
+      "at": "2026-10-23T10:56:44.240Z",
+      "selected": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        1,
+        1,
+        1
+      ],
+      "radius": 16,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "source",
+      "cloudCount": 4406,
+      "renderCloudCount": 4219,
+      "catalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:16193,8203,5184,8801:1:0",
+        "depth": 16,
+        "matrix": [
+          16193,
+          8203,
+          5184,
+          8801
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 99990241,
+        "coefficientRows": [
+          77457601,
+          -45624384,
+          26873856,
+          -144389206,
+          185038945,
+          -167889024,
+          67289209,
+          -132831179,
+          262213249
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3551,
+        "otherCount": 668,
+        "total": 4219,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 25
+      },
+      "acceptedCatalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:3,1,1,2:1:0",
+        "depth": 16,
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 5,
+        "coefficientRows": [
+          4,
+          -2,
+          1,
+          -4,
+          7,
+          -6,
+          1,
+          -3,
+          9
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 16
+      },
+      "visiblePointCount": 2412,
+      "worldVisiblePointCount": 1970,
+      "visibleRootCount": 1731,
+      "projectionProgress": 0.5,
+      "sourceScreen": true,
+      "screenHeight": 9.6,
+      "spatialSelection": [
+        5.016363984648467,
+        6.969247139079404,
+        3.617283546621184
+      ],
+      "action": {
+        "phase": "preview",
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "g": [
+          1.6193255100885893,
+          0.8203336709249553,
+          0.5183567627201588,
+          0.8801352767752256
+        ],
+        "imageNumerator": [
+          5,
+          -10,
+          10
+        ],
+        "denominator": 5,
+        "delta": -4,
+        "displayedSelection": [
+          3.122785863414527,
+          4.338494278158809,
+          2.251830600394957
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "preview",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": [
+          16193,
+          8203,
+          5184,
+          8801
+        ],
+        "requestedMatrix": null,
+        "starts": 1,
+        "publications": 1,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          74.0485327313769
+        ],
+        "padding": 20
+      },
+      "xr": false,
+      "xrMode": "overview",
+      "panes": {
+        "space": true,
+        "roots": true,
+        "wide": true
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 0.4000000059604645,
+        "motion": 0.5999999940395355,
+        "roots": 1.4000000059604645,
+        "factors": 0.20000000298023224
+      }
+    },
+    {
+      "label": "06-cancelled",
+      "at": "2026-10-23T10:56:44.575Z",
+      "selected": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        1,
+        1,
+        1
+      ],
+      "radius": 16,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "source",
+      "cloudCount": 4406,
+      "renderCloudCount": 4406,
+      "catalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:3,1,1,2:1:0",
+        "depth": 16,
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 5,
+        "coefficientRows": [
+          4,
+          -2,
+          1,
+          -4,
+          7,
+          -6,
+          1,
+          -3,
+          9
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 16
+      },
+      "acceptedCatalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:3,1,1,2:1:0",
+        "depth": 16,
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 5,
+        "coefficientRows": [
+          4,
+          -2,
+          1,
+          -4,
+          7,
+          -6,
+          1,
+          -3,
+          9
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 16
+      },
+      "visiblePointCount": 2247,
+      "worldVisiblePointCount": 1850,
+      "visibleRootCount": 1577,
+      "projectionProgress": 0.5,
+      "sourceScreen": true,
+      "screenHeight": 9.6,
+      "spatialSelection": [
+        4.199999999999999,
+        6.299999999999999,
+        2.0999999999999996
+      ],
+      "action": {
+        "phase": "accepted",
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "g": [
+          1.3416407864998738,
+          0.4472135954999579,
+          0.4472135954999579,
+          0.8944271909999159
+        ],
+        "imageNumerator": [
+          5,
+          -10,
+          10
+        ],
+        "denominator": 5,
+        "delta": -4,
+        "displayedSelection": [
+          2,
+          3,
+          1
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "idle",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": null,
+        "requestedMatrix": null,
+        "starts": 1,
+        "publications": 1,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          74.0485327313769
+        ],
+        "padding": 20
+      },
+      "xr": false,
+      "xrMode": "overview",
+      "panes": {
+        "space": true,
+        "roots": true,
+        "wide": true
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 0.5,
+        "motion": 0.4000000059604645,
+        "roots": 2.2000000029802322,
+        "factors": 0
+      }
+    },
+    {
+      "label": "07-accepted",
+      "at": "2026-10-23T10:56:44.860Z",
+      "selected": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        1,
+        1,
+        1
+      ],
+      "radius": 16,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "source",
+      "cloudCount": 4219,
+      "renderCloudCount": 4219,
+      "catalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:16193,8203,5184,8801:1:0",
+        "depth": 16,
+        "matrix": [
+          16193,
+          8203,
+          5184,
+          8801
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 99990241,
+        "coefficientRows": [
+          77457601,
+          -45624384,
+          26873856,
+          -144389206,
+          185038945,
+          -167889024,
+          67289209,
+          -132831179,
+          262213249
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3551,
+        "otherCount": 668,
+        "total": 4219,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 25
+      },
+      "acceptedCatalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:16193,8203,5184,8801:1:0",
+        "depth": 16,
+        "matrix": [
+          16193,
+          8203,
+          5184,
+          8801
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 99990241,
+        "coefficientRows": [
+          77457601,
+          -45624384,
+          26873856,
+          -144389206,
+          185038945,
+          -167889024,
+          67289209,
+          -132831179,
+          262213249
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3551,
+        "otherCount": 668,
+        "total": 4219,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 25
+      },
+      "visiblePointCount": 2412,
+      "worldVisiblePointCount": 1970,
+      "visibleRootCount": 1731,
+      "projectionProgress": 0.5,
+      "sourceScreen": true,
+      "screenHeight": 9.6,
+      "spatialSelection": [
+        5.016634192487732,
+        6.969381284919596,
+        3.6172887965110134
+      ],
+      "action": {
+        "phase": "accepted",
+        "matrix": [
+          16193,
+          8203,
+          5184,
+          8801
+        ],
+        "g": [
+          1.6193790195271838,
+          0.8203400294683807,
+          0.5184252971795789,
+          0.8801429476229694
+        ],
+        "imageNumerator": [
+          104331457,
+          -312278230,
+          329502458
+        ],
+        "denominator": 99990241,
+        "delta": -4,
+        "displayedSelection": [
+          3.1230870820683387,
+          4.338762569839191,
+          2.251929775826823
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "idle",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": null,
+        "requestedMatrix": null,
+        "starts": 2,
+        "publications": 2,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          74.0485327313769
+        ],
+        "padding": 20
+      },
+      "xr": false,
+      "xrMode": "overview",
+      "panes": {
+        "space": true,
+        "roots": true,
+        "wide": true
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 0.4000000059604645,
+        "motion": 0.29999999701976776,
+        "roots": 0.20000000298023224,
+        "factors": 0
+      }
+    },
+    {
+      "label": "08-hidden-nonprimitive-root-marker",
+      "at": "2026-10-23T10:57:20.619Z",
+      "selected": [
+        100,
+        0,
+        100
+      ],
+      "second": null,
+      "radius": 16,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "source",
+      "cloudCount": 4406,
+      "renderCloudCount": 4406,
+      "catalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "acceptedCatalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "visiblePointCount": 2239,
+      "worldVisiblePointCount": 1919,
+      "visibleRootCount": 1577,
+      "projectionProgress": 1,
+      "sourceScreen": true,
+      "screenHeight": 9.6,
+      "spatialSelection": [
+        0,
+        9.600000000000009,
+        0
+      ],
+      "action": {
+        "phase": "identity",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "displayedSelection": [
+          0,
+          200,
+          0
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "idle",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": null,
+        "requestedMatrix": null,
+        "starts": 2,
+        "publications": 2,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          74.0485327313769
+        ],
+        "padding": 20
+      },
+      "xr": false,
+      "xrMode": "overview",
+      "panes": {
+        "space": true,
+        "roots": true,
+        "wide": true
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 0.4000000059604645,
+        "motion": 0.30000001192092896,
+        "roots": 0.6000000089406967,
+        "factors": 0
+      }
+    },
+    {
+      "label": "09-hidden-lower-root-marker",
+      "at": "2026-10-23T10:57:21.059Z",
+      "selected": [
+        -100,
+        0,
+        -100
+      ],
+      "second": null,
+      "radius": 16,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "source",
+      "cloudCount": 4406,
+      "renderCloudCount": 4406,
+      "catalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "acceptedCatalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "visiblePointCount": 2239,
+      "worldVisiblePointCount": 1919,
+      "visibleRootCount": 1577,
+      "projectionProgress": 1,
+      "sourceScreen": true,
+      "screenHeight": 9.6,
+      "spatialSelection": [
+        0,
+        -200,
+        0
+      ],
+      "action": {
+        "phase": "identity",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "displayedSelection": [
+          0,
+          -200,
+          0
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "idle",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": null,
+        "requestedMatrix": null,
+        "starts": 2,
+        "publications": 2,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          74.0485327313769
+        ],
+        "padding": 20
+      },
+      "xr": false,
+      "xrMode": "overview",
+      "panes": {
+        "space": true,
+        "roots": true,
+        "wide": true
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 0.4000000059604645,
+        "motion": 0.20000000298023224,
+        "roots": 0.09999999403953552,
+        "factors": 0
+      }
+    },
+    {
+      "label": "10a-source-ready-for-root-pick",
+      "at": "2026-10-23T10:58:47.912Z",
+      "selected": [
+        -100,
+        0,
+        -100
+      ],
+      "second": null,
+      "radius": 16,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "source",
+      "cloudCount": 4406,
+      "renderCloudCount": 4406,
+      "catalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "acceptedCatalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "visiblePointCount": 2239,
+      "worldVisiblePointCount": 386,
+      "visibleRootCount": 1577,
+      "projectionProgress": 0,
+      "sourceScreen": true,
+      "screenHeight": 9.6,
+      "spatialSelection": [
+        0,
+        -200,
+        0
+      ],
+      "action": {
+        "phase": "identity",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "displayedSelection": [
+          0,
+          -200,
+          0
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "idle",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": null,
+        "requestedMatrix": null,
+        "starts": 0,
+        "publications": 0,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          0
+        ],
+        "padding": 20
+      },
+      "xr": false,
+      "xrMode": "overview",
+      "panes": {
+        "space": true,
+        "roots": true,
+        "wide": true
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 0.8999999910593033,
+        "motion": 0.800000011920929,
+        "roots": 0,
+        "rootPick": 0.10000000894069672
+      }
+    },
+    {
+      "label": "11-source-root-pick-unit",
+      "at": "2026-10-23T10:59:09.610Z",
+      "selected": [
+        1,
+        0,
+        1
+      ],
+      "second": null,
+      "radius": 16,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "source",
+      "cloudCount": 4406,
+      "renderCloudCount": 4406,
+      "catalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "acceptedCatalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "visiblePointCount": 2239,
+      "worldVisiblePointCount": 386,
+      "visibleRootCount": 1577,
+      "projectionProgress": 0,
+      "sourceScreen": true,
+      "screenHeight": 9.6,
+      "spatialSelection": [
+        0,
+        2,
+        0
+      ],
+      "action": {
+        "phase": "identity",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "displayedSelection": [
+          0,
+          2,
+          0
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "idle",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": null,
+        "requestedMatrix": null,
+        "starts": 0,
+        "publications": 0,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          0
+        ],
+        "padding": 20
+      },
+      "xr": false,
+      "xrMode": "overview",
+      "panes": {
+        "space": true,
+        "roots": true,
+        "wide": true
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 0.8999999910593033,
+        "motion": 1.6000000089406967,
+        "roots": 0.10000000894069672,
+        "rootPick": 0.20000000298023224
+      }
+    }
+  ],
+  "supplementalEarlierSameInteractionCode": [
+    {
+      "label": "10-xr-projection-controller",
+      "at": "2026-10-23T10:40:57.939Z",
+      "selected": [
+        1,
+        0,
+        1
+      ],
+      "second": null,
+      "radius": 16,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "source",
+      "cloudCount": 4406,
+      "renderCloudCount": 4406,
+      "catalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "acceptedCatalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "visiblePointCount": 2239,
+      "worldVisiblePointCount": 1919,
+      "visibleRootCount": 1577,
+      "projectionProgress": 1,
+      "sourceScreen": true,
+      "screenHeight": 9.6,
+      "spatialSelection": [
+        0,
+        9.6,
+        0
+      ],
+      "action": {
+        "phase": "identity",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "displayedSelection": [
+          0,
+          2,
+          0
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "idle",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": null,
+        "requestedMatrix": null,
+        "starts": 0,
+        "publications": 0,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          0
+        ],
+        "padding": 20
+      },
+      "xr": true,
+      "xrMode": "overview",
+      "panes": {
+        "space": true,
+        "roots": false,
+        "wide": true
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 0.6000000089406967,
+        "motion": 0.5999999940395355,
+        "roots": 0.09999999403953552,
+        "pick": 0.09999999403953552
+      }
+    },
+    {
+      "label": "11-xr-origin-move-forms",
+      "at": "2026-10-23T10:40:59.718Z",
+      "selected": [
+        1,
+        0,
+        1
+      ],
+      "second": null,
+      "radius": 16,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "source",
+      "cloudCount": 4406,
+      "renderCloudCount": 4406,
+      "catalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "acceptedCatalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "visiblePointCount": 2239,
+      "worldVisiblePointCount": 1577,
+      "visibleRootCount": 1577,
+      "projectionProgress": 1,
+      "sourceScreen": true,
+      "screenHeight": 9.6,
+      "spatialSelection": [
+        0,
+        9.6,
+        0
+      ],
+      "action": {
+        "phase": "identity",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "displayedSelection": [
+          0,
+          2,
+          0
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "idle",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": null,
+        "requestedMatrix": null,
+        "starts": 0,
+        "publications": 0,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          0
+        ],
+        "padding": 20
+      },
+      "xr": true,
+      "xrMode": "origin",
+      "panes": {
+        "space": true,
+        "roots": false,
+        "wide": true
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 0.6000000089406967,
+        "motion": 0.20000000298023224,
+        "roots": 0.09999999403953552,
+        "pick": 0.09999999403953552
+      }
+    },
+    {
+      "label": "12-xr-held-controller-drag",
+      "at": "2026-10-23T10:41:21.258Z",
+      "selected": [
+        1,
+        0,
+        1
+      ],
+      "second": null,
+      "radius": 16,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "source",
+      "cloudCount": 4406,
+      "renderCloudCount": 4234,
+      "catalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:10937,1568,1568,9368:1:0",
+        "depth": 16,
+        "matrix": [
+          10937,
+          1568,
+          1568,
+          9368
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 99999192,
+        "coefficientRows": [
+          87759424,
+          -14689024,
+          2458624,
+          -29378048,
+          104916440,
+          -34298432,
+          2458624,
+          -17149216,
+          119617969
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3548,
+        "otherCount": 686,
+        "total": 4234,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 11
+      },
+      "acceptedCatalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "visiblePointCount": 2425,
+      "worldVisiblePointCount": 1628,
+      "visibleRootCount": 1734,
+      "projectionProgress": 1,
+      "sourceScreen": true,
+      "screenHeight": 9.6,
+      "spatialSelection": [
+        2.8800001207066916,
+        9.6,
+        1.4400000603533443
+      ],
+      "action": {
+        "phase": "preview",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "g": [
+          1.0936714998364008,
+          0.1568308522045683,
+          0.1568308522045683,
+          0.9368406476318327
+        ],
+        "displayedSelection": [
+          0.6368939009983422,
+          2.1229795810160565,
+          0.3184469504991707
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "preview",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": [
+          10937,
+          1568,
+          1568,
+          9368
+        ],
+        "requestedMatrix": null,
+        "starts": 1,
+        "publications": 1,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          0
+        ],
+        "padding": 20
+      },
+      "xr": true,
+      "xrMode": "origin",
+      "panes": {
+        "space": true,
+        "roots": false,
+        "wide": true
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 0.7999999970197678,
+        "motion": 1.7999999970197678,
+        "roots": 0.09999999403953552,
+        "pick": 0.10000000894069672
+      }
+    },
+    {
+      "label": "13-xr-held-source-crop",
+      "at": "2026-10-23T10:41:32.699Z",
+      "selected": [
+        1,
+        0,
+        1
+      ],
+      "second": null,
+      "radius": 16,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "source",
+      "cloudCount": 4406,
+      "renderCloudCount": 4234,
+      "catalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:10937,1568,1568,9368:1:0",
+        "depth": 16,
+        "matrix": [
+          10937,
+          1568,
+          1568,
+          9368
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 99999192,
+        "coefficientRows": [
+          87759424,
+          -14689024,
+          2458624,
+          -29378048,
+          104916440,
+          -34298432,
+          2458624,
+          -17149216,
+          119617969
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3548,
+        "otherCount": 686,
+        "total": 4234,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 11
+      },
+      "acceptedCatalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "visiblePointCount": 2425,
+      "worldVisiblePointCount": 1628,
+      "visibleRootCount": 1734,
+      "projectionProgress": 1,
+      "sourceScreen": true,
+      "screenHeight": 9.6,
+      "spatialSelection": [
+        2.8800001207066916,
+        9.6,
+        1.4400000603533443
+      ],
+      "action": {
+        "phase": "preview",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "g": [
+          1.0936714998364008,
+          0.1568308522045683,
+          0.1568308522045683,
+          0.9368406476318327
+        ],
+        "displayedSelection": [
+          0.6368939009983422,
+          2.1229795810160565,
+          0.3184469504991707
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "preview",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": [
+          10937,
+          1568,
+          1568,
+          9368
+        ],
+        "requestedMatrix": null,
+        "starts": 1,
+        "publications": 1,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          0
+        ],
+        "padding": 20
+      },
+      "xr": true,
+      "xrMode": "origin",
+      "panes": {
+        "space": true,
+        "roots": false,
+        "wide": true
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 0.7999999970197678,
+        "motion": 1.7999999970197678,
+        "roots": 0.09999999403953552,
+        "pick": 0.09999999403953552
+      }
+    },
+    {
+      "label": "14-xr-release-accepted",
+      "at": "2026-10-23T10:41:33.124Z",
+      "selected": [
+        1,
+        0,
+        1
+      ],
+      "second": null,
+      "radius": 16,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "source",
+      "cloudCount": 4234,
+      "renderCloudCount": 4234,
+      "catalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:10937,1568,1568,9368:1:0",
+        "depth": 16,
+        "matrix": [
+          10937,
+          1568,
+          1568,
+          9368
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 99999192,
+        "coefficientRows": [
+          87759424,
+          -14689024,
+          2458624,
+          -29378048,
+          104916440,
+          -34298432,
+          2458624,
+          -17149216,
+          119617969
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3548,
+        "otherCount": 686,
+        "total": 4234,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 11
+      },
+      "acceptedCatalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:10937,1568,1568,9368:1:0",
+        "depth": 16,
+        "matrix": [
+          10937,
+          1568,
+          1568,
+          9368
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 99999192,
+        "coefficientRows": [
+          87759424,
+          -14689024,
+          2458624,
+          -29378048,
+          104916440,
+          -34298432,
+          2458624,
+          -17149216,
+          119617969
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3548,
+        "otherCount": 686,
+        "total": 4234,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 11
+      },
+      "visiblePointCount": 2425,
+      "worldVisiblePointCount": 1622,
+      "visibleRootCount": 1734,
+      "projectionProgress": 1,
+      "sourceScreen": true,
+      "screenHeight": 9.6,
+      "spatialSelection": [
+        2.879461323755224,
+        9.6,
+        1.4406488574527885
+      ],
+      "action": {
+        "phase": "accepted",
+        "matrix": [
+          10937,
+          1568,
+          1568,
+          9368
+        ],
+        "g": [
+          1.0937044185747766,
+          0.1568006334758389,
+          0.1568006334758389,
+          0.9368037846949354
+        ],
+        "imageNumerator": [
+          90218048,
+          -63676480,
+          122076593
+        ],
+        "denominator": 99999192,
+        "delta": -4,
+        "displayedSelection": [
+          0.6367699451011564,
+          2.1229635635455932,
+          0.31858802419123533
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "idle",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": null,
+        "requestedMatrix": null,
+        "starts": 1,
+        "publications": 1,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          0
+        ],
+        "padding": 20
+      },
+      "xr": true,
+      "xrMode": "origin",
+      "panes": {
+        "space": true,
+        "roots": false,
+        "wide": true
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 0.5,
+        "motion": 0.30000001192092896,
+        "roots": 0.09999999403953552,
+        "pick": 0
+      }
+    },
+    {
+      "label": "15-xr-second-preview",
+      "at": "2026-10-23T10:41:33.785Z",
+      "selected": [
+        1,
+        0,
+        1
+      ],
+      "second": null,
+      "radius": 16,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "source",
+      "cloudCount": 4234,
+      "renderCloudCount": 4246,
+      "catalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:11360,3306,3070,9696:1:0",
+        "depth": 16,
+        "matrix": [
+          11360,
+          3306,
+          3070,
+          9696
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 99997140,
+        "coefficientRows": [
+          94012416,
+          -29766720,
+          9424900,
+          -64109952,
+          120295980,
+          -69750400,
+          10929636,
+          -37556160,
+          129049600
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3557,
+        "otherCount": 689,
+        "total": 4246,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 13
+      },
+      "acceptedCatalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:10937,1568,1568,9368:1:0",
+        "depth": 16,
+        "matrix": [
+          10937,
+          1568,
+          1568,
+          9368
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 99999192,
+        "coefficientRows": [
+          87759424,
+          -14689024,
+          2458624,
+          -29378048,
+          104916440,
+          -34298432,
+          2458624,
+          -17149216,
+          119617969
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3548,
+        "otherCount": 686,
+        "total": 4234,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 11
+      },
+      "visiblePointCount": 2429,
+      "worldVisiblePointCount": 1628,
+      "visibleRootCount": 1732,
+      "projectionProgress": 1,
+      "sourceScreen": true,
+      "screenHeight": 9.6,
+      "spatialSelection": [
+        5.279565033941498,
+        9.6,
+        1.440565761142102
+      ],
+      "action": {
+        "phase": "preview",
+        "matrix": [
+          10937,
+          1568,
+          1568,
+          9368
+        ],
+        "g": [
+          1.1359910070544745,
+          0.33060285649972,
+          0.3070443962411431,
+          0.9696465444085447
+        ],
+        "imageNumerator": [
+          90218048,
+          -63676480,
+          122076593
+        ],
+        "denominator": 99999192,
+        "delta": -4,
+        "displayedSelection": [
+          1.3387351805459136,
+          2.4342644991809337,
+          0.36528313448789373
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "preview",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": [
+          11360,
+          3306,
+          3070,
+          9696
+        ],
+        "requestedMatrix": null,
+        "starts": 2,
+        "publications": 2,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          0
+        ],
+        "padding": 20
+      },
+      "xr": true,
+      "xrMode": "origin",
+      "panes": {
+        "space": true,
+        "roots": false,
+        "wide": true
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 0.5,
+        "motion": 0.29999999701976776,
+        "roots": 0.09999999403953552,
+        "pick": 0.09999999403953552
+      }
+    },
+    {
+      "label": "16-xr-disconnect-rollback",
+      "at": "2026-10-23T10:41:34.151Z",
+      "selected": [
+        1,
+        0,
+        1
+      ],
+      "second": null,
+      "radius": 16,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "source",
+      "cloudCount": 4234,
+      "renderCloudCount": 4234,
+      "catalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:10937,1568,1568,9368:1:0",
+        "depth": 16,
+        "matrix": [
+          10937,
+          1568,
+          1568,
+          9368
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 99999192,
+        "coefficientRows": [
+          87759424,
+          -14689024,
+          2458624,
+          -29378048,
+          104916440,
+          -34298432,
+          2458624,
+          -17149216,
+          119617969
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3548,
+        "otherCount": 686,
+        "total": 4234,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 11
+      },
+      "acceptedCatalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:10937,1568,1568,9368:1:0",
+        "depth": 16,
+        "matrix": [
+          10937,
+          1568,
+          1568,
+          9368
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 99999192,
+        "coefficientRows": [
+          87759424,
+          -14689024,
+          2458624,
+          -29378048,
+          104916440,
+          -34298432,
+          2458624,
+          -17149216,
+          119617969
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3548,
+        "otherCount": 686,
+        "total": 4234,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 11
+      },
+      "visiblePointCount": 2425,
+      "worldVisiblePointCount": 1622,
+      "visibleRootCount": 1734,
+      "projectionProgress": 1,
+      "sourceScreen": true,
+      "screenHeight": 9.6,
+      "spatialSelection": [
+        2.879461323755224,
+        9.6,
+        1.4406488574527885
+      ],
+      "action": {
+        "phase": "accepted",
+        "matrix": [
+          10937,
+          1568,
+          1568,
+          9368
+        ],
+        "g": [
+          1.0937044185747766,
+          0.1568006334758389,
+          0.1568006334758389,
+          0.9368037846949354
+        ],
+        "imageNumerator": [
+          90218048,
+          -63676480,
+          122076593
+        ],
+        "denominator": 99999192,
+        "delta": -4,
+        "displayedSelection": [
+          0.6367699451011564,
+          2.1229635635455932,
+          0.31858802419123533
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "idle",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": null,
+        "requestedMatrix": null,
+        "starts": 2,
+        "publications": 2,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          0
+        ],
+        "padding": 20
+      },
+      "xr": true,
+      "xrMode": "origin",
+      "panes": {
+        "space": true,
+        "roots": false,
+        "wide": true
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 0.4000000059604645,
+        "motion": 0.30000001192092896,
+        "roots": 0.09999999403953552,
+        "pick": 0
+      }
+    },
+    {
+      "label": "17-xr-exit-restores-desktop",
+      "at": "2026-10-23T10:42:23.087Z",
+      "selected": [
+        1,
+        0,
+        1
+      ],
+      "second": null,
+      "radius": 16,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "source",
+      "cloudCount": 4234,
+      "renderCloudCount": 4234,
+      "catalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:10937,1568,1568,9368:1:0",
+        "depth": 16,
+        "matrix": [
+          10937,
+          1568,
+          1568,
+          9368
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 99999192,
+        "coefficientRows": [
+          87759424,
+          -14689024,
+          2458624,
+          -29378048,
+          104916440,
+          -34298432,
+          2458624,
+          -17149216,
+          119617969
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3548,
+        "otherCount": 686,
+        "total": 4234,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 11
+      },
+      "acceptedCatalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:10937,1568,1568,9368:1:0",
+        "depth": 16,
+        "matrix": [
+          10937,
+          1568,
+          1568,
+          9368
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 99999192,
+        "coefficientRows": [
+          87759424,
+          -14689024,
+          2458624,
+          -29378048,
+          104916440,
+          -34298432,
+          2458624,
+          -17149216,
+          119617969
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3548,
+        "otherCount": 686,
+        "total": 4234,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 11
+      },
+      "visiblePointCount": 2425,
+      "worldVisiblePointCount": 1984,
+      "visibleRootCount": 1734,
+      "projectionProgress": 1,
+      "sourceScreen": true,
+      "screenHeight": 9.6,
+      "spatialSelection": [
+        2.879461323755224,
+        9.6,
+        1.4406488574527885
+      ],
+      "action": {
+        "phase": "accepted",
+        "matrix": [
+          10937,
+          1568,
+          1568,
+          9368
+        ],
+        "g": [
+          1.0937044185747766,
+          0.1568006334758389,
+          0.1568006334758389,
+          0.9368037846949354
+        ],
+        "imageNumerator": [
+          90218048,
+          -63676480,
+          122076593
+        ],
+        "denominator": 99999192,
+        "delta": -4,
+        "displayedSelection": [
+          0.6367699451011564,
+          2.1229635635455932,
+          0.31858802419123533
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "idle",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": null,
+        "requestedMatrix": null,
+        "starts": 2,
+        "publications": 2,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          0
+        ],
+        "padding": 20
+      },
+      "xr": false,
+      "xrMode": "origin",
+      "panes": {
+        "space": true,
+        "roots": true,
+        "wide": true
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 0.4000000059604645,
+        "motion": 0.3999999910593033,
+        "roots": 0.5,
+        "pick": 0
+      }
+    },
+    {
+      "label": "18-midpoint-hover-and-click",
+      "at": "2026-10-23T10:43:50.149Z",
+      "selected": [
+        1,
+        0,
+        1
+      ],
+      "second": null,
+      "radius": 16,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "source",
+      "cloudCount": 4406,
+      "renderCloudCount": 4406,
+      "catalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "acceptedCatalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "visiblePointCount": 2239,
+      "worldVisiblePointCount": 2185,
+      "visibleRootCount": 1577,
+      "projectionProgress": 0.5,
+      "sourceScreen": true,
+      "screenHeight": 9.6,
+      "spatialSelection": [
+        0,
+        5.8,
+        0
+      ],
+      "action": {
+        "phase": "identity",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "displayedSelection": [
+          0,
+          2,
+          0
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "idle",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": null,
+        "requestedMatrix": null,
+        "starts": 2,
+        "publications": 2,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          0
+        ],
+        "padding": 20
+      },
+      "xr": false,
+      "xrMode": "origin",
+      "panes": {
+        "space": true,
+        "roots": true,
+        "wide": true
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 0.6000000089406967,
+        "motion": 0.20000000298023224,
+        "roots": 0.7999999970197678,
+        "pick": 0.09999999403953552
+      }
+    },
+    {
+      "label": "19-lower-selection-stationary",
+      "at": "2026-10-23T10:44:13.052Z",
+      "selected": [
+        -1,
+        0,
+        -1
+      ],
+      "second": null,
+      "radius": 16,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "source",
+      "cloudCount": 4406,
+      "renderCloudCount": 4406,
+      "catalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "acceptedCatalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "visiblePointCount": 2239,
+      "worldVisiblePointCount": 1919,
+      "visibleRootCount": 1577,
+      "projectionProgress": 1,
+      "sourceScreen": true,
+      "screenHeight": 9.6,
+      "spatialSelection": [
+        0,
+        -2,
+        0
+      ],
+      "action": {
+        "phase": "identity",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "displayedSelection": [
+          0,
+          -2,
+          0
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "idle",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": null,
+        "requestedMatrix": null,
+        "starts": 2,
+        "publications": 2,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          0
+        ],
+        "padding": 20
+      },
+      "xr": false,
+      "xrMode": "origin",
+      "panes": {
+        "space": true,
+        "roots": true,
+        "wide": true
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 0.6000000089406967,
+        "motion": 0.20000000298023224,
+        "roots": 0.5,
+        "pick": 0.09999999403953552
+      }
+    },
+    {
+      "label": "20-height-changes-screen-not-lower",
+      "at": "2026-10-23T10:44:13.137Z",
+      "selected": [
+        -1,
+        0,
+        -1
+      ],
+      "second": null,
+      "radius": 16,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "source",
+      "cloudCount": 4406,
+      "renderCloudCount": 4406,
+      "catalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "acceptedCatalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "visiblePointCount": 2239,
+      "worldVisiblePointCount": 1919,
+      "visibleRootCount": 1577,
+      "projectionProgress": 1,
+      "sourceScreen": true,
+      "screenHeight": 16,
+      "spatialSelection": [
+        0,
+        -2,
+        0
+      ],
+      "action": {
+        "phase": "identity",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "displayedSelection": [
+          0,
+          -2,
+          0
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "idle",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": null,
+        "requestedMatrix": null,
+        "starts": 2,
+        "publications": 2,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          0
+        ],
+        "padding": 20
+      },
+      "xr": false,
+      "xrMode": "origin",
+      "panes": {
+        "space": true,
+        "roots": true,
+        "wide": true
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 0.6000000089406967,
+        "motion": 0.20000000298023224,
+        "roots": 0.5,
+        "pick": 0.09999999403953552
+      }
+    },
+    {
+      "label": "21-responsive-roots-390",
+      "at": "2026-10-23T10:44:13.501Z",
+      "selected": [
+        -1,
+        0,
+        -1
+      ],
+      "second": null,
+      "radius": 16,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "source",
+      "cloudCount": 4406,
+      "renderCloudCount": 4406,
+      "catalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "acceptedCatalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:1,0,0,1:1:0",
+        "depth": 16,
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 1,
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3725,
+        "otherCount": 681,
+        "total": 4406,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 10
+      },
+      "visiblePointCount": 2239,
+      "worldVisiblePointCount": 1919,
+      "visibleRootCount": 1577,
+      "projectionProgress": 1,
+      "sourceScreen": true,
+      "screenHeight": 16,
+      "spatialSelection": [
+        0,
+        -2,
+        0
+      ],
+      "action": {
+        "phase": "identity",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "displayedSelection": [
+          0,
+          -2,
+          0
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "idle",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": null,
+        "requestedMatrix": null,
+        "starts": 2,
+        "publications": 2,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          144.33941566780823
+        ],
+        "padding": 20
+      },
+      "xr": false,
+      "xrMode": "origin",
+      "panes": {
+        "space": false,
+        "roots": true,
+        "wide": false
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 0.6000000089406967,
+        "motion": 0.30000001192092896,
+        "roots": 0.5999999940395355,
+        "pick": 0.09999999403953552
+      }
+    },
+    {
+      "label": "22-responsive-drag-accepted",
+      "at": "2026-10-23T10:44:45.133Z",
+      "selected": [
+        -1,
+        0,
+        -1
+      ],
+      "second": null,
+      "radius": 16,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "source",
+      "cloudCount": 4247,
+      "renderCloudCount": 4247,
+      "catalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:10442,2559,710,9750:1:0",
+        "depth": 16,
+        "matrix": [
+          10442,
+          2559,
+          710,
+          9750
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 99992610,
+        "coefficientRows": [
+          95062500,
+          -6922500,
+          504100,
+          -49900500,
+          103626390,
+          -14827640,
+          6548481,
+          -26721078,
+          109035364
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3559,
+        "otherCount": 688,
+        "total": 4247,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 11
+      },
+      "acceptedCatalogue": {
+        "kind": "source",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "cacheKey": "source-catalogue-v1:16:10442,2559,710,9750:1:0",
+        "depth": 16,
+        "matrix": [
+          10442,
+          2559,
+          710,
+          9750
+        ],
+        "whole": true,
+        "dust": false,
+        "otherRadius": 6,
+        "denominator": 99992610,
+        "coefficientRows": [
+          95062500,
+          -6922500,
+          504100,
+          -49900500,
+          103626390,
+          -14827640,
+          6548481,
+          -26721078,
+          109035364
+        ],
+        "padding": [
+          6,
+          5
+        ],
+        "upperCount": 3559,
+        "otherCount": 688,
+        "total": 4247,
+        "complete": true,
+        "sourceLimited": {
+          "upperCap": false,
+          "otherScanBound": false
+        },
+        "otherScanBound": 11
+      },
+      "visiblePointCount": 2427,
+      "worldVisiblePointCount": 1985,
+      "visibleRootCount": 1729,
+      "projectionProgress": 1,
+      "sourceScreen": true,
+      "screenHeight": 16,
+      "spatialSelection": [
+        -0.647329237630661,
+        -2.1116605017110763,
+        -0.20018724383731945
+      ],
+      "action": {
+        "phase": "accepted",
+        "matrix": [
+          10442,
+          2559,
+          710,
+          9750
+        ],
+        "g": [
+          1.044238585328605,
+          0.25590945602910364,
+          0.07100262359541366,
+          0.9750360282468779
+        ],
+        "imageNumerator": [
+          -95566600,
+          64728140,
+          -115583845
+        ],
+        "denominator": 99992610,
+        "delta": -4,
+        "displayedSelection": [
+          -0.647329237630661,
+          -2.1116605017110763,
+          -0.20018724383731945
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "idle",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": null,
+        "requestedMatrix": null,
+        "starts": 3,
+        "publications": 2,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          144.33941566780823
+        ],
+        "padding": 20
+      },
+      "xr": false,
+      "xrMode": "origin",
+      "panes": {
+        "space": false,
+        "roots": true,
+        "wide": false
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 0.4000000059604645,
+        "motion": 0.30000001192092896,
+        "roots": 0,
+        "pick": 0.09999999403953552
+      }
+    },
+    {
+      "label": "23-reset-canonical",
+      "at": "2026-10-23T10:44:45.466Z",
+      "selected": [
+        1,
+        -1,
+        2
+      ],
+      "second": null,
+      "radius": 6,
+      "whole": true,
+      "dust": false,
+      "catalogueMode": "canonical",
+      "cloudCount": 480,
+      "renderCloudCount": 480,
+      "catalogue": null,
+      "acceptedCatalogue": null,
+      "visiblePointCount": 480,
+      "worldVisiblePointCount": 480,
+      "visibleRootCount": 55,
+      "projectionProgress": 0,
+      "sourceScreen": true,
+      "screenHeight": 4,
+      "spatialSelection": [
+        1,
+        3,
+        1
+      ],
+      "action": {
+        "phase": "identity",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "displayedSelection": [
+          1,
+          3,
+          1
+        ]
+      },
+      "previewCatalogue": {
+        "phase": "idle",
+        "inFlight": false,
+        "queued": false,
+        "displayedMatrix": null,
+        "requestedMatrix": null,
+        "starts": 3,
+        "publications": 2,
+        "lastError": null
+      },
+      "rootsChart": {
+        "model": "half-plane",
+        "zoom": 1,
+        "pan": [
+          0,
+          0
+        ],
+        "padding": 20
+      },
+      "xr": false,
+      "xrMode": "origin",
+      "panes": {
+        "space": false,
+        "roots": true,
+        "wide": false
+      },
+      "timings": {
+        "enumerate": 0,
+        "attributes": 0.09999999403953552,
+        "motion": 0,
+        "roots": 0,
+        "pick": 0.09999999403953552
+      }
+    }
+  ],
+  "supplementalScope": "Earlier broad interaction run precedes source plane/cone framing and root opacity/marker fixes. Current desktop captures replace visual evidence for those changes. Earlier XR scene is Origin with roots hidden, so roots changes do not affect that route. Responsive interaction is supplemental, not final source pixel acceptance.",
+  "frameSample": {
+    "frames": 60,
+    "medianMs": 16.7,
+    "p90Ms": 17.9,
+    "catalogueDepth": 16,
+    "buffered": 4406,
+    "worldDrawCalls": 13,
+    "countedCloudPointCPUBytesApprox": 300000,
+    "scope": "vsync-capped desktop scene, not headset performance"
+  },
+  "consoleObservation": "IAB logs contain an unattributed MutationObserver.observe non-Node error on iframe load. No MutationObserver is present in project web sources; source stack unavailable, attribution unresolved. No clean-console claim.",
+  "viewportOverrideReset": true,
+  "physicalHeadset": "not tested",
+  "browserSourceSHA256": {
+    "web/polynomial/preview-catalogue.js": "5baecf3215375b56f148c2a5dea55f7803fb80c617ae1ce49a89420f07babc71",
+    "web/polynomial/catalogue-display.js": "bb3392bdafa286e2e5db44bca3f8f1a967447bf4f524b624a5575f1048814d54",
+    "web/polynomial/klein-view.js": "59d4215769e071dfcab57c2756970d798fab33802c39753cead77a985513c86e",
+    "web/polynomial/source-projection.js": "cc30e5bdfa2e28355e2d63764eed056ef0b967a3dc80ccea36f3fa68dd102690",
+    "web/polynomial/klein-data.js": "22ec087975b6a50274ef4f58d1144cf54735d4500bed453ff79fb97271a09da9",
+    "web/polynomial/lean-client.js": "f8a5d39aae2bdefd3995f29c19ba074a0eb753b9ed5ee6006659c54f803f7faa",
+    "web/polynomial/point-cloud.js": "6ef7ac11adaaef877d6cec58932c4cc6149a3f560c1aa3305aea6a0353468e99",
+    "web/polynomial/app.js": "0d3dc8055df2c65a51b3e7f384848a2e6c1748f0d436a0760aa3993ce31787e5"
+  },
+  "tests": {
+    "node": 160,
+    "bridge": 26,
+    "catalogueRequests": 121,
+    "sourceMorphCases": 48,
+    "sourceRootRenderCases": 44,
+    "sourceRootPickCases": 6
+  },
+  "productionAnimatedButtons": {
+    "projectFinal": 1,
+    "projectSelection": [
+      0,
+      9.6,
+      0
+    ],
+    "liftFinal": 0,
+    "liftSelection": [
+      0,
+      2,
+      0
+    ],
+    "input": "real checkbox controls; final state inspected via readonly diagnostics",
+    "timing": "No animation deadline measured for this desktop check"
+  },
+  "videos": {
+    "browser": {
+      "path": "artifacts/videos/lean-starscape-browser-morph.mp4",
+      "sha256": "6f9b3762b77da78810d51b644e60c110d13e785e20e4d4fd5fc9f98e81778eee",
+      "metadata": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_type": "video",
+            "width": 888,
+            "height": 680
+          }
+        ],
+        "format": {
+          "duration": "37.116992",
+          "size": "465831"
+        }
+      },
+      "decodedFrameInspectedSeconds": 25
+    },
+    "webxr": {
+      "path": "artifacts/videos/lean-starscape-webxr-morph.mp4",
+      "sha256": "4d55991d90195aa431ed1f757984515b752966c373f043bbc83ef1c4ffb25865",
+      "metadata": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_type": "video",
+            "width": 1280,
+            "height": 836
+          }
+        ],
+        "format": {
+          "duration": "62.862800",
+          "size": "1456004"
+        }
+      },
+      "decodedFrameInspectedSeconds": 52
+    }
+  }
+}

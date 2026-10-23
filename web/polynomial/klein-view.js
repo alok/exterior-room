@@ -4,11 +4,16 @@
 // Its fit, radius, minimum footprint and square/disk threshold are preserved.
 // Canonical UHP shows every accepted upper form; Klein also shows its negative partner.
 // Source-catalogue mode instead projects primitive upper forms in both charts.
+// Its Jt()/Xt() plane opacity and independent primitive-radius markers follow
+// source SHA f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b.
+// Source Klein uses the source .06 radius constant; this chart's existing
+// minimum footprint/knee/cap remain renderer adaptations.
 // The accepted lattice is never changed and neither chart samples identities.
 import * as THREE from 'three';
 import {interiorIndices,fillRootPositions,orderRootsByRadius,rootSortWorkspace} from './klein-data.js';
 import {chartTransform,rootCoordinates,halfPlaneGeodesic} from './mobius-render.js';
 import {catalogueUniform,catalogueFadeGLSL} from './catalogue-display.js';
+import {sourcePlaneMask,sourceRootMarker} from './source-projection.js';
 
 const labelFont='12px ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace';
 const markerColors=['#f0f5f8','#ffba6b'],hoverColor='#f0f5f8bf';
@@ -19,9 +24,9 @@ export class KleinView {
     this.renderer.setPixelRatio(Math.min(devicePixelRatio,2));
     this.scene=new THREE.Scene();this.scene.background=new THREE.Color(0);
     this.camera=new THREE.OrthographicCamera(-1,1,1,-1,.1,10);this.camera.position.z=3;
-    this.material=new THREE.ShaderMaterial({depthTest:false,depthWrite:false,transparent:true,uniforms:{size:{value:4},dpr:{value:1},halfPlane:{value:1},focus:{value:new THREE.Vector4()},fade:{value:new THREE.Vector2()},keep:{value:new THREE.Vector3()},catalogue:{value:new THREE.Vector3(1,1,0)}},
-      vertexShader:`attribute vec3 color; attribute vec3 aDisplay; attribute float aDelta;
-        varying vec3 vColor; varying float vAlpha,vRadius; uniform float size,dpr,halfPlane; uniform vec4 focus; uniform vec2 fade; uniform vec3 keep,catalogue;
+    this.material=new THREE.ShaderMaterial({depthTest:false,depthWrite:false,transparent:true,uniforms:{size:{value:4},dpr:{value:1},halfPlane:{value:1},focus:{value:new THREE.Vector4()},fade:{value:new THREE.Vector2()},keep:{value:new THREE.Vector3()},catalogue:{value:new THREE.Vector3(1,1,0)},sourceFocus:{value:0},sourceLight:{value:0}},
+      vertexShader:`attribute vec3 color; attribute vec3 aDisplay; attribute float aDelta,aOnPlane;
+        varying vec3 vColor; varying float vAlpha,vRadius; uniform float size,dpr,halfPlane,sourceFocus,sourceLight; uniform vec4 focus; uniform vec2 fade; uniform vec3 keep,catalogue;
         ${catalogueFadeGLSL}
         void main(){
           vColor=color;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);
@@ -31,12 +36,13 @@ export class KleinView {
             vAlpha=radius<.08?0.0:min(1.0,pow(radius/.6,2.0));
             vRadius=max(radius,.6);
           }else{
-            radius=size*pow(-aDelta,.25)/pow(abs(aDisplay.y),1.5);
+            radius=(catalogue.z>.5?2.0:1.0)*size*pow(-aDelta,.25)/pow(abs(aDisplay.y),1.5);
             vAlpha=radius<1.0?radius*radius:1.0;
             if(radius>2.5)radius=2.5*pow(radius/2.5,1.0/3.0);
             vRadius=clamp(radius,1.0,9.0);
           }
-          if(focus.w>.5&&aDisplay!=keep)vAlpha*=mix(1.0,fade.y,smoothstep(0.0,fade.x,abs(dot(focus.xyz,aDisplay))));
+          if(catalogue.z>.5){if(sourceFocus>.5&&aOnPlane<.5)vAlpha*=sourceLight>.5?.32:.26;}
+          else if(focus.w>.5&&aDisplay!=keep)vAlpha*=mix(1.0,fade.y,smoothstep(0.0,fade.x,abs(dot(focus.xyz,aDisplay))));
           vAlpha*=catalogueOpacity(aDisplay,2.0,catalogue);
           gl_PointSize=2.0*vRadius*dpr;
         }`,
@@ -69,18 +75,29 @@ export class KleinView {
     const sprite=new THREE.Sprite(new THREE.SpriteMaterial({map:texture,transparent:true,depthTest:false,depthWrite:false,toneMapped:false}));
     sprite.renderOrder=3;this.scene.add(sprite);label={sprite,texture,width,height,textWidth,pad};this.labels.set(key,label);return [key,label];
   }
-  update({lattice,xyz,colors,revision,colorKey,model='half-plane'}) {
+  update({lattice,xyz,colors,revision,colorKey,model='half-plane',sourcePlane=null,sourceLight=false}) {
     this.material.uniforms.catalogue.value.set(...catalogueUniform(lattice));
+    this.material.uniforms.sourceFocus.value=sourcePlane?1:0;
+    this.material.uniforms.sourceLight.value=sourceLight?1:0;
     if(this.lattice!==lattice||this.model!==model){
       this.lattice=lattice;this.model=model;const indices=interiorIndices(lattice,{model});
       this.indices=indices;this.points.geometry.dispose();this.points.geometry=new THREE.BufferGeometry();
       this.points.geometry.setAttribute('position',new THREE.BufferAttribute(new Float32Array(indices.length*3),3));
       this.points.geometry.setAttribute('aDisplay',new THREE.BufferAttribute(new Float32Array(indices.length*3),3));
       this.points.geometry.setAttribute('aDelta',new THREE.BufferAttribute(Float32Array.from(indices,i=>lattice.delta[i]),1));
+      this.points.geometry.setAttribute('aOnPlane',new THREE.BufferAttribute(new Float32Array(indices.length),1));
       this.points.geometry.setAttribute('color',new THREE.BufferAttribute(new Uint8Array(indices.length*3),3,true));
       this.rootSort=model==='half-plane'?rootSortWorkspace(indices.length):null;
       if(this.rootSort)this.points.geometry.setIndex(new THREE.BufferAttribute(new Uint32Array(indices.length),1));
-      this.revision=null;this.colorKey=null;
+      this.revision=null;this.colorKey=null;this.sourcePlaneKey=undefined;
+    }
+    const planeKey=sourcePlane?.join(',')??'';
+    if(this.sourcePlaneKey!==planeKey){
+      const attr=this.points.geometry.attributes.aOnPlane;
+      this.sourcePlaneMask=lattice.catalogue?.kind==='source'&&sourcePlane?sourcePlaneMask(lattice,sourcePlane):null;
+      if(this.sourcePlaneMask){for(let j=0;j<this.indices.length;j++)attr.array[j]=this.sourcePlaneMask[this.indices[j]];}
+      else attr.array.fill(0);
+      attr.needsUpdate=true;this.sourcePlaneKey=planeKey;
     }
     if(this.revision!==revision){
       const positions=this.points.geometry.attributes.position;
@@ -116,12 +133,15 @@ export class KleinView {
       this.axis.geometry.dispose();this.axis.geometry=new THREE.BufferGeometry().setFromPoints(points);
     }
     const usedLabels=new Set();
+    const source=this.lattice?.catalogue?.kind==='source';
+    this.hoverMarker.material.opacity=source?.55:.75;
     const drawMarker=(marker,item,color)=>{
       const xyz=item?.xyz||item,delta=item?.delta;
-      const p=xyz&&(upper?xyz[1]>0:true)?(upper?rootCoordinates(xyz,delta,model):[xyz[0]/xyz[1],xyz[2]/xyz[1]]):null;
+      const sourceMarker=source?sourceRootMarker(item,{model,sigma,scale}):null;
+      const p=source?sourceMarker?.position:xyz&&(upper?xyz[1]>0:true)?(upper?rootCoordinates(xyz,delta,model):[xyz[0]/xyz[1],xyz[2]/xyz[1]]):null;
       marker.visible=!!p&&p.every(Number.isFinite);if(!marker.visible)return;
-      const radius=upper?.06*sigma*scale/Math.abs(xyz[1]-xyz[2]):3;
-      marker.position.set(p[0],p[1],0);marker.scale.setScalar((Math.max(radius,.6)+3)/scale);
+      const radius=source?sourceMarker.apparentRadius:upper?.06*sigma*scale/Math.abs(xyz[1]-xyz[2]):3;
+      marker.position.set(p[0],p[1],0);marker.scale.setScalar((source?sourceMarker.radius:Math.max(radius,.6)+3)/scale);
       const sx=cx+p[0]*scale,sy=cy-p[1]*scale;
       if(!item?.label||sx< -radius||sx>width+radius||sy< -radius||sy>height+radius)return;
       const [key,label]=this.labelSprite(item.label,color),offset=Math.max(8,radius+7);

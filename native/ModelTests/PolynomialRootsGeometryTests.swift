@@ -77,6 +77,171 @@ final class PolynomialRootsGeometryTests: XCTestCase {
     XCTAssertNil(Geometry.pick([], at: .zero))
   }
 
+  func testSourceRingsUsePrimitiveGeometryButKeepExactSignedInspectedIdentities() throws {
+    let viewport = try fitted(), action = try rationalAction()
+    for rows in [identityRows,try XCTUnwrap(action.coefficientRowsApprox)] {
+      let original = try inspection("default")
+      let baseline = try XCTUnwrap(Geometry.sourceSelectionRing(inspection:original,rows:rows,viewport:viewport))
+      for name in ["positive_multiple","negative_partner"] {
+        let detail = try inspection(name)
+        let ring = try XCTUnwrap(Geometry.sourceSelectionRing(inspection:detail,rows:rows,viewport:viewport))
+        close(ring.root,baseline.root); close(ring.center,baseline.center)
+        XCTAssertEqual(ring.radius,baseline.radius,accuracy:1e-12)
+        XCTAssertEqual(ring.sourceRingRadius,baseline.sourceRingRadius,accuracy:1e-12)
+        XCTAssertEqual(ring.point.abc,detail.point,"The label identity must not become the positive primitive form")
+        XCTAssertEqual(ring.point.delta,detail.delta); XCTAssertEqual(ring.point.divisor,detail.divisor)
+        XCTAssertEqual(ring.point.kind,detail.kind == "lower" ? 3:2)
+        XCTAssertNotEqual(ring.point.abc,original.point)
+      }
+    }
+    let multiple = try inspection("positive_multiple")
+    let primitiveRing = try XCTUnwrap(Geometry.sourceSelectionRing(inspection:multiple,rows:identityRows,viewport:viewport))
+    close(primitiveRing.root,[0.5,sqrt(7)/2])
+    XCTAssertEqual(primitiveRing.radius,7,accuracy:1e-12)
+    XCTAssertEqual(primitiveRing.sourceRingRadius,11,accuracy:1e-12)
+    // Canonical bodies still size the actual multiple; only source selected rings normalize it.
+    let point = try XCTUnwrap(cloud().first { $0.abc == [2,0,2] })
+    let canonical = try XCTUnwrap(Geometry.dots(points:[point],rows:identityRows,viewport:viewport).first)
+    XCTAssertEqual(canonical.radius,3.5,accuracy:1e-12)
+    XCTAssertEqual(canonical.ringRadius,6.5,accuracy:1e-12)
+  }
+
+  func testSourceRingSurvivesHiddenCatalogueIdentityAndUsesItsOwnMinimumRadius() throws {
+    let viewport = try fitted(), detail = try inspection("source-seed")
+    XCTAssertFalse(try cloud().contains { $0.abc == detail.point })
+    let ring = try XCTUnwrap(Geometry.sourceSelectionRing(inspection:detail,rows:identityRows,viewport:viewport))
+    XCTAssertEqual(ring.point.abc,[13,20,34]); XCTAssertEqual(ring.point.delta,-1368)
+    close(ring.root,[-10.0/13,sqrt(1368)/26])
+    XCTAssertEqual(ring.radius,7.0/13,accuracy:1e-12)
+    XCTAssertEqual(ring.sourceRingRadius,5)
+    XCTAssertEqual(ring.ringRadius,3.6,accuracy:1e-12,"The source minimum must not change canonical rings")
+    let action = try rationalAction()
+    let moved = try XCTUnwrap(Geometry.sourceSelectionRing(inspection:detail,
+      rows:try XCTUnwrap(action.coefficientRowsApprox),viewport:viewport))
+    // J([3,1;1,2])/5 maps this signed identity to (46,-116,259)/5.
+    close(moved.root,[58.0/46,5*sqrt(1368)/92])
+    XCTAssertEqual(moved.point.abc,detail.point)
+  }
+
+  func testSourceRingsRejectNonInteriorAndInvalidPresentationInputs() throws {
+    let viewport = try fitted()
+    for name in ["null_boundary","exterior"] {
+      XCTAssertNil(Geometry.sourceSelectionRing(inspection:try inspection(name),rows:identityRows,viewport:viewport))
+    }
+    let detail = try inspection("negative_partner")
+    XCTAssertNil(Geometry.sourceSelectionRing(inspection:detail,rows:[],viewport:viewport))
+    XCTAssertNil(Geometry.sourceSelectionRing(inspection:detail,rows:Array(repeating:.nan,count:9),viewport:viewport))
+    XCTAssertNil(Geometry.sourceSelectionRing(inspection:detail,rows:identityRows,viewport:viewport,sigma:0))
+    XCTAssertNil(Geometry.sourceSelectionRing(inspection:detail,rows:identityRows,viewport:viewport,sigma:.infinity))
+  }
+
+  func testSourceBodyOpacityUsesDiscretePlaneIncidenceAndFootprintAttenuation() throws {
+    let base = try unit()
+    let member = PolynomialPoint(abc:base.abc,xyz:base.xyz,delta:base.delta,kind:base.kind,
+      divisor:base.divisor,onPlane:true,necklace:true)
+    let ordinary = dot(base,x:0,y:0,radius:7), onPlane = dot(member,x:0,y:0,radius:7)
+    XCTAssertEqual(Geometry.sourceBodyOpacity(ordinary,crop:0.8,hasPlane:false),0.8,accuracy:1e-12)
+    XCTAssertEqual(Geometry.sourceBodyOpacity(ordinary,crop:0.8,hasPlane:true),0.208,accuracy:1e-12)
+    XCTAssertEqual(Geometry.sourceBodyOpacity(onPlane,crop:0.8,hasPlane:true),0.8,accuracy:1e-12)
+    let tiny = dot(base,x:0,y:0,radius:0.3)
+    XCTAssertEqual(Geometry.sourceBodyOpacity(tiny,crop:0.8,hasPlane:true),0.052,accuracy:1e-12)
+    XCTAssertEqual(Geometry.sourceBodyOpacity(onPlane,crop:0,hasPlane:true),0)
+    XCTAssertEqual(Geometry.sourceBodyOpacity(ordinary,crop:.nan,hasPlane:false),0)
+  }
+
+  func testSourcePickingUsesPackedPreRasterAlphaWithoutTinyFootprintAttenuation() throws {
+    let point = try unit(), tiny = dot(point,x:0,y:0,radius:0.01)
+    XCTAssertLessThan(tiny.opacity,0.05)
+    XCTAssertEqual(Geometry.pickSource([tiny],at:.zero,hasPlane:false,crop:{ _ in 1 }),tiny)
+    XCTAssertEqual(Geometry.pickSource([tiny],at:.zero,hasPlane:false,crop:{ _ in 0.05 }),tiny)
+    // A value immediately below .05 rounds upward in the source's Float32 alpha buffer.
+    XCTAssertEqual(Geometry.pickSource([tiny],at:.zero,hasPlane:false,crop:{ _ in Double(0.05).nextDown }),tiny)
+    XCTAssertNil(Geometry.pickSource([tiny],at:.zero,hasPlane:false,crop:{ _ in 0.04999999 }))
+    XCTAssertEqual(Geometry.pickSource([tiny],at:.zero,hasPlane:true,crop:{ _ in 0.2 }),tiny)
+    XCTAssertNil(Geometry.pickSource([tiny],at:.zero,hasPlane:true,crop:{ _ in 0.19 }))
+    XCTAssertNil(Geometry.pickSource([tiny],at:.zero,hasPlane:false,crop:{ _ in .nan }))
+    XCTAssertNil(Geometry.pickSource([tiny],at:CGPoint(x:CGFloat.nan,y:0),hasPlane:false,crop:{ _ in 1 }))
+  }
+
+  func testSourcePickingUsesExpandedRadiusCappedScoreAndFirstSourceTie() throws {
+    let point = try unit(), other = try XCTUnwrap(cloud().first { $0.abc == [1,-1,2] })
+    let small = dot(point,x:0,y:0,radius:1), fartherLarge = dot(other,x:2,y:0,radius:5)
+    XCTAssertEqual(Geometry.pickSource([small,fartherLarge],at:.zero,hasPlane:false,crop:{ _ in 1 }),fartherLarge)
+    XCTAssertEqual(Geometry.pick([small,fartherLarge],at:.zero),small,"Canonical nearest/half-point tie stays unchanged")
+    let tied = dot(point,x:-2,y:0,radius:5)
+    XCTAssertEqual(Geometry.pickSource([fartherLarge,tied],at:.zero,hasPlane:false,crop:{ _ in 1 }),fartherLarge)
+    XCTAssertEqual(Geometry.pickSource([tied,fartherLarge],at:.zero,hasPlane:false,crop:{ _ in 1 }),tied)
+    let enormous = dot(other,x:20,y:0,radius:100), nearSmall = dot(point,x:3,y:0,radius:1)
+    XCTAssertEqual(Geometry.pickSource([enormous,nearSmall],at:.zero,hasPlane:false,crop:{ _ in 1 }),nearSmall,
+      "The radius bias stops increasing after radius12")
+    let expanded = dot(point,x:14,y:0,radius:10)
+    XCTAssertEqual(Geometry.pickSource([expanded],at:.zero,hasPlane:false,crop:{ _ in 1 }),expanded)
+    XCTAssertNil(Geometry.pickSource([expanded],at:CGPoint(x:-0.00001,y:0),hasPlane:false,crop:{ _ in 1 }))
+    XCTAssertNil(Geometry.pick([expanded],at:.zero),"Canonical hit radius has no source +4 expansion")
+  }
+
+  func testSourceDotsKeepCatalogueOrderWithoutChangingCanonicalRadiusSort() throws {
+    let points = try cloud(), viewport = try fitted()
+    let unit = try XCTUnwrap(points.first { $0.abc == [1,0,1] })
+    let smaller = try XCTUnwrap(points.first { $0.abc == [2,1,1] })
+    let source = Geometry.dots(points:[unit,smaller],rows:identityRows,viewport:viewport,preservingSourceOrder:true)
+    XCTAssertEqual(source.map(\.point.abc),[[1,0,1],[2,1,1]])
+    let canonical = Geometry.dots(points:[unit,smaller],rows:identityRows,viewport:viewport)
+    XCTAssertEqual(canonical.map(\.point.abc),[[2,1,1],[1,0,1]])
+  }
+
+  func testSourceUpperHalfPlaneNumericAuditAgainstActualLeanInspectionInputs() throws {
+    struct Fixture:Decodable {
+      struct Viewport:Decodable { let width:Double,height:Double,scale:Double }
+      struct Item:Decodable {
+        struct Marker:Decodable { let screenXY:[Double],rawRadius:Double,ringRadius:Double,alpha:Double }
+        struct Body:Decodable { let radius:Double,alpha:Double }
+        let name:String,matrix:[Int],model:Int,abc:[Int],planeMember:Bool
+        let cropFadeFloat32:Double?
+        let marker:Marker?,body:Body?
+      }
+      let schema:String,sourceSHA256:String,viewport:Viewport,cases:[Item]
+    }
+    let root = URL(fileURLWithPath:#filePath).deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
+    let fixture = try JSONDecoder().decode(Fixture.self,from:Data(contentsOf:
+      root.appendingPathComponent("lean/Polynomial/fixtures/source-roots-marker.json")))
+    XCTAssertEqual(fixture.schema,"source-roots-marker-audit-v1")
+    XCTAssertEqual(fixture.sourceSHA256,"f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b")
+    let viewport = try XCTUnwrap(Geometry.Viewport(size:CGSize(width:240,height:600)))
+    XCTAssertEqual(viewport.scale,fixture.viewport.scale,accuracy:1e-12)
+    let names = ["unit-selected":"axis_interior","paired":"minimum_discriminant",
+      "off-plane-upper":"default","absent-crop-selected":"source-seed",
+      "null-selected":"null_boundary","exterior-selected":"exterior_symmetric"]
+    var compared = 0
+    for item in fixture.cases where item.model == 2 {
+      guard let name = names[item.name] else { continue }
+      let detail = try inspection(name)
+      XCTAssertEqual(detail.point,item.abc)
+      let rows:[Double]
+      if item.matrix == [1,0,0,1] { rows = identityRows }
+      else { rows = try XCTUnwrap(rationalAction().coefficientRowsApprox) }
+      let ring = Geometry.sourceSelectionRing(inspection:detail,rows:rows,viewport:viewport)
+      if let expected = item.marker {
+        let actual = try XCTUnwrap(ring)
+        close(actual.root,[(expected.screenXY[0]-fixture.viewport.width/2)/fixture.viewport.scale,
+          (fixture.viewport.height/2-expected.screenXY[1])/fixture.viewport.scale])
+        XCTAssertEqual(actual.radius,expected.rawRadius,accuracy:1e-12,item.name)
+        XCTAssertEqual(actual.sourceRingRadius,expected.ringRadius,accuracy:1e-12,item.name)
+        XCTAssertEqual(actual.point.abc,item.abc); XCTAssertEqual(expected.alpha,1)
+      } else { XCTAssertNil(ring,item.name) }
+      if let body = item.body, let ring {
+        let base = ring.point
+        let point = PolynomialPoint(abc:base.abc,xyz:base.xyz,delta:base.delta,kind:base.kind,
+          divisor:base.divisor,onPlane:item.planeMember,necklace:false)
+        let dot = try XCTUnwrap(Geometry.dots(points:[point],rows:rows,viewport:viewport).first)
+        XCTAssertEqual(dot.radius,body.radius,accuracy:1e-12,item.name)
+        XCTAssertEqual(Geometry.sourceBodyAlpha(point,crop:try XCTUnwrap(item.cropFadeFloat32),hasPlane:true),body.alpha,accuracy:1e-12,item.name)
+      }
+      compared += 1
+    }
+    XCTAssertEqual(compared,12,"Direct-source display audit, not Lean/kernel or app execution evidence")
+  }
+
   func testCanonicalFootprintOpacityRingsAndLabelPlacement() throws {
     let point = try unit(), viewport = try fitted()
     let tiny = dot(point, x: 20, y: 30, radius: 0.3)
@@ -278,6 +443,13 @@ final class PolynomialRootsGeometryTests: XCTestCase {
     let plane = try JSONDecoder().decode(Fixtures.self,from: resource("polynomial-test-cases.json")).pair
     XCTAssertTrue(plane.isValidPair)
     return plane
+  }
+  private func inspection(_ name:String) throws -> PolynomialInspection {
+    let object = try XCTUnwrap(JSONSerialization.jsonObject(with:resource("polynomial-test-cases.json")) as? [String:Any])
+    let data = try JSONSerialization.data(withJSONObject:XCTUnwrap(object[name]))
+    let detail = try JSONDecoder().decode(PolynomialInspection.self,from:data)
+    XCTAssertTrue(detail.isValid)
+    return detail
   }
   private func resource(_ name: String) throws -> Data {
     let native = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent()

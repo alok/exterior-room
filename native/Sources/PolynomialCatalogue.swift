@@ -174,3 +174,19 @@ struct PolynomialCatalogueMembers: Decodable, Sendable {
     }
   }
 }
+
+/// Approximate scheduling policy only; the candidate identities are still computed by Lean.
+enum PolynomialCataloguePreviewPolicy {
+  static let threshold = 0.16
+  static func inverseI(_ matrix:[Double]) -> SIMD2<Double>? {
+    guard matrix.count == 4, matrix.allSatisfy(\.isFinite) else { return nil }
+    let p=matrix[0],q=matrix[1],r=matrix[2],s=matrix[3],d=p*s-q*r,n=p*p+r*r
+    guard d > 0,n > 0 else { return nil }
+    let z=SIMD2(-(p*q+r*s)/n,d/n)
+    return z.x.isFinite && z.y.isFinite && z.y > 0 ? z:nil
+  }
+  static func displacement(_ first:[Double],_ second:[Double]) -> Double {
+    guard let a=inverseI(first),let b=inverseI(second) else { return .infinity }
+    return 2*asinh(hypot(a.x-b.x,a.y-b.y)/(2*sqrt(a.y*b.y)))
+  }
+}

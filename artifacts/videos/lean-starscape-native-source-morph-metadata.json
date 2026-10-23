@@ -1,0 +1,122 @@
+{
+  "scope": "Silent app-only task-owned visionOS Simulator input evidence; no physical input or host desktop. The second clip records a failed interim-preview assertion and a successful release, not a passed continuous-preview test.",
+  "conversion": "ffmpeg -an -vf scale=1920:-2 -c:v libx264 -preset veryfast -crf22 -threads1; no trim or retiming",
+  "nativeReceipt": "../../native/evidence/source-morph-native-receipt.json",
+  "clips": [
+    {
+      "file": "lean-starscape-native-source-morph.mp4",
+      "sha256": "bd44e42ab65d982629b1f213a9c6e956b571a7ace10a1d2f6a0611a1a0065052",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1920,
+            "height": 1080
+          }
+        ],
+        "format": {
+          "duration": "123.550000",
+          "size": "1177767"
+        }
+      },
+      "run": "20261023T111156Z",
+      "audioStreams": 0,
+      "frameReview": [
+        {
+          "timeSeconds": 2,
+          "reviewFile": "/tmp/native-source-morph-review/final-morph-0.jpg",
+          "visuallyInspected": true,
+          "observedState": "Canonical unit before source switch"
+        },
+        {
+          "timeSeconds": 61.775,
+          "reviewFile": "/tmp/native-source-morph-review/final-morph-1.jpg",
+          "visuallyInspected": true,
+          "observedState": "D5 request pending; accepted identity retained"
+        },
+        {
+          "timeSeconds": 122.55,
+          "reviewFile": "/tmp/native-source-morph-review/final-morph-2.jpg",
+          "visuallyInspected": true,
+          "observedState": "Canonical Reset restored"
+        },
+        {
+          "timeSeconds": 23.94538712501526,
+          "visuallyInspected": true,
+          "observedState": "Source identity at50% morph; selected/pair positions between lattice and plane"
+        },
+        {
+          "timeSeconds": 55.65700101852417,
+          "visuallyInspected": true,
+          "observedState": "Source identity at100% morph"
+        },
+        {
+          "timeSeconds": 68.05966806411743,
+          "visuallyInspected": true,
+          "observedState": "Current D5 action at100% morph; current Roots rings/layout visible"
+        }
+      ],
+      "sequence": [
+        "accepted identity pair and source p0",
+        "p0.5/p1 and D5",
+        "accepted Roots release and reset"
+      ]
+    },
+    {
+      "file": "lean-starscape-native-source-input.mp4",
+      "sha256": "78bf456cdbb78527b47bfef61a493eb18969b406e83f539211d371b7e3465af0",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1920,
+            "height": 1080
+          }
+        ],
+        "format": {
+          "duration": "48.083333",
+          "size": "868490"
+        }
+      },
+      "run": "20261023T110630Z",
+      "audioStreams": 0,
+      "frameReview": [
+        {
+          "timeSeconds": 2,
+          "reviewFile": "/tmp/native-source-morph-review/lean-starscape-native-source-input-0.jpg",
+          "visuallyInspected": true,
+          "observedState": "Canonical unit before pairing"
+        },
+        {
+          "timeSeconds": 24.0416665,
+          "reviewFile": "/tmp/native-source-morph-review/lean-starscape-native-source-input-1.jpg",
+          "visuallyInspected": true,
+          "observedState": "Source switch pending; accepted canonical scene retained"
+        },
+        {
+          "timeSeconds": 47.083333,
+          "reviewFile": "/tmp/native-source-morph-review/lean-starscape-native-source-input-2.jpg",
+          "visuallyInspected": true,
+          "observedState": "Accepted held-drag action with zero preview acceptances"
+        },
+        {
+          "timeSeconds": 35.5,
+          "visuallyInspected": true,
+          "observedState": "Current D5 root rings and full geodesic visible; Roots partially occludes3D",
+          "reviewFile": "/tmp/native-source-morph-review/input-d5.jpg"
+        }
+      ],
+      "sequence": [
+        "actual shared Roots pair",
+        "D5 full arc",
+        "accepted held-drag release; interim preview not observed"
+      ]
+    }
+  ]
+}

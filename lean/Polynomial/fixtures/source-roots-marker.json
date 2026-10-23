@@ -1,0 +1,2953 @@
+{
+  "schema": "source-roots-marker-audit-v1",
+  "sourceURL": "https://katestange.net/_astro/index.astro_astro_type_script_index_0_lang.kfTP0QEk.js",
+  "sourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+  "scope": "Direct pinned-source numerical Jt/Xt evaluation. Inert adapters omit RGB, labels, ghost layer and GPU attenuation. Not UI/headset execution or Lean proof.",
+  "viewport": {
+    "width": 800,
+    "height": 600,
+    "scale": 100,
+    "cx": 0,
+    "cy": 0
+  },
+  "settings": {
+    "R": 16,
+    "sigma": 1,
+    "theme": "dark",
+    "normal": [
+      1,
+      0,
+      -1
+    ],
+    "whole": true,
+    "ordinaryViewer": true
+  },
+  "sourceKindCodes": {
+    "0": "upper",
+    "1": "null",
+    "2": "exterior",
+    "3": "lower"
+  },
+  "coordinateNote": "source chart Klein centre=(0,1); application Klein centre=(0,0). UHP unchanged. Packed Float32 is [screenX,-screenY,0,radius,alpha].",
+  "pickerNote": "Each picker case restricts actual Jt output to the listed candidates, preserving source order and Float32 packing. Expected index is from direct source bn. No other catalogue bodies participate.",
+  "extractedRoutines": [
+    {
+      "prefix": "function j(",
+      "characterOffset": 3679,
+      "sha256": "7e9abb4c1966266582dcaa1a76cda2db2d839ee26f54aa7a987578ebf886c6a2"
+    },
+    {
+      "prefix": "function ae(",
+      "characterOffset": 3764,
+      "sha256": "7f1e6d0d2b12973d0b6c09ac7aae50b9a5b99c1d870f529812b40f960c335276"
+    },
+    {
+      "prefix": "function we(",
+      "characterOffset": 6706,
+      "sha256": "c024701430737581d44be1bd694677abfab53b8680c6819f4ae45ea6499c820c"
+    },
+    {
+      "prefix": "function Te(",
+      "characterOffset": 6786,
+      "sha256": "bf9682798ceb4ccf79e1ebcf0f0343d180ae5553f26ce63ac7dbfce42e4ef9d8"
+    },
+    {
+      "prefix": "function tt(",
+      "characterOffset": 29963,
+      "sha256": "024d50937393eec1d6c0a1a977b7d8bbbea906fdf378366d018fea065009d01f"
+    },
+    {
+      "prefix": "function nt(",
+      "characterOffset": 30027,
+      "sha256": "e09f832d73b46e206c2050cc9f5bf8d69cd53eadfc584a747b0cb67348ff72dc"
+    },
+    {
+      "prefix": "function rt(",
+      "characterOffset": 30136,
+      "sha256": "3dbc389ce7a49e089c48e02ca8f7dcc4fa71d8135ca6781661a9931b4911a5c3"
+    },
+    {
+      "prefix": "function at(",
+      "characterOffset": 30329,
+      "sha256": "858750fd7eb19c54359d37c83ff8f58f055e35e6df914172beb768fff4964c3b"
+    },
+    {
+      "prefix": "function ot(",
+      "characterOffset": 30695,
+      "sha256": "d09978d79119a4b8122e7509f468fedc34f74129bfb515f17e40d37addc0ad80"
+    },
+    {
+      "prefix": "function lt(",
+      "characterOffset": 31107,
+      "sha256": "c5999d37c424e92aa543e7d2e375d0937f2e3b18669e674d16c925afc32ae7cb"
+    },
+    {
+      "prefix": "function ut(",
+      "characterOffset": 31545,
+      "sha256": "605e5b7fc5a564d991c0bb199d22b334258019fa679121cae6cecb52d6bf0d07"
+    },
+    {
+      "prefix": "function Ue(",
+      "characterOffset": 10907,
+      "sha256": "4979d824acc46b073925ff04ec5cbf72ebff6ef832e92492a0253ba8ca34b370"
+    },
+    {
+      "prefix": "function me(",
+      "characterOffset": 4513,
+      "sha256": "a4258cf8bfac6ba6e8f9bed81c61b7cb7fbf18448cac0e5f6af74dbb08b24748"
+    },
+    {
+      "prefix": "function he(",
+      "characterOffset": 4857,
+      "sha256": "bf2de0a9e3c1a7c56a0e5dc5b283c7fb298b0b5c600d0d5d35a2fe4dde70d9ef"
+    },
+    {
+      "prefix": "function qt(",
+      "characterOffset": 48704,
+      "sha256": "b8230819cffffca4101db7691bd3b5781238ad677387f943f2fd50de506fe8d2"
+    },
+    {
+      "prefix": "function Jt(",
+      "characterOffset": 48798,
+      "sha256": "356af5ac677530150619f2cd9664e8954946ea9c175489a4ee7c87f4fad0038c"
+    },
+    {
+      "prefix": "function Xt(",
+      "characterOffset": 50407,
+      "sha256": "4b303e20abfdef19b9a3c0b7a1532f258c376fd6b87f82afd1cb4e0ddadd1042"
+    },
+    {
+      "prefix": "function Yt(",
+      "characterOffset": 50323,
+      "sha256": "ddf964f35de0dfe202ec6b69c3da62aa3ccf05d70914ac5216fa35ff60fcc346"
+    },
+    {
+      "prefix": "function Nt(",
+      "characterOffset": 46301,
+      "sha256": "f0e34866de0448c305734ae12e0bca4948c0ac7dfa8267ad2d9600b0e986accf"
+    },
+    {
+      "prefix": "function Rt(",
+      "characterOffset": 47199,
+      "sha256": "a2374c6207ca958ed59196646d9ff844d0f07859de658a804ff7248cfbc75aac"
+    },
+    {
+      "prefix": "function zt(",
+      "characterOffset": 47249,
+      "sha256": "75e18fe9d966663bb38dce3a7bb063faa3f7d0f6e3b71a3280e0205e1b8dfa76"
+    },
+    {
+      "prefix": "function Bt(",
+      "characterOffset": 47333,
+      "sha256": "d0465db37a8e2cd76a466007c2ab743d048ef6f8cc8822194d58e42dc6d9c93d"
+    },
+    {
+      "prefix": "function bn(",
+      "characterOffset": 60488,
+      "sha256": "e6a6d0cdb0963be21f47c14188e0db700da59b602e487ca056f02aac9b000528"
+    },
+    {
+      "prefix": "function ht(){if(!l)",
+      "characterOffset": 45674,
+      "sha256": "6d23e17b584c462973c1c1d855e57888cadbd4a57a1c1c9d56d80309dee04e0a"
+    }
+  ],
+  "cases": [
+    {
+      "name": "unit-selected",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "determinant": 1,
+      "model": 0,
+      "abc": [
+        1,
+        0,
+        1
+      ],
+      "baseK": 4,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 0,
+      "planeMember": true,
+      "transformedABC": [
+        1,
+        0,
+        1
+      ],
+      "cropFadeFloat32": 1,
+      "chart": {
+        "sourceXY": [
+          0,
+          1
+        ],
+        "applicationXY": [
+          0,
+          0
+        ],
+        "radiusFactor": 1,
+        "he": 1
+      },
+      "body": {
+        "screenXY": [
+          400,
+          200
+        ],
+        "radius": 3,
+        "alpha": 1,
+        "packedFloat32": [
+          400,
+          -200,
+          0,
+          3,
+          1
+        ]
+      },
+      "marker": {
+        "screenXY": [
+          400,
+          200
+        ],
+        "rawRadius": 3,
+        "ringRadius": 7,
+        "alpha": 1,
+        "packedFloat32": [
+          400,
+          -200,
+          0,
+          7,
+          1
+        ]
+      }
+    },
+    {
+      "name": "paired",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "determinant": 1,
+      "model": 0,
+      "abc": [
+        1,
+        1,
+        1
+      ],
+      "baseK": 3,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 0,
+      "planeMember": true,
+      "transformedABC": [
+        1,
+        1,
+        1
+      ],
+      "cropFadeFloat32": 1,
+      "chart": {
+        "sourceXY": [
+          -0.5,
+          1
+        ],
+        "applicationXY": [
+          -0.5,
+          0
+        ],
+        "radiusFactor": 0.8059274488676564,
+        "he": 1
+      },
+      "body": {
+        "screenXY": [
+          350,
+          200
+        ],
+        "radius": 2.791814577306299,
+        "alpha": 1,
+        "packedFloat32": [
+          350,
+          -200,
+          0,
+          2.7918145656585693,
+          1
+        ]
+      },
+      "marker": {
+        "screenXY": [
+          350,
+          200
+        ],
+        "rawRadius": 2.791814577306299,
+        "ringRadius": 6.791814577306299,
+        "alpha": 1,
+        "packedFloat32": [
+          350,
+          -200,
+          0,
+          6.791814804077148,
+          1
+        ]
+      }
+    },
+    {
+      "name": "nonprimitive-selected",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "determinant": 1,
+      "model": 0,
+      "abc": [
+        2,
+        0,
+        2
+      ],
+      "baseK": 16,
+      "divisor": 2,
+      "basePrimitive": false,
+      "catalogued": true,
+      "sourceKind": 0,
+      "planeMember": true,
+      "transformedABC": [
+        2,
+        0,
+        2
+      ],
+      "cropFadeFloat32": 1,
+      "chart": {
+        "sourceXY": [
+          0,
+          1
+        ],
+        "applicationXY": [
+          0,
+          0
+        ],
+        "radiusFactor": 1,
+        "he": 1
+      },
+      "body": null,
+      "marker": {
+        "screenXY": [
+          400,
+          200
+        ],
+        "rawRadius": 3,
+        "ringRadius": 7,
+        "alpha": 1,
+        "packedFloat32": [
+          400,
+          -200,
+          0,
+          7,
+          1
+        ]
+      }
+    },
+    {
+      "name": "lower-selected",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "determinant": 1,
+      "model": 0,
+      "abc": [
+        -1,
+        0,
+        -1
+      ],
+      "baseK": 4,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 3,
+      "planeMember": true,
+      "transformedABC": [
+        -1,
+        0,
+        -1
+      ],
+      "cropFadeFloat32": 1,
+      "chart": {
+        "sourceXY": [
+          0,
+          1
+        ],
+        "applicationXY": [
+          0,
+          0
+        ],
+        "radiusFactor": 1,
+        "he": 1
+      },
+      "body": null,
+      "marker": {
+        "screenXY": [
+          400,
+          200
+        ],
+        "rawRadius": 3,
+        "ringRadius": 7,
+        "alpha": 1,
+        "packedFloat32": [
+          400,
+          -200,
+          0,
+          7,
+          1
+        ]
+      }
+    },
+    {
+      "name": "lower-nonprimitive-selected",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "determinant": 1,
+      "model": 0,
+      "abc": [
+        -2,
+        0,
+        -2
+      ],
+      "baseK": 16,
+      "divisor": 2,
+      "basePrimitive": false,
+      "catalogued": true,
+      "sourceKind": 3,
+      "planeMember": true,
+      "transformedABC": [
+        -2,
+        0,
+        -2
+      ],
+      "cropFadeFloat32": 1,
+      "chart": {
+        "sourceXY": [
+          0,
+          1
+        ],
+        "applicationXY": [
+          0,
+          0
+        ],
+        "radiusFactor": 1,
+        "he": 1
+      },
+      "body": null,
+      "marker": {
+        "screenXY": [
+          400,
+          200
+        ],
+        "rawRadius": 3,
+        "ringRadius": 7,
+        "alpha": 1,
+        "packedFloat32": [
+          400,
+          -200,
+          0,
+          7,
+          1
+        ]
+      }
+    },
+    {
+      "name": "off-plane-upper",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "determinant": 1,
+      "model": 0,
+      "abc": [
+        1,
+        -1,
+        2
+      ],
+      "baseK": 7,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 0,
+      "planeMember": false,
+      "transformedABC": [
+        1,
+        -1,
+        2
+      ],
+      "cropFadeFloat32": 1,
+      "chart": {
+        "sourceXY": [
+          0.3333333333333333,
+          1.3333333333333333
+        ],
+        "applicationXY": [
+          0.3333333333333333,
+          0.33333333333333326
+        ],
+        "radiusFactor": 0.8282122464023457,
+        "he": 1
+      },
+      "body": {
+        "screenXY": [
+          433.3333333333333,
+          166.66666666666669
+        ],
+        "radius": 1.8782088315075047,
+        "alpha": 0.26,
+        "packedFloat32": [
+          433.3333435058594,
+          -166.6666717529297,
+          0,
+          1.878208875656128,
+          0.25999999046325684
+        ]
+      },
+      "marker": {
+        "screenXY": [
+          433.3333333333333,
+          166.66666666666669
+        ],
+        "rawRadius": 1.878208831507505,
+        "ringRadius": 5.878208831507505,
+        "alpha": 1,
+        "packedFloat32": [
+          433.3333435058594,
+          -166.6666717529297,
+          0,
+          5.878208637237549,
+          1
+        ]
+      }
+    },
+    {
+      "name": "fade-band",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "determinant": 1,
+      "model": 0,
+      "abc": [
+        1,
+        0,
+        14
+      ],
+      "baseK": 56,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 0,
+      "planeMember": false,
+      "transformedABC": [
+        1,
+        0,
+        14
+      ],
+      "cropFadeFloat32": 0.41995033621788025,
+      "chart": {
+        "sourceXY": [
+          0,
+          1.8666666666666667
+        ],
+        "applicationXY": [
+          0,
+          0.8666666666666667
+        ],
+        "radiusFactor": 0.3523742233472949,
+        "he": 1
+      },
+      "body": {
+        "screenXY": [
+          400,
+          113.33333333333334
+        ],
+        "radius": 0.2825279176491721,
+        "alpha": 0.10918708741664887,
+        "packedFloat32": [
+          400,
+          -113.33333587646484,
+          0,
+          0.2825279235839844,
+          0.10918708890676498
+        ]
+      },
+      "marker": {
+        "screenXY": [
+          400,
+          113.33333333333334
+        ],
+        "rawRadius": 0.28252791764917207,
+        "ringRadius": 5,
+        "alpha": 1,
+        "packedFloat32": [
+          400,
+          -113.33333587646484,
+          0,
+          5,
+          1
+        ]
+      }
+    },
+    {
+      "name": "crop-boundary",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "determinant": 1,
+      "model": 0,
+      "abc": [
+        1,
+        0,
+        15
+      ],
+      "baseK": 60,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 0,
+      "planeMember": false,
+      "transformedABC": [
+        1,
+        0,
+        15
+      ],
+      "cropFadeFloat32": 0,
+      "chart": {
+        "sourceXY": [
+          0,
+          1.875
+        ],
+        "applicationXY": [
+          0,
+          0.875
+        ],
+        "radiusFactor": 0.33684760496539146,
+        "he": 1
+      },
+      "body": null,
+      "marker": {
+        "screenXY": [
+          400,
+          112.5
+        ],
+        "rawRadius": 0.26092103284816315,
+        "ringRadius": 5,
+        "alpha": 1,
+        "packedFloat32": [
+          400,
+          -112.5,
+          0,
+          5,
+          1
+        ]
+      }
+    },
+    {
+      "name": "absent-crop-selected",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "determinant": 1,
+      "model": 0,
+      "abc": [
+        13,
+        20,
+        34
+      ],
+      "baseK": 1368,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": false,
+      "sourceKind": null,
+      "planeMember": false,
+      "transformedABC": [
+        13,
+        20,
+        34
+      ],
+      "cropFadeFloat32": null,
+      "chart": {
+        "sourceXY": [
+          -0.425531914893617,
+          1.4468085106382977
+        ],
+        "applicationXY": [
+          -0.425531914893617,
+          0.44680851063829774
+        ],
+        "radiusFactor": 0.698100238106289,
+        "he": 1
+      },
+      "body": null,
+      "marker": {
+        "screenXY": [
+          357.4468085106383,
+          155.31914893617022
+        ],
+        "rawRadius": 0.1132468127173259,
+        "ringRadius": 5,
+        "alpha": 1,
+        "packedFloat32": [
+          357.4468078613281,
+          -155.31915283203125,
+          0,
+          5,
+          1
+        ]
+      }
+    },
+    {
+      "name": "null-selected",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "determinant": 1,
+      "model": 0,
+      "abc": [
+        1,
+        2,
+        1
+      ],
+      "baseK": 0,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 1,
+      "planeMember": true,
+      "transformedABC": [
+        1,
+        2,
+        1
+      ],
+      "cropFadeFloat32": 1,
+      "chart": null,
+      "body": null,
+      "marker": null
+    },
+    {
+      "name": "exterior-selected",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "determinant": 1,
+      "model": 0,
+      "abc": [
+        1,
+        0,
+        -1
+      ],
+      "baseK": -4,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 2,
+      "planeMember": false,
+      "transformedABC": [
+        1,
+        0,
+        -1
+      ],
+      "cropFadeFloat32": 1,
+      "chart": null,
+      "body": null,
+      "marker": null
+    },
+    {
+      "name": "unit-selected",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "determinant": 1,
+      "model": 2,
+      "abc": [
+        1,
+        0,
+        1
+      ],
+      "baseK": 4,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 0,
+      "planeMember": true,
+      "transformedABC": [
+        1,
+        0,
+        1
+      ],
+      "cropFadeFloat32": 1,
+      "chart": {
+        "sourceXY": [
+          0,
+          1
+        ],
+        "applicationXY": [
+          0,
+          1
+        ],
+        "radiusFactor": 1,
+        "he": 1
+      },
+      "body": {
+        "screenXY": [
+          400,
+          200
+        ],
+        "radius": 3,
+        "alpha": 1,
+        "packedFloat32": [
+          400,
+          -200,
+          0,
+          3,
+          1
+        ]
+      },
+      "marker": {
+        "screenXY": [
+          400,
+          200
+        ],
+        "rawRadius": 3,
+        "ringRadius": 7,
+        "alpha": 1,
+        "packedFloat32": [
+          400,
+          -200,
+          0,
+          7,
+          1
+        ]
+      }
+    },
+    {
+      "name": "paired",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "determinant": 1,
+      "model": 2,
+      "abc": [
+        1,
+        1,
+        1
+      ],
+      "baseK": 3,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 0,
+      "planeMember": true,
+      "transformedABC": [
+        1,
+        1,
+        1
+      ],
+      "cropFadeFloat32": 1,
+      "chart": {
+        "sourceXY": [
+          -0.5,
+          0.8660254037844387
+        ],
+        "applicationXY": [
+          -0.5,
+          0.8660254037844387
+        ],
+        "radiusFactor": 0.8660254037844387,
+        "he": 1
+      },
+      "body": {
+        "screenXY": [
+          350,
+          213.39745962155612
+        ],
+        "radius": 3.0000000000000004,
+        "alpha": 1,
+        "packedFloat32": [
+          350,
+          -213.3974609375,
+          0,
+          3,
+          1
+        ]
+      },
+      "marker": {
+        "screenXY": [
+          350,
+          213.39745962155612
+        ],
+        "rawRadius": 3.0000000000000004,
+        "ringRadius": 7,
+        "alpha": 1,
+        "packedFloat32": [
+          350,
+          -213.3974609375,
+          0,
+          7,
+          1
+        ]
+      }
+    },
+    {
+      "name": "nonprimitive-selected",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "determinant": 1,
+      "model": 2,
+      "abc": [
+        2,
+        0,
+        2
+      ],
+      "baseK": 16,
+      "divisor": 2,
+      "basePrimitive": false,
+      "catalogued": true,
+      "sourceKind": 0,
+      "planeMember": true,
+      "transformedABC": [
+        2,
+        0,
+        2
+      ],
+      "cropFadeFloat32": 1,
+      "chart": {
+        "sourceXY": [
+          0,
+          1
+        ],
+        "applicationXY": [
+          0,
+          1
+        ],
+        "radiusFactor": 1,
+        "he": 1
+      },
+      "body": null,
+      "marker": {
+        "screenXY": [
+          400,
+          200
+        ],
+        "rawRadius": 3,
+        "ringRadius": 7,
+        "alpha": 1,
+        "packedFloat32": [
+          400,
+          -200,
+          0,
+          7,
+          1
+        ]
+      }
+    },
+    {
+      "name": "lower-selected",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "determinant": 1,
+      "model": 2,
+      "abc": [
+        -1,
+        0,
+        -1
+      ],
+      "baseK": 4,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 3,
+      "planeMember": true,
+      "transformedABC": [
+        -1,
+        0,
+        -1
+      ],
+      "cropFadeFloat32": 1,
+      "chart": {
+        "sourceXY": [
+          0,
+          1
+        ],
+        "applicationXY": [
+          0,
+          1
+        ],
+        "radiusFactor": 1,
+        "he": 1
+      },
+      "body": null,
+      "marker": {
+        "screenXY": [
+          400,
+          200
+        ],
+        "rawRadius": 3,
+        "ringRadius": 7,
+        "alpha": 1,
+        "packedFloat32": [
+          400,
+          -200,
+          0,
+          7,
+          1
+        ]
+      }
+    },
+    {
+      "name": "lower-nonprimitive-selected",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "determinant": 1,
+      "model": 2,
+      "abc": [
+        -2,
+        0,
+        -2
+      ],
+      "baseK": 16,
+      "divisor": 2,
+      "basePrimitive": false,
+      "catalogued": true,
+      "sourceKind": 3,
+      "planeMember": true,
+      "transformedABC": [
+        -2,
+        0,
+        -2
+      ],
+      "cropFadeFloat32": 1,
+      "chart": {
+        "sourceXY": [
+          0,
+          1
+        ],
+        "applicationXY": [
+          0,
+          1
+        ],
+        "radiusFactor": 1,
+        "he": 1
+      },
+      "body": null,
+      "marker": {
+        "screenXY": [
+          400,
+          200
+        ],
+        "rawRadius": 3,
+        "ringRadius": 7,
+        "alpha": 1,
+        "packedFloat32": [
+          400,
+          -200,
+          0,
+          7,
+          1
+        ]
+      }
+    },
+    {
+      "name": "off-plane-upper",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "determinant": 1,
+      "model": 2,
+      "abc": [
+        1,
+        -1,
+        2
+      ],
+      "baseK": 7,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 0,
+      "planeMember": false,
+      "transformedABC": [
+        1,
+        -1,
+        2
+      ],
+      "cropFadeFloat32": 1,
+      "chart": {
+        "sourceXY": [
+          0.49999999999999994,
+          1.3228756555322951
+        ],
+        "applicationXY": [
+          0.49999999999999994,
+          1.3228756555322951
+        ],
+        "radiusFactor": 1.3228756555322951,
+        "he": 1
+      },
+      "body": {
+        "screenXY": [
+          450,
+          167.7124344467705
+        ],
+        "radius": 2.999999999999999,
+        "alpha": 0.26,
+        "packedFloat32": [
+          450,
+          -167.71243286132812,
+          0,
+          3,
+          0.25999999046325684
+        ]
+      },
+      "marker": {
+        "screenXY": [
+          450,
+          167.7124344467705
+        ],
+        "rawRadius": 2.999999999999999,
+        "ringRadius": 6.999999999999999,
+        "alpha": 1,
+        "packedFloat32": [
+          450,
+          -167.71243286132812,
+          0,
+          7,
+          1
+        ]
+      }
+    },
+    {
+      "name": "fade-band",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "determinant": 1,
+      "model": 2,
+      "abc": [
+        1,
+        0,
+        14
+      ],
+      "baseK": 56,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 0,
+      "planeMember": false,
+      "transformedABC": [
+        1,
+        0,
+        14
+      ],
+      "cropFadeFloat32": 0.41995033621788025,
+      "chart": {
+        "sourceXY": [
+          0,
+          3.7416573867739427
+        ],
+        "applicationXY": [
+          0,
+          3.7416573867739427
+        ],
+        "radiusFactor": 3.7416573867739427,
+        "he": 1
+      },
+      "body": null,
+      "marker": {
+        "screenXY": [
+          400,
+          -74.16573867739424
+        ],
+        "rawRadius": 3.0000000000000004,
+        "ringRadius": 7,
+        "alpha": 1,
+        "packedFloat32": [
+          400,
+          74.16574096679688,
+          0,
+          7,
+          1
+        ]
+      }
+    },
+    {
+      "name": "crop-boundary",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "determinant": 1,
+      "model": 2,
+      "abc": [
+        1,
+        0,
+        15
+      ],
+      "baseK": 60,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 0,
+      "planeMember": false,
+      "transformedABC": [
+        1,
+        0,
+        15
+      ],
+      "cropFadeFloat32": 0,
+      "chart": {
+        "sourceXY": [
+          0,
+          3.872983346207417
+        ],
+        "applicationXY": [
+          0,
+          3.872983346207417
+        ],
+        "radiusFactor": 3.872983346207417,
+        "he": 1
+      },
+      "body": null,
+      "marker": {
+        "screenXY": [
+          400,
+          -87.29833462074168
+        ],
+        "rawRadius": 2.9999999999999996,
+        "ringRadius": 7,
+        "alpha": 1,
+        "packedFloat32": [
+          400,
+          87.29833221435547,
+          0,
+          7,
+          1
+        ]
+      }
+    },
+    {
+      "name": "absent-crop-selected",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "determinant": 1,
+      "model": 2,
+      "abc": [
+        13,
+        20,
+        34
+      ],
+      "baseK": 1368,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": false,
+      "sourceKind": null,
+      "planeMember": false,
+      "transformedABC": [
+        13,
+        20,
+        34
+      ],
+      "cropFadeFloat32": null,
+      "chart": {
+        "sourceXY": [
+          -0.7692307692307692,
+          1.4225570776082255
+        ],
+        "applicationXY": [
+          -0.7692307692307692,
+          1.4225570776082255
+        ],
+        "radiusFactor": 1.4225570776082255,
+        "he": 1
+      },
+      "body": null,
+      "marker": {
+        "screenXY": [
+          323.0769230769231,
+          157.74429223917744
+        ],
+        "rawRadius": 0.2307692307692308,
+        "ringRadius": 5,
+        "alpha": 1,
+        "packedFloat32": [
+          323.0769348144531,
+          -157.74429321289062,
+          0,
+          5,
+          1
+        ]
+      }
+    },
+    {
+      "name": "null-selected",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "determinant": 1,
+      "model": 2,
+      "abc": [
+        1,
+        2,
+        1
+      ],
+      "baseK": 0,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 1,
+      "planeMember": true,
+      "transformedABC": [
+        1,
+        2,
+        1
+      ],
+      "cropFadeFloat32": 1,
+      "chart": null,
+      "body": null,
+      "marker": null
+    },
+    {
+      "name": "exterior-selected",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "determinant": 1,
+      "model": 2,
+      "abc": [
+        1,
+        0,
+        -1
+      ],
+      "baseK": -4,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 2,
+      "planeMember": false,
+      "transformedABC": [
+        1,
+        0,
+        -1
+      ],
+      "cropFadeFloat32": 1,
+      "chart": null,
+      "body": null,
+      "marker": null
+    },
+    {
+      "name": "unit-selected",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "determinant": 5,
+      "model": 0,
+      "abc": [
+        1,
+        0,
+        1
+      ],
+      "baseK": 4,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 0,
+      "planeMember": true,
+      "transformedABC": [
+        0.9999999999999999,
+        -2,
+        2
+      ],
+      "cropFadeFloat32": 1,
+      "chart": {
+        "sourceXY": [
+          0.6666666666666666,
+          1.3333333333333333
+        ],
+        "applicationXY": [
+          0.6666666666666666,
+          0.33333333333333326
+        ],
+        "radiusFactor": 0.5443310539518174,
+        "he": 1
+      },
+      "body": {
+        "screenXY": [
+          466.66666666666663,
+          166.66666666666669
+        ],
+        "radius": 1.6329931618554518,
+        "alpha": 1,
+        "packedFloat32": [
+          466.6666564941406,
+          -166.6666717529297,
+          0,
+          1.632993221282959,
+          1
+        ]
+      },
+      "marker": {
+        "screenXY": [
+          466.66666666666663,
+          166.66666666666669
+        ],
+        "rawRadius": 1.6329931618554518,
+        "ringRadius": 5.632993161855452,
+        "alpha": 1,
+        "packedFloat32": [
+          466.6666564941406,
+          -166.6666717529297,
+          0,
+          5.632993221282959,
+          1
+        ]
+      }
+    },
+    {
+      "name": "paired",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "determinant": 5,
+      "model": 0,
+      "abc": [
+        1,
+        1,
+        1
+      ],
+      "baseK": 3,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 0,
+      "planeMember": true,
+      "transformedABC": [
+        0.6,
+        -0.6,
+        1.4
+      ],
+      "cropFadeFloat32": 1,
+      "chart": {
+        "sourceXY": [
+          0.3,
+          1.4
+        ],
+        "applicationXY": [
+          0.3,
+          0.3999999999999999
+        ],
+        "radiusFactor": 0.8059274488676564,
+        "he": 1
+      },
+      "body": {
+        "screenXY": [
+          430,
+          160
+        ],
+        "radius": 2.791814577306299,
+        "alpha": 1,
+        "packedFloat32": [
+          430,
+          -160,
+          0,
+          2.7918145656585693,
+          1
+        ]
+      },
+      "marker": {
+        "screenXY": [
+          430,
+          160
+        ],
+        "rawRadius": 2.791814577306299,
+        "ringRadius": 6.791814577306299,
+        "alpha": 1,
+        "packedFloat32": [
+          430,
+          -160,
+          0,
+          6.791814804077148,
+          1
+        ]
+      }
+    },
+    {
+      "name": "nonprimitive-selected",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "determinant": 5,
+      "model": 0,
+      "abc": [
+        2,
+        0,
+        2
+      ],
+      "baseK": 16,
+      "divisor": 2,
+      "basePrimitive": false,
+      "catalogued": true,
+      "sourceKind": 0,
+      "planeMember": true,
+      "transformedABC": [
+        1.9999999999999998,
+        -4,
+        4
+      ],
+      "cropFadeFloat32": 1,
+      "chart": {
+        "sourceXY": [
+          0.6666666666666666,
+          1.3333333333333333
+        ],
+        "applicationXY": [
+          0.6666666666666666,
+          0.33333333333333326
+        ],
+        "radiusFactor": 0.5443310539518174,
+        "he": 1
+      },
+      "body": null,
+      "marker": {
+        "screenXY": [
+          466.66666666666663,
+          166.66666666666669
+        ],
+        "rawRadius": 1.6329931618554518,
+        "ringRadius": 5.632993161855452,
+        "alpha": 1,
+        "packedFloat32": [
+          466.6666564941406,
+          -166.6666717529297,
+          0,
+          5.632993221282959,
+          1
+        ]
+      }
+    },
+    {
+      "name": "lower-selected",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "determinant": 5,
+      "model": 0,
+      "abc": [
+        -1,
+        0,
+        -1
+      ],
+      "baseK": 4,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 3,
+      "planeMember": true,
+      "transformedABC": [
+        -0.9999999999999999,
+        2,
+        -2
+      ],
+      "cropFadeFloat32": 1,
+      "chart": {
+        "sourceXY": [
+          0.6666666666666666,
+          1.3333333333333333
+        ],
+        "applicationXY": [
+          0.6666666666666666,
+          0.33333333333333326
+        ],
+        "radiusFactor": 0.5443310539518174,
+        "he": 1
+      },
+      "body": null,
+      "marker": {
+        "screenXY": [
+          466.66666666666663,
+          166.66666666666669
+        ],
+        "rawRadius": 1.6329931618554518,
+        "ringRadius": 5.632993161855452,
+        "alpha": 1,
+        "packedFloat32": [
+          466.6666564941406,
+          -166.6666717529297,
+          0,
+          5.632993221282959,
+          1
+        ]
+      }
+    },
+    {
+      "name": "lower-nonprimitive-selected",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "determinant": 5,
+      "model": 0,
+      "abc": [
+        -2,
+        0,
+        -2
+      ],
+      "baseK": 16,
+      "divisor": 2,
+      "basePrimitive": false,
+      "catalogued": false,
+      "sourceKind": null,
+      "planeMember": true,
+      "transformedABC": [
+        -1.9999999999999998,
+        4,
+        -4
+      ],
+      "cropFadeFloat32": null,
+      "chart": {
+        "sourceXY": [
+          0.6666666666666666,
+          1.3333333333333333
+        ],
+        "applicationXY": [
+          0.6666666666666666,
+          0.33333333333333326
+        ],
+        "radiusFactor": 0.5443310539518174,
+        "he": 1
+      },
+      "body": null,
+      "marker": {
+        "screenXY": [
+          466.66666666666663,
+          166.66666666666669
+        ],
+        "rawRadius": 1.6329931618554518,
+        "ringRadius": 5.632993161855452,
+        "alpha": 1,
+        "packedFloat32": [
+          466.6666564941406,
+          -166.6666717529297,
+          0,
+          5.632993221282959,
+          1
+        ]
+      }
+    },
+    {
+      "name": "off-plane-upper",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "determinant": 5,
+      "model": 0,
+      "abc": [
+        1,
+        -1,
+        2
+      ],
+      "baseK": 7,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 0,
+      "planeMember": false,
+      "transformedABC": [
+        1.5999999999999999,
+        -4.6,
+        4.4
+      ],
+      "cropFadeFloat32": 1,
+      "chart": {
+        "sourceXY": [
+          0.7666666666666666,
+          1.4666666666666668
+        ],
+        "applicationXY": [
+          0.7666666666666666,
+          0.4666666666666668
+        ],
+        "radiusFactor": 0.29281724784642116,
+        "he": 1
+      },
+      "body": {
+        "screenXY": [
+          476.66666666666663,
+          153.33333333333331
+        ],
+        "radius": 0.664047100621709,
+        "alpha": 0.26,
+        "packedFloat32": [
+          476.6666564941406,
+          -153.3333282470703,
+          0,
+          0.664047122001648,
+          0.25999999046325684
+        ]
+      },
+      "marker": {
+        "screenXY": [
+          476.66666666666663,
+          153.33333333333331
+        ],
+        "rawRadius": 0.664047100621709,
+        "ringRadius": 5,
+        "alpha": 1,
+        "packedFloat32": [
+          476.6666564941406,
+          -153.3333282470703,
+          0,
+          5,
+          1
+        ]
+      }
+    },
+    {
+      "name": "fade-band",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "determinant": 5,
+      "model": 0,
+      "abc": [
+        1,
+        0,
+        14
+      ],
+      "baseK": 56,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": false,
+      "sourceKind": null,
+      "planeMember": false,
+      "transformedABC": [
+        3.5999999999999996,
+        -17.6,
+        25.4
+      ],
+      "cropFadeFloat32": null,
+      "chart": {
+        "sourceXY": [
+          0.606896551724138,
+          1.7517241379310344
+        ],
+        "applicationXY": [
+          0.606896551724138,
+          0.7517241379310344
+        ],
+        "radiusFactor": 0.13108229106551555,
+        "he": 1
+      },
+      "body": null,
+      "marker": {
+        "screenXY": [
+          460.6896551724138,
+          124.82758620689657
+        ],
+        "rawRadius": 0.10509964770868671,
+        "ringRadius": 5,
+        "alpha": 1,
+        "packedFloat32": [
+          460.6896667480469,
+          -124.82758331298828,
+          0,
+          5,
+          1
+        ]
+      }
+    },
+    {
+      "name": "crop-boundary",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "determinant": 5,
+      "model": 0,
+      "abc": [
+        1,
+        0,
+        15
+      ],
+      "baseK": 60,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": false,
+      "sourceKind": null,
+      "planeMember": false,
+      "transformedABC": [
+        3.7999999999999994,
+        -18.8,
+        27.2
+      ],
+      "cropFadeFloat32": null,
+      "chart": {
+        "sourceXY": [
+          0.6064516129032258,
+          1.7548387096774194
+        ],
+        "applicationXY": [
+          0.6064516129032258,
+          0.7548387096774194
+        ],
+        "radiusFactor": 0.12490243267469425,
+        "he": 1
+      },
+      "body": null,
+      "marker": {
+        "screenXY": [
+          460.64516129032256,
+          124.51612903225805
+        ],
+        "rawRadius": 0.09674900832997678,
+        "ringRadius": 5,
+        "alpha": 1,
+        "packedFloat32": [
+          460.6451721191406,
+          -124.51612854003906,
+          0,
+          5,
+          1
+        ]
+      }
+    },
+    {
+      "name": "absent-crop-selected",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "determinant": 5,
+      "model": 0,
+      "abc": [
+        13,
+        20,
+        34
+      ],
+      "baseK": 1368,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": false,
+      "sourceKind": null,
+      "planeMember": false,
+      "transformedABC": [
+        9.2,
+        -23.199999999999996,
+        51.800000000000004
+      ],
+      "cropFadeFloat32": null,
+      "chart": {
+        "sourceXY": [
+          0.38032786885245895,
+          1.6983606557377051
+        ],
+        "applicationXY": [
+          0.38032786885245895,
+          0.6983606557377051
+        ],
+        "radiusFactor": 0.4721389398505248,
+        "he": 1
+      },
+      "body": null,
+      "marker": {
+        "screenXY": [
+          438.0327868852459,
+          130.1639344262295
+        ],
+        "rawRadius": 0.07659104979372375,
+        "ringRadius": 5,
+        "alpha": 1,
+        "packedFloat32": [
+          438.03277587890625,
+          -130.1639404296875,
+          0,
+          5,
+          1
+        ]
+      }
+    },
+    {
+      "name": "null-selected",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "determinant": 5,
+      "model": 0,
+      "abc": [
+        1,
+        2,
+        1
+      ],
+      "baseK": 0,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 1,
+      "planeMember": true,
+      "transformedABC": [
+        0.19999999999999998,
+        0.8,
+        0.8
+      ],
+      "cropFadeFloat32": 1,
+      "chart": null,
+      "body": null,
+      "marker": null
+    },
+    {
+      "name": "exterior-selected",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "determinant": 5,
+      "model": 0,
+      "abc": [
+        1,
+        0,
+        -1
+      ],
+      "baseK": -4,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 2,
+      "planeMember": false,
+      "transformedABC": [
+        0.6,
+        0.4,
+        -1.6
+      ],
+      "cropFadeFloat32": 1,
+      "chart": null,
+      "body": null,
+      "marker": null
+    },
+    {
+      "name": "unit-selected",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "determinant": 5,
+      "model": 2,
+      "abc": [
+        1,
+        0,
+        1
+      ],
+      "baseK": 4,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 0,
+      "planeMember": true,
+      "transformedABC": [
+        0.9999999999999999,
+        -2,
+        2
+      ],
+      "cropFadeFloat32": 1,
+      "chart": {
+        "sourceXY": [
+          0.9999999999999999,
+          0.9999999999999998
+        ],
+        "applicationXY": [
+          0.9999999999999999,
+          0.9999999999999998
+        ],
+        "radiusFactor": 0.9999999999999998,
+        "he": 1
+      },
+      "body": {
+        "screenXY": [
+          500,
+          200.00000000000003
+        ],
+        "radius": 2.999999999999999,
+        "alpha": 1,
+        "packedFloat32": [
+          500,
+          -200,
+          0,
+          3,
+          1
+        ]
+      },
+      "marker": {
+        "screenXY": [
+          500,
+          200.00000000000003
+        ],
+        "rawRadius": 2.999999999999999,
+        "ringRadius": 6.999999999999999,
+        "alpha": 1,
+        "packedFloat32": [
+          500,
+          -200,
+          0,
+          7,
+          1
+        ]
+      }
+    },
+    {
+      "name": "paired",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "determinant": 5,
+      "model": 2,
+      "abc": [
+        1,
+        1,
+        1
+      ],
+      "baseK": 3,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 0,
+      "planeMember": true,
+      "transformedABC": [
+        0.6,
+        -0.6,
+        1.4
+      ],
+      "cropFadeFloat32": 1,
+      "chart": {
+        "sourceXY": [
+          0.5,
+          1.4433756729740643
+        ],
+        "applicationXY": [
+          0.5,
+          1.4433756729740643
+        ],
+        "radiusFactor": 1.4433756729740643,
+        "he": 1
+      },
+      "body": {
+        "screenXY": [
+          450,
+          155.66243270259358
+        ],
+        "radius": 5,
+        "alpha": 1,
+        "packedFloat32": [
+          450,
+          -155.6624298095703,
+          0,
+          5,
+          1
+        ]
+      },
+      "marker": {
+        "screenXY": [
+          450,
+          155.66243270259358
+        ],
+        "rawRadius": 4.999999999999999,
+        "ringRadius": 9,
+        "alpha": 1,
+        "packedFloat32": [
+          450,
+          -155.6624298095703,
+          0,
+          9,
+          1
+        ]
+      }
+    },
+    {
+      "name": "nonprimitive-selected",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "determinant": 5,
+      "model": 2,
+      "abc": [
+        2,
+        0,
+        2
+      ],
+      "baseK": 16,
+      "divisor": 2,
+      "basePrimitive": false,
+      "catalogued": true,
+      "sourceKind": 0,
+      "planeMember": true,
+      "transformedABC": [
+        1.9999999999999998,
+        -4,
+        4
+      ],
+      "cropFadeFloat32": 1,
+      "chart": {
+        "sourceXY": [
+          0.9999999999999999,
+          0.9999999999999998
+        ],
+        "applicationXY": [
+          0.9999999999999999,
+          0.9999999999999998
+        ],
+        "radiusFactor": 0.9999999999999998,
+        "he": 1
+      },
+      "body": null,
+      "marker": {
+        "screenXY": [
+          500,
+          200.00000000000003
+        ],
+        "rawRadius": 2.999999999999999,
+        "ringRadius": 6.999999999999999,
+        "alpha": 1,
+        "packedFloat32": [
+          500,
+          -200,
+          0,
+          7,
+          1
+        ]
+      }
+    },
+    {
+      "name": "lower-selected",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "determinant": 5,
+      "model": 2,
+      "abc": [
+        -1,
+        0,
+        -1
+      ],
+      "baseK": 4,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 3,
+      "planeMember": true,
+      "transformedABC": [
+        -0.9999999999999999,
+        2,
+        -2
+      ],
+      "cropFadeFloat32": 1,
+      "chart": {
+        "sourceXY": [
+          0.9999999999999999,
+          0.9999999999999998
+        ],
+        "applicationXY": [
+          0.9999999999999999,
+          0.9999999999999998
+        ],
+        "radiusFactor": 0.9999999999999998,
+        "he": 1
+      },
+      "body": null,
+      "marker": {
+        "screenXY": [
+          500,
+          200.00000000000003
+        ],
+        "rawRadius": 2.999999999999999,
+        "ringRadius": 6.999999999999999,
+        "alpha": 1,
+        "packedFloat32": [
+          500,
+          -200,
+          0,
+          7,
+          1
+        ]
+      }
+    },
+    {
+      "name": "lower-nonprimitive-selected",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "determinant": 5,
+      "model": 2,
+      "abc": [
+        -2,
+        0,
+        -2
+      ],
+      "baseK": 16,
+      "divisor": 2,
+      "basePrimitive": false,
+      "catalogued": false,
+      "sourceKind": null,
+      "planeMember": true,
+      "transformedABC": [
+        -1.9999999999999998,
+        4,
+        -4
+      ],
+      "cropFadeFloat32": null,
+      "chart": {
+        "sourceXY": [
+          0.9999999999999999,
+          0.9999999999999998
+        ],
+        "applicationXY": [
+          0.9999999999999999,
+          0.9999999999999998
+        ],
+        "radiusFactor": 0.9999999999999998,
+        "he": 1
+      },
+      "body": null,
+      "marker": {
+        "screenXY": [
+          500,
+          200.00000000000003
+        ],
+        "rawRadius": 2.999999999999999,
+        "ringRadius": 6.999999999999999,
+        "alpha": 1,
+        "packedFloat32": [
+          500,
+          -200,
+          0,
+          7,
+          1
+        ]
+      }
+    },
+    {
+      "name": "off-plane-upper",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "determinant": 5,
+      "model": 2,
+      "abc": [
+        1,
+        -1,
+        2
+      ],
+      "baseK": 7,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 0,
+      "planeMember": false,
+      "transformedABC": [
+        1.5999999999999999,
+        -4.6,
+        4.4
+      ],
+      "cropFadeFloat32": 1,
+      "chart": {
+        "sourceXY": [
+          1.4375,
+          0.8267972847076848
+        ],
+        "applicationXY": [
+          1.4375,
+          0.8267972847076848
+        ],
+        "radiusFactor": 0.8267972847076847,
+        "he": 1
+      },
+      "body": {
+        "screenXY": [
+          543.75,
+          217.32027152923152
+        ],
+        "radius": 1.875,
+        "alpha": 0.26,
+        "packedFloat32": [
+          543.75,
+          -217.3202667236328,
+          0,
+          1.875,
+          0.25999999046325684
+        ]
+      },
+      "marker": {
+        "screenXY": [
+          543.75,
+          217.32027152923152
+        ],
+        "rawRadius": 1.875,
+        "ringRadius": 5.875,
+        "alpha": 1,
+        "packedFloat32": [
+          543.75,
+          -217.3202667236328,
+          0,
+          5.875,
+          1
+        ]
+      }
+    },
+    {
+      "name": "fade-band",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "determinant": 5,
+      "model": 2,
+      "abc": [
+        1,
+        0,
+        14
+      ],
+      "baseK": 56,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": false,
+      "sourceKind": null,
+      "planeMember": false,
+      "transformedABC": [
+        3.5999999999999996,
+        -17.6,
+        25.4
+      ],
+      "cropFadeFloat32": null,
+      "chart": {
+        "sourceXY": [
+          2.4444444444444433,
+          1.0393492741038723
+        ],
+        "applicationXY": [
+          2.4444444444444433,
+          1.0393492741038723
+        ],
+        "radiusFactor": 1.0393492741038723,
+        "he": 1
+      },
+      "body": null,
+      "marker": {
+        "screenXY": [
+          644.4444444444443,
+          196.06507258961278
+        ],
+        "rawRadius": 0.833333333333333,
+        "ringRadius": 5,
+        "alpha": 1,
+        "packedFloat32": [
+          644.4444580078125,
+          -196.06507873535156,
+          0,
+          5,
+          1
+        ]
+      }
+    },
+    {
+      "name": "crop-boundary",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "determinant": 5,
+      "model": 2,
+      "abc": [
+        1,
+        0,
+        15
+      ],
+      "baseK": 60,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": false,
+      "sourceKind": null,
+      "planeMember": false,
+      "transformedABC": [
+        3.7999999999999994,
+        -18.8,
+        27.2
+      ],
+      "cropFadeFloat32": null,
+      "chart": {
+        "sourceXY": [
+          2.473684210526315,
+          1.0192061437387947
+        ],
+        "applicationXY": [
+          2.473684210526315,
+          1.0192061437387947
+        ],
+        "radiusFactor": 1.0192061437387945,
+        "he": 1
+      },
+      "body": null,
+      "marker": {
+        "screenXY": [
+          647.3684210526314,
+          198.07938562612054
+        ],
+        "rawRadius": 0.7894736842105267,
+        "ringRadius": 5,
+        "alpha": 1,
+        "packedFloat32": [
+          647.368408203125,
+          -198.0793914794922,
+          0,
+          5,
+          1
+        ]
+      }
+    },
+    {
+      "name": "absent-crop-selected",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "determinant": 5,
+      "model": 2,
+      "abc": [
+        13,
+        20,
+        34
+      ],
+      "baseK": 1368,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": false,
+      "sourceKind": null,
+      "planeMember": false,
+      "transformedABC": [
+        9.2,
+        -23.199999999999996,
+        51.800000000000004
+      ],
+      "cropFadeFloat32": null,
+      "chart": {
+        "sourceXY": [
+          1.2608695652173914,
+          2.0101350009681447
+        ],
+        "applicationXY": [
+          1.2608695652173914,
+          2.0101350009681447
+        ],
+        "radiusFactor": 2.0101350009681447,
+        "he": 1
+      },
+      "body": null,
+      "marker": {
+        "screenXY": [
+          526.0869565217391,
+          98.98649990318552
+        ],
+        "rawRadius": 0.3260869565217392,
+        "ringRadius": 5,
+        "alpha": 1,
+        "packedFloat32": [
+          526.0869750976562,
+          -98.98650360107422,
+          0,
+          5,
+          1
+        ]
+      }
+    },
+    {
+      "name": "null-selected",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "determinant": 5,
+      "model": 2,
+      "abc": [
+        1,
+        2,
+        1
+      ],
+      "baseK": 0,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 1,
+      "planeMember": true,
+      "transformedABC": [
+        0.19999999999999998,
+        0.8,
+        0.8
+      ],
+      "cropFadeFloat32": 1,
+      "chart": null,
+      "body": null,
+      "marker": null
+    },
+    {
+      "name": "exterior-selected",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "determinant": 5,
+      "model": 2,
+      "abc": [
+        1,
+        0,
+        -1
+      ],
+      "baseK": -4,
+      "divisor": 1,
+      "basePrimitive": true,
+      "catalogued": true,
+      "sourceKind": 2,
+      "planeMember": false,
+      "transformedABC": [
+        0.6,
+        0.4,
+        -1.6
+      ],
+      "cropFadeFloat32": 1,
+      "chart": null,
+      "body": null,
+      "marker": null
+    }
+  ],
+  "pickerCases": [
+    {
+      "name": "farther-larger-beats-centred-small",
+      "settings": {
+        "R": 24,
+        "sigma": 3.3333333333333335,
+        "model": 0,
+        "normal": [
+          1,
+          0,
+          -1
+        ],
+        "theme": "dark",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "candidates": [
+        {
+          "abc": [
+            1,
+            0,
+            1
+          ],
+          "baseK": 4,
+          "planeMember": true,
+          "cropFadeFloat32": 1,
+          "screenXY": [
+            400,
+            200
+          ],
+          "radius": 10,
+          "alpha": 1
+        },
+        {
+          "abc": [
+            10,
+            1,
+            10
+          ],
+          "baseK": 399,
+          "planeMember": true,
+          "cropFadeFloat32": 1,
+          "screenXY": [
+            395,
+            200
+          ],
+          "radius": 0.9993743896484375,
+          "alpha": 1
+        }
+      ],
+      "cursor": [
+        395,
+        200
+      ],
+      "expectedIndex": 0,
+      "expectedABC": [
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "equal-score-keeps-first-source-candidate",
+      "settings": {
+        "R": 24,
+        "sigma": 3.3333333333333335,
+        "model": 0,
+        "normal": [
+          1,
+          0,
+          -1
+        ],
+        "theme": "dark",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "candidates": [
+        {
+          "abc": [
+            10,
+            -1,
+            10
+          ],
+          "baseK": 399,
+          "planeMember": true,
+          "cropFadeFloat32": 1,
+          "screenXY": [
+            405,
+            200
+          ],
+          "radius": 0.9993743896484375,
+          "alpha": 1
+        },
+        {
+          "abc": [
+            10,
+            1,
+            10
+          ],
+          "baseK": 399,
+          "planeMember": true,
+          "cropFadeFloat32": 1,
+          "screenXY": [
+            395,
+            200
+          ],
+          "radius": 0.9993743896484375,
+          "alpha": 1
+        }
+      ],
+      "cursor": [
+        400,
+        200
+      ],
+      "expectedIndex": 0,
+      "expectedABC": [
+        10,
+        -1,
+        10
+      ]
+    },
+    {
+      "name": "focus-crop-alpha-above-gate",
+      "settings": {
+        "R": 25,
+        "sigma": 1,
+        "model": 0,
+        "normal": [
+          1,
+          0,
+          -1
+        ],
+        "theme": "dark",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "candidates": [
+        {
+          "abc": [
+            1,
+            0,
+            23
+          ],
+          "baseK": 92,
+          "planeMember": false,
+          "cropFadeFloat32": 0.19825072586536407,
+          "screenXY": [
+            400,
+            108.33333587646484
+          ],
+          "radius": 0.1580452173948288,
+          "alpha": 0.05154518783092499
+        }
+      ],
+      "cursor": [
+        400,
+        108.33333587646484
+      ],
+      "expectedIndex": 0,
+      "expectedABC": [
+        1,
+        0,
+        23
+      ]
+    },
+    {
+      "name": "focus-crop-alpha-below-gate",
+      "settings": {
+        "R": 26,
+        "sigma": 1,
+        "model": 0,
+        "normal": [
+          1,
+          0,
+          -1
+        ],
+        "theme": "dark",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "candidates": [
+        {
+          "abc": [
+            1,
+            0,
+            24
+          ],
+          "baseK": 96,
+          "planeMember": false,
+          "cropFadeFloat32": 0.18495270609855652,
+          "screenXY": [
+            400,
+            108
+          ],
+          "radius": 0.15024812519550323,
+          "alpha": 0.0480877049267292
+        }
+      ],
+      "cursor": [
+        400,
+        108
+      ],
+      "expectedIndex": -1,
+      "expectedABC": null
+    },
+    {
+      "name": "seven-pixel-hit-boundary-inclusive",
+      "settings": {
+        "R": 16,
+        "sigma": 1,
+        "model": 0,
+        "normal": [
+          1,
+          0,
+          -1
+        ],
+        "theme": "dark",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "candidates": [
+        {
+          "abc": [
+            1,
+            0,
+            1
+          ],
+          "baseK": 4,
+          "planeMember": true,
+          "cropFadeFloat32": 1,
+          "screenXY": [
+            400,
+            200
+          ],
+          "radius": 3,
+          "alpha": 1
+        }
+      ],
+      "cursor": [
+        407,
+        200
+      ],
+      "expectedIndex": 0,
+      "expectedABC": [
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "past-seven-pixel-hit-boundary",
+      "settings": {
+        "R": 16,
+        "sigma": 1,
+        "model": 0,
+        "normal": [
+          1,
+          0,
+          -1
+        ],
+        "theme": "dark",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "candidates": [
+        {
+          "abc": [
+            1,
+            0,
+            1
+          ],
+          "baseK": 4,
+          "planeMember": true,
+          "cropFadeFloat32": 1,
+          "screenXY": [
+            400,
+            200
+          ],
+          "radius": 3,
+          "alpha": 1
+        }
+      ],
+      "cursor": [
+        407.0000001,
+        200
+      ],
+      "expectedIndex": -1,
+      "expectedABC": null
+    }
+  ]
+}

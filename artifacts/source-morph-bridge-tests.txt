@@ -1,0 +1,206 @@
+Local verification receipt
+2026-10-23T10:52:59.208452+00:00
+
+SHA256 e43f1c3faf2c3bed862be9808bec716ca217d8d1fadba33971511620331597c9  server.py
+SHA256 9c7c870010243f4c95d373e4cb344a3f58fa96d0719a8f9679483f33068fcbf2  lean/Polynomial/Catalogue.lean
+SHA256 e304f80f3eb171ce2b5732c843d9abc40e5c68918f853cc3fd0881b260cc973d  lean/Polynomial/test_catalogue.py
+
+Command: python3 -m unittest discover -s tests -p test_*.py
+.......EEEEEEE............
+======================================================================
+ERROR: test_cold_module_burst_serves_all_concurrent_requests (test_server.HTTPTests.test_cold_module_burst_serves_all_concurrent_requests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/tests/test_server.py", line 345, in setUp
+    self.server = ExteriorServer(("127.0.0.1", 0), fake_engine(), Path(self.directory.name))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/server.py", line 273, in __init__
+    super().__init__(address, ExteriorHandler)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socketserver.py", line 457, in __init__
+    self.server_bind()
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/server.py", line 136, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socketserver.py", line 473, in server_bind
+    self.socket.bind(self.server_address)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_cross_origin_and_rebinding_hosts_rejected (test_server.HTTPTests.test_cross_origin_and_rebinding_hosts_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/tests/test_server.py", line 345, in setUp
+    self.server = ExteriorServer(("127.0.0.1", 0), fake_engine(), Path(self.directory.name))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/server.py", line 273, in __init__
+    super().__init__(address, ExteriorHandler)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socketserver.py", line 457, in __init__
+    self.server_bind()
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/server.py", line 136, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socketserver.py", line 473, in server_bind
+    self.socket.bind(self.server_address)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_health_and_static (test_server.HTTPTests.test_health_and_static)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/tests/test_server.py", line 345, in setUp
+    self.server = ExteriorServer(("127.0.0.1", 0), fake_engine(), Path(self.directory.name))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/server.py", line 273, in __init__
+    super().__init__(address, ExteriorHandler)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socketserver.py", line 457, in __init__
+    self.server_bind()
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/server.py", line 136, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socketserver.py", line 473, in server_bind
+    self.socket.bind(self.server_address)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_malformed_json_and_nonfinite_number_rejected (test_server.HTTPTests.test_malformed_json_and_nonfinite_number_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/tests/test_server.py", line 345, in setUp
+    self.server = ExteriorServer(("127.0.0.1", 0), fake_engine(), Path(self.directory.name))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/server.py", line 273, in __init__
+    super().__init__(address, ExteriorHandler)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socketserver.py", line 457, in __init__
+    self.server_bind()
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/server.py", line 136, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socketserver.py", line 473, in server_bind
+    self.socket.bind(self.server_address)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_no_algebra_fallback_when_lean_unavailable (test_server.HTTPTests.test_no_algebra_fallback_when_lean_unavailable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/tests/test_server.py", line 345, in setUp
+    self.server = ExteriorServer(("127.0.0.1", 0), fake_engine(), Path(self.directory.name))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/server.py", line 273, in __init__
+    super().__init__(address, ExteriorHandler)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socketserver.py", line 457, in __init__
+    self.server_bind()
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/server.py", line 136, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socketserver.py", line 473, in server_bind
+    self.socket.bind(self.server_address)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_real_http_roundtrip_and_same_origin (test_server.HTTPTests.test_real_http_roundtrip_and_same_origin)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/tests/test_server.py", line 345, in setUp
+    self.server = ExteriorServer(("127.0.0.1", 0), fake_engine(), Path(self.directory.name))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/server.py", line 273, in __init__
+    super().__init__(address, ExteriorHandler)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socketserver.py", line 457, in __init__
+    self.server_bind()
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/server.py", line 136, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socketserver.py", line 473, in server_bind
+    self.socket.bind(self.server_address)
+PermissionError: [Errno 1] Operation not permitted
+
+======================================================================
+ERROR: test_request_size_type_and_route (test_server.HTTPTests.test_request_size_type_and_route)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/tests/test_server.py", line 345, in setUp
+    self.server = ExteriorServer(("127.0.0.1", 0), fake_engine(), Path(self.directory.name))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/server.py", line 273, in __init__
+    super().__init__(address, ExteriorHandler)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socketserver.py", line 457, in __init__
+    self.server_bind()
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/server.py", line 136, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socketserver.py", line 473, in server_bind
+    self.socket.bind(self.server_address)
+PermissionError: [Errno 1] Operation not permitted
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.877s
+
+FAILED (errors=7)
+Exit status: 1
+
+Command: python3 lean/Polynomial/test_catalogue.py
+{
+  "result": "passed",
+  "requests": 121,
+  "sourceFixtureCases": 5,
+  "actualReceiptCases": 18,
+  "binarySHA256": "738fc7b541e5a3de310b4e3b905efdac7794eae90f196817a850a01e90df6c78",
+  "maxResponseBytes": 557047,
+  "slowestRequestMs": 66.337,
+  "totalServiceMs": 218.593,
+  "kernelEnumerationCompletenessProof": false,
+  "existingGenericLawsUnchanged": 17
+}
+Exit status: 0
+
+Local HTTP retry with sandbox port-binding restriction lifted
+2026-10-23T10:54:05.372309+00:00
+Command: python3 -m unittest discover -s tests -p test_server.py -k HTTPTests
+127.0.0.1 - - [23/Oct/2026 03:54:01] "GET /?module=22 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Oct/2026 03:54:01] "GET /?module=21 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Oct/2026 03:54:01] "GET /?module=23 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Oct/2026 03:54:01] "GET /?module=6 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Oct/2026 03:54:01] "GET /?module=14 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Oct/2026 03:54:01] "GET /?module=17 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Oct/2026 03:54:01] "GET /?module=11 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Oct/2026 03:54:01] "GET /?module=20 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Oct/2026 03:54:01] "GET /?module=0 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Oct/2026 03:54:01] "GET /?module=8 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Oct/2026 03:54:01] "GET /?module=13 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Oct/2026 03:54:01] "GET /?module=10 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Oct/2026 03:54:01] "GET /?module=12 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Oct/2026 03:54:01] "GET /?module=15 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Oct/2026 03:54:01] "GET /?module=2 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Oct/2026 03:54:01] "GET /?module=1 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Oct/2026 03:54:01] "GET /?module=9 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Oct/2026 03:54:01] "GET /?module=16 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Oct/2026 03:54:01] "GET /?module=4 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Oct/2026 03:54:01] "GET /?module=5 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Oct/2026 03:54:01] "GET /?module=7 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Oct/2026 03:54:01] "GET /?module=18 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Oct/2026 03:54:01] "GET /?module=19 HTTP/1.1" 200 -
+127.0.0.1 - - [23/Oct/2026 03:54:01] "GET /?module=3 HTTP/1.1" 200 -
+.127.0.0.1 - - [23/Oct/2026 03:54:02] "POST /api/evaluate HTTP/1.1" 403 -
+127.0.0.1 - - [23/Oct/2026 03:54:02] "POST /api/evaluate HTTP/1.1" 403 -
+127.0.0.1 - - [23/Oct/2026 03:54:02] "POST /api/evaluate HTTP/1.1" 403 -
+.127.0.0.1 - - [23/Oct/2026 03:54:02] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [23/Oct/2026 03:54:02] "GET / HTTP/1.1" 200 -
+.127.0.0.1 - - [23/Oct/2026 03:54:03] "POST /api/evaluate HTTP/1.1" 400 -
+127.0.0.1 - - [23/Oct/2026 03:54:03] "POST /api/evaluate HTTP/1.1" 400 -
+127.0.0.1 - - [23/Oct/2026 03:54:03] "POST /api/evaluate HTTP/1.1" 400 -
+127.0.0.1 - - [23/Oct/2026 03:54:03] "POST /api/evaluate HTTP/1.1" 400 -
+127.0.0.1 - - [23/Oct/2026 03:54:03] "POST /api/evaluate HTTP/1.1" 400 -
+127.0.0.1 - - [23/Oct/2026 03:54:03] "POST /api/evaluate HTTP/1.1" 400 -
+.127.0.0.1 - - [23/Oct/2026 03:54:03] "POST /api/evaluate HTTP/1.1" 503 -
+.127.0.0.1 - - [23/Oct/2026 03:54:04] "POST /api/evaluate HTTP/1.1" 200 -
+.127.0.0.1 - - [23/Oct/2026 03:54:04] "POST /api/evaluate HTTP/1.1" 413 -
+127.0.0.1 - - [23/Oct/2026 03:54:04] "POST /api/evaluate HTTP/1.1" 415 -
+127.0.0.1 - - [23/Oct/2026 03:54:04] "POST /api/unknown HTTP/1.1" 404 -
+......
+----------------------------------------------------------------------
+Ran 12 tests in 3.798s
+
+OK
+Exit status: 0
+
+Final result: PASS.
+All 26 bridge tests passed across the initial run and the approved local HTTP retry.
+The initial run passed 19 tests; seven HTTP tests could not bind temporary loopback ports
+because of the execution sandbox. The retry passed 12 HTTP/in-process tests (including
+five already-passing tests), resolving all seven initial environment errors.
+The catalogue service regression also passed all 121 requests.
+This receipt does not cover native UI, browser interaction, or physical XR hardware.

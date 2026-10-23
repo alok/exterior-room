@@ -1,0 +1,200 @@
+Final local verification receipt
+2026-10-23T11:01:23.448737+00:00
+
+Scope: browser source helpers and JavaScript tests. Native, actual browser interaction, and physical XR are separate evidence.
+
+SHA256 0d3dc8055df2c65a51b3e7f384848a2e6c1748f0d436a0760aa3993ce31787e5  web/polynomial/app.js
+SHA256 5baecf3215375b56f148c2a5dea55f7803fb80c617ae1ce49a89420f07babc71  web/polynomial/preview-catalogue.js
+SHA256 f8a5d39aae2bdefd3995f29c19ba074a0eb753b9ed5ee6006659c54f803f7faa  web/polynomial/lean-client.js
+SHA256 cc30e5bdfa2e28355e2d63764eed056ef0b967a3dc80ccea36f3fa68dd102690  web/polynomial/source-projection.js
+SHA256 22ec087975b6a50274ef4f58d1144cf54735d4500bed453ff79fb97271a09da9  web/polynomial/klein-data.js
+SHA256 59d4215769e071dfcab57c2756970d798fab33802c39753cead77a985513c86e  web/polynomial/klein-view.js
+SHA256 ac25c95bd6861f1160d74f15626c3fc074cfd1255529c02c80820b1783f8d8f6  tests/preview-catalogue.test.mjs
+SHA256 a28ebcad8ad8006f10ba5ffc7e0c1e5dc64509ccb699d5193e0b07db34d63819  tests/source-projection.test.mjs
+SHA256 e575f8421a24806e8cab4530189d19c8e6d06e6e08b48f01b7502f9c42b42196  tests/klein-data.test.mjs
+SHA256 021329840586c220bd3a34d4cebc86b1154c9c5b96bf68a63a48984ce92630a1  lean/Polynomial/fixtures/source-roots-marker.json
+SHA256 4d7898983947ccfc5782a2dc0ca54b56f385e368ff56352a2a4331512e779993  lean/Polynomial/source_roots_marker_fixture.mjs
+
+Command: node --check web/polynomial/app.js
+
+Exit status: 0
+
+Command: npm test
+npm WARN logfile could not be created: Error: EPERM: operation not permitted, open '/Users/alokbeniwal/.npm/_logs/2026-10-23T11_01_23_789Z-debug-0.log'
+
+> exterior-room@0.1.0 test
+> node --test tests/*.test.mjs
+
+✔ one-canvas recording retains the existing bounds and aspect ratio (1.999542ms)
+✔ paired canvases keep both aspect ratios, order and relative size within one bounded frame (0.146375ms)
+✔ a source resize is fitted to its original slot without stretching or changing the output bounds (0.069875ms)
+✔ canvas identity changes, disappearance and replacement invalidate recording, but the same sources do not (3.629958ms)
+✔ empty, oversized or invalid source descriptions fail explicitly (0.174375ms)
+✔ source fade retains the interior, smoothly fades the outer14%, and rejects the boundary and beyond (0.444417ms)
+✔ upper depth and other signed Euclidean radius use transformed display coordinates (0.402292ms)
+✔ base-order visibility mask excludes exactly faded-out catalogue points without compacting identities (0.176959ms)
+✔ canonical visibility and root eligibility stay unchanged, including negative signs and multiples (0.111541ms)
+✔ source roots show primitive upper forms in either chart while every signed world identity remains present (0.081209ms)
+✔ root selection ignores zero catalogue opacity and ineligible signs/multiples even with unfiltered candidates (0.152959ms)
+✔ audited animated projection fades only nonprimitive upper source stars, and the helper leaves world data intact (0.098625ms)
+✔ point cloud binds the exact base classification and source uniform without changing accepted positions (0.6005ms)
+✔ inverse-i refresh reference is projectively invariant (1.07725ms)
+✔ source refresh threshold reuses close catalogue but refreshes meaningful motion (0.100375ms)
+✔ catalogue settings and absence force a new exact request (0.189459ms)
+✔ shown roots follow the accepted D5 geometry while signed base identities persist (2.058542ms)
+✔ shown cutting-plane endpoints follow D5 including a projective infinity (0.187417ms)
+✔ noninterior and invalid shown-root inputs remain unavailable (0.062084ms)
+✔ polynomial typography spaces binary operators without changing a leading sign (0.149ms)
+✔ Source-only picking matches six independently evaluated bn source cases while Canonical retains its rule (1.656667ms)
+✔ packed root buffer keeps every interior sign and multiple, excluding other classes (0.168083ms)
+✔ packed root picking uses transformed centers and prefers visible primitive over coincident multiples (0.093041ms)
+✔ half-pixel root ties choose apparent size, but a farther center outside the tie cannot win (0.058583ms)
+✔ UHP keeps all upper multiples and preserves the accepted signed source buffers (2.6035ms)
+✔ UHP picking follows canonical 1/a radius, primitive ties and large-star hit extent (0.308875ms)
+✔ UHP draw order blends faint coincident multiples before the larger root (0.4435ms)
+✔ stable radix root order matches descending transformed denominator and reuses bounded workspace (0.39525ms)
+✔ lower out-of-crop inspection awaits and caches its positive representative (13.603792ms)
+✔ representative failure preserves signed inspection and a retry fills only missing data (1.879291ms)
+✔ inspection rejects malformed root, representative and primitive metadata before caching (1.4205ms)
+✔ non-interior inspections require null root, projection and representative (0.697333ms)
+✔ request coordinates are fixed before the caller mutates its array (0.759667ms)
+✔ cloud lookups accept canonical pages and reject unordered or duplicate points (0.932875ms)
+✔ cloud validation rejects classification, geometry and inspection-cache conflicts (1.081708ms)
+✔ an obsolete request failure cannot replace a newer accepted cloud or status (1.481125ms)
+✔ a superseded load paused at RAF does not send another stale page (3.943ms)
+✔ wrong page identity or changing total cannot publish a partial cloud (1.667958ms)
+✔ members must match cloud identity, count and interior ordered indices (2.82175ms)
+✔ membership from a replaced cloud cannot become ready even for the same radius (1.805833ms)
+✔ a valid empty membership is distinct from membership not yet loaded (1.010834ms)
+✔ plane requires named checks, exact identity and typed endpoint descriptors (1.025875ms)
+✔ transform commits only a complete immutable Lean receipt for the submitted point and matrix (0.670292ms)
+✔ transform validates bounds before contacting Lean and never manufactures a fallback (0.57625ms)
+✔ transform rejects malformed identities, missing checks and inconsistent exact certificates (1.243541ms)
+✔ a rational transform cannot claim an integral image or conflict with accepted point metadata (1.253542ms)
+✔ superseded transform responses and failures cannot commit over a newer gesture (0.750917ms)
+✔ reset, crop changes and paired failure leave no partial accepted transform (1.550792ms)
+✔ transform snapshots caller inputs and checks both receipts use the same action (0.718334ms)
+✔ actual compiled Lean responses pass inspection, cloud, plane and transform validation (322.425042ms)
+✔ real Lean absorption accepts the source T⁴ seed and paired identity outside the R96 crop (276.2635ms)
+✔ real Lean out-of-bound images on either side preserve the complete absorption input (186.858917ms)
+✔ source catalogue pages preserve pinned order and stay staged until explicit atomic publication (3.367709ms)
+✔ all five pinned source catalogues survive page boundaries and keep explicit source-limit metadata (6.429875ms)
+✔ catalogue validation rejects request identity, partition, order, bounds and primitive inconsistencies without replacing accepted data (6.232917ms)
+✔ source paging detects changed metadata and ordering across page boundaries (1.795458ms)
+✔ catalogue staging snapshots input and preserves Uint16 divisors above255 (1.055292ms)
+✔ cancelled and superseded catalogues cannot activate or overwrite accepted membership/status (2.781417ms)
+✔ a cancelled catalogue paused between pages issues no further page and failed membership leaves previous scene intact (3.047ms)
+✔ catalogue membership is scoped by matrix/settings/candidate and rejects a stale response (3.214708ms)
+✔ staging catalogue or canonical cloud does not cancel a pending transform; activation and legacy loading do (3.077541ms)
+✔ invalid source requests fail before transport and never invent an accepted catalogue (0.817959ms)
+✔ actual compiled Lean source catalogues and candidate memberships pass client validation and match pinned point order (313.655334ms)
+✔ retained preview membership and render-only records survive a newer staged load without publishing either cloud (3.262416ms)
+✔ cancellation, currency failure and activation revoke ephemeral render lookups while exact inspections stay cached (2.892666ms)
+✔ publishing a prepared preview revokes older leases and a newer unfinished staging request (1.976125ms)
+✔ integer representative uses exact positive square/divisibility checks (0.741958ms)
+✔ Snap stages both signed identities and their exact plane without mutating caller state (0.270625ms)
+✔ a single-point absorption does not inspect or prepare an absent partner (0.074125ms)
+✔ asymmetric bounds, nonintegral images and non-SL2 matrices cannot partially absorb (0.482125ms)
+✔ either signed-point inspection failure preserves the original selection and skips the plane (0.753833ms)
+✔ cancellation after commit or either inspection stops later work (0.330834ms)
+✔ cancellation during pair preparation suppresses stale success and failure (0.335166ms)
+✔ current pair errors throw and current null commits return no absorption (0.227083ms)
+✔ canonical Möbius implementation is pinned byte-identically with preserved attribution (1.151584ms)
+✔ display basis and row-major Matrix4 agree with canonical signed S/T images (1.165083ms)
+✔ display conjugation is a composition action and preserves signed discriminants (0.996666ms)
+✔ packed preview retains base buffers, order and signed points for selection/color identities (0.22575ms)
+✔ radial projection is recomputed after transformation and retains coincident signs/multiples (0.210334ms)
+✔ Klein pointer mapping uses CSS-pixel pan, upward v and reversible chart zoom (0.178ms)
+✔ canonical drag composition makes a root follow successive Klein pointer anchors (0.179667ms)
+✔ UHP fit, signed roots and pointer conversion match the canonical source chart (0.187542ms)
+✔ UHP pointer-anchor zoom and transvection move the selected root without changing its identity (0.195291ms)
+✔ UHP wide/compact resize preserves canonical center and scales root offsets by width (0.164292ms)
+✔ Klein resize retains relative fit zoom and model center independently of page position (0.102458ms)
+✔ chart resize rejects hidden rectangles and does not invent a visible fit (0.217542ms)
+✔ UHP plane rendering uses moved semicircles and a symbolic infinite endpoint (0.227625ms)
+✔ release quantization uses positive exact determinant and commits J(M)/D, not quantum squared (0.183917ms)
+✔ invalid charts, matrices and singular quantization fail without silent fallback (0.158917ms)
+✔ browser proposals match all 34 shared pinned canonical polar-Snap cases (1.64675ms)
+✔ canonical Snap fixtures preserve integer actions and choose the translation neighbor (0.247958ms)
+✔ source polar Snap counterexample chooses T⁴, not the old entrywise T⁴S (3.17175ms)
+✔ polar Snap preserves source half-integer rounding, sign and rotation tie tolerance (0.222042ms)
+✔ user seed snapped by T has the new exact signed identity and unchanged discriminant (0.097417ms)
+✔ generator composition is LEFT ordered and preserves normalized rational action (0.326208ms)
+✔ BigInt composition reduces common factors before checking the transport bound (0.095958ms)
+✔ real projective action includes infinity and invalid Snap never silently resets identity (0.1455ms)
+✔ continuous preview becomes accepted only after a matching receipt and uses its actual denominator (2.089667ms)
+✔ failed or null commits restore the preceding accepted action and receipt (0.405625ms)
+✔ cancel/reset invalidate pending completions without resurrecting a stale action (0.119375ms)
+✔ newer commit wins even when the older successful response arrives last (0.111125ms)
+✔ selection inspection preserves the action and requests the exact signed selected and pair forms (0.167458ms)
+✔ exact matrix presets preserve the submitted integers, determinant and small rational image (0.147167ms)
+✔ a canceled selection inspection suppresses both stale success and stale failure (0.103083ms)
+✔ current inspection errors retain the accepted receipt, and invalid quantization starts no request (2.048792ms)
+✔ packed projection preserves every signed interior image without coefficient lookup (1.108292ms)
+✔ source projection filters accepted visibility and primitive upper points without dropping canonical defaults (0.584ms)
+✔ packed colors and plane size factors match canonical semantic appearance (2.722959ms)
+✔ packed radius factors retain origin and nonprimitive semantics for both signs (0.367458ms)
+✔ point geometry sends accepted discriminants as exact float attributes (0.644625ms)
+✔ cone directions distinguish explicit infinity from missing endpoint data (0.540667ms)
+✔ plane tessellation preserves the canonical display plane and finite clipping (0.701542ms)
+✔ scalar adapters consume compiled Lean results and refuse unknown or unsupported exact data (148.17225ms)
+✔ held-preview refresh uses inverse-i threshold and exact quantized transport without activating a cloud (8.1625ms)
+✔ rapid motion coalesces to one latest target, never overlaps loads, and skips a far stale crop (1.214083ms)
+✔ a nearby newer pose may use a completed buffer while keeping the current numerical action outside this coordinator (0.664708ms)
+✔ cancel and new gesture invalidate old success/failure while preserving the one-flight bound (0.70375ms)
+✔ release drains the in-flight candidate, drops queued work and reuses only an exact matrix and signed context (0.307542ms)
+✔ a mismatched release or cancellation cannot promote a pending preview (0.277959ms)
+✔ failed membership keeps the previous preview and never publishes a partial candidate (0.876917ms)
+✔ a cancelled plane preparation cannot publish, and invalid or canonical previews do not issue requests (0.651166ms)
+✔ actual Lean preview stages catalogue and exact pair membership, restores on cancel, then commits only after an exact action receipt (264.070208ms)
+✔ source projection, physical radii, body alpha and picking agree with 48 pinned-source evaluated cases (3.593458ms)
+✔ source selection markers move independently of body crop, Whole fade and nonprimitive fade (0.654042ms)
+✔ world and roots visibility intentionally differ; projection fades multiples without relabelling them (0.323541ms)
+✔ lower, exterior and null positions stay signed and stationary; canonical geometry is unchanged (0.100958ms)
+✔ source plane display mask handles every signed category and falls back to exact BigInt cancellation (0.097875ms)
+✔ source shader consumes the same unprojected coordinates and independent exact classification attrs (1.109917ms)
+✔ source root bodies use exact plane focus and crop only, independent of Whole and projection (0.311917ms)
+✔ source root selection rings retain signed/nonprimitive identity and use primitive apparent radius (0.266625ms)
+✔ root bodies and signed selection rings match 44 independently evaluated Jt/Xt source cases (0.335791ms)
+✔ display fractions preserve exact signs, zero, and reduction (2.701042ms)
+✔ display refuses invalid or inexact numeric representations (0.128125ms)
+✔ drag quantization stays on the bounded integer lattice (0.102292ms)
+✔ fixture presets clone independently (0.084167ms)
+✔ accepts a complete response matching the submitted edit (0.212333ms)
+✔ rejects stale IDs, unsuccessful responses and wrong physical scale (0.64825ms)
+✔ rejects responses whose echoed vectors differ from the request (1.164583ms)
+✔ rejects malformed and unsafe exact coefficients (0.332291ms)
+✔ rejects malformed volume and exported geometry (0.18175ms)
+✔ rejects missing or failed Lean checks and inconsistent transported values (1.187583ms)
+✔ rejects exact-looking coefficients and echoed inputs outside the lattice bounds (0.135458ms)
+✔ rejects bounded but wrong exported vertices as well as enormous safe integers (0.131875ms)
+✔ serializes execution, drops intermediate edits, and never renders an old answer (5.391834ms)
+✔ freezes request coordinates before the caller can mutate them (0.824834ms)
+✔ superseded transport errors cannot mark a newer edit as failed (0.884875ms)
+✔ latest transport failure leaves the last result intact and permits retry (4.7035ms)
+✔ invalid server payload cannot become a displayed result (1.427709ms)
+✔ failed checks preserve the last accepted mesh and a subsequent valid result recovers (0.554334ms)
+✔ synthetic tracking reaches real Three controller raycasts, including an input between frames (3.290875ms)
+✔ exit cancels queued frames, releases input, and allows a clean reconnecting session (0.620791ms)
+✔ reference spaces and stereo views have correct rigid transforms and projection depth (0.860291ms)
+✔ disconnect cancels pressed input and removes pose until explicit reconnect (0.365083ms)
+✔ layer renders to the actual default framebuffer with bounded mono/stereo viewports (0.22025ms)
+✔ unsupported capabilities and invalid poses fail instead of pretending hardware support (0.193708ms)
+✔ installation is explicit, page scoped and idempotent; no context is created (0.231459ms)
+✔ unavailable or rejected XR remains an explicit desktop fallback (0.390958ms)
+✔ controller ray consumes current parent and local pose before a rendered frame (0.461083ms)
+✔ desktop view snapshots are independent and restore headset-mutated projection (0.47175ms)
+✔ restore does not let disabled OrbitControls clamp an egocentric pose (0.114875ms)
+ℹ tests 160
+ℹ suites 0
+ℹ pass 160
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1351.185584
+
+Exit status: 0
+
+Source stability during commands: UNCHANGED
+Final result: PASS

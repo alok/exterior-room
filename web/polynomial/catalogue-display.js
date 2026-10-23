@@ -52,9 +52,9 @@ export function sourceRootVisible(lattice,index) {
 
 /** Audited source world-projection factor: its nonprimitive upper branch uses
  * `ie *= 1-c`, where c is continuous projection progress. Primitive upper and
- * all other categories retain their opacity. This helper is intentionally NOT
- * wired to the demo's radial-overlay toggle: that toggle does not move world
- * stars along their rays and has no source-style projection transition. */
+ * all other categories retain this particular opacity factor. Full body alpha
+ * also includes source crop/Whole/eye/focus rules in source-projection.js; this
+ * factor alone must not be used as the world picking visibility rule. */
 export function sourceProjectionOpacity(lattice,index,progress) {
   if(!Number.isFinite(progress))throw new RangeError('Projection progress must be finite');
   if(lattice.catalogue?.kind!=='source'||lattice.kind[index]!==2||lattice.divisor[index]===1)return 1;

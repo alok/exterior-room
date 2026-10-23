@@ -2,7 +2,7 @@
 // Adapted from FareyVision ca809d2 by Alok Singh with OpenAI Codex, 2026-10-23.
 // Enumeration is accepted Lean data; these adapters only address it or convert it for drawing.
 import {cloud,indexOfPoint,recordFor} from './lean-client.js';
-export const latticeRadii=[4,6,8,10,12,24,48,96];
+export const latticeRadii=[4,6,8,10,12,16,24,48,96];
 export const maxLatticeRadius=96;
 export function enumerateLattice(radius,upperOnly=false){const l=cloud();if(l.catalogue||l.radius!==radius||l.upperOnly!==upperOnly)throw Error('Wait for the matching Lean ball cloud.');return l;}
 export function acceptedLattice(){return cloud();}

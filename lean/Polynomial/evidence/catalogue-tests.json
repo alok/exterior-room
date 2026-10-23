@@ -5,8 +5,8 @@
   "actualReceiptCases": 18,
   "binarySHA256": "738fc7b541e5a3de310b4e3b905efdac7794eae90f196817a850a01e90df6c78",
   "maxResponseBytes": 557047,
-  "slowestRequestMs": 64.961,
-  "totalServiceMs": 207.405,
+  "slowestRequestMs": 66.337,
+  "totalServiceMs": 218.593,
   "kernelEnumerationCompletenessProof": false,
   "existingGenericLawsUnchanged": 17
 }

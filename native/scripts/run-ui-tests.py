@@ -15,6 +15,7 @@ parser.add_argument("--simulator", default="1D261881-0A0F-4DE0-B704-12644E606348
 parser.add_argument("--gesture-probe", action="store_true",
                     help="Run only the public XCUI screen-projected endpoint drag probe")
 parser.add_argument("--scheme", choices=["ExteriorRoom", "PolynomialRoom"], default="ExteriorRoom")
+parser.add_argument("--test-class", help="Override the selected scheme UI test class")
 parser.add_argument("--test-name", help="Run one named method on the selected scheme's UI test class")
 arguments = parser.parse_args()
 simulator: str = arguments.simulator
@@ -39,7 +40,7 @@ try:
         if arguments.gesture_probe:
             command += ["-only-testing:ExteriorRoomUITests/ExteriorRoomUITests/testTargetedEndpointDragRoundTrip"]
         elif arguments.test_name:
-            command += [f"-only-testing:{arguments.scheme}UITests/{arguments.scheme}UITests/{arguments.test_name}"]
+            command += [f"-only-testing:{arguments.scheme}UITests/{arguments.test_class or (arguments.scheme + 'UITests')}/{arguments.test_name}"]
         result = subprocess.run(command,
             cwd=root, stdout=log, stderr=subprocess.STDOUT)
 finally:

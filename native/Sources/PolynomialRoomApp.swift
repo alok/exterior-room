@@ -8,12 +8,18 @@ import SwiftUI
   var body: some Scene {
     Window("Lean Starscape", id: "polynomial-launch") { PolynomialControls().environment(model) }
       .defaultSize(width: 660,height: 900)
-      .defaultWindowPlacement { _, _ in WindowPlacement(.utilityPanel) }
+      .defaultWindowPlacement { _, _ in WindowPlacement() }
     Window("Roots · Lean Starscape",id:"polynomial-roots") { PolynomialRootsView().environment(model) }
-      .defaultSize(width:560,height:760)
+      .defaultSize(width:500,height:660)
+      .windowResizability(.contentMinSize)
       .defaultWindowPlacement { _, context in
-        if let launch = context.windows.first(where: { $0.id == "polynomial-launch" }) { return WindowPlacement(.trailing(launch)) }
-        return WindowPlacement()
+        let size = CGSize(width:500,height:660)
+        if let launch = context.windows.first(where: { $0.id == "polynomial-launch" }) {
+          return WindowPlacement(.trailing(launch),size:size)
+        }
+        // An immersive attachment is not a WindowProxy. The ordinary default keeps
+        // this compact window framed; the utility-panel default placed it below the capture.
+        return WindowPlacement(size:size)
       }
       .defaultLaunchBehavior(.suppressed).restorationBehavior(.disabled)
     ImmersiveSpace(id: "polynomial-space") { PolynomialSpace().environment(model) }
@@ -27,6 +33,7 @@ struct PolynomialControls: View {
   @Environment(\.dismissImmersiveSpace) private var dismissSpace
   @Environment(\.openWindow) private var openWindow
   @Environment(\.dismissWindow) private var dismissWindow
+  @Environment(\.accessibilityReduceMotion) private var reduceMotion
   @State private var entry = "1, -1, 2"
   @State private var secondEntry = "1, 1, 1"
   @State private var collapsed = false
@@ -74,19 +81,32 @@ struct PolynomialControls: View {
           .accessibilityIdentifier("poly-flip-nappe")
       }
       Text(placementText).font(.caption).foregroundStyle(.secondary).accessibilityIdentifier("poly-placement")
+      if ProcessInfo.processInfo.environment["POLYNOMIAL_GESTURE_DIAGNOSTICS"] == "1" {
+        Text("Spatial target \(model.spatialTargetReady ? "ready":"pending") · changed \(model.spatialInputCallbacks) · ended \(model.spatialInputReleases) · \(model.spatialInputStatus)")
+          .font(.caption2.monospaced()).accessibilityIdentifier("poly-spatial-diagnostic")
+      }
       HStack {
         Button("Roots…") { openWindow(id:"polynomial-roots") }.accessibilityIdentifier("poly-roots-open")
         Button(transforms ? "Point controls" : "SL₂ transform") { transforms.toggle() }
           .accessibilityIdentifier("poly-action-mode")
-        if !transforms, model.action != nil {
-          Text(model.actionStatus).font(.caption2).foregroundStyle(.mint)
-        }
+        Spacer(minLength:4)
+        PolynomialPairNextButton(identifier:"poly-pair-next")
+      }
+      if model.pairNext {
+        Text("Next pick pairs with (\((model.inspection?.point ?? model.selected).map(String.init).joined(separator:", "))).")
+          .font(.caption).foregroundStyle(.orange).accessibilityIdentifier("poly-pair-next-state")
+      }
+      if !transforms, model.action != nil {
+        Text(model.actionStatus).font(.caption2).foregroundStyle(.mint)
       }
       if transforms { PolynomialTransformControls().environment(model) }
       if !collapsed && !transforms {
         Divider()
         HStack {
-          Picker("Catalogue",selection:Binding(get:{model.catalogueMode},set:{model.catalogueMode=$0;model.refresh()})) {
+          Picker("Catalogue",selection:Binding(get:{model.catalogueMode},set:{ next in
+            if next == .source, model.catalogueMode == .ball, model.radius < 16 { model.radius = 16 }
+            model.catalogueMode = next; model.refresh()
+          })) {
             Text("Canonical ball").tag(PolynomialCatalogueMode.ball)
             Text("Source depth").tag(PolynomialCatalogueMode.source)
           }.pickerStyle(.segmented).accessibilityIdentifier("poly-catalogue").disabled(model.busy)
@@ -99,7 +119,9 @@ struct PolynomialControls: View {
         }
         HStack {
           TextField("a, b, c",text:$entry).textFieldStyle(.roundedBorder).accessibilityIdentifier("poly-entry")
-          Button("Select") { if let p = parse(entry) { model.enter(p) } }.disabled(model.busy).accessibilityIdentifier("poly-select")
+          Button("Select") {
+            if let p = parse(entry) { model.cancelPairing(); model.enter(p) }
+          }.disabled(model.busy).accessibilityIdentifier("poly-select")
         }
         HStack {
           Button("Next") { model.nextCoefficient() }.disabled(model.busy).accessibilityIdentifier("poly-next")
@@ -108,7 +130,7 @@ struct PolynomialControls: View {
           Button("Exterior") { choose([1,0,-1]) }.accessibilityIdentifier("poly-exterior")
           Spacer()
           Button("R\(model.radius)") {
-            let values = [4,6,8,10,12,24], index = values.firstIndex(of:model.radius) ?? 1
+            let values = [4,6,8,10,12,16,24], index = values.firstIndex(of:model.radius) ?? 1
             model.radius = values[(index+1)%values.count]; model.refresh()
           }.disabled(model.busy).accessibilityIdentifier("poly-radius")
           Toggle("Dense · 24",isOn:Binding(get:{ model.radius == 24 },set:{ model.radius = $0 ? 24 : 6; model.refresh() }))
@@ -141,12 +163,46 @@ struct PolynomialControls: View {
             .accessibilityIdentifier("poly-size-value")
         }
         HStack {
-          Toggle("Projection",isOn:$model.showProjection).toggleStyle(.button).accessibilityIdentifier("poly-projection")
+          if model.catalogueMode == .source {
+            Button(model.showProjection ? "Lift" : "Project") {
+              model.setProjection(!model.showProjection,reducedMotion:reduceMotion)
+            }.accessibilityIdentifier("poly-projection")
+          } else {
+            Toggle("Projection",isOn:$model.showProjection).toggleStyle(.button).accessibilityIdentifier("poly-projection")
+          }
           Button(["Oblique","Other side","Side view"][model.viewpoint]) { model.viewpoint = (model.viewpoint+1)%3 }
             .disabled(model.placement != .overview).accessibilityIdentifier("poly-view")
           Spacer()
           Text("\(String(model.points.count)) signed triples · \(model.catalogue == nil ? "R" : "depth ")\(model.displayedRadius)")
             .font(.caption).accessibilityIdentifier("poly-count")
+        }
+        if model.catalogueMode == .source {
+          HStack {
+            Text("Morph").font(.caption).frame(width:48,alignment:.leading)
+            Button("−") { model.setProjectionProgress(model.projectionProgress-0.25) }
+              .accessibilityLabel("Less projection").accessibilityIdentifier("poly-projection-down")
+            Slider(value:Binding(get:{model.projectionProgress},set:{model.setProjectionProgress($0)}),in:0...1)
+              .accessibilityLabel("Projection progress").accessibilityIdentifier("poly-projection-progress")
+            Button("+") { model.setProjectionProgress(model.projectionProgress+0.25) }
+              .accessibilityLabel("More projection").accessibilityIdentifier("poly-projection-up")
+            Text(model.projectionProgress,format:.percent.precision(.fractionLength(0)))
+              .font(.caption.monospacedDigit()).frame(width:42,alignment:.trailing)
+              .accessibilityIdentifier("poly-projection-value")
+          }
+          HStack {
+            Text("Height").font(.caption).frame(width:48,alignment:.leading)
+            Button("−") { model.projectionHeightFraction = max(0.15,model.projectionHeightFraction-0.05) }
+              .accessibilityLabel("Lower projection plane").accessibilityIdentifier("poly-projection-height-down")
+            Slider(value:$model.projectionHeightFraction,in:0.15...1,step:0.05)
+              .accessibilityLabel("Projection height as a fraction of depth").accessibilityIdentifier("poly-projection-height")
+            Button("+") { model.projectionHeightFraction = min(1,model.projectionHeightFraction+0.05) }
+              .accessibilityLabel("Raise projection plane").accessibilityIdentifier("poly-projection-height-up")
+            Text(model.projectionHeightFraction,format:.percent.precision(.fractionLength(0)))
+              .font(.caption.monospacedDigit()).frame(width:42,alignment:.trailing)
+              .accessibilityIdentifier("poly-projection-height-value")
+          }
+          Toggle("Projection screen",isOn:$model.showSourceScreen).toggleStyle(.button).font(.caption)
+            .accessibilityIdentifier("poly-projection-screen")
         }
         HStack {
           Toggle("Cone",isOn:$model.showCone).toggleStyle(.button).accessibilityIdentifier("poly-cone")
@@ -161,7 +217,7 @@ struct PolynomialControls: View {
           .font(.caption2).foregroundStyle(.secondary).accessibilityIdentifier("poly-members")
       }
       if let catalogue = model.catalogue {
-        Text("Source crop updates on accepted release · \(catalogue.complete ? "complete within source bounds" : "source limit reached") · roots show primitive upper forms")
+        Text("Source crop previews during movement · release accepts exact state · \(catalogue.complete ? "complete within source bounds" : "source limit reached") · roots show primitive upper forms")
           .font(.caption2).foregroundStyle(catalogue.complete ? Color.secondary : Color.orange).accessibilityIdentifier("poly-catalogue-status")
       }
       Text(model.rendererStats).font(.caption2.monospaced()).foregroundStyle(.secondary).accessibilityIdentifier("poly-render-stats")
@@ -205,6 +261,7 @@ struct PolynomialControls: View {
     Task { @MainActor in
       defer { model.transitioning = false }
       if model.spaceOpen {
+        model.cancelPairing()
         openWindow(id:"polynomial-launch"); await Task.yield(); await dismissSpace()
       } else {
         switch await openSpace(id:"polynomial-space") {
@@ -215,5 +272,21 @@ struct PolynomialControls: View {
         }
       }
     }
+  }
+}
+
+/// The controls window, immersive controls and Roots window share one armed pick.
+struct PolynomialPairNextButton: View {
+  @Environment(PolynomialModel.self) private var model
+  let identifier: String
+  var body: some View {
+    Button(model.pairNext ? "Cancel" : "Pair next") {
+      if model.pairNext { model.cancelPairing() } else { model.armPairNext(true) }
+    }
+    .tint(model.pairNext ? .orange : .mint)
+    .disabled(!model.pairNext && (model.busy || model.actionPreview != nil))
+    .accessibilityLabel(model.pairNext ? "Cancel pairing" : "Pair next")
+    .accessibilityValue(model.pairNext ? "Armed" : "Off")
+    .accessibilityIdentifier(identifier)
   }
 }

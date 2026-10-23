@@ -4,6 +4,7 @@
 // Farey/WebXR/roots-pane.js (SHA256 cbbbb4f0415d9cc534f5c0f4fd7287e5279c50bfb56581a1243fabb97ee1e87b).
 // The source attribution to Harriss, Stange and Trettel is preserved in mobius.js.
 import {sourceRootVisible,catalogueOpacity} from './catalogue-display.js';
+import {sourceRootOpacity} from './source-projection.js';
 export function interiorIndices(lattice,{model='klein'}={}){
   const lower=model==='klein';
   const eligible=i=>(lattice.kind[i]===2||(lower&&lattice.kind[i]===3))&&sourceRootVisible(lattice,i);
@@ -48,8 +49,24 @@ export function orderRootsByRadius(xyz,indices,order=new Uint32Array(indices.len
   return order;
 }
 
-export function pickRoot(lattice,xyz,indices,scale,cx,cy,maxDistance=10,{model='klein',sigma=1}={}){
+export function pickRoot(lattice,xyz,indices,scale,cx,cy,maxDistance=10,{model='klein',sigma=1,planeMask=null,light=false}={}){
   const upper=model==='half-plane';
+  if(lattice.catalogue?.kind==='source'){
+    // Source bn(): the packed root-body alpha gate is .05 (3D uses .06).
+    // Its cursor score accounts for apparent radius rather than canonical's
+    // half-pixel center tie. Neither body alpha nor picking depend on morph.
+    const opacityOptions={planeMask,light};let best=-1,score=Infinity;
+    for(let j=0;j<indices.length;j++){
+      const i=indices[j];if(sourceRootOpacity(lattice,xyz,i,opacityOptions)<.05)continue;
+      const k=3*i,y=xyz[k+1],denominator=upper?y-xyz[k+2]:y,inv=scale/denominator;
+      const dx=cx+xyz[k]*inv,dy=cy-(upper?Math.sqrt(-lattice.delta[i])*Math.abs(inv):xyz[k+2]*inv);
+      const radius=Math.fround(upper?.06*sigma*Math.abs(inv):.06*sigma*scale*Math.pow(-lattice.delta[i],.25)/Math.pow(Math.abs(y),1.5));
+      const distance=Math.hypot(dx,dy);if(!Number.isFinite(radius)||distance>Math.max(7,radius+4))continue;
+      const candidate=distance-.8*Math.min(radius,12);
+      if(candidate<score){score=candidate;best=i;}
+    }
+    return best;
+  }
   let nearest=Infinity;
   for(let j=0;j<indices.length;j++){
     const i=indices[j];if(!sourceRootVisible(lattice,i)||catalogueOpacity(lattice,xyz,i)<=0)continue;

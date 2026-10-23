@@ -12,7 +12,8 @@ const IDENTITY_DELTA_BOUND=5*IDENTITY_BOUND**2;
 // 6 B K² < 2^53 for identity bound B=1024 and unchanged matrix bound K=10^6.
 const TRANSFORM_NUMERATOR_BOUND=6*IDENTITY_BOUND*1000000**2;
 const kinds=['null','exterior','upper','lower'];
-let serial=0, generation=0, acceptedGeneration=0, transformGeneration=0, currentCloud=null;
+let serial=0, generation=0, candidateEpoch=0, acceptedGeneration=0, transformGeneration=0, currentCloud=null;
+let renderCloud=null, releaseRenderCloud=null;
 const inspections=new Map(), planes=new Map(), candidateStates=new WeakMap();
 export function status(message,error=false){const e=document.getElementById('lean-status');if(e){e.textContent=message;e.dataset.error=String(error);}}
 export async function request(body){
@@ -58,29 +59,43 @@ function stageOptions(options){
     ||(options.activate!==undefined&&typeof options.activate!=='boolean'))throw Error('Invalid Lean staging options.');
 }
 function registerCandidate(lattice,ticket,isCurrent){
-  candidateStates.set(lattice,{ticket,isCurrent,activated:false,memberships:new Map()});
+  candidateStates.set(lattice,{ticket,epoch:candidateEpoch,isCurrent,leases:0,activated:false,memberships:new Map()});
   return Object.freeze(lattice);
 }
 function candidateCurrent(lattice){
   if(lattice&&lattice===currentCloud)return true;
   const state=lattice&&candidateStates.get(lattice);
-  return !!state&&!state.activated&&state.ticket===generation&&(!state.isCurrent||state.isCurrent());
+  return !!state&&!state.activated&&state.epoch===candidateEpoch&&(state.ticket===generation||state.leases>0)&&(!state.isCurrent||state.isCurrent());
+}
+/** Keep a validated preview and its prepared membership usable during the next load.
+ * Cancellation still revokes every unaccepted lease; this never publishes a cloud. */
+export function retainCloudCandidate(lattice){
+  if(!candidateCurrent(lattice))throw Error('The Lean cloud candidate is no longer current.');
+  if(lattice===currentCloud)return ()=>{};
+  const state=candidateStates.get(lattice);state.leases++;
+  let released=false;return ()=>{if(!released){released=true;state.leases--;}};
+}
+/** Rendering-only lookup context. Accepted cloud, diagnostics and action revision
+ * remain unchanged. Inspected exact records always take precedence. */
+export function setRenderCloud(lattice=null){
+  const release=lattice===null?null:retainCloudCandidate(lattice);
+  releaseRenderCloud?.();releaseRenderCloud=release;renderCloud=lattice;
 }
 /** Cancel incomplete/staged loads without touching the currently accepted cloud. */
-export function cancelCloudLoad(){generation++;}
+export function cancelCloudLoad(){generation++;candidateEpoch++;setRenderCloud(null);}
 /** Publication is synchronous; callers first stage action/plane/catalogue data. */
 export function activateCloud(lattice){
-  if(lattice===currentCloud&&lattice)return lattice;
+  if(lattice===currentCloud&&lattice){setRenderCloud(null);return lattice;}
   if(!lattice||!candidateStates.has(lattice))throw Error('Only a validated Lean cloud candidate can be activated.');
   if(!candidateCurrent(lattice))return null;
   for(const inspection of inspections.values())if(!matchesCloud(inspection,lattice))throw Error('Lean cloud conflicts with a cached inspection.');
-  candidateStates.get(lattice).activated=true;currentCloud=lattice;acceptedGeneration++;
+  candidateStates.get(lattice).activated=true;currentCloud=lattice;acceptedGeneration++;candidateEpoch++;setRenderCloud(null);
   status(`Lean live · ${lattice.count.toLocaleString()} exact points`);return lattice;
 }
 export async function loadCloud(radius,upperOnly=false,options={}){
   if(!int(radius,96)||radius<4||typeof upperOnly!=='boolean')throw Error('Invalid Lean cloud parameters.');
   stageOptions(options);
-  const ticket=++generation,current=()=>ticket===generation&&(!options.isCurrent||options.isCurrent());
+  const ticket=++generation,epoch=candidateEpoch,current=()=>ticket===generation&&epoch===candidateEpoch&&(!options.isCurrent||options.isCurrent());
   if(options.activate!==false)cancelTransformCommit();
   status(`Lean enumerating radius ${radius}…`);
   let offset=0, cloud=null;
@@ -151,7 +166,7 @@ export async function loadCatalogue(depth,matrix,{whole=true,dust=false}={},opti
   if(!int(depth,96)||depth<4||!matrixInput(matrix)||typeof whole!=='boolean'||typeof dust!=='boolean')throw Error('Invalid Lean catalogue parameters.');
   stageOptions(options);const submitted=[...matrix],m=submitted.map(BigInt);
   if(m[0]*m[3]-m[1]*m[2]<=0n)throw Error('Lean catalogue requires a positive determinant.');
-  const settings={depth,matrix:submitted,whole,dust},ticket=++generation,current=()=>ticket===generation&&(!options.isCurrent||options.isCurrent());
+  const settings={depth,matrix:submitted,whole,dust},ticket=++generation,epoch=candidateEpoch,current=()=>ticket===generation&&epoch===candidateEpoch&&(!options.isCurrent||options.isCurrent());
   let offset=0,lattice=null;status(`Lean cataloguing depth ${depth}…`);
   try{
     do{
@@ -183,8 +198,9 @@ export function indexOfPoint(point,lattice=currentCloud){
 export function recordFor(point){
   if(!pointInput(point))throw Error('Invalid Lean point lookup.');
   const cached=inspections.get(point.join());if(cached)return cached;
-  const i=indexOfPoint(point);if(i<0)throw Error(`Point (${point}) has no accepted Lean data.`);
-  return {point:[...point],xyz:Array.from(currentCloud.xyz.subarray(i*3,i*3+3)),delta:currentCloud.delta[i],kind:kinds[currentCloud.kind[i]],divisor:currentCloud.divisor[i]};
+  if(renderCloud&&!candidateCurrent(renderCloud))setRenderCloud(null);
+  const lattice=renderCloud??currentCloud,i=indexOfPoint(point,lattice);if(i<0)throw Error(`Point (${point}) has no accepted Lean data.`);
+  return {point:[...point],xyz:Array.from(lattice.xyz.subarray(i*3,i*3+3)),delta:lattice.delta[i],kind:kinds[lattice.kind[i]],divisor:lattice.divisor[i]};
 }
 export async function inspect(point){
   if(!pointInput(point))throw Error('Invalid Lean point inspection input.');

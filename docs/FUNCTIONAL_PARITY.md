@@ -9,10 +9,23 @@ functional parity. They do not establish physical headset acceptance or complete
 source-viewer parity. The exterior-algebra room is a separate example and does
 not satisfy or replace this Starscape goal.
 
-The [source-catalogue continuation](SOURCE_CATALOGUE_UPDATE.md) supersedes the
-older crop and density statuses below: separate Source depth and Canonical ball
-modes are implemented, with release-only recropping, explicit caps, and native
-R24 batching. The dated rows remain evidence of their own runs.
+The [source-morph continuation](SOURCE_MORPH_UPDATE.md) supersedes the earlier
+release-only crop and projection statuses below. Source depth now has a continuous
+upper-star morph and temporary Lean catalogues during held drags. Canonical ball
+retains its separate fixed crop and `Y=4` overlay. Source caps and native R24
+batching remain explicit. The dated rows remain evidence of their own runs;
+current simulator morph controls, linked Roots swipe and shared pairing have
+actual input evidence. Native held-preview recropping failed its acceptance
+assertion; free-space Origin input remains unverified.
+
+The [deployed-source audit](source-projection-morph-audit.md) evaluates 48 cases
+from the pinned Starscape script: identity/D5, projection `0,.5,1`, signed and
+nonprimitive selections, other categories, plane emphasis and eye progress.
+They establish a numerical regression oracle, not pixel equality or additional
+Lean theorems. Entering Source from a smaller crop chooses depth 16 rather than
+the source viewer's default 48. Source cone bounds are now `−.3R…R`; the plane
+adapter rescales the existing tessellation to source bounds. Its materials,
+palette, sampling and camera framing still differ from the source.
 
 The dated [validation receipt](POLYNOMIAL_VALIDATION.md) distinguishes exact-data
 tests, real browser interaction, synthetic XR and native simulator results.
@@ -171,12 +184,13 @@ no second selection, and Overview (`WebXR/starscape.js:14`, `index.html:72`).
 | --- | --- |
 | Primary selection | Set the exact signed triple and clear the pair/error; preserve camera placement. |
 | Next | Cycle `(1,-1,2)`, `(2,-2,4)`, `(2,1,1)`, `(1,0,1)`, `(3,2,2)`, `(-1,1,-2)`, `(1,2,1)`, `(1,3,1)`. Unknown current selection advances to the first. |
-| Crop/filter change | Retain selected identity even when hidden. State the hidden condition; omit its geometry marker. Do not clamp it to the crop edge or replace it. |
+| Crop/filter change | Retain selected identity even when hidden. Canonical mode omits the cropped marker. Source selection rings are independent of body crop and primitivity, so selected/paired upper rings follow the morph even when their bodies fade out. Do not clamp or replace the identity. |
 | Enter coefficients at original `ca809d2` reference | Browser requires exactly three signed integer tokens and a currently shown nonzero point. Rejection preserves selection. Native validates radius but permits entry hidden by its upper-only filter. |
-| Current Lean Starscape coefficient entry | Accept exactly three safe integers within ±1024, excluding zero. A valid selection outside the current crop/filter retains its exact identity and is explicitly marked hidden; it is not clamped or replaced. Failed inspection preserves the prior state. This deliberately differs from the original reference's crop-limited text entry. |
+| Current Lean Starscape coefficient entry | Accept exactly three safe integers within ±1024, excluding zero. A valid selection outside the current crop/filter retains its exact identity. Canonical mode explicitly marks it hidden; Source keeps an independent selection ring. The identity is not clamped or replaced. Failed inspection preserves the prior state. This deliberately differs from the original reference's crop-limited text entry. |
 | Pair | Shift-click or enter a second interior point. A successful pair keeps both signed identities. Invalid second input preserves the existing selection/pair and reports an error. |
 | Exterior selection | Without a pair, automatically use the exterior triple's canonicalized Lorentz normal. Null/interior single selections have no plane. |
-| Projection toggle | Show the `Y=4` disk, radial images of every displayed interior triple, selected ray/image, and current plane's Klein chord. Coincident images do not collapse the source cloud. |
+| Canonical projection toggle | Show the `Y=4` disk, radial images of displayed interior triples, selected ray/image, and current plane's Klein chord. This remains the pinned canonical overlay contract. |
+| Source Project/Lift | Move only upper-interior bodies radially to `Y=hf·R`, default `hf=.6`, while nonprimitive bodies fade out. Screen is separate and initially on. Selected/paired rings are independent; roots and signed base labels do not morph. Plane and cone do not interpolate. |
 | Reset | Return to Overview, `(1,-1,2)`, R6, whole=true, lower-color=false, projection=false, cone=true; clear pair/errors. **Browser Reset preserves palette, star-size, and plane-focus settings.** |
 
 The second Next example is intentionally hidden at default R6. The original
@@ -187,6 +201,15 @@ mode. Sources: `WebXR/starscape.js:130`, `:180`, `:343`, `:354`; native
 `Sources/FareyVisionApp.swift:45`, `:54`, `:64`, `:92`, `:102`.
 
 ## Semantic color and size
+
+The following fixed-pixel description is the canonical mode's convention.
+Source mode instead uses the deployed `Fe`, `Ie` and `an` position/radius/alpha
+formulas documented in the [source audit](source-projection-morph-audit.md).
+Whole radial fade, screen attenuation, primitive fade-out and exact plane
+emphasis are separate factors. Source membership highlights bodies rather than
+adding the canonical mode's ring around every plane member. Browser pixel discs
+and native physical instances remain different renderers; the palette and
+screen/plane/cone materials are adaptations, not source pixel equality.
 
 Color derives from the **actual** discriminant, not the primitive triple's.
 Interior palette position is `clamp(log(|Δ|/3)/log(240/3),0,1)`, independent of
@@ -253,8 +276,8 @@ an exact relabelled selection may be valid and explicitly hidden. Existing ±96
 rejection receipts describe the earlier transport limit and do not test the new
 ±1024 boundary; fresh boundary/UI acceptance is tracked separately.
 
-The primary 2D chart is now the canonical **upper half-plane**, with an optional
-Klein disk. It draws every accepted upper-interior identity at
+The primary 2D chart is now the **upper half-plane**, with an optional
+Klein disk. Canonical mode draws every accepted upper-interior identity at
 `x = X′/(Y′−Z′)`, `y = √(-Δ)/|Y′−Z′|`; its radius is
 `.06·σ·scale/|Y′−Z′| = .03·σ·scale/a′`. A k-times form therefore has 1/k radius.
 It uses the source's .6px minimum footprint with dimming, omits radii below
@@ -266,7 +289,7 @@ stars. Float32 positions/order and GPU rasterization remain numerical renderer
 approximations, not a pixel-equivalence claim. Upper-only
 2D display does not remove signed lower forms from the accepted 3D cloud.
 
-The optional Klein chart retains both signed copies. Its radius is
+In Canonical mode the optional Klein chart retains both signed copies. Its radius is
 proportional to `|Δ|^(1/4)/|a′+c′|^(3/2)`, so a k-times form has 1/k radius before
 pixel clamping, and it uses the same minimum-pixel dimming as the 3D view.
 Colors remain based on each signed form's original accepted discriminant;
@@ -277,6 +300,13 @@ vertical line. Chart motion, square roots, tessellation and picking are renderer
 calculations, not additional exact Lean computations. Existing UI evidence for
 Klein does not automatically validate UHP; the fresh UHP actions above are
 separately observed.
+Source mode instead draws only base-primitive upper bodies in either chart.
+Root coordinates remain unmorphed, and their opacity uses trace crop and source
+plane emphasis independently of the 3D body's Whole radial fade and projection
+progress. Selected/paired root markers use a primitive positive representative
+for drawing and radius only; the signed selected identity remains unchanged.
+The exact deployed-source formulas and marker rules are documented in the
+[source audit](source-projection-morph-audit.md).
 The [numerical source comparison](../artifacts/uhp-numerical-audit/README.md)
 checks all 32 visible R6/D5 reference roots within 0.000018 CSS pixels. A separate
 [bounded R96 CPU benchmark](../artifacts/uhp-numerical-audit/order-benchmark.json)
@@ -285,12 +315,17 @@ checks all 270,202 upper vertices across five action states: stable ordering too
 bytes for index/order storage. These timings exclude GPU work, the rest of the
 scene update and input/display latency; they are not a frame-rate claim.
 
-Both views allow R96 without sampling; dense preview buffers update at most
-ten times per second. The **base crop remains fixed**, as in the inspected
-canonical Farey action path. Dynamic enumeration for a transformed viewport is
-not implemented; a selected form can therefore move outside the displayed base
-crop after integer absorption. Full original-source parity is not claimed. Camera
-orbit/look and algebraic drag are explicit separate modes. See the
+Both browser views allow R96 without sampling; dense geometry preview buffers
+update at most ten times per second. Canonical ball retains a fixed base crop.
+Source depth requests executable-Lean catalogues during held motion after the
+source inverse-basepoint displacement reaches `.16`. Loads have one outstanding
+request, coalesce later targets and start at least 150 ms apart. Their catalogue
+and exact plane membership are temporary renderer state. Cancellation discards
+them; release requires a matching exact action receipt before accepting the new
+scene. This remains a sampled asynchronous adaptation of the source's numerical
+frame loop, not execution of the exact real-valued pointer path. Signed selections
+persist even outside either crop. Full original-source parity is not claimed.
+Camera orbit/look and algebraic drag remain separate modes. See the
 [source-action notes](source-drag-proposal.md) and
 [acceptance receipt](POLYNOMIAL_VALIDATION.md).
 
@@ -387,14 +422,26 @@ camera transforms, ray picking, shaders, transport and physical input remain
 outside the mathematical proof boundary. See [the proof source](../lean/Polynomial/Proofs.lean)
 and [service protocol](../lean/Polynomial/PROTOCOL.md).
 
+The 48 source-morph fixtures execute extracted routines from deployed bundle
+SHA-256 `f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b`
+with inert renderer adapters. They record both double inputs and Float32-packed
+outputs. The tests do not execute its GPU/camera shader and do not prove the
+JavaScript, Swift, transport or renderer correct. Temporary preview catalogues
+are genuine executable-Lean computations, but are not accepted action receipts.
+The existing 17 kernel laws and 16 axiom audits remain unchanged.
+
 Remaining acceptance includes unexercised XR controls/failure combinations,
-native physical/free-space drag, spatial pairing, broader dense hover/transform
+native physical/free-space drag, spatial sphere pairing, broader dense hover/transform
 freshness and actual headset input, compositor behavior and comfort. Native
 R48/R96 density, actual native hover and explicit controller bindings remain gaps.
 Browser now shows simultaneous 3D/UHP panes at widths of at least 1,000 pixels;
 native now has a separately movable UHP window. URL state sharing, other source
-models and theme choices remain missing. Source recataloguing is now a separate
-mode, documented in the [current update](SOURCE_CATALOGUE_UPDATE.md). Refresh
-during continuous previews and the source projection morph remain gaps. Main
+models and theme choices remain missing. Source recataloguing and the projection
+morph are implemented, with current evidence and remaining differences recorded
+in the [morph update](SOURCE_MORPH_UPDATE.md). Current simulator evidence covers
+morph controls and linked Roots gestures, including shared Pair next followed
+by an actual Roots tap. It does not establish sphere-based spatial pairing.
+The held-preview acceptance assertion failed; successful release recropping
+does not substitute for it. Main
 Chrome was rechecked by URL and its `Emulation.setFocusEmulationEnabled` command
 timed out; IAB acceptance is explicitly a different browser surface.

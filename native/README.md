@@ -21,38 +21,108 @@ headset performance are not verified. This route concerns quadratics `ax²+bx+c`
 not arbitrary-degree polynomials.
 
 **Catalogue → Source depth** requests the separate executable-Lean source
-catalogue. Whole includes the other signed categories; with Whole off, Dust adds
-the source's small surrounding cloud. Source depth 6 buffers 212 identities at
-identity and at `M=(3,1,1,2)`, with 80 depth-visible glyphs and 63 primitive upper
-roots/projections. The unit/pair `(1,0,1)/(1,1,1)` has 24 buffered interior plane
-members at identity and 19 after D5; the corresponding visible rings are 10 and 9.
-Membership counts describe the accepted padded buffer, not only visible glyphs.
+catalogue. Switching from a smaller canonical crop starts at depth 16; smaller
+source depths remain explicit extensions. Whole includes the other signed
+categories; with Whole off, Dust adds the source's surrounding cloud. Source
+D16 identity buffers 4,406 signed forms. Membership counts describe that padded
+buffer, not only visible bodies. Source body opacity now includes the original
+Whole radial fade, screen attenuation, plane highlight and nonprimitive fade;
+the older D6 “80 visible” receipt measured only the trace-crop mask.
 
-Source mode recatalogues on each accepted action release, Identity and Snap,
-never during continuous preview. Mode/depth/Whole/Dust changes preserve the
-accepted matrix and signed pair; every response stages before atomic acceptance.
-A failure restores the previous catalogue, selection, action and control values.
-Reset restores Canonical ball/R6/Whole on/Dust off. Source roots and projection
-show primitive upper base identities; the 3D buffer still retains signed forms
-and multiples. Projection remains a radial overlay, not the source's continuous
-world-projection morph.
+**Project/Lift** animates the source world geometry with the original cubic
+3.5-second full-range timing. The progress controls scrub in quarter steps.
+Upper bodies move toward height `0.6 × depth` (adjustable from 0.15 to 1 times
+depth); their radii and alpha change with progress, and upper multiples disappear
+at full projection. Lower/null/exterior bodies stay in place. Selected and paired
+rings survive hidden/multiple identities. **Show screen** is independent of
+projection progress; the cone and cutting plane remain unmorphed. Canonical ball
+retains its earlier radial overlay. All of this is approximate renderer behavior.
 
-Source display clipping uses the browser's Float32 coordinate boundary and an
-explicit zero-opacity cutoff. Semantic colors are grouped at RGB8 precision;
-meshes, fades, clipping, approximate hit proxies and root charts are renderer
-behavior. Collision chunks carry ranges into the accepted signed catalogue;
-picking returns that stored identity, never a rounded inverse transform.
-Per-point accessibility entities and hover effects are not supplied by the
-batched renderer. Actual spatial gaze/pinch, spatial pairing and free-space
-SL₂ dragging remain unverified or absent; use the tested controls/Roots routes.
+During a source drag, at most one asynchronous Lean catalogue request runs with
+one latest pending proposal, at least 150 ms between starts and the source's 0.16
+inverse-i displacement threshold. Completed preview catalogues are ephemeral;
+accepted action, identities and scene revision stay unchanged. Cancellation
+restores the accepted scene. Release performs the complete exact transaction.
+Mode/depth/Whole/Dust changes also stage every response before acceptance; failure
+restores the previous scene and controls. Reset returns Canonical ball/R6/Whole
+on/Dust off. Actual interim-preview input acceptance is recorded separately from
+release acceptance in the latest receipt.
 
-The current density/catalogue verification passed **114 model tests**, an unsigned
-visionOS 27.2 simulator build, and one focused actual UI test (**108.059 seconds**,
-zero failures). See the [current receipt](evidence/catalogue-native-receipt.json),
-[six screenshots](evidence/screenshots/20261023T100946Z/captures.json), and
-[reviewed silent recording](../artifacts/videos/lean-starscape-native-catalogue.mp4).
-The initial R24 CPU scene rebuild measured 498.0 ms with 111 color batches; this is
-not a frame-rate or hardware benchmark. Older evidence below remains historical.
+Semantic colors use RGB8 bins. Source opacity uses 16 quantized endpoint levels
+per material, interpolated through the morph; exact per-body source calculations
+remain separately tested against 408 Float32 body outputs in 48 source cases.
+This stable partition avoids rebuilding entities on each morph tick. A recorded
+D16 half-morph update took 270.3 ms with 254 material batches, versus 455.8 ms in the
+earlier implementation. These are individual CPU rebuild observations, not FPS
+or hardware benchmarks. Meshes, fades, clipping and root charts are approximate.
+
+Collision chunks retain ranges into the accepted signed catalogue; picking
+returns the stored identity, never a rounded inverse transform. Shared **Pair
+next/Cancel** works across the main panel, Roots and spatial picking. The Origin
+sky has a persistent input shell, root-local direction conversion, explicit
+gesture ownership, cancellation and callback/rejection diagnostics. Actual
+spatial input acceptance is distinct from its passing model tests. Physical
+headset input and performance remain unverified.
+
+The current source-morph/input work passes **141 model tests** and an unsigned
+visionOS 27.2 simulator test build. The current actual morph sequence passed one
+UI test in 144.799 s, with P0/P0.5/P1, timed Project/Lift, D5, an accepted Roots swipe,
+shared pairing cancellation and Reset. Its swipe accepted on release; it did
+not observe an interim preview catalogue. See the latest
+[source-morph receipt](evidence/source-morph-native-receipt.json) for the final
+focused-input outcome, source hashes and current screenshots/video. The separate
+110630Z test verified the real shared Pair tap and held-drag release but failed
+its interim-preview assertion: two changes, one end, zero preview catalogues,
+then accepted `M=[16567,9107,16025,14845]` with the signed unit/pair intact.
+Whether the preview task reached transport before release is unresolved; the
+completed XCTest has no app console log. Origin host-input verification could
+not start because the existing Device Hub computer-control read timed out
+(`timeoutReached −10005`); no permission denial or host input occurred. Spatial
+pairing/Origin drag and physical input therefore remain unverified. The older
+[density receipt](evidence/catalogue-native-receipt.json) remains historical.
+
+
+The current P100 native disk is visibly almost empty except for selected/pair
+markers, unlike the corresponding browser disk; P50 is also sparser. CPU data
+retains the bodies and positive primitive material alpha. Physical sphere sizing
+without the browser minimum pixel footprint, linear-light opacity conversion,
+and instanced material/depth handling are concrete differences or investigation
+candidates, not an established cause. This unresolved renderer discrepancy means
+numerical fixture agreement does not establish visual parity.
+
+Reproduce the current model/build checks from `native/`:
+
+```sh
+swift test -j 2
+xcodegen generate
+DEVELOPER_DIR=/Applications/Xcode-27.2.0-Beta.2.app/Contents/Developer \
+xcodebuild -project ExteriorRoom.xcodeproj -scheme PolynomialRoom \
+  -sdk xrsimulator27.2 \
+  -destination 'platform=visionOS Simulator,id=1D261881-0A0F-4DE0-B704-12644E606348' \
+  -derivedDataPath .build CODE_SIGNING_ALLOWED=NO ARCHS=arm64 \
+  SWIFT_COMPILATION_MODE=wholemodule -jobs 2 build-for-testing
+```
+
+The existing background capture runner targets that owned simulator. These are
+separate focused tests, not a claim that the entire UI suite passed:
+
+```sh
+# Passed current run111156Z, including the final source Roots/sky build.
+python3 scripts/run-ui-tests.py --scheme PolynomialRoom \
+  --test-class PolynomialSourceMorphUITests \
+  --test-name testSourceMorphLinkedRootsDragAndSharedPairing
+
+# Current known failing regression: no interim Lean crop observed during held drag.
+python3 scripts/run-ui-tests.py --scheme PolynomialRoom \
+  --test-class PolynomialSourceMorphUITests \
+  --test-name testActualSharedRootsPairAndHeldSourcePreview
+```
+
+The second command translates to
+`-only-testing:PolynomialRoomUITests/PolynomialSourceMorphUITests/testActualSharedRootsPairAndHeldSourcePreview`
+with `test-without-building`; its assertion is intentionally retained. The failed
+run stopped before its final morph/Origin steps. Coordinate foreground use with
+other simulator owners before reproducing input tests.
 
 Launch and Reset select `(1,-1,2)`, displaying `x² − x + 2`. Spacing is presentation
 only; Lean's raw polynomial label remains unchanged. Next follows the canonical cycle:
@@ -89,23 +159,27 @@ The window shares the accepted cloud, pair, palette, size and plane fade with th
 3D scene. The orange semicircle or vertical geodesic comes from the accepted
 Lean plane endpoints, then the current approximate display action. Selected,
 paired and hovered roots show polynomial labels from validated Lean inspections.
-Only upper-positive roots are drawn; a hidden or negative signed selection is
-retained and labeled. Close/reopen preserves the accepted action and selection.
+Root bodies are upper-positive. Source selected/pair rings bypass crop and
+primitive filtering and use the positive representative for chart placement only;
+the stored signed selection remains unchanged. Close/reopen preserves the accepted action and selection.
 The Klein disk remains available separately.
 
 The Roots plot adapts the source's upper-half-plane coordinates, star-size rule,
-brightness attenuation, nearest-root selection, chart fit/pan/zoom and label
-placement. Picking and continuous previews are floating-point UI behavior. A
+brightness attenuation, chart fit/pan/zoom and label placement. Source picking
+uses packed pre-raster alpha ≥ 0.05, hit radius max(7,r+4), and the original
+distance−0.8min(r,12) ranking with first-catalogue tie order. Canonical ball
+retains its existing nearest/half-pixel tie rule. Picking and continuous previews are floating-point UI behavior. A
 release submits a declared bounded matrix to Lean, and the accepted response
 updates the Roots window and 3D scene together. A cancelled preview restores the
-accepted scene. Separate gesture ownership prevents a stale end/cancel from the
+accepted scene. The narrowed Roots window now stays within the captured guest
+frame, but it still occludes part of the 3D scene; closing it exposes the geometry. Separate gesture ownership prevents a stale end/cancel from the
 Klein disk from committing or cancelling a Roots preview, and vice versa.
 
 Open **SL₂ transform** for T, T⁻¹, S, the `i → 1+i` checkpoint, Identity and Snap.
 The checkpoint submits `M = [3,1,1,2]`, with determinant 5: Lean returns the exact
 image of the default as `(8,−23,22)/5`. Continuous actions move the drawn geometry
 while retaining its signed base triples. Canonical ball keeps its fixed crop;
-Source depth recatalogues only after Lean accepts the released action. Choose
+Source depth can display an ephemeral Lean preview catalogue during a drag; release accepts the complete action and catalogue together. Choose
 Origin to enable the Canvas Klein disk. Its implemented drag path previews an
 approximate transvection; release proposes a bounded integer matrix to Lean.
 Until that request is accepted, the previous exact action remains authoritative.
@@ -132,11 +206,12 @@ relabeling path instead of a continuous commit; enabling it also Snaps immediate
 and keeps already relabeled selections; Reset restores the canonical default.
 
 **Source (13,20,34)** inspects the recorded source point even though it is hidden
-at every native crop up to R12. Starting from Identity, T relabels it to
+at the smaller native crops up to R12. Starting from Identity, T relabels it to
 `(13,−6,27)` with the same discriminant −1368; Identity keeps that new label.
 The recorded vertical transvection Snaps to T⁴ and produces `(13,−84,162)`;
 Identity preserves this label too. Exact identities can range to ±1024 while
-the native cloud remains capped at R12. These points remain outside R12.
+the native canonical cloud remains capped at R24. These source examples remain
+explicitly hidden when outside the current accepted crop.
 The Source control does not enlarge the native cloud or make Inhabit
 available for a hidden point.
 
@@ -149,7 +224,10 @@ of Lean descriptors, not new exact Lean results.
 Exact classification, gcd/sign representatives, projection ratios, plane normals,
 endpoints and interior membership come from Lean. RealityKit draws approximate
 root/projection positions, sampled cone/plane meshes, colors and physical sphere
-sizes. It performs no discriminant, gcd, pair-plane or membership fallback.
+sizes. It performs no discriminant, gcd or pair-plane fallback. Source body highlighting
+classifies accepted signed triples against the Lean-supplied plane normal with
+bounded integer arithmetic; this renderer-only incidence check is not a new Lean
+proof or a replacement for the validated Lean membership response.
 The decoder rejects unrecognized schema/source revisions, mismatched request
 IDs, malformed arrays and inconsistent coordinate maps or descriptors. Pending
 or failed requests preserve the accepted geometry and provenance; only an
@@ -184,14 +262,15 @@ credits Katherine Stange and Harriss–Stange–Trettel's *Algebraic Number Star
 The Lean adaptation is independent. Viridis credits Smith, van der Walt and
 Firing (CC0). Source headers preserve GPL attribution.
 
-RealityKit's hover effect supplies a visual highlight; spatial polynomial inspection
-requires selection. The Roots window implements an independent hover-polynomial
+The batched spatial renderer has no per-point hover effect; spatial polynomial
+inspection requires selection. The Roots window implements an independent hover-polynomial
 readout through `onContinuousHover`; actual pointer hover remains unverified
 because public visionOS XCTest excludes its pointer-hover command. The model
 suite tests validated hover responses, stale-response cancellation and cache
 retention; those are not actual hover input tests.
-Tracked controller support, spatial point pairing and free-space SL₂ dragging
-are absent. Targeted spatial selection is gated to the accepted cloud in Overview
+Tracked controller support remains absent. Spatial pairing and Origin free-space
+dragging are implemented; their actual input acceptance is recorded separately
+from model tests in the latest receipt. Targeted spatial selection is gated to the accepted cloud in Overview
 and rejects busy or preview states. Actual entity
 gaze/pinch selection, physical-headset hand input, comfort and performance remain
 unverified. The separate Exterior Room endpoint drag/cancellation also lacks
@@ -213,7 +292,7 @@ readouts, atomic pair rollback, stale responses and cancellation of preview valu
 The 27 new Lean receipts preserve earlier fixture sets. This is model/transport evidence, not an executed
 gesture or headset receipt.
 
-The current [Roots model suite](evidence/roots-model-tests.txt) passed **88 tests,
+The historical [Roots model suite](evidence/roots-model-tests.txt) passed **88 tests,
 zero failures**: 45 polynomial model tests, 14 Roots geometry tests, 12 action
 math/decoder tests, five appearance tests and 12 Exterior Room tests. The new
 coverage includes source fit/pan/zoom/resize/picking, signed base identities,

@@ -1,0 +1,640 @@
+Command line invocation:
+    /Applications/Xcode-27.2.0-Beta.2.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/.build/Build/Products/PolynomialRoom-capture.xctestrun -destination "platform=visionOS Simulator,id=1D261881-0A0F-4DE0-B704-12644E606348" -parallel-testing-enabled NO -jobs 2 -collect-test-diagnostics never -resultBundlePath /Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/evidence/NativeUI-20261023T111156Z.xcresult "-only-testing:PolynomialRoomUITests/PolynomialSourceMorphUITests/testSourceMorphLinkedRootsDragAndSharedPairing"
+
+Writing result bundle at path:
+	/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/evidence/NativeUI-20261023T111156Z.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:visionOS Simulator, arch:arm64, id:1D261881-0A0F-4DE0-B704-12644E606348, OS:27.2, name:Exterior Room QA 2026-10-23 }
+{ platform:visionOS Simulator, arch:arm64, variant:Designed for [iPad,iPhone], id:1D261881-0A0F-4DE0-B704-12644E606348, OS:27.2, name:Exterior Room QA 2026-10-23 }
+2026-10-23 04:12:01.429839-0700 PolynomialRoomUITests-Runner[38641:11804948] [Default] Running tests...
+2026-10-23 04:12:01.436031-0700 PolynomialRoomUITests-Runner[38641:11804948] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 04:12:01.493513-0700 PolynomialRoomUITests-Runner[38641:11805473] [connection] nw_socket_copy_info [C1:2] getsockopt TCP_INFO failed [102: Operation not supported on socket]
+2026-10-23 04:12:01.495140-0700 PolynomialRoomUITests-Runner[38641:11805473] [] nw_socket_copy_info getsockopt TCP_INFO failed [102: Operation not supported on socket]
+2026-10-23 04:12:01.515635-0700 PolynomialRoomUITests-Runner[38641:11805466] [plugin] AddInstanceForFactory: No factory registered for id <CFUUID 0x105d70da0> F8BB1C28-BAE8-11D6-9C31-00039315CD46
+    t =      nans Interface orientation changed to Unknown
+objc[38641]: Class AXMRUIAccessibilityAssertionService is implemented in both /private/var/run/com.apple.security.cryptexd/mnt/com.apple.XROS.SimulatorRuntime-v24.14.5093.6.tLntQt/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/PrivateFrameworks/AccessibilityUIUtilities.framework/AccessibilityUIUtilities (0x1f00b6278) and /private/var/run/com.apple.security.cryptexd/mnt/com.apple.XROS.SimulatorRuntime-v24.14.5093.6.tLntQt/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/PrivateFrameworks/MuseAccessibilityUI.framework/MuseAccessibilityUI (0x102780118). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+2026-10-23 04:12:01.881411-0700 PolynomialRoomUITests-Runner[38641:11804948] [AXCommon] Failed to load auxiliary bundle file:///private/var/run/com.apple.security.cryptexd/mnt/com.apple.XROS.SimulatorRuntime-v24.14.5093.6.tLntQt/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS%2027.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/MuseUIKit: (null)
+Test Suite 'Selected tests' started at 2026-10-23 04:12:01.929.
+Test Suite 'PolynomialRoomUITests.xctest' started at 2026-10-23 04:12:01.929.
+Test Suite 'PolynomialSourceMorphUITests' started at 2026-10-23 04:12:01.929.
+Test Case '-[PolynomialRoomUITests.PolynomialSourceMorphUITests testSourceMorphLinkedRootsDragAndSharedPairing]' started.
+    t =     0.00s Start Test at 2026-10-23 04:12:01.932
+    t =     0.02s Set Up
+    t =     0.02s Open com.alok.PolynomialRoom
+    t =     0.02s     Launch com.alok.PolynomialRoom
+2026-10-23 04:12:02.015 xcodebuild[38558:11804478] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-10-23 04:12:02.015 xcodebuild[38558:11804478] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     0.50s         Setting up automation session
+    t =     4.15s         Wait for com.alok.PolynomialRoom to idle
+    t =     7.06s Checking `Expect predicate `exists == 1` for object "poly-connect" Button`
+    t =     7.06s     Checking existence of `"poly-connect" Button`
+    t =     7.19s Tap "poly-connect" Button
+    t =     7.19s     Wait for com.alok.PolynomialRoom to idle
+    t =     7.20s     Find the "poly-connect" Button
+    t =     7.23s     Check for interrupting elements affecting "poly-connect" Button
+    t =     7.24s         Wait for com.apple.SurfBoard to idle
+    t =     7.32s     Synthesize event
+    t =     7.80s     Wait for com.alok.PolynomialRoom to idle
+    t =     8.85s Checking `Expect predicate `label BEGINSWITH "Live Lean"` for object "poly-status" StaticText`
+    t =     8.85s     Find the "poly-status" StaticText
+    t =     8.88s Checking existence of `"poly-error" StaticText`
+    t =     8.91s Tap "poly-space" Button
+    t =     8.91s     Wait for com.alok.PolynomialRoom to idle
+    t =     8.92s     Find the "poly-space" Button
+    t =     8.95s     Check for interrupting elements affecting "poly-space" Button
+    t =     8.95s         Wait for com.apple.SurfBoard to idle
+    t =     9.03s     Synthesize event
+    t =     9.49s     Wait for com.alok.PolynomialRoom to idle
+    t =    10.85s Checking `Expect predicate `label == "Leave"` for object "poly-space" Button`
+    t =    10.85s     Find the "poly-space" Button
+    t =    11.19s Added attachment named 'lean-starscape-native-source-morph-start'
+    t =    11.20s Tap "poly-upper" Button
+    t =    11.20s     Wait for com.alok.PolynomialRoom to idle
+    t =    11.20s     Find the "poly-upper" Button
+    t =    11.25s     Check for interrupting elements affecting "poly-upper" Button
+    t =    11.26s         Wait for com.apple.SurfBoard to idle
+    t =    11.33s     Synthesize event
+    t =    11.73s     Wait for com.alok.PolynomialRoom to idle
+    t =    12.78s Checking `Expect predicate `label BEGINSWITH "Live Lean"` for object "poly-status" StaticText`
+    t =    12.78s     Find the "poly-status" StaticText
+    t =    12.84s Checking existence of `"poly-error" StaticText`
+    t =    12.89s Tap "poly-pair" Button
+    t =    12.89s     Wait for com.alok.PolynomialRoom to idle
+    t =    12.90s     Find the "poly-pair" Button
+    t =    12.95s     Check for interrupting elements affecting "poly-pair" Button
+    t =    12.95s         Wait for com.apple.SurfBoard to idle
+    t =    13.03s     Synthesize event
+    t =    13.40s     Wait for com.alok.PolynomialRoom to idle
+    t =    14.54s Checking `Expect predicate `label BEGINSWITH "Live Lean"` for object "poly-status" StaticText`
+    t =    14.57s     Find the "poly-status" StaticText
+    t =    14.63s Checking existence of `"poly-error" StaticText`
+    t =    14.68s Find the "poly-state" StaticText
+    t =    14.74s Find the "poly-plane" StaticText
+    t =    14.80s Tap "Source depth" Button
+    t =    14.80s     Wait for com.alok.PolynomialRoom to idle
+    t =    14.80s     Find the "Source depth" Button
+    t =    14.86s     Check for interrupting elements affecting "Source depth" Button
+    t =    14.86s         Wait for com.apple.SurfBoard to idle
+    t =    14.93s     Synthesize event
+    t =    15.33s     Wait for com.alok.PolynomialRoom to idle
+    t =    17.60s Checking `Expect predicate `label BEGINSWITH "Live Lean"` for object "poly-status" StaticText`
+    t =    17.60s     Find the "poly-status" StaticText
+    t =    17.70s Checking existence of `"poly-error" StaticText`
+    t =    17.77s Find the "poly-count" StaticText
+    t =    18.89s Checking `Expect predicate `label == "0%"` for object "poly-projection-value" StaticText`
+    t =    18.89s     Find the "poly-projection-value" StaticText
+    t =    20.01s Checking `Expect predicate `label CONTAINS "morph 0%"` for object "poly-render-stats" StaticText`
+    t =    20.01s     Find the "poly-render-stats" StaticText
+    t =    20.09s Find the "poly-count" StaticText
+    t =    21.26s Checking `Expect predicate `label CONTAINS "4406 buffered"` for object "poly-render-stats" StaticText`
+    t =    21.26s     Find the "poly-render-stats" StaticText
+    t =    21.34s Checking existence of `"poly-status" StaticText`
+    t =    21.42s Find the "poly-status" StaticText
+    t =    21.50s Checking existence of `"poly-count" StaticText`
+    t =    21.58s Find the "poly-count" StaticText
+    t =    21.66s Checking existence of `"poly-render-stats" StaticText`
+    t =    21.73s Find the "poly-render-stats" StaticText
+    t =    21.81s Checking existence of `"poly-state" StaticText`
+    t =    21.89s Find the "poly-state" StaticText
+    t =    21.97s Checking existence of `"poly-plane" StaticText`
+    t =    22.05s Find the "poly-plane" StaticText
+    t =    22.13s Checking existence of `"poly-members" StaticText`
+    t =    22.21s Find the "poly-members" StaticText
+    t =    22.29s Checking existence of `"poly-projection-value" StaticText`
+    t =    22.37s Find the "poly-projection-value" StaticText
+    t =    22.45s Checking existence of `"poly-projection-height-value" StaticText`
+    t =    22.52s Find the "poly-projection-height-value" StaticText
+    t =    22.60s Checking existence of `"poly-roots-matrix" StaticText`
+    t =    22.68s Checking existence of `"poly-roots-gesture" StaticText`
+    t =    22.76s Checking existence of `"poly-roots-selection" StaticText`
+    t =    22.84s Checking existence of `"poly-roots-plane" StaticText`
+    t =    22.92s Checking existence of `"poly-roots-preview-count" StaticText`
+    t =    23.00s Checking existence of `"poly-roots-preview-catalogue" StaticText`
+    t =    23.08s Added attachment named 'source-morph-00-p0-unit-pair-receipt'
+SOURCE_MORPH_UI_RECEIPT: {
+  "poly-count" : "4406 signed triples · depth 16",
+  "poly-members" : "188 buffered interior triples on the plane",
+  "poly-plane" : "2a −2c = 0 · -1 and 1",
+  "poly-projection-height-value" : "60%",
+  "poly-projection-value" : "0%",
+  "poly-render-stats" : "450 visible bodies · 2239 instances · 4406 buffered · 254 color batches · 0 projected · 50 plane-highlight bodies · 1116.0 ms update · morph 0% · h 9.6",
+  "poly-roots-gesture" : "(absent)",
+  "poly-roots-matrix" : "(absent)",
+  "poly-roots-plane" : "(absent)",
+  "poly-roots-preview-catalogue" : "(absent)",
+  "poly-roots-preview-count" : "(absent)",
+  "poly-roots-selection" : "(absent)",
+  "poly-state" : "(1, 0, 1) · Δ = -4",
+  "poly-status" : "Live Lean · 4406 signed triples · source depth 16",
+  "stage" : "source-morph-00-p0-unit-pair"
+}
+    t =    27.70s Added attachment named 'source-morph-00-p0-unit-pair'
+    t =    27.70s Added attachment named 'source-morph-00-p0-unit-pair-timing'
+    t =    27.70s Tap "poly-projection-up" Button
+    t =    27.70s     Wait for com.alok.PolynomialRoom to idle
+    t =    27.70s     Find the "poly-projection-up" Button
+    t =    27.78s     Check for interrupting elements affecting "poly-projection-up" Button
+    t =    27.79s         Wait for com.apple.SurfBoard to idle
+    t =    27.86s     Synthesize event
+    t =    28.48s     Wait for com.alok.PolynomialRoom to idle
+    t =    28.50s Tap "poly-projection-up" Button
+    t =    28.50s     Wait for com.alok.PolynomialRoom to idle
+    t =    28.50s     Find the "poly-projection-up" Button
+    t =    28.58s     Check for interrupting elements affecting "poly-projection-up" Button
+    t =    28.59s         Wait for com.apple.SurfBoard to idle
+    t =    28.66s     Synthesize event
+    t =    29.24s     Wait for com.alok.PolynomialRoom to idle
+    t =    30.31s Checking `Expect predicate `label == "50%"` for object "poly-projection-value" StaticText`
+    t =    30.31s     Find the "poly-projection-value" StaticText
+    t =    31.42s Checking `Expect predicate `label CONTAINS "morph 50%"` for object "poly-render-stats" StaticText`
+    t =    31.42s     Find the "poly-render-stats" StaticText
+    t =    31.50s Find the "poly-count" StaticText
+    t =    32.62s Checking `Expect predicate `label CONTAINS "4406 buffered"` for object "poly-render-stats" StaticText`
+    t =    32.62s     Find the "poly-render-stats" StaticText
+    t =    32.70s Checking existence of `"poly-status" StaticText`
+    t =    32.77s Find the "poly-status" StaticText
+    t =    32.85s Checking existence of `"poly-count" StaticText`
+    t =    32.93s Find the "poly-count" StaticText
+    t =    33.01s Checking existence of `"poly-render-stats" StaticText`
+    t =    33.09s Find the "poly-render-stats" StaticText
+    t =    33.17s Checking existence of `"poly-state" StaticText`
+    t =    33.24s Find the "poly-state" StaticText
+    t =    33.32s Checking existence of `"poly-plane" StaticText`
+    t =    33.40s Find the "poly-plane" StaticText
+    t =    33.48s Checking existence of `"poly-members" StaticText`
+    t =    33.56s Find the "poly-members" StaticText
+    t =    33.64s Checking existence of `"poly-projection-value" StaticText`
+    t =    33.71s Find the "poly-projection-value" StaticText
+    t =    33.79s Checking existence of `"poly-projection-height-value" StaticText`
+    t =    33.87s Find the "poly-projection-height-value" StaticText
+    t =    33.95s Checking existence of `"poly-roots-matrix" StaticText`
+    t =    34.02s Checking existence of `"poly-roots-gesture" StaticText`
+    t =    34.10s Checking existence of `"poly-roots-selection" StaticText`
+    t =    34.18s Checking existence of `"poly-roots-plane" StaticText`
+    t =    34.25s Checking existence of `"poly-roots-preview-count" StaticText`
+    t =    34.33s Checking existence of `"poly-roots-preview-catalogue" StaticText`
+    t =    34.41s Added attachment named 'source-morph-01-p50-unit-pair-receipt'
+SOURCE_MORPH_UI_RECEIPT: {
+  "poly-count" : "4406 signed triples · depth 16",
+  "poly-members" : "188 buffered interior triples on the plane",
+  "poly-plane" : "2a −2c = 0 · -1 and 1",
+  "poly-projection-height-value" : "60%",
+  "poly-projection-value" : "50%",
+  "poly-render-stats" : "2239 visible bodies · 2239 instances · 4406 buffered · 254 color batches · 0 projected · 145 plane-highlight bodies · 285.8 ms update · morph 50% · h 9.6",
+  "poly-roots-gesture" : "(absent)",
+  "poly-roots-matrix" : "(absent)",
+  "poly-roots-plane" : "(absent)",
+  "poly-roots-preview-catalogue" : "(absent)",
+  "poly-roots-preview-count" : "(absent)",
+  "poly-roots-selection" : "(absent)",
+  "poly-state" : "(1, 0, 1) · Δ = -4",
+  "poly-status" : "Live Lean · 4406 signed triples · source depth 16",
+  "stage" : "source-morph-01-p50-unit-pair"
+}
+    t =    37.49s Added attachment named 'source-morph-01-p50-unit-pair'
+    t =    37.49s Added attachment named 'source-morph-01-p50-unit-pair-timing'
+    t =    37.49s Tap "poly-projection-up" Button
+    t =    37.49s     Wait for com.alok.PolynomialRoom to idle
+    t =    37.50s     Find the "poly-projection-up" Button
+    t =    37.59s     Check for interrupting elements affecting "poly-projection-up" Button
+    t =    37.60s         Wait for com.apple.SurfBoard to idle
+    t =    37.67s     Synthesize event
+    t =    38.23s     Wait for com.alok.PolynomialRoom to idle
+    t =    38.25s Tap "poly-projection-up" Button
+    t =    38.25s     Wait for com.alok.PolynomialRoom to idle
+    t =    38.25s     Find the "poly-projection-up" Button
+    t =    38.33s     Check for interrupting elements affecting "poly-projection-up" Button
+    t =    38.34s         Wait for com.apple.SurfBoard to idle
+    t =    38.41s     Synthesize event
+    t =    38.96s     Wait for com.alok.PolynomialRoom to idle
+    t =    40.04s Checking `Expect predicate `label == "100%"` for object "poly-projection-value" StaticText`
+    t =    40.04s     Find the "poly-projection-value" StaticText
+    t =    41.16s Checking `Expect predicate `label CONTAINS "morph 100%"` for object "poly-render-stats" StaticText`
+    t =    41.16s     Find the "poly-render-stats" StaticText
+    t =    41.25s Find the "poly-projection" Button
+    t =    41.33s Tap "poly-projection" Button
+    t =    41.33s     Wait for com.alok.PolynomialRoom to idle
+    t =    41.33s     Find the "poly-projection" Button
+    t =    41.41s     Check for interrupting elements affecting "poly-projection" Button
+    t =    41.41s         Wait for com.apple.SurfBoard to idle
+    t =    41.48s     Synthesize event
+    t =    42.04s     Wait for com.alok.PolynomialRoom to idle
+    t =    43.08s Checking `Expect predicate `label == "0%"` for object "poly-projection-value" StaticText`
+    t =    43.09s     Find the "poly-projection-value" StaticText
+    t =    43.27s     Capturing element debug description
+    t =    46.06s         Requesting snapshot of accessibility hierarchy for app with pid 38872
+    t =    47.65s         Find: Descendants matching type StaticText
+    t =    47.65s         Find: Elements matching predicate '"poly-projection-value" IN identifiers'
+    t =    47.66s         Requesting snapshot of accessibility hierarchy for app with pid 38872
+    t =    49.14s         Find: Descendants matching type StaticText
+    t =    49.14s         Requesting snapshot of accessibility hierarchy for app with pid 38872
+    t =    51.06s Checking `Expect predicate `label == "0%"` for object "poly-projection-value" StaticText`
+    t =    51.06s     Find the "poly-projection-value" StaticText
+    t =    52.15s Checking `Expect predicate `label CONTAINS "morph 0%"` for object "poly-render-stats" StaticText`
+    t =    52.15s     Find the "poly-render-stats" StaticText
+    t =    52.24s Find the "poly-projection" Button
+    t =    52.32s Tap "poly-projection" Button
+    t =    52.32s     Wait for com.alok.PolynomialRoom to idle
+    t =    52.32s     Find the "poly-projection" Button
+    t =    52.40s     Check for interrupting elements affecting "poly-projection" Button
+    t =    52.41s         Wait for com.apple.SurfBoard to idle
+    t =    52.48s     Synthesize event
+    t =    52.99s     Wait for com.alok.PolynomialRoom to idle
+    t =    54.03s Checking `Expect predicate `label == "100%"` for object "poly-projection-value" StaticText`
+    t =    54.04s     Find the "poly-projection-value" StaticText
+    t =    54.23s     Capturing element debug description
+    t =    56.98s         Requesting snapshot of accessibility hierarchy for app with pid 38872
+    t =    58.35s         Find: Descendants matching type StaticText
+    t =    58.35s         Find: Elements matching predicate '"poly-projection-value" IN identifiers'
+    t =    58.36s         Requesting snapshot of accessibility hierarchy for app with pid 38872
+    t =    59.71s         Find: Descendants matching type StaticText
+    t =    59.72s         Requesting snapshot of accessibility hierarchy for app with pid 38872
+    t =    62.06s Checking `Expect predicate `label == "100%"` for object "poly-projection-value" StaticText`
+    t =    62.06s     Find the "poly-projection-value" StaticText
+    t =    63.18s Checking `Expect predicate `label CONTAINS "morph 100%"` for object "poly-render-stats" StaticText`
+    t =    63.18s     Find the "poly-render-stats" StaticText
+    t =    63.25s Find the "poly-count" StaticText
+    t =    64.33s Checking `Expect predicate `label CONTAINS "4406 buffered"` for object "poly-render-stats" StaticText`
+    t =    64.33s     Find the "poly-render-stats" StaticText
+    t =    64.41s Checking existence of `"poly-status" StaticText`
+    t =    64.49s Find the "poly-status" StaticText
+    t =    64.57s Checking existence of `"poly-count" StaticText`
+    t =    64.64s Find the "poly-count" StaticText
+    t =    64.72s Checking existence of `"poly-render-stats" StaticText`
+    t =    64.80s Find the "poly-render-stats" StaticText
+    t =    64.88s Checking existence of `"poly-state" StaticText`
+    t =    64.96s Find the "poly-state" StaticText
+    t =    65.03s Checking existence of `"poly-plane" StaticText`
+    t =    65.11s Find the "poly-plane" StaticText
+    t =    65.19s Checking existence of `"poly-members" StaticText`
+    t =    65.27s Find the "poly-members" StaticText
+    t =    65.35s Checking existence of `"poly-projection-value" StaticText`
+    t =    65.42s Find the "poly-projection-value" StaticText
+    t =    65.50s Checking existence of `"poly-projection-height-value" StaticText`
+    t =    65.58s Find the "poly-projection-height-value" StaticText
+    t =    65.66s Checking existence of `"poly-roots-matrix" StaticText`
+    t =    65.73s Checking existence of `"poly-roots-gesture" StaticText`
+    t =    65.81s Checking existence of `"poly-roots-selection" StaticText`
+    t =    65.89s Checking existence of `"poly-roots-plane" StaticText`
+    t =    65.96s Checking existence of `"poly-roots-preview-count" StaticText`
+    t =    66.04s Checking existence of `"poly-roots-preview-catalogue" StaticText`
+    t =    66.12s Added attachment named 'source-morph-02-p100-animated-unit-pair-receipt'
+SOURCE_MORPH_UI_RECEIPT: {
+  "poly-count" : "4406 signed triples · depth 16",
+  "poly-members" : "188 buffered interior triples on the plane",
+  "poly-plane" : "2a −2c = 0 · -1 and 1",
+  "poly-projection-height-value" : "60%",
+  "poly-projection-value" : "100%",
+  "poly-render-stats" : "1973 visible bodies · 2239 instances · 4406 buffered · 254 color batches · 0 projected · 111 plane-highlight bodies · 281.7 ms update · morph 100% · h 9.6",
+  "poly-roots-gesture" : "(absent)",
+  "poly-roots-matrix" : "(absent)",
+  "poly-roots-plane" : "(absent)",
+  "poly-roots-preview-catalogue" : "(absent)",
+  "poly-roots-preview-count" : "(absent)",
+  "poly-roots-selection" : "(absent)",
+  "poly-state" : "(1, 0, 1) · Δ = -4",
+  "poly-status" : "Live Lean · 4406 signed triples · source depth 16",
+  "stage" : "source-morph-02-p100-animated-unit-pair"
+}
+    t =    70.17s Added attachment named 'source-morph-02-p100-animated-unit-pair'
+    t =    70.17s Added attachment named 'source-morph-02-p100-animated-unit-pair-timing'
+    t =    70.17s Tap "poly-roots-open" Button
+    t =    70.17s     Wait for com.alok.PolynomialRoom to idle
+    t =    70.18s     Find the "poly-roots-open" Button
+    t =    70.26s     Check for interrupting elements affecting "poly-roots-open" Button
+    t =    70.27s         Wait for com.apple.SurfBoard to idle
+    t =    70.34s     Synthesize event
+    t =    70.77s     Wait for com.alok.PolynomialRoom to idle
+    t =    72.03s Checking `Expect predicate `exists == 1` for object "poly-roots-chart" Any`
+    t =    72.03s     Checking existence of `"poly-roots-chart" Any`
+    t =    72.06s Tap "poly-roots-checkpoint" Button
+    t =    72.07s     Wait for com.alok.PolynomialRoom to idle
+    t =    72.07s     Find the "poly-roots-checkpoint" Button
+    t =    72.16s     Check for interrupting elements affecting "poly-roots-checkpoint" Button
+    t =    72.17s         Wait for com.apple.SurfBoard to idle
+    t =    72.24s     Synthesize event
+    t =    72.72s     Wait for com.alok.PolynomialRoom to idle
+    t =    74.37s Checking `Expect predicate `label BEGINSWITH "Live Lean"` for object "poly-status" StaticText`
+    t =    74.37s     Find the "poly-status" StaticText
+    t =    74.47s Checking existence of `"poly-error" StaticText`
+    t =    74.56s Find the "poly-count" StaticText
+    t =    75.68s Checking `Expect predicate `label CONTAINS "4406 buffered"` for object "poly-render-stats" StaticText`
+    t =    75.69s     Find the "poly-render-stats" StaticText
+    t =    75.78s Find the "poly-roots-matrix" StaticText
+    t =    75.86s Find the "poly-roots-selection" StaticText
+    t =    75.95s Find the "poly-roots-plane" StaticText
+    t =    76.05s Checking existence of `"poly-status" StaticText`
+    t =    76.14s Find the "poly-status" StaticText
+    t =    76.23s Checking existence of `"poly-count" StaticText`
+    t =    76.32s Find the "poly-count" StaticText
+    t =    76.41s Checking existence of `"poly-render-stats" StaticText`
+    t =    76.50s Find the "poly-render-stats" StaticText
+    t =    76.59s Checking existence of `"poly-state" StaticText`
+    t =    76.68s Find the "poly-state" StaticText
+    t =    76.78s Checking existence of `"poly-plane" StaticText`
+    t =    76.86s Find the "poly-plane" StaticText
+    t =    76.96s Checking existence of `"poly-members" StaticText`
+    t =    77.05s Find the "poly-members" StaticText
+    t =    77.14s Checking existence of `"poly-projection-value" StaticText`
+    t =    77.23s Find the "poly-projection-value" StaticText
+    t =    77.32s Checking existence of `"poly-projection-height-value" StaticText`
+    t =    77.41s Find the "poly-projection-height-value" StaticText
+    t =    77.51s Checking existence of `"poly-roots-matrix" StaticText`
+    t =    77.59s Find the "poly-roots-matrix" StaticText
+    t =    77.69s Checking existence of `"poly-roots-gesture" StaticText`
+    t =    77.78s Find the "poly-roots-gesture" StaticText
+    t =    77.87s Checking existence of `"poly-roots-selection" StaticText`
+    t =    77.96s Find the "poly-roots-selection" StaticText
+    t =    78.05s Checking existence of `"poly-roots-plane" StaticText`
+    t =    78.14s Find the "poly-roots-plane" StaticText
+    t =    78.23s Checking existence of `"poly-roots-preview-count" StaticText`
+    t =    78.33s Find the "poly-roots-preview-count" StaticText
+    t =    78.42s Checking existence of `"poly-roots-preview-catalogue" StaticText`
+    t =    78.52s Added attachment named 'source-morph-03-d5-p100-linked-roots-receipt'
+SOURCE_MORPH_UI_RECEIPT: {
+  "poly-count" : "4406 signed triples · depth 16",
+  "poly-members" : "152 buffered interior triples on the plane",
+  "poly-plane" : "Base 2a −2c = 0 · -1 and 1 · shown ≈ -2.000 and 1.333",
+  "poly-projection-height-value" : "60%",
+  "poly-projection-value" : "100%",
+  "poly-render-stats" : "1973 visible bodies · 2239 instances · 4406 buffered · 286 color batches · 0 projected · 98 plane-highlight bodies · 499.0 ms update · morph 100% · h 9.6",
+  "poly-roots-gesture" : "Changed 0 · ended 0 · Drag a root to move the cloud.",
+  "poly-roots-matrix" : "M = [3, 1, 1, 2]",
+  "poly-roots-plane" : "Base 2a −2c = 0 · -1 and 1 · shown ≈ -2.000 and 1.333",
+  "poly-roots-preview-catalogue" : "(absent)",
+  "poly-roots-preview-count" : "Preview crops accepted: 0",
+  "poly-roots-selection" : "x² + 1 · (1, 0, 1) · Δ = -4",
+  "poly-state" : "(1, 0, 1) · Δ = -4",
+  "poly-status" : "Live Lean · 4406 signed triples · source depth 16",
+  "stage" : "source-morph-03-d5-p100-linked-roots"
+}
+    t =    81.58s Added attachment named 'source-morph-03-d5-p100-linked-roots'
+    t =    81.59s Added attachment named 'source-morph-03-d5-p100-linked-roots-timing'
+    t =    81.59s Tap "Move" Button
+    t =    81.59s     Wait for com.alok.PolynomialRoom to idle
+    t =    81.59s     Find the "Move" Button
+    t =    81.70s     Check for interrupting elements affecting "Move" Button
+    t =    81.71s         Wait for com.apple.SurfBoard to idle
+    t =    81.78s     Synthesize event
+    t =    82.25s     Wait for com.alok.PolynomialRoom to idle
+    t =    82.25s Find the "poly-roots-matrix" StaticText
+    t =    82.35s Checking existence of `"poly-roots-preview-count" StaticText`
+    t =    82.45s Find the "poly-roots-preview-count" StaticText
+    t =    82.54s Swipe right "poly-roots-chart" Any
+    t =    82.54s     Wait for com.alok.PolynomialRoom to idle
+    t =    82.54s     Find the "poly-roots-chart" Any
+    t =    82.57s     Check for interrupting elements affecting "poly-roots-chart" Other
+    t =    82.57s         Wait for com.apple.SurfBoard to idle
+    t =    82.65s     Synthesize event
+    t =    86.06s     Wait for com.alok.PolynomialRoom to idle
+    t =    86.08s Find the "poly-roots-chart" Other
+    t =    86.11s Find the "poly-roots-chart" Other
+    t =    86.13s Checking existence of `"poly-roots-gesture" StaticText`
+    t =    86.23s Find the "poly-roots-gesture" StaticText
+    t =    86.32s Checking existence of `"poly-roots-preview-count" StaticText`
+    t =    86.42s Find the "poly-roots-preview-count" StaticText
+    t =    86.51s Added attachment named 'source-roots-slow-swipe-diagnostic'
+    t =    87.55s Checking `Expect predicate `label != "M = [3, 1, 1, 2]"` for object "poly-roots-matrix" StaticText`
+    t =    87.55s     Find the "poly-roots-matrix" StaticText
+    t =    87.64s     Capturing element debug description
+    t =    87.68s         Requesting snapshot of accessibility hierarchy for app with pid 38872
+    t =    89.30s         Find: Descendants matching type StaticText
+    t =    89.31s         Find: Elements matching predicate '"poly-roots-matrix" IN identifiers'
+    t =    89.31s         Requesting snapshot of accessibility hierarchy for app with pid 38872
+    t =    92.98s         Find: Descendants matching type StaticText
+    t =    92.99s         Requesting snapshot of accessibility hierarchy for app with pid 38872
+    t =    95.60s Checking `Expect predicate `label != "M = [3, 1, 1, 2]"` for object "poly-roots-matrix" StaticText`
+    t =    95.60s     Find the "poly-roots-matrix" StaticText
+    t =    96.72s Checking `Expect predicate `label BEGINSWITH "Live Lean"` for object "poly-status" StaticText`
+    t =    96.72s     Find the "poly-status" StaticText
+    t =    96.83s Checking existence of `"poly-error" StaticText`
+    t =    96.94s Find the "poly-count" StaticText
+    t =    98.10s Checking `Expect predicate `label CONTAINS "4229 buffered"` for object "poly-render-stats" StaticText`
+    t =    98.10s     Find the "poly-render-stats" StaticText
+    t =    98.22s Find the "poly-roots-status" StaticText
+    t =    98.33s Find the "poly-roots-selection" StaticText
+    t =    98.44s Find the "poly-roots-plane" StaticText
+    t =    98.54s Checking existence of `"poly-roots-preview-count" StaticText`
+    t =    98.65s Find the "poly-roots-preview-count" StaticText
+    t =    98.75s Checking existence of `"poly-status" StaticText`
+    t =    98.86s Find the "poly-status" StaticText
+    t =    98.97s Checking existence of `"poly-count" StaticText`
+    t =    99.08s Find the "poly-count" StaticText
+    t =    99.19s Checking existence of `"poly-render-stats" StaticText`
+    t =    99.29s Find the "poly-render-stats" StaticText
+    t =    99.40s Checking existence of `"poly-state" StaticText`
+    t =    99.51s Find the "poly-state" StaticText
+    t =    99.62s Checking existence of `"poly-plane" StaticText`
+    t =    99.73s Find the "poly-plane" StaticText
+    t =    99.83s Checking existence of `"poly-members" StaticText`
+    t =    99.94s Find the "poly-members" StaticText
+    t =   100.05s Checking existence of `"poly-projection-value" StaticText`
+    t =   100.16s Find the "poly-projection-value" StaticText
+    t =   100.27s Checking existence of `"poly-projection-height-value" StaticText`
+    t =   100.37s Find the "poly-projection-height-value" StaticText
+    t =   100.48s Checking existence of `"poly-roots-matrix" StaticText`
+    t =   100.59s Find the "poly-roots-matrix" StaticText
+    t =   100.70s Checking existence of `"poly-roots-gesture" StaticText`
+    t =   100.80s Find the "poly-roots-gesture" StaticText
+    t =   100.91s Checking existence of `"poly-roots-selection" StaticText`
+    t =   101.02s Find the "poly-roots-selection" StaticText
+    t =   101.13s Checking existence of `"poly-roots-plane" StaticText`
+    t =   101.24s Find the "poly-roots-plane" StaticText
+    t =   101.35s Checking existence of `"poly-roots-preview-count" StaticText`
+    t =   101.46s Find the "poly-roots-preview-count" StaticText
+    t =   101.57s Checking existence of `"poly-roots-preview-catalogue" StaticText`
+    t =   101.68s Added attachment named 'source-morph-04-actual-roots-swipe-receipt'
+SOURCE_MORPH_UI_RECEIPT: {
+  "matrixBefore" : "M = [3, 1, 1, 2]",
+  "poly-count" : "4229 signed triples · depth 16",
+  "poly-members" : "20 buffered interior triples on the plane",
+  "poly-plane" : "Base 2a −2c = 0 · -1 and 1 · shown ≈ 3.866 and 1.344",
+  "poly-projection-height-value" : "60%",
+  "poly-projection-value" : "100%",
+  "poly-render-stats" : "2131 visible bodies · 2422 instances · 4229 buffered · 526 color batches · 0 projected · 26 plane-highlight bodies · 1187.6 ms update · morph 100% · h 9.6",
+  "poly-roots-gesture" : "Changed 2 · ended 1 · Released declared sample to Lean",
+  "poly-roots-matrix" : "M = [22885, 10556, 14031, 10842]",
+  "poly-roots-plane" : "Base 2a −2c = 0 · -1 and 1 · shown ≈ 3.866 and 1.344",
+  "poly-roots-preview-catalogue" : "(absent)",
+  "poly-roots-preview-count" : "Preview crops accepted: 0",
+  "poly-roots-selection" : "x² + 1 · (1, 0, 1) · Δ = -4",
+  "poly-state" : "(1, 0, 1) · Δ = -4",
+  "poly-status" : "Live Lean · 4229 signed triples · source depth 16",
+  "previewAcceptancesAfter" : "0",
+  "previewAcceptancesBefore" : "0",
+  "previewDuringSwipe" : "not observed; accepted release only",
+  "stage" : "source-morph-04-actual-roots-swipe"
+}
+    t =   111.92s Added attachment named 'source-morph-04-actual-roots-swipe'
+    t =   111.92s Added attachment named 'source-morph-04-actual-roots-swipe-timing'
+    t =   111.92s Tap "poly-pair-next" Button
+    t =   111.92s     Wait for com.alok.PolynomialRoom to idle
+    t =   111.93s     Find the "poly-pair-next" Button
+    t =   112.04s     Check for interrupting elements affecting "poly-pair-next" Button
+    t =   112.04s         Wait for com.apple.SurfBoard to idle
+    t =   112.11s     Synthesize event
+    t =   112.53s     Wait for com.alok.PolynomialRoom to idle
+    t =   113.63s Checking `Expect predicate `exists == 1` for object "poly-roots-pair-next-state" StaticText`
+    t =   113.63s     Checking existence of `"poly-roots-pair-next-state" StaticText`
+    t =   113.75s Checking existence of `"poly-pair-next-state" StaticText`
+    t =   113.86s Tap "poly-roots-pair-next" Button
+    t =   113.86s     Wait for com.alok.PolynomialRoom to idle
+    t =   113.86s     Find the "poly-roots-pair-next" Button
+    t =   113.97s     Check for interrupting elements affecting "poly-roots-pair-next" Button
+    t =   113.98s         Wait for com.apple.SurfBoard to idle
+    t =   114.06s     Synthesize event
+    t =   114.52s     Wait for com.alok.PolynomialRoom to idle
+    t =   115.60s Checking `Expect predicate `exists == 0` for object "poly-pair-next-state" StaticText`
+    t =   115.61s     Checking existence of `"poly-pair-next-state" StaticText`
+    t =   115.71s Tap "poly-roots-pair-next" Button
+    t =   115.71s     Wait for com.alok.PolynomialRoom to idle
+    t =   115.72s     Find the "poly-roots-pair-next" Button
+    t =   115.82s     Check for interrupting elements affecting "poly-roots-pair-next" Button
+    t =   115.83s         Wait for com.apple.SurfBoard to idle
+    t =   115.90s     Synthesize event
+    t =   116.37s     Wait for com.alok.PolynomialRoom to idle
+    t =   117.40s Checking `Expect predicate `exists == 1` for object "poly-pair-next-state" StaticText`
+    t =   117.40s     Checking existence of `"poly-pair-next-state" StaticText`
+    t =   117.51s Tap "poly-roots-close" Button
+    t =   117.51s     Wait for com.alok.PolynomialRoom to idle
+    t =   117.52s     Find the "poly-roots-close" Button
+    t =   117.63s     Check for interrupting elements affecting "poly-roots-close" Button
+    t =   117.63s         Wait for com.apple.SurfBoard to idle
+    t =   117.71s     Synthesize event
+    t =   118.17s     Wait for com.alok.PolynomialRoom to idle
+    t =   119.18s Checking `Expect predicate `exists == 0` for object "poly-roots-chart" Other`
+    t =   119.18s     Checking existence of `"poly-roots-chart" Other`
+    t =   120.08s Checking existence of `"poly-pair-next-state" StaticText`
+    t =   120.19s Checking existence of `"poly-status" StaticText`
+    t =   120.28s Find the "poly-status" StaticText
+    t =   120.38s Checking existence of `"poly-count" StaticText`
+    t =   120.48s Find the "poly-count" StaticText
+    t =   120.57s Checking existence of `"poly-render-stats" StaticText`
+    t =   120.67s Find the "poly-render-stats" StaticText
+    t =   120.76s Checking existence of `"poly-state" StaticText`
+    t =   120.86s Find the "poly-state" StaticText
+    t =   120.96s Checking existence of `"poly-plane" StaticText`
+    t =   121.05s Find the "poly-plane" StaticText
+    t =   121.15s Checking existence of `"poly-members" StaticText`
+    t =   121.25s Find the "poly-members" StaticText
+    t =   121.35s Checking existence of `"poly-projection-value" StaticText`
+    t =   121.44s Find the "poly-projection-value" StaticText
+    t =   121.54s Checking existence of `"poly-projection-height-value" StaticText`
+    t =   121.64s Find the "poly-projection-height-value" StaticText
+    t =   121.73s Checking existence of `"poly-roots-matrix" StaticText`
+    t =   121.83s Checking existence of `"poly-roots-gesture" StaticText`
+    t =   121.93s Checking existence of `"poly-roots-selection" StaticText`
+    t =   122.02s Checking existence of `"poly-roots-plane" StaticText`
+    t =   122.12s Checking existence of `"poly-roots-preview-count" StaticText`
+    t =   122.22s Checking existence of `"poly-roots-preview-catalogue" StaticText`
+    t =   122.31s Added attachment named 'source-morph-05-roots-closed-unoccluded-scene-receipt'
+SOURCE_MORPH_UI_RECEIPT: {
+  "poly-count" : "4229 signed triples · depth 16",
+  "poly-members" : "20 buffered interior triples on the plane",
+  "poly-plane" : "Base 2a −2c = 0 · -1 and 1 · shown ≈ 3.866 and 1.344",
+  "poly-projection-height-value" : "60%",
+  "poly-projection-value" : "100%",
+  "poly-render-stats" : "2131 visible bodies · 2422 instances · 4229 buffered · 526 color batches · 0 projected · 26 plane-highlight bodies · 1187.6 ms update · morph 100% · h 9.6",
+  "poly-roots-gesture" : "(absent)",
+  "poly-roots-matrix" : "(absent)",
+  "poly-roots-plane" : "(absent)",
+  "poly-roots-preview-catalogue" : "(absent)",
+  "poly-roots-preview-count" : "(absent)",
+  "poly-roots-selection" : "(absent)",
+  "poly-state" : "(1, 0, 1) · Δ = -4",
+  "poly-status" : "Live Lean · 4229 signed triples · source depth 16",
+  "stage" : "source-morph-05-roots-closed-unoccluded-scene"
+}
+    t =   123.06s Added attachment named 'source-morph-05-roots-closed-unoccluded-scene'
+    t =   123.06s Added attachment named 'source-morph-05-roots-closed-unoccluded-scene-timing'
+    t =   123.06s Tap "poly-pair-next" Button
+    t =   123.06s     Wait for com.alok.PolynomialRoom to idle
+    t =   123.07s     Find the "poly-pair-next" Button
+    t =   123.18s     Check for interrupting elements affecting "poly-pair-next" Button
+    t =   123.19s         Wait for com.apple.SurfBoard to idle
+    t =   123.26s     Synthesize event
+    t =   123.65s     Wait for com.alok.PolynomialRoom to idle
+    t =   124.69s Checking `Expect predicate `exists == 1` for object "poly-pair-next-state" StaticText`
+    t =   124.69s     Checking existence of `"poly-pair-next-state" StaticText`
+    t =   124.79s Tap "poly-reset" Button
+    t =   124.79s     Wait for com.alok.PolynomialRoom to idle
+    t =   124.80s     Find the "poly-reset" Button
+    t =   124.90s     Check for interrupting elements affecting "poly-reset" Button
+    t =   124.90s         Wait for com.apple.SurfBoard to idle
+    t =   124.98s     Synthesize event
+    t =   126.04s     Wait for com.alok.PolynomialRoom to idle
+    t =   127.08s Checking `Expect predicate `label BEGINSWITH "Live Lean"` for object "poly-status" StaticText`
+    t =   127.08s     Find the "poly-status" StaticText
+    t =   127.13s Checking existence of `"poly-error" StaticText`
+    t =   127.19s Find the "poly-count" StaticText
+    t =   128.28s Checking `Expect predicate `label CONTAINS "480 buffered"` for object "poly-render-stats" StaticText`
+    t =   128.29s     Find the "poly-render-stats" StaticText
+    t =   128.34s Checking existence of `"poly-pair-next-state" StaticText`
+    t =   128.39s Find the "poly-state" StaticText
+    t =   128.44s Find the "poly-count" StaticText
+    t =   128.49s Checking existence of `"poly-plane" StaticText`
+    t =   128.54s Checking existence of `"poly-status" StaticText`
+    t =   128.59s Find the "poly-status" StaticText
+    t =   128.64s Checking existence of `"poly-count" StaticText`
+    t =   128.69s Find the "poly-count" StaticText
+    t =   128.74s Checking existence of `"poly-render-stats" StaticText`
+    t =   128.79s Find the "poly-render-stats" StaticText
+    t =   128.84s Checking existence of `"poly-state" StaticText`
+    t =   128.89s Find the "poly-state" StaticText
+    t =   128.94s Checking existence of `"poly-plane" StaticText`
+    t =   128.99s Checking existence of `"poly-members" StaticText`
+    t =   129.04s Checking existence of `"poly-projection-value" StaticText`
+    t =   129.09s Checking existence of `"poly-projection-height-value" StaticText`
+    t =   129.14s Checking existence of `"poly-roots-matrix" StaticText`
+    t =   129.19s Checking existence of `"poly-roots-gesture" StaticText`
+    t =   129.28s Checking existence of `"poly-roots-selection" StaticText`
+    t =   129.33s Checking existence of `"poly-roots-plane" StaticText`
+    t =   129.38s Checking existence of `"poly-roots-preview-count" StaticText`
+    t =   129.43s Checking existence of `"poly-roots-preview-catalogue" StaticText`
+    t =   129.48s Added attachment named 'source-morph-06-reset-clears-pairing-receipt'
+SOURCE_MORPH_UI_RECEIPT: {
+  "poly-count" : "480 signed triples · R6",
+  "poly-members" : "(absent)",
+  "poly-plane" : "(absent)",
+  "poly-projection-height-value" : "(absent)",
+  "poly-projection-value" : "(absent)",
+  "poly-render-stats" : "480 instances · 480 buffered · 15 color batches · 0 projected · 0 plane rings · 336.9 ms update",
+  "poly-roots-gesture" : "(absent)",
+  "poly-roots-matrix" : "(absent)",
+  "poly-roots-plane" : "(absent)",
+  "poly-roots-preview-catalogue" : "(absent)",
+  "poly-roots-preview-count" : "(absent)",
+  "poly-roots-selection" : "(absent)",
+  "poly-state" : "(1, -1, 2) · Δ = -7",
+  "poly-status" : "Live Lean · 480 signed triples",
+  "stage" : "source-morph-06-reset-clears-pairing"
+}
+    t =   134.10s Added attachment named 'source-morph-06-reset-clears-pairing'
+    t =   134.10s Added attachment named 'source-morph-06-reset-clears-pairing-timing'
+    t =   134.11s Tap "poly-space" Button
+    t =   134.11s     Wait for com.alok.PolynomialRoom to idle
+    t =   134.11s     Find the "poly-space" Button
+    t =   134.17s     Check for interrupting elements affecting "poly-space" Button
+    t =   134.17s         Wait for com.apple.SurfBoard to idle
+    t =   134.24s     Synthesize event
+    t =   134.63s     Wait for com.alok.PolynomialRoom to idle
+    t =   139.79s Added attachment named 'lean-starscape-native-source-morph-stop'
+    t =   139.79s Tear Down
+Test Case '-[PolynomialRoomUITests.PolynomialSourceMorphUITests testSourceMorphLinkedRootsDragAndSharedPairing]' passed (144.799 seconds).
+Test Suite 'PolynomialSourceMorphUITests' passed at 2026-10-23 04:14:26.731.
+	 Executed 1 test, with 0 failures (0 unexpected) in 144.799 (144.801) seconds
+Test Suite 'PolynomialRoomUITests.xctest' passed at 2026-10-23 04:14:26.731.
+	 Executed 1 test, with 0 failures (0 unexpected) in 144.799 (144.802) seconds
+Test Suite 'Selected tests' passed at 2026-10-23 04:14:26.731.
+	 Executed 1 test, with 0 failures (0 unexpected) in 144.799 (144.803) seconds
+2026-10-23 04:14:27.022 xcodebuild[38558:11804478] [MT] IDETestOperationsObserverDebug: 149.237 elapsed -- Testing started completed.
+2026-10-23 04:14:27.022 xcodebuild[38558:11804478] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 04:14:27.022 xcodebuild[38558:11804478] [MT] IDETestOperationsObserverDebug: 149.237 sec, +149.237 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/evidence/NativeUI-20261023T111156Z.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

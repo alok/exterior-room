@@ -570,3 +570,43 @@ test('actual compiled Lean source catalogues and candidate memberships pass clie
   assert.equal(upperOnly.count,187);assert.equal(upperOnly.catalogue.otherScanBound,0);assert.equal(upperOnly.upperOnly,true);
   client.activateCloud(upperOnly);assert.equal(client.cloud(),upperOnly);assert.ok([...upperOnly.kind].every(k=>k===2));
 });
+
+test('retained preview membership and render-only records survive a newer staged load without publishing either cloud',async t=>{
+  const {client}=await setup(t,r=>r.op==='cloud'?page(r):r.op==='plane'?plane:r.op==='membersCatalogue'?sourceMembers(r):sourcePage(r,2000000));
+  const accepted=await client.loadCloud(6),preview=await client.loadCatalogue(6,[1,0,0,1]);
+  await client.preparePlane(plane.normal,undefined,preview);
+  const release=client.retainCloudCandidate(preview);client.setRenderCloud(preview);
+  assert.equal(client.recordFor([1,3,4]).delta,-7);assert.equal(client.cloud(),accepted);assert.equal(client.diagnostics().cloudCount,4);
+  const next=await client.loadCatalogue(6,[3,1,1,2]);
+  assert.equal(client.hasMembership(plane.normal,preview),true);assert.equal(client.recordFor([1,3,4]).delta,-7);
+  release();release();assert.equal(client.hasMembership(plane.normal,preview),true,'render pointer holds its own lease');
+  client.setRenderCloud(null);assert.equal(client.hasMembership(plane.normal,preview),false);
+  assert.throws(()=>client.recordFor([1,3,4]),/no accepted Lean data/);
+  assert.throws(()=>client.setRenderCloud(preview),/no longer current/);
+  assert.throws(()=>client.retainCloudCandidate({...next}),/no longer current/);
+  const nextRelease=client.retainCloudCandidate(next);await client.loadCatalogue(6,[1,0,0,1]);
+  assert.equal(client.activateCloud(next),next,'a prepared leased candidate may be accepted after an unrelated staging generation');nextRelease();
+});
+
+test('cancellation, currency failure and activation revoke ephemeral render lookups while exact inspections stay cached',async t=>{
+  const {client}=await setup(t,r=>r.op==='cloud'?page(r):r.op==='inspect'?upper:sourcePage(r,2000000));
+  const accepted=await client.loadCloud(6);await client.inspect(upper.point);
+  let current=true;const a=await client.loadCatalogue(6,[1,0,0,1],{}, {isCurrent:()=>current}),release=client.retainCloudCandidate(a);
+  client.setRenderCloud(a);current=false;assert.throws(()=>client.recordFor([1,3,4]),/no accepted Lean data/);release();
+  const b=await client.loadCatalogue(6,[1,0,0,1]),bRelease=client.retainCloudCandidate(b);client.setRenderCloud(b);
+  client.cancelCloudLoad();assert.equal(client.activateCloud(b),null);assert.throws(()=>client.setRenderCloud(b),/no longer current/);
+  assert.throws(()=>client.recordFor([1,3,4]),/no accepted Lean data/);assert.deepEqual(client.recordFor(upper.point).root,upper.root);bRelease();
+  const c=await client.loadCatalogue(6,[1,0,0,1]);client.setRenderCloud(c);client.activateCloud(accepted);
+  assert.throws(()=>client.recordFor([1,3,4]),/no accepted Lean data/);assert.equal(client.cloud(),accepted);
+});
+
+test('publishing a prepared preview revokes older leases and a newer unfinished staging request',async t=>{
+  let gate=null;
+  const {client}=await setup(t,r=>gate?gate.promise:sourcePage(r,2000000));
+  const first=await client.loadCatalogue(6,[1,0,0,1]),releaseFirst=client.retainCloudCandidate(first);
+  const next=await client.loadCatalogue(6,[3,1,1,2]),releaseNext=client.retainCloudCandidate(next);
+  gate=deferred();const pending=client.loadCatalogue(6,[1,0,0,1]);client.activateCloud(next);
+  gate.resolve(sourcePage({depth:6,matrix:[1,0,0,1],whole:true,dust:false},2000000));
+  assert.equal(await pending,null);assert.equal(client.activateCloud(first),null);assert.equal(client.cloud(),next);
+  assert.throws(()=>client.setRenderCloud(first),/no longer current/);releaseFirst();releaseNext();
+});

@@ -14,7 +14,7 @@ The repository name stays `alok/exterior-room`; its earlier vector/wedge
 experiment is preserved separately at `/exterior/` and is not part of the
 Starscape parity claim.
 
-![Lean-backed source catalogue with linked coefficient space and roots](artifacts/screenshots/catalogue-20261023/08-final-source-D5.png)
+![Lean-backed source catalogue with linked coefficient space and roots](artifacts/screenshots/morph-final-20261023/12-production-source-d5.png)
 
 ## Run locally
 
@@ -41,7 +41,7 @@ this is **not a hosted app or Lean compiled to WebAssembly**.
 1. Inspect the default signed form `(1,−1,2)`, Δ = −7. **Next point** preserves
    a multiple’s distinct coefficients even when it shares another form’s root.
 2. Select `(1,0,1)`, enter `(1,1,1)`, then **Pair entered point**. Lean returns
-   `2a − 2c = 0`, endpoints −1 and 1, and 22 interior triples in the R6 crop.
+   `2a − 2c = 0`, endpoints −1 and 1, and 22 interior triples in Canonical ball R6.
 3. Toggle projection, **Origin**, **Other side**, **Inhabit**, and Overview.
    Change size, palette and plane fade; Reset retains appearance preferences.
 4. Drag the roots pane (choose **2D roots** in a narrow window); **Move forms** enables the corresponding
@@ -53,20 +53,30 @@ this is **not a hosted app or Lean compiled to WebAssembly**.
    Select `(13,20,34)` and apply **T** to obtain `(13,−6,27)`. The source
    vertical-drag counterexample followed by **Snap** instead absorbs **T⁴**,
    giving `(13,−84,162)`, still with Δ = −1368. Exact identities may be outside
-   the displayed crop; the app retains them and explicitly marks them hidden.
+   the displayed crop. Canonical mode marks them hidden; Source retains independent
+   selection rings even when a body is outside the crop.
 
 Choose **Source depth** to use the original viewer’s upper trace and other-point
-catalogues, with primitive upper roots and Whole/Dust controls. Catalogue,
-action and exact plane membership are accepted together. Choose **Canonical
-ball** for the separate fixed signed-ball contract. See the
-[source catalogue update](docs/SOURCE_CATALOGUE_UPDATE.md) for exact boundary
-differences, release-only recropping and resource limits.
+catalogues, with primitive upper roots and Whole/Dust controls. Entering Source
+from a smaller crop chooses depth **16**; the original viewer defaults to **48**.
+**Project/Lift** moves upper stars continuously to a disk at `Y=.6×depth` by
+default. Screen visibility and height are separate controls. Nonprimitive upper
+bodies fade out; their signed selections remain. Canonical ball keeps its separate
+fixed signed-ball contract and `Y=4` projection overlay.
+
+During a held drag, bounded quantized samples request fresh Lean catalogues and
+plane membership. These scenes are temporary: release accepts the exact action
+and matching catalogue together, while cancellation restores the accepted scene.
+See the [current morph update](docs/SOURCE_MORPH_UPDATE.md),
+[source numerical audit](docs/source-projection-morph-audit.md), and
+[catalogue bounds](docs/SOURCE_CATALOGUE_UPDATE.md).
 
 [Two-minute guide](docs/SHOWCASE.md) · [behavior/parity matrix](docs/FUNCTIONAL_PARITY.md)
 
 ## What matches, and what is still missing
 
-The [source-catalogue update](docs/SOURCE_CATALOGUE_UPDATE.md),
+The [source-morph update](docs/SOURCE_MORPH_UPDATE.md),
+[source-catalogue update](docs/SOURCE_CATALOGUE_UPDATE.md),
 [linked-roots update](docs/LINKED_ROOTS_UPDATE.md),
 [polar-Snap checkpoint](docs/STARSCAPE_PARITY_UPDATE.md) and
 [earlier validation receipt](docs/POLYNOMIAL_VALIDATION.md) separate arithmetic
@@ -76,11 +86,11 @@ Full functional or visual parity has **not** been established.
 | Behavior | Current evidence and limits |
 | --- | --- |
 | Signed points, exact selection, pairs and cutting planes | Lean output compared against canonical fixtures. Both renderers show the same R6 pair, plane and 22 members. |
-| Colors, size, fade and projection | Corresponding states visually inspected. Native physical spheres and browser pixel-sized discs differ; no pixel equality claim. |
-| Linked Möbius motion, Snap and Identity | Browser 2D/3D pointer motion and synthetic controller motion tested. Native disk swipe and directional controls tested; native free-space hand/controller dragging remains missing. |
+| Colors, size, fade and projection | Source morph position, radius and opacity are checked against 48 evaluations of the deployed numerical code. Actual browser and simulator controls reach 0%, 50% and 100%. Source cone extends to `R` above and `−.3R` below; the plane adapter rescales existing tessellation to source bounds. Materials, visible density, mesh sampling and camera framing still differ. |
+| Linked Möbius motion, Snap and Identity | Browser 2D/3D pointer motion and synthetic controller motion tested. Native Roots swipe and directional controls tested. Origin free-space drag is implemented and model-tested, but actual input remains unverified. |
 | Roots chart | Browser shows linked 3D/UHP panes together on wide windows, with an optional Klein model. Native now has a separate linked UHP Roots window with selection, pairing, labels and geodesics. Other source models and theme controls remain gaps. |
 | Selection and hover | Browser polynomial hover and picking are exercised. Native Roots has actual simulator tap/pair evidence and a cancellable Lean hover inspector; its pointer-hover callback remains unverified because visionOS XCUI excludes hover. Physical gaze/pinch and explicit controller bindings are unverified. |
-| Density and crop | Separate Canonical ball and Source depth modes. Browser source depth96 rendered 769,788 buffered forms with an explicit upper-cap notice. Source depth24 has 14,966 forms. Native now supports R24/28,832 canonical forms using shared instances, with a 40,000-form budget; larger native ranges remain unavailable. Source recrops on accepted release; continuous-preview refresh and the source projection morph remain gaps. |
+| Density and crop | Separate Canonical ball and Source depth modes. The preceding source receipt rendered 769,788 buffered forms at depth96 with an explicit upper-cap notice; depth24 has 14,966. Native supports R24/28,832 canonical forms with a 40,000-form budget. Browser held-drag recropping passes actual input tests. Native release recropping passes, but its held-preview acceptance test failed with zero interim catalogues; the regression remains open. |
 | Origin, Inhabit, Overview, Reset | Tested on each route. Camera offsets, field of view, materials and control layouts differ. |
 | Headsets | Synthetic WebXR runs real Three.js rendering/handlers with supplied poses. visionOS Simulator runs the native app. Neither establishes physical tracking, compositor behavior, comfort or hardware performance. |
 
@@ -95,7 +105,8 @@ remain visible rather than being inferred away from a successful Lean response.
 | --- | --- |
 | Kernel-checked | 17 general integer identities cover coordinate/discriminant formulas, plane incidence and Möbius action laws. Sixteen axiom audits use only standard Lean axioms. |
 | Executable Lean | A native Mac process enumerates canonical signed balls and source trace/other-point catalogues and computes inspections, symbolic roots, exact planes/membership and the rational action `J(M)/det(M)`. |
-| Client preview and Snap choice | Floating-point dragging, quantization and choosing a candidate integer symmetry occur in the client. Lean computes the exact action of the submitted matrix. |
+| Client preview and Snap choice | Floating-point dragging, quantization and choosing a candidate integer symmetry occur in the client. Lean computes exact sampled catalogues and the submitted rational action. Preview catalogues remain temporary until matching release validation. |
+| Source morph fixtures | 48 offline executions of the pinned deployed numerical routines record identity/D5 positions, radii, opacities, markers and guides at progress 0, .5 and 1. They are regression data, not additional proofs. |
 | Exported fixtures | Native preset data are generated by the actual executable with receipts. Live computations require the Mac bridge. |
 | Rendering and transport | Three.js/RealityKit handle floating-point coordinates, meshes, colors, cameras and input. JSON, HTTP, compiler/runtime execution and renderers are outside the kernel proof boundary. |
 
@@ -123,6 +134,12 @@ server does not configure HTTPS or public hosting.
 
 ## Tested evidence
 
+- [Current browser morph/recrop clip](artifacts/videos/lean-starscape-browser-morph.mp4),
+  [native morph/Roots clip](artifacts/videos/lean-starscape-native-source-morph.mp4),
+  and [synthetic WebXR clip](artifacts/videos/lean-starscape-webxr-morph.mp4).
+  The [current receipt](docs/SOURCE_MORPH_UPDATE.md) records 160 browser tests,
+  26 bridge tests, 121 Lean catalogue requests, 141 native model tests,
+  a passing simulator morph sequence and the separate failed held-preview test.
 - [Source-catalogue paired browser video](artifacts/videos/lean-starscape-source-catalogue.mp4):
   real D5, root dragging, recropping, Snap and Identity.
   [Acceptance and limitations](docs/SOURCE_CATALOGUE_UPDATE.md) include actual
@@ -153,11 +170,16 @@ server does not configure HTTPS or public hosting.
 - [Synthetic XR motion](artifacts/videos/polynomial-xr-mobius.mp4): supplied
   controller poses, real application rendering and event handlers.
 
+Current morph/preview acceptance is tracked separately in the
+[morph update](docs/SOURCE_MORPH_UPDATE.md); native UI acceptance for this change
+remains pending. The source fixture generator passes all 48 cases and its
+independent harness invariants. The kernel theorem count remains **17**.
+
 These silent app-only clips have dated [metadata and limits](artifacts/videos/README.md).
 Older clips retain their original “Polynomial Room” label. They are not current
-hardware evidence. The source-catalogue continuation passes **138 Node tests**, **121 catalogue
-service requests** and the five-case source oracle comparison. Current native
-validation passes **114 model tests**, the unsigned visionOS build, and one
+hardware evidence. The preceding source-catalogue continuation passed **138 Node tests**, **121 catalogue
+service requests** and the five-case source oracle comparison. Its native
+validation passed **114 model tests**, the unsigned visionOS build, and one
 108.059-second source-catalogue simulator UI sequence; its matching data and
 visual limits are recorded in the source-catalogue update. The preceding
 linked-roots checkpoint passed 115 Node tests and 88 native model tests; its

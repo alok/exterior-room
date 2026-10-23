@@ -10,7 +10,7 @@ import { coefficientColor, gradientCSS, paletteRange, categoryPalettes, glyphRad
 import { acceptedLattice, tripleAt, latticeRadii, projectedPositions } from './lattice.js';
 import { pointCloudMaterial, pointCloud, fillColors, fillFactors } from './point-cloud.js';
 import { pairPlane, planeFromNormal, planeSection, coneDirections, inPairPlane } from './pair-plane.js';
-import {IDENTITY_BOUND,loadCloud,loadCatalogue,activateCloud,cancelCloudLoad,indexOfPoint, inspectWithRepresentative, preparePlane, memberIndices, status as leanStatus, diagnostics, commitTransform, cancelTransformCommit} from './lean-client.js';
+import {IDENTITY_BOUND,loadCloud,loadCatalogue,activateCloud,cancelCloudLoad,setRenderCloud,cachedPlane,indexOfPoint, inspectWithRepresentative, preparePlane, memberIndices, status as leanStatus, diagnostics, commitTransform, cancelTransformCommit} from './lean-client.js';
 import {identity,kleinToUpper} from './mobius.js';
 import {matrixFromIntegers,pointerToUpper,chartTransform,rootToClient,zoomChartAt,resizeChart} from './mobius-render.js';
 import {MobiusAction} from './mobius-ui.js';
@@ -20,10 +20,14 @@ import {KleinView} from './klein-view.js';
 import {needsSourceCatalogue} from './catalogue-policy.js';
 import {catalogueVisibility,sourceRootVisible} from './catalogue-display.js';
 import {pickRoot} from './klein-data.js';
+import {PreviewCatalogue} from './preview-catalogue.js';
+import {sourceProjectionPoint,sourceProjectionPositions,sourceWorldVisibility,sourceWorldRadius,sourcePlaneMask} from './source-projection.js';
 import {shownUpperRoot,shownBoundaryRoot,approximateNumber,spacedPolynomial} from './display-readouts.js';
 const $ = id => document.getElementById(id);
 let radius = 6, whole = true, symmetricColor = false, projectionVisible = false;
-let catalogueMode='canonical',dust=false,visiblePoints=null;
+let catalogueMode='canonical',dust=false,visiblePoints=null,worldVisiblePoints=null;
+let projectionProgress=0,sourceScreen=true,screenHeightFraction=.6,projectionAnimation=null,projectionFrame=0,projectionGeometryKey='',planeMask=null,planeMaskKey='';
+const screenHeight=()=>catalogueMode==='source'?screenHeightFraction*radius:height;
 let selected = examples[0], lattice = null, cloudMesh, imageMesh;
 let session = null, savedView = null, startingXR = false;
 let inhabited=false, overviewView=null, lookDrag=null, look={yaw:0,pitch:0};
@@ -33,13 +37,17 @@ let categories='viridis', glyphKey=null, focusGlyphs=[], sigma=1, planeFocus=fal
 let latticeGeneration=0, secondSelection=null, pairMessage='', pairGlyphs=[], planeMembers=new Set(), originMode=false, timings={}, colorKey='', factorKey='';
 let dataBusy=false, initialized=false,operationError='';
 const action=new MobiusAction(commitActionAndCatalogue,()=>{cancelTransformCommit();cancelCloudLoad();});
-let displayXYZ=null,pickLattice=null,actionGeometryLattice=null,actionGeometryRevision=-1,renderRows=null;
+let displayXYZ=null,worldXYZ=null,pickLattice=null,actionGeometryLattice=null,actionGeometryRevision=-1,renderRows=null;
 let rootsView=false,mobiusMode=false,mobiusGesture=null,mobiusFrame=0,lastActionPaint=0;
 const rootsVisible=()=>!session&&(rootsView||innerWidth>=1000);
 const spaceVisible=()=>!!session||!rootsView||innerWidth>=1000;
 let rootsRect=null;
 let motionTicket=0,lastAbsorption=null,snapOnRelease=false;
 const diskView={model:'half-plane',zoom:1,pan:[0,0],padding:20};
+const previewCatalogue=new PreviewCatalogue({onReady:({lattice:candidate})=>{
+  if(!mobiusGesture?.moved||catalogueMode!=='source'||action.phase!=='preview')return;
+  rebuild(candidate);update();
+},onError:error=>{timings.previewError=error.message;}});
 const dataControls=['next','whole','radius','catalogue-mode','dust','reset','coefficient','pair-add','pair-clear','mobius-demo'];
 async function runData(action){
   if(dataBusy)return;dataBusy=true;operationError='';clearHover();
@@ -57,6 +65,12 @@ function syncCatalogueControls(){
   $('catalogue-mode').value=catalogueMode;$('radius').value=String(radius);$('whole').checked=whole;$('dust').checked=dust;
   $('dust-control').hidden=catalogueMode!=='source';$('dust').disabled=dataBusy||catalogueMode!=='source'||whole;
   $('crop-label').textContent=catalogueMode==='source'?'Depth':'Radius';
+  $('source-projection-controls').hidden=catalogueMode!=='source';
+  $('source-screen').checked=sourceScreen;
+  $('projection-progress').value=String(projectionProgress);$('projection-progress-value').textContent=`${Math.round(projectionProgress*100)}%`;
+  $('screen-height').value=String(screenHeightFraction);$('screen-height-value').textContent=screenHeight().toFixed(2);
+  $('plane-focus').parentElement.hidden=catalogueMode==='source';
+  $('plane-focus-note').textContent=catalogueMode==='source'?'Source: upper stars off the exact plane fade; projection blends the emphasis.':'Viewing aid: fade by Euclidean distance to the plane.';
   for(const option of $('radius').querySelectorAll('optgroup option'))option.textContent=catalogueMode==='source'?`${option.value} · source depth`:`${option.value} · ${fixtureCounts[option.value].toLocaleString()} points`;
 }
 async function prepareSelection(point,second=null,candidate){
@@ -81,14 +95,21 @@ function acceptCloud(candidate){
 }
 async function commitActionAndCatalogue(point,matrix,second){
   const ticket=motionTicket,isCurrent=()=>ticket===motionTicket;
-  const receipt=await commitTransform(point,matrix,second);
-  if(!receipt||!isCurrent())return null;
-  if(catalogueMode==='source'&&needsSourceCatalogue(lattice.catalogue,radius,matrix,{whole,dust})){
-    const candidate=await stageCloud(radius,whole,catalogueMode,dust,matrix,point,second,isCurrent);
-    if(!candidate||!isCurrent())return null;
-    acceptCloud(candidate);rebuild();
+  try{
+    const preview=await previewCatalogue.finish(matrix,{point,second,depth:radius,whole,dust});
+    if(!isCurrent())return null;
+    const receipt=await commitTransform(point,matrix,second);
+    if(!receipt||!isCurrent())return null;
+    if(catalogueMode==='source'&&needsSourceCatalogue(acceptedLattice().catalogue,radius,matrix,{whole,dust})){
+      const candidate=preview?.lattice??await stageCloud(radius,whole,catalogueMode,dust,matrix,point,second,isCurrent);
+      if(!candidate||!isCurrent())return null;
+      acceptCloud(candidate);rebuild();
+    }else if(lattice!==acceptedLattice())rebuild();
+    return receipt;
+  }finally{
+    previewCatalogue.complete();
+    if(isCurrent()&&lattice!==acceptedLattice())rebuild();
   }
-  return receipt;
 }
 async function changeCloud(nextRadius,nextWhole,reset=false,nextMode=catalogueMode,nextDust=dust){
   if(dataBusy)return;
@@ -97,11 +118,12 @@ async function changeCloud(nextRadius,nextWhole,reset=false,nextMode=catalogueMo
     const ticket=motionTicket,isCurrent=()=>ticket===motionTicket;
     const next=reset?examples[0]:selected,second=reset?null:secondSelection;
     if(reset){nextMode='canonical';nextDust=false;}
+    stopProjectionAnimation();
     const candidate=await stageCloud(nextRadius,nextWhole,nextMode,nextDust,reset?identity:action.matrix,next,second,isCurrent);
     if(!candidate||!isCurrent())return;
     acceptCloud(candidate);radius=nextRadius;whole=nextWhole;catalogueMode=nextMode;dust=nextDust;
     if(reset){action.reset();mobiusMode=false;lastAbsorption=null;snapOnRelease=false;resetRootsChart();}
-    if(reset){if(!session)leaveInhabit();selected=next;secondSelection=null;pairMessage='';symmetricColor=false;projectionVisible=false;$('cone').checked=true;$('symmetric-color').checked=false;}
+    if(reset){if(!session)leaveInhabit();selected=next;secondSelection=null;pairMessage='';symmetricColor=false;projectionVisible=false;projectionProgress=0;sourceScreen=true;screenHeightFraction=.6;$('cone').checked=true;$('symmetric-color').checked=false;}
     syncCatalogueControls();rebuild();
     if(!inhabited)resetView();initialized=true;
   });
@@ -169,6 +191,46 @@ function surface(h,isDisk,opacity) {
 const matrix = new THREE.Matrix4();
 function movedXYZ(xyz){const m=renderRows??action.rows,[x,y,z]=xyz;return [m[0]*x+m[1]*y+m[2]*z,m[3]*x+m[4]*y+m[5]*z,m[6]*x+m[7]*y+m[8]*z];}
 const displayedVector=p=>movedXYZ(vector(p));
+const spatialVector=p=>catalogueMode==='source'?sourceProjectionPoint(displayedVector(p),kind(p),projectionProgress,screenHeight()):displayedVector(p);
+function sourceOptions(){
+  return {progress:projectionProgress,height:screenHeight(),eye:originMode?1:0,whole,dust,screen:sourceScreen,sigma,focusEnabled:!!currentPlane(),planeMask};
+}
+function refreshProjectionGeometry(){
+  if(!displayXYZ)return;
+  const plane=currentPlane(),key=plane?.normal.join(',')??'';
+  if(planeMaskKey!==key||planeMask?.length!==lattice.count){
+    planeMaskKey=key;planeMask=plane?sourcePlaneMask(lattice,plane.normal):new Uint8Array(lattice.count);
+    if(cloudMesh.geometry.attributes.aOnPlane){cloudMesh.geometry.attributes.aOnPlane.array.set(planeMask);cloudMesh.geometry.attributes.aOnPlane.needsUpdate=true;}
+  }
+  const next=[cloudMesh.id,actionGeometryRevision,projectionProgress,screenHeight(),originMode,whole,dust,sourceScreen,planeFocus,key].join('|');
+  if(next===projectionGeometryKey)return;projectionGeometryKey=next;
+  const source=catalogueMode==='source',opts=sourceOptions(),u=cloudMaterial.uniforms;
+  if(u.uProjection)u.uProjection.value.set(projectionProgress,screenHeight());
+  if(u.uSource)u.uSource.value.set(whole?1:0,dust?1:0,sourceScreen?1:0,0);
+  if(u.uSourceFocus)u.uSourceFocus.value=plane?1:0;
+  worldXYZ=source?sourceProjectionPositions(lattice,displayXYZ,opts,worldXYZ?.length===displayXYZ.length?worldXYZ:undefined):displayXYZ;
+  worldVisiblePoints=source?sourceWorldVisibility(lattice,displayXYZ,opts):visiblePoints;
+  let pickXYZ=worldXYZ;
+  if(worldVisiblePoints){pickXYZ=worldXYZ.slice();for(let i=0;i<lattice.count;i++)if(!worldVisiblePoints[i])pickXYZ.fill(NaN,i*3,i*3+3);}
+  pickLattice={...lattice,xyz:pickXYZ};if(source)disk.visible=sourceScreen&&!originMode;glyphKey=null;invalidateSpatialQueries();
+}
+function stopProjectionAnimation(){if(projectionFrame)cancelAnimationFrame(projectionFrame);projectionFrame=0;projectionAnimation=null;}
+function setProjectionProgress(value){
+  projectionProgress=THREE.MathUtils.clamp(value,0,1);projectionVisible=projectionProgress>0;update();
+}
+function animateProjection(target){
+  stopProjectionAnimation();
+  if(catalogueMode!=='source'){projectionVisible=!!target;update();return;}
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||Math.abs(target-projectionProgress)<1e-9){setProjectionProgress(target);return;}
+  projectionAnimation={from:projectionProgress,target,start:performance.now(),duration:3500*Math.abs(target-projectionProgress),last:0};
+  const step=now=>{
+    projectionFrame=0;const a=projectionAnimation;if(!a)return;
+    const t=Math.min(1,(now-a.start)/a.duration),ease=t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+    if(radius<=24||now-a.last>=100||t===1){a.last=now;setProjectionProgress(a.from+(a.target-a.from)*ease);}
+    if(t<1)projectionFrame=requestAnimationFrame(step);else projectionAnimation=null;
+  };projectionFrame=requestAnimationFrame(step);
+}
+
 function displayedImage(p){const v=displayedVector(p);return v.map(x=>x*height/v[1]);}
 function refreshActionGeometry(){
   if(actionGeometryLattice===lattice&&actionGeometryRevision===action.revision)return;
@@ -190,28 +252,25 @@ function refreshActionGeometry(){
     cloudMesh.geometry.attributes.position.needsUpdate=true;camera.far=Math.max(20+8*radius*scale,extent*scale*4);camera.updateProjectionMatrix();
   }
   visiblePoints=lattice.catalogue?catalogueVisibility(lattice,displayXYZ):null;
-  let pickXYZ=displayXYZ;
-  if(visiblePoints){pickXYZ=displayXYZ.slice();for(let i=0;i<lattice.count;i++)if(!visiblePoints[i])pickXYZ.fill(NaN,i*3,i*3+3);}
-  pickLattice={...lattice,xyz:pickXYZ};
+  projectionGeometryKey='';refreshProjectionGeometry();
   if(imageMesh){disk.remove(imageMesh);imageMesh.geometry.dispose();imageMesh=null;}
-  invalidateSpatialQueries();
   timings.motion=performance.now()-started;
 }
-function rebuild() {
+function rebuild(candidate=acceptedLattice()) {
   // A new lattice generation: worker answers still in flight for the old one are dropped on arrival.
   glyphKey=null;latticeGeneration++;hoverQueries.reset();showHover(null);diskHoverIndex=null;
-  disposeChildren(cloud); disposeChildren(disk); disposeChildren(cone);
+  disposeChildren(cloud); disposeChildren(disk); disposeChildren(cone);disposeChildren(focus);focusGlyphs=[];pairGlyphs=[];
   let t=performance.now();
-  lattice = acceptedLattice();
+  lattice = candidate;setRenderCloud(candidate===acceptedLattice()?null:candidate);planeMask=null;planeMaskKey='';projectionGeometryKey='';
   timings.enumerate=performance.now()-t;t=performance.now();
   cloudMesh = pointCloud(lattice, cloudMaterial, symmetricColor, categories); cloudMesh.scale.setScalar(scale); cloud.add(cloudMesh);
   colorKey=[radius,whole,symmetricColor,categories].join();factorKey=[radius,whole,symmetricColor,''].join();
   timings.attributes=performance.now()-t;imageMesh=null;
   // Overview distance is 5.4·R/8 (resetView); far clipping and zoom limits leave room beyond the whole ball.
   camera.far=20+8*radius*scale;camera.updateProjectionMatrix();controls.maxDistance=Math.max(20,8*radius*scale);
-  disk.add(surface(height,true,0.1), lines([circle(height)],0x54e9f5,0.8));
+  disk.add(surface(screenHeight(),true,catalogueMode==='source'?.05:.1), lines([circle(screenHeight())],0x54e9f5,catalogueMode==='source'?.6:.8));
   for(const sign of [-1,1]) {
-    const h=radius*sign;
+    const h=radius*sign*(catalogueMode==='source'&&sign<0?.3:1);
     cone.add(surface(h,false,0.018));
     cone.add(lines([circle(h),...Array.from({length:8},(_,i)=>[[0,0,0],circle(h)[i*8]])],0x7896a8,0.26));
   }
@@ -221,7 +280,7 @@ const origin = new THREE.Mesh(sphere,white); world.add(origin);
 const shown=p=>{const i=indexOfPoint(p,lattice);return i>=0&&(!visiblePoints||visiblePoints[i]!==0);};
 const latticePoints=()=>Array.from({length:lattice.count},(_,i)=>tripleAt(lattice,i));
 // Interior displayed triples on the Lorentz plane −2C·a + B·b − 2A·c = 0 (exact membership from the current Lean identity contract).
-function visibleMemberIndices(normal){return [...memberIndices(normal)].filter(i=>!visiblePoints||visiblePoints[i]);}
+function visibleMemberIndices(normal){return [...memberIndices(normal,lattice)].filter(i=>!visiblePoints||visiblePoints[i]);}
 function planeInteriorMembers(normal){return visibleMemberIndices(normal).map(i=>tripleAt(lattice,i));}
 // Color and size attributes are O(n) to fill, so refill only when their inputs change.
 // Radial images of every interior point on the screen y = height, built only once projection is shown.
@@ -239,7 +298,7 @@ function refreshColors(){
 function refreshFactors(planeKey){
   const key=[radius,whole,symmetricColor,planeKey].join();if(key===factorKey)return;factorKey=key;
   const t=performance.now();
-  const indices=currentPlane()?memberIndices(currentPlane().normal):new Set();
+  const indices=currentPlane()?memberIndices(currentPlane().normal,lattice):new Set();
   fillFactors(lattice,symmetricColor,i=>lattice.kind[i]===2&&indices.has(i),cloudMesh.geometry.attributes.aFactor.array);
   cloudMesh.geometry.attributes.aFactor.needsUpdate=true;timings.factors=performance.now()-t;
 }
@@ -261,8 +320,8 @@ function selectPoint(point,asPair=false) {
 }
 // As in Stange's viewer: two interior stars span a plane, and a selected exterior triple is a plane's normal.
 function currentPlane(){
-  if(secondSelection){const p=pairPlane(selected,secondSelection);return p.error?null:p;}
-  if(kind(selected)==='exterior'){const plane=planeFromNormal(selected);if(!plane.error)return plane;}
+  if(secondSelection){const p=cachedPlane(selected,secondSelection,lattice);return p.error?null:p;}
+  if(kind(selected)==='exterior'){const plane=cachedPlane(selected,undefined,lattice);if(!plane.error)return plane;}
   return null;
 }
 function updatePair() {
@@ -271,7 +330,7 @@ function updatePair() {
   $('pair-details').hidden=!plane;$('pair-clear').hidden=!secondSelection;
   const focusUniform=cloudMaterial.uniforms.uFocus.value;focusUniform.w=0;
   if(!plane){refreshFactors('');return;}
-  if(planeFocus){const [A,B,C]=plane.normal,m=action.rows,normalMap=new THREE.Matrix3().set(...m).invert().transpose(),n=new THREE.Vector3(-B,-A-C,C-A).applyMatrix3(normalMap).normalize();focusUniform.set(n.x,n.y,n.z,1);cloudMaterial.uniforms.uFocusFade.value.x=0.5*radius;}
+  if(planeFocus&&catalogueMode!=='source'){const [A,B,C]=plane.normal,m=action.rows,normalMap=new THREE.Matrix3().set(...m).invert().transpose(),n=new THREE.Vector3(-B,-A-C,C-A).applyMatrix3(normalMap).normalize();focusUniform.set(n.x,n.y,n.z,1);cloudMaterial.uniforms.uFocusFade.value.x=0.5*radius;}
   cloudMaterial.uniforms.uKeep.value.set(...displayedVector(selected));
   const members=planeInteriorMembers(plane.normal);
   planeMembers=new Set(members.map(p=>p.join()));refreshFactors(plane.normal.join());
@@ -283,36 +342,43 @@ function updatePair() {
   const endpointBase=plane.endpoints.map(p=>p.label).join(' and ');
   const endpointShown=action.active?coneDirections(plane).map(movedXYZ).map(shownBoundaryRoot).map(approximateNumber).join(' and '):null;
   $('pair-endpoints').textContent=endpointShown?`Shown endpoints ≈ ${endpointShown} · base: ${endpointBase}`:`Geodesic endpoints: ${endpointBase}`;
-  const secondVisible=!secondSelection||shown(secondSelection);
-  $('pair-count').textContent=`${members.length} ${lattice.catalogue?'depth-visible':'displayed'} complex-root points lie exactly in this plane (amber rings).${lattice.catalogue?` ${memberIndices(plane.normal).size} members in the buffered catalogue.`:''} Multiples remain separate points.${secondVisible?'':' The second point is hidden by this filter/crop.'}`;
-  const ring=new THREE.InstancedMesh(sphere,pairMaterial,members.length);
-  focus.add(ring);pairGlyphs.push({mesh:ring,points:members,indices:visibleMemberIndices(plane.normal)});
-  const boundary=planeSection(plane.normal,radius).map(p=>physical(movedXYZ(p)).toArray()), vertices=[];
+  const secondVisible=catalogueMode==='source'||!secondSelection||shown(secondSelection);
+  $('pair-count').textContent=`${members.length} ${lattice.catalogue?'depth-visible':'displayed'} complex-root points lie exactly in this plane${catalogueMode==='source'?' (source body highlight)':' (amber rings)' }.${lattice.catalogue?` ${memberIndices(plane.normal,lattice).size} members in the buffered catalogue.`:''} Multiples remain separate points.${secondVisible?'':' The second point is hidden by this filter/crop.'}`;
+  if(catalogueMode!=='source'){
+    const ring=new THREE.InstancedMesh(sphere,pairMaterial,members.length);
+    focus.add(ring);pairGlyphs.push({mesh:ring,points:members,indices:visibleMemberIndices(plane.normal)});
+  }
+  const boundary=planeSection(plane.normal,radius).map(p=>{
+    const v=movedXYZ(p);
+    if(catalogueMode==='source'){const k=Math.max(1,Math.hypot(v[0],v[2])/radius,v[1]/(v[1]>=0?radius:-.3*radius),Math.hypot(...v)/(1.5*radius));for(let j=0;j<3;j++)v[j]/=k;}
+    return physical(v).toArray();
+  }), vertices=[];
   for(let i=1;i<boundary.length;i++)vertices.push(0,0,0,...boundary[i-1],...boundary[i]);
   const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));
   const sheet=new THREE.Mesh(geometry,new THREE.MeshBasicMaterial({color:0xffba6b,transparent:true,opacity:0.045,side:THREE.DoubleSide,depthWrite:false}));sheet.name='pair-plane';focus.add(sheet);
   focus.add(lines([boundary],0xffba6b,0.35));
   const directions=coneDirections(plane).map(movedXYZ);
-  focus.add(lines(directions.map(p=>[p.map(x=>-radius*scale*x),p.map(x=>radius*scale*x)]),0xffba6b,0.7));
+  focus.add(lines(directions.map(p=>catalogueMode==='source'?[p.map(x=>-.3*radius*scale*x/p[1]),p.map(x=>radius*scale*x/p[1])]:[p.map(x=>-radius*scale*x),p.map(x=>radius*scale*x)]),0xffba6b,0.7));
   if(secondSelection&&secondVisible) {
-    const marker=new THREE.Mesh(sphere,pairMaterial);marker.position.copy(physical(displayedVector(secondSelection)));
+    const marker=new THREE.Mesh(sphere,pairMaterial);marker.position.copy(physical(spatialVector(secondSelection)));
     focus.add(marker);focusGlyphs.push({mesh:marker,extra:outlinePixels,point:secondSelection});
   }
-  if(projectionVisible)focus.add(lines([directions.map(p=>p.map(x=>height*scale*x/p[1]))],0xffba6b,0.9));
+  if(projectionVisible)focus.add(lines([directions.map(p=>p.map(x=>screenHeight()*scale*x/p[1]))],0xffba6b,0.9));
 }
 function update() {
   if(!initialized)return;
-  refreshActionGeometry();
+  refreshActionGeometry();refreshProjectionGeometry();
   refreshColors();planeMembers=new Set();
-  disposeChildren(focus);focusGlyphs=[];pairGlyphs=[];glyphKey=null; disk.visible=projectionVisible;if(projectionVisible&&!imageMesh)buildImages(); cone.visible=$('cone').checked;
-  const inCloud=shown(selected);
+  disposeChildren(focus);focusGlyphs=[];pairGlyphs=[];glyphKey=null; disk.visible=catalogueMode==='source'?sourceScreen&&!originMode:projectionVisible;if(projectionVisible&&!imageMesh&&catalogueMode!=='source')buildImages(); cone.visible=$('cone').checked;
+  const inCloud=catalogueMode==='source'||shown(selected);
   if(inCloud) {
-    focus.add(lines([[[0,0,0],physical(displayedVector(selected)).toArray()]],0xbacbd6,0.35));
+    const rayVector=catalogueMode==='source'&&discriminant(selected)<0?displayedVector(selected).map(v=>v*1.03*radius/displayedVector(selected)[1]):spatialVector(selected);
+    focus.add(lines([[[0,0,0],physical(rayVector).toArray()]],0xbacbd6,0.35));
     const marker=new THREE.Mesh(sphere,selectionMaterial);
-    marker.position.copy(physical(displayedVector(selected)));focus.add(marker);focusGlyphs.push({mesh:marker,extra:outlinePixels,point:selected});
+    marker.position.copy(physical(spatialVector(selected)));focus.add(marker);focusGlyphs.push({mesh:marker,extra:outlinePixels,point:selected});
   }
   const representative=positiveRepresentative(selected);
-  if(projectionVisible && representative && inCloud) {
+  if(catalogueMode!=='source' && projectionVisible && representative && inCloud) {
     const image=physical(displayedImage(representative));focus.add(lines([[[0,0,0],image.toArray()]],0xffffff));
     const marker=new THREE.Mesh(sphere,white);marker.position.copy(image);focus.add(marker);focusGlyphs.push({mesh:marker,extra:0});
   }
@@ -322,11 +388,11 @@ function update() {
   const shownRoot=root&&action.active?shownUpperRoot(displayedVector(selected),discriminant(selected)):null;
   const rootLabel=shownRoot?`${action.phase==='preview'?'Preview':'Shown'} upper root ≈ ${shownRoot.map(approximateNumber).join(' + ')}i · base ${root.map(approximateNumber).join(' + ')}i`:root?`Upper root: ${root.map(approximateNumber).join(' + ')}i${kind(selected)==='lower'?' · sign-flipped representative':''}`:kind(selected)==='null'?(selected[0]===0?'Boundary: double root at infinity':'Boundary: repeated real root'):'Exterior: two real projective roots (possibly ∞)';
   $('root-state').textContent=rootLabel;
-  $('coefficient').value=selected.join(',');$('projection').checked=projectionVisible;
+  $('coefficient').value=selected.join(',');$('projection').checked=projectionAnimation?projectionAnimation.target>0:projectionVisible;
   $('status').textContent=operationError||(inCloud?'':'The selected point is hidden by this filter or crop.');
   syncCatalogueControls();
   const cat=lattice.catalogue;
-  $('catalogue-status').textContent=cat?`${cat.upperCount.toLocaleString()} upper + ${cat.otherCount.toLocaleString()} other buffered forms · primitive upper roots only${!cat.complete?' · source limit: '+[cat.sourceLimited.upperCap?'upper cap':'',cat.sourceLimited.otherScanBound?'other scan omitted':''].filter(Boolean).join(', '):''}. Recrops on accepted release; signed selections persist.`:'Fixed signed ball · both signs and multiples retained.';
+  $('catalogue-status').textContent=cat?`${cat.upperCount.toLocaleString()} upper + ${cat.otherCount.toLocaleString()} other buffered forms · primitive upper roots only${!cat.complete?' · source limit: '+[cat.sourceLimited.upperCap?'upper cap':'',cat.sourceLimited.otherScanBound?'other scan omitted':''].filter(Boolean).join(', '):''}. Recrops during held motion; release validates the accepted action. Signed selections persist.`:'Fixed signed ball · both signs and multiples retained.';
   $('inhabit').disabled=!inCloud&&!inhabited;
   updatePair();
   renderer.domElement.setAttribute('aria-description',`Selected coefficient point ${selected.join(', ')}. ${kind(selected)} region. ${lattice.count} points. Both cone halves ${cone.visible?'shown':'hidden'}.`);
@@ -339,7 +405,7 @@ function update() {
   render();
 }
 function actionCaption(){
-  if(action.phase==='preview')return 'Numerical preview · release to ask Lean';
+  if(action.phase==='preview')return 'Numerical action preview · '+(lattice!==acceptedLattice()?'Lean crop at sampled pose · ':'')+'release to accept';
   if(action.phase==='pending'||absorptionPending)return 'Pending Lean · changes are not accepted';
   if(lastAbsorption&&!action.receipt)return 'Identity action · last Snap shown below';
   return action.receipt?`Lean accepted · ${lattice?.catalogue?'source depth catalogue':'fixed base crop'} · signed identities retained`:'Identity action · base integer labels';
@@ -359,10 +425,11 @@ function queueActionRender(){
   mobiusFrame=setTimeout(()=>{mobiusFrame=0;lastActionPaint=performance.now();if(initialized)update();},delay);
 }
 function cancelMobiusInteraction(){
-  motionTicket++;mobiusGesture=null;absorptionPending=false;action.cancel();clearHover();diskHoverIndex=null;
+  motionTicket++;mobiusGesture=null;absorptionPending=false;previewCatalogue.cancel();action.cancel();
+  if(initialized&&lattice!==acceptedLattice())rebuild();clearHover();diskHoverIndex=null;
   kleinCanvas.classList.remove('is-dragging');
   lookDrag=null;tap.active.clear();tap.candidate=null;
-  if(initialized){refreshActionGeometry();queueActionRender();}
+  if(initialized){reportCatalogue();refreshActionGeometry();queueActionRender();}
 }
 function clearMotion(){
   if(dataBusy)return;cancelMobiusInteraction();
@@ -379,11 +446,12 @@ function clearMotion(){
 }
 function previewTo(z){
   if(!mobiusGesture||!z)return;
-  if(!mobiusGesture.moved){action.begin(mobiusGesture.anchor);mobiusGesture.moved=true;}
+  if(!mobiusGesture.moved){action.begin(mobiusGesture.anchor);mobiusGesture.moved=true;if(catalogueMode==='source')previewCatalogue.begin({lattice:acceptedLattice(),depth:radius,whole,dust,point:selected,second:secondSelection});}
   if(Math.hypot(z.x-action.anchor.x,z.y-action.anchor.y)<1e-9)return;
-  if(action.move(z))queueActionRender();
+  if(action.move(z)){previewCatalogue.update(action.g);queueActionRender();}
 }
 async function absorbMatrix(matrix){
+  previewCatalogue.cancel();if(lattice!==acceptedLattice())rebuild();
   const ticket=++motionTicket,before=[...selected];absorptionPending=true;updateMobiusReadout();
   try{
     const result=await prepareAbsorption({matrix,point:selected,second:secondSelection,commit:commitTransform,inspect:inspectWithRepresentative,preparePair:preparePlane,isCurrent:()=>ticket===motionTicket});
@@ -446,16 +514,16 @@ let diskHoverIndex=null,diskHoverTime=0;
 function diskPixel(index){const k=3*index;return rootToClient([displayXYZ[k],displayXYZ[k+1],displayXYZ[k+2]],lattice.delta[index],kleinCanvas.getBoundingClientRect(),diskView);}
 function diskPick(x,y){
   const started=performance.now(),r=kleinCanvas.getBoundingClientRect(),{scale,cx,cy}=chartTransform(r,diskView);
-  const index=pickRoot(lattice,displayXYZ,kleinView.indices,scale,cx-x,cy-y,diskView.model==='half-plane'?7:10,{model:diskView.model,sigma});timings.rootPick=performance.now()-started;return index;
+  const index=pickRoot(lattice,displayXYZ,kleinView.indices,scale,cx-x,cy-y,diskView.model==='half-plane'?7:10,{model:diskView.model,sigma,planeMask:kleinView.sourcePlaneMask,light:false});timings.rootPick=performance.now()-started;return index;
 }
 function drawKlein(){
   if(!displayXYZ||!rootsVisible()||kleinView.renderer.getContext().isContextLost())return;
   const started=performance.now(),r=kleinCanvas.getBoundingClientRect(),plane=currentPlane();
   if(r.width<=0||r.height<=0)return;
-  kleinView.update({lattice,xyz:displayXYZ,colors:cloudMesh.geometry.attributes.color.array,revision:actionGeometryRevision,colorKey,model:diskView.model});
-  const marker=p=>({xyz:displayedVector(p),delta:discriminant(p),label:spacedPolynomial(polynomial(p))});
+  kleinView.update({lattice,xyz:displayXYZ,colors:cloudMesh.geometry.attributes.color.array,revision:actionGeometryRevision,colorKey,model:diskView.model,sourcePlane:plane?.normal??null,sourceLight:false});
+  const marker=p=>({xyz:displayedVector(p),delta:discriminant(p),divisor:divisor(p),label:spacedPolynomial(polynomial(p))});
   const hover=diskHoverIndex!==null&&diskHoverIndex>=0&&diskHoverIndex<lattice.count?marker(tripleAt(lattice,diskHoverIndex)):null;
-  kleinView.render({width:r.width,height:r.height,...diskView,sigma,markers:[selected,secondSelection].map(p=>p&&shown(p)&&positiveRepresentative(p)?marker(p):null),hover,ends:plane?coneDirections(plane).map(movedXYZ):null,focus:cloudMaterial.uniforms.uFocus.value,fade:cloudMaterial.uniforms.uFocusFade.value,keep:cloudMaterial.uniforms.uKeep.value});
+  kleinView.render({width:r.width,height:r.height,...diskView,sigma,markers:[selected,secondSelection].map(p=>p&&(catalogueMode==='source'||shown(p))&&positiveRepresentative(p)?marker(p):null),hover,ends:plane?coneDirections(plane).map(movedXYZ):null,focus:cloudMaterial.uniforms.uFocus.value,fade:cloudMaterial.uniforms.uFocusFade.value,keep:cloudMaterial.uniforms.uKeep.value});
   timings.roots=performance.now()-started;
   if(!hoverPointer)showHover(null);
 }
@@ -501,12 +569,13 @@ function updateGlyphSizes(){
   // Her overview fog: alpha falls by up to 55% between d−0.7R and d+0.9R from the eye (none in eye mode).
   const d=camera.position.distanceTo(controls.target), R=radius*scale, u=cloudMaterial.uniforms;
   u.uFog.value.set(Math.max(0.1*scale,d-0.7*R),d+0.9*R,inhabited||session?0:0.55);
+  if(u.uSourceSigma)u.uSourceSigma.value=sigma;
   u.uHalfH.value=height/2;u.uGlyph.value=glyphRadius*sigma;u.uDpr.value=renderer.getPixelRatio();u.uOrigin.value=originMode?1:0;
   for(const item of pairGlyphs) {
     item.points.forEach((p,i)=>{
-      const j=item.indices[i],k=3*j;tempLocal.fromArray(displayXYZ,k).multiplyScalar(scale);
+      const j=item.indices[i],k=3*j;tempLocal.fromArray(worldXYZ,k).multiplyScalar(scale);
       tempWorld.copy(tempLocal).applyMatrix4(world.matrixWorld).applyMatrix4(camera.matrixWorldInverse);
-      const size=session?1.2:glyphScale(-tempWorld.z,height,camera.fov,camera.zoom,0.65,sigma*sourceRadiusFactorFromData(lattice.delta[j],lattice.kind[j],lattice.divisor[j],displayXYZ[k+1],{origin:originMode,onPlane:!originMode&&lattice.kind[j]===2,symmetric:symmetricColor}));
+      const size=catalogueMode==='source'?sourceWorldRadius(lattice.delta[j],lattice.kind[j],lattice.divisor[j],displayXYZ[k+1],{...sourceOptions(),onPlane:true})*scale/glyphRadius:session?1.2:glyphScale(-tempWorld.z,height,camera.fov,camera.zoom,0.65,sigma*sourceRadiusFactorFromData(lattice.delta[j],lattice.kind[j],lattice.divisor[j],displayXYZ[k+1],{origin:originMode,onPlane:!originMode&&lattice.kind[j]===2,symmetric:symmetricColor}));
       matrix.makeScale(size,size,size);matrix.setPosition(tempLocal);item.mesh.setMatrixAt(i,matrix);
     });
     item.mesh.instanceMatrix.needsUpdate=true;item.mesh.computeBoundingSphere();
@@ -514,10 +583,14 @@ function updateGlyphSizes(){
   origin.visible=!eyeAtOrigin();
   for(const item of [{mesh:origin,extra:0},...focusGlyphs]){
     tempWorld.copy(item.mesh.position).applyMatrix4(world.matrixWorld).applyMatrix4(camera.matrixWorldInverse);
-    item.mesh.scale.setScalar(session?(item.extra?1.4:1):glyphScale(-tempWorld.z,height,camera.fov,camera.zoom,item.extra,item.point?radiusFactor(item.point):1));
+    if(catalogueMode==='source'&&item.point){
+      const physicalRadius=(originMode?.02:.32)*scale,depth=-tempWorld.z;
+      const minRadius=depth>0?6*2*depth*Math.tan(camera.fov*Math.PI/360)/height/camera.zoom:0;
+      item.mesh.scale.setScalar(Math.max(physicalRadius,minRadius)/glyphRadius);
+    }else item.mesh.scale.setScalar(session?(item.extra?1.4:1):glyphScale(-tempWorld.z,height,camera.fov,camera.zoom,item.extra,item.point?radiusFactor(item.point):1));
   }
 }
-function render(){if(!initialized)return;if(rootsVisible())drawKlein();if(!spaceVisible())return;if(dataBusy){if(session)updateAims();renderer.render(scene,camera);return;}if(!renderer.getContext().isContextLost()){updateGlyphSizes();if(session){updateMobiusController();updateAims();}renderer.render(scene,camera);if(!$('debug').hidden)showDebug();if(hoverPointer&&!session){if(hoverShown&&hoverShown!==hoverKey(hoverPointer.x,hoverPointer.y))showHover(null);scheduleHover();}}}
+function render(){if(!initialized)return;refreshProjectionGeometry();if(rootsVisible())drawKlein();if(!spaceVisible())return;if(dataBusy){if(session)updateAims();renderer.render(scene,camera);return;}if(!renderer.getContext().isContextLost()){updateGlyphSizes();if(session){updateMobiusController();updateAims();}renderer.render(scene,camera);if(!$('debug').hidden)showDebug();if(hoverPointer&&!session){if(hoverShown&&hoverShown!==hoverKey(hoverPointer.x,hoverPointer.y))showHover(null);scheduleHover();}}}
 // Debug overlay: closed by default; reads only counters that already exist, and only while open.
 let frameMeasure=null, frameRequest=null;
 function showDebug(){
@@ -593,7 +666,7 @@ function beginEgocentric(){
 function enterInhabit() {
   cancelMobiusInteraction();mobiusMode=false;
   beginEgocentric();originMode=false;camera.fov=overviewFov;camera.updateProjectionMatrix();
-  camera.position.copy(world.position).add(physical(displayedVector(selected))).add(new THREE.Vector3(0.10,0.12,0.10));
+  camera.position.copy(world.position).add(physical(spatialVector(selected))).add(new THREE.Vector3(0.10,0.12,0.10));
   const aim=world.position.clone();aim.y=camera.position.y;camera.lookAt(aim);
   const e=new THREE.Euler().setFromQuaternion(camera.quaternion,'YXZ');look={yaw:e.y,pitch:e.x};applyLook();
 }
@@ -649,10 +722,13 @@ $('next').onclick=()=>{const sequence=[...examples,[-1,1,-2],[1,2,1],[1,3,1]];co
 $('star-size').oninput=()=>{sigma=Number($('star-size').value);$('star-size-value').textContent=sigma.toFixed(2);glyphKey=null;render();};
 $('plane-focus').onchange=()=>{planeFocus=$('plane-focus').checked;update();};
 $('palette').onchange=()=>{categories=$('palette').value;update();};
-$('projection').onchange=()=>{projectionVisible=$('projection').checked;update();};
+$('projection').onchange=()=>animateProjection($('projection').checked?1:0);
+$('source-screen').onchange=()=>{sourceScreen=$('source-screen').checked;update();};
+$('projection-progress').oninput=()=>{stopProjectionAnimation();setProjectionProgress(Number($('projection-progress').value));};
+$('screen-height').oninput=()=>{sourceScreen=true;screenHeightFraction=Number($('screen-height').value);disposeChildren(disk);imageMesh=null;disk.add(surface(screenHeight(),true,.05),lines([circle(screenHeight())],0x54e9f5,.6));update();};
 $('cone').onchange=update;
 $('whole').onchange=()=>changeCloud(radius,$('whole').checked);
-$('catalogue-mode').onchange=()=>changeCloud(radius,whole,false,$('catalogue-mode').value,dust);
+$('catalogue-mode').onchange=()=>changeCloud($('catalogue-mode').value==='source'&&radius<16?16:radius,whole,false,$('catalogue-mode').value,dust);
 $('dust').onchange=()=>changeCloud(radius,whole,false,catalogueMode,$('dust').checked);
 $('symmetric-color').onchange=()=>{symmetricColor=$('symmetric-color').checked;update();};
 $('radius').onchange=()=>changeCloud(Number($('radius').value),whole);
@@ -733,7 +809,7 @@ function spatialMode(mode){
   const eye=renderer.xr.getCamera().getWorldPosition(new THREE.Vector3());
   world.quaternion.identity();invalidateSpatialQueries();
   if(mode==='overview')world.position.copy(xrWorldSaved.position);
-  else world.position.copy(eye).sub(mode==='origin'?new THREE.Vector3():physical(displayedVector(selected)).add(new THREE.Vector3(.10,.12,.10)));
+  else world.position.copy(eye).sub(mode==='origin'?new THREE.Vector3():physical(spatialVector(selected)).add(new THREE.Vector3(.10,.12,.10)));
 }
 function spatialMove(direction){
   if(!session){moveEye(direction);return;}
@@ -753,7 +829,7 @@ const xrActions=[
   [()=>mobiusMode?'Move forms ON':'Move forms',()=>setMobiusMode(!mobiusMode)],['Identity',clearMotion],
   ['T: z+1',()=>composeGenerator([1,1,0,1])],['S: -1/z',()=>composeGenerator([0,-1,1,0])],['T inverse',()=>composeGenerator([1,-1,0,1])],['Exact move',()=>commitPreset([3,1,1,2])],
   ['Snap',snapMotion],[()=>snapOnRelease?'Snap release ON':'Snap release OFF',()=>{snapOnRelease=!snapOnRelease;if(snapOnRelease)snapMotion();}],
-  [()=>catalogueMode==='source'?'Source depth':'Canonical ball',()=>changeCloud(radius,whole,false,catalogueMode==='source'?'canonical':'source',dust)],
+  [()=>catalogueMode==='source'?'Source depth':'Canonical ball',()=>changeCloud(catalogueMode!=='source'&&radius<16?16:radius,whole,false,catalogueMode==='source'?'canonical':'source',dust)],
   [()=>catalogueMode!=='source'||whole?'Dust n/a':dust?'Dust ON':'Dust OFF',()=>{if(catalogueMode==='source'&&!whole)$('dust').click();}]
 ];
 for(const [i,[label,action]] of xrActions.entries()){
@@ -822,7 +898,7 @@ function showHover(index,key=null){
   if(index===null){label.hidden=true;label.dataset.point='';hoverShown=null;return;}
   hoverShown=key;
   const point=tripleAt(lattice,index), r=renderer.domElement.getBoundingClientRect();
-  const v=new THREE.Vector3().fromArray(displayXYZ,3*index).applyMatrix4(cloudMesh.matrixWorld).project(camera);
+  const v=new THREE.Vector3().fromArray(worldXYZ,3*index).applyMatrix4(cloudMesh.matrixWorld).project(camera);
   const x=r.left+(v.x+1)*r.width/2, y=r.top+(1-v.y)*r.height/2, text=$('hover-text');
   text.textContent=spacedPolynomial(polynomial(point));label.dataset.point=point.join();
   label.style.transform=`translate(${x}px,${y}px)`;label.hidden=false;
@@ -833,7 +909,7 @@ function showHover(index,key=null){
   text.style.left=`${left}px`;text.style.top=`${top}px`;
 }
 function pointTarget(index,ray){
-  const point=new THREE.Vector3().fromArray(displayXYZ,3*index).applyMatrix4(cloudMesh.matrixWorld);
+  const point=new THREE.Vector3().fromArray(worldXYZ,3*index).applyMatrix4(cloudMesh.matrixWorld);
   return {index,point,distance:point.distanceTo(ray.origin)};
 }
 const rayMoved=(ray,from,distance=1)=>ray.direction.angleTo(from.direction)>aimStale||ray.origin.distanceTo(from.origin)>aimStale*distance;
@@ -970,4 +1046,4 @@ const fixtureCounts={24:28832,48:231348,96:1852484};
 for(const option of $('radius').querySelectorAll('optgroup option'))option.textContent=`${option.value} · ${fixtureCounts[option.value].toLocaleString()} points`;
 await changeCloud(6,true);resize();checkXR();
 // Read-only diagnostics for reproducible app acceptance, never a second implementation.
-window.polynomialDiagnostics=()=>({...diagnostics(),selected:[...selected],second:secondSelection?[...secondSelection]:null,radius,whole,catalogueMode,dust,visiblePointCount:visiblePoints?visiblePoints.reduce((n,v)=>n+v,0):lattice.count,visibleRootCount:(()=>{let n=0;for(let i=0;i<lattice.count;i++)if((lattice.kind[i]===2||(diskView.model==='klein'&&lattice.kind[i]===3))&&sourceRootVisible(lattice,i)&&(!visiblePoints||visiblePoints[i]))n++;return n;})(),catalogue:lattice.catalogue??null,projectionVisible,inhabited,originMode,categories,sigma,planeFocus,dataBusy,xr:!!session,xrMode,xrPair,rootsView,panes:{space:spaceVisible(),roots:rootsVisible(),wide:innerWidth>=1000},mobiusMode,snapOnRelease,lastAbsorption,rootsChart:{...diskView,pan:[...diskView.pan]},timings:{...timings},rootsRender:{points:kleinView.renderer.info.render.points,calls:kleinView.renderer.info.render.calls},action:{phase:action.phase,matrix:[...action.matrix],g:[...action.g],imageNumerator:action.receipt?.imageNumerator,denominator:action.receipt?.denominator,delta:action.receipt?.delta,displayedSelection:displayedVector(selected)},world:{position:world.position.toArray(),quaternion:world.quaternion.toArray()},xrButtons:xrTargets.map(b=>({label:b.userData.label,position:b.getWorldPosition(new THREE.Vector3()).toArray()})),view:{position:camera.position.toArray(),quaternion:camera.quaternion.toArray(),fov:camera.fov},render:{points:renderer.info.render.points,calls:renderer.info.render.calls},projectedSelection:(()=>{const r=renderer.domElement.getBoundingClientRect(),v=physical(displayedVector(selected)).applyMatrix4(world.matrixWorld).project(camera);return{x:r.left+(v.x+1)*r.width/2,y:r.top+(1-v.y)*r.height/2};})()});
+window.polynomialDiagnostics=()=>({...diagnostics(),selected:[...selected],second:secondSelection?[...secondSelection]:null,radius,whole,catalogueMode,dust,visiblePointCount:visiblePoints?visiblePoints.reduce((n,v)=>n+v,0):lattice.count,visibleRootCount:(()=>{let n=0;for(let i=0;i<lattice.count;i++)if((lattice.kind[i]===2||(diskView.model==='klein'&&lattice.kind[i]===3))&&sourceRootVisible(lattice,i)&&(!visiblePoints||visiblePoints[i]))n++;return n;})(),catalogue:lattice.catalogue??null,renderCloudCount:lattice.count,previewCatalogue:previewCatalogue.diagnostics(),worldVisiblePointCount:worldVisiblePoints?worldVisiblePoints.reduce((n,v)=>n+v,0):lattice.count,projectionProgress,sourceScreen,screenHeight:screenHeight(),acceptedCatalogue:acceptedLattice().catalogue??null,spatialSelection:spatialVector(selected),projectionVisible,inhabited,originMode,categories,sigma,planeFocus,dataBusy,xr:!!session,xrMode,xrPair,rootsView,panes:{space:spaceVisible(),roots:rootsVisible(),wide:innerWidth>=1000},mobiusMode,snapOnRelease,lastAbsorption,rootsChart:{...diskView,pan:[...diskView.pan]},timings:{...timings},rootsRender:{points:kleinView.renderer.info.render.points,calls:kleinView.renderer.info.render.calls},action:{phase:action.phase,matrix:[...action.matrix],g:[...action.g],imageNumerator:action.receipt?.imageNumerator,denominator:action.receipt?.denominator,delta:action.receipt?.delta,displayedSelection:displayedVector(selected)},world:{position:world.position.toArray(),quaternion:world.quaternion.toArray()},xrButtons:xrTargets.map(b=>({label:b.userData.label,position:b.getWorldPosition(new THREE.Vector3()).toArray()})),view:{position:camera.position.toArray(),quaternion:camera.quaternion.toArray(),fov:camera.fov},render:{points:renderer.info.render.points,calls:renderer.info.render.calls},projectedSelection:(()=>{const r=renderer.domElement.getBoundingClientRect(),v=physical(spatialVector(selected)).applyMatrix4(world.matrixWorld).project(camera);return{x:r.left+(v.x+1)*r.width/2,y:r.top+(1-v.y)*r.height/2};})()});

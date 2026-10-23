@@ -10,6 +10,8 @@ import SwiftUI
   @Environment(\.openWindow) private var openWindow
   @State private var renderer = PolynomialRenderer()
   @State private var activation: EventSubscription?
+  @GestureState private var spatialDragging = false
+  @State private var spatialAttempted = false
   var body: some View {
     RealityView { content, attachments in
       content.add(renderer.stage); content.add(renderer.anchorHost)
@@ -20,6 +22,7 @@ import SwiftUI
         panel.position = [-0.95, 1.20, -1.65]; panel.scale = [1.15,1.15,1.15]
         content.add(panel)
       }
+      await renderer.prepareSpatialTarget(model)
       renderer.render(model)
     } update: { _, _ in renderer.render(model) }
     attachments: {
@@ -30,11 +33,34 @@ import SwiftUI
     .gesture(SpatialTapGesture().targetedToAnyEntity().onEnded { value in
       guard model.placement == .overview, !model.busy, model.actionPreview == nil else { return }
       if let point = renderer.pick(value.convert(value.location3D,from:.local,to:renderer.root),entity:value.entity,revision:model.sceneRevision) {
-        model.enter(point.abc)
+        model.pick(point.abc)
       } else { Self.select(value.entity,model:model) }
     })
+    .simultaneousGesture(DragGesture(minimumDistance:4).targetedToAnyEntity()
+      .updating($spatialDragging) { _,active,_ in active=true }
+      .onChanged { value in
+        guard renderer.isSpatialTarget(value.entity) else { return }
+        let local=value.convert(value.location3D,from:.local,to:renderer.root)
+        let direction=SIMD3(Double(local.x),Double(local.y),Double(local.z))
+        if !spatialAttempted {
+          spatialAttempted=true; model.beginSpatialDrag(direction:direction)
+        } else { model.updateSpatialDrag(direction:direction) }
+      }
+      .onEnded { value in
+        guard spatialAttempted else { return }
+        let local=value.convert(value.location3D,from:.local,to:renderer.root)
+        model.updateSpatialDrag(direction:SIMD3(Double(local.x),Double(local.y),Double(local.z)),force:true)
+        spatialAttempted=false; model.commitSpatialDrag()
+      })
+    .onChange(of:spatialDragging) { _,active in
+      if !active { Task { @MainActor in
+        await Task.yield()
+        if !spatialDragging,spatialAttempted { spatialAttempted=false; model.cancelSpatialDrag() }
+      }}
+    }
     .onAppear { model.spaceOpen = true }
     .onDisappear {
+      model.cancelPairing(); model.cancelSpatialDrag(); spatialAttempted=false
       activation?.cancel(); activation = nil
       model.spaceOpen = false; model.transitioning = false; model.place(.overview)
       openWindow(id: "polynomial-launch")
@@ -45,24 +71,27 @@ import SwiftUI
     let pieces = entity.name.split(separator: ":")
     guard pieces.count == 4, pieces[0] == "polynomial",
       let a = Int(pieces[1]), let b = Int(pieces[2]), let c = Int(pieces[3]) else { return }
-    model.enter([a,b,c])
+    model.pick([a,b,c])
   }
 }
 
 @MainActor final class PolynomialRenderer {
   let stage = Entity(), anchorHost = Entity(), root = Entity()
+  private let spatialSky = Entity()
   private let cloud = Entity(), guides = Entity(), projection = Entity(), selection = Entity(), plane = Entity(), picking = Entity()
   private let projectionDots = Entity(), projectionGuides = Entity()
   private var headAnchor: AnchorEntity?
   private var placement = PolynomialPlacement.overview
   private var anchorEpoch = -1
   private var sceneKey = ""
-  private var renderingFailed = false, guideRadius = -1
+  private var sourcePlaneKey = ""
+  private var renderingFailed = false
+  private var guideKey = ""
   private var actionRows: [Double] = [1,0,0,0,1,0,0,0,1]
   private var inhabitOffset: SIMD3<Float>?
   private var materials: [UInt32: UnlitMaterial] = [:]
   private let glyph: MeshResource
-  private var batches:[UInt32:InstanceBatch] = [:]
+  private var batches:[UInt64:InstanceBatch] = [:]
   private var radialBatch:InstanceBatch?
   private var scale: Float = 0.16
   private var collisionTask:Task<Void,Never>?
@@ -96,29 +125,45 @@ import SwiftUI
     descriptor.positions = MeshBuffers.Positions(sphere.positions); descriptor.primitives = .triangles(sphere.indices)
     glyph = (try? MeshResource.generate(from:[descriptor])) ?? MeshResource.generateSphere(radius:0.0075)
     stage.addChild(root)
-    for child in [guides,cloud,projection,plane,selection,picking] { root.addChild(child) }
+    for child in [guides,cloud,projection,plane,selection,picking,spatialSky] { root.addChild(child) }
+    spatialSky.name="polynomial-origin-sky"; spatialSky.isEnabled=false
     projection.addChild(projectionDots); projection.addChild(projectionGuides)
   }
 
+  func isSpatialTarget(_ entity:Entity) -> Bool { entity === spatialSky || collisionRanges[entity.name] != nil }
+  func prepareSpatialTarget(_ model:PolynomialModel) async {
+    do {
+      let mesh=PolynomialSpatialInput.shell()
+      let shape=try await ShapeResource.generateStaticMesh(positions:mesh.positions,faceIndices:mesh.indices)
+      spatialSky.components.set(CollisionComponent(shapes:[shape])); spatialSky.components.set(InputTargetComponent())
+      var accessibility=AccessibilityComponent(); accessibility.isAccessibilityElement=true
+      accessibility.label="Origin sky interaction surface"; spatialSky.components.set(accessibility)
+      model.spatialTargetReady=true
+    } catch { model.spatialTargetReady=false }
+  }
   func render(_ model: PolynomialModel) {
     scale = 0.96 / Float(model.displayedRadius)
     actionRows = model.displayActionRows
     place(model.placement,epoch:model.placementEpoch,viewpoint:model.viewpoint)
-    projection.isEnabled = model.showProjection; guides.isEnabled = model.showCone
+    projection.isEnabled = model.renderCatalogue != nil ? model.showSourceScreen && !model.placement.isOrigin : model.showProjection; guides.isEnabled = model.showCone
+    spatialSky.isEnabled=model.placement.isOrigin && model.spatialTargetReady && !model.busy
+      && (model.actionPreview == nil || model.ownsSpatialDrag)
     picking.isEnabled = model.placement == .overview && !model.busy && model.actionPreview == nil
-      && collisionRevision == model.sceneRevision && !renderingFailed
-    let nextScene = "\(model.sceneRevision)-\(model.actionRevision)-\(model.placement.isOrigin)-\(model.placement == .overview)-\(model.colorLower)-\(model.palette)-\(model.showProjection)-\(model.starSize)-\(model.planeFocus)"
+      && collisionRevision == model.sceneRevision && !model.projectionAnimating && !renderingFailed
+    let nextScene = "\(model.sceneRevision)-\(model.previewCatalogueRevision)-\(model.projectionProgress)-\(model.projectionAnimating)-\(model.projectionHeightFraction)-\(model.showSourceScreen)-\(model.actionRevision)-\(model.placement.isOrigin)-\(model.placement == .overview)-\(model.colorLower)-\(model.palette)-\(model.showProjection)-\(model.starSize)-\(model.planeFocus)"
     guard sceneKey != nextScene else { return }
     let started = Date.timeIntervalSinceReferenceDate
     let focusNormal:SIMD3<Double>? = model.planeFocus ? model.plane.flatMap { cutting in
       let n = cutting.cartesianNormal
       return PolynomialMobius.mapPlaneNormal(rows:actionRows,[Double(n[0]),Double(n[1]),Double(n[2])])
     } : nil
-    guard let snapshot = PolynomialRenderPlan.make(points:model.points,rows:actionRows,radius:model.displayedRadius,
+    guard let snapshot = PolynomialRenderPlan.make(points:model.renderPoints,rows:actionRows,radius:model.displayedRadius,
       origin:model.placement.isOrigin,starSize:model.starSize,colorLower:model.colorLower,palette:model.palette,
-      normal:focusNormal,keep:model.inspection?.point ?? [],projection:model.showProjection,catalogue:model.catalogue) else {
+      normal:focusNormal,keep:model.inspection?.point ?? [],projection:model.showProjection,catalogue:model.renderCatalogue,sourceMorph:model.sourceMorphSettings) else {
         renderFailure("Invalid display coordinates",model:model); return
       }
+    let reach=snapshot.glyphs.reduce(Float(0)) { greatest,glyph in max(greatest,simd_length(glyph.position)+glyph.collisionRadius) }
+    spatialSky.scale=SIMD3(repeating:PolynomialSpatialInput.shellScale(reach:reach))
     do {
       for key in Array(batches.keys) where snapshot.batches[key] == nil {
         batches.removeValue(forKey:key)?.entity.removeFromParent()
@@ -127,8 +172,11 @@ import SwiftUI
         var batch = batches[key]
         if batch == nil || batch!.data.instanceCapacity < indices.count {
           batch?.entity.removeFromParent()
-          batch = try InstanceBatch(mesh:glyph,material:material(PolynomialRenderPlan.color(key)),count:indices.count)
+          batch = try InstanceBatch(mesh:glyph,material:material(PolynomialRenderPlan.color(UInt32(key&0xFFFFFF)),alpha:snapshot.materialAlpha[key] ?? 1),count:indices.count)
           batches[key] = batch; cloud.addChild(batch!.entity)
+        }
+        if model.renderCatalogue != nil {
+          batch!.entity.model?.materials = [material(PolynomialRenderPlan.color(UInt32(key&0xFFFFFF)),alpha:snapshot.materialAlpha[key] ?? 1)]
         }
         try batch!.update(mesh:glyph,positions:indices.map { snapshot.glyphs[$0].position },factors:indices.map { snapshot.glyphs[$0].factor })
       }
@@ -147,14 +195,31 @@ import SwiftUI
     cloud.isEnabled = true; plane.isEnabled = true; selection.isEnabled = true
     renderingFailed = false
     // Fixed reference guides do not rebuild for every action or selection.
-    if guideRadius != model.displayedRadius {
-      guides.children.removeAll(); projectionGuides.children.removeAll(); cone(); guideRadius = model.displayedRadius
+    let nextGuideKey="\(model.displayedRadius)-\(model.renderCatalogue != nil)-\(model.projectionHeightFraction)"
+    if guideKey != nextGuideKey {
+      guides.children.removeAll(); projectionGuides.children.removeAll()
+      cone(sourceHeight:model.sourceMorphSettings.map { Float($0.height)*scale }); guideKey=nextGuideKey
     }
-    plane.children.removeAll(); selection.children.removeAll()
-    for entry in snapshot.glyphs where entry.point.necklace && entry.opacity > 0 {
+    let planeKey="\(model.sceneRevision)-\(model.actionRevision)-\(model.previewCatalogueRevision)-\(model.displayedRadius)"
+    let rebuildPlane=model.renderCatalogue == nil || sourcePlaneKey != planeKey
+    if rebuildPlane { plane.children.removeAll(); sourcePlaneKey=planeKey }
+    selection.children.removeAll()
+    for entry in snapshot.glyphs where model.renderCatalogue == nil && entry.point.necklace && entry.opacity > 0 {
       marker(at:entry.position,factor:entry.factor*1.55,rgb:PolynomialAppearance.amber,parent:plane)
     }
-    if let detail = model.inspection {
+    if let morph=model.sourceMorphSettings {
+      for (detail,color) in [(model.inspection,SIMD3<Double>(1,1,1)),(model.pairedInspection,PolynomialAppearance.amber)] {
+        guard let detail,let shown=PolynomialMobius.mapDisplayCoordinates(rows:actionRows,SIMD3(Double(detail.xyz[0]),Double(detail.xyz[1]),Double(detail.xyz[2]))) else { continue }
+        let position=PolynomialSourceMorph.markerPosition(shown,upper:detail.kind == "upper",settings:morph)*scale
+        let factor=Float(0.32*(1-morph.eye)+0.02*morph.eye)*scale/0.0075
+        marker(at:position,factor:factor,rgb:color,parent:selection)
+      }
+      if let detail=model.inspection,detail.delta < 0,
+        let shown=PolynomialMobius.mapDisplayCoordinates(rows:actionRows,SIMD3(Double(detail.xyz[0]),Double(detail.xyz[1]),Double(detail.xyz[2]))),abs(shown.y)>0.000001 {
+        let end=shown*(1.03*Double(model.displayedRadius)/abs(shown.y))*(shown.y < 0 ? -1:1)
+        line(.zero,SIMD3(Float(end.x),Float(end.y),Float(end.z))*scale,rgb:PolynomialAppearance.selectionRay,alpha:0.35,parent:selection,transform:false)
+      }
+    } else if let detail = model.inspection {
       if let entry = snapshot.glyphs.first(where: { $0.point.abc == detail.point && $0.opacity > 0 }) {
         marker(at:entry.position,factor:entry.factor*1.55,rgb:[1,1,1],parent:selection)
         line(.zero,entry.position,rgb:PolynomialAppearance.selectionRay,alpha:0.35,parent:selection,transform:false)
@@ -168,17 +233,20 @@ import SwiftUI
         }
       }
     }
-    if let cutting = model.plane { drawPlane(cutting,radius:Float(model.displayedRadius),showProjection:model.showProjection) }
-    if let second = model.displayedPair,let entry = snapshot.glyphs.first(where: { $0.point.abc == second && $0.opacity > 0 }) {
+    if rebuildPlane,let cutting = model.plane { drawPlane(cutting,radius:Float(model.displayedRadius),showProjection:model.renderCatalogue == nil && model.showProjection,source:model.renderCatalogue != nil) }
+    if model.renderCatalogue == nil,let second = model.displayedPair,let entry = snapshot.glyphs.first(where: { $0.point.abc == second && $0.opacity > 0 }) {
       marker(at:entry.position,factor:entry.factor*1.9,rgb:PolynomialAppearance.amber,parent:plane)
     }
     sceneKey = nextScene
     let milliseconds = (Date.timeIntervalSinceReferenceDate-started)*1000
-    let summary = "\(snapshot.batches.values.reduce(0) { $0+$1.count }) instances · \(snapshot.glyphs.count) buffered · \(batches.count) color batches · \(snapshot.radialPositions.count) projected · \(snapshot.glyphs.filter { $0.point.necklace && $0.opacity > 0 }.count) plane rings · \(String(format:"%.1f",milliseconds)) ms update"
-    if model.actionPreview == nil {
+    let morphSummary = model.sourceMorphSettings.map { " · morph \(Int(($0.progress*100).rounded()))% · h \(String(format:"%.1f",$0.height))" } ?? ""
+    let visibilitySummary = model.renderCatalogue == nil ? "" : "\(snapshot.glyphs.filter{$0.opacity > 0}.count) visible bodies · "
+    let memberLabel = model.renderCatalogue == nil ? "plane rings":"plane-highlight bodies"
+    let summary = "\(visibilitySummary)\(snapshot.batches.values.reduce(0) { $0+$1.count }) instances · \(snapshot.glyphs.count) buffered · \(batches.count) color batches · \(snapshot.radialPositions.count) projected · \(snapshot.glyphs.filter { (model.renderCatalogue == nil ? $0.point.necklace:$0.point.onPlane) && $0.opacity > 0 }.count) \(memberLabel) · \(String(format:"%.1f",milliseconds)) ms update\(morphSummary)"
+    if model.actionPreview == nil && !model.projectionAnimating {
       print("POLYNOMIAL_RENDER_STATS: \(summary)")
       Task { @MainActor in model.rendererStats = summary }
-      let key = "\(model.sceneRevision)-\(model.starSize)-\(model.placement.isOrigin)-\(model.colorLower)"
+      let key = pickingKey(model)
       schedulePicking(snapshot,model:model,key:key)
     }
   }
@@ -191,6 +259,9 @@ import SwiftUI
   func pick(_ location:SIMD3<Float>,entity:Entity,revision:Int) -> PolynomialPoint? {
     guard !renderingFailed, revision == collisionRevision,let range = collisionRanges[entity.name] else { return nil }
     return collisionSnapshot?.pick(at:location,range:range)
+  }
+  private func pickingKey(_ model:PolynomialModel) -> String {
+    "\(model.sceneRevision)-\(model.starSize)-\(model.placement.isOrigin)-\(model.colorLower)-\(model.projectionProgress)-\(model.projectionHeightFraction)"
   }
   private func schedulePicking(_ snapshot:PolynomialRenderPlan.Snapshot,model:PolynomialModel,key:String) {
     guard key != collisionKey,key != requestedCollisionKey else { return }
@@ -210,11 +281,11 @@ import SwiftUI
           ready.append(entity); ranges[entity.name] = chunk.range
         }
         guard !Task.isCancelled,version == collisionGeneration,revision == model.sceneRevision,
-          key == "\(model.sceneRevision)-\(model.starSize)-\(model.placement.isOrigin)-\(model.colorLower)" else { return }
+          key == pickingKey(model) else { return }
         for entity in ready { picking.addChild(entity) }
         collisionSnapshot = snapshot; collisionRanges = ranges; collisionRevision = revision; collisionKey = key
         requestedCollisionKey = ""
-        picking.isEnabled = model.placement == .overview && !model.busy && model.actionPreview == nil && !renderingFailed
+        picking.isEnabled = model.placement == .overview && !model.busy && model.actionPreview == nil && !model.projectionAnimating && !renderingFailed
         print("POLYNOMIAL_PICKING_READY: \(snapshot.glyphs.count) identities · \(ready.count) collision chunks")
       } catch {
         if version == collisionGeneration { requestedCollisionKey = "" }
@@ -249,11 +320,12 @@ import SwiftUI
     }
   }
 
-  private func cone() {
+  private func cone(sourceHeight:Float?) {
     for sign: Float in [1,-1] {
       let ring = (0...64).map { i -> SIMD3<Float> in
         let angle = Float(i) * 2 * .pi / 64
-        return [0.96*cos(angle), 0.96*sign, 0.96*sin(angle)]
+        let extent:Float = sourceHeight != nil && sign < 0 ? 0.288:0.96
+        return [extent*cos(angle), extent*sign, extent*sin(angle)]
       }
       // The cone is a fixed reference surface; only the lattice and selected plane move under SL₂.
       fan([.zero] + ring, rgb: PolynomialAppearance.guide, alpha: 0.018, parent: guides, transform:false)
@@ -262,7 +334,7 @@ import SwiftUI
         if i % 8 == 0 { line(.zero, ring[i], rgb: PolynomialAppearance.guideLine, alpha: 0.26, parent: guides, transform:false) }
       }
     }
-    let height = 4 * scale
+    let height = sourceHeight ?? 4 * scale
     let ring = (0...64).map { i -> SIMD3<Float> in
       let angle = Float(i) * 2 * .pi / 64
       return [height*cos(angle),height,height*sin(angle)]
@@ -271,7 +343,7 @@ import SwiftUI
     for i in 0..<64 { line(ring[i], ring[i+1], rgb: PolynomialAppearance.guide, alpha: 0.8, parent: projectionGuides, transform:false) }
   }
 
-  private func drawPlane(_ cutting: PolynomialPlane, radius: Float, showProjection: Bool) {
+  private func drawPlane(_ cutting: PolynomialPlane, radius: Float, showProjection: Bool,source:Bool) {
     let n = SIMD3<Float>(Float(cutting.cartesianNormal[0]),Float(cutting.cartesianNormal[1]),Float(cutting.cartesianNormal[2]))
     let horizontal = sqrt(n.x*n.x+n.z*n.z), length = simd_length(n)
     guard horizontal > 0, length > 0 else { return }
@@ -281,15 +353,25 @@ import SwiftUI
       let angle = Float(i) * 2 * .pi / 64, d = u * cos(angle) + v * sin(angle)
       return d * (radius * scale / max(abs(d.y),sqrt(d.x*d.x+d.z*d.z)))
     }
-    fan([.zero] + boundary, rgb: PolynomialAppearance.amber, alpha: 0.045, parent: plane)
-    for i in 0..<64 { line(boundary[i], boundary[i+1], rgb: PolynomialAppearance.amber, alpha: 0.35, parent: plane) }
+    let displayedBoundary = source ? boundary.map { point -> SIMD3<Float> in
+      let q=mapped(point)
+      let clipped=PolynomialSourceMorph.clipPlaneVertex(SIMD3(Double(q.x),Double(q.y),Double(q.z)),radius:Double(radius*scale)) ?? .zero
+      return SIMD3(Float(clipped.x),Float(clipped.y),Float(clipped.z))
+    } : boundary
+    fan([.zero] + displayedBoundary, rgb: PolynomialAppearance.amber, alpha: 0.045, parent: plane,transform:!source)
+    for i in 0..<64 { line(displayedBoundary[i], displayedBoundary[i+1], rgb: PolynomialAppearance.amber, alpha: 0.35, parent: plane,transform:!source) }
     let directions = cutting.endpoints.map { endpoint -> SIMD3<Float> in
       let value = endpoint.displayValue
       guard value.isFinite else { return [0,1,1] }
       let angle = 2 * atan(value)
       return [Float(sin(angle)),1,Float(-cos(angle))]
     }
-    for direction in directions { line(-0.96*direction,0.96*direction,rgb: PolynomialAppearance.amber,alpha:0.7,parent:plane) }
+    for direction in directions {
+      if source {
+        let q=mapped(direction)
+        if q.y > 0.000001 { line(-0.288*q/q.y,0.96*q/q.y,rgb:PolynomialAppearance.amber,alpha:0.7,parent:plane,transform:false) }
+      } else { line(-0.96*direction,0.96*direction,rgb:PolynomialAppearance.amber,alpha:0.7,parent:plane) }
+    }
     if showProjection {
       let projected = directions.map { direction -> SIMD3<Float> in
         let image = mapped(direction)
