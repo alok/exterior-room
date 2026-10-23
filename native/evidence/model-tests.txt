@@ -6,30 +6,38 @@ Building for debugging...
 [11 / 15] ExteriorRoomCoreTests-product
 [13 / 17] ExteriorRoomCoreTests-product
 [19 / 21] ExteriorRoomCoreTests-product
-Build complete! (2.14 sec)
-Test Suite 'All tests' started at 2026-10-22 19:58:45.534.
-Test Suite 'ExteriorRoomCoreTests.xctest' started at 2026-10-22 19:58:45.535.
-Test Suite 'LeanModelTests' started at 2026-10-22 19:58:45.535.
+Build complete! (2.81 sec)
+Test Suite 'All tests' started at 2026-10-22 20:13:56.262.
+Test Suite 'ExteriorRoomCoreTests.xctest' started at 2026-10-22 20:13:56.263.
+Test Suite 'LeanModelTests' started at 2026-10-22 20:13:56.263.
 Test Case '-[ExteriorRoomCoreTests.LeanModelTests testExactFractionPresentation]' started.
-Test Case '-[ExteriorRoomCoreTests.LeanModelTests testExactFractionPresentation]' passed (0.000 seconds).
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testExactFractionPresentation]' passed (0.001 seconds).
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testFailureAndPreviewNeverRelabelAcceptedMacResponseAsExport]' started.
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testFailureAndPreviewNeverRelabelAcceptedMacResponseAsExport]' passed (0.006 seconds).
 Test Case '-[ExteriorRoomCoreTests.LeanModelTests testFailurePreservesPreviousExactResult]' started.
 Test Case '-[ExteriorRoomCoreTests.LeanModelTests testFailurePreservesPreviousExactResult]' passed (0.003 seconds).
 Test Case '-[ExteriorRoomCoreTests.LeanModelTests testGeneratedPresetsMatchBrowserAndLeanValues]' started.
 Test Case '-[ExteriorRoomCoreTests.LeanModelTests testGeneratedPresetsMatchBrowserAndLeanValues]' passed (0.000 seconds).
 Test Case '-[ExteriorRoomCoreTests.LeanModelTests testInvalidURLInvalidatesAlreadyPendingResponse]' started.
-Test Case '-[ExteriorRoomCoreTests.LeanModelTests testInvalidURLInvalidatesAlreadyPendingResponse]' passed (0.003 seconds).
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testInvalidURLInvalidatesAlreadyPendingResponse]' passed (0.002 seconds).
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testOffCenterDragPreservesGrabOffsetAndSnapsOnlyProposedEndpoint]' started.
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testOffCenterDragPreservesGrabOffsetAndSnapsOnlyProposedEndpoint]' passed (0.000 seconds).
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testPresetAfterFailureRetriesBecauseLiveIntentPersists]' started.
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testPresetAfterFailureRetriesBecauseLiveIntentPersists]' passed (0.004 seconds).
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testPresetDuringPendingRequestKeepsLiveIntentAndRejectsOldReply]' started.
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testPresetDuringPendingRequestKeepsLiveIntentAndRejectsOldReply]' passed (0.004 seconds).
 Test Case '-[ExteriorRoomCoreTests.LeanModelTests testQuarterSnapMatchesBrowserAndCannotOverflow]' started.
 Test Case '-[ExteriorRoomCoreTests.LeanModelTests testQuarterSnapMatchesBrowserAndCannotOverflow]' passed (0.000 seconds).
 Test Case '-[ExteriorRoomCoreTests.LeanModelTests testRapidEditsAccumulateAndLateResponseCannotOverwrite]' started.
 Test Case '-[ExteriorRoomCoreTests.LeanModelTests testRapidEditsAccumulateAndLateResponseCannotOverwrite]' passed (0.004 seconds).
 Test Case '-[ExteriorRoomCoreTests.LeanModelTests testRejectsFalseOKAndWrongSequence]' started.
-Test Case '-[ExteriorRoomCoreTests.LeanModelTests testRejectsFalseOKAndWrongSequence]' passed (0.004 seconds).
-Test Suite 'LeanModelTests' passed at 2026-10-22 19:58:45.552.
-	 Executed 7 tests, with 0 failures (0 unexpected) in 0.016 (0.017) seconds
-Test Suite 'ExteriorRoomCoreTests.xctest' passed at 2026-10-22 19:58:45.552.
-	 Executed 7 tests, with 0 failures (0 unexpected) in 0.016 (0.017) seconds
-Test Suite 'All tests' passed at 2026-10-22 19:58:45.552.
-	 Executed 7 tests, with 0 failures (0 unexpected) in 0.016 (0.018) seconds
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testRejectsFalseOKAndWrongSequence]' passed (0.005 seconds).
+Test Suite 'LeanModelTests' passed at 2026-10-22 20:13:56.295.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.030 (0.032) seconds
+Test Suite 'ExteriorRoomCoreTests.xctest' passed at 2026-10-22 20:13:56.295.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.030 (0.032) seconds
+Test Suite 'All tests' passed at 2026-10-22 20:13:56.295.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.030 (0.033) seconds
 ◇ Test run started.
 ↳ Testing Library Version: 2401
 ↳ Target Platform: arm64e-apple-macos14.0

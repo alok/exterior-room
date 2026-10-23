@@ -8,6 +8,8 @@ struct ExteriorSpace: View {
   @Environment(LeanModel.self) private var model
   @Environment(\.openWindow) private var openWindow
   @State private var scene = ExteriorRenderer()
+  @GestureState private var dragActive = false
+  @State private var dragInvalidated = false
 
   var body: some View {
     RealityView { content, attachments in
@@ -34,8 +36,8 @@ struct ExteriorSpace: View {
       }
       Attachment(id: "receipt") {
         VStack(spacing: 6) {
-          Text(model.status).font(.caption.weight(.semibold))
-            .foregroundStyle(model.live ? Color.mint : Color.secondary)
+          Text(model.displayStatus).font(.caption.weight(.semibold))
+            .foregroundStyle(model.previewVector == nil && model.live ? Color.mint : Color.secondary)
           if let result = model.result {
             Text("a ∧ b = \(result.wedgeText)")
               .font(.system(.headline, design: .monospaced))
@@ -45,7 +47,8 @@ struct ExteriorSpace: View {
           if let error = model.error {
             Text(error).font(.caption2).foregroundStyle(.orange).lineLimit(2)
           }
-          Text(model.live ? "Drag an endpoint · release to compute" : "Lean-exported preset · connect for live manipulation")
+          Text(model.resultProvenance).font(.caption2).foregroundStyle(.secondary)
+          Text(model.interactionHint)
             .font(.caption2).foregroundStyle(.secondary)
         }
         .padding(16).frame(width: 430).glassBackgroundEffect()
@@ -53,39 +56,60 @@ struct ExteriorSpace: View {
     }
     .gesture(
       DragGesture().targetedToAnyEntity()
+        .updating($dragActive) { _, active, _ in active = true }
         .onChanged { value in
-          guard model.live, !model.busy, value.entity.name.hasPrefix("handle-") else { return }
-          if !scene.dragging {
-            scene.dragging = true
-          }
+          guard !dragInvalidated, model.live, !model.busy, value.entity.name.hasPrefix("handle-") else { return }
           let local = value.convert(value.location3D, from: .local, to: scene.geometry)
-          value.entity.position = local
+          let start = value.convert(value.startLocation3D, from: .local, to: scene.geometry)
+          model.previewVector = scene.previewDrag(value.entity, at: local, start: start, revision: model.inputRevision)
         }
         .onEnded { value in
           defer {
             scene.finishDrag()
+            model.previewVector = nil
             if let result = model.result { scene.render(result, inside: model.inside, showVolume: model.showVolume) }
           }
-          guard model.live, !model.busy,
-            let index = Int(value.entity.name.replacingOccurrences(of: "handle-", with: ""))
+          guard model.live, !model.busy, let drag = scene.drag, drag.inputRevision == model.inputRevision
           else { return }
           let local = value.convert(value.location3D, from: .local, to: scene.geometry)
-          model.moveVector(index, to: local - ExteriorRenderer.displayOffset)
+          if let endpoint = drag.endpoint(at: local, displayOffset: ExteriorRenderer.displayOffset) {
+            model.moveVector(drag.index, to: endpoint)
+          }
         }
     )
+    .onChange(of: dragActive) { _, active in
+      if !active { cancelPreview(); dragInvalidated = false }
+    }
+    .onChange(of: model.inputRevision) { _, _ in
+      if dragActive { dragInvalidated = true }
+      cancelPreview()
+    }
+    .onChange(of: model.inside) { _, _ in
+      if dragActive { dragInvalidated = true }
+      cancelPreview()
+    }
     .onAppear { model.spaceOpen = true }
     .onDisappear {
+      scene.finishDrag()
+      model.previewVector = nil
       model.spaceOpen = false
       model.transitioning = false
       openWindow(id: "launch")
     }
+  }
+
+  private func cancelPreview() {
+    scene.finishDrag()
+    model.previewVector = nil
+    if let result = model.result { scene.render(result, inside: model.inside, showVolume: model.showVolume) }
   }
 }
 
 @MainActor final class ExteriorRenderer {
   let root = Entity()
   let geometry = Entity()
-  var dragging = false
+  private(set) var drag: EndpointDrag?
+  private var preview: Entity?
   private var lastKey = ""
   static let displayOffset = SIMD3<Float>(-0.65, -0.65, -0.65)
   private let colors: [UIColor] = [UIColor(red: 1, green: 145.0/255, blue: 117.0/255, alpha: 1),
@@ -94,10 +118,37 @@ struct ExteriorSpace: View {
 
   init() { root.addChild(geometry) }
 
-  func finishDrag() { dragging = false; lastKey = "" }
+  func previewDrag(_ entity: Entity, at grab: SIMD3<Float>, start: SIMD3<Float>, revision: Int) -> Int? {
+    guard let index = Int(entity.name.replacingOccurrences(of: "handle-", with: "")),
+      (0..<3).contains(index) else { return nil }
+    if drag == nil {
+      drag = EndpointDrag(index: index, initialTip: entity.position, initialGrab: start, inputRevision: revision)
+      var material = UnlitMaterial(color: colors[index])
+      material.blending = .transparent(opacity: .init(floatLiteral: 0.4))
+      let ghost = ModelEntity(mesh: .generateSphere(radius: 0.09), materials: [material])
+      let label = ModelEntity(mesh: .generateText("preview " + ["a", "b", "c"][index],
+        extrusionDepth: 0.001, font: .systemFont(ofSize: 0.09)),
+        materials: [UnlitMaterial(color: .white)])
+      label.position = [0.10, 0.09, 0]
+      ghost.addChild(label)
+      geometry.addChild(ghost)
+      preview = ghost
+    }
+    guard let drag, drag.index == index else { return nil }
+    guard let endpoint = drag.endpoint(at: grab, displayOffset: Self.displayOffset) else { return nil }
+    preview?.position = endpoint + Self.displayOffset
+    return index
+  }
+
+  func finishDrag() {
+    preview?.removeFromParent()
+    preview = nil
+    drag = nil
+    lastKey = ""
+  }
 
   func render(_ result: LeanResult, inside: Bool, showVolume: Bool) {
-    guard !dragging else { return }
+    guard drag == nil else { return }
     root.position = inside ? [0.75, 1.2, -0.8] : [0.75, 1.25, -2.4]
     root.scale = SIMD3<Float>(repeating: inside ? 0.85 : 0.5)
     let key = "\(result.vectors)-\(result.vertices)-\(showVolume)"
@@ -114,7 +165,7 @@ struct ExteriorSpace: View {
     }
     let faces: [[UInt32]] = [[0,1,4,2],[0,1,5,3],[0,2,6,3],[1,4,7,5],[2,4,7,6],[3,5,7,6]]
     for (i, face) in faces.enumerated() where showVolume || i == 0 {
-      var descriptor = MeshDescriptor(name: "Lean-exported parallelepiped face")
+      var descriptor = MeshDescriptor(name: "Accepted Lean parallelepiped face")
       descriptor.positions = MeshBuffers.Positions(p)
       descriptor.primitives = .triangles([face[0],face[1],face[2],face[0],face[2],face[3]])
       if let mesh = try? MeshResource.generate(from: [descriptor]) {

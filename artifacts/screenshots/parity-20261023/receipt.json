@@ -1,0 +1,121 @@
+{
+  "date_utc": "2026-10-23",
+  "surface": "ChatGPT in-app browser; supplemental desktop acceptance, not main Chrome or physical WebXR",
+  "origin": "http://127.0.0.1:8787/",
+  "mechanism": "Supported computer-use browser API. Buttons and keyboard on actual controls; CDP mouse input for a visible vector handle. Read-only app diagnostics used for pose and visibility verification.",
+  "checks": [
+    {
+      "action": "Unit preset",
+      "wedge": [
+        "1",
+        "0",
+        "0"
+      ],
+      "volume": "1"
+    },
+    {
+      "action": "Swap unit a and b",
+      "wedge": [
+        "-1",
+        "0",
+        "0"
+      ],
+      "volume": "-1"
+    },
+    {
+      "action": "Flatten swapped unit, c=b",
+      "volume": "0"
+    },
+    {
+      "action": "Plane preset",
+      "wedge": [
+        "7/2",
+        "0",
+        "0"
+      ],
+      "volume": "0"
+    },
+    {
+      "action": "Skew preset, select c, increment x by one quarter through ArrowRight",
+      "wedge": [
+        "11/4",
+        "9/16",
+        "-5/16"
+      ],
+      "volume": "289/64"
+    },
+    {
+      "action": "Drag unit coral handle through pointer press/move/release",
+      "screen_start": [
+        820,
+        526
+      ],
+      "screen_end": [
+        880,
+        470
+      ],
+      "a_quarter_units": [
+        5,
+        2,
+        -2
+      ],
+      "wedge": [
+        "5/4",
+        "0",
+        "1/2"
+      ],
+      "volume": "5/4",
+      "note": "Performed before final camera framing adjustment; these screen coordinates are a receipt, not a reusable selector."
+    },
+    {
+      "action": "Inside view",
+      "result": "Camera changes; final starting direction shows the origin and three colored edges, after fixing an initially blank-face view."
+    },
+    {
+      "action": "Hide volume",
+      "result": "Mesh and full wire hidden; highlighted area retained; diagnostics show showVolume=false, wireVisible=false, volumeVisible=false."
+    },
+    {
+      "action": "Reset",
+      "result": "Skew inputs, overview, and visible volume restored."
+    },
+    {
+      "action": "Open and close proof boundary",
+      "result": "General proofs, executable Lean, renderer-only behavior, current exact self/swapped results visible."
+    },
+    {
+      "action": "390x844 responsive layout",
+      "result": "No horizontal overflow; all tips and controls visible after camera framing fix; Flatten through real button returns zero."
+    },
+    {
+      "action": "900x500 responsive layout",
+      "result": "No title/control overlap after fix; all tips visible above result panel; Unit through real button returns one."
+    },
+    {
+      "action": "Restore temporary viewport",
+      "result": "Reset succeeded."
+    },
+    {
+      "action": "Console check",
+      "result": "No captured warning/error entries."
+    }
+  ],
+  "main_chrome": {
+    "status": "partial, blocked",
+    "recovered_tab_url": "http://127.0.0.1:8787/",
+    "verified": "Existing tab recovered by fresh URL inventory; initial state inspected and final source refresh returned success.",
+    "blocked": "Screenshot timed out waiting for Page.captureScreenshot; Unit click exceeded deadline before command dispatch; subsequent read-only CDP diagnostics stalled.",
+    "denied": false,
+    "acceptance": "Further main-Chrome interactions and actual immersive WebXR session not passed."
+  },
+  "native": {
+    "run": "20261023T031413Z",
+    "ui_tests": 1,
+    "failures": 0,
+    "seconds": 126.317,
+    "captures": 9,
+    "model_tests": 11,
+    "tracked_hand_drag": "not verified"
+  },
+  "mathematical_boundary": "Live results computed by compiled Lean on Mac. General theorems kernel-checked at build; each UI result is a computation, not a fresh kernel proof. Renderer/transport and compiled runtime not formally verified."
+}

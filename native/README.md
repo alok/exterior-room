@@ -12,6 +12,13 @@ collision handling. In live mode, drag a colored endpoint and release to send
 its quarter-unit snapped coordinates to Lean. Coordinate buttons, vector
 selection, swap, flatten, reset and volume visibility mirror the browser.
 
+During a drag, a translucent ghost preserves the initial grab offset and previews
+the snapped endpoint. The accepted solid, original endpoint and coefficients stay
+unchanged until a matching Lean response arrives. Both panels label the preview
+and report whether the visible result came from a bundled export or the Mac.
+Changing inputs or placement, cancelling the gesture, or leaving the space
+discards the preview. Tracked-hand execution remains untested.
+
 `python3 native/scripts/export-presets.py` reads the browser's `PRESETS`, sends
 them to the compiled Lean executable, and writes the native JSON plus a SHA-256
 receipt. There is no native/Python algebra fallback. Reduced fractions are
@@ -35,6 +42,9 @@ No physical headset run or comfort/performance claim is made by a successful bui
 
 The native bridge is HTTP; Lean executes on the Mac, not on visionOS. A failed live
 request leaves the last accepted result visible and labels it as previous data.
+Live connection intent persists across pending and failed requests: selecting a
+preset still retries the bridge, while displaying that preset's bundled export
+until a response is accepted. Offline launch and preset playback need no server.
 
 Validate the same Swift JSON decoder used by the app, and optionally compare all
 bundled exports against the running bridge:

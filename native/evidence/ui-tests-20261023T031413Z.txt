@@ -1,0 +1,190 @@
+Command line invocation:
+    /Applications/Xcode-27.2.0-Beta.2.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/.build/Build/Products/ExteriorRoom-capture.xctestrun -destination "platform=visionOS Simulator,id=1D261881-0A0F-4DE0-B704-12644E606348" -parallel-testing-enabled NO -resultBundlePath /Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/evidence/NativeUI-20261023T031413Z.xcresult
+
+Writing result bundle at path:
+	/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/evidence/NativeUI-20261023T031413Z.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:visionOS Simulator, arch:arm64, id:1D261881-0A0F-4DE0-B704-12644E606348, OS:27.2, name:Exterior Room QA 2026-10-23 }
+{ platform:visionOS Simulator, arch:arm64, variant:Designed for [iPad,iPhone], id:1D261881-0A0F-4DE0-B704-12644E606348, OS:27.2, name:Exterior Room QA 2026-10-23 }
+2026-10-22 20:14:19.413269-0700 ExteriorRoomUITests-Runner[72003:7749794] [Default] Running tests...
+2026-10-22 20:14:19.420800-0700 ExteriorRoomUITests-Runner[72003:7749794] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-22 20:14:19.494190-0700 ExteriorRoomUITests-Runner[72003:7753384] [assertions] failed to observe with mask <BLSXPCBacklightProxyObserverMask: 0x102b42700; didUpdateToState: YES; eventsArray: YES> error:<XPC error received on message reply handler (3:BSServiceConnectionErrorDomain) "The operation couldn’t be completed. XPC error received on message reply handler">
+2026-10-22 20:14:19.521341-0700 ExteriorRoomUITests-Runner[72003:7753379] [plugin] AddInstanceForFactory: No factory registered for id <CFUUID 0x105df0800> F8BB1C28-BAE8-11D6-9C31-00039315CD46
+2026-10-22 20:14:19.537622-0700 ExteriorRoomUITests-Runner[72003:7753384] [connection] nw_socket_copy_info [C1:2] getsockopt TCP_INFO failed [102: Operation not supported on socket]
+2026-10-22 20:14:19.537696-0700 ExteriorRoomUITests-Runner[72003:7753384] [] nw_socket_copy_info getsockopt TCP_INFO failed [102: Operation not supported on socket]
+objc[72003]: Class AXMRUIAccessibilityAssertionService is implemented in both /private/var/run/com.apple.security.cryptexd/mnt/com.apple.XROS.SimulatorRuntime-v24.14.5093.6.tLntQt/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/PrivateFrameworks/AccessibilityUIUtilities.framework/AccessibilityUIUtilities (0x1f00b6278) and /private/var/run/com.apple.security.cryptexd/mnt/com.apple.XROS.SimulatorRuntime-v24.14.5093.6.tLntQt/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/PrivateFrameworks/MuseAccessibilityUI.framework/MuseAccessibilityUI (0x1065fc118). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+2026-10-22 20:14:19.814216-0700 ExteriorRoomUITests-Runner[72003:7749794] [AXCommon] Failed to load auxiliary bundle file:///private/var/run/com.apple.security.cryptexd/mnt/com.apple.XROS.SimulatorRuntime-v24.14.5093.6.tLntQt/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS%2027.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/MuseUIKit: (null)
+    t =      nans Interface orientation changed to Unknown
+Test Suite 'All tests' started at 2026-10-22 20:14:19.942.
+Test Suite 'ExteriorRoomUITests.xctest' started at 2026-10-22 20:14:19.943.
+Test Suite 'ExteriorRoomUITests' started at 2026-10-22 20:14:19.943.
+Test Case '-[ExteriorRoomUITests.ExteriorRoomUITests testSpatialControlsAndExactLeanRoundTrip]' started.
+    t =     0.01s Start Test at 2026-10-22 20:14:19.955
+    t =     0.02s Set Up
+    t =     0.03s Open com.alok.ExteriorRoom
+    t =     0.03s     Launch com.alok.ExteriorRoom
+2026-10-22 20:14:20.033 xcodebuild[71187:7747478] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-10-22 20:14:20.033 xcodebuild[71187:7747478] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     0.54s         Setting up automation session
+    t =     3.98s         Wait for com.alok.ExteriorRoom to idle
+    t =     5.56s Waiting 20.0s for "preset-0" Button to exist
+    t =     6.62s     Checking `Expect predicate `existsNoRetry == 1` for object "preset-0" Button`
+    t =     6.62s         Checking existence of `"preset-0" Button`
+    t =     6.69s Find the "volume-value" StaticText
+    t =     6.71s Find the "result-provenance" StaticText
+    t =    17.15s Added attachment named '01-skew-controls'
+    t =    17.15s Added attachment named '01-skew-controls-timing'
+    t =    17.16s Tap "connect" Button
+    t =    17.16s     Wait for com.alok.ExteriorRoom to idle
+    t =    17.16s     Find the "connect" Button
+    t =    17.18s     Check for interrupting elements affecting "connect" Button
+    t =    17.18s         Wait for com.apple.SurfBoard to idle
+    t =    17.25s     Synthesize event
+    t =    17.74s     Wait for com.alok.ExteriorRoom to idle
+    t =    18.80s Checking `Expect predicate `label == "Live Lean · Mac bridge"` for object "lean-status" StaticText`
+    t =    18.80s     Find the "lean-status" StaticText
+    t =    18.82s Find the "result-provenance" StaticText
+    t =    18.84s Tap "toggle-space" Button
+    t =    18.84s     Wait for com.alok.ExteriorRoom to idle
+    t =    18.84s     Find the "toggle-space" Button
+    t =    18.86s     Check for interrupting elements affecting "toggle-space" Button
+    t =    18.86s         Wait for com.apple.SurfBoard to idle
+    t =    18.97s     Synthesize event
+    t =    19.54s     Wait for com.alok.ExteriorRoom to idle
+    t =    20.93s Checking `Expect predicate `label == "Leave space"` for object "toggle-space" Button`
+    t =    20.93s     Find the "toggle-space" Button
+    t =    31.28s Added attachment named '02-skew-overview'
+    t =    31.28s Added attachment named '02-skew-overview-timing'
+    t =    31.28s Tap "preset-1" Button
+    t =    31.28s     Wait for com.alok.ExteriorRoom to idle
+    t =    31.28s     Find the "preset-1" Button
+    t =    31.31s     Check for interrupting elements affecting "preset-1" Button
+    t =    31.32s         Wait for com.apple.SurfBoard to idle
+    t =    31.38s     Synthesize event
+    t =    31.77s     Wait for com.alok.ExteriorRoom to idle
+    t =    32.82s Checking `Expect predicate `label == "1"` for object "volume-value" StaticText`
+    t =    32.82s     Find the "volume-value" StaticText
+    t =    33.88s Checking `Expect predicate `label == "Live Lean · Mac bridge"` for object "lean-status" StaticText`
+    t =    33.89s     Find the "lean-status" StaticText
+    t =    33.92s Find the "result-provenance" StaticText
+    t =    44.19s Added attachment named '03-unit-overview'
+    t =    44.19s Added attachment named '03-unit-overview-timing'
+    t =    44.19s Tap "swap" Button
+    t =    44.19s     Wait for com.alok.ExteriorRoom to idle
+    t =    44.20s     Find the "swap" Button
+    t =    44.22s     Check for interrupting elements affecting "swap" Button
+    t =    44.23s         Wait for com.apple.SurfBoard to idle
+    t =    44.30s     Synthesize event
+    t =    44.70s     Wait for com.alok.ExteriorRoom to idle
+    t =    45.78s Checking `Expect predicate `label == "-1"` for object "volume-value" StaticText`
+    t =    45.78s     Find the "volume-value" StaticText
+    t =    56.06s Added attachment named '04-swapped'
+    t =    56.06s Added attachment named '04-swapped-timing'
+    t =    56.06s Tap "flatten" Button
+    t =    56.06s     Wait for com.alok.ExteriorRoom to idle
+    t =    56.06s     Find the "flatten" Button
+    t =    56.10s     Check for interrupting elements affecting "flatten" Button
+    t =    56.11s         Wait for com.apple.SurfBoard to idle
+    t =    56.19s     Synthesize event
+    t =    56.59s     Wait for com.alok.ExteriorRoom to idle
+    t =    57.66s Checking `Expect predicate `label == "0"` for object "volume-value" StaticText`
+    t =    57.66s     Find the "volume-value" StaticText
+    t =    67.94s Added attachment named '05-flattened'
+    t =    67.94s Added attachment named '05-flattened-timing'
+    t =    67.95s Tap "preset-2" Button
+    t =    67.95s     Wait for com.alok.ExteriorRoom to idle
+    t =    67.95s     Find the "preset-2" Button
+    t =    67.98s     Check for interrupting elements affecting "preset-2" Button
+    t =    67.98s         Wait for com.apple.SurfBoard to idle
+    t =    68.05s     Synthesize event
+    t =    68.44s     Wait for com.alok.ExteriorRoom to idle
+    t =    78.68s Added attachment named '06-plane'
+    t =    78.68s Added attachment named '06-plane-timing'
+    t =    78.69s Tap "preset-0" Button
+    t =    78.69s     Wait for com.alok.ExteriorRoom to idle
+    t =    78.70s     Find the "preset-0" Button
+    t =    78.72s     Check for interrupting elements affecting "preset-0" Button
+    t =    78.73s         Wait for com.apple.SurfBoard to idle
+    t =    78.80s     Synthesize event
+    t =    79.25s     Wait for com.alok.ExteriorRoom to idle
+    t =    79.25s Tap "vector-2" Button
+    t =    79.25s     Wait for com.alok.ExteriorRoom to idle
+    t =    79.26s     Find the "vector-2" Button
+    t =    79.28s     Check for interrupting elements affecting "vector-2" Button
+    t =    79.39s         Wait for com.apple.SurfBoard to idle
+    t =    79.46s     Synthesize event
+    t =    79.86s     Wait for com.alok.ExteriorRoom to idle
+    t =    79.87s Tap "x-plus" Button
+    t =    79.87s     Wait for com.alok.ExteriorRoom to idle
+    t =    79.87s     Find the "x-plus" Button
+    t =    79.90s     Check for interrupting elements affecting "x-plus" Button
+    t =    79.90s         Wait for com.apple.SurfBoard to idle
+    t =    79.97s     Synthesize event
+    t =    80.37s     Wait for com.alok.ExteriorRoom to idle
+    t =    80.37s Find the "coordinate-x" StaticText
+    t =    80.40s Tap "inside" Button
+    t =    80.40s     Wait for com.alok.ExteriorRoom to idle
+    t =    80.40s     Find the "inside" Button
+    t =    80.43s     Check for interrupting elements affecting "inside" Button
+    t =    80.44s         Wait for com.apple.SurfBoard to idle
+    t =    80.51s     Synthesize event
+    t =    80.90s     Wait for com.alok.ExteriorRoom to idle
+    t =    91.19s Added attachment named '07-inside'
+    t =    91.19s Added attachment named '07-inside-timing'
+    t =    91.19s Tap "volume-toggle" Any
+    t =    91.19s     Wait for com.alok.ExteriorRoom to idle
+    t =    91.19s     Find the "volume-toggle" Any
+    t =    91.31s     Check for interrupting elements affecting "volume-toggle" Switch
+    t =    91.31s         Wait for com.apple.SurfBoard to idle
+    t =    91.39s     Synthesize event
+    t =    91.79s     Wait for com.alok.ExteriorRoom to idle
+    t =   102.14s Added attachment named '08-volume-hidden'
+    t =   102.14s Added attachment named '08-volume-hidden-timing'
+    t =   102.14s Tap "reset" Button
+    t =   102.14s     Wait for com.alok.ExteriorRoom to idle
+    t =   102.14s     Find the "reset" Button
+    t =   102.17s     Check for interrupting elements affecting "reset" Button
+    t =   102.17s         Wait for com.apple.SurfBoard to idle
+    t =   102.24s     Synthesize event
+    t =   102.64s     Wait for com.alok.ExteriorRoom to idle
+    t =   102.64s Find the "volume-value" StaticText
+    t =   102.67s Tap "toggle-space" Button
+    t =   102.67s     Wait for com.alok.ExteriorRoom to idle
+    t =   102.67s     Find the "toggle-space" Button
+    t =   102.70s     Check for interrupting elements affecting "toggle-space" Button
+    t =   102.71s         Wait for com.apple.SurfBoard to idle
+    t =   102.78s     Synthesize event
+    t =   103.17s     Wait for com.alok.ExteriorRoom to idle
+    t =   104.27s Checking `Expect predicate `label == "Enter space"` for object "toggle-space" Button`
+    t =   104.27s     Find the "toggle-space" Button
+    t =   104.36s     Capturing element debug description
+    t =   104.39s         Requesting snapshot of accessibility hierarchy for app with pid 73327
+    t =   104.48s         Find: Descendants matching type Button
+    t =   104.48s         Find: Elements matching predicate '"toggle-space" IN identifiers'
+    t =   104.48s         Requesting snapshot of accessibility hierarchy for app with pid 73327
+    t =   104.56s         Find: Descendants matching type Button
+    t =   104.56s         Requesting snapshot of accessibility hierarchy for app with pid 73327
+    t =   105.20s Checking `Expect predicate `label == "Enter space"` for object "toggle-space" Button`
+    t =   105.20s     Find the "toggle-space" Button
+    t =   105.22s Checking existence of `"preset-0" Button`
+    t =   115.72s Added attachment named '09-returned'
+    t =   115.73s Added attachment named '09-returned-timing'
+    t =   115.73s Tear Down
+Test Case '-[ExteriorRoomUITests.ExteriorRoomUITests testSpatialControlsAndExactLeanRoundTrip]' passed (126.317 seconds).
+Test Suite 'ExteriorRoomUITests' passed at 2026-10-22 20:16:26.272.
+	 Executed 1 test, with 0 failures (0 unexpected) in 126.317 (126.329) seconds
+Test Suite 'ExteriorRoomUITests.xctest' passed at 2026-10-22 20:16:26.272.
+	 Executed 1 test, with 0 failures (0 unexpected) in 126.317 (126.330) seconds
+Test Suite 'All tests' passed at 2026-10-22 20:16:26.273.
+	 Executed 1 test, with 0 failures (0 unexpected) in 126.317 (126.331) seconds
+2026-10-22 20:16:26.574 xcodebuild[71187:7747478] [MT] IDETestOperationsObserverDebug: 132.308 elapsed -- Testing started completed.
+2026-10-22 20:16:26.574 xcodebuild[71187:7747478] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-22 20:16:26.574 xcodebuild[71187:7747478] [MT] IDETestOperationsObserverDebug: 132.308 sec, +132.308 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/evidence/NativeUI-20261023T031413Z.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

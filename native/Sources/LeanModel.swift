@@ -42,6 +42,31 @@ private struct LeanRequest: Encodable {
   let c: [Int]
 }
 
+// Renderer-only drag state. This never computes exterior-algebra values.
+struct EndpointDrag {
+  let index: Int
+  let initialTip: SIMD3<Float>
+  let initialGrab: SIMD3<Float>
+  let inputRevision: Int
+  func point(at grab: SIMD3<Float>) -> SIMD3<Float> { initialTip + grab - initialGrab }
+  func endpoint(at grab: SIMD3<Float>, displayOffset: SIMD3<Float>) -> SIMD3<Float>? {
+    let p = point(at: grab) - displayOffset
+    guard let x = LeanModel.snappedQuarter(p.x), let y = LeanModel.snappedQuarter(p.y),
+      let z = LeanModel.snappedQuarter(p.z) else { return nil }
+    return SIMD3<Float>(Float(x), Float(y), Float(z)) / 4
+  }
+}
+
+enum ResultOrigin: Equatable {
+  case bundledExport, macBridge
+  var text: String {
+    switch self {
+    case .bundledExport: "Result source: bundled Lean export"
+    case .macBridge: "Result source: Lean response from Mac"
+    }
+  }
+}
+
 @MainActor @Observable final class LeanModel {
   typealias Transport = @Sendable (URLRequest) async throws -> (Data, URLResponse)
   static let presetNames = ["Skew", "Unit", "Plane"]
@@ -52,6 +77,9 @@ private struct LeanRequest: Encodable {
   var selectedVector = 0
   var server = "http://127.0.0.1:8787"
   var live = false
+  private(set) var liveRequested = false
+  private(set) var resultOrigin = ResultOrigin.bundledExport
+  var previewVector: Int?
   var busy = false
   var inside = false
   var showVolume = true
@@ -59,7 +87,18 @@ private struct LeanRequest: Encodable {
   var transitioning = false
   var status = "Lean export · preset playback"
   var error: String?
+  var displayStatus: String {
+    previewVector == nil ? status : "Drag preview · accepted result unchanged"
+  }
+  var resultProvenance: String { result == nil ? "No accepted Lean result" : resultOrigin.text }
+  var interactionHint: String {
+    if previewVector != nil { return "Preview only · release to ask Lean" }
+    if busy { return "Waiting for Lean · previous result visible" }
+    if error != nil { return "Previous result visible · retry the Mac bridge" }
+    return live ? "Drag an endpoint · release to compute" : "Presets work offline · edits need the Mac bridge"
+  }
   private var requestID = 0
+  var inputRevision: Int { requestID }
   private var pending: Task<Void, Never>?
   private let transport: Transport
 
@@ -79,13 +118,14 @@ private struct LeanRequest: Encodable {
 
   func showPreset(_ index: Int) {
     guard presets.indices.contains(index) else { return }
-    let reconnect = live
+    let reconnect = liveRequested
     pending?.cancel()
     requestID += 1
     busy = false
     live = false
     presetIndex = index
     result = presets[index]
+    resultOrigin = .bundledExport
     vectors = presets[index].vectors
     status = "Lean export · preset playback"
     error = nil
@@ -112,7 +152,7 @@ private struct LeanRequest: Encodable {
     presetIndex = -1
     evaluate()
   }
-  static func snappedQuarter(_ value: Float) -> Int? {
+  nonisolated static func snappedQuarter(_ value: Float) -> Int? {
     guard value.isFinite else { return nil }
     // Match JavaScript Math.round, including negative half-way values. Clamp before Int conversion.
     return Int(floor(min(12.0, max(-12.0, Double(value) * 4)) + 0.5))
@@ -129,6 +169,7 @@ private struct LeanRequest: Encodable {
   func waitForPending() async { await pending?.value }
 
   private func evaluate() {
+    liveRequested = true
     pending?.cancel()
     requestID += 1
     let id = requestID
@@ -157,6 +198,7 @@ private struct LeanRequest: Encodable {
         guard accepted.isValid, accepted.id == id, accepted.vectors == requested else { throw URLError(.cannotParseResponse) }
         guard !Task.isCancelled, id == requestID else { return }
         result = accepted
+        resultOrigin = .macBridge
         live = true
         status = "Live Lean · Mac bridge"
         busy = false

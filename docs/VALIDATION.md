@@ -14,10 +14,10 @@ unless stated otherwise.
 | Lean executable against an independent integer oracle | 255 valid cases and 8 invalid cases passed | [Service test receipt](../lean/evidence/service-tests.json) |
 | Python bridge | 16 tests passed, including the latest rerun | [Tests](../tests/test_server.py) |
 | JavaScript state and XR helpers | 18 tests passed, including the latest rerun | [State tests](../tests/state.test.mjs), [XR helper tests](../tests/xr-support.test.mjs) |
-| Native model | 7 tests passed | [Model test log](../native/evidence/model-tests.txt) |
+| Native model | 11 tests passed | [Model test log](../native/evidence/model-tests.txt) |
 | Native decoder and live bridge | Three exports decoded; live responses matched exports; unit/swap/flatten/reset/coordinate sequence passed | [Bridge test receipt](../native/evidence/bridge-tests.txt) |
 | Native build | Unsigned arm64 visionOS Simulator build completed | [Native instructions](../native/README.md) and [build-for-testing log](../native/evidence/build-for-testing.txt) |
-| Native simulator UI sequence | 1 test passed, 0 failures, 130.352 seconds; nine successful stage captures | [Final UI log](../native/evidence/ui-tests-20261023T030342Z.txt), [capture manifest](../native/evidence/screenshots/20261023T030342Z/captures.json) |
+| Native simulator UI sequence | 1 test passed, 0 failures, 126.317 seconds; nine successful stage captures | [Final UI log](../native/evidence/ui-tests-20261023T031413Z.txt), [capture manifest](../native/evidence/screenshots/20261023T031413Z/captures.json) |
 
 The Lean executable tested in the recorded receipt has SHA-256
 `934ff0b8305cd0d76d79bfd06bbca594bf6feb35d72fe0d7a8acaa665906cc68`.
@@ -36,7 +36,7 @@ python3 lean/build.py
 python3 lean/test_service.py
 python3 -m unittest discover -s tests -p 'test_*.py'
 node --test tests/*.test.mjs
-swift test --package-path native
+swift test --package-path native --scratch-path native/.build/swift-tests -j 2
 ```
 
 The Python bridge suite uses local loopback sockets and short-lived test
@@ -59,9 +59,10 @@ Xcode 27.2 beta with Swift 6 and the visionOS 27.2 Simulator SDK.
 
 | Surface | Current status |
 | --- | --- |
-| Browser | Live initial state and **Swap a ↔ b** observed in main Chrome. The returned swapped result was inspected through browser diagnostics and had volume `-147/32`. [Skew capture](../artifacts/web-skew-overview.jpg), [swapped capture](../artifacts/web-swapped.jpg). Further interaction acceptance is pending. |
-| Native visionOS Simulator | Final automated UI sequence passed. [Skew overview](../native/evidence/screenshots/20261023T030342Z/002-02-skew-overview.png), [nine-stage manifest](../native/evidence/screenshots/20261023T030342Z/captures.json), and [test log](../native/evidence/ui-tests-20261023T030342Z.txt). Earlier failed runs are superseded by this successful run. |
-| WebXR headset session | Not verified on hardware. Helper tests are not evidence of headset session entry, gesture quality, or comfort. |
+| Main Chrome | Live initial state and **Swap a ↔ b** were observed previously. The returned swapped result had volume `-147/32`. [Skew capture](../artifacts/web-skew-overview.jpg), [swapped capture](../artifacts/web-swapped.jpg). The latest retry recovered DOM reads and refreshed the demo, but interaction acceptance remains blocked as described below. |
+| In-app browser (IAB) | Supplemental live checks passed for presets, swap, flatten, coordinate editing, pointer dragging, inside view, volume visibility, reset, and the proof panel. Saved desktop and responsive captures are linked below. This is separate evidence from main Chrome. |
+| Native visionOS Simulator | Final automated UI sequence passed. [Skew overview](../native/evidence/screenshots/20261023T031413Z/002-02-skew-overview.png), [nine-stage manifest](../native/evidence/screenshots/20261023T031413Z/captures.json), and [test log](../native/evidence/ui-tests-20261023T031413Z.txt). Earlier runs are superseded by this successful run. |
+| WebXR headset session | Not exercised. Helper tests and desktop-browser checks are not evidence of immersive session entry, controller behavior, gesture quality, or comfort. |
 | Physical Apple Vision Pro | No installation, launch, interaction, performance, or comfort result is claimed. |
 
 The passing native sequence covers live connection, immersive entry, presets,
@@ -70,32 +71,75 @@ inside placement, volume visibility, reset, and return from immersion. Tracked
 hand/endpoint dragging was not tested. The result is supported by the test log,
 not inferred from the screenshots alone.
 
+### Supplemental browser interaction receipt
+
+These actions used the page's controls and real browser input events against the
+local Lean bridge, followed by result inspection. They were not state changes
+injected through the app's diagnostic object. The
+[browser receipt](../artifacts/screenshots/parity-20261023/receipt.json)
+records the actions, observed values, viewport checks, and remaining blockers.
+
+| Action | Observed result | Capture |
+| --- | --- | --- |
+| Select Unit | Wedge `(1, 0, 0)`, signed volume `1` | [Unit](../artifacts/screenshots/parity-20261023/iab-unit.png) |
+| Swap the Unit vectors | Wedge `(-1, 0, 0)`, signed volume `-1` | [Swapped](../artifacts/screenshots/parity-20261023/iab-unit-swapped.png) |
+| Flatten after swap | `c = b`, wedge `(-1, 0, 0)`, signed volume `0` | [Flattened](../artifacts/screenshots/parity-20261023/iab-unit-flattened.png) |
+| Select Plane | Wedge `(7/2, 0, 0)`, signed volume `0` | [Plane](../artifacts/screenshots/parity-20261023/iab-plane.png) |
+| Select Skew, then edit `c.x` with ArrowRight | Input changes from integer quarter-unit `1` to `2` (world `1/4` to `1/2`); signed volume becomes `289/64` | [Coordinate edit](../artifacts/screenshots/parity-20261023/iab-coordinate.png) |
+| Drag the coral Unit endpoint with pointer input | Accepted `a = [5, 2, -2]` in integer quarter units; wedge `(5/4, 0, 1/2)`, signed volume `5/4` | [Drag result](../artifacts/screenshots/parity-20261023/iab-drag.png) |
+| Select Inside | View changes while the exact accepted result is retained | [Edited Inside state](../artifacts/screenshots/parity-20261023/iab-coordinate-inside.png) |
+| Hide Volume | Both the volume mesh and its wire are hidden; the area face and exact readout remain | [Volume hidden](../artifacts/screenshots/parity-20261023/iab-coordinate-volume-hidden.png) |
+| Reset | Skew vectors, Overview, and visible volume are restored | [Skew overview](../artifacts/screenshots/parity-20261023/iab-skew-overview.png) |
+| Open the proof panel | The kernel, executable, and rendering boundaries are displayed | [Proof panel](../artifacts/screenshots/parity-20261023/iab-proof-boundary.png) |
+
+The recorded drag moved from `(820, 526)` to `(880, 470)` at the earlier desktop
+camera framing. Camera framing was subsequently improved; those screen
+coordinates are a historical input receipt, not a replay script for the final
+camera. No algebra code changed during those camera adjustments.
+
+The [390×844 capture](../artifacts/screenshots/parity-20261023/iab-mobile-390x844.png)
+and [900×500 capture](../artifacts/screenshots/parity-20261023/iab-compact-900x500.png)
+were inspected after fixing mobile clipping and short-window title overlap.
+Flatten also returned zero through the actual button at 390×844, and Unit
+returned one at 900×500. No warning/error entries were captured by the console
+check recorded in the receipt.
+These are viewport-layout checks, not physical-phone or touch-gesture tests.
+Temporary viewport overrides were reset after inspection.
+
 ### Browser/native comparison
 
-| Comparison | Evidence and limit |
+The comparison uses the IAB captures above and the native `20261023T031413Z`
+capture set. Matching captures were opened and visually inspected.
+
+| Comparison | Observed agreement and limit |
 | --- | --- |
-| Skew exact readout | Both inspected views show wedge `(11/4, 9/16, -5/16)` and signed volume `147/32`. |
-| Geometry and colors | Both show the three corresponding vector colors, an eight-vertex solid, and the highlighted `a ∧ b` face. This is a visual/content comparison, not a pixel comparison. |
-| Presentation | Cameras, scene scales, materials, and control layouts differ between Three.js and RealityKit. |
-| Matching interaction workflow | The full sequence is verified only in the native simulator. Browser launch and swap are verified; browser flatten, inside view, direct dragging, mobile layout, and WebXR acceptance remain pending. |
+| Skew overview | Both show wedge `(11/4, 9/16, -5/16)`, volume `147/32`, the corresponding coral/mint/lavender vectors, and the eight-vertex solid with its highlighted `a ∧ b` face. |
+| Unit → swap → flatten | Both show `(1, 0, 0)`/`1`, then `(-1, 0, 0)`/`-1`, then `(-1, 0, 0)`/`0`. The zero-volume geometry collapses into a plane. |
+| Plane preset | Both show wedge `(7/2, 0, 0)` and volume `0`. |
+| Coordinate edit and Inside | IAB's `iab-coordinate-inside.png` matches native's `007-07-inside.png` on the edited coordinates and volume `289/64`. The separate browser Skew Inside capture has unedited volume `147/32` and is not the same state. |
+| Volume visibility and reset | Both workflows exercise hiding the volume while retaining the area face and resetting to the visible Skew Overview state. |
+| Presentation and input | Camera placement, scale, materials, face treatment, and control layout differ. Browser pointer dragging was exercised; native tracked-hand dragging and immersive browser controls were not. |
 
-This establishes **partial parity**, not complete browser/native equivalence.
+This establishes agreement on the inspected states and tested control actions.
+It does not establish pixel-identical rendering, complete browser/native
+equivalence, or physical-device behavior.
 
-### Browser verification blocker
+### Main Chrome verification blocker
 
-The unfinished action was further interaction testing, beginning with
-**Flatten**, on the main Chrome tab at `http://127.0.0.1:8787`. Browser automation
-calls repeatedly stalled and then lost their Chrome connection. Tab inventory
-later recovered, but acquiring the demo tab still failed. The attempted Flatten
-click was not confirmed as dispatched or completed; the last successful state
-inspection still showed the previous result. Its outcome is therefore
-**unconfirmed**, not a passed check or an established application failure.
+The remaining target is the main Chrome demo tab at `http://127.0.0.1:8787`.
+After earlier connection failures, the latest retry recovered DOM reads and
+successfully refreshed that tab. A `Page.captureScreenshot` call then timed out
+without producing a new capture, and the attempted **Unit** click reached its
+deadline **before dispatch**. That click did not test the application. No
+approval denial occurred. A final reload returned success, but the following
+read-only CDP diagnostics stalled, so it did not complete interaction acceptance.
 
-Initial rendering, live swap, exact-result inspection, and saved screenshots
-were completed before that blocker. No browser action was denied. Further
-browser acceptance remains pending until the tab can be controlled and observed
-again. The local service remained running on port 8787; this validation did not
-use a public host.
+Earlier launch, live swap, exact-result inspection, and screenshots remain valid
+Chrome evidence. Completion of its interaction checks is **pending**, blocked
+by the automation connection. The successful IAB sequence is supplemental; it
+does not turn the failed Chrome attempts into passes. Earlier unconfirmed
+Chrome actions are not counted. The local service remained on port 8787, and
+these checks did not use a public host.
 
 ## Exact scope of the mathematical evidence
 

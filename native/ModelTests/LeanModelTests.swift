@@ -46,6 +46,8 @@ private actor Gate {
     XCTAssertEqual(model.vectors, [[4,0,0],[0,4,0],[0,0,4]])
     XCTAssertEqual(model.result?.wedge, [16,0,0])
     XCTAssertFalse(model.live)
+    XCTAssertFalse(model.liveRequested)
+    XCTAssertEqual(model.resultOrigin, .bundledExport)
     XCTAssertTrue(model.status.contains("export"))
     model.inside = true; model.showVolume = false; model.selectedVector = 2
     model.reset()
@@ -111,5 +113,65 @@ private actor Gate {
       await model.waitForPending()
       XCTAssertFalse(model.live); XCTAssertNotNil(model.error)
     }
+  }
+  func testPresetDuringPendingRequestKeepsLiveIntentAndRejectsOldReply() async throws {
+    let data = try fixtureData(), gate = Gate()
+    let model = LeanModel(presetData: data, transport: { try await gate.send($0) })
+    model.connect(); try await gate.waitFor(1)
+    XCTAssertTrue(model.liveRequested); XCTAssertTrue(model.busy); XCTAssertFalse(model.live)
+    model.showPreset(1); try await gate.waitFor(2)
+    XCTAssertTrue(model.busy); XCTAssertTrue(model.liveRequested)
+    XCTAssertEqual(model.resultOrigin, .bundledExport)
+    XCTAssertEqual(model.result?.volume, 64)
+    try await gate.reply(3, data: data); await model.waitForPending()
+    try await gate.reply(1, data: data); await Task.yield()
+    XCTAssertTrue(model.live)
+    XCTAssertEqual(model.result?.a, [4,0,0])
+    XCTAssertEqual(model.resultOrigin, .macBridge)
+  }
+  func testPresetAfterFailureRetriesBecauseLiveIntentPersists() async throws {
+    let data = try fixtureData(), gate = Gate()
+    let model = LeanModel(presetData: data, transport: { try await gate.send($0) })
+    model.connect(); try await gate.waitFor(1)
+    await gate.fail(1); await model.waitForPending()
+    XCTAssertTrue(model.liveRequested); XCTAssertFalse(model.live)
+    model.showPreset(2); try await gate.waitFor(2)
+    XCTAssertTrue(model.busy)
+    XCTAssertEqual(model.resultOrigin, .bundledExport)
+    try await gate.reply(3, data: data); await model.waitForPending()
+    XCTAssertTrue(model.live); XCTAssertEqual(model.result?.c, [4,4,0])
+  }
+  func testFailureAndPreviewNeverRelabelAcceptedMacResponseAsExport() async throws {
+    let data = try fixtureData(), gate = Gate()
+    let model = LeanModel(presetData: data, transport: { try await gate.send($0) })
+    model.connect(); try await gate.waitFor(1)
+    try await gate.reply(1, data: data); await model.waitForPending()
+    model.previewVector = 0
+    XCTAssertEqual(model.displayStatus, "Drag preview · accepted result unchanged")
+    XCTAssertEqual(model.result?.a, [7,1,1])
+    XCTAssertTrue(model.interactionHint.contains("Preview only"))
+    model.previewVector = nil
+    model.setCoordinate(0, quarter: 9); try await gate.waitFor(2)
+    XCTAssertEqual(model.resultOrigin, .macBridge)
+    XCTAssertTrue(model.resultProvenance.contains("response from Mac"))
+    await gate.fail(2); await model.waitForPending()
+    XCTAssertEqual(model.resultOrigin, .macBridge)
+    XCTAssertTrue(model.resultProvenance.contains("response from Mac"))
+    XCTAssertEqual(model.result?.a, [7,1,1])
+    XCTAssertTrue(model.interactionHint.contains("Previous result"))
+  }
+  func testOffCenterDragPreservesGrabOffsetAndSnapsOnlyProposedEndpoint() {
+    let offset = SIMD3<Float>(repeating: -0.65)
+    let endpoint = SIMD3<Float>(1.75, 0.25, 0.25)
+    let tip = endpoint + offset
+    let grab = tip + SIMD3<Float>(0.02, -0.03, 0.01)
+    let drag = EndpointDrag(index: 0, initialTip: tip, initialGrab: grab, inputRevision: 5)
+    XCTAssertEqual(drag.endpoint(at: grab, displayOffset: offset), endpoint)
+    XCTAssertEqual(drag.endpoint(at: grab + SIMD3<Float>(0.24, 0.01, -0.26), displayOffset: offset),
+      SIMD3<Float>(2, 0.25, 0))
+    XCTAssertEqual(drag.endpoint(at: grab + SIMD3<Float>(100, -100, 0), displayOffset: offset),
+      SIMD3<Float>(3, -3, 0.25))
+    XCTAssertNil(drag.endpoint(at: SIMD3<Float>(.nan, 0, 0), displayOffset: offset))
+    XCTAssertEqual(drag.initialTip, tip)
   }
 }

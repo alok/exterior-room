@@ -11,12 +11,13 @@ The algebra comes from a pinned snapshot of the Grassmann Lean codebase. The
 browser and RealityKit app are renderers and input clients. Neither substitutes
 JavaScript or Swift exterior-product calculations for Lean.
 
-![Exterior Room in the browser](artifacts/web-skew-overview.jpg)
+![Exterior Room in the browser](artifacts/screenshots/parity-20261023/iab-skew-overview.png)
 
-The live browser launch and sign swap are verified, as is the full automated
-native simulator sequence. Browser/native comparison is partial: exact readouts,
-vector colors, and the displayed solid agree; further browser interaction
-acceptance remains pending. See the [validation receipt](docs/VALIDATION.md).
+Live browser controls, coordinate editing, pointer dragging, and responsive
+layouts were exercised in the in-app browser. The native simulator sequence also
+passes. Inspected matching states agree on exact readouts, vector colors, and
+geometry. Main Chrome interaction acceptance, immersive WebXR, and physical
+Vision Pro testing remain pending. See the [validation receipt](docs/VALIDATION.md).
 
 ## Run on a Mac
 
@@ -109,15 +110,16 @@ Lean response schema. It offers two explicit modes:
 - **Live Lean · Mac bridge:** exact calculations run on the Mac. Coordinate
   controls and released endpoint drags request new results.
 
-![Exterior Room in the visionOS Simulator](native/evidence/screenshots/20261023T030342Z/002-02-skew-overview.png)
+![Exterior Room in the visionOS Simulator](native/evidence/screenshots/20261023T031413Z/002-02-skew-overview.png)
 
 The screenshot is a simulator capture, not evidence of physical Vision Pro use.
 The native UI test passed with nine captured stages. The browser and native Skew
 views both show wedge `(11/4, 9/16, -5/16)`, volume `147/32`, the same vector
 colors, and an eight-vertex solid with the highlighted area face. Cameras,
 scales, materials, and interface layouts differ; pixel-identical rendering is
-not a goal. See [validation status](docs/VALIDATION.md) for the remaining browser
-and hardware checks.
+not a goal. The recorded Unit, swapped, flattened, Plane, and coordinate-edited
+states also agree on exact values. See [validation status](docs/VALIDATION.md)
+for the tested workflows and remaining Chrome and hardware checks.
 
 Follow [native/README.md](native/README.md) for Xcode build and decoder/bridge test
 commands. The recorded unsigned simulator build used Xcode 27.2 beta and the
@@ -137,17 +139,20 @@ python3 lean/build.py
 python3 lean/test_service.py
 python3 -m unittest discover -s tests -p 'test_*.py'
 node --test tests/*.test.mjs
-swift test --package-path native
+swift test --package-path native --scratch-path native/.build/swift-tests -j 2
 ```
 
 Recorded checks pass for the Lean build and axiom audit, 255 valid plus 8 invalid
-Lean service cases, 16 bridge tests, 18 JavaScript tests, and 7 native model tests.
+Lean service cases, 16 bridge tests, 18 JavaScript tests, and 11 native model tests.
 Native decoding and live bridge sequences also pass. The native simulator UI
-test passed with zero failures in 130.352 seconds, covering connection,
+test passed with zero failures in 126.317 seconds, covering connection,
 entry/exit, presets, swap, flatten, coordinate editing, inside view, volume
-visibility, and reset. Browser flatten/inside/drag/mobile/WebXR acceptance and
-tracked-hand dragging remain unverified. These test counts do not establish
-hardware behavior.
+visibility, and reset. Supplemental in-app-browser checks cover presets, swap,
+flatten, a quarter-step keyboard edit, pointer dragging, inside view, volume
+visibility, reset, and the proof panel. Saved 390×844 and 900×500 viewport captures
+cover the responsive layouts. Main Chrome automation still blocks completion of
+its interaction checks; immersive WebXR and tracked-hand dragging remain
+unverified. These checks do not establish physical-device behavior.
 
 ## Source and licensing
 

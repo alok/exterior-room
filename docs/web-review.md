@@ -2,7 +2,9 @@
 
 This review covered the JavaScript transport/state boundary, Three.js geometry
 updates, pointer/XR interaction paths, and static responsive layout rules.
-It did not use a browser or headset; the main agent owns visible browser testing.
+The source review and helper tests did not run a browser or headset. Separate
+browser interaction results and inspected screenshots are recorded in
+[VALIDATION.md](VALIDATION.md).
 
 ## Executed checks
 
@@ -27,8 +29,8 @@ validate exterior algebra. The Lean executable's arithmetic checks are separate.
 
 ## Findings sent to implementation owner
 
-The following were present in the reviewed implementation and should be checked
-against the final app; this document is a review receipt, not final bug status.
+These historical findings were sent to the implementation owner. Their final
+source status is recorded below.
 
 1. The opaque ground at `y = -0.66` occluded legal negative-y vectors and parts
    of their volume. Inputs span `[-3,3]` world units; summed vertices can reach
@@ -59,7 +61,7 @@ The revised implementation removes the opaque ground, reuses the volume
 position buffer, recomputes wire bounding spheres, includes an in-world result
 and connection-status card, and makes short-window controls scrollable.
 
-Three XR integration concerns were reported for final correction:
+Three further XR integration concerns were reported and subsequently corrected:
 
 - The app's session `end` listener was registered before Three.js's listener.
   It therefore ran while `renderer.xr.isPresenting` was still true and entered
@@ -78,16 +80,49 @@ establish headset interaction, visibility, or performance.
 
 ## Corrections confirmed in source
 
-The final source review confirms the reported changes: normal desktop
-restoration listens to Three.js's `sessionend` event and explicitly resets world
-placement and enables controls; a single nearest-hit query covers handles and
-buttons; XR dragging preserves the center-to-hit offset. The proof link now
-targets the existing `receipt.html` page. Together with the geometry and layout
-changes above, all concrete findings in this review are addressed in source.
-This is not a claim that a physical WebXR session was exercised.
+The final source review confirms these corrections:
 
-Runtime acceptance is tracked separately in [VALIDATION.md](VALIDATION.md).
-Browser launch and live swap were observed; the remaining browser workflow was
-not completed because the browser automation connection stalled. Source-review
-closure and passing helper tests do not mark those pending interactions as
-verified.
+- The opaque ground is removed. Mutable geometry refreshes its bounds, and the
+  volume reuses its fixed position buffer.
+- Normal desktop restoration listens to Three.js's `sessionend` event after
+  teardown, explicitly resets world placement, and enables controls. Failed XR
+  setup also restores the saved desktop camera and cleans up the requested
+  session.
+- A single nearest-hit query covers handles and buttons. XR dragging retains
+  the center-to-hit offset and commits the final pose on `selectend`.
+- Presets, coordinate edits, swap, flatten, and view changes cancel active
+  desktop/controller drags. Reset also reaches this cancellation path. A held
+  drag therefore cannot overwrite a discrete edit or use the previous scene
+  transform after a view change.
+- Shared volume-visibility logic hides both the volume mesh and its wire;
+  reset restores volume visibility along with the Skew vectors and Overview.
+- The in-world controls include presets, vector selection, quarter-unit
+  coordinate buttons, swap, flatten, reset, volume visibility, view, and exit.
+  The in-world readout includes the ordered bivector basis, exact coefficients,
+  signed volume, and current computation/error status.
+- Hidden XR canvases are not redrawn. Visible button textures update only when
+  their label or active state changes. Entry makes the panel visible before
+  refreshing, so initial entry and re-entry still draw current content.
+- The proof link targets the existing `receipt.html` page. Responsive rules
+  address clipped mobile content and short-window title/control overlap.
+
+The last source review found no new blocking issue. All concrete findings above
+are addressed in source, and the 18 JavaScript helper tests pass. These results
+do not establish runtime behavior in an immersive WebXR session.
+
+## Separate runtime evidence
+
+The supplemental in-app-browser run exercised live presets, swap, flatten,
+quarter-unit keyboard editing, pointer dragging, Inside, volume visibility,
+reset, and the proof panel. Its saved 390×844 and 900×500 captures show the
+revised responsive layouts. Matching browser/native captures were inspected
+for exact values and visible geometry; the renderers use different cameras,
+materials, scales, and control layouts.
+
+Main Chrome's earlier launch and live swap remain verified. Its latest retry
+recovered DOM reads and refreshed the demo, but screenshot capture timed out
+and a Unit click timed out before dispatch. A later successful reload was
+followed by stalled read-only diagnostics. Main Chrome interaction acceptance
+therefore remains pending. Immersive WebXR and native tracked-hand dragging
+remain untested. See the [validation receipt](VALIDATION.md) for action-level
+results, screenshot links, and the exact limits of that evidence.

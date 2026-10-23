@@ -44,7 +44,7 @@ struct ControlView: View {
           .buttonStyle(.borderedProminent).tint(.mint)
           .disabled(model.transitioning || model.result == nil).accessibilityIdentifier("toggle-space")
       }
-      Text(model.status).font(.callout).foregroundStyle(model.live ? Color.mint : Color.secondary)
+      Text(model.displayStatus).font(.callout).foregroundStyle(model.previewVector == nil && model.live ? Color.mint : Color.secondary)
         .accessibilityIdentifier("lean-status")
       if let result = model.result {
         HStack(spacing: 24) {
@@ -117,7 +117,7 @@ struct ControlView: View {
         Button("Inside") { model.inside = true }.tint(model.inside ? .mint : .gray)
           .accessibilityIdentifier("inside")
         Spacer()
-        Text(model.live ? "Drag an endpoint · release to compute" : "Presets work offline · edits need the Mac bridge")
+        Text(model.interactionHint)
           .font(.caption).foregroundStyle(.secondary)
       }
       Divider()
@@ -128,6 +128,8 @@ struct ControlView: View {
         Button(model.busy ? "Computing…" : "Connect") { model.connect() }
           .disabled(model.busy || model.result == nil).accessibilityIdentifier("connect")
       }
+      Text(model.resultProvenance).font(.caption).foregroundStyle(.secondary)
+        .accessibilityIdentifier("result-provenance")
       Text("Exact: Lean on the Mac. Rendering: RealityKit. Kernel proofs: build time.")
         .font(.caption).foregroundStyle(.secondary).accessibilityIdentifier("proof-boundary")
       if let error = model.error { Text(error).font(.caption).foregroundStyle(.orange).accessibilityIdentifier("lean-error") }
