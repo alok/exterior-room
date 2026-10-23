@@ -71,7 +71,7 @@
       <div class="row"><button id="mobius-snap">Snap</button><label><input id="snap-release" type="checkbox"> Snap on release</label></div>
       <p id="mobius-status" role="status">Identity action · base integer labels</p>
       <p id="mobius-result" class="formula"></p>
-      <p class="hint">2D: drag roots; Shift-drag pans; wheel zooms. 3D: Move forms enters Origin; toggle it off to look. Release asks Lean to accept a quantized matrix. T/S compose on the left; Snap relabels integer forms after Lean validates both selections. Identity clears motion and preserves relabelled forms. Exact move is an absolute fixture. Motion retains the fixed base crop; dense previews update at most 10 times/s.</p>
+      <p class="hint">2D: drag roots; Shift-drag pans; wheel zooms. 3D: Move forms enters Origin; toggle it off to look. Release asks Lean to accept a quantized matrix. T/S compose on the left; Snap relabels integer forms after Lean validates both selections. Identity clears motion and preserves relabelled forms. Exact move is an absolute fixture. Source depth refreshes its catalogue on accepted release; dense previews update at most 10 times/s.</p>
     </section>
     <div class="row" aria-label="View"><button id="inhabit">Inhabit</button><button id="origin" aria-pressed="false">Origin</button><button id="next">Next point</button><button id="view">Other side</button><button id="reset">Reset</button></div>
     <section id="navigation" hidden>
@@ -92,7 +92,10 @@
       <p class="hint">Select an exterior point (Δ&gt;0) to cut by its Lorentz-orthogonal plane, or Shift-click two interior points. The cone intersection gives the boundary directions; the Klein-disk slice is a geodesic chord. Euclidean Inhabit motion is not hyperbolic.</p>
       <p><label><input type="checkbox" id="plane-focus"> Fade points away from the plane</label> <span class="hint">Viewing aid: opacity falls with Euclidean distance to the plane (to 12%); color and size are unchanged.</span></p>
     </section>
-    <div class="row"><label>Radius <select id="radius"><option>4</option><option selected>6</option><option>8</option><option>10</option><option>12</option><optgroup label="Dense (explicit)"><option value="24">24</option><option value="48">48</option><option value="96">96</option></optgroup></select></label></div>
+    <div class="row"><label>Catalogue <select id="catalogue-mode"><option value="canonical">Canonical ball</option><option value="source">Source depth</option></select></label></div>
+    <div class="row"><label><span id="crop-label">Radius</span> <select id="radius"><option>4</option><option selected>6</option><option>8</option><option>10</option><option>12</option><optgroup label="Dense (explicit)"><option value="24">24</option><option value="48">48</option><option value="96">96</option></optgroup></select></label></div>
+    <p id="catalogue-status" class="hint" role="status">Fixed signed ball · both signs and multiples retained.</p>
+    <p id="dust-control" hidden><label><input id="dust" type="checkbox"> Dust when Whole is off</label></p>
     <label>Star size <input type="range" id="star-size" min="0.4" max="2.5" step="0.01" value="1" style="width:120px;vertical-align:middle"> <span id="star-size-value">1.00</span></label>
     <label>Colors <select id="palette"><option value="viridis">Viridis</option><option value="reference">Stange anchors</option></select></label>
     <div id="palette-legend"><span id="palette-label"></span><div id="palette-bar"></div><div id="palette-ticks"><span id="palette-low"></span><span id="palette-high"></span></div><div id="category-key"><span><i id="swatch-exterior"></i>exterior Δ&gt;0</span><span><i id="swatch-null"></i>cone Δ=0</span><span><i id="swatch-lower"></i>lower interior</span></div></div>
@@ -104,7 +107,7 @@
     <details><summary>What am I seeing?</summary>
       <p>Each triple is ax²+bx+c, drawn at (X,Y,Z) = (−b, a+c, c−a), so Δ = b²−4ac = X²+Z²−Y². Upper interior (Δ&lt;0, a&gt;0) is colored by |Δ|: one color per sheet Y²−X²−Z² = |Δ|, a level set preserved by SL₂(ℤ). Exterior (Δ&gt;0) has real roots, the cone (Δ=0) a double root; the lower interior repeats the upper roots with opposite sign. A white ring marks the selection.</p>
       <p class="formula">x = −b, y = a+c, z = c−a<br>Δ = b²−4ac = x²+z²−y²</p>
-      <p>The whole lattice shows integer coefficient triples in a finite ball x²+y²+z²≤R², including both signs. Turn Whole coefficient lattice off to keep only a&gt;0, Δ&lt;0. The full transformed grid is not arbitrary integer (x,y,z).</p>
+      <p>Canonical ball shows signed integer coefficient triples with x²+y²+z²≤R². Source depth crops transformed upper forms by depth and, with Whole enabled, other forms by a smaller ball. With Whole off, Dust adds nearby other forms. The full transformed grid is not arbitrary integer (x,y,z).</p>
       <p>The optional screen y=4 cuts the upper cone in a disk. A lower-half triple is sign-flipped first; a polynomial and its negative have the same roots. Radial projection multiplies every coordinate by 4/(a+c). Multiples, such as (1,−1,2) and (2,−2,4), lie at different depths but share one image and one quadratic root.</p>
       <p>The normalized disk coordinates u=−b/(a+c), v=(c−a)/(a+c) map to the upper half-plane by u/(1−v) + i√(1−u²−v²)/(1−v), the quadratic root shown above.</p>
     </details>

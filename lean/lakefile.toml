@@ -37,7 +37,7 @@ root = "Main"
 
 [[lean_lib]]
 name = "Polynomial"
-roots = ["Polynomial.Core", "Polynomial.Transform", "Polynomial.TransformProofs", "Polynomial.Proofs"]
+roots = ["Polynomial.Core", "Polynomial.Transform", "Polynomial.TransformProofs", "Polynomial.Proofs", "Polynomial.Catalogue"]
 [[lean_exe]]
 name = "polynomial_service"
 root = "Polynomial.Main"

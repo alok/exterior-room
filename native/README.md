@@ -10,10 +10,49 @@ native/scripts/export-polynomial.py` regenerates the bundled R6 cloud and signed
 quadratic inspection from the actual Lean executable, with hashes and requests
 in `native/Resources/polynomial-export-receipt.json`.
 
-The native route draws 480 signed triples at R6 and 3,608 at its explicit R12 cap;
-the crop choices are R4, R6, R8, R10 and R12. Dense selects R12. The browser's R96
-mode is separate. This route concerns quadratics `ax²+bx+c`, not arbitrary-degree
-polynomials.
+The native route draws 480 signed triples at R6, 3,608 at R12 and **28,832 at
+R24**. The crop choices are R4, R6, R8, R10, R12 and R24; Dense selects R24.
+Shared RealityKit mesh instances replace one rendering entity per point. This
+path requires **visionOS 26 or later** (`MeshInstancesComponent` and
+`LowLevelInstanceData`); it has no older-OS instancing fallback. The
+renderer accepts at most 40,000 buffered identities; an oversized catalogue is
+rejected as a whole and the previous accepted scene remains. R48/R96 and physical
+headset performance are not verified. This route concerns quadratics `ax²+bx+c`,
+not arbitrary-degree polynomials.
+
+**Catalogue → Source depth** requests the separate executable-Lean source
+catalogue. Whole includes the other signed categories; with Whole off, Dust adds
+the source's small surrounding cloud. Source depth 6 buffers 212 identities at
+identity and at `M=(3,1,1,2)`, with 80 depth-visible glyphs and 63 primitive upper
+roots/projections. The unit/pair `(1,0,1)/(1,1,1)` has 24 buffered interior plane
+members at identity and 19 after D5; the corresponding visible rings are 10 and 9.
+Membership counts describe the accepted padded buffer, not only visible glyphs.
+
+Source mode recatalogues on each accepted action release, Identity and Snap,
+never during continuous preview. Mode/depth/Whole/Dust changes preserve the
+accepted matrix and signed pair; every response stages before atomic acceptance.
+A failure restores the previous catalogue, selection, action and control values.
+Reset restores Canonical ball/R6/Whole on/Dust off. Source roots and projection
+show primitive upper base identities; the 3D buffer still retains signed forms
+and multiples. Projection remains a radial overlay, not the source's continuous
+world-projection morph.
+
+Source display clipping uses the browser's Float32 coordinate boundary and an
+explicit zero-opacity cutoff. Semantic colors are grouped at RGB8 precision;
+meshes, fades, clipping, approximate hit proxies and root charts are renderer
+behavior. Collision chunks carry ranges into the accepted signed catalogue;
+picking returns that stored identity, never a rounded inverse transform.
+Per-point accessibility entities and hover effects are not supplied by the
+batched renderer. Actual spatial gaze/pinch, spatial pairing and free-space
+SL₂ dragging remain unverified or absent; use the tested controls/Roots routes.
+
+The current density/catalogue verification passed **114 model tests**, an unsigned
+visionOS 27.2 simulator build, and one focused actual UI test (**108.059 seconds**,
+zero failures). See the [current receipt](evidence/catalogue-native-receipt.json),
+[six screenshots](evidence/screenshots/20261023T100946Z/captures.json), and
+[reviewed silent recording](../artifacts/videos/lean-starscape-native-catalogue.mp4).
+The initial R24 CPU scene rebuild measured 498.0 ms with 111 color batches; this is
+not a frame-rate or hardware benchmark. Older evidence below remains historical.
 
 Launch and Reset select `(1,-1,2)`, displaying `x² − x + 2`. Spacing is presentation
 only; Lean's raw polynomial label remains unchanged. Next follows the canonical cycle:
@@ -65,7 +104,8 @@ Klein disk from committing or cancelling a Roots preview, and vice versa.
 Open **SL₂ transform** for T, T⁻¹, S, the `i → 1+i` checkpoint, Identity and Snap.
 The checkpoint submits `M = [3,1,1,2]`, with determinant 5: Lean returns the exact
 image of the default as `(8,−23,22)/5`. Continuous actions move the drawn geometry
-while retaining its signed base triples and fixed coefficient-ball crop. Choose
+while retaining its signed base triples. Canonical ball keeps its fixed crop;
+Source depth recatalogues only after Lean accepts the released action. Choose
 Origin to enable the Canvas Klein disk. Its implemented drag path previews an
 approximate transvection; release proposes a bounded integer matrix to Lean.
 Until that request is accepted, the previous exact action remains authoritative.

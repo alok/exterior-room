@@ -1,0 +1,74 @@
+[
+  {
+    "name": "catalogue-00-batched-r24",
+    "id": "90B8FFDE-A1C3-4C7E-B932-A926F8A94D9C",
+    "createdAt": 1792750206.424631,
+    "action": "screenshot",
+    "file": "001-catalogue-00-batched-r24.png",
+    "startedAt": 1792750206.459852,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "65ac2e5820b262c9acfd717a903786ce2397c3c4ed46e3189089a57af8eebdc0",
+    "finishedAt": 1792750216.6593668
+  },
+  {
+    "action": "screenshot",
+    "id": "6EAD35B5-D205-4C0D-A3F1-7E662F74E9E2",
+    "name": "catalogue-01-source-identity-pair",
+    "createdAt": 1792750223.683896,
+    "file": "002-catalogue-01-source-identity-pair.png",
+    "startedAt": 1792750223.694368,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "18a2ddd7301d0fc72039a051b9d891dda57f54eb750a147dac5fa73bda264a6a",
+    "finishedAt": 1792750233.983809
+  },
+  {
+    "name": "catalogue-02-source-d5-linked-pair",
+    "id": "E0461BE9-4A45-4F0F-A5A2-855E754B1901",
+    "createdAt": 1792750240.8950791,
+    "action": "screenshot",
+    "file": "003-catalogue-02-source-d5-linked-pair.png",
+    "startedAt": 1792750240.917404,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "2dcf0a1780fd6db6b70fa16b8d809ec58befca551e0b7722e4a8330acd3b9c0f",
+    "finishedAt": 1792750251.148196
+  },
+  {
+    "action": "screenshot",
+    "id": "329E7046-6D11-461A-8744-F51C4F459D0F",
+    "name": "catalogue-02b-primitive-upper-projection",
+    "createdAt": 1792750253.5902681,
+    "file": "004-catalogue-02b-primitive-upper-projection.png",
+    "startedAt": 1792750253.604726,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "cc79d5127f47814ab8eb9d93a012907174618607a0e4841b182618bb6b30c6cc",
+    "finishedAt": 1792750260.4069812
+  },
+  {
+    "name": "catalogue-03-source-dust",
+    "id": "DF83978A-92A1-40E4-8546-9934725F4C37",
+    "createdAt": 1792750270.879149,
+    "action": "screenshot",
+    "file": "005-catalogue-03-source-dust.png",
+    "startedAt": 1792750270.9054809,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "030617bebafa87a5e0fea7dad92a10d1630ff1f89d1535f0342d92fbfbc4b8a5",
+    "finishedAt": 1792750276.4319282
+  },
+  {
+    "action": "screenshot",
+    "id": "F2E8636D-C0A4-455C-AFB1-FD81A1252214",
+    "name": "catalogue-04-reset-canonical-ball",
+    "createdAt": 1792750278.174388,
+    "file": "006-catalogue-04-reset-canonical-ball.png",
+    "startedAt": 1792750278.176478,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "97111bd9130ef3cdb128813434f056f2a6c61e0e9f106790613b1082944b57da",
+    "finishedAt": 1792750288.464902
+  }
+]

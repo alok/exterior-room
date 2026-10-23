@@ -42,8 +42,12 @@ struct PolynomialRootsView: View {
       }
       GeometryReader { geometry in
         if let frame = viewport?.resized(to:geometry.size) ?? PolynomialRootsGeometry.Viewport(size:geometry.size) {
-          let dots = PolynomialRootsGeometry.dots(points:model.points,rows:model.displayActionRows,viewport:frame,sigma:model.starSize)
-            .filter { $0.intersects(frame) }
+          let dots = PolynomialRootsGeometry.dots(points:model.points.filter { model.catalogue == nil || $0.divisor == 1 },rows:model.displayActionRows,viewport:frame,sigma:model.starSize)
+            .filter { dot in
+              guard dot.intersects(frame), let shown = PolynomialMobius.mapDisplayCoordinates(rows:model.displayActionRows,
+                SIMD3(Double(dot.point.xyz[0]),Double(dot.point.xyz[1]),Double(dot.point.xyz[2]))) else { return false }
+              return PolynomialRenderPlan.catalogueOpacity(point:dot.point,shown:shown,catalogue:model.catalogue) > 0
+            }
           Canvas { context, _ in draw(dots,frame:frame,in:&context) }
             .background(.black).clipped().contentShape(Rectangle())
             .accessibilityElement(children:.ignore)
@@ -204,7 +208,7 @@ struct PolynomialRootsView: View {
       let p = dot.point, xyz = SIMD3(Double(p.xyz[0]),Double(p.xyz[1]),Double(p.xyz[2]))
       let position = PolynomialMobius.mapDisplayCoordinates(rows:rows,xyz) ?? xyz
       let fade = normal.map { PolynomialAppearance.focusFade(p,position:position,normal:$0,radius:model.displayedRadius,keep:model.inspection?.point ?? []) } ?? 1
-      context.opacity = dot.opacity * fade
+      context.opacity = dot.opacity * fade * PolynomialRenderPlan.catalogueOpacity(point:p,shown:position,catalogue:model.catalogue)
       let bounds = CGRect(x:dot.center.x-radius,y:dot.center.y-radius,width:2*radius,height:2*radius)
       context.fill(dot.radius < 1.5 ? Path(bounds) : Path(ellipseIn:bounds),
         with:.color(Color(red:rgb.x,green:rgb.y,blue:rgb.z)))

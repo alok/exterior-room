@@ -1,0 +1,76 @@
+{
+  "schema": "lean-starscape-native-catalogue-video-v1",
+  "generatedUTC": "2026-10-23T10:17:01.989258+00:00",
+  "scope": "Actual task-owned simulator UI controls; no physical-device or free-space gesture claim.",
+  "source": {
+    "path": "native/evidence/screenshots/20261023T100946Z/lean-starscape-native-catalogue.mov",
+    "sha256": "864ad8aab6f3cf1160ec7e378206b2a116148cbf7f2ddf90cc8c992d262d953d",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "format": {
+        "duration": "85.531667",
+        "size": "20147309"
+      }
+    }
+  },
+  "export": {
+    "path": "artifacts/videos/lean-starscape-native-catalogue.mp4",
+    "sha256": "e09c16af4d2ae63c828643c9df032264cbfe40c80b4673ef5930c962b9b8cdff",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080
+        }
+      ],
+      "format": {
+        "duration": "85.433333",
+        "size": "1433100"
+      }
+    },
+    "command": "ffmpeg -i <raw> -an -vf scale=1920:1080 -c:v libx264 -threads 2 -preset fast -crf 20 -movflags +faststart <mp4>",
+    "speedChanged": false,
+    "videoOnly": true
+  },
+  "poster": {
+    "path": "artifacts/videos/lean-starscape-native-catalogue-poster.jpg",
+    "atSeconds": 8,
+    "sha256": "3b0eeab85b0d2c8dee2c3163df3108b7a38eae3b85cb0d6ec3667d7c49e6f774"
+  },
+  "decodedFrameReview": [
+    {
+      "atSeconds": 1,
+      "observed": "R6 accepted scene retained while R24 request is pending; app only."
+    },
+    {
+      "atSeconds": 8,
+      "observed": "R24 dense signed scene and28,832 count; poster reviewed."
+    },
+    {
+      "atSeconds": 40,
+      "observed": "D5 unit/pair roots and geodesic, source80 instances/212buffered/9rings; Roots window occludes much of3D."
+    },
+    {
+      "atSeconds": 84,
+      "observed": "Reset canonical R6,480 identities and default polynomial."
+    }
+  ],
+  "uiLog": "native/evidence/ui-tests-20261023T100946Z.txt",
+  "nativeReceipt": "native/evidence/catalogue-native-receipt.json",
+  "nativeReceiptSHA256": "1668d1751b7feb4f21f607f8adf3856bca53b3b0ebe85e15df41a4a64ca874b6"
+}

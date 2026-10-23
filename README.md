@@ -14,7 +14,7 @@ The repository name stays `alok/exterior-room`; its earlier vector/wedge
 experiment is preserved separately at `/exterior/` and is not part of the
 Starscape parity claim.
 
-![Linked Lean-backed coefficient space and roots](artifacts/screenshots/linked-roots-20261023/01-paired-wide.png)
+![Lean-backed source catalogue with linked coefficient space and roots](artifacts/screenshots/catalogue-20261023/08-final-source-D5.png)
 
 ## Run locally
 
@@ -55,11 +55,19 @@ this is **not a hosted app or Lean compiled to WebAssembly**.
    giving `(13,−84,162)`, still with Δ = −1368. Exact identities may be outside
    the displayed crop; the app retains them and explicitly marks them hidden.
 
+Choose **Source depth** to use the original viewer’s upper trace and other-point
+catalogues, with primitive upper roots and Whole/Dust controls. Catalogue,
+action and exact plane membership are accepted together. Choose **Canonical
+ball** for the separate fixed signed-ball contract. See the
+[source catalogue update](docs/SOURCE_CATALOGUE_UPDATE.md) for exact boundary
+differences, release-only recropping and resource limits.
+
 [Two-minute guide](docs/SHOWCASE.md) · [behavior/parity matrix](docs/FUNCTIONAL_PARITY.md)
 
 ## What matches, and what is still missing
 
-The [linked-roots update](docs/LINKED_ROOTS_UPDATE.md),
+The [source-catalogue update](docs/SOURCE_CATALOGUE_UPDATE.md),
+[linked-roots update](docs/LINKED_ROOTS_UPDATE.md),
 [polar-Snap checkpoint](docs/STARSCAPE_PARITY_UPDATE.md) and
 [earlier validation receipt](docs/POLYNOMIAL_VALIDATION.md) separate arithmetic
 checks, actual browser interactions, simulator interactions and synthetic XR.
@@ -72,12 +80,12 @@ Full functional or visual parity has **not** been established.
 | Linked Möbius motion, Snap and Identity | Browser 2D/3D pointer motion and synthetic controller motion tested. Native disk swipe and directional controls tested; native free-space hand/controller dragging remains missing. |
 | Roots chart | Browser shows linked 3D/UHP panes together on wide windows, with an optional Klein model. Native now has a separate linked UHP Roots window with selection, pairing, labels and geodesics. Other source models and theme controls remain gaps. |
 | Selection and hover | Browser polynomial hover and picking are exercised. Native Roots has actual simulator tap/pair evidence and a cancellable Lean hover inspector; its pointer-hover callback remains unverified because visionOS XCUI excludes hover. Physical gaze/pinch and explicit controller bindings are unverified. |
-| Density and crop | Browser R96 has 1,852,484 signed forms; this simultaneous layout was exercised at R24/28,832. Native caps at R12/3,608. The fixed base crop differs from original Starscape's trace/other-point catalogues; [exact recrop specification and fixtures](docs/source-recrop-audit.md) are recorded, implementation remains missing. |
+| Density and crop | Separate Canonical ball and Source depth modes. Browser source depth96 rendered 769,788 buffered forms with an explicit upper-cap notice. Source depth24 has 14,966 forms. Native now supports R24/28,832 canonical forms using shared instances, with a 40,000-form budget; larger native ranges remain unavailable. Source recrops on accepted release; continuous-preview refresh and the source projection morph remain gaps. |
 | Origin, Inhabit, Overview, Reset | Tested on each route. Camera offsets, field of view, materials and control layouts differ. |
 | Headsets | Synthetic WebXR runs real Three.js rendering/handlers with supplied poses. visionOS Simulator runs the native app. Neither establishes physical tracking, compositor behavior, comfort or hardware performance. |
 
 Main Chrome's existing URL-based connection was rechecked and failed with
-`Debugger unattached`; current actual browser interaction evidence uses the
+`Emulation.setFocusEmulationEnabled` timed out; current actual browser interaction evidence uses the
 in-app browser. All limitations
 remain visible rather than being inferred away from a successful Lean response.
 
@@ -86,7 +94,7 @@ remain visible rather than being inferred away from a successful Lean response.
 | Layer | What actually happens |
 | --- | --- |
 | Kernel-checked | 17 general integer identities cover coordinate/discriminant formulas, plane incidence and Möbius action laws. Sixteen axiom audits use only standard Lean axioms. |
-| Executable Lean | A native Mac process enumerates signed clouds and computes inspections, symbolic roots, exact planes/membership and the rational action `J(M)/det(M)`. |
+| Executable Lean | A native Mac process enumerates canonical signed balls and source trace/other-point catalogues and computes inspections, symbolic roots, exact planes/membership and the rational action `J(M)/det(M)`. |
 | Client preview and Snap choice | Floating-point dragging, quantization and choosing a candidate integer symmetry occur in the client. Lean computes the exact action of the submitted matrix. |
 | Exported fixtures | Native preset data are generated by the actual executable with receipts. Live computations require the Mac bridge. |
 | Rendering and transport | Three.js/RealityKit handle floating-point coordinates, meshes, colors, cameras and input. JSON, HTTP, compiler/runtime execution and renderers are outside the kernel proof boundary. |
@@ -115,6 +123,14 @@ server does not configure HTTPS or public hosting.
 
 ## Tested evidence
 
+- [Source-catalogue paired browser video](artifacts/videos/lean-starscape-source-catalogue.mp4):
+  real D5, root dragging, recropping, Snap and Identity.
+  [Acceptance and limitations](docs/SOURCE_CATALOGUE_UPDATE.md) include actual
+  source controls, depth24/96, cancelled drag, narrow layout and synthetic XR.
+- [Native source-catalogue clip](artifacts/videos/lean-starscape-native-catalogue.mp4):
+  actual simulator controls through R24, source pair/D5, primitive projection,
+  Dust and Reset. [Native receipt](native/evidence/catalogue-native-receipt.json).
+
 - [Simultaneous 3D and roots video](artifacts/videos/lean-starscape-linked-panes.mp4):
   actual desktop D5, root drag, Snap and Identity on the shared unit/pair.
   [Current screenshots and states](artifacts/screenshots/linked-roots-20261023/)
@@ -139,9 +155,13 @@ server does not configure HTTPS or public hosting.
 
 These silent app-only clips have dated [metadata and limits](artifacts/videos/README.md).
 Older clips retain their original “Polynomial Room” label. They are not current
-hardware evidence. This continuation passes **115 Node tests**, **88 native model
-tests** (76 polynomial, 12 archive), one actual native Roots UI test and the
-five-case source-catalogue audit.
+hardware evidence. The source-catalogue continuation passes **138 Node tests**, **121 catalogue
+service requests** and the five-case source oracle comparison. Current native
+validation passes **114 model tests**, the unsigned visionOS build, and one
+108.059-second source-catalogue simulator UI sequence; its matching data and
+visual limits are recorded in the source-catalogue update. The preceding
+linked-roots checkpoint passed 115 Node tests and 88 native model tests; its
+source hashes remain historical evidence.
 The preceding checkpoint passed 26 bridge tests and the focused native polar-Snap UI test. Historical
 62-test/swipe receipts remain dated records, not retested source hashes.
 
@@ -149,6 +169,7 @@ The preceding checkpoint passed 26 bridge tests and the focused native polar-Sna
 python3 lean/Polynomial/build.py
 python3 lean/Polynomial/test_service.py
 python3 lean/Polynomial/test_transform.py
+python3 lean/Polynomial/test_catalogue.py
 python3 -m unittest discover -s tests -p 'test_*.py'
 node --test tests/*.test.mjs
 swift test --package-path native --scratch-path native/.build/swift-tests -j 2

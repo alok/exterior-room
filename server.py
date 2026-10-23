@@ -76,10 +76,12 @@ def validate_polynomial_request(value: Any) -> dict[str, Any]:
         "members": {"radius", "upperOnly", "normal"},
         "inspect": {"point", "height"}, "pair": {"first", "second"}, "plane": {"normal"},
         "transform": {"point", "matrix"},
+        "catalogue": {"depth", "matrix", "whole", "dust", "offset", "limit"},
+        "membersCatalogue": {"depth", "matrix", "whole", "dust", "normal"},
     }
     operation = value.get("op")
     if not isinstance(operation, str) or operation not in fields:
-        raise ValueError("op must be cloud, members, inspect, pair, plane or transform.")
+        raise ValueError("op must be cloud, members, catalogue, membersCatalogue, inspect, pair, plane or transform.")
     if any(key not in fields[operation] | {"id", "op"} for key in value):
         raise ValueError(f"Unexpected field for {operation}.")
 
@@ -95,7 +97,25 @@ def validate_polynomial_request(value: Any) -> dict[str, Any]:
         ):
             raise ValueError(f"{name} must contain three integers from {-bound} to {bound}.")
 
-    if operation in {"cloud", "members"}:
+    if operation in {"transform", "catalogue", "membersCatalogue"}:
+        matrix = value.get("matrix")
+        if not isinstance(matrix, list) or len(matrix) != 4 or any(
+            type(component) is not int or not -1_000_000 <= component <= 1_000_000 for component in matrix
+        ):
+            raise ValueError("matrix must contain four integers from -1000000 to 1000000.")
+        if matrix[0] * matrix[3] - matrix[1] * matrix[2] <= 0:
+            raise ValueError("matrix must have a positive determinant.")
+
+    if operation in {"catalogue", "membersCatalogue"}:
+        integer("depth", 4, 96)
+        if type(value.get("whole", True)) is not bool or type(value.get("dust", False)) is not bool:
+            raise ValueError("whole and dust must be booleans.")
+        if operation == "catalogue":
+            integer("limit", 1, 16384, 16384)
+            integer("offset", 0, 2_000_000, 0)
+        else:
+            triple("normal", POLYNOMIAL_NORMAL_BOUND)
+    elif operation in {"cloud", "members"}:
         integer("radius", 4, 96)
         if operation == "cloud":
             integer("limit", 1, 16384, 16384)
@@ -114,13 +134,6 @@ def validate_polynomial_request(value: Any) -> dict[str, Any]:
         triple("point", POLYNOMIAL_IDENTITY_BOUND)
         if not any(value["point"]):
             raise ValueError("The zero polynomial has no transform point.")
-        matrix = value.get("matrix")
-        if not isinstance(matrix, list) or len(matrix) != 4 or any(
-            type(component) is not int or not -1_000_000 <= component <= 1_000_000 for component in matrix
-        ):
-            raise ValueError("matrix must contain four integers from -1000000 to 1000000.")
-        if matrix[0] * matrix[3] - matrix[1] * matrix[2] <= 0:
-            raise ValueError("matrix must have a positive determinant.")
     else:
         triple("normal", POLYNOMIAL_NORMAL_BOUND)
     return value
@@ -392,7 +405,7 @@ class ExteriorHandler(SimpleHTTPRequestHandler):
             return
         try:
             if path == "/api/polynomial":
-                timeout = max(POLYNOMIAL_CLOUD_TIMEOUT, self.server.polynomial_engine.timeout) if request["op"] in {"cloud", "members"} else None
+                timeout = max(POLYNOMIAL_CLOUD_TIMEOUT, self.server.polynomial_engine.timeout) if request["op"] in {"cloud", "members", "catalogue", "membersCatalogue"} else None
                 response = self.server.polynomial_engine.evaluate(request, timeout=timeout)
             else:
                 response = self.server.engine.evaluate(request)

@@ -86,6 +86,18 @@ struct PolynomialControls: View {
       if !collapsed && !transforms {
         Divider()
         HStack {
+          Picker("Catalogue",selection:Binding(get:{model.catalogueMode},set:{model.catalogueMode=$0;model.refresh()})) {
+            Text("Canonical ball").tag(PolynomialCatalogueMode.ball)
+            Text("Source depth").tag(PolynomialCatalogueMode.source)
+          }.pickerStyle(.segmented).accessibilityIdentifier("poly-catalogue").disabled(model.busy)
+          if model.catalogueMode == .source {
+            Toggle("Whole",isOn:Binding(get:{model.whole},set:{model.whole=$0;model.refresh()}))
+              .toggleStyle(.button).disabled(model.busy).accessibilityIdentifier("poly-whole")
+            Toggle("Dust",isOn:Binding(get:{model.dust},set:{model.dust=$0;model.refresh()}))
+              .toggleStyle(.button).disabled(model.busy || model.whole).accessibilityIdentifier("poly-dust")
+          }
+        }
+        HStack {
           TextField("a, b, c",text:$entry).textFieldStyle(.roundedBorder).accessibilityIdentifier("poly-entry")
           Button("Select") { if let p = parse(entry) { model.enter(p) } }.disabled(model.busy).accessibilityIdentifier("poly-select")
         }
@@ -96,10 +108,10 @@ struct PolynomialControls: View {
           Button("Exterior") { choose([1,0,-1]) }.accessibilityIdentifier("poly-exterior")
           Spacer()
           Button("R\(model.radius)") {
-            let values = [4,6,8,10,12], index = values.firstIndex(of:model.radius) ?? 1
+            let values = [4,6,8,10,12,24], index = values.firstIndex(of:model.radius) ?? 1
             model.radius = values[(index+1)%values.count]; model.refresh()
           }.disabled(model.busy).accessibilityIdentifier("poly-radius")
-          Toggle("Dense · R12",isOn:Binding(get:{ model.radius == 12 },set:{ model.radius = $0 ? 12 : 6; model.refresh() }))
+          Toggle("Dense · 24",isOn:Binding(get:{ model.radius == 24 },set:{ model.radius = $0 ? 24 : 6; model.refresh() }))
             .toggleStyle(.button).accessibilityIdentifier("poly-dense")
         }
         HStack {
@@ -111,6 +123,7 @@ struct PolynomialControls: View {
         }
         HStack {
           Toggle("Upper only",isOn:Binding(get:{model.upperOnly},set:{model.upperOnly=$0;model.refresh()}))
+            .disabled(model.busy || model.catalogueMode == .source)
             .accessibilityIdentifier("poly-upper-only")
           Toggle("Color lower",isOn:$model.colorLower).accessibilityIdentifier("poly-color-lower")
         }.font(.caption)
@@ -132,7 +145,7 @@ struct PolynomialControls: View {
           Button(["Oblique","Other side","Side view"][model.viewpoint]) { model.viewpoint = (model.viewpoint+1)%3 }
             .disabled(model.placement != .overview).accessibilityIdentifier("poly-view")
           Spacer()
-          Text("\(String(model.points.count)) signed triples · R\(model.displayedRadius)")
+          Text("\(String(model.points.count)) signed triples · \(model.catalogue == nil ? "R" : "depth ")\(model.displayedRadius)")
             .font(.caption).accessibilityIdentifier("poly-count")
         }
         HStack {
@@ -144,9 +157,14 @@ struct PolynomialControls: View {
       if model.plane != nil {
         Text(model.planeReadout)
           .font(.caption.monospaced()).foregroundStyle(.orange).accessibilityIdentifier("poly-plane")
-        Text("\(model.points.filter(\.necklace).count) displayed interior triples on the plane")
+        Text("\(model.points.filter(\.necklace).count) buffered interior triples on the plane")
           .font(.caption2).foregroundStyle(.secondary).accessibilityIdentifier("poly-members")
       }
+      if let catalogue = model.catalogue {
+        Text("Source crop updates on accepted release · \(catalogue.complete ? "complete within source bounds" : "source limit reached") · roots show primitive upper forms")
+          .font(.caption2).foregroundStyle(catalogue.complete ? Color.secondary : Color.orange).accessibilityIdentifier("poly-catalogue-status")
+      }
+      Text(model.rendererStats).font(.caption2.monospaced()).foregroundStyle(.secondary).accessibilityIdentifier("poly-render-stats")
       HStack {
         TextField("Mac Lean bridge",text:$model.server).textFieldStyle(.roundedBorder)
           .textInputAutocapitalization(.never).autocorrectionDisabled().accessibilityIdentifier("poly-url")

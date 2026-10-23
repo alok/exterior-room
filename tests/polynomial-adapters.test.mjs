@@ -41,6 +41,21 @@ test('packed projection preserves every signed interior image without coefficien
   assert.throws(()=>projectedPositions({count:1,kind:new Uint8Array([2]),xyz:new Float32Array([1,0,1])}),/denominator/);
 });
 
+test('source projection filters accepted visibility and primitive upper points without dropping canonical defaults',()=>{
+  const visible=Float32Array.from({length:accepted.count},(_,i)=>i%3===0?0:i%3===1?.15:1);
+  for(const primitiveOnly of [false,true]){
+    const expected=triples.flatMap((p,i)=>visible[i]>0&&(!primitiveOnly||(accepted.kind[i]===2&&accepted.divisor[i]===1))
+      ?reference.projectedRepresentative(p)??[]:[]);
+    near(projectedPositions(packedOnly,4,{visible,primitiveOnly}),new Float32Array(expected),0);
+  }
+  const primitive=triples.flatMap((p,i)=>accepted.kind[i]===2&&accepted.divisor[i]===1?reference.projectedRepresentative(p):[]);
+  near(projectedPositions(packedOnly,4,{primitiveOnly:true}),new Float32Array(primitive),0);
+  assert.equal(projectedPositions(packedOnly,4,{visible:new Uint8Array(accepted.count)}).length,0);
+  assert.throws(()=>projectedPositions(packedOnly,4,{visible:new Uint8Array(accepted.count-1)}),/mask/);
+  assert.throws(()=>projectedPositions(packedOnly,4,{visible:new DataView(new ArrayBuffer(accepted.count))}),/mask/);
+  assert.throws(()=>projectedPositions(packedOnly,4,{primitiveOnly:'yes'}),/boolean/);
+});
+
 test('packed colors and plane size factors match canonical semantic appearance',()=>{
   const normal=[1,0,-1];
   const onPlane=i=>referencePlanes.inPairPlane(normal,triples[i]);

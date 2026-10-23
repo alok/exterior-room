@@ -146,6 +146,10 @@ private struct PolynomialMembers: Decodable {
   let upperOnly: Bool, indices: [Int]
 }
 
+enum PolynomialCatalogueMode: String, CaseIterable {
+  case ball = "Canonical ball", source = "Source depth"
+}
+
 enum PolynomialPlacement: Equatable {
   case overview, origin(lower: Bool), inhabit(xyz: [Int])
   var isOrigin: Bool { if case .origin = self { true } else { false } }
@@ -156,6 +160,15 @@ enum PolynomialPlacement: Equatable {
   static let nextSequence = [[1,-1,2],[2,-2,4],[2,1,1],[1,0,1],[3,2,2],[-1,1,-2],[1,2,1],[1,3,1]]
   var server = "http://127.0.0.1:8787"
   var radius = 6
+  var catalogueMode = PolynomialCatalogueMode.ball
+  var whole = true
+  var dust = false
+  private(set) var catalogue: PolynomialCatalogueMetadata?
+  private var acceptedMode = PolynomialCatalogueMode.ball
+  private var acceptedUpperOnly = false
+  private var acceptedWhole = true
+  private var acceptedDust = false
+  private var cachedCatalogue: PolynomialCatalogueMetadata?
   private(set) var displayedRadius = 6
   var upperOnly = false
   var colorLower = false
@@ -167,6 +180,7 @@ enum PolynomialPlacement: Equatable {
   var viewpoint = 0
   var placement = PolynomialPlacement.overview
   var placementEpoch = 0
+  var rendererStats = "Renderer waiting"
   var spaceOpen = false
   var rootsOpen = false
   var transitioning = false
@@ -234,12 +248,17 @@ enum PolynomialPlacement: Equatable {
   }
   /// Entry follows the accepted Lean crop; Next may deliberately inspect a hidden multiple.
   func enter(_ point: [Int], asPair: Bool = false) {
-    guard !busy, points.contains(where: { $0.abc == point }) else {
-      error = "Choose a nonzero integer triple shown in the current coefficient ball. Selection is unchanged."; return
+    guard !busy, actionPreview == nil, points.contains(where: { $0.abc == point && isPointShown($0) }) else {
+      error = "Choose a nonzero integer triple shown in the current accepted catalogue. Selection is unchanged."; return
     }
     select(asPair ? selected : point, pair: asPair ? point : nil)
   }
-  var selectionShown: Bool { points.contains { $0.abc == inspection?.point } }
+  func isPointShown(_ point:PolynomialPoint) -> Bool {
+    guard let shown = PolynomialMobius.mapDisplayCoordinates(rows:displayActionRows,
+      SIMD3(Double(point.xyz[0]),Double(point.xyz[1]),Double(point.xyz[2]))) else { return false }
+    return PolynomialRenderPlan.catalogueOpacity(point:point,shown:shown,catalogue:catalogue) > 0
+  }
+  var selectionShown: Bool { points.contains { $0.abc == inspection?.point && isPointShown($0) } }
   /// Hover is a separate, cancellable Lean inspection. It never changes selection or scene acceptance.
   func hover(_ point: [Int]?) {
     guard hoveredPoint != point else { return }
@@ -279,7 +298,7 @@ enum PolynomialPlacement: Equatable {
       matrix[0]*matrix[3]-matrix[1]*matrix[2] > 0 else {
       error = "Choose a bounded integer matrix with positive determinant."; return
     }
-    cancelActionDrag(); actionMatrix = matrix; refresh()
+    cancelActionDrag(); actionMatrix = matrix; refresh(forceCatalogue:true)
   }
   func applyGenerator(_ g: [Int]) {
     guard !busy, g.count == 4, g.allSatisfy({ (-1...1).contains($0) }), g[0]*g[3]-g[1]*g[2] == 1 else { return }
@@ -410,24 +429,27 @@ enum PolynomialPlacement: Equatable {
     return action == nil ? "Identity · base signed cloud" : "Lean accepted rational action · Δ preserved"
   }
   func reset() {
+    catalogueMode = .ball; whole = true; dust = false
     radius = 6; upperOnly = false; colorLower = false; showProjection = false; viewpoint = 0
     showCone = true; snapOnRelease = false; rootsResetRevision += 1; hover(nil)
     actionMatrix = [1,0,0,1]; place(.overview); select(Self.nextSequence[0])
   }
   func waitForPending() async { await pending?.value }
 
-  func refresh(absorbing gamma: [Int]? = nil) {
+  func refresh(absorbing gamma: [Int]? = nil, forceCatalogue:Bool = false) {
     cancelActionDrag()
     pending?.cancel(); generation += 1
     let version = generation, original = gamma == nil ? selected : (inspection?.point ?? selected)
     let originalSecond = gamma == nil ? paired : displayedPair
     let desiredMatrix = gamma == nil ? actionMatrix : [1,0,0,1]
     let needsAction = gamma != nil || action != nil || actionMatrix != [1,0,0,1]
-    let radius = radius, upper = upperOnly, key = "\(radius)-\(upper)"
+    let radius = radius, upper = upperOnly, mode = catalogueMode, whole = whole, dust = dust
+    let key = mode == .ball ? "\(radius)-\(upper)"
+      : "source:\(radius):\(desiredMatrix.map(String.init).joined(separator:",")):\(whole):\(dust)"
     busy = true; error = nil; status = "Waiting for Lean · previous scene visible"
     pending = Task {
       do {
-        guard [4,6,8,10,12].contains(radius) else { throw URLError(.badURL) }
+        guard [4,6,8,10,12,24].contains(radius) else { throw URLError(.badURL) }
         var desired = original, second = originalSecond
         var absorbedDelta: Int?
         var secondDetail: PolynomialInspection?
@@ -452,15 +474,40 @@ enum PolynomialPlacement: Equatable {
             secondDetail = inspected
           }
         }
-        var cloud = cached
-        if cacheKey != key {
-          cloud = []; var offset = 0
+        var cloud = cached, sourceCatalogue = cachedCatalogue
+        if cacheKey != key || (mode == .source && (forceCatalogue || gamma != nil)) {
+          cloud = []; sourceCatalogue = nil
+          var offset = 0, expectedTotal: Int?
+          var seen = Set<String>()
           repeat {
-            let page: PolynomialCloud = try await call(["op":"cloud", "radius":radius, "upperOnly":upper, "offset":offset, "limit":4096])
-            guard page.isValid, page.radius == radius, page.upperOnly == upper, page.offset == offset,
-              page.total <= 3608, page.count > 0 else { throw URLError(.cannotParseResponse) }
-            cloud += page.points
-            guard let next = page.nextOffset else { break }
+            let pagePoints: [PolynomialPoint], total: Int, next: Int?
+            if mode == .source {
+              let page: PolynomialCataloguePage = try await call(["op":"catalogue","depth":radius,
+                "matrix":desiredMatrix,"whole":whole,"dust":dust,"offset":offset,"limit":16384])
+              guard page.matches(depth:radius,matrix:desiredMatrix,whole:whole,dust:dust,offset:offset),
+                sourceCatalogue == nil || page.metadata.sameCatalogue(as:sourceCatalogue!) else { throw URLError(.cannotParseResponse) }
+              sourceCatalogue = page.metadata; pagePoints = page.points; total = page.metadata.total; next = page.nextOffset
+              if let previous = cloud.last, let first = pagePoints.first, offset != page.metadata.upperCount {
+                guard previous.abc.lexicographicallyPrecedes(first.abc) else { throw URLError(.cannotParseResponse) }
+              }
+            } else {
+              let page: PolynomialCloud = try await call(["op":"cloud","radius":radius,"upperOnly":upper,"offset":offset,"limit":16384])
+              guard page.isValid, page.radius == radius, page.upperOnly == upper, page.offset == offset else { throw URLError(.cannotParseResponse) }
+              pagePoints = page.points; total = page.total; next = page.nextOffset
+            }
+            guard total <= PolynomialRenderPlan.maximumPoints else {
+              throw NSError(domain:"LeanPolynomial",code:3,userInfo:[NSLocalizedDescriptionKey:
+                "This catalogue has \(total) points; the native renderer is bounded to \(PolynomialRenderPlan.maximumPoints). Previous scene retained."])
+            }
+            guard expectedTotal == nil || expectedTotal == total,
+              !pagePoints.isEmpty || total == 0,
+              pagePoints.allSatisfy({ seen.insert($0.id).inserted }) else { throw URLError(.cannotParseResponse) }
+            expectedTotal = total; cloud += pagePoints
+            guard let next else {
+              guard cloud.count == total else { throw URLError(.cannotParseResponse) }
+              break
+            }
+            guard next == cloud.count, next > offset else { throw URLError(.cannotParseResponse) }
             offset = next
           } while !Task.isCancelled
         }
@@ -486,15 +533,24 @@ enum PolynomialPlacement: Equatable {
         var members = Set<Int>()
         if let cutting {
           guard cutting.isValid, second == nil || cutting.isValidPair else { throw URLError(.cannotParseResponse) }
-          let membership: PolynomialMembers = try await call(["op":"members", "radius":radius, "upperOnly":upper, "normal":cutting.normal])
-          guard membership.radius == radius, membership.upperOnly == upper, membership.total == cloud.count,
-            membership.count == membership.indices.count, Set(membership.indices).count == membership.count,
-            membership.indices.allSatisfy({ cloud.indices.contains($0) && cloud[$0].delta < 0 })
-          else { throw URLError(.cannotParseResponse) }
-          members = Set(membership.indices)
+          if mode == .source {
+            guard let sourceCatalogue else { throw URLError(.cannotParseResponse) }
+            let membership: PolynomialCatalogueMembers = try await call(["op":"membersCatalogue","depth":radius,
+              "matrix":desiredMatrix,"whole":whole,"dust":dust,"normal":cutting.normal])
+            guard membership.matches(metadata:sourceCatalogue,normal:cutting.normal,points:cloud) else { throw URLError(.cannotParseResponse) }
+            members = Set(membership.indices)
+          } else {
+            let membership: PolynomialMembers = try await call(["op":"members","radius":radius,"upperOnly":upper,"normal":cutting.normal])
+            guard membership.radius == radius, membership.upperOnly == upper, membership.total == cloud.count,
+              membership.count == membership.indices.count, Set(membership.indices).count == membership.count,
+              membership.indices.allSatisfy({ cloud.indices.contains($0) && cloud[$0].delta < 0 })
+            else { throw URLError(.cannotParseResponse) }
+            members = Set(membership.indices)
+          }
         }
         guard !Task.isCancelled, version == generation else { return }
-        cached = cloud; cacheKey = key
+        cached = cloud; cacheKey = key; cachedCatalogue = sourceCatalogue; catalogue = sourceCatalogue
+        acceptedMode = mode; acceptedUpperOnly = upper; acceptedWhole = whole; acceptedDust = dust
         points = cloud.enumerated().map { index, p in
           PolynomialPoint(abc: p.abc, xyz: p.xyz, delta: p.delta, kind: p.kind, divisor: p.divisor,
             onPlane: members.contains(index), necklace: members.contains(index))
@@ -505,12 +561,17 @@ enum PolynomialPlacement: Equatable {
         inspection = detail; pairedInspection = secondDetail; plane = cutting; displayedPair = second; displayedRadius = radius; sceneRevision += 1
         action = acceptedAction; actionRevision += 1
         selected = desired; paired = second; actionMatrix = desiredMatrix
-        source = "Lean response from Mac"; status = "Live Lean · \(points.count) signed triples"; busy = false
+        source = "Lean response from Mac"
+        status = "Live Lean · \(points.count) signed triples" + (sourceCatalogue == nil ? "" : " · source depth \(radius)")
+        if sourceCatalogue?.complete == false { status += " · source-limited catalogue" }
+        busy = false
       } catch {
         guard !Task.isCancelled, version == generation else { return }
         busy = false; status = "Previous accepted scene · request not accepted"
         selected = inspection?.point ?? Self.nextSequence[0]; paired = displayedPair
         actionMatrix = action?.matrix ?? [1,0,0,1]
+        self.radius = displayedRadius; catalogueMode = acceptedMode; upperOnly = acceptedUpperOnly
+        self.whole = acceptedWhole; self.dust = acceptedDust
         self.error = error.localizedDescription
       }
     }

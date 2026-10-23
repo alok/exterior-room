@@ -1,6 +1,9 @@
 # Original-source catalogue audit — 2026-10-23
 
-**Specification and fixtures only. No service, client, app or running-server behavior changed.**
+**Historical specification checkpoint.** At the time of this audit no service,
+client, app or running-server behavior changed. The subsequent
+[implementation and acceptance update](SOURCE_CATALOGUE_UPDATE.md) records the
+now-implemented source catalogue; the evidence below retains its original scope.
 
 The current demo matches canonical Farey's fixed signed Euclidean ball. Original
 Starscape recataloguing is a different, two-part catalogue; transforming and

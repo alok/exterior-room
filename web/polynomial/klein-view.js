@@ -2,11 +2,13 @@
 // Renderer-only roots charts. UHP follows FareyVision 2cd549a roots-pane.js
 // (SHA256 cbbbb4f0415d9cc534f5c0f4fd7287e5279c50bfb56581a1243fabb97ee1e87b).
 // Its fit, radius, minimum footprint and square/disk threshold are preserved.
-// UHP shows every accepted upper form; Klein also shows its negative partner.
+// Canonical UHP shows every accepted upper form; Klein also shows its negative partner.
+// Source-catalogue mode instead projects primitive upper forms in both charts.
 // The accepted lattice is never changed and neither chart samples identities.
 import * as THREE from 'three';
 import {interiorIndices,fillRootPositions,orderRootsByRadius,rootSortWorkspace} from './klein-data.js';
 import {chartTransform,rootCoordinates,halfPlaneGeodesic} from './mobius-render.js';
+import {catalogueUniform,catalogueFadeGLSL} from './catalogue-display.js';
 
 const labelFont='12px ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace';
 const markerColors=['#f0f5f8','#ffba6b'],hoverColor='#f0f5f8bf';
@@ -17,9 +19,10 @@ export class KleinView {
     this.renderer.setPixelRatio(Math.min(devicePixelRatio,2));
     this.scene=new THREE.Scene();this.scene.background=new THREE.Color(0);
     this.camera=new THREE.OrthographicCamera(-1,1,1,-1,.1,10);this.camera.position.z=3;
-    this.material=new THREE.ShaderMaterial({depthTest:false,depthWrite:false,transparent:true,uniforms:{size:{value:4},dpr:{value:1},halfPlane:{value:1},focus:{value:new THREE.Vector4()},fade:{value:new THREE.Vector2()},keep:{value:new THREE.Vector3()}},
+    this.material=new THREE.ShaderMaterial({depthTest:false,depthWrite:false,transparent:true,uniforms:{size:{value:4},dpr:{value:1},halfPlane:{value:1},focus:{value:new THREE.Vector4()},fade:{value:new THREE.Vector2()},keep:{value:new THREE.Vector3()},catalogue:{value:new THREE.Vector3(1,1,0)}},
       vertexShader:`attribute vec3 color; attribute vec3 aDisplay; attribute float aDelta;
-        varying vec3 vColor; varying float vAlpha,vRadius; uniform float size,dpr,halfPlane; uniform vec4 focus; uniform vec2 fade; uniform vec3 keep;
+        varying vec3 vColor; varying float vAlpha,vRadius; uniform float size,dpr,halfPlane; uniform vec4 focus; uniform vec2 fade; uniform vec3 keep,catalogue;
+        ${catalogueFadeGLSL}
         void main(){
           vColor=color;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);
           float radius;
@@ -34,6 +37,7 @@ export class KleinView {
             vRadius=clamp(radius,1.0,9.0);
           }
           if(focus.w>.5&&aDisplay!=keep)vAlpha*=mix(1.0,fade.y,smoothstep(0.0,fade.x,abs(dot(focus.xyz,aDisplay))));
+          vAlpha*=catalogueOpacity(aDisplay,2.0,catalogue);
           gl_PointSize=2.0*vRadius*dpr;
         }`,
       fragmentShader:'varying vec3 vColor; varying float vAlpha,vRadius; uniform float halfPlane; void main(){if(vAlpha<=0.0)discard;if((halfPlane<.5||vRadius>=1.5)&&length(gl_PointCoord-vec2(.5))>.5)discard;gl_FragColor=vec4(vColor,vAlpha);}'});
@@ -66,6 +70,7 @@ export class KleinView {
     sprite.renderOrder=3;this.scene.add(sprite);label={sprite,texture,width,height,textWidth,pad};this.labels.set(key,label);return [key,label];
   }
   update({lattice,xyz,colors,revision,colorKey,model='half-plane'}) {
+    this.material.uniforms.catalogue.value.set(...catalogueUniform(lattice));
     if(this.lattice!==lattice||this.model!==model){
       this.lattice=lattice;this.model=model;const indices=interiorIndices(lattice,{model});
       this.indices=indices;this.points.geometry.dispose();this.points.geometry=new THREE.BufferGeometry();

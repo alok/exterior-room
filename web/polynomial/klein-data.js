@@ -3,11 +3,13 @@
 // UHP formulas/picking adapted from FareyVision 2cd549a45ddb6056cf3596404754d96ad9e7132c,
 // Farey/WebXR/roots-pane.js (SHA256 cbbbb4f0415d9cc534f5c0f4fd7287e5279c50bfb56581a1243fabb97ee1e87b).
 // The source attribution to Harriss, Stange and Trettel is preserved in mobius.js.
+import {sourceRootVisible,catalogueOpacity} from './catalogue-display.js';
 export function interiorIndices(lattice,{model='klein'}={}){
   const lower=model==='klein';
-  let count=0;for(let i=0;i<lattice.count;i++)if(lattice.kind[i]===2||(lower&&lattice.kind[i]===3))count++;
+  const eligible=i=>(lattice.kind[i]===2||(lower&&lattice.kind[i]===3))&&sourceRootVisible(lattice,i);
+  let count=0;for(let i=0;i<lattice.count;i++)if(eligible(i))count++;
   const indices=new Uint32Array(count);let next=0;
-  for(let i=0;i<lattice.count;i++)if(lattice.kind[i]===2||(lower&&lattice.kind[i]===3))indices[next++]=i;
+  for(let i=0;i<lattice.count;i++)if(eligible(i))indices[next++]=i;
   return indices;
 }
 export function fillRootPositions(xyz,indices,positions,{model='klein',delta}={}){
@@ -50,7 +52,8 @@ export function pickRoot(lattice,xyz,indices,scale,cx,cy,maxDistance=10,{model='
   const upper=model==='half-plane';
   let nearest=Infinity;
   for(let j=0;j<indices.length;j++){
-    const i=indices[j],k=3*i,denominator=upper?xyz[k+1]-xyz[k+2]:xyz[k+1],inv=scale/denominator;
+    const i=indices[j];if(!sourceRootVisible(lattice,i)||catalogueOpacity(lattice,xyz,i)<=0)continue;
+    const k=3*i,denominator=upper?xyz[k+1]-xyz[k+2]:xyz[k+1],inv=scale/denominator;
     const dx=cx+xyz[k]*inv,dy=cy-(upper?Math.sqrt(-lattice.delta[i])*Math.abs(inv):xyz[k+2]*inv),d=dx*dx+dy*dy;
     const hit=upper?Math.max(maxDistance,.06*sigma*Math.abs(inv)):maxDistance;
     if(d<=hit*hit)nearest=Math.min(nearest,d);
@@ -62,7 +65,8 @@ export function pickRoot(lattice,xyz,indices,scale,cx,cy,maxDistance=10,{model='
   // Coincident negative partners have the same radius; prefer the upper one.
   const limit=(Math.sqrt(nearest)+.5)**2;let best=-1,largest=-Infinity;
   for(let j=0;j<indices.length;j++){
-    const i=indices[j],k=3*i,denominator=upper?xyz[k+1]-xyz[k+2]:xyz[k+1],inv=scale/denominator;
+    const i=indices[j];if(!sourceRootVisible(lattice,i)||catalogueOpacity(lattice,xyz,i)<=0)continue;
+    const k=3*i,denominator=upper?xyz[k+1]-xyz[k+2]:xyz[k+1],inv=scale/denominator;
     const dx=cx+xyz[k]*inv,dy=cy-(upper?Math.sqrt(-lattice.delta[i])*Math.abs(inv):xyz[k+2]*inv);
     const radius=upper?.06*sigma*Math.abs(inv):Math.abs(lattice.delta[i])**.25/Math.abs(xyz[k+1])**1.5;
     if(!Number.isFinite(radius))continue;

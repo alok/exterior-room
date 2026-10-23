@@ -16,6 +16,7 @@ const polynomialFixtures = [
   ['move-forms', 'Move forms'], ['undo-motion', 'Identity'],
   ['set-t', 'T: z+1'], ['set-s', 'S: −1/z'], ['set-t-inverse', 'T inverse'], ['exact-move', 'Exact move'],
   ['snap', 'Snap'], ['snap-release', 'Toggle Snap release'],
+  ['catalogue', 'Toggle catalogue'], ['dust', 'Dust (Whole off)'],
 ];
 const fixtures = {
   'exterior-flatten': [-.65, .88, -1.55], 'exterior-view': [-.65, .76, -1.55],

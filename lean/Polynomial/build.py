@@ -22,7 +22,7 @@ def main() -> None:
     evidence = ROOT / "Polynomial/evidence"
     evidence.mkdir(exist_ok=True)
     targets = ["+Polynomial.Core:o", "+Polynomial.Transform:o", "+Polynomial.TransformProofs:o",
-               "+Polynomial.Proofs:o", "+Polynomial.Main:o", "polynomial_service"]
+               "+Polynomial.Proofs:o", "+Polynomial.Catalogue:o", "+Polynomial.Main:o", "polynomial_service"]
     with (evidence / "build.log").open("w") as log:
         for target in targets:
             print(f"Building {target}", flush=True)
@@ -43,7 +43,7 @@ def main() -> None:
         f"{name}: [{report}]\n" for name, report in reports.items()))
     binary = ROOT / ".lake/build/bin/polynomial_service"
     sources = [ROOT / "Polynomial" / name for name in
-               ["Core.lean", "Transform.lean", "TransformProofs.lean", "Proofs.lean", "Main.lean"]]
+               ["Core.lean", "Transform.lean", "TransformProofs.lean", "Proofs.lean", "Catalogue.lean", "Main.lean"]]
     receipt = {"result": "passed", "toolchain": pin, "warnings": 0,
                "generalIntegerTheorems": 17, "auditedDeclarations": len(reports), "axioms": axioms,
                "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",

@@ -9,6 +9,11 @@ functional parity. They do not establish physical headset acceptance or complete
 source-viewer parity. The exterior-algebra room is a separate example and does
 not satisfy or replace this Starscape goal.
 
+The [source-catalogue continuation](SOURCE_CATALOGUE_UPDATE.md) supersedes the
+older crop and density statuses below: separate Source depth and Canonical ball
+modes are implemented, with release-only recropping, explicit caps, and native
+R24 batching. The dated rows remain evidence of their own runs.
+
 The dated [validation receipt](POLYNOMIAL_VALIDATION.md) distinguishes exact-data
 tests, real browser interaction, synthetic XR and native simulator results.
 The [linked-roots continuation](LINKED_ROOTS_UPDATE.md) adds current simultaneous
@@ -93,10 +98,10 @@ has an explicitly labelled bundled Lean export for initial R6 playback.
 | Paired plane and projection | IAB form selection and synthetic controller rays both formed `(1,0,1)/(1,1,1)`. | The final base simulator run `055100Z` passed the same fixture, projection and later Reset checks. |
 | Origin, Inhabit and Overview | IAB controls and pointer look observed; synthetic XR Origin/Overview and desktop-Origin restoration observed. | One-time head-relative placement is implemented. Native and browser Inhabit offsets differ. |
 | Appearance and Reset | IAB Reset restored the base scene while retaining reference palette, size 2.5 and plane focus. The later R6 paired D5 sequence covers fade on/off and projection. | Final base simulator run passed palette, size, fade and Reset retaining these preferences; controls remain usable after Inhabit. The later 065009Z run verifies transformed plane fade and fixed cone guides through four matched captures; see the validation receipt. |
-| Dense cloud | IAB rendered all 1,852,484 R96 points; exact ordered cloud matches the reference fixture. | Explicit R12 cap, 3,608 points. This does not meet browser dense-range parity. |
+| Dense cloud | Canonical R96 retains 1,852,484 forms. Source depth96 renders 769,788 with upper cap declared; source depth24 has 14,966. These catalogues have different sets and ordering. | R24 now renders 28,832 canonical forms using shared sphere instances; source mode uses the same exact catalogue service with a 40,000-form budget. Browser full-range parity remains missing. |
 | Linked roots chart | Actual IAB UHP Shift-click formed `(1,0,1)/(1,1,1)` with 22 members; its semicircle was visible. Direct UHP drag committed `[10741,903,912,9387]`, determinant 100002231. D5 displayed the unit root `1+i` and endpoints `−2, 1.333`. Earlier root-drag receipts used Klein and remain separate. | A separate linked UHP Roots window now supports actual tap/pair, Move swipe, Pan swipe, zoom/Fit and reopening. Final simulator run `092615Z` passed; D5 roots/geodesic and 3D were visually compared with browser. Earlier Klein swipe evidence remains separate. |
 | Hover and selection | Browser owner observed a real pointer hover showing `x²−x+2`; synthetic rays selected and paired actual stars. | Cancellable Lean-backed Roots hover inspector implemented and model-tested; actual pointer hover unverified because visionOS XCUI excludes it. Actual Roots tap/pair passed. Spatial pair input and explicit controller bindings remain missing; physical gaze/pinch unverified. |
-| XR controls | 30 in-world buttons implemented. Separate synthetic tests now cover Exact move, T/T inverse, Identity, Snap, trigger drag/release and disconnect rollback, alongside the base controls; the full set is not exhaustively tested. | Native controls use SwiftUI/RealityKit rather than this controller panel. Neither route has physical-headset acceptance. |
+| XR controls | 32 in-world buttons implemented, including source Catalogue and Dust. Actual synthetic rays exercised both new controls and Whole/Exact move/Snap/exit in source mode. Separate synthetic tests now cover Exact move, T/T inverse, Identity, Snap, trigger drag/release and disconnect rollback, alongside the base controls; the full set is not exhaustively tested. | Native controls use SwiftUI/RealityKit rather than this controller panel. Neither route has physical-headset acceptance. |
 | Source SL₂ motion | Exact rational action and atomic integer Snap are implemented. IAB directly dragged 2D roots and 3D Origin, and the R96 requested seed snapped to T; final regression coverage is tracked in the validation receipt. | Current model tests pass 88 cases, and `092615Z` verifies an actual UHP swipe accepted as `[24959,10694,18805,12064]`. The earlier polar-Snap model receipt passed 68 tests. Focused simulator run `081658Z` passed one test in 112.941s: declared action, paired T⁴ absorption, requested seed `(13,-84,162)` hidden with Δ−1368, Identity/source T/Reset and transformed readouts. The earlier `070446Z` bounded-target swipe produced callbacks and an accepted exact matrix, preserving both discriminants and plane incidence. Earlier coordinate press-drags remain unresolved; physical hands and native free-space dragging are unverified. |
 
 The exact shared comparison is R6, full signed cloud, first `(1,0,1)` and second
@@ -338,9 +343,9 @@ Worker failure falls back to the synchronous scan. Sources:
 Lower count equals upper count in every whole signed ball. The browser stores
 packed Int16 coefficient triples and Float32 integer display positions, and
 draws the base cloud in one `GL_POINTS` draw. Dense crops are explicit options;
-there is no random sampling or repeated decorative sprite population. Native
-uses one entity per point and caps R12. A native cap does not satisfy browser
-R24/R48/R96 functionality. Sources: `WebXR/lattice.js:5`, `:37`,
+there is no random sampling or repeated decorative sprite population. At the original capture native used one entity per point and capped R12.
+The current Lean native renderer batches shared sphere instances and supports
+R24, with a 40,000-form budget. R48/R96 remain a native gap. Sources: `WebXR/lattice.js:5`, `:37`,
 `point-cloud.js:87`; native `CoefficientBall.swift:34`.
 
 The table lists the UI's choices. The canonical JavaScript enumeration function
@@ -385,11 +390,11 @@ and [service protocol](../lean/Polynomial/PROTOCOL.md).
 Remaining acceptance includes unexercised XR controls/failure combinations,
 native physical/free-space drag, spatial pairing, broader dense hover/transform
 freshness and actual headset input, compositor behavior and comfort. Native
-R12 density, actual native hover and explicit controller bindings remain gaps.
+R48/R96 density, actual native hover and explicit controller bindings remain gaps.
 Browser now shows simultaneous 3D/UHP panes at widths of at least 1,000 pixels;
 native now has a separately movable UHP window. URL state sharing, other source
-models and theme choices remain missing. Original-source recataloguing is
-precisely specified in the [source audit](source-recrop-audit.md), but is not
-implemented; the fixed canonical signed ball is still used. Main Chrome was
-rechecked by URL and failed with `Debugger unattached`; IAB acceptance is
-explicitly a different browser surface.
+models and theme choices remain missing. Source recataloguing is now a separate
+mode, documented in the [current update](SOURCE_CATALOGUE_UPDATE.md). Refresh
+during continuous previews and the source projection morph remain gaps. Main
+Chrome was rechecked by URL and its `Emulation.setFocusEmulationEnabled` command
+timed out; IAB acceptance is explicitly a different browser surface.

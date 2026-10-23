@@ -67,6 +67,9 @@ class PolynomialValidationTests(unittest.TestCase):
             {"op": "inspect", "point": [1024, -1024, 1024]},
             {"op": "pair", "first": [13, -84, 162], "second": [1, -8, 17]},
             {"op": "members", "radius": 96, "normal": [257617, 1052910, 150135]},
+            {"op": "catalogue", "depth": 6, "matrix": [1, 4, 0, 1]},
+            {"op": "catalogue", "depth": 96, "matrix": [1, 0, 0, 1], "whole": False, "dust": True, "offset": 2_000_000, "limit": 16384},
+            {"op": "membersCatalogue", "depth": 4, "matrix": [3, 1, 1, 2], "normal": [-1, 0, 1]},
         ]
         for request in requests:
             with self.subTest(request=request):
@@ -94,6 +97,12 @@ class PolynomialValidationTests(unittest.TestCase):
             {"op": "transform", "matrix": [1, 0, 0, 1], "point": [0, 0, 0]},
             {"op": "transform", "matrix": [1, 0, 0, 1], "point": [1025, 0, 1]},
             {"op": "transform", "matrix": [1, 0, 0, 1], "point": [1, 0, 1], "fallback": True},
+            *({"op": "catalogue", "depth": 6, "matrix": [1, 0, 0, 1], **change} for change in [
+                {"depth": 3}, {"depth": 97}, {"depth": True}, {"whole": 1}, {"dust": "false"},
+                {"offset": -1}, {"limit": 0}, {"limit": 16385}, {"radius": 6}, {"matrix": [1, 0, 0, 0]},
+            ]),
+            {"op": "membersCatalogue", "depth": 6, "matrix": [1, 0, 0, 1]},
+            {"op": "membersCatalogue", "depth": 6, "matrix": [1, 0, 0, 1], "normal": [1, 0, -1], "offset": 0},
             {"op": "unknown"}, {"op": []}, [],
         ]
         for request in requests:
@@ -214,6 +223,23 @@ for line in sys.stdin:
         self.assertEqual(members["total"], cloud["total"])
         self.assertGreater(members["count"], 0)
         self.assertEqual(len(members["indices"]), members["count"])
+        status, catalogue = self.request("/api/polynomial", {"id": 40, "op": "catalogue", "depth": 6, "matrix": [1, 0, 0, 1], "limit": 17})
+        self.assertEqual(status, 200)
+        self.assertEqual(catalogue["catalogueSchema"], "source-catalogue-v1")
+        self.assertEqual((catalogue["total"], catalogue["upperCount"], catalogue["otherCount"]), (212, 187, 25))
+        self.assertTrue(catalogue["complete"])
+        self.assertEqual(catalogue["nextOffset"], 17)
+        status, membership = self.request("/api/polynomial", {"id": 41, "op": "membersCatalogue", "depth": 6, "matrix": [1, 0, 0, 1], "normal": [1, 0, -1]})
+        self.assertEqual(status, 200)
+        self.assertEqual(membership["cacheKey"], catalogue["cacheKey"])
+        self.assertGreater(membership["count"], 0)
+        status, refused = self.request("/api/polynomial", {"id": 42, "op": "catalogue", "depth": 6, "matrix": [1, 12, 0, 1]})
+        self.assertEqual(status, 400)
+        self.assertIn("envelope", refused["error"])
+        status, retained = self.request("/api/polynomial", {"id": 43, "op": "catalogue", "depth": 6, "matrix": [1, 0, 0, 1], "offset": 17, "limit": 17})
+        self.assertEqual(status, 200)
+        self.assertEqual(retained["cacheKey"], catalogue["cacheKey"])
+        self.assertEqual(retained["count"], 17)
         self.assertEqual(self.request("/api/polynomial", {"id": 5, "op": "inspect", "point": [0, 0, 0]})[0], 400)
         status, empty = self.request("/api/polynomial", {"id": 6, "op": "cloud", "radius": 4, "offset": 2_000_000})
         self.assertEqual(status, 200)

@@ -7,20 +7,23 @@ import { TapSelection, nearestToRayPacked } from './input.js';
 import { HoverQueries } from './hover-queries.js';
 import { cameraPlaneLabel } from './camera-planes.js';
 import { coefficientColor, gradientCSS, paletteRange, categoryPalettes, glyphRadius, glyphScale, outlinePixels, sourceRadiusFactor, sourceRadiusFactorFromData, drawnPixels } from './appearance.js';
-import { enumerateLattice, inBall, isUpper, tripleAt, latticeRadii, ballCount, projectedPositions } from './lattice.js';
+import { acceptedLattice, tripleAt, latticeRadii, projectedPositions } from './lattice.js';
 import { pointCloudMaterial, pointCloud, fillColors, fillFactors } from './point-cloud.js';
 import { pairPlane, planeFromNormal, planeSection, coneDirections, inPairPlane } from './pair-plane.js';
-import {IDENTITY_BOUND,loadCloud, inspectWithRepresentative, preparePlane, memberIndices, status as leanStatus, diagnostics, commitTransform, cancelTransformCommit} from './lean-client.js';
+import {IDENTITY_BOUND,loadCloud,loadCatalogue,activateCloud,cancelCloudLoad,indexOfPoint, inspectWithRepresentative, preparePlane, memberIndices, status as leanStatus, diagnostics, commitTransform, cancelTransformCommit} from './lean-client.js';
 import {identity,kleinToUpper} from './mobius.js';
 import {matrixFromIntegers,pointerToUpper,chartTransform,rootToClient,zoomChartAt,resizeChart} from './mobius-render.js';
 import {MobiusAction} from './mobius-ui.js';
 import {nearestIntegral,composeInteger} from './mobius-snap.js';
 import {prepareAbsorption,integralRepresentative} from './mobius-absorb.js';
 import {KleinView} from './klein-view.js';
+import {needsSourceCatalogue} from './catalogue-policy.js';
+import {catalogueVisibility,sourceRootVisible} from './catalogue-display.js';
 import {pickRoot} from './klein-data.js';
 import {shownUpperRoot,shownBoundaryRoot,approximateNumber,spacedPolynomial} from './display-readouts.js';
 const $ = id => document.getElementById(id);
 let radius = 6, whole = true, symmetricColor = false, projectionVisible = false;
+let catalogueMode='canonical',dust=false,visiblePoints=null;
 let selected = examples[0], lattice = null, cloudMesh, imageMesh;
 let session = null, savedView = null, startingXR = false;
 let inhabited=false, overviewView=null, lookDrag=null, look={yaw:0,pitch:0};
@@ -29,7 +32,7 @@ const overviewFov=45, originFov=100;
 let categories='viridis', glyphKey=null, focusGlyphs=[], sigma=1, planeFocus=false;
 let latticeGeneration=0, secondSelection=null, pairMessage='', pairGlyphs=[], planeMembers=new Set(), originMode=false, timings={}, colorKey='', factorKey='';
 let dataBusy=false, initialized=false,operationError='';
-const action=new MobiusAction(commitTransform,cancelTransformCommit);
+const action=new MobiusAction(commitActionAndCatalogue,()=>{cancelTransformCommit();cancelCloudLoad();});
 let displayXYZ=null,pickLattice=null,actionGeometryLattice=null,actionGeometryRevision=-1,renderRows=null;
 let rootsView=false,mobiusMode=false,mobiusGesture=null,mobiusFrame=0,lastActionPaint=0;
 const rootsVisible=()=>!session&&(rootsView||innerWidth>=1000);
@@ -37,31 +40,69 @@ const spaceVisible=()=>!!session||!rootsView||innerWidth>=1000;
 let rootsRect=null;
 let motionTicket=0,lastAbsorption=null,snapOnRelease=false;
 const diskView={model:'half-plane',zoom:1,pan:[0,0],padding:20};
-const dataControls=['next','whole','radius','reset','coefficient','pair-add','pair-clear','mobius-demo'];
+const dataControls=['next','whole','radius','catalogue-mode','dust','reset','coefficient','pair-add','pair-clear','mobius-demo'];
 async function runData(action){
   if(dataBusy)return;dataBusy=true;operationError='';clearHover();
   for(const id of dataControls)$(id).disabled=true;
-  try{await action();$('fatal').hidden=true;leanStatus(`Lean live · ${lattice.count.toLocaleString()} exact points`);}
+  try{await action();$('fatal').hidden=true;reportCatalogue();}
   catch(error){operationError=error.message;leanStatus(error.message,true);$('status').textContent=error.message;if(!initialized){$('fatal').hidden=false;$('fatal').textContent=`Lean data unavailable: ${error.message}. Start the local bridge and reload.`;}}
-  finally{dataBusy=false;for(const id of dataControls)$(id).disabled=false;if(initialized){update();render();}}
+  finally{dataBusy=false;for(const id of dataControls)$(id).disabled=false;syncCatalogueControls();if(initialized){update();render();}}
 }
-async function prepareSelection(point,second=null){
+function reportCatalogue(){
+  if(!lattice)return;
+  const c=lattice.catalogue;
+  leanStatus(`Lean live · ${lattice.count.toLocaleString()} ${c?'catalogued forms':'exact points'}${c&&!c.complete?' · source limit reached':''}`);
+}
+function syncCatalogueControls(){
+  $('catalogue-mode').value=catalogueMode;$('radius').value=String(radius);$('whole').checked=whole;$('dust').checked=dust;
+  $('dust-control').hidden=catalogueMode!=='source';$('dust').disabled=dataBusy||catalogueMode!=='source'||whole;
+  $('crop-label').textContent=catalogueMode==='source'?'Depth':'Radius';
+  for(const option of $('radius').querySelectorAll('optgroup option'))option.textContent=catalogueMode==='source'?`${option.value} · source depth`:`${option.value} · ${fixtureCounts[option.value].toLocaleString()} points`;
+}
+async function prepareSelection(point,second=null,candidate){
   await inspectWithRepresentative(point);
-  if(second){await inspectWithRepresentative(second);return preparePlane(point,second);}
-  return kind(point)==='exterior'?preparePlane(point):null;
+  if(second){await inspectWithRepresentative(second);return preparePlane(point,second,candidate);}
+  return kind(point)==='exterior'?preparePlane(point,undefined,candidate):null;
 }
-async function changeCloud(nextRadius,nextWhole,reset=false){
+async function stageCloud(nextRadius,nextWhole,nextMode,nextDust,matrix,point,second,isCurrent){
+  try{
+  const candidate=nextMode==='source'
+    ?await loadCatalogue(nextRadius,matrix,{whole:nextWhole,dust:nextDust},{isCurrent})
+    :await loadCloud(nextRadius,!nextWhole,{activate:false,isCurrent});
+  if(!candidate||!isCurrent())return null;
+  const plane=await prepareSelection(point,second,candidate);
+  if(!isCurrent())return null;
+  if(plane?.error)throw Error(plane.error);
+  return candidate;
+  }catch(error){if(!isCurrent())return null;throw error;}
+}
+function acceptCloud(candidate){
+  if(!activateCloud(candidate))throw Error('The catalogue request was superseded; accepted state retained.');
+}
+async function commitActionAndCatalogue(point,matrix,second){
+  const ticket=motionTicket,isCurrent=()=>ticket===motionTicket;
+  const receipt=await commitTransform(point,matrix,second);
+  if(!receipt||!isCurrent())return null;
+  if(catalogueMode==='source'&&needsSourceCatalogue(lattice.catalogue,radius,matrix,{whole,dust})){
+    const candidate=await stageCloud(radius,whole,catalogueMode,dust,matrix,point,second,isCurrent);
+    if(!candidate||!isCurrent())return null;
+    acceptCloud(candidate);rebuild();
+  }
+  return receipt;
+}
+async function changeCloud(nextRadius,nextWhole,reset=false,nextMode=catalogueMode,nextDust=dust){
   if(dataBusy)return;
   cancelMobiusInteraction();
   return runData(async()=>{
+    const ticket=motionTicket,isCurrent=()=>ticket===motionTicket;
     const next=reset?examples[0]:selected,second=reset?null:secondSelection;
-    await inspectWithRepresentative(next);
-    await loadCloud(nextRadius,!nextWhole);
-    radius=nextRadius;whole=nextWhole;
+    if(reset){nextMode='canonical';nextDust=false;}
+    const candidate=await stageCloud(nextRadius,nextWhole,nextMode,nextDust,reset?identity:action.matrix,next,second,isCurrent);
+    if(!candidate||!isCurrent())return;
+    acceptCloud(candidate);radius=nextRadius;whole=nextWhole;catalogueMode=nextMode;dust=nextDust;
     if(reset){action.reset();mobiusMode=false;lastAbsorption=null;snapOnRelease=false;resetRootsChart();}
     if(reset){if(!session)leaveInhabit();selected=next;secondSelection=null;pairMessage='';symmetricColor=false;projectionVisible=false;$('cone').checked=true;$('symmetric-color').checked=false;}
-    $('radius').value=String(radius);$('whole').checked=whole;
-    rebuild();const plane=await prepareSelection(next,second);if(plane?.error)pairMessage=plane.error;
+    syncCatalogueControls();rebuild();
     if(!inhabited)resetView();initialized=true;
   });
 }
@@ -134,7 +175,8 @@ function refreshActionGeometry(){
   const started=performance.now();
   actionGeometryLattice=lattice;actionGeometryRevision=action.revision;
   renderRows=action.rows;
-  // The exact base cloud never changes. Only this renderer buffer is moved.
+  // Within a catalogue, signed identities never change under viewing motion.
+  // A new accepted catalogue replaces the buffer atomically after Lean returns.
   const attr=cloudMesh.geometry.attributes.position;
   {
     if(attr.array===lattice.xyz)cloudMesh.geometry.setAttribute('position',new THREE.BufferAttribute(lattice.xyz.slice(),3));
@@ -147,7 +189,10 @@ function refreshActionGeometry(){
     }
     cloudMesh.geometry.attributes.position.needsUpdate=true;camera.far=Math.max(20+8*radius*scale,extent*scale*4);camera.updateProjectionMatrix();
   }
-  pickLattice={...lattice,xyz:displayXYZ};
+  visiblePoints=lattice.catalogue?catalogueVisibility(lattice,displayXYZ):null;
+  let pickXYZ=displayXYZ;
+  if(visiblePoints){pickXYZ=displayXYZ.slice();for(let i=0;i<lattice.count;i++)if(!visiblePoints[i])pickXYZ.fill(NaN,i*3,i*3+3);}
+  pickLattice={...lattice,xyz:pickXYZ};
   if(imageMesh){disk.remove(imageMesh);imageMesh.geometry.dispose();imageMesh=null;}
   invalidateSpatialQueries();
   timings.motion=performance.now()-started;
@@ -157,7 +202,7 @@ function rebuild() {
   glyphKey=null;latticeGeneration++;hoverQueries.reset();showHover(null);diskHoverIndex=null;
   disposeChildren(cloud); disposeChildren(disk); disposeChildren(cone);
   let t=performance.now();
-  lattice = enumerateLattice(radius, !whole);
+  lattice = acceptedLattice();
   timings.enumerate=performance.now()-t;t=performance.now();
   cloudMesh = pointCloud(lattice, cloudMaterial, symmetricColor, categories); cloudMesh.scale.setScalar(scale); cloud.add(cloudMesh);
   colorKey=[radius,whole,symmetricColor,categories].join();factorKey=[radius,whole,symmetricColor,''].join();
@@ -170,16 +215,18 @@ function rebuild() {
     cone.add(surface(h,false,0.018));
     cone.add(lines([circle(h),...Array.from({length:8},(_,i)=>[[0,0,0],circle(h)[i*8]])],0x7896a8,0.26));
   }
+  refreshActionGeometry();
 }
 const origin = new THREE.Mesh(sphere,white); world.add(origin);
-const shown=p=>inBall(p,radius)&&(whole||isUpper(p));
+const shown=p=>{const i=indexOfPoint(p,lattice);return i>=0&&(!visiblePoints||visiblePoints[i]!==0);};
 const latticePoints=()=>Array.from({length:lattice.count},(_,i)=>tripleAt(lattice,i));
 // Interior displayed triples on the Lorentz plane −2C·a + B·b − 2A·c = 0 (exact membership from the current Lean identity contract).
-function planeInteriorMembers(normal){return [...memberIndices(normal)].map(i=>tripleAt(lattice,i));}
+function visibleMemberIndices(normal){return [...memberIndices(normal)].filter(i=>!visiblePoints||visiblePoints[i]);}
+function planeInteriorMembers(normal){return visibleMemberIndices(normal).map(i=>tripleAt(lattice,i));}
 // Color and size attributes are O(n) to fill, so refill only when their inputs change.
 // Radial images of every interior point on the screen y = height, built only once projection is shown.
 function buildImages(){
-  const t=performance.now(),images=projectedPositions(pickLattice,height);
+  const t=performance.now(),images=projectedPositions({...lattice,xyz:displayXYZ},height,{visible:visiblePoints,primitiveOnly:!!lattice.catalogue});
   const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.BufferAttribute(images,3));
   imageMesh=new THREE.Points(geometry,imageMaterial);imageMesh.scale.setScalar(scale);imageMesh.frustumCulled=false;disk.add(imageMesh);
   timings.images=performance.now()-t;
@@ -200,11 +247,16 @@ function selectPoint(point,asPair=false) {
   if(dataBusy)return;
   cancelMobiusInteraction();
   return runData(async()=>{
+    const ticket=motionTicket;
+    try{
     const result=await prepareSelection(asPair?selected:point,asPair?point:null);
+    if(ticket!==motionTicket)return;
     if(result?.error){pairMessage=result.error;return;}
-    await action.inspectSelection(asPair?selected:point,asPair?point:null);
+    const hadAction=!!action.receipt,receipt=await action.inspectSelection(asPair?selected:point,asPair?point:null);
+    if(ticket!==motionTicket||(hadAction&&!receipt))return;
     if(asPair)secondSelection=[...point];else{selected=[...point];secondSelection=null;}
     pairMessage='';
+    }catch(error){if(ticket===motionTicket)throw error;}
   });
 }
 // As in Stange's viewer: two interior stars span a plane, and a selected exterior triple is a plane's normal.
@@ -232,9 +284,9 @@ function updatePair() {
   const endpointShown=action.active?coneDirections(plane).map(movedXYZ).map(shownBoundaryRoot).map(approximateNumber).join(' and '):null;
   $('pair-endpoints').textContent=endpointShown?`Shown endpoints ≈ ${endpointShown} · base: ${endpointBase}`:`Geodesic endpoints: ${endpointBase}`;
   const secondVisible=!secondSelection||shown(secondSelection);
-  $('pair-count').textContent=`${members.length} displayed complex-root points lie exactly in this plane (amber rings). Multiples remain separate points.${secondVisible?'':' The second point is hidden by this filter/crop.'}`;
+  $('pair-count').textContent=`${members.length} ${lattice.catalogue?'depth-visible':'displayed'} complex-root points lie exactly in this plane (amber rings).${lattice.catalogue?` ${memberIndices(plane.normal).size} members in the buffered catalogue.`:''} Multiples remain separate points.${secondVisible?'':' The second point is hidden by this filter/crop.'}`;
   const ring=new THREE.InstancedMesh(sphere,pairMaterial,members.length);
-  focus.add(ring);pairGlyphs.push({mesh:ring,points:members,indices:[...memberIndices(plane.normal)]});
+  focus.add(ring);pairGlyphs.push({mesh:ring,points:members,indices:visibleMemberIndices(plane.normal)});
   const boundary=planeSection(plane.normal,radius).map(p=>physical(movedXYZ(p)).toArray()), vertices=[];
   for(let i=1;i<boundary.length;i++)vertices.push(0,0,0,...boundary[i-1],...boundary[i]);
   const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));
@@ -272,7 +324,9 @@ function update() {
   $('root-state').textContent=rootLabel;
   $('coefficient').value=selected.join(',');$('projection').checked=projectionVisible;
   $('status').textContent=operationError||(inCloud?'':'The selected point is hidden by this filter or crop.');
-  $('radius').value=String(radius);$('whole').checked=whole;
+  syncCatalogueControls();
+  const cat=lattice.catalogue;
+  $('catalogue-status').textContent=cat?`${cat.upperCount.toLocaleString()} upper + ${cat.otherCount.toLocaleString()} other buffered forms · primitive upper roots only${!cat.complete?' · source limit: '+[cat.sourceLimited.upperCap?'upper cap':'',cat.sourceLimited.otherScanBound?'other scan omitted':''].filter(Boolean).join(', '):''}. Recrops on accepted release; signed selections persist.`:'Fixed signed ball · both signs and multiples retained.';
   $('inhabit').disabled=!inCloud&&!inhabited;
   updatePair();
   renderer.domElement.setAttribute('aria-description',`Selected coefficient point ${selected.join(', ')}. ${kind(selected)} region. ${lattice.count} points. Both cone halves ${cone.visible?'shown':'hidden'}.`);
@@ -288,7 +342,7 @@ function actionCaption(){
   if(action.phase==='preview')return 'Numerical preview · release to ask Lean';
   if(action.phase==='pending'||absorptionPending)return 'Pending Lean · changes are not accepted';
   if(lastAbsorption&&!action.receipt)return 'Identity action · last Snap shown below';
-  return action.receipt?'Lean accepted · fixed base crop · labels retain integer identity':'Identity action · base integer labels';
+  return action.receipt?`Lean accepted · ${lattice?.catalogue?'source depth catalogue':'fixed base crop'} · signed identities retained`:'Identity action · base integer labels';
 }
 let absorptionPending=false;
 function updateMobiusReadout(){
@@ -296,7 +350,7 @@ function updateMobiusReadout(){
   const r=action.receipt;
   $('mobius-result').textContent=r&&action.phase==='accepted'?`Lean image (a′,b′,c′) = (${r.imageNumerator.join(', ')}) / ${r.denominator} · Δ = ${r.delta}`:lastAbsorption&&!r?`Last Snap from Lean: (${lastAbsorption.before.join(', ')}) → (${lastAbsorption.receipt.image.join(', ')}) · Δ = ${lastAbsorption.receipt.delta}`:'';
   $('mobius-drag').setAttribute('aria-pressed',String(mobiusMode));$('mobius-drag').textContent=mobiusMode?'Move forms ON':'Move forms';
-  for(const id of ['mobius-drag','mobius-demo','mobius-t','mobius-s','mobius-t-inverse','mobius-snap'])$(id).disabled=dataBusy;
+  for(const id of ['mobius-drag','mobius-demo','mobius-clear','mobius-t','mobius-s','mobius-t-inverse','mobius-snap'])$(id).disabled=dataBusy;
   $('snap-release').disabled=dataBusy;$('snap-release').checked=snapOnRelease;
 }
 function queueActionRender(){
@@ -310,7 +364,19 @@ function cancelMobiusInteraction(){
   lookDrag=null;tap.active.clear();tap.candidate=null;
   if(initialized){refreshActionGeometry();queueActionRender();}
 }
-function clearMotion(){if(dataBusy&&action.phase!=='pending'&&!absorptionPending)return;cancelMobiusInteraction();action.reset();mobiusMode=false;queueActionRender();}
+function clearMotion(){
+  if(dataBusy)return;cancelMobiusInteraction();
+  return runData(async()=>{
+    const ticket=motionTicket,isCurrent=()=>ticket===motionTicket;
+    let candidate=null;
+    if(catalogueMode==='source'){
+      candidate=await stageCloud(radius,whole,catalogueMode,dust,identity,selected,secondSelection,isCurrent);
+      if(!candidate||!isCurrent())return;
+      acceptCloud(candidate);
+    }
+    action.reset();mobiusMode=false;if(candidate)rebuild();queueActionRender();
+  });
+}
 function previewTo(z){
   if(!mobiusGesture||!z)return;
   if(!mobiusGesture.moved){action.begin(mobiusGesture.anchor);mobiusGesture.moved=true;}
@@ -326,8 +392,14 @@ async function absorbMatrix(matrix){
       const plane=await preparePlane(result.point);if(ticket!==motionTicket)return;
       if(plane?.error)throw Error(plane.error);
     }
+    let candidate=null;
+    if(catalogueMode==='source'){
+      candidate=await stageCloud(radius,whole,catalogueMode,dust,identity,result.point,result.second,()=>ticket===motionTicket);
+      if(!candidate||ticket!==motionTicket)return;
+      acceptCloud(candidate);
+    }
     selected=[...result.point];secondSelection=result.second?[...result.second]:null;pairMessage='';
-    lastAbsorption={before,receipt:result.receipt};action.reset();diskHoverIndex=null;clearHover();
+    lastAbsorption={before,receipt:result.receipt};action.reset();if(candidate)rebuild();diskHoverIndex=null;clearHover();
   }catch(error){if(ticket!==motionTicket)return;action.cancel();throw error;}
   finally{if(ticket===motionTicket)absorptionPending=false;}
 }
@@ -456,7 +528,7 @@ function showDebug(){
   const gl=renderer.getContext(),ext=gl.getExtension('WEBGL_debug_renderer_info');
   const rows=[
     ['Distinct lattice points (exact)',lattice.count.toLocaleString()],
-    ['Bound (exact)',`b²+2a²+2c² ≤ ${radius}²${whole?'':', a>0, Δ<0'}`],
+    ['Bound (exact)',lattice.catalogue?`source depth ${radius}; buffered trace/other catalogue`:`b²+2a²+2c² ≤ ${radius}²${whole?'':', a>0, Δ<0'}`],
     ['GL point primitives (measured, last frame)',info.points.toLocaleString()],
     ['Triangles (measured, last frame)',info.triangles.toLocaleString()],
     ['Draw calls (measured, last frame)',info.calls],
@@ -580,6 +652,8 @@ $('palette').onchange=()=>{categories=$('palette').value;update();};
 $('projection').onchange=()=>{projectionVisible=$('projection').checked;update();};
 $('cone').onchange=update;
 $('whole').onchange=()=>changeCloud(radius,$('whole').checked);
+$('catalogue-mode').onchange=()=>changeCloud(radius,whole,false,$('catalogue-mode').value,dust);
+$('dust').onchange=()=>changeCloud(radius,whole,false,catalogueMode,$('dust').checked);
 $('symmetric-color').onchange=()=>{symmetricColor=$('symmetric-color').checked;update();};
 $('radius').onchange=()=>changeCloud(Number($('radius').value),whole);
 $('view').onclick=()=>{camera.position.sub(controls.target).applyAxisAngle(new THREE.Vector3(0,1,0),Math.PI/3).add(controls.target);controls.update();};
@@ -603,7 +677,7 @@ function rayInLattice(ray){
 }
 function pickIndex(ray,maxAngle){
   const t=performance.now(), local=rayInLattice(ray);
-  const i=nearestToRayPacked(local.origin,local.direction,displayXYZ,lattice.count,maxAngle,local.minDistance);
+  const i=nearestToRayPacked(local.origin,local.direction,pickLattice.xyz,lattice.count,maxAngle,local.minDistance);
   timings.pick=performance.now()-t;
   return i;
 }
@@ -672,13 +746,15 @@ const xrPanel=new THREE.Group();xrPanel.position.set(0,1,-1.15);xrPanel.visible=
 const xrActions=[
   ['Next',()=>$('next').click()],['Projection',()=>$('projection').click()],['Reset',async()=>{await changeCloud(6,true,true);if(session)spatialMode('overview');xrPair=false;}],['Exit',()=>session?.end()],
   ['Origin',()=>spatialMode('origin')],['Inhabit',()=>spatialMode('inhabit')],['Overview',()=>spatialMode('overview')],['Other side',()=>{cancelMobiusInteraction();world.rotateY(-Math.PI/3);invalidateSpatialQueries();}],
-  [()=>`R ${radius}`,()=>changeCloud(latticeRadii[(latticeRadii.indexOf(radius)+1)%latticeRadii.length],whole)],['Whole',()=>$('whole').click()],['Lower color',()=>$('symmetric-color').click()],['Cone',()=>$('cone').click()],
+  [()=>`${catalogueMode==='source'?'Depth':'R'} ${radius}`,()=>changeCloud(latticeRadii[(latticeRadii.indexOf(radius)+1)%latticeRadii.length],whole)],['Whole',()=>$('whole').click()],['Lower color',()=>$('symmetric-color').click()],['Cone',()=>$('cone').click()],
   [()=>xrPair?'Pair aim ON':'Pair aim',()=>{xrPair=!xrPair;}],['Clear pair',()=>$('pair-clear').click()],['Plane fade',()=>$('plane-focus').click()],['Colors',()=>{categories=categories==='viridis'?'reference':'viridis';$('palette').value=categories;update();}],
   ['Size −',()=>{sigma=Math.max(.4,sigma-.2);$('star-size').value=sigma;$('star-size-value').textContent=sigma.toFixed(2);glyphKey=null;}],['Size +',()=>{sigma=Math.min(2.5,sigma+.2);$('star-size').value=sigma;$('star-size-value').textContent=sigma.toFixed(2);glyphKey=null;}],['Forward',()=>spatialMove('forward')],['Back',()=>spatialMove('back')],
   ['Left',()=>spatialMove('left')],['Right',()=>spatialMove('right')],
   [()=>mobiusMode?'Move forms ON':'Move forms',()=>setMobiusMode(!mobiusMode)],['Identity',clearMotion],
   ['T: z+1',()=>composeGenerator([1,1,0,1])],['S: -1/z',()=>composeGenerator([0,-1,1,0])],['T inverse',()=>composeGenerator([1,-1,0,1])],['Exact move',()=>commitPreset([3,1,1,2])],
-  ['Snap',snapMotion],[()=>snapOnRelease?'Snap release ON':'Snap release OFF',()=>{snapOnRelease=!snapOnRelease;if(snapOnRelease)snapMotion();}]
+  ['Snap',snapMotion],[()=>snapOnRelease?'Snap release ON':'Snap release OFF',()=>{snapOnRelease=!snapOnRelease;if(snapOnRelease)snapMotion();}],
+  [()=>catalogueMode==='source'?'Source depth':'Canonical ball',()=>changeCloud(radius,whole,false,catalogueMode==='source'?'canonical':'source',dust)],
+  [()=>catalogueMode!=='source'||whole?'Dust n/a':dust?'Dust ON':'Dust OFF',()=>{if(catalogueMode==='source'&&!whole)$('dust').click();}]
 ];
 for(const [i,[label,action]] of xrActions.entries()){
   const canvas=document.createElement('canvas');canvas.width=320;canvas.height=128;
@@ -894,4 +970,4 @@ const fixtureCounts={24:28832,48:231348,96:1852484};
 for(const option of $('radius').querySelectorAll('optgroup option'))option.textContent=`${option.value} · ${fixtureCounts[option.value].toLocaleString()} points`;
 await changeCloud(6,true);resize();checkXR();
 // Read-only diagnostics for reproducible app acceptance, never a second implementation.
-window.polynomialDiagnostics=()=>({...diagnostics(),selected:[...selected],second:secondSelection?[...secondSelection]:null,radius,whole,projectionVisible,inhabited,originMode,categories,sigma,planeFocus,dataBusy,xr:!!session,xrMode,xrPair,rootsView,panes:{space:spaceVisible(),roots:rootsVisible(),wide:innerWidth>=1000},mobiusMode,snapOnRelease,lastAbsorption,rootsChart:{...diskView,pan:[...diskView.pan]},timings:{...timings},rootsRender:{points:kleinView.renderer.info.render.points,calls:kleinView.renderer.info.render.calls},action:{phase:action.phase,matrix:[...action.matrix],g:[...action.g],imageNumerator:action.receipt?.imageNumerator,denominator:action.receipt?.denominator,delta:action.receipt?.delta,displayedSelection:displayedVector(selected)},world:{position:world.position.toArray(),quaternion:world.quaternion.toArray()},xrButtons:xrTargets.map(b=>({label:b.userData.label,position:b.getWorldPosition(new THREE.Vector3()).toArray()})),view:{position:camera.position.toArray(),quaternion:camera.quaternion.toArray(),fov:camera.fov},render:{points:renderer.info.render.points,calls:renderer.info.render.calls},projectedSelection:(()=>{const r=renderer.domElement.getBoundingClientRect(),v=physical(displayedVector(selected)).applyMatrix4(world.matrixWorld).project(camera);return{x:r.left+(v.x+1)*r.width/2,y:r.top+(1-v.y)*r.height/2};})()});
+window.polynomialDiagnostics=()=>({...diagnostics(),selected:[...selected],second:secondSelection?[...secondSelection]:null,radius,whole,catalogueMode,dust,visiblePointCount:visiblePoints?visiblePoints.reduce((n,v)=>n+v,0):lattice.count,visibleRootCount:(()=>{let n=0;for(let i=0;i<lattice.count;i++)if((lattice.kind[i]===2||(diskView.model==='klein'&&lattice.kind[i]===3))&&sourceRootVisible(lattice,i)&&(!visiblePoints||visiblePoints[i]))n++;return n;})(),catalogue:lattice.catalogue??null,projectionVisible,inhabited,originMode,categories,sigma,planeFocus,dataBusy,xr:!!session,xrMode,xrPair,rootsView,panes:{space:spaceVisible(),roots:rootsVisible(),wide:innerWidth>=1000},mobiusMode,snapOnRelease,lastAbsorption,rootsChart:{...diskView,pan:[...diskView.pan]},timings:{...timings},rootsRender:{points:kleinView.renderer.info.render.points,calls:kleinView.renderer.info.render.calls},action:{phase:action.phase,matrix:[...action.matrix],g:[...action.g],imageNumerator:action.receipt?.imageNumerator,denominator:action.receipt?.denominator,delta:action.receipt?.delta,displayedSelection:displayedVector(selected)},world:{position:world.position.toArray(),quaternion:world.quaternion.toArray()},xrButtons:xrTargets.map(b=>({label:b.userData.label,position:b.getWorldPosition(new THREE.Vector3()).toArray()})),view:{position:camera.position.toArray(),quaternion:camera.quaternion.toArray(),fov:camera.fov},render:{points:renderer.info.render.points,calls:renderer.info.render.calls},projectedSelection:(()=>{const r=renderer.domElement.getBoundingClientRect(),v=physical(displayedVector(selected)).applyMatrix4(world.matrixWorld).project(camera);return{x:r.left+(v.x+1)*r.width/2,y:r.top+(1-v.y)*r.height/2};})()});

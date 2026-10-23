@@ -6,17 +6,20 @@
 // (px/min)² alpha, cube-root growth above the knee, cap and overview fog.
 import * as THREE from '../vendor/three.module.js';
 import { glyphRadius, sizePixels, decode, categoryPalettes, paletteSample, palettePosition, orbitFactorFromData } from './appearance.js';
+import {catalogueUniform,catalogueFadeGLSL} from './catalogue-display.js';
 
 const vertexShader = `
 attribute float aFactor;
 attribute float aDelta;
+attribute float aKind;
 attribute vec3 color;
 uniform float uGlyph, uHalfH, uDpr, uOrigin;
-uniform vec3 uFog, uSize, uKeep;
+uniform vec3 uFog, uSize, uKeep, uCatalogue;
 uniform vec4 uFocus;
 uniform vec2 uFocusFade;
 varying vec3 vColor;
 varying float vPx, vSize, vFaint, vAlpha;
+${catalogueFadeGLSL}
 void main() {
   vec4 mv = modelViewMatrix * vec4(position, 1.0);
   gl_Position = projectionMatrix * mv;
@@ -31,6 +34,9 @@ void main() {
   else if (px > uSize.y) px = uSize.y * pow(px / uSize.y, 1.0 / 3.0);
   px = min(px, uSize.z);
   dim *= 1.0 - uFog.z * smoothstep(uFog.x, uFog.y, depth);
+  float catalogueAlpha=catalogueOpacity(position,aKind,uCatalogue);
+  dim*=catalogueAlpha;
+  if(catalogueAlpha<.999)vFaint=1.0;
   // Optional plane focus (a viewing aid): uFocus.xyz is the unit display normal, w enables it. Opacity falls
   // with Euclidean display distance to the plane over uFocusFade.x, to the floor uFocusFade.y; members stay 1.
   if (uFocus.w > 0.5 && position != uKeep) {
@@ -52,7 +58,7 @@ varying float vPx, vSize, vFaint, vAlpha;
 void main() {
   float r = length(gl_PointCoord - vec2(0.5)) * vSize;
   float coverage = clamp(vPx - r + 0.5, 0.0, 1.0);
-  if (coverage <= 0.0) discard;
+  if (coverage <= 0.0 || vAlpha <= 0.0) discard;
   gl_FragColor = vec4(vColor, vAlpha * coverage);
   gl_FragDepth = vFaint > 0.5 ? 1.0 : gl_FragCoord.z;
 }`;
@@ -63,6 +69,7 @@ export function pointCloudMaterial() {
       uGlyph: { value: glyphRadius }, uHalfH: { value: 300 }, uDpr: { value: 1 }, uOrigin: { value: 0 }, uKeep: { value: new THREE.Vector3(1e9, 0, 0) },
       uFocus: { value: new THREE.Vector4(0, 1, 0, 0) }, uFocusFade: { value: new THREE.Vector2(1, 0.12) },
       uFog: { value: new THREE.Vector3(0, 1, 0) }, uSize: { value: new THREE.Vector3(sizePixels.min, sizePixels.knee, sizePixels.cap) },
+      uCatalogue: { value: new THREE.Vector3(1,1,0) },
     },
     vertexShader, fragmentShader, transparent: true,
   });
@@ -92,8 +99,10 @@ export function pointCloud(lattice, material, symmetric, categories) {
   // Float32 is exact for this protocol's bounded integer discriminants. Integer
   // WebGL attributes cannot be bound to a float shader attribute without conversion.
   geometry.setAttribute('aDelta', new THREE.BufferAttribute(new Float32Array(lattice.delta), 1));
+  geometry.setAttribute('aKind', new THREE.BufferAttribute(new Float32Array(lattice.kind), 1));
   geometry.setAttribute('color', new THREE.BufferAttribute(fillColors(lattice, symmetric, categories), 3, true));
   geometry.setAttribute('aFactor', new THREE.BufferAttribute(fillFactors(lattice, symmetric, () => false), 1));
+  material.uniforms.uCatalogue.value.set(...catalogueUniform(lattice));
   const points = new THREE.Points(geometry, material);
   points.frustumCulled = false;
   return points;

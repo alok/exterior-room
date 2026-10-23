@@ -1,0 +1,163 @@
+{
+  "schema": "lean-starscape-native-catalogue-verification-v1",
+  "generatedUTC": "2026-10-23T10:18:57.892737+00:00",
+  "scope": "Batched R24 and source catalogue follow-up. Historical receipts unchanged.",
+  "app": {
+    "name": "Lean Starscape",
+    "scheme": "PolynomialRoom",
+    "bundleIdentifier": "com.alok.PolynomialRoom",
+    "minimumVisionOS": "26.0",
+    "sdkTested": "xrsimulator27.2",
+    "nativeDepthChoices": [
+      4,
+      6,
+      8,
+      10,
+      12,
+      24
+    ],
+    "maximumBufferedPoints": 40000,
+    "olderOSFallback": false
+  },
+  "sourceCatalogue": {
+    "schema": "source-catalogue-v1",
+    "auditedSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+    "LeanBinarySHA256": "738fc7b541e5a3de310b4e3b905efdac7794eae90f196817a850a01e90df6c78",
+    "canonicalCheckoutModified": false,
+    "requery": "Every accepted action release, Identity and Snap; mode/depth/Whole/Dust changes. No recatalogue during continuous preview.",
+    "atomicAcceptance": "Pages/order/IDs, inspections, action, plane and membership validated before publication; rejected/stale requests retain entire accepted scene and configuration."
+  },
+  "modelTests": {
+    "passed": 114,
+    "failed": 0,
+    "log": "native/evidence/catalogue-model-tests.txt",
+    "command": "cd native && swift test -j 2",
+    "covers": [
+      "Actual two-page R24 with28,832 unique signed identities",
+      "Actual source metadata/provenance/pages/order/membership",
+      "Mode/config/action/pair rollback and Identity recatalogue",
+      "Signed identity picking, RGB8 partition, lazy projection",
+      "UInt16 collision-chunk capacity and outward geometry",
+      "Float overflow and all56 exact D5 cutoff forms",
+      "Source primitive-upper projection and80-visible count"
+    ]
+  },
+  "build": {
+    "result": "TEST BUILD SUCCEEDED",
+    "log": "native/evidence/catalogue-build.txt",
+    "unsigned": true,
+    "jobs": 2,
+    "binaryPath": "native/.build/Build/Products/Debug-xrsimulator/PolynomialRoom.app/PolynomialRoom",
+    "binarySHA256": "6d91035edfee710ee5bd77159200850c623c0a93f6b6ed36d287eb5cd208948f"
+  },
+  "ui": {
+    "run": "20261023T100946Z",
+    "test": "testBatchedR24AndSourceCatalogueLinkedScene",
+    "passed": 1,
+    "failed": 0,
+    "seconds": 108.059,
+    "simulator": "1D261881-0A0F-4DE0-B704-12644E606348",
+    "route": "Existing background-only XCTest/simctl runner; no foreground Simulator control.",
+    "log": "native/evidence/ui-tests-20261023T100946Z.txt",
+    "screenshots": [
+      "native/evidence/screenshots/20261023T100946Z/001-catalogue-00-batched-r24.png",
+      "native/evidence/screenshots/20261023T100946Z/002-catalogue-01-source-identity-pair.png",
+      "native/evidence/screenshots/20261023T100946Z/003-catalogue-02-source-d5-linked-pair.png",
+      "native/evidence/screenshots/20261023T100946Z/004-catalogue-02b-primitive-upper-projection.png",
+      "native/evidence/screenshots/20261023T100946Z/005-catalogue-03-source-dust.png",
+      "native/evidence/screenshots/20261023T100946Z/006-catalogue-04-reset-canonical-ball.png"
+    ],
+    "allSixVisuallyInspected": true,
+    "checked": [
+      "R24 render28,832 and reset",
+      "Source identity unit[1,0,1]/pair[1,1,1]:212buffered,24members,10visible rings",
+      "D5 matrix[3,1,1,2]:212buffered,80visible,19members,9rings; displayed unit1+i,endpoints\u22122,4/3",
+      "Projection63 primitive upper forms",
+      "Identity preserves pair and restores source membership",
+      "Whole off187, Dust3311",
+      "Reset480 canonical signed points and x\u00b2\u2212x+2"
+    ]
+  },
+  "observedCPUUpdates": {
+    "R24": {
+      "instances": 28832,
+      "batches": 111,
+      "milliseconds": 498.0
+    },
+    "sourceD5": {
+      "instances": 80,
+      "buffered": 212,
+      "batches": 14,
+      "planeRings": 9,
+      "milliseconds": 117.2
+    },
+    "interpretation": "Single CPU scene-rebuild samples, not FPS, sustained load, simulator-wide memory or hardware benchmarks."
+  },
+  "visibilityCorrection": {
+    "intermediateRun": "20261023T100145Z",
+    "observedIntermediateNativeD5": 88,
+    "matchedBrowser": 80,
+    "finalNativeD5": 80,
+    "method": "Float32 display coordinates before opacity/picking and explicit distance>=cutoff zero; primitive-upper source projection only.",
+    "causality": "Ordinary Double fixture replay did not reproduce the8 extra intermediate UI instances; compiler/runtime cause and their identities were not isolated."
+  },
+  "proofBoundary": {
+    "executableLean": "Catalogue, signed identities, discriminants, action receipts and exact plane members.",
+    "kernelChecked": "Existing17 general integer laws unchanged; no new proof of catalogue completeness/source parity/rendering/input.",
+    "rendererOnly": "Float32 visibility, colors/RGB8 batching, meshes/instances, approximate hit proxies, root charts, previews, pan/zoom, radial overlay."
+  },
+  "limitations": [
+    "Native cap24 and40,000 buffered identities; noR48/R96 rendering validation.",
+    "RequiresvisionOS26; no older-OS fallback.",
+    "Source recrop occurs on accepted release, not each preview.",
+    "Projection is a radial overlay, not the source continuous world-projection morph.",
+    "Native Roots window occludes much ofD5 volume/projection; semantic match and partial visual comparison, not pixel parity.",
+    "Batched glyphs do not provide per-point accessibility activation or hover effects.",
+    "Actual spatial gaze/pinch, spatial pairing/hover readout, free-space SL2 dragging, hardware hands/controllers and headset performance remain unverified or absent.",
+    "This UI run uses actual buttons/toggles; it is not a new free-drag gesture test."
+  ],
+  "video": {
+    "path": "artifacts/videos/lean-starscape-native-catalogue.mp4",
+    "sha256": "e09c16af4d2ae63c828643c9df032264cbfe40c80b4673ef5930c962b9b8cdff",
+    "metadata": "artifacts/videos/lean-starscape-native-catalogue-metadata.json",
+    "rawLocalOnly": "native/evidence/screenshots/20261023T100946Z/lean-starscape-native-catalogue.mov"
+  },
+  "filesSHA256": {
+    "native/Sources/PolynomialAction.swift": "f0a361b821fbec3747e0828809368ab60591ba3be54d325d294ad3b442b19a92",
+    "native/Sources/PolynomialAppearance.swift": "209ad4c7d39f99cc0e397d5bbfc50014dbcb1866c91443c0713b135bc09218e1",
+    "native/Sources/PolynomialCatalogue.swift": "3ea7841959cb398fe90e7a2fc6d35b4ec2e18cec38ea928ce97b5d203048dcce",
+    "native/Sources/PolynomialModel.swift": "edf54047912981a0d539ed154b46584865884dd20fb8dd3e440f6d18eb585c0d",
+    "native/Sources/PolynomialRenderPlan.swift": "58c4328500067022b68343d974fc03967a21cee20c1d5d6b25a6f3b20500779a",
+    "native/Sources/PolynomialRoomApp.swift": "d11c4885b1861fcd5118e313b6debaae05a740dd5b59ec9f40d9050eec4f5fbf",
+    "native/Sources/PolynomialRootsGeometry.swift": "2d982c71ef151fc6949ca9f92bb60f8fb7e33fe81ca00683083a65574cb6d08a",
+    "native/Sources/PolynomialRootsView.swift": "aaddc3dc074fc3defc77d208f925fbaab0e7f709eb6dd0e4abfe53d1fb5bcc33",
+    "native/Sources/PolynomialSpace.swift": "b099faf8c0e283ec73db522e80b5b3ec02ac812f15562d1febc2b4656e5f578b",
+    "native/Sources/PolynomialTransformControls.swift": "032c95311c6cae8bde6646d71152ac0794ea0c2d849bfd421280b67bc1912422",
+    "native/Sources/PolynomialViridis.swift": "885fae4705ce971eae95a3141313038af79b6bb62215798dcb5725266b95ceed",
+    "native/Package.swift": "59192a2f2dc9c5cf0f0850f37860ac54b6ef9cd8e5c8028d35101f3664ec9f25",
+    "native/project.yml": "30b343c71bf728409360888e6b72d2f1a2f285ca8036c26fb5c2806aab9866e4",
+    "native/ExteriorRoom.xcodeproj/project.pbxproj": "547eb5662e93c0bfb68f61f385bdf172625b40085779aff26e534bbfdf2a2e04",
+    "native/ModelTests/PolynomialCatalogueTests.swift": "dd7a66b1388985aed9f595ac98f1a778c5e1447f1380f05d82d77d471f1198ae",
+    "native/ModelTests/PolynomialRenderPlanTests.swift": "d835129f6c11a70db20f5e2c0d1b096a2f4106f16e9fdb450c54888ec67ec47e",
+    "native/ModelTests/PolynomialModelTests.swift": "4c8b69e96585ffb88fbc0656b0b4ccf77c30766039f527749214c722294e6102",
+    "native/ModelTests/Fixtures/polynomial-density-cases.json": "e8d654d0b5dfd3d3ea10488ba65235b9ad5de08973e8e9f3716c3b3503941864",
+    "native/PolynomialUITests/PolynomialRoomUITests.swift": "f9fbea4b744b1acc741aecece861c4c65966cff77ba9c833c22a10c90a6f67a8",
+    "lean/Polynomial/fixtures/catalogue-native-cases.json": "87c75abfe5319c0fe6799de55f830870d5246d8a4ed60a31f646e0ba80732d9a",
+    "lean/Polynomial/fixtures/source-recrop-audit.json": "e9c35575e756232c3ebb4175d8610d5f57dcd0dac6fdb0d1a321a4d068120cc3",
+    "native/evidence/catalogue-model-tests.txt": "c5f5ea8375b4439cdca9ae3ce8f9698c410237cd7b44b367653c718d4eb5da6d",
+    "native/evidence/catalogue-build.txt": "eab04d223b79ed35bfa024c94a281a56d540f1b457385e74d08196c2731f873c",
+    "native/evidence/ui-tests-20261023T100946Z.txt": "0c3190f9add482a3ad0e5693c286657a61b524eea1444170a565b22bee781b62",
+    "native/evidence/catalogue-video-export.txt": "e9e5b56cd59a50b857477eaf9aad0a83184611f4d85e001135383dd466b356a2",
+    "native/README.md": "cf6aa6cb2aa41fe45768ace8d61e11bb159827de6d079331645b9164e9bf4cea",
+    "docs/native.md": "d509483a27f057308016984f4f9dce016fcb57e4bf86f28ce5122f582024a207",
+    "native/evidence/screenshots/20261023T100946Z/001-catalogue-00-batched-r24.png": "65ac2e5820b262c9acfd717a903786ce2397c3c4ed46e3189089a57af8eebdc0",
+    "native/evidence/screenshots/20261023T100946Z/002-catalogue-01-source-identity-pair.png": "18a2ddd7301d0fc72039a051b9d891dda57f54eb750a147dac5fa73bda264a6a",
+    "native/evidence/screenshots/20261023T100946Z/003-catalogue-02-source-d5-linked-pair.png": "2dcf0a1780fd6db6b70fa16b8d809ec58befca551e0b7722e4a8330acd3b9c0f",
+    "native/evidence/screenshots/20261023T100946Z/004-catalogue-02b-primitive-upper-projection.png": "cc79d5127f47814ab8eb9d93a012907174618607a0e4841b182618bb6b30c6cc",
+    "native/evidence/screenshots/20261023T100946Z/005-catalogue-03-source-dust.png": "030617bebafa87a5e0fea7dad92a10d1630ff1f89d1535f0342d92fbfbc4b8a5",
+    "native/evidence/screenshots/20261023T100946Z/006-catalogue-04-reset-canonical-ball.png": "97111bd9130ef3cdb128813434f056f2a6c61e0e9f106790613b1082944b57da",
+    "native/evidence/screenshots/20261023T100946Z/captures.json": "2125eaf843f98117f281aaa27c691b5e9b15d46d6858ea28cec238b211d94f7d",
+    "artifacts/videos/lean-starscape-native-catalogue.mp4": "e09c16af4d2ae63c828643c9df032264cbfe40c80b4673ef5930c962b9b8cdff",
+    "artifacts/videos/lean-starscape-native-catalogue-poster.jpg": "3b0eeab85b0d2c8dee2c3163df3108b7a38eae3b85cb0d6ec3667d7c49e6f774"
+  }
+}

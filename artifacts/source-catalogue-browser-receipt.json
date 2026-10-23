@@ -1,0 +1,1864 @@
+{
+  "dateUTC": "2026-10-23",
+  "baseline": "49271c9ce0469411d9d2bc4df1baf5369d4c1984",
+  "application": "Lean Starscape",
+  "localURL": "http://127.0.0.1:8787/",
+  "surface": "ChatGPT in-app browser; actual production UI and pointer input; separate explicit synthetic WebXR harness",
+  "tests": {
+    "node": {
+      "passed": 138,
+      "failed": 0,
+      "log": "artifacts/catalogue-node-tests.txt"
+    },
+    "catalogueService": {
+      "requests": 121,
+      "passed": true,
+      "receipt": "lean/Polynomial/evidence/catalogue-tests.json"
+    },
+    "canonicalCloud": {
+      "requests": 305,
+      "orderedPoints": 2120040,
+      "receipt": "lean/Polynomial/evidence/service-tests.json"
+    },
+    "transform": {
+      "requests": 452,
+      "receipt": "lean/Polynomial/evidence/transform-tests.json"
+    },
+    "bridgeUnitTests": {
+      "passed": 26,
+      "failed": 0
+    },
+    "genericKernelLaws": 17,
+    "newEnumerationCompletenessTheorem": false
+  },
+  "browserConsoleErrors": [],
+  "qaConsoleDiagnostics": [
+    {
+      "message": "Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.",
+      "timestamp": "2026-10-23T09:58:52.484Z",
+      "origin": "unresolved; no MutationObserver in application/harness sources; subsequent UI acceptance passed"
+    }
+  ],
+  "mainChrome": {
+    "verified": false,
+    "blocker": "URL-based attach timed out after10000ms on Emulation.setFocusEmulationEnabled",
+    "newAccessRequested": false
+  },
+  "steps": [
+    {
+      "step": "source-depth6-identity",
+      "selected": [
+        1,
+        -1,
+        2
+      ],
+      "second": null,
+      "count": 212,
+      "visiblePoints": 80,
+      "visiblePrimitiveUpperRoots": null,
+      "catalogue": {
+        "cacheKey": "source-catalogue-v1:6:1,0,0,1:1:0",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "complete": true,
+        "denominator": 1,
+        "depth": 6,
+        "dust": false,
+        "kind": "source",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "otherCount": 25,
+        "otherRadius": 2,
+        "otherScanBound": 3,
+        "padding": [
+          6,
+          5
+        ],
+        "sourceLimited": {
+          "otherScanBound": false,
+          "upperCap": false
+        },
+        "total": 212,
+        "upperCount": 187,
+        "whole": true
+      },
+      "action": {
+        "displayedSelection": [
+          1,
+          3,
+          1
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "phase": "identity"
+      },
+      "panes": {
+        "roots": true,
+        "space": true,
+        "wide": true
+      },
+      "xr": false,
+      "status": null
+    },
+    {
+      "step": "source-depth6-pair-D5",
+      "selected": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        1,
+        1,
+        1
+      ],
+      "count": 212,
+      "visiblePoints": 80,
+      "visiblePrimitiveUpperRoots": null,
+      "catalogue": {
+        "cacheKey": "source-catalogue-v1:6:3,1,1,2:1:0",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "coefficientRows": [
+          4,
+          -2,
+          1,
+          -4,
+          7,
+          -6,
+          1,
+          -3,
+          9
+        ],
+        "complete": true,
+        "denominator": 5,
+        "depth": 6,
+        "dust": false,
+        "kind": "source",
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "otherCount": 25,
+        "otherRadius": 2,
+        "otherScanBound": 5,
+        "padding": [
+          6,
+          5
+        ],
+        "sourceLimited": {
+          "otherScanBound": false,
+          "upperCap": false
+        },
+        "total": 212,
+        "upperCount": 187,
+        "whole": true
+      },
+      "action": {
+        "delta": -4,
+        "denominator": 5,
+        "displayedSelection": [
+          2,
+          3,
+          1
+        ],
+        "g": [
+          1.3416407864998738,
+          0.4472135954999579,
+          0.4472135954999579,
+          0.8944271909999159
+        ],
+        "imageNumerator": [
+          5,
+          -10,
+          10
+        ],
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "phase": "accepted"
+      },
+      "panes": {
+        "roots": true,
+        "space": true,
+        "wide": true
+      },
+      "xr": false,
+      "status": null
+    },
+    {
+      "step": "source-actual-drag-recrop",
+      "selected": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        1,
+        1,
+        1
+      ],
+      "count": 196,
+      "visiblePoints": 102,
+      "visiblePrimitiveUpperRoots": null,
+      "catalogue": {
+        "cacheKey": "source-catalogue-v1:6:12548,1918,2638,8373:1:0",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "coefficientRows": [
+          70107129,
+          -22087974,
+          6959044,
+          -32118828,
+          110124088,
+          -66203248,
+          3678724,
+          -24067064,
+          157452304
+        ],
+        "complete": true,
+        "denominator": 100004720,
+        "depth": 6,
+        "dust": false,
+        "kind": "source",
+        "matrix": [
+          12548,
+          1918,
+          2638,
+          8373
+        ],
+        "otherCount": 32,
+        "otherRadius": 2,
+        "otherScanBound": 4,
+        "padding": [
+          6,
+          5
+        ],
+        "sourceLimited": {
+          "otherScanBound": false,
+          "upperCap": false
+        },
+        "total": 196,
+        "upperCount": 164,
+        "whole": true
+      },
+      "action": {
+        "delta": -4,
+        "denominator": 100004720,
+        "displayedSelection": [
+          0.9831743541704832,
+          2.38185958622753,
+          0.840608873261182
+        ],
+        "g": [
+          1.2547703877682688,
+          0.1917954736802311,
+          0.2637937745403804,
+          0.8372802404194863
+        ],
+        "imageNumerator": [
+          77066173,
+          -98322076,
+          161131028
+        ],
+        "matrix": [
+          12548,
+          1918,
+          2638,
+          8373
+        ],
+        "phase": "accepted"
+      },
+      "panes": {
+        "roots": true,
+        "space": true,
+        "wide": true
+      },
+      "xr": false,
+      "status": null
+    },
+    {
+      "step": "source-snap",
+      "selected": [
+        1,
+        -2,
+        2
+      ],
+      "second": [
+        1,
+        -1,
+        1
+      ],
+      "count": 212,
+      "visiblePoints": 80,
+      "visiblePrimitiveUpperRoots": null,
+      "catalogue": {
+        "cacheKey": "source-catalogue-v1:6:1,0,0,1:1:0",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "complete": true,
+        "denominator": 1,
+        "depth": 6,
+        "dust": false,
+        "kind": "source",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "otherCount": 25,
+        "otherRadius": 2,
+        "otherScanBound": 3,
+        "padding": [
+          6,
+          5
+        ],
+        "sourceLimited": {
+          "otherScanBound": false,
+          "upperCap": false
+        },
+        "total": 212,
+        "upperCount": 187,
+        "whole": true
+      },
+      "action": {
+        "displayedSelection": [
+          2,
+          3,
+          1
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "phase": "identity"
+      },
+      "panes": {
+        "roots": true,
+        "space": true,
+        "wide": true
+      },
+      "xr": false,
+      "status": null
+    },
+    {
+      "step": "source-identity-after-snap",
+      "selected": [
+        1,
+        -2,
+        2
+      ],
+      "second": [
+        1,
+        -1,
+        1
+      ],
+      "count": 212,
+      "visiblePoints": 80,
+      "visiblePrimitiveUpperRoots": null,
+      "catalogue": {
+        "cacheKey": "source-catalogue-v1:6:1,0,0,1:1:0",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "complete": true,
+        "denominator": 1,
+        "depth": 6,
+        "dust": false,
+        "kind": "source",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "otherCount": 25,
+        "otherRadius": 2,
+        "otherScanBound": 3,
+        "padding": [
+          6,
+          5
+        ],
+        "sourceLimited": {
+          "otherScanBound": false,
+          "upperCap": false
+        },
+        "total": 212,
+        "upperCount": 187,
+        "whole": true
+      },
+      "action": {
+        "displayedSelection": [
+          2,
+          3,
+          1
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "phase": "identity"
+      },
+      "panes": {
+        "roots": true,
+        "space": true,
+        "wide": true
+      },
+      "xr": false,
+      "status": null
+    },
+    {
+      "step": "source-identity-visible-outside-canonical-ball",
+      "selected": [
+        1,
+        3,
+        4
+      ],
+      "second": null,
+      "count": 212,
+      "visiblePoints": 80,
+      "visiblePrimitiveUpperRoots": null,
+      "catalogue": {
+        "cacheKey": "source-catalogue-v1:6:1,0,0,1:1:0",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "complete": true,
+        "denominator": 1,
+        "depth": 6,
+        "dust": false,
+        "kind": "source",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "otherCount": 25,
+        "otherRadius": 2,
+        "otherScanBound": 3,
+        "padding": [
+          6,
+          5
+        ],
+        "sourceLimited": {
+          "otherScanBound": false,
+          "upperCap": false
+        },
+        "total": 212,
+        "upperCount": 187,
+        "whole": true
+      },
+      "action": {
+        "displayedSelection": [
+          -3,
+          5,
+          3
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "phase": "identity"
+      },
+      "panes": {
+        "roots": true,
+        "space": true,
+        "wide": true
+      },
+      "xr": false,
+      "status": ""
+    },
+    {
+      "step": "canonical-hidden-same-signed-selection",
+      "selected": [
+        1,
+        3,
+        4
+      ],
+      "second": null,
+      "count": 480,
+      "visiblePoints": 480,
+      "visiblePrimitiveUpperRoots": null,
+      "catalogue": null,
+      "action": {
+        "displayedSelection": [
+          -3,
+          5,
+          3
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "phase": "identity"
+      },
+      "panes": {
+        "roots": true,
+        "space": true,
+        "wide": true
+      },
+      "xr": false,
+      "status": "The selected point is hidden by this filter or crop."
+    },
+    {
+      "step": "source-upper-only",
+      "selected": [
+        1,
+        3,
+        4
+      ],
+      "second": null,
+      "count": 187,
+      "visiblePoints": 66,
+      "visiblePrimitiveUpperRoots": null,
+      "catalogue": {
+        "cacheKey": "source-catalogue-v1:6:1,0,0,1:0:0",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "complete": true,
+        "denominator": 1,
+        "depth": 6,
+        "dust": false,
+        "kind": "source",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "otherCount": 0,
+        "otherRadius": 0,
+        "otherScanBound": 0,
+        "padding": [
+          6,
+          5
+        ],
+        "sourceLimited": {
+          "otherScanBound": false,
+          "upperCap": false
+        },
+        "total": 187,
+        "upperCount": 187,
+        "whole": false
+      },
+      "action": {
+        "displayedSelection": [
+          -3,
+          5,
+          3
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "phase": "identity"
+      },
+      "panes": {
+        "roots": true,
+        "space": true,
+        "wide": true
+      },
+      "xr": false,
+      "status": null
+    },
+    {
+      "step": "source-dust",
+      "selected": [
+        1,
+        3,
+        4
+      ],
+      "second": null,
+      "count": 3311,
+      "visiblePoints": 1866,
+      "visiblePrimitiveUpperRoots": null,
+      "catalogue": {
+        "cacheKey": "source-catalogue-v1:6:1,0,0,1:0:1",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "complete": true,
+        "denominator": 1,
+        "depth": 6,
+        "dust": true,
+        "kind": "source",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "otherCount": 3124,
+        "otherRadius": 10,
+        "otherScanBound": 16,
+        "padding": [
+          6,
+          5
+        ],
+        "sourceLimited": {
+          "otherScanBound": false,
+          "upperCap": false
+        },
+        "total": 3311,
+        "upperCount": 187,
+        "whole": false
+      },
+      "action": {
+        "displayedSelection": [
+          -3,
+          5,
+          3
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "phase": "identity"
+      },
+      "panes": {
+        "roots": true,
+        "space": true,
+        "wide": true
+      },
+      "xr": false,
+      "status": null
+    },
+    {
+      "step": "source-depth24",
+      "selected": [
+        1,
+        -1,
+        2
+      ],
+      "second": null,
+      "count": 14966,
+      "visiblePoints": 8387,
+      "visiblePrimitiveUpperRoots": 5637,
+      "catalogue": {
+        "cacheKey": "source-catalogue-v1:24:1,0,0,1:1:0",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "complete": true,
+        "denominator": 1,
+        "depth": 24,
+        "dust": false,
+        "kind": "source",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "otherCount": 3124,
+        "otherRadius": 10,
+        "otherScanBound": 16,
+        "padding": [
+          6,
+          5
+        ],
+        "sourceLimited": {
+          "otherScanBound": false,
+          "upperCap": false
+        },
+        "total": 14966,
+        "upperCount": 11842,
+        "whole": true
+      },
+      "action": {
+        "displayedSelection": [
+          1,
+          3,
+          1
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "phase": "identity"
+      },
+      "panes": {
+        "roots": true,
+        "space": true,
+        "wide": true
+      },
+      "xr": false,
+      "status": null
+    },
+    {
+      "step": "source-depth96-explicit-limit",
+      "selected": [
+        1,
+        -1,
+        2
+      ],
+      "second": null,
+      "count": 769788,
+      "visiblePoints": 489520,
+      "visiblePrimitiveUpperRoots": 326765,
+      "catalogue": {
+        "cacheKey": "source-catalogue-v1:96:1,0,0,1:1:0",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "complete": false,
+        "denominator": 1,
+        "depth": 96,
+        "dust": false,
+        "kind": "source",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "otherCount": 169788,
+        "otherRadius": 38,
+        "otherScanBound": 64,
+        "padding": [
+          6,
+          5
+        ],
+        "sourceLimited": {
+          "otherScanBound": false,
+          "upperCap": true
+        },
+        "total": 769788,
+        "upperCount": 600000,
+        "whole": true
+      },
+      "action": {
+        "displayedSelection": [
+          1,
+          3,
+          1
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "phase": "identity"
+      },
+      "panes": {
+        "roots": true,
+        "space": true,
+        "wide": true
+      },
+      "xr": false,
+      "status": null
+    },
+    {
+      "step": "video-source-drag",
+      "selected": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        1,
+        1,
+        1
+      ],
+      "count": 193,
+      "visiblePoints": 102,
+      "visiblePrimitiveUpperRoots": 82,
+      "catalogue": {
+        "cacheKey": "source-catalogue-v1:6:15101,5070,3255,7715:1:0",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "coefficientRows": [
+          59521225,
+          -25112325,
+          10595025,
+          -78230100,
+          133007065,
+          -98307510,
+          25704900,
+          -76562070,
+          228040201
+        ],
+        "complete": true,
+        "denominator": 100001365,
+        "depth": 6,
+        "dust": false,
+        "kind": "source",
+        "matrix": [
+          15101,
+          5070,
+          3255,
+          7715
+        ],
+        "otherCount": 30,
+        "otherRadius": 2,
+        "otherScanBound": 6,
+        "padding": [
+          6,
+          5
+        ],
+        "sourceLimited": {
+          "otherScanBound": false,
+          "upperCap": false
+        },
+        "total": 193,
+        "upperCount": 163,
+        "whole": true
+      },
+      "action": {
+        "delta": -4,
+        "denominator": 100001365,
+        "displayedSelection": [
+          1.7653520029451597,
+          3.2385693035290073,
+          1.836263445003976
+        ],
+        "g": [
+          1.5100896936730108,
+          0.5069965397604241,
+          0.32549777848524275,
+          0.7714947345664048
+        ],
+        "imageNumerator": [
+          70116250,
+          -176537610,
+          253745101
+        ],
+        "matrix": [
+          15101,
+          5070,
+          3255,
+          7715
+        ],
+        "phase": "accepted"
+      },
+      "panes": {
+        "roots": true,
+        "space": true,
+        "wide": true
+      },
+      "xr": false,
+      "status": null
+    },
+    {
+      "step": "video-source-snap-identity-final",
+      "selected": [
+        1,
+        -2,
+        2
+      ],
+      "second": [
+        1,
+        -1,
+        1
+      ],
+      "count": 212,
+      "visiblePoints": 80,
+      "visiblePrimitiveUpperRoots": 63,
+      "catalogue": {
+        "cacheKey": "source-catalogue-v1:6:1,0,0,1:1:0",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "complete": true,
+        "denominator": 1,
+        "depth": 6,
+        "dust": false,
+        "kind": "source",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "otherCount": 25,
+        "otherRadius": 2,
+        "otherScanBound": 3,
+        "padding": [
+          6,
+          5
+        ],
+        "sourceLimited": {
+          "otherScanBound": false,
+          "upperCap": false
+        },
+        "total": 212,
+        "upperCount": 187,
+        "whole": true
+      },
+      "action": {
+        "displayedSelection": [
+          2,
+          3,
+          1
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "phase": "identity"
+      },
+      "panes": {
+        "roots": true,
+        "space": true,
+        "wide": true
+      },
+      "xr": false,
+      "status": null
+    },
+    {
+      "step": "xr-catalogue-canonical",
+      "selected": [
+        1,
+        -2,
+        2
+      ],
+      "second": [
+        1,
+        -1,
+        1
+      ],
+      "count": 480,
+      "visiblePoints": 480,
+      "visiblePrimitiveUpperRoots": null,
+      "catalogue": null,
+      "action": {
+        "displayedSelection": [
+          2,
+          3,
+          1
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "phase": "identity"
+      },
+      "panes": {
+        "roots": false,
+        "space": true,
+        "wide": true
+      },
+      "xr": true,
+      "status": null
+    },
+    {
+      "step": "xr-source-dust",
+      "selected": [
+        1,
+        -2,
+        2
+      ],
+      "second": [
+        1,
+        -1,
+        1
+      ],
+      "count": 3311,
+      "visiblePoints": 1866,
+      "visiblePrimitiveUpperRoots": 63,
+      "catalogue": {
+        "cacheKey": "source-catalogue-v1:6:1,0,0,1:0:1",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "complete": true,
+        "denominator": 1,
+        "depth": 6,
+        "dust": true,
+        "kind": "source",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "otherCount": 3124,
+        "otherRadius": 10,
+        "otherScanBound": 16,
+        "padding": [
+          6,
+          5
+        ],
+        "sourceLimited": {
+          "otherScanBound": false,
+          "upperCap": false
+        },
+        "total": 3311,
+        "upperCount": 187,
+        "whole": false
+      },
+      "action": {
+        "displayedSelection": [
+          2,
+          3,
+          1
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "phase": "identity"
+      },
+      "panes": {
+        "roots": false,
+        "space": true,
+        "wide": true
+      },
+      "xr": true,
+      "status": null
+    },
+    {
+      "step": "xr-source-exactmove-snap",
+      "selected": [
+        1,
+        -4,
+        5
+      ],
+      "second": [
+        1,
+        -3,
+        3
+      ],
+      "count": 3311,
+      "visiblePoints": 1866,
+      "visiblePrimitiveUpperRoots": 63,
+      "catalogue": {
+        "cacheKey": "source-catalogue-v1:6:1,0,0,1:0:1",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "complete": true,
+        "denominator": 1,
+        "depth": 6,
+        "dust": true,
+        "kind": "source",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "otherCount": 3124,
+        "otherRadius": 10,
+        "otherScanBound": 16,
+        "padding": [
+          6,
+          5
+        ],
+        "sourceLimited": {
+          "otherScanBound": false,
+          "upperCap": false
+        },
+        "total": 3311,
+        "upperCount": 187,
+        "whole": false
+      },
+      "action": {
+        "displayedSelection": [
+          4,
+          6,
+          4
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "phase": "identity"
+      },
+      "panes": {
+        "roots": false,
+        "space": true,
+        "wide": true
+      },
+      "xr": true,
+      "status": null
+    },
+    {
+      "step": "xr-exit-restores-panes",
+      "selected": [
+        1,
+        -4,
+        5
+      ],
+      "second": [
+        1,
+        -3,
+        3
+      ],
+      "count": 3311,
+      "visiblePoints": 1866,
+      "visiblePrimitiveUpperRoots": 63,
+      "catalogue": {
+        "cacheKey": "source-catalogue-v1:6:1,0,0,1:0:1",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "complete": true,
+        "denominator": 1,
+        "depth": 6,
+        "dust": true,
+        "kind": "source",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "otherCount": 3124,
+        "otherRadius": 10,
+        "otherScanBound": 16,
+        "padding": [
+          6,
+          5
+        ],
+        "sourceLimited": {
+          "otherScanBound": false,
+          "upperCap": false
+        },
+        "total": 3311,
+        "upperCount": 187,
+        "whole": false
+      },
+      "action": {
+        "displayedSelection": [
+          4,
+          6,
+          4
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "phase": "identity"
+      },
+      "panes": {
+        "roots": true,
+        "space": true,
+        "wide": true
+      },
+      "xr": false,
+      "status": null
+    },
+    {
+      "step": "final-source-D5-before-cancel",
+      "selected": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        1,
+        1,
+        1
+      ],
+      "count": 212,
+      "visiblePoints": 80,
+      "visiblePrimitiveUpperRoots": 63,
+      "catalogue": {
+        "cacheKey": "source-catalogue-v1:6:3,1,1,2:1:0",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "coefficientRows": [
+          4,
+          -2,
+          1,
+          -4,
+          7,
+          -6,
+          1,
+          -3,
+          9
+        ],
+        "complete": true,
+        "denominator": 5,
+        "depth": 6,
+        "dust": false,
+        "kind": "source",
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "otherCount": 25,
+        "otherRadius": 2,
+        "otherScanBound": 5,
+        "padding": [
+          6,
+          5
+        ],
+        "sourceLimited": {
+          "otherScanBound": false,
+          "upperCap": false
+        },
+        "total": 212,
+        "upperCount": 187,
+        "whole": true
+      },
+      "action": {
+        "delta": -4,
+        "denominator": 5,
+        "displayedSelection": [
+          2,
+          3,
+          1
+        ],
+        "g": [
+          1.3416407864998738,
+          0.4472135954999579,
+          0.4472135954999579,
+          0.8944271909999159
+        ],
+        "imageNumerator": [
+          5,
+          -10,
+          10
+        ],
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "phase": "accepted"
+      },
+      "panes": {
+        "roots": true,
+        "space": true,
+        "wide": true
+      },
+      "xr": false,
+      "status": null
+    },
+    {
+      "step": "source-preview-before-escape",
+      "selected": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        1,
+        1,
+        1
+      ],
+      "count": 212,
+      "visiblePoints": 100,
+      "visiblePrimitiveUpperRoots": 79,
+      "catalogue": {
+        "cacheKey": "source-catalogue-v1:6:3,1,1,2:1:0",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "coefficientRows": [
+          4,
+          -2,
+          1,
+          -4,
+          7,
+          -6,
+          1,
+          -3,
+          9
+        ],
+        "complete": true,
+        "denominator": 5,
+        "depth": 6,
+        "dust": false,
+        "kind": "source",
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "otherCount": 25,
+        "otherRadius": 2,
+        "otherScanBound": 5,
+        "padding": [
+          6,
+          5
+        ],
+        "sourceLimited": {
+          "otherScanBound": false,
+          "upperCap": false
+        },
+        "total": 212,
+        "upperCount": 187,
+        "whole": true
+      },
+      "action": {
+        "delta": -4,
+        "denominator": 5,
+        "displayedSelection": [
+          1.1201051794428778,
+          2.4021599698826375,
+          0.7181482492436999
+        ],
+        "g": [
+          1.2243024364533106,
+          0.24746242877991784,
+          0.2808769458555104,
+          0.8735639653776645
+        ],
+        "imageNumerator": [
+          5,
+          -10,
+          10
+        ],
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "phase": "preview"
+      },
+      "panes": {
+        "roots": true,
+        "space": true,
+        "wide": true
+      },
+      "xr": false,
+      "status": null
+    },
+    {
+      "step": "source-escape-retains-accepted",
+      "selected": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        1,
+        1,
+        1
+      ],
+      "count": 212,
+      "visiblePoints": 80,
+      "visiblePrimitiveUpperRoots": 63,
+      "catalogue": {
+        "cacheKey": "source-catalogue-v1:6:3,1,1,2:1:0",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "coefficientRows": [
+          4,
+          -2,
+          1,
+          -4,
+          7,
+          -6,
+          1,
+          -3,
+          9
+        ],
+        "complete": true,
+        "denominator": 5,
+        "depth": 6,
+        "dust": false,
+        "kind": "source",
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "otherCount": 25,
+        "otherRadius": 2,
+        "otherScanBound": 5,
+        "padding": [
+          6,
+          5
+        ],
+        "sourceLimited": {
+          "otherScanBound": false,
+          "upperCap": false
+        },
+        "total": 212,
+        "upperCount": 187,
+        "whole": true
+      },
+      "action": {
+        "delta": -4,
+        "denominator": 5,
+        "displayedSelection": [
+          2,
+          3,
+          1
+        ],
+        "g": [
+          1.3416407864998738,
+          0.4472135954999579,
+          0.4472135954999579,
+          0.8944271909999159
+        ],
+        "imageNumerator": [
+          5,
+          -10,
+          10
+        ],
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "phase": "accepted"
+      },
+      "panes": {
+        "roots": true,
+        "space": true,
+        "wide": true
+      },
+      "xr": false,
+      "status": null
+    },
+    {
+      "step": "source-mobile-roots",
+      "selected": [
+        1,
+        -4,
+        5
+      ],
+      "second": [
+        1,
+        -3,
+        3
+      ],
+      "count": 3311,
+      "visiblePoints": 1866,
+      "visiblePrimitiveUpperRoots": 63,
+      "catalogue": {
+        "cacheKey": "source-catalogue-v1:6:1,0,0,1:0:1",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "complete": true,
+        "denominator": 1,
+        "depth": 6,
+        "dust": true,
+        "kind": "source",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "otherCount": 3124,
+        "otherRadius": 10,
+        "otherScanBound": 16,
+        "padding": [
+          6,
+          5
+        ],
+        "sourceLimited": {
+          "otherScanBound": false,
+          "upperCap": false
+        },
+        "total": 3311,
+        "upperCount": 187,
+        "whole": false
+      },
+      "action": {
+        "displayedSelection": [
+          4,
+          6,
+          4
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "phase": "identity"
+      },
+      "panes": {
+        "roots": true,
+        "space": false,
+        "wide": false
+      },
+      "xr": false,
+      "status": null
+    },
+    {
+      "step": "source-D5-primitive-projection",
+      "selected": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        1,
+        1,
+        1
+      ],
+      "count": 212,
+      "visiblePoints": 80,
+      "visiblePrimitiveUpperRoots": 63,
+      "renderPoints": 275,
+      "catalogue": {
+        "cacheKey": "source-catalogue-v1:6:3,1,1,2:1:0",
+        "catalogueSchema": "source-catalogue-v1",
+        "catalogueSourceSHA256": "f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b",
+        "coefficientRows": [
+          4,
+          -2,
+          1,
+          -4,
+          7,
+          -6,
+          1,
+          -3,
+          9
+        ],
+        "complete": true,
+        "denominator": 5,
+        "depth": 6,
+        "dust": false,
+        "kind": "source",
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "otherCount": 25,
+        "otherRadius": 2,
+        "otherScanBound": 5,
+        "padding": [
+          6,
+          5
+        ],
+        "sourceLimited": {
+          "otherScanBound": false,
+          "upperCap": false
+        },
+        "total": 212,
+        "upperCount": 187,
+        "whole": true
+      },
+      "action": {
+        "delta": -4,
+        "denominator": 5,
+        "displayedSelection": [
+          2,
+          3,
+          1
+        ],
+        "g": [
+          1.3416407864998738,
+          0.4472135954999579,
+          0.4472135954999579,
+          0.8944271909999159
+        ],
+        "imageNumerator": [
+          5,
+          -10,
+          10
+        ],
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "phase": "accepted"
+      },
+      "panes": {
+        "roots": true,
+        "space": true,
+        "wide": true
+      },
+      "xr": false
+    }
+  ],
+  "video": "artifacts/videos/lean-starscape-source-catalogue.mp4",
+  "finalBrowserScreenshot": "artifacts/screenshots/catalogue-20261023/08-final-source-D5.png",
+  "sourceSHA256": {
+    "web/polynomial/app.js": "56d4eb85a0476d115d70a24e0a4750551ed65feb3ce10bef6cb4229b3c78bf72",
+    "web/polynomial/index.html": "3d9e17dacd5a3089a9c7042ce4b16b60cb5684279a1d93e45d14cb89418eb241",
+    "web/polynomial/lean-client.js": "bb0f448deb8e595860512ba2f703ef6680d26a59807ec4d43712972820f3c32e",
+    "web/polynomial/catalogue-policy.js": "22cb952679f3be724591c311da2a725e756327fb4d564907494170a557644390",
+    "web/polynomial/catalogue-display.js": "606094b933634fed3fc7ab823d5054f29635a8d9aa3841555e767a58fb2bffe0",
+    "web/polynomial/lattice.js": "3f5d6fcb9af0c35832003aa406398f04d4bb5b4038545dca552f93d71a7a57a2",
+    "web/polynomial/point-cloud.js": "0430b914ee7f6b19bf9b8f1e0250629de69b2d79b628f33b487040a41c4faa2a",
+    "web/polynomial/klein-data.js": "41ba6bc19e284c63871ff564a9a48592f623aaca3ef1d4fadfd37fd6de98debd",
+    "web/polynomial/klein-view.js": "8ba0c5665c13963d520930c0033815d481d63d4d1e4a113cfdd1db5c1659af03",
+    "web/qa/xr-controls.js": "d43e0ef40b3000499e7d49a8590531839dc9212744efde6f5f548454758a0d64",
+    "lean/Polynomial/Catalogue.lean": "9c7c870010243f4c95d373e4cb344a3f58fa96d0719a8f9679483f33068fcbf2",
+    "lean/Polynomial/Main.lean": "89cb61270e14139d134a15ee1fedb95686240def7620dfe778cf86faf1536e55",
+    "server.py": "e43f1c3faf2c3bed862be9808bec716ca217d8d1fadba33971511620331597c9"
+  },
+  "limits": [
+    "Actual desktop input and synthetic XR, no physical headset acceptance",
+    "Recrops occur on accepted release, not continuously during preview",
+    "Native spatial pairing/free-space dragging and physical gaze/controller acceptance still missing",
+    "Source projection morph not implemented; radial overlay only",
+    "Source exact integer predicates differ from deployed floating source at two regression-tested boundary cases",
+    "Native acceptance reported in separate final receipt"
+  ],
+  "nativeReceipt": "native/evidence/catalogue-native-receipt.json"
+}

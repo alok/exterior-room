@@ -576,3 +576,81 @@ is H.264 video only, 3840×2160, 50.716667 seconds and 2,787,605 bytes. Its
 [video metadata](../artifacts/videos/lean-starscape-native-linked-roots-metadata.json)
 records the export and frame review; the native receipt hashes the movie and
 links that metadata separately to avoid circular receipt hashes.
+
+
+## Source catalogue and bounded R24 follow-up
+
+The current [native receipt](../native/evidence/catalogue-native-receipt.json)
+preserves the earlier checkpoints and records the new source hashes. The native
+app now offers **Catalogue: Canonical ball / Source depth**, with Whole/Dust and
+depths 4, 6, 8, 10, 12, 24. Reset returns to Canonical ball/R6/Whole on/Dust off.
+Mode, depth and filter changes retain the accepted signed selection/pair and
+matrix. Catalogue pages, selected inspections, the action, plane and membership
+are staged before publication; a rejected or stale request cannot partially
+replace the accepted scene. Source mode recatalogues on every accepted release,
+Identity or Snap; continuous preview does not recatalogue.
+
+R24 contains 28,832 actual Lean identities. Shared low-poly sphere meshes,
+`LowLevelInstanceData` and `MeshInstancesComponent` replace per-point rendering
+entities; projection instances are allocated only when requested. This route
+requires visionOS 26 or later. RGB8 grouping preserves semantic colors within
+half a channel step; size and perspective remain native renderer behavior.
+Collision chunks contain at most 8,192 glyph proxies and return a stored signed
+base identity from the accepted catalogue. Busy/preview/stale-generation guards
+prevent a stale collider from selecting a newly accepted cloud. This is approximate
+UI picking, not proof of the chosen hit. The renderer rejects catalogues over
+40,000 points instead of truncating them, and the native depth selector stops at 24.
+
+The [model tests](../native/evidence/catalogue-model-tests.txt) passed **114 tests,
+zero failures**, including genuine two-page R24 data, source paging/order/bounds,
+whole-scene rollback, signed picking, RGB grouping, collision index capacity,
+Float overflow rejection and source projection/visibility. The
+[unsigned build](../native/evidence/catalogue-build.txt) passed with two jobs.
+The [focused UI run 100946Z](../native/evidence/ui-tests-20261023T100946Z.txt) passed
+**one test, zero failures, 108.059 seconds**, through the existing background
+XCTest/simctl runner on task-owned simulator 1D261881-0A0F-4DE0-B704-12644E606348.
+It exercised actual controls for R24, Source depth, the unit/pair, D5, projection,
+Identity, Whole off, Dust and Reset. All six screenshots were visually inspected:
+
+1. [R24, 28,832 instances](../native/evidence/screenshots/20261023T100946Z/001-catalogue-00-batched-r24.png).
+2. [Source identity pair](../native/evidence/screenshots/20261023T100946Z/002-catalogue-01-source-identity-pair.png).
+3. [Source D5 in linked views](../native/evidence/screenshots/20261023T100946Z/003-catalogue-02-source-d5-linked-pair.png).
+4. [Primitive upper projection](../native/evidence/screenshots/20261023T100946Z/004-catalogue-02b-primitive-upper-projection.png).
+5. [Whole off with Dust](../native/evidence/screenshots/20261023T100946Z/005-catalogue-03-source-dust.png).
+6. [Reset to the canonical ball](../native/evidence/screenshots/20261023T100946Z/006-catalogue-04-reset-canonical-ball.png).
+
+Source depth 6 at Identity and D5 buffers 212 signed identities and draws 80 glyphs.
+Only 63 primitive upper roots participate in the source Roots/projection display.
+For `(1,0,1)/(1,1,1)`, Identity has 24 buffered interior plane members and 10
+visible rings; D5 has 19 and 9. Whole off has 187 buffered identities; Dust has 3,311,
+with 1,866 depth-visible glyphs. These match the browser's accepted catalogue and
+display semantics. The floating native Roots window occludes much of the D5
+volume and projection, so the comparison is partial and is not pixel parity.
+
+The initial R24 CPU scene rebuild measured 498.0 ms across 111 color batches.
+The D5 rebuild measured 117.2 ms across 14 batches. These are individual CPU update
+samples, not FPS, sustained load or headset performance. R48/R96 are not enabled.
+An intermediate run showed 88 native D5 instances against 80 in the browser;
+ordinary Double fixture replay did not reproduce the extra eight. The final
+renderer quantizes display coordinates to Float32 before clipping, applies an
+explicit zero at the cutoff, and passes both the actual 80-count UI assertion
+and regressions for all 56 exact D5 cutoff forms. This verifies the correction
+without claiming an isolated compiler/runtime cause.
+
+The [silent app-only video](../artifacts/videos/lean-starscape-native-catalogue.mp4)
+is H.264 video only, 1920×1080,85.433333 seconds. Start, middle and end frames were
+decoded and inspected; the [metadata](../artifacts/videos/lean-starscape-native-catalogue-metadata.json)
+records the source movie, export and hashes. No audio or unrelated windows are
+included. The earlier 100145Z capture is intermediate evidence, not the final receipt.
+
+Exact catalogues, signed identities, discriminants, action receipts and plane
+membership come from executable Lean. Existing kernel-checked laws are unchanged;
+there is no kernel theorem asserting pointer targeting, mesh fidelity or complete
+parity with the source app. Source display fading and the primitive root filter
+are approximate presentation rules. Projection is still a radial overlay, not
+the source's continuous morph. Batched glyphs no longer carry individual
+accessibility activation/hover entities. Actual spatial gaze/pinch selection,
+spatial pairing/hover-polynomial readout, free-space SL₂ dragging, tracked
+hands/controllers and hardware performance remain unverified or absent. The
+previous actual Roots/Klein gesture receipts are preserved and are not new
+spatial-input claims.

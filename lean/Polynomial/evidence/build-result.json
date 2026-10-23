@@ -11,8 +11,8 @@
   ],
   "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
   "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
-  "binarySHA256": "9b0f4bbc3b1f2fb85d0137d321188165dccd14086e395d8d6a3580b440ce8ed4",
-  "binaryBytes": 101616912,
+  "binarySHA256": "738fc7b541e5a3de310b4e3b905efdac7794eae90f196817a850a01e90df6c78",
+  "binaryBytes": 101713072,
   "sources": [
     {
       "path": "lean/Polynomial/Core.lean",
@@ -31,8 +31,12 @@
       "sha256": "728f62ba63538040c7edbfe00c750d45adcc692d2b1c68f2fc57794b8529c13b"
     },
     {
+      "path": "lean/Polynomial/Catalogue.lean",
+      "sha256": "9c7c870010243f4c95d373e4cb344a3f58fa96d0719a8f9679483f33068fcbf2"
+    },
+    {
       "path": "lean/Polynomial/Main.lean",
-      "sha256": "57f09873cbcd2b277439ec4bdc2fb4b8ac6e449af52e114c716a72d02f705a17"
+      "sha256": "89cb61270e14139d134a15ee1fedb95686240def7620dfe778cf86faf1536e55"
     }
   ]
 }

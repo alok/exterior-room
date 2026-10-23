@@ -27,6 +27,7 @@ Build sequentially using the locally installed Lean 4.35.0-rc3 toolchain:
 python3 lean/Polynomial/build.py
 python3 lean/Polynomial/test_service.py
 python3 lean/Polynomial/test_transform.py
+python3 lean/Polynomial/test_catalogue.py
 ```
 
 The build passes `--wfail`, uses two Lean threads, has no external Lake dependencies, and writes its artifact cache inside the workspace. Sixteen axiom reports cover the relevant declarations and their dependencies; only standard Lean `propext`, `Classical.choice`, and `Quot.sound` appear.
@@ -40,3 +41,16 @@ Seventy requests retain the historical Snap/Identity arithmetic cases in `fixtur
 Regenerate that fixture data read-only from pinned Git blobs with `node lean/Polynomial/generate_snap_fixtures.mjs /path/to/FareyVision`. It evaluates the pinned mathematical module and the small actual absorption function with a state-only callback, without using the canonical working tree or opening its UI.
 
 The latest local radius-96 run used 114 bounded pages. First-page generation and response took about 47 ms; the largest cached-page response took about 72 ms; exact necklace membership took about 13 ms. The entire paginated transfer plus independent Python validation took about 3.9 seconds. Maximum response size was 494,816 bytes. These are one-run native-process/pipe timings on this Mac, not browser GPU timing, frame rate, or physical-headset evidence. Exact results, timings, and executable/source fingerprints are in `evidence/`.
+
+## Source depth catalogue
+
+`Catalogue.lean` independently implements the original Starscape upper trace and
+other-point catalogue using exact integer predicates for `J(M)/det(M)`. It
+preserves base signed identities, multiples and deterministic a,b,c ordering.
+Canonical ball arrays remain separate. `catalogue` and `membersCatalogue` are
+documented in [PROTOCOL.md](PROTOCOL.md); original-source provenance, tested
+floating-boundary differences, explicit source caps and conservative local
+refusals are in the [source catalogue update](../../docs/SOURCE_CATALOGUE_UPDATE.md).
+The compiled service passed 121 catalogue requests and exported 18 actual-response
+cases for native decoder/render tests. This is executable Lean, with no new
+enumeration-completeness theorem; the existing 17 algebraic laws are unchanged.

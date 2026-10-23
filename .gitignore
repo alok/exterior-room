@@ -57,3 +57,10 @@ native/evidence/ui-tests-20261023T091750Z.txt
 native/evidence/screenshots/20261023T091750Z/
 native/evidence/ui-tests-20261023T092223Z.txt
 native/evidence/screenshots/20261023T092223Z/
+
+# Intermediate local encoder output; curated clip metadata is committed.
+artifacts/catalogue-video-encode.txt
+
+# Intermediate catalogue captures precede final fade/projection fixes.
+native/evidence/screenshots/20261023T100145Z/
+native/evidence/ui-tests-20261023T100145Z.txt

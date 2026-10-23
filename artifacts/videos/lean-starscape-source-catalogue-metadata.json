@@ -1,0 +1,34 @@
+{
+  "dateUTC": "2026-10-23",
+  "route": "http://127.0.0.1:8787/polynomial/",
+  "surface": "IAB desktop with actual UI and pointer input; QA recorder captures production canvases",
+  "video": "artifacts/videos/lean-starscape-source-catalogue.mp4",
+  "durationSeconds": 22.6,
+  "width": 1104,
+  "height": 836,
+  "audioStreams": 0,
+  "sequence": [
+    "source depth6 unit/pair D5",
+    "actual root drag accepted matrix [15101,5070,3255,7715], catalogue193",
+    "Snap absorbsT: [1,-2,2] / [1,-1,1]",
+    "Identity retains signed labels"
+  ],
+  "inspectedFramesSeconds": [
+    9,
+    22
+  ],
+  "limitations": [
+    "Not physical headset footage",
+    "DOM controls excluded",
+    "Paired canvas streams can differ in capture timing",
+    "Final diagnostic-only change adds Klein lower points to visibleRootCount; rendered app unchanged"
+  ],
+  "sourceSHA256": {
+    "web/polynomial/app.js": "56d4eb85a0476d115d70a24e0a4750551ed65feb3ce10bef6cb4229b3c78bf72",
+    "web/polynomial/catalogue-display.js": "606094b933634fed3fc7ab823d5054f29635a8d9aa3841555e767a58fb2bffe0",
+    "web/polynomial/catalogue-policy.js": "22cb952679f3be724591c311da2a725e756327fb4d564907494170a557644390",
+    "web/polynomial/lean-client.js": "bb0f448deb8e595860512ba2f703ef6680d26a59807ec4d43712972820f3c32e",
+    "web/polynomial/klein-view.js": "8ba0c5665c13963d520930c0033815d481d63d4d1e4a113cfdd1db5c1659af03",
+    "web/qa/xr-controls.js": "d43e0ef40b3000499e7d49a8590531839dc9212744efde6f5f548454758a0d64"
+  }
+}

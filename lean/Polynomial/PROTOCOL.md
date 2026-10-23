@@ -13,6 +13,33 @@ Separate executable: `lean/.lake/build/bin/polynomial_service`. One JSON request
 
 `members`: `{id,op:"members",radius,upperOnly?:false,normal:[A,B,C]}` uses the same cached cloud. Returns `radius`, `upperOnly`, `total` (cloud count), `count` (membership count), and `indices` of exact interior plane members in canonical cached cloud order. This avoids redownloading the cloud when a plane changes.
 
+`catalogue`: `{id,op:"catalogue",depth,matrix:[p,q,r,s],whole?:true,dust?:false,offset?:0,limit?:16384}` implements the separately audited original-source catalogue predicates. Depth is 4..96, matrix entries are integers ±1,000,000 with positive determinant, and paging bounds match `cloud`. The existing canonical `cloud` operation is unchanged. The process keeps one canonical cloud and one source catalogue independently; either cache is replaced only after a complete successful computation. A domain or resource error retains the old cache.
+
+`membersCatalogue`: `{id,op:"membersCatalogue",depth,matrix,whole?:true,dust?:false,normal:[A,B,C]}` addresses the same source catalogue. Normals have the existing ±4,194,304 bound and must be nonzero. It returns strictly increasing catalogue `indices` satisfying both Δ<0 and exact incidence on the original signed coefficients. Both signs and multiples are retained; this is buffer membership, not rendered visibility.
+
+Both operations add these identical catalogue metadata fields:
+
+- `catalogueSchema:"source-catalogue-v1"`, `catalogueSourceSHA256:"f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b"`.
+- Exact echoes `depth`, `matrix`, `whole`, `dust`, and `cacheKey` formatted `source-catalogue-v1:DEPTH:p,q,r,s:WHOLE:DUST`, with booleans encoded as 1/0. Matrix entries are not rescaled or reduced for the key.
+- Positive `denominator=det(matrix)` and nine row-major `coefficientRows=J(matrix)`, bounded by 2×10¹² as in `transform`.
+- `otherRadius`: `floor((2*depth+2)/5)` when Whole, otherwise 10 when Dust, otherwise 0. `padding:[6,5]`.
+- `upperCount` ≤600,000, `otherCount`, and `total=upperCount+otherCount` ≤2,000,000.
+- `sourceLimited:{upperCap:Bool,otherScanBound:Bool}` and `complete=!(upperCap||otherScanBound)`. These report the original source's early-stop rules; a successful reply can be incomplete.
+- `otherScanBound`: exact nonnegative integer inverse-display Frobenius enclosure, computed by integer division and square root. It is zero when no other catalogue is requested and is always below 10¹⁵ under input bounds.
+
+Catalogue pages additionally return `offset`, `count`, `nextOffset`, packed `abc`, `xyz`, `delta`, `kind`, `divisor`, and `primitive` (boolean, exactly `divisor==1`). `onPlane` and `necklace` are null. Identity coordinates are ±1024, base XYZ ±2048, |Δ|≤5,242,880, divisor 1..1024. Coordinates are base identities, not transformed floating positions. The first `upperCount` points are upper interior in ascending **a,b,c** order; the appended other points are independently ascending a,b,c. This differs from canonical cloud a,c,b order, and the two sorted partitions must not be treated as one sorted array. `membersCatalogue` adds echoed `normal`, membership `count`, and `indices` instead of point/paging arrays.
+
+Exact padded predicates, for D=det M and `(aNum,bNum,cNum)=J(M)(a,b,c)`:
+
+- Upper: a>0, Δ<0, `5*(aNum+cNum)≤6*depth*D`.
+- Other: nonzero and not upper interior, `25*(2*aNum²+bNum²+2*cNum²)≤36*otherRadius²*D²`.
+
+The upper enumerator stops at 600,000 emissions and conservatively sets `upperCap=true` even if that emission happened to be its last. If the other scan bound exceeds 64, no other points are emitted and `otherScanBound=true`. These reproduce source resource behavior with explicit metadata. Local safety limits instead reject the entire operation: conservative upper a/c identity envelopes ≤1024; every emitted coordinate ≤1024; at most 2,000,000 upper (a,b) columns, 4,000,000 combined candidate columns/other cube positions, and 2,000,000 output points. For example T¹² at depth6 is conservatively refused by its c-envelope1043 even though its actual187 upper points would fit. No silent clipping occurs at the local identity/resource boundaries.
+
+The service uses exact rational 6/5 padding, not the deployed source's floating tolerances. Five audited source catalogues agree exactly, but universal byte parity is not claimed: at depth6, M=[200000,0,1,1000000], the exact upper catalogue has92 points and excludes [1,0,11]; the source's +10⁻⁹ bound tolerance admits it among93 points. Here `5*traceNumerator−6*depth*D=55>0`.
+
+Opacity, primitive-only root presentation, projection fading, the source's refresh-distance threshold, and interaction transactions remain client behavior. `complete` describes the padded mathematical catalogue subject to the reported source limits, not whether a glyph is visible. Catalogue enumeration is executable Lean integer code, regression-tested independently; it does not add a kernel theorem proving enumeration completeness. The existing17 generic algebraic laws remain unchanged.
+
 `inspect`: `{id,op:"inspect",point:[a,b,c],height?:4}` accepts nonzero integer point coordinates in [-1024,1024] independent of the finite cloud crop (radius at most 96). Height is an integer 1..24. Result fields: `point`, exact signed `polynomial` label, `delta`, `kind` string, `xyz`, `divisor`, canonical gcd/sign `primitive`, and `positiveRepresentative` (null unless delta<0). Only root/projection uses the latter; the selected polynomial remains signed and unreduced.
 
 `projection` is null or three normalized exact `[numerator,denominator]` ratios at the requested height. `root` is null or `{real:[numerator,denominator],imaginary:{radicand,denominator}}`, representing `real + i*sqrt(radicand)/denominator` without claiming a floating-point square root is exact.

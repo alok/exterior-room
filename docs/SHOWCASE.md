@@ -7,11 +7,16 @@ assets are local. GitHub is a source/download link, not a live hosted app.
 1. Start with `(1,−1,2)`, Δ = −7. Select **Next point** to show a multiple keeps
    its own signed polynomial identity, even when the current crop hides it.
 2. Enter `(1,0,1)` and **Select**. Enter `(1,1,1)` and **Pair entered point**.
-   The native Lean process returns `2a − 2c = 0`, endpoints −1 and 1, and 22 members.
-3. Toggle **Project to Klein disk**, then **Origin**. The 3D lattice becomes a
-   projective disk in the view from its origin. Return to Overview.
-4. Choose **2D roots**, then drag the upper-half-plane roots. Release asks Lean to accept an exact
-   rational action. **Exact move** gives a reproducible checkpoint. **Move forms**
+   The native Lean process returns `2a − 2c = 0`, endpoints −1 and 1, and 22 members
+   in Canonical ball. Switch **Catalogue → Source depth**: the same signed pair
+   remains, with 24 buffered plane members (10 with nonzero depth fade).
+3. Use **Exact move** to show the same pair under D5. Source depth now has
+   19 buffered plane members (9 with nonzero depth fade), shown unit root `1+i`,
+   and endpoints approximately −2 and 1.333. Toggle **Project to Klein disk**
+   for a radial overlay, then **Origin** to view it from the cone tip.
+4. Drag the upper-half-plane roots (choose **2D roots** on a narrow screen).
+   Release asks Lean to accept an exact
+   rational action and recrop the source catalogue. **Escape** cancels a held drag. **Move forms**
    in 3D enters Origin and enables the corresponding geometry drag.
 5. For the source Snap example, select `(13,20,34)` (it may be hidden by the crop).
    Apply **T**: the signed identity becomes `(13,−6,27)`, with Δ still −1368.
@@ -37,7 +42,9 @@ separate work and does not establish Starscape parity.
 
 See [the functional matrix](FUNCTIONAL_PARITY.md) before making a parity claim.
 Native/browser layouts and camera placement differ; native currently caps the
-cloud at R12, while the browser explicitly supports R96. Physical headset tests
+cloud at R24/40,000 forms, while the browser explicitly supports R96. Source
+depth has a different point set and reports its own caps; the original source
+projection morph and continuously recropping preview remain gaps. Physical headset tests
 and main Chrome connection acceptance are still separate gaps.
 Native generators, Snap, directional movement and a direct disk element-swipe
 have passed simulator UI tests. Choose Origin before moving inside the native
@@ -51,3 +58,8 @@ Fresh silent comparison clips show Identity → D5 → fade off → projection:
 The [native swipe clip](../artifacts/videos/polynomial-native-klein-swipe.mp4)
 shows actual simulator gesture delivery and Lean acceptance. These local clips
 include the current transformed-plane fade and fixed cone guides.
+
+The current [source-catalogue browser clip](../artifacts/videos/lean-starscape-source-catalogue.mp4)
+shows both panes together through D5, real dragging, Snap and Identity.
+[Current acceptance](SOURCE_CATALOGUE_UPDATE.md) lists source counts, exact
+boundary discrepancies, matching native results and remaining input gaps.

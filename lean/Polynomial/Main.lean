@@ -1,5 +1,6 @@
 import Polynomial.Core
 import Polynomial.Transform
+import Polynomial.Catalogue
 import Lean.Data.Json
 
 open Lean
@@ -204,18 +205,90 @@ def members (request : Json) (state : Option Cache) : Except String (Json × Opt
   return (json%{radius: $radius, upperOnly: $upperOnly,
     total: $(cache.points.size), count: $(indices.size), indices: $indices}, some cache)
 
-def respond (request : Json) (state : Option Cache) : Except String (Json × Option Cache) := do
+structure State where
+  cloud : Option Cache := none
+  catalogue : Option Catalogue.Result := none
+
+def readCatalogueConfig (request : Json) : Except String Catalogue.Config := do
+  let depth ← readNat request "depth" 4 96
+  let matrix ← readMatrix request
+  if Mobius.determinant matrix <= 0 then throw "The catalogue matrix determinant must be positive."
+  let whole ← readBool request "whole" true
+  let dust ← readBool request "dust" false
+  return ⟨depth,matrix,whole,dust⟩
+
+def cachedCatalogue (request : Json) (state : State) : Except String Catalogue.Result := do
+  let config ← readCatalogueConfig request
+  if let some old := state.catalogue then
+    if old.config == config then return old
+  Catalogue.build config
+
+def catalogueMetadata (result : Catalogue.Result) : Json :=
+  let c := result.config
+  json%{catalogueSchema: $(Catalogue.schema), catalogueSourceSHA256: $(Catalogue.sourceSHA256),
+    cacheKey: $(c.key), depth: $(c.depth), matrix: $(c.matrix.coords), whole: $(c.whole),
+    dust: $(c.dust), otherRadius: $(c.otherRadius), padding: $((#[6,5] : Array Nat)),
+    denominator: $(Mobius.determinant c.matrix), coefficientRows: $(Mobius.rows c.matrix),
+    upperCount: $(result.upperCount), otherCount: $(result.otherCount), total: $(result.points.size),
+    complete: $(result.complete),
+    sourceLimited: {upperCap: $(result.upperCap), otherScanBound: $(result.otherOmitted)},
+    otherScanBound: $(result.otherScanBound)}
+
+def cataloguePage (request : Json) (state : State) : Except String (Json × State) := do
+  let offset ← readNat request "offset" 0 2000000 (some 0)
+  let limit ← readNat request "limit" 1 16384 (some 16384)
+  let result ← cachedCatalogue request state
+  let endIndex := min result.points.size (offset+limit)
+  let count := endIndex-offset
+  let mut abc : Array Int := Array.mkEmpty (3*count)
+  let mut xyz : Array Int := Array.mkEmpty (3*count)
+  let mut deltas : Array Int := Array.mkEmpty count
+  let mut kinds : Array Nat := Array.mkEmpty count
+  let mut divisors : Array Nat := Array.mkEmpty count
+  let mut primitives : Array Bool := Array.mkEmpty count
+  for i in [offset:endIndex] do
+    let p := result.points[i]!
+    abc := abc ++ p.coords
+    xyz := xyz ++ (display p).coords
+    deltas := deltas.push (delta p)
+    kinds := kinds.push (kindCode p)
+    let divisor := Polynomial.divisor p
+    divisors := divisors.push divisor
+    primitives := primitives.push (divisor == 1)
+  let nextOffset : Option Nat := if endIndex < result.points.size then some endIndex else none
+  let page := json%{offset: $offset, count: $count, nextOffset: $nextOffset,
+    abc: $abc, xyz: $xyz, delta: $deltas, kind: $kinds, divisor: $divisors,
+    primitive: $primitives, onPlane: null, necklace: null}
+  return ((catalogueMetadata result).mergeObj page, {state with catalogue := some result})
+
+def catalogueMembers (request : Json) (state : State) : Except String (Json × State) := do
+  let normal ← readNormal request
+  let result ← cachedCatalogue request state
+  let mut indices : Array Nat := #[]
+  for i in [:result.points.size] do
+    let point := result.points[i]!
+    if delta point < 0 && incidence normal point == 0 then indices := indices.push i
+  let membership := json%{normal: $(normal.coords), count: $(indices.size), indices: $indices}
+  return ((catalogueMetadata result).mergeObj membership, {state with catalogue := some result})
+
+def respond (request : Json) (state : State) : Except String (Json × State) := do
   let op ← (← request.getObjVal? "op").getStr?
   match op with
-  | "cloud" => cloudPage request state
-  | "members" => members request state
+  | "cloud" =>
+    let (payload,cache) ← cloudPage request state.cloud
+    return (payload,{state with cloud := cache})
+  | "members" =>
+    let (payload,cache) ← members request state.cloud
+    return (payload,{state with cloud := cache})
+  | "catalogue" => cataloguePage request state
+  | "membersCatalogue" => catalogueMembers request state
   | "inspect" => return (← inspect request, state)
   | "plane" => return (← plane request, state)
   | "pair" => return (← pair request, state)
   | "transform" => return (← transform request, state)
-  | _ => throw "Unknown operation; use cloud, members, inspect, plane, pair, or transform."
+  | _ => throw "Unknown operation; use cloud, members, catalogue, membersCatalogue, inspect, plane, pair, or transform."
 
-def process (line : String) (state : Option Cache) : Json × Option Cache :=
+def process (line : String) (state : State) : Json × State :=
   match Json.parse line with
   | .error message => (fail Json.null message, state)
   | .ok request =>
@@ -229,7 +302,7 @@ end Polynomial.Service
 def main : IO Unit := do
   let input ← IO.getStdin
   let output ← IO.getStdout
-  let mut state : Option Polynomial.Service.Cache := none
+  let mut state : Polynomial.Service.State := {}
   repeat
     let line ← input.getLine
     if line.isEmpty then break

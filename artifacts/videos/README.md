@@ -150,3 +150,13 @@ were compared at the same `(1,−1,2)`, matrix `[3,1,1,2]`, image `(8,−23,22)/
 and Δ = −7. The interior arrangement and cone relation agree; native fills a
 larger field of view with physical spheres and different UI placement. This is
 an observed visual comparison, not pixel parity.
+
+### Source catalogue continuation — 2026-10-23
+
+[Lean Starscape source catalogue](lean-starscape-source-catalogue.mp4) is a 22.6-second
+silent recording of the actual paired browser canvases. It shows source-depth6
+D5, real root dragging and release recropping, Snap and Identity. The canvas
+stripe labels desktop input; controls outside the canvases are excluded.
+[Metadata](lean-starscape-source-catalogue-metadata.json) records accepted states
+and source hashes; frames at9s and22s were visually inspected. Native source
+catalogue evidence is recorded separately; neither route is physical-headset proof.

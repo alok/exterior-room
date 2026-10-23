@@ -10,6 +10,8 @@ private struct PolynomialFixtures: Sendable {
   let cases: [String: Data]
   let actions: [Data]
   let polar: [Data]
+  let catalogues: [Data]
+  let density: [Data]
 
   init() throws {
     let native = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent()
@@ -23,15 +25,33 @@ private struct PolynomialFixtures: Sendable {
     let actionCases = try XCTUnwrap(actionRoot["cases"] as? [[String: Any]])
     actions = try actionCases.map { try JSONSerialization.data(withJSONObject: XCTUnwrap($0["response"])) }
     let polarRoot = try polynomialObject(Data(contentsOf:native.appendingPathComponent("Resources/polynomial-polar-lean-cases.json")))
+    let catalogueRoot = try polynomialObject(Data(contentsOf:native.deletingLastPathComponent().appendingPathComponent("lean/Polynomial/fixtures/catalogue-native-cases.json")))
+    let densityRoot = try polynomialObject(Data(contentsOf:native.appendingPathComponent("ModelTests/Fixtures/polynomial-density-cases.json")))
+    density = try XCTUnwrap(densityRoot["cases"] as? [[String:Any]]).map { try JSONSerialization.data(withJSONObject:$0) }
+    catalogues = try XCTUnwrap(catalogueRoot["cases"] as? [[String:Any]]).map { try JSONSerialization.data(withJSONObject:$0) }
     polar = try XCTUnwrap(polarRoot["cases"] as? [[String:Any]]).map { try JSONSerialization.data(withJSONObject:$0) }
   }
 
   func response(for input: [String: Any]) throws -> Data {
-    for data in polar {
+    for data in polar + density {
       let item = try polynomialObject(data), request = try XCTUnwrap(item["request"] as? [String:Any])
       if NSDictionary(dictionary:request.filter { $0.key != "id" }).isEqual(to:input.filter { $0.key != "id" }) {
         return try JSONSerialization.data(withJSONObject:XCTUnwrap(item["response"]))
       }
+    }
+    if ["catalogue","membersCatalogue"].contains(input["op"] as? String ?? "") {
+      for data in catalogues {
+        let item = try polynomialObject(data), request = try XCTUnwrap(item["request"] as? [String:Any])
+        let same = request["op"] as? String == input["op"] as? String
+          && request["depth"] as? Int == input["depth"] as? Int
+          && request["matrix"] as? [Int] == input["matrix"] as? [Int]
+          && (request["whole"] as? Bool ?? true) == (input["whole"] as? Bool ?? true)
+          && (request["dust"] as? Bool ?? false) == (input["dust"] as? Bool ?? false)
+          && (request["offset"] as? Int ?? 0) == (input["offset"] as? Int ?? 0)
+          && request["normal"] as? [Int] == input["normal"] as? [Int]
+        if same { return try JSONSerialization.data(withJSONObject:XCTUnwrap(item["response"])) }
+      }
+      throw URLError(.unsupportedURL)
     }
     switch input["op"] as? String {
     case "cloud":
@@ -161,6 +181,95 @@ private actor PolynomialTransport {
   private func model(_ fixtures: PolynomialFixtures, _ transport: PolynomialTransport) -> PolynomialModel {
     PolynomialModel(cloudData: fixtures.cloud, inspectionData: fixtures.initial,
       transport: { try await transport.send($0) })
+  }
+
+  func testR24PagesKeepAllActualLeanSignedIdentitiesAndReset() async throws {
+    let fixture = try PolynomialFixtures(), transport = PolynomialTransport(fixture), model = model(fixture,transport)
+    model.radius = 24; model.refresh(); await model.waitForPending()
+    XCTAssertNil(model.error); XCTAssertEqual(model.displayedRadius,24); XCTAssertEqual(model.points.count,28832)
+    XCTAssertEqual(Set(model.points.map(\.id)).count,28832)
+    XCTAssertTrue(model.points.contains { $0.abc == [-12,0,-12] })
+    XCTAssertTrue(model.points.contains { $0.abc == [12,0,12] })
+    let requests = await transport.count(operation:"cloud"); XCTAssertEqual(requests,2)
+    model.reset(); await model.waitForPending()
+    XCTAssertNil(model.error); XCTAssertEqual(model.points.count,480); XCTAssertEqual(model.displayedRadius,6)
+  }
+
+  func testSourceRationalActionRecataloguesAndFailedFollowupRetainsWholeScene() async throws {
+    let fixture = try PolynomialFixtures(), transport = PolynomialTransport(fixture), model = model(fixture,transport)
+    model.select([1,0,1],pair:[1,1,1]); await model.waitForPending()
+    model.catalogueMode = .source; model.refresh(); await model.waitForPending()
+    model.requestAction([3,1,1,2]); await model.waitForPending()
+    XCTAssertNil(model.error); XCTAssertEqual(model.catalogue?.matrix,[3,1,1,2])
+    XCTAssertEqual(model.action?.matrix,[3,1,1,2]); XCTAssertEqual(model.points.filter(\.necklace).count,19)
+    XCTAssertEqual(model.inspection?.point,[1,0,1]); XCTAssertEqual(model.displayedPair,[1,1,1])
+    let ids = model.points.map(\.id), revision = model.sceneRevision
+    await transport.hold(operation:"membersCatalogue")
+    model.requestAction([1,0,0,1])
+    let requests = try await transport.waitForHeld(1)
+    XCTAssertEqual(model.catalogue?.matrix,[3,1,1,2]); XCTAssertEqual(model.points.map(\.id),ids)
+    try await transport.fail(requests[0]); await model.waitForPending()
+    XCTAssertNotNil(model.error); XCTAssertEqual(model.actionMatrix,[3,1,1,2]); XCTAssertEqual(model.sceneRevision,revision)
+    XCTAssertEqual(model.catalogue?.matrix,[3,1,1,2]); XCTAssertEqual(model.displayedPair,[1,1,1])
+    XCTAssertEqual(model.points.map(\.id),ids); XCTAssertEqual(model.points.filter(\.necklace).count,19)
+  }
+
+  func testSourceCatalogueStagesSignedPairAndIdentityWithoutLosingBaseIdentity() async throws {
+    let fixture = try PolynomialFixtures(), transport = PolynomialTransport(fixture), model = model(fixture,transport)
+    model.select([1,0,1],pair:[1,1,1]); await model.waitForPending()
+    model.catalogueMode = .source; model.refresh(); await model.waitForPending()
+    XCTAssertNil(model.error); XCTAssertEqual(model.points.count,212)
+    XCTAssertEqual(model.catalogue?.total,212); XCTAssertEqual(model.catalogue?.matrix,[1,0,0,1])
+    XCTAssertEqual(model.inspection?.point,[1,0,1]); XCTAssertEqual(model.displayedPair,[1,1,1])
+    XCTAssertEqual(model.points.filter(\.necklace).count,24)
+    let ids = model.points.map(\.id)
+    let requestsBefore = await transport.count(operation:"catalogue")
+    model.requestAction([1,0,0,1]); await model.waitForPending()
+    let requestsAfter = await transport.count(operation:"catalogue")
+    XCTAssertEqual(requestsAfter,requestsBefore+1,"Identity forces a source recatalogue")
+    XCTAssertNil(model.error); XCTAssertEqual(model.points.map(\.id),ids)
+    XCTAssertEqual(model.displayedPair,[1,1,1])
+  }
+
+  func testFailedSourceModeAndConfigRequestRestoreAllAcceptedControls() async throws {
+    let fixture = try PolynomialFixtures(), transport = PolynomialTransport(fixture), model = model(fixture,transport)
+    model.refresh(); await model.waitForPending()
+    let baseline = model.points.map(\.id), revision = model.sceneRevision
+    await transport.hold(operation:"catalogue")
+    model.catalogueMode = .source; model.refresh()
+    let requests = try await transport.waitForHeld(1)
+    XCTAssertTrue(model.busy); XCTAssertEqual(model.points.map(\.id),baseline); XCTAssertNil(model.catalogue)
+    try await transport.fail(requests[0]); await model.waitForPending()
+    XCTAssertNotNil(model.error); XCTAssertEqual(model.catalogueMode,.ball); XCTAssertEqual(model.radius,6)
+    XCTAssertTrue(model.whole); XCTAssertFalse(model.dust); XCTAssertNil(model.catalogue)
+    XCTAssertEqual(model.sceneRevision,revision); XCTAssertEqual(model.points.map(\.id),baseline)
+    model.radius = 48; model.upperOnly = true; model.whole = false; model.dust = true; model.refresh()
+    await model.waitForPending()
+    XCTAssertEqual(model.radius,6); XCTAssertFalse(model.upperOnly); XCTAssertTrue(model.whole); XCTAssertFalse(model.dust)
+  }
+
+  func testFailedSourceMembershipKeepsEntirePreviousPairAndCatalogue() async throws {
+    let fixture = try PolynomialFixtures(), transport = PolynomialTransport(fixture), model = model(fixture,transport)
+    model.select([1,0,1],pair:[1,1,1]); await model.waitForPending()
+    let baseline = model.points.map(\.id), revision = model.sceneRevision
+    await transport.hold(operation:"membersCatalogue")
+    model.catalogueMode = .source; model.refresh()
+    let requests = try await transport.waitForHeld(1)
+    XCTAssertNil(model.catalogue); XCTAssertEqual(model.points.map(\.id),baseline)
+    try await transport.fail(requests[0]); await model.waitForPending()
+    XCTAssertNotNil(model.error); XCTAssertEqual(model.catalogueMode,.ball)
+    XCTAssertEqual(model.inspection?.point,[1,0,1]); XCTAssertEqual(model.displayedPair,[1,1,1])
+    XCTAssertEqual(model.points.filter(\.necklace).count,22); XCTAssertEqual(model.sceneRevision,revision)
+  }
+
+  func testSourceDustAndResetUseActualLeanCatalogues() async throws {
+    let fixture = try PolynomialFixtures(), transport = PolynomialTransport(fixture), model = model(fixture,transport)
+    model.catalogueMode = .source; model.whole = false; model.dust = true; model.refresh(); await model.waitForPending()
+    XCTAssertNil(model.error); XCTAssertEqual(model.points.count,3311)
+    XCTAssertEqual(model.catalogue?.otherRadius,10); XCTAssertFalse(model.whole); XCTAssertTrue(model.dust)
+    model.reset(); await model.waitForPending()
+    XCTAssertNil(model.error); XCTAssertNil(model.catalogue); XCTAssertEqual(model.catalogueMode,.ball)
+    XCTAssertEqual(model.points.count,480); XCTAssertEqual(model.radius,6); XCTAssertTrue(model.whole); XCTAssertFalse(model.dust)
   }
 
   func testRootsDragAtOverviewUsesSameDeclaredActionAndKeepsBasePair() async throws {

@@ -27,7 +27,12 @@ import SwiftUI
         PolynomialControls().environment(model).frame(width: 660, height: 900).glassBackgroundEffect()
       }
     }
-    .gesture(SpatialTapGesture().targetedToAnyEntity().onEnded { value in Self.select(value.entity, model: model) })
+    .gesture(SpatialTapGesture().targetedToAnyEntity().onEnded { value in
+      guard model.placement == .overview, !model.busy, model.actionPreview == nil else { return }
+      if let point = renderer.pick(value.convert(value.location3D,from:.local,to:renderer.root),entity:value.entity,revision:model.sceneRevision) {
+        model.enter(point.abc)
+      } else { Self.select(value.entity,model:model) }
+    })
     .onAppear { model.spaceOpen = true }
     .onDisappear {
       activation?.cancel(); activation = nil
@@ -46,104 +51,174 @@ import SwiftUI
 
 @MainActor final class PolynomialRenderer {
   let stage = Entity(), anchorHost = Entity(), root = Entity()
-  private let cloud = Entity(), guides = Entity(), projection = Entity(), selection = Entity(), plane = Entity()
+  private let cloud = Entity(), guides = Entity(), projection = Entity(), selection = Entity(), plane = Entity(), picking = Entity()
   private let projectionDots = Entity(), projectionGuides = Entity()
   private var headAnchor: AnchorEntity?
   private var placement = PolynomialPlacement.overview
   private var anchorEpoch = -1
-  private var cloudKey = "", sceneKey = ""
-  private var dots: [String: ModelEntity] = [:]
-  private var radialDots: [String: ModelEntity] = [:]
+  private var sceneKey = ""
+  private var renderingFailed = false, guideRadius = -1
   private var actionRows: [Double] = [1,0,0,0,1,0,0,0,1]
   private var inhabitOffset: SIMD3<Float>?
   private var materials: [UInt32: UnlitMaterial] = [:]
-  private let glyph = MeshResource.generateSphere(radius: 0.0075)
+  private let glyph: MeshResource
+  private var batches:[UInt32:InstanceBatch] = [:]
+  private var radialBatch:InstanceBatch?
   private var scale: Float = 0.16
+  private var collisionTask:Task<Void,Never>?
+  private var collisionGeneration = 0, collisionRevision = -1
+  private var collisionKey = "", requestedCollisionKey = ""
+  private var collisionSnapshot:PolynomialRenderPlan.Snapshot?
+  private var collisionRanges:[String:Range<Int>] = [:]
+
+  @MainActor private final class InstanceBatch {
+    let entity:ModelEntity, data:LowLevelInstanceData
+    init(mesh:MeshResource,material:UnlitMaterial,count:Int) throws {
+      data = try LowLevelInstanceData(instanceCount:count,instanceCapacity:max(1,count*2))
+      entity = ModelEntity(mesh:mesh,materials:[material])
+    }
+    func update(mesh:MeshResource,positions:[SIMD3<Float>],factors:[Float]) throws {
+      data.instanceCount = positions.count
+      var minimum = SIMD3<Float>(repeating:.infinity),maximum = SIMD3<Float>(repeating:-.infinity)
+      data.withMutableTransforms { buffer in
+        for i in positions.indices {
+          buffer[i] = Transform(scale:SIMD3(repeating:factors[i]),translation:positions[i]).matrix
+          let radius = SIMD3<Float>(repeating:0.0075*factors[i])
+          minimum = simd_min(minimum,positions[i]-radius); maximum = simd_max(maximum,positions[i]+radius)
+        }
+      }
+      entity.components.set(try MeshInstancesComponent(mesh:mesh,instances:data,bounds:BoundingBox(min:minimum,max:maximum)))
+    }
+  }
   init() {
+    let sphere = PolynomialRenderPlan.sphere()
+    var descriptor = MeshDescriptor(name:"Shared approximate polynomial glyph")
+    descriptor.positions = MeshBuffers.Positions(sphere.positions); descriptor.primitives = .triangles(sphere.indices)
+    glyph = (try? MeshResource.generate(from:[descriptor])) ?? MeshResource.generateSphere(radius:0.0075)
     stage.addChild(root)
-    for child in [guides, cloud, projection, plane, selection] { root.addChild(child) }
+    for child in [guides,cloud,projection,plane,selection,picking] { root.addChild(child) }
     projection.addChild(projectionDots); projection.addChild(projectionGuides)
   }
 
   func render(_ model: PolynomialModel) {
     scale = 0.96 / Float(model.displayedRadius)
     actionRows = model.displayActionRows
-    place(model.placement, epoch: model.placementEpoch, viewpoint: model.viewpoint)
-    let key = "\(model.displayedRadius)-\(model.points.count)-\(model.colorLower)-\(model.palette)"
-    if cloudKey != key {
-      cloudKey = key; sceneKey = ""; dots.removeAll(); radialDots.removeAll()
-      cloud.children.removeAll(); projectionDots.children.removeAll()
-      for p in model.points {
-        let dot = ModelEntity(mesh: glyph, materials: [material(PolynomialAppearance.color(p, colorLower: model.colorLower, palette: model.palette))])
-        dot.position = p.vector * scale; dot.name = "polynomial:\(p.id)"
-        dot.components.set(InputTargetComponent())
-        dot.components.set(CollisionComponent(shapes: [.generateSphere(radius: 0.025)]))
-        dot.components.set(HoverEffectComponent())
-        var accessibility = AccessibilityComponent()
-        accessibility.isAccessibilityElement = true; accessibility.traits = [.button]
-        accessibility.label = "Polynomial point \(p.abc[0]), \(p.abc[1]), \(p.abc[2]), discriminant \(p.delta)"
-        dot.components.set(accessibility)
-        dots[p.id] = dot; cloud.addChild(dot)
-        if (p.kind == 2 || p.kind == 3), p.xyz[1] != 0 {
-          let image = ModelEntity(mesh: glyph, materials: [material(PolynomialAppearance.guide)])
-          // Perspective placement from accepted coordinates; this is floating-point renderer behavior.
-          image.position = p.vector * (4 * scale / Float(p.xyz[1])); image.scale = .init(repeating: 0.36)
-          projectionDots.addChild(image); radialDots[p.id] = image
-        }
-      }
-    }
-    projection.isEnabled = model.showProjection
-    guides.isEnabled = model.showCone
-    let nextScene = "\(model.sceneRevision)-\(model.actionRevision)-\(model.placement.isOrigin)-\(model.placement == .overview)-\(model.colorLower)-\(model.showProjection)-\(model.starSize)-\(model.planeFocus)"
+    place(model.placement,epoch:model.placementEpoch,viewpoint:model.viewpoint)
+    projection.isEnabled = model.showProjection; guides.isEnabled = model.showCone
+    picking.isEnabled = model.placement == .overview && !model.busy && model.actionPreview == nil
+      && collisionRevision == model.sceneRevision && !renderingFailed
+    let nextScene = "\(model.sceneRevision)-\(model.actionRevision)-\(model.placement.isOrigin)-\(model.placement == .overview)-\(model.colorLower)-\(model.palette)-\(model.showProjection)-\(model.starSize)-\(model.planeFocus)"
     guard sceneKey != nextScene else { return }
-    sceneKey = nextScene
-    plane.children.removeAll(); selection.children.removeAll()
-    guides.children.removeAll(); projectionGuides.children.removeAll(); cone()
-    let focusNormal: SIMD3<Double>? = model.planeFocus ? model.plane.flatMap { cutting in
+    let started = Date.timeIntervalSinceReferenceDate
+    let focusNormal:SIMD3<Double>? = model.planeFocus ? model.plane.flatMap { cutting in
       let n = cutting.cartesianNormal
       return PolynomialMobius.mapPlaneNormal(rows:actionRows,[Double(n[0]),Double(n[1]),Double(n[2])])
     } : nil
-    for p in model.points {
-      // Nearby stars must not intercept the panel's indirect selection rays when inhabiting the cloud.
-      var target = InputTargetComponent(); target.isEnabled = model.placement == .overview
-      dots[p.id]?.components.set(target)
-      let original = SIMD3<Double>(Double(p.xyz[0]),Double(p.xyz[1]),Double(p.xyz[2]))
-      let displayPosition = PolynomialMobius.mapDisplayCoordinates(rows:actionRows,original) ?? original
-      let position = SIMD3<Float>(Float(displayPosition.x),Float(displayPosition.y),Float(displayPosition.z)) * scale
-      dots[p.id]?.position = position
-      if let radial = radialDots[p.id] {
-        radial.isEnabled = abs(position.y) > 0.000001
-        if radial.isEnabled { radial.position = position * (4 * scale / position.y) }
+    guard let snapshot = PolynomialRenderPlan.make(points:model.points,rows:actionRows,radius:model.displayedRadius,
+      origin:model.placement.isOrigin,starSize:model.starSize,colorLower:model.colorLower,palette:model.palette,
+      normal:focusNormal,keep:model.inspection?.point ?? [],projection:model.showProjection,catalogue:model.catalogue) else {
+        renderFailure("Invalid display coordinates",model:model); return
       }
-      let base = model.placement.isOrigin && p.delta < 0
-        ? Float(0.4 * pow(Double(-p.delta),0.25) / sqrt(max(0.000001,Double(abs(position.y/scale)))))
-        : PolynomialAppearance.radiusFactor(p,colorLower:model.colorLower,atOrigin:false)
-      let factor = Float(model.starSize) * base * (p.necklace && p.kind == 2 && !model.placement.isOrigin ? 1.35 : 1)
-      dots[p.id]?.scale = .init(repeating: factor)
-      let fade = focusNormal.map {
-        PolynomialAppearance.focusFade(p, position:displayPosition, normal:$0, radius:model.displayedRadius, keep:model.inspection?.point ?? [])
-      } ?? 1
-      dots[p.id]?.model?.materials = [material(PolynomialAppearance.color(p, colorLower: model.colorLower, palette: model.palette) * fade)]
-      if p.necklace { marker(at: position, factor: factor * 1.55, rgb: PolynomialAppearance.amber, parent: plane) }
+    do {
+      for key in Array(batches.keys) where snapshot.batches[key] == nil {
+        batches.removeValue(forKey:key)?.entity.removeFromParent()
+      }
+      for (key,indices) in snapshot.batches {
+        var batch = batches[key]
+        if batch == nil || batch!.data.instanceCapacity < indices.count {
+          batch?.entity.removeFromParent()
+          batch = try InstanceBatch(mesh:glyph,material:material(PolynomialRenderPlan.color(key)),count:indices.count)
+          batches[key] = batch; cloud.addChild(batch!.entity)
+        }
+        try batch!.update(mesh:glyph,positions:indices.map { snapshot.glyphs[$0].position },factors:indices.map { snapshot.glyphs[$0].factor })
+      }
+      if model.showProjection, !snapshot.radialPositions.isEmpty {
+        if radialBatch == nil || radialBatch!.data.instanceCapacity < snapshot.radialPositions.count {
+          radialBatch?.entity.removeFromParent()
+          radialBatch = try InstanceBatch(mesh:glyph,material:material(PolynomialAppearance.guide),count:snapshot.radialPositions.count)
+          projectionDots.addChild(radialBatch!.entity)
+        }
+        try radialBatch!.update(mesh:glyph,positions:snapshot.radialPositions,factors:Array(repeating:0.36,count:snapshot.radialPositions.count))
+      } else { radialBatch?.entity.removeFromParent(); radialBatch = nil }
+    } catch {
+      renderFailure(error.localizedDescription,model:model)
+      return
+    }
+    cloud.isEnabled = true; plane.isEnabled = true; selection.isEnabled = true
+    renderingFailed = false
+    // Fixed reference guides do not rebuild for every action or selection.
+    if guideRadius != model.displayedRadius {
+      guides.children.removeAll(); projectionGuides.children.removeAll(); cone(); guideRadius = model.displayedRadius
+    }
+    plane.children.removeAll(); selection.children.removeAll()
+    for entry in snapshot.glyphs where entry.point.necklace && entry.opacity > 0 {
+      marker(at:entry.position,factor:entry.factor*1.55,rgb:PolynomialAppearance.amber,parent:plane)
     }
     if let detail = model.inspection {
-      let id = detail.point.map(String.init).joined(separator: ":")
-      if let dot = dots[id] {
-        marker(at: dot.position, factor: dot.scale.x * 1.55, rgb: [1,1,1], parent: selection)
-        line(.zero, dot.position, rgb: PolynomialAppearance.selectionRay, alpha: 0.35, parent: selection, transform:false)
+      if let entry = snapshot.glyphs.first(where: { $0.point.abc == detail.point && $0.opacity > 0 }) {
+        marker(at:entry.position,factor:entry.factor*1.55,rgb:[1,1,1],parent:selection)
+        line(.zero,entry.position,rgb:PolynomialAppearance.selectionRay,alpha:0.35,parent:selection,transform:false)
       }
-      if model.showProjection, detail.projection != nil {
+      if model.showProjection,detail.projection != nil {
         let image = mapped(SIMD3(Float(detail.xyz[0]),Float(detail.xyz[1]),Float(detail.xyz[2])) * scale)
-        if abs(image.y) > 0.000001 {
-          let point = image * (4 * scale / image.y)
-          line(.zero, point, rgb: [1,1,1], alpha: 1, parent: selection, transform:false)
-          marker(at: point, factor: 1.2, rgb: [1,1,1], parent: selection)
+        if abs(image.y)>0.000001 {
+          let point = image*(4*scale/image.y)
+          line(.zero,point,rgb:[1,1,1],alpha:1,parent:selection,transform:false)
+          marker(at:point,factor:1.2,rgb:[1,1,1],parent:selection)
         }
       }
     }
-    if let cutting = model.plane { drawPlane(cutting, radius: Float(model.displayedRadius), showProjection: model.showProjection) }
-    if let second = model.displayedPair, let dot = dots[second.map(String.init).joined(separator: ":")] {
-      marker(at: dot.position, factor: dot.scale.x * 1.9, rgb: PolynomialAppearance.amber, parent: plane)
+    if let cutting = model.plane { drawPlane(cutting,radius:Float(model.displayedRadius),showProjection:model.showProjection) }
+    if let second = model.displayedPair,let entry = snapshot.glyphs.first(where: { $0.point.abc == second && $0.opacity > 0 }) {
+      marker(at:entry.position,factor:entry.factor*1.9,rgb:PolynomialAppearance.amber,parent:plane)
+    }
+    sceneKey = nextScene
+    let milliseconds = (Date.timeIntervalSinceReferenceDate-started)*1000
+    let summary = "\(snapshot.batches.values.reduce(0) { $0+$1.count }) instances · \(snapshot.glyphs.count) buffered · \(batches.count) color batches · \(snapshot.radialPositions.count) projected · \(snapshot.glyphs.filter { $0.point.necklace && $0.opacity > 0 }.count) plane rings · \(String(format:"%.1f",milliseconds)) ms update"
+    if model.actionPreview == nil {
+      print("POLYNOMIAL_RENDER_STATS: \(summary)")
+      Task { @MainActor in model.rendererStats = summary }
+      let key = "\(model.sceneRevision)-\(model.starSize)-\(model.placement.isOrigin)-\(model.colorLower)"
+      schedulePicking(snapshot,model:model,key:key)
+    }
+  }
+  private func renderFailure(_ message:String,model:PolynomialModel) {
+    sceneKey = ""; renderingFailed = true
+    cloud.isEnabled = false; projection.isEnabled = false; plane.isEnabled = false; selection.isEnabled = false; picking.isEnabled = false
+    let status = "Instance rendering unavailable: \(message)"
+    if model.rendererStats != status { Task { @MainActor in model.rendererStats = status } }
+  }
+  func pick(_ location:SIMD3<Float>,entity:Entity,revision:Int) -> PolynomialPoint? {
+    guard !renderingFailed, revision == collisionRevision,let range = collisionRanges[entity.name] else { return nil }
+    return collisionSnapshot?.pick(at:location,range:range)
+  }
+  private func schedulePicking(_ snapshot:PolynomialRenderPlan.Snapshot,model:PolynomialModel,key:String) {
+    guard key != collisionKey,key != requestedCollisionKey else { return }
+    requestedCollisionKey = key; collisionTask?.cancel(); collisionGeneration += 1
+    let version = collisionGeneration,revision = model.sceneRevision
+    picking.children.removeAll(); collisionRanges = [:]; collisionSnapshot = nil; collisionRevision = -1; collisionKey = ""
+    collisionTask = Task {
+      let chunks = PolynomialRenderPlan.collisionChunks(snapshot)
+      var ready:[Entity] = [],ranges:[String:Range<Int>] = [:]
+      do {
+        for (index,chunk) in chunks.enumerated() {
+          try Task.checkCancellation()
+          guard !chunk.indices.isEmpty else { continue }
+          let shape = try await ShapeResource.generateStaticMesh(positions:chunk.positions,faceIndices:chunk.indices)
+          let entity = Entity(); entity.name = "polynomial-batch:\(version):\(index)"
+          entity.components.set(CollisionComponent(shapes:[shape])); entity.components.set(InputTargetComponent())
+          ready.append(entity); ranges[entity.name] = chunk.range
+        }
+        guard !Task.isCancelled,version == collisionGeneration,revision == model.sceneRevision,
+          key == "\(model.sceneRevision)-\(model.starSize)-\(model.placement.isOrigin)-\(model.colorLower)" else { return }
+        for entity in ready { picking.addChild(entity) }
+        collisionSnapshot = snapshot; collisionRanges = ranges; collisionRevision = revision; collisionKey = key
+        requestedCollisionKey = ""
+        picking.isEnabled = model.placement == .overview && !model.busy && model.actionPreview == nil && !renderingFailed
+        print("POLYNOMIAL_PICKING_READY: \(snapshot.glyphs.count) identities · \(ready.count) collision chunks")
+      } catch {
+        if version == collisionGeneration { requestedCollisionKey = "" }
+      }
     }
   }
 

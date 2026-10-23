@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {existsSync} from 'node:fs';
+import {existsSync,readFileSync} from 'node:fs';
 import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {prepareAbsorption} from '../web/polynomial/mobius-absorb.js';
@@ -380,4 +380,193 @@ test('real Lean out-of-bound images on either side preserve the complete absorpt
       preparePair:client.preparePlane,isCurrent:()=>true}),/±1024/);
     assert.deepEqual(input,before);assert.deepEqual(calls.slice(start).map(r=>r.op),['transform','transform']);
   }
+});
+
+const catalogueSource='f22013e04c8de068f6d74ccf4b4a16d76218c53d6f236eb9f64b435697c1174b';
+const catalogueFixtures=JSON.parse(readFileSync(new URL('../lean/Polynomial/fixtures/source-recrop-audit.json',import.meta.url),'utf8')).cases;
+const fixtureRows={identity:[1,0,0,0,1,0,0,0,1],T4:[1,0,0,-8,1,0,16,-4,1],
+  'T6-extras-budget':[1,0,0,-12,1,0,36,-6,1],S:[0,0,1,0,-1,0,1,0,0],rationalD5:[4,-2,1,-4,7,-6,1,-3,9]};
+const gcd=(a,b)=>b?gcd(b,a%b):Math.abs(a);
+function sourcePage(request,limit=73){
+  const i=catalogueFixtures.findIndex(f=>f.matrix.every((n,j)=>n===request.matrix[j]));assert.ok(i>=0);
+  const f=catalogueFixtures[i],otherRadius=request.whole?Math.floor((2*request.depth+2)/5):request.dust?10:0;
+  const all=[...f.upperPoints,...(otherRadius?f.otherPoints:[])],offset=request.offset??0,points=all.slice(offset,offset+limit),end=offset+points.length;
+  const divisors=points.map(([a,b,c])=>gcd(gcd(a,b),c));
+  return {catalogueSchema:'source-catalogue-v1',catalogueSourceSHA256:catalogueSource,
+    cacheKey:`source-catalogue-v1:${request.depth}:${request.matrix.join(',')}:${request.whole?1:0}:${request.dust?1:0}`,
+    depth:request.depth,matrix:[...request.matrix],whole:request.whole,dust:request.dust,otherRadius,
+    denominator:f.determinant,coefficientRows:[...fixtureRows[f.name]],padding:[6,5],upperCount:f.upperPoints.length,
+    otherCount:all.length-f.upperPoints.length,total:all.length,complete:!(otherRadius&&f.sourceExtrasScanBound>64),
+    sourceLimited:{upperCap:false,otherScanBound:!!otherRadius&&f.sourceExtrasScanBound>64},otherScanBound:otherRadius?f.sourceExtrasScanBound:0,
+    offset,count:points.length,nextOffset:end===all.length?null:end,abc:points.flat(),xyz:points.flatMap(([a,b,c])=>[-b,a+c,c-a]),
+    delta:points.map(([a,b,c])=>b*b-4*a*c),kind:points.map(([a,b,c])=>{const d=b*b-4*a*c;return d===0?0:d>0?1:a>0?2:3;}),
+    divisor:divisors,primitive:divisors.map(d=>d===1),onPlane:null,necklace:null};
+}
+function sourceMembers(request){
+  const p=sourcePage({...request,offset:0},2000000),[A,B,C]=request.normal,indices=[];
+  for(let i=0;i<p.total;i++){
+    const [a,b,c]=p.abc.slice(3*i,3*i+3);
+    if(p.delta[i]<0&&-2*C*a+B*b-2*A*c===0)indices.push(i);
+  }
+  return {...p,normal:request.normal,count:indices.length,indices};
+}
+
+test('source catalogue pages preserve pinned order and stay staged until explicit atomic publication',async t=>{
+  const {client}=await setup(t,r=>r.op==='cloud'?page(r):r.op==='plane'?plane:r.op==='membersCatalogue'?sourceMembers(r):sourcePage(r));
+  const accepted=await client.loadCloud(6),candidate=await client.loadCatalogue(6,[1,0,0,1],{whole:true,dust:false});
+  assert.equal(client.cloud(),accepted);assert.equal(candidate.count,212);assert.equal(candidate.catalogue.kind,'source');
+  assert.equal(candidate.catalogue.upperCount,187);assert.ok(Object.isFrozen(candidate.catalogue.matrix));
+  const points=[...catalogueFixtures[0].upperPoints,...catalogueFixtures[0].otherPoints];
+  for(const [i,p] of points.entries())assert.equal(client.indexOfPoint(p,candidate),i,`source index ${p}`);
+  assert.equal(client.indexOfPoint([1,3,4]),-1);assert.ok(client.indexOfPoint([1,3,4],candidate)>=0);
+  await client.preparePlane(plane.normal,undefined,candidate);
+  assert.equal(client.hasMembership(plane.normal),false);assert.equal(client.hasMembership(plane.normal,candidate),true);
+  assert.equal(client.activateCloud(candidate),candidate);assert.equal(client.cloud(),candidate);
+  assert.ok(client.memberIndices(plane.normal).size>0);assert.equal(client.cachedPlane(plane.normal).error,undefined);
+  assert.equal(client.activateCloud(candidate),candidate);assert.throws(()=>client.activateCloud({...candidate}),/validated Lean/);
+});
+
+test('all five pinned source catalogues survive page boundaries and keep explicit source-limit metadata',async t=>{
+  const {client}=await setup(t,r=>sourcePage(r,17));
+  for(const f of catalogueFixtures){
+    const candidate=await client.loadCatalogue(6,f.matrix,{whole:true,dust:false});
+    assert.deepEqual([...candidate.abc],[...f.upperPoints,...f.otherPoints].flat());
+    assert.equal(candidate.catalogue.complete,f.sourceExtrasScanBound<=64);
+    assert.equal(candidate.catalogue.sourceLimited.otherScanBound,f.sourceExtrasScanBound>64);
+    client.activateCloud(candidate);
+  }
+});
+
+test('catalogue validation rejects request identity, partition, order, bounds and primitive inconsistencies without replacing accepted data',async t=>{
+  let corrupt=()=>{};
+  const {client}=await setup(t,r=>{if(r.op==='cloud')return page(r);const p=sourcePage(r,2000000);corrupt(p);return p;});
+  const accepted=await client.loadCloud(6);
+  for(const change of [
+    p=>p.id=-1,p=>p.catalogueSourceSHA256='wrong',p=>p.cacheKey+='wrong',p=>p.depth=8,p=>p.matrix=[1,1,0,1],
+    p=>p.whole=false,p=>p.dust=true,p=>p.denominator=2,p=>p.coefficientRows[0]=2,p=>p.padding=[1,1],
+    p=>p.upperCount--,p=>p.otherCount++,p=>p.complete=false,p=>p.sourceLimited.upperCap=true,
+    p=>p.otherScanBound=65,p=>p.count--,p=>p.nextOffset=0,p=>p.abc[0]=1025,p=>p.xyz[0]=2049,
+    p=>p.delta[0]=-5242881,p=>p.delta[0]--,p=>p.kind[0]=3,p=>p.divisor[0]=0,p=>p.primitive[0]=!p.primitive[0],
+    p=>p.onPlane=[],p=>p.abc.splice(3,3,...p.abc.slice(0,3)),
+    p=>{for(const key of ['abc','xyz']){const v=p[key].slice(0,3);p[key].splice(0,3,...p[key].slice(3,6));p[key].splice(3,3,...v);}for(const key of ['delta','kind','divisor','primitive'])[p[key][0],p[key][1]]=[p[key][1],p[key][0]];},
+  ]){
+    corrupt=change;await assert.rejects(client.loadCatalogue(6,[1,0,0,1],{whole:true,dust:false}));
+    assert.equal(client.cloud(),accepted);
+  }
+});
+
+test('source paging detects changed metadata and ordering across page boundaries',async t=>{
+  let mode='metadata';
+  const {client}=await setup(t,r=>{
+    const p=sourcePage(r,2);
+    if(r.offset&&mode==='metadata')p.otherScanBound++;
+    if(r.offset&&mode==='order'){
+      const old=sourcePage({...r,offset:r.offset-1},1);
+      for(const key of ['abc','xyz'])p[key].splice(0,3,...old[key]);
+      for(const key of ['delta','kind','divisor','primitive'])p[key][0]=old[key][0];
+    }
+    return p;
+  });
+  await assert.rejects(client.loadCatalogue(6,[1,0,0,1]),/changed between pages/);
+  mode='order';await assert.rejects(client.loadCatalogue(6,[1,0,0,1]),/a,b,c order/);
+  assert.equal(client.diagnostics().cloudCount,0);
+});
+
+test('catalogue staging snapshots input and preserves Uint16 divisors above255',async t=>{
+  const gate=deferred();let submitted;
+  const {client}=await setup(t,r=>{submitted=r;return gate.promise;});
+  const matrix=[1,0,0,1],settings={whole:true,dust:false},pending=client.loadCatalogue(6,matrix,settings);
+  matrix[1]=99;settings.whole=false;
+  const p=sourcePage(submitted,2000000);
+  Object.assign(p,{upperCount:0,otherCount:1,total:1,count:1,nextOffset:null,abc:[256,0,0],xyz:[0,256,-256],delta:[0],kind:[0],divisor:[256],primitive:[false]});
+  gate.resolve(p);const candidate=await pending;
+  assert.deepEqual(candidate.catalogue.matrix,[1,0,0,1]);assert.equal(candidate.catalogue.whole,true);
+  assert.ok(candidate.abc instanceof Int16Array);assert.ok(candidate.divisor instanceof Uint16Array);assert.equal(candidate.divisor[0],256);
+});
+
+test('cancelled and superseded catalogues cannot activate or overwrite accepted membership/status',async t=>{
+  const old=deferred();let blocked=false;
+  const {client,status}=await setup(t,r=>r.op==='cloud'?page(r):r.op==='plane'?plane:r.op==='members'?members(r):blocked?old.promise:sourcePage(r,2000000));
+  const accepted=await client.loadCloud(6);await client.preparePlane(plane.normal);
+  blocked=true;const pending=client.loadCatalogue(6,[1,0,0,1]);client.cancelCloudLoad();old.reject(Error('obsolete failure'));
+  assert.equal(await pending,null);assert.equal(client.cloud(),accepted);assert.equal(client.memberIndices(plane.normal).size,2);
+  blocked=false;const a=await client.loadCatalogue(6,[1,0,0,1]),b=await client.loadCatalogue(6,[3,1,1,2]);
+  assert.equal(client.activateCloud(a),null);client.activateCloud(b);const message=status.textContent;
+  client.cancelCloudLoad();assert.equal(client.activateCloud(b),b);assert.equal(status.textContent,message);
+  let current=true;const c=await client.loadCatalogue(6,[1,0,0,1],{whole:true,dust:false},{isCurrent:()=>current});current=false;
+  assert.equal(client.activateCloud(c),null);assert.equal(client.cloud(),b);
+});
+
+test('a cancelled catalogue paused between pages issues no further page and failed membership leaves previous scene intact',async t=>{
+  const frames=[],calls=[];let fail=false;
+  const {client}=await setup(t,r=>{
+    calls.push(r);if(r.op==='cloud')return page(r);if(r.op==='plane')return plane;
+    if(r.op==='membersCatalogue'){if(fail)throw Error('members unavailable');return sourceMembers(r);}
+    return sourcePage(r,fail?2000000:73);
+  },{frames});
+  const accepted=await client.loadCloud(6),pending=client.loadCatalogue(6,[1,0,0,1]);await tick();assert.equal(frames.length,1);
+  client.cancelCloudLoad();frames.shift()(0);assert.equal(await pending,null);assert.equal(calls.filter(r=>r.op==='catalogue').length,1);
+  fail=true;const staged=await client.loadCatalogue(6,[1,0,0,1]);await assert.rejects(client.preparePlane(plane.normal,undefined,staged),/members unavailable/);
+  assert.equal(client.cloud(),accepted);assert.equal(client.hasMembership(plane.normal,staged),false);
+});
+
+test('catalogue membership is scoped by matrix/settings/candidate and rejects a stale response',async t=>{
+  const gate=deferred();let block=false,bad=false,memberCalls=0;
+  const {client}=await setup(t,r=>{
+    if(r.op==='plane')return plane;
+    if(r.op==='membersCatalogue'){memberCalls++;if(block)return gate.promise;const m=sourceMembers(r);if(bad)m.normal=[1,0,-1];return m;}
+    return sourcePage(r,2000000);
+  });
+  const first=await client.loadCatalogue(6,[1,0,0,1]);await client.preparePlane(plane.normal,undefined,first);client.activateCloud(first);
+  const second=await client.loadCatalogue(6,[3,1,1,2]);assert.equal(client.hasMembership(plane.normal,second),false);
+  await client.preparePlane(plane.normal,undefined,second);assert.equal(memberCalls,2);assert.equal(client.cloud(),first);
+  client.activateCloud(second);assert.equal(client.hasMembership(plane.normal,first),false);
+  const third=await client.loadCatalogue(6,[3,1,1,2],{whole:false,dust:false});bad=true;
+  await assert.rejects(client.preparePlane(plane.normal,undefined,third),/membership identity/);assert.equal(client.cloud(),second);
+  bad=false;block=true;const pending=client.preparePlane(plane.normal,undefined,third);await tick();client.cancelCloudLoad();
+  gate.resolve(sourceMembers({depth:6,matrix:[3,1,1,2],whole:false,dust:false,normal:plane.normal}));
+  await assert.rejects(pending,/cloud changed/);assert.equal(client.hasMembership(plane.normal,third),false);
+});
+
+test('staging catalogue or canonical cloud does not cancel a pending transform; activation and legacy loading do',async t=>{
+  let gate=deferred();
+  const {client}=await setup(t,r=>r.op==='transform'?gate.promise:r.op==='cloud'?page(r):sourcePage(r,2000000));
+  await client.loadCloud(6);const pending=client.commitTransform(unit.point,transform.matrix);
+  const staged=await client.loadCatalogue(6,[3,1,1,2]);gate.resolve(transform);assert.equal((await pending).denominator,5);
+  client.activateCloud(staged);gate=deferred();const second=client.commitTransform(unit.point,transform.matrix);
+  const ball=await client.loadCloud(6,false,{activate:false});gate.resolve(transform);assert.equal((await second).denominator,5);
+  assert.equal(client.cloud(),staged);client.activateCloud(ball);assert.equal(client.indexOfPoint([0,0,1]),2);
+  gate=deferred();const third=client.commitTransform(unit.point,transform.matrix);await client.loadCloud(6);gate.resolve(transform);assert.equal(await third,null);
+  const next=await client.loadCatalogue(6,[3,1,1,2]);gate=deferred();const fourth=client.commitTransform(unit.point,transform.matrix);
+  client.activateCloud(next);gate.resolve(transform);assert.equal(await fourth,null);
+  gate=deferred();const fifth=client.commitTransform(unit.point,transform.matrix);client.activateCloud(next);
+  gate.resolve(transform);assert.equal((await fifth).denominator,5,'idempotent activation must not cancel an action');
+});
+
+test('invalid source requests fail before transport and never invent an accepted catalogue',async t=>{
+  let calls=0;const {client}=await setup(t,()=>{calls++;throw Error('unavailable');});
+  for(const [depth,M,settings] of [[3,[1,0,0,1],{}],[97,[1,0,0,1],{}],[6,[1,0,0,0],{}],[6,[1,0,0,-1],{}],[6,[1000001,0,0,1],{}],[6,[1,0,0,1],{whole:1}],[6,[1,0,0,1],{dust:'false'}]])
+    await assert.rejects(client.loadCatalogue(depth,M,settings));
+  assert.equal(calls,0);assert.equal(client.diagnostics().cloudCount,0);
+});
+
+test('actual compiled Lean source catalogues and candidate memberships pass client validation and match pinned point order',
+  {skip:!existsSync(executable)},async t=>{
+  const {client}=await setup(t,request=>{
+    const result=spawnSync(executable,[],{input:JSON.stringify(request)+'\n',encoding:'utf8',timeout:15000,maxBuffer:8*1024*1024});
+    assert.equal(result.status,0,result.stderr||String(result.error));return JSON.parse(result.stdout);
+  });
+  const original=await client.loadCloud(6);
+  for(const f of catalogueFixtures){
+    const candidate=await client.loadCatalogue(6,f.matrix,{whole:true,dust:false});
+    assert.deepEqual([...candidate.abc],[...f.upperPoints,...f.otherPoints].flat(),f.name);
+    assert.equal(client.cloud(),original,'staged source cloud must not publish itself');
+    const p=await client.preparePlane([1,0,1],[1,1,1],candidate);assert.equal(p.error,undefined);
+    const actual=[...client.memberIndices(p.normal,candidate)],expected=[];
+    for(let i=0;i<candidate.count;i++)if(candidate.delta[i]<0&&candidate.abc[3*i]===candidate.abc[3*i+2])expected.push(i);
+    assert.deepEqual(actual,expected,f.name+' exact pair members');
+  }
+  const upperOnly=await client.loadCatalogue(6,[1,0,0,1],{whole:false,dust:false});
+  assert.equal(upperOnly.count,187);assert.equal(upperOnly.catalogue.otherScanBound,0);assert.equal(upperOnly.upperOnly,true);
+  client.activateCloud(upperOnly);assert.equal(client.cloud(),upperOnly);assert.ok([...upperOnly.kind].every(k=>k===2));
 });
