@@ -10,3 +10,11 @@ native/DerivedData/
 *.log
 *.pid
 artifacts/browser-profile/
+artifacts/private/
+*.xcresult/
+PAUSED.md
+native/evidence/screenshots/20261023T025855Z/
+native/evidence/screenshots/20261023T030048Z/
+native/evidence/ui-tests.txt
+native/evidence/ui-tests-20261023T025855Z.txt
+native/evidence/ui-tests-20261023T030048Z.txt

@@ -1,0 +1,6 @@
+{
+  "validCases": 255,
+  "invalidCases": 8,
+  "oracle": "independent integer wedge and six-term determinant",
+  "result": "passed"
+}

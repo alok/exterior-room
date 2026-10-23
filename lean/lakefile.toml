@@ -1,0 +1,36 @@
+name = "wedge_lab"
+version = "0.1.0"
+defaultTargets = ["wedge_service", "Exact"]
+
+[leanOptions]
+autoImplicit = false
+relaxedAutoImplicit = false
+maxRecDepth = 4096
+
+[[lean_lib]]
+name = "JuliaBase"
+srcDir = "vendor"
+[[lean_lib]]
+name = "StaticVectors"
+srcDir = "vendor"
+[[lean_lib]]
+name = "AbstractTensors"
+srcDir = "vendor"
+[[lean_lib]]
+name = "AbstractLattices"
+srcDir = "vendor"
+[[lean_lib]]
+name = "Leibniz"
+srcDir = "vendor"
+[[lean_lib]]
+name = "DirectSum"
+srcDir = "vendor"
+[[lean_lib]]
+name = "Grassmann"
+srcDir = "vendor"
+[[lean_lib]]
+name = "Exact"
+roots = ["Exact.Kernel", "Exact.Proofs"]
+[[lean_exe]]
+name = "wedge_service"
+root = "Main"

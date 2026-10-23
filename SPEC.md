@@ -33,11 +33,13 @@ determinant fallback may impersonate Lean.
 New repository and identity: Exterior Room / com.alok.ExteriorRoom.
 Original FareyVision checkout and port 8778 remain untouched. Borrowed modules
 are pinned to 8b32d7ae8f67fc47f381407bbcdf6f24e28de771 and retain GPL notices.
-No publication, external messaging, credentials, grants, or palm/corner minimap.
+Source publication to GitHub is in scope. Public application deployment,
+external messages, new credentials/grants, and a palm/corner minimap are not.
 
 ## Acceptance
 
 Build Lean without sorry or custom axiom in the used proof closure; test exact
 orientation/degeneracy/invalid inputs and bridge errors; inspect the running
-page in main Chrome; save screenshots; compile the native route if available;
-record reproducible run commands and honest untested areas.
+page in main Chrome; save screenshots; build and exercise the native route;
+compare corresponding visuals and interactions; record reproducible run
+commands and honest untested areas.

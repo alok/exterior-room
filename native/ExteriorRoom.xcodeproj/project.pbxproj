@@ -1,0 +1,437 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C125A66B1C8BBA196AC0377 /* ExteriorRoomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191E427B39895A47D5BFAA24 /* ExteriorRoomApp.swift */; };
+		33DE466043214461952020E2 /* ExteriorRoomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339B63D12BC52434920A7638 /* ExteriorRoomUITests.swift */; };
+		6811205F76A2BFCC76A6B3F0 /* ExteriorSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C37C7FC5CD632979BE9E697 /* ExteriorSpace.swift */; };
+		793D8DE4850C8F8A1DB30B32 /* LeanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF104AF681A926D688035E /* LeanModel.swift */; };
+		90325A618B43A8C73F3558A0 /* presets.json in Resources */ = {isa = PBXBuildFile; fileRef = B6D08F4D34C27C68D894A576 /* presets.json */; };
+		BF5BC117F6C83684A46CA458 /* SimulatorCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10FAE16EC1A894EF25B21CE /* SimulatorCapture.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8341A48B82DB00C226DE5BDB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA598693AF0DDC038811C8D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94350F197FB116FEF63F52F9;
+			remoteInfo = ExteriorRoom;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		191E427B39895A47D5BFAA24 /* ExteriorRoomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExteriorRoomApp.swift; sourceTree = "<group>"; };
+		339B63D12BC52434920A7638 /* ExteriorRoomUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExteriorRoomUITests.swift; sourceTree = "<group>"; };
+		6C37C7FC5CD632979BE9E697 /* ExteriorSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExteriorSpace.swift; sourceTree = "<group>"; };
+		9D6B0B4D85F50C0A4349DE96 /* ExteriorRoom.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ExteriorRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6D08F4D34C27C68D894A576 /* presets.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = presets.json; sourceTree = "<group>"; };
+		E10FAE16EC1A894EF25B21CE /* SimulatorCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorCapture.swift; sourceTree = "<group>"; };
+		E8AF104AF681A926D688035E /* LeanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanModel.swift; sourceTree = "<group>"; };
+		E9997D7E0D9CABE49C25EE86 /* ExteriorRoomUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ExteriorRoomUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		4433D495FC0CB99CFD01C1D6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B6D08F4D34C27C68D894A576 /* presets.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7C6FB65CB08BD6819F12674C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				191E427B39895A47D5BFAA24 /* ExteriorRoomApp.swift */,
+				6C37C7FC5CD632979BE9E697 /* ExteriorSpace.swift */,
+				E8AF104AF681A926D688035E /* LeanModel.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		7FB543C53F81653D53A71895 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9D6B0B4D85F50C0A4349DE96 /* ExteriorRoom.app */,
+				E9997D7E0D9CABE49C25EE86 /* ExteriorRoomUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CC4259EA97854F9E62422B3D /* UITests */ = {
+			isa = PBXGroup;
+			children = (
+				339B63D12BC52434920A7638 /* ExteriorRoomUITests.swift */,
+				E10FAE16EC1A894EF25B21CE /* SimulatorCapture.swift */,
+			);
+			path = UITests;
+			sourceTree = "<group>";
+		};
+		D281DD71938F343CF5F3CE60 = {
+			isa = PBXGroup;
+			children = (
+				4433D495FC0CB99CFD01C1D6 /* Resources */,
+				7C6FB65CB08BD6819F12674C /* Sources */,
+				CC4259EA97854F9E62422B3D /* UITests */,
+				7FB543C53F81653D53A71895 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		763F0D9CFE697079127BF033 /* ExteriorRoomUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C788CB5E155BE5FC46C8978 /* Build configuration list for PBXNativeTarget "ExteriorRoomUITests" */;
+			buildPhases = (
+				307856F24FEA4BD070520D0A /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1BD56EA42A3E7FCDB08D8379 /* PBXTargetDependency */,
+			);
+			name = ExteriorRoomUITests;
+			packageProductDependencies = (
+			);
+			productName = ExteriorRoomUITests;
+			productReference = E9997D7E0D9CABE49C25EE86 /* ExteriorRoomUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		94350F197FB116FEF63F52F9 /* ExteriorRoom */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0C8A9E31EC2DC690F699996 /* Build configuration list for PBXNativeTarget "ExteriorRoom" */;
+			buildPhases = (
+				D64071ED4A8CFABD7A76A825 /* Sources */,
+				B291BB460EF7EDCB088B77C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ExteriorRoom;
+			packageProductDependencies = (
+			);
+			productName = ExteriorRoom;
+			productReference = 9D6B0B4D85F50C0A4349DE96 /* ExteriorRoom.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA598693AF0DDC038811C8D6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					763F0D9CFE697079127BF033 = {
+						TestTargetID = 94350F197FB116FEF63F52F9;
+					};
+				};
+			};
+			buildConfigurationList = 640BA72D668EACA2389E7487 /* Build configuration list for PBXProject "ExteriorRoom" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = D281DD71938F343CF5F3CE60;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 7FB543C53F81653D53A71895 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				94350F197FB116FEF63F52F9 /* ExteriorRoom */,
+				763F0D9CFE697079127BF033 /* ExteriorRoomUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B291BB460EF7EDCB088B77C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90325A618B43A8C73F3558A0 /* presets.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		307856F24FEA4BD070520D0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33DE466043214461952020E2 /* ExteriorRoomUITests.swift in Sources */,
+				BF5BC117F6C83684A46CA458 /* SimulatorCapture.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D64071ED4A8CFABD7A76A825 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C125A66B1C8BBA196AC0377 /* ExteriorRoomApp.swift in Sources */,
+				6811205F76A2BFCC76A6B3F0 /* ExteriorSpace.swift in Sources */,
+				793D8DE4850C8F8A1DB30B32 /* LeanModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1BD56EA42A3E7FCDB08D8379 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94350F197FB116FEF63F52F9 /* ExteriorRoom */;
+			targetProxy = 8341A48B82DB00C226DE5BDB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		052039E76B40E636E5455F8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Exterior Room";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Connect to your Mac's local Lean computation bridge.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alok.ExteriorRoom;
+				SDKROOT = xros;
+				TARGETED_DEVICE_FAMILY = 7;
+			};
+			name = Debug;
+		};
+		2D82AF8FB7F91B03B7150055 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				XROS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Release;
+		};
+		6A996FC5F0F29C71376BC774 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Exterior Room";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Connect to your Mac's local Lean computation bridge.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alok.ExteriorRoom;
+				SDKROOT = xros;
+				TARGETED_DEVICE_FAMILY = 7;
+			};
+			name = Release;
+		};
+		D2707063DFB6CC00779E94BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alok.ExteriorRoomUITests;
+				SDKROOT = xros;
+				TARGETED_DEVICE_FAMILY = 7;
+				TEST_TARGET_NAME = ExteriorRoom;
+			};
+			name = Debug;
+		};
+		E75F46704B76EF8D404DA5B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alok.ExteriorRoomUITests;
+				SDKROOT = xros;
+				TARGETED_DEVICE_FAMILY = 7;
+				TEST_TARGET_NAME = ExteriorRoom;
+			};
+			name = Release;
+		};
+		FD9FA3CFCF6F1D97B12A43C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				XROS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1C788CB5E155BE5FC46C8978 /* Build configuration list for PBXNativeTarget "ExteriorRoomUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2707063DFB6CC00779E94BB /* Debug */,
+				E75F46704B76EF8D404DA5B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		640BA72D668EACA2389E7487 /* Build configuration list for PBXProject "ExteriorRoom" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD9FA3CFCF6F1D97B12A43C3 /* Debug */,
+				2D82AF8FB7F91B03B7150055 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C0C8A9E31EC2DC690F699996 /* Build configuration list for PBXNativeTarget "ExteriorRoom" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				052039E76B40E636E5455F8C /* Debug */,
+				6A996FC5F0F29C71376BC774 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AA598693AF0DDC038811C8D6 /* Project object */;
+}

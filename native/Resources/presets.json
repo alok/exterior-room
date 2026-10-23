@@ -1,0 +1,266 @@
+[
+  {
+    "a": [
+      7,
+      1,
+      1
+    ],
+    "b": [
+      -2,
+      6,
+      1
+    ],
+    "c": [
+      1,
+      1,
+      7
+    ],
+    "checks": {
+      "antisymmetric": true,
+      "repeatedVolumeZero": true,
+      "selfZero": true,
+      "volumeAntisymmetric": true
+    },
+    "engine": "Grassmann/Lean 4.35.0-rc3",
+    "id": 0,
+    "ok": true,
+    "repeatedVolume": 0,
+    "scale": 4,
+    "selfWedge": [
+      0,
+      0,
+      0
+    ],
+    "sourceCommit": "87e12dcfac41a0703bd0192f5e5a9b5e4c82d610",
+    "swappedVolume": -294,
+    "swappedWedge": [
+      -44,
+      -9,
+      5
+    ],
+    "vertices": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        7,
+        1,
+        1
+      ],
+      [
+        -2,
+        6,
+        1
+      ],
+      [
+        1,
+        1,
+        7
+      ],
+      [
+        5,
+        7,
+        2
+      ],
+      [
+        8,
+        2,
+        8
+      ],
+      [
+        -1,
+        7,
+        8
+      ],
+      [
+        6,
+        8,
+        9
+      ]
+    ],
+    "volume": 294,
+    "wedge": [
+      44,
+      9,
+      -5
+    ]
+  },
+  {
+    "a": [
+      4,
+      0,
+      0
+    ],
+    "b": [
+      0,
+      4,
+      0
+    ],
+    "c": [
+      0,
+      0,
+      4
+    ],
+    "checks": {
+      "antisymmetric": true,
+      "repeatedVolumeZero": true,
+      "selfZero": true,
+      "volumeAntisymmetric": true
+    },
+    "engine": "Grassmann/Lean 4.35.0-rc3",
+    "id": 1,
+    "ok": true,
+    "repeatedVolume": 0,
+    "scale": 4,
+    "selfWedge": [
+      0,
+      0,
+      0
+    ],
+    "sourceCommit": "87e12dcfac41a0703bd0192f5e5a9b5e4c82d610",
+    "swappedVolume": -64,
+    "swappedWedge": [
+      -16,
+      0,
+      0
+    ],
+    "vertices": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        4,
+        0,
+        0
+      ],
+      [
+        0,
+        4,
+        0
+      ],
+      [
+        0,
+        0,
+        4
+      ],
+      [
+        4,
+        4,
+        0
+      ],
+      [
+        4,
+        0,
+        4
+      ],
+      [
+        0,
+        4,
+        4
+      ],
+      [
+        4,
+        4,
+        4
+      ]
+    ],
+    "volume": 64,
+    "wedge": [
+      16,
+      0,
+      0
+    ]
+  },
+  {
+    "a": [
+      8,
+      0,
+      0
+    ],
+    "b": [
+      0,
+      7,
+      0
+    ],
+    "c": [
+      4,
+      4,
+      0
+    ],
+    "checks": {
+      "antisymmetric": true,
+      "repeatedVolumeZero": true,
+      "selfZero": true,
+      "volumeAntisymmetric": true
+    },
+    "engine": "Grassmann/Lean 4.35.0-rc3",
+    "id": 2,
+    "ok": true,
+    "repeatedVolume": 0,
+    "scale": 4,
+    "selfWedge": [
+      0,
+      0,
+      0
+    ],
+    "sourceCommit": "87e12dcfac41a0703bd0192f5e5a9b5e4c82d610",
+    "swappedVolume": 0,
+    "swappedWedge": [
+      -56,
+      0,
+      0
+    ],
+    "vertices": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        8,
+        0,
+        0
+      ],
+      [
+        0,
+        7,
+        0
+      ],
+      [
+        4,
+        4,
+        0
+      ],
+      [
+        8,
+        7,
+        0
+      ],
+      [
+        12,
+        4,
+        0
+      ],
+      [
+        4,
+        11,
+        0
+      ],
+      [
+        12,
+        11,
+        0
+      ]
+    ],
+    "volume": 0,
+    "wedge": [
+      56,
+      0,
+      0
+    ]
+  }
+]

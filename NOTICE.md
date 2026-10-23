@@ -2,9 +2,7 @@
 
 Exterior Room is a separate spatial algebra demonstration by Alok Singh with
 OpenAI Codex, October 2026. It is not an official Lean, Meta, Apple, or Grassmann.jl
-product. The Lean backend investigation and implementation used GPT-6 Astra at
-ultra reasoning effort; app integration used the parent Codex model. No separate
-"ultracode" execution mode was available or claimed.
+product.
 
 ## Lean mathematics and execution
 
@@ -23,6 +21,10 @@ revision `8b32d7ae8f67fc47f381407bbcdf6f24e28de771`:
 - `Farey/WebXR/xr-support.js` → `web/xr-support.js` (XR availability, controller
   ray updates, and desktop-camera restoration).
 
+The native screenshot test harness adapts `Farey/scripts/capture_coordinator.py`
+and `Farey/UITests/SimulatorCapture.swift` at the same revision, with task-specific
+names and synchronization paths.
+
 Their SPDX GPL-3.0-or-later headers are retained. The native RealityKit route
 adapts FareyVision's primitive placement and immersion lifecycle pattern;
 see `native/README.md`. New scene geometry, exact algebra wiring, interaction
@@ -40,5 +42,7 @@ including its MIT license at `web/vendor/THREE-LICENSE.txt`. OrbitControls is
 from the same version. All browser dependencies are bundled; the page loads
 no CDN scripts, remote fonts, analytics, or external assets.
 
-Original Exterior Room code is GPL-3.0-or-later, compatible with the reused
-GPL modules. Third-party files retain their respective licenses. See LICENSE.
+Original browser/transport code is GPL-3.0-or-later. The Grassmann backend
+is AGPL-3.0-or-later; its complete corresponding source is included under lean/.
+The combined distribution is AGPL-3.0-or-later. Third-party files retain their
+respective licenses. See LICENSE and lean/vendor/LICENSE.

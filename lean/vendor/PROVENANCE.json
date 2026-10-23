@@ -1,0 +1,559 @@
+{
+  "source": "/Users/alokbeniwal/Grassmann",
+  "commit": "87e12dcfac41a0703bd0192f5e5a9b5e4c82d610",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "modulesTopological": [
+    "DirectSum.Bits",
+    "Leibniz.Combinatorics",
+    "Leibniz.Generic",
+    "Leibniz.Indices",
+    "DirectSum.Space",
+    "JuliaBase.FloatLit",
+    "JuliaBase.Num",
+    "JuliaBase.Ryu",
+    "JuliaBase.Float",
+    "DirectSum.Show",
+    "DirectSum.SpaceOps",
+    "DirectSum.Parse",
+    "DirectSum.Common",
+    "DirectSum.Parity",
+    "DirectSum.BladeAlgebra",
+    "DirectSum.Compat",
+    "DirectSum.Blade",
+    "DirectSum.Names",
+    "DirectSum.SetOps",
+    "DirectSum.Basis",
+    "DirectSum.Euler",
+    "DirectSum.Derived",
+    "AbstractTensors.Dims",
+    "JuliaBase.MathTables",
+    "JuliaBase.Math",
+    "JuliaBase.Trig",
+    "JuliaBase.Hyperbolic",
+    "JuliaBase.Complex",
+    "StaticVectors.Packed",
+    "StaticVectors.Scalar",
+    "AbstractTensors.Coeff",
+    "AbstractTensors.Alias",
+    "AbstractLattices.Basic",
+    "AbstractTensors.Ops",
+    "DirectSum.Ops",
+    "DirectSum.Proofs.Sign",
+    "DirectSum.Proofs.Metric",
+    "DirectSum.Proofs.UInt64",
+    "DirectSum.Proofs.Popcount",
+    "DirectSum.Proofs.LowestBit",
+    "DirectSum.Proofs.Complement",
+    "DirectSum.Proofs",
+    "DirectSum",
+    "StaticVectors.Values",
+    "StaticVectors.Reduce",
+    "StaticVectors.LinAlg",
+    "StaticVectors.Ranges",
+    "JuliaBase.Show",
+    "StaticVectors.Show",
+    "StaticVectors",
+    "AbstractTensors.Generic",
+    "AbstractTensors.Kinds",
+    "AbstractTensors",
+    "Grassmann.Types.Dims",
+    "Grassmann.Types.Single",
+    "Grassmann.Types.Chain",
+    "Grassmann.Types.Half",
+    "Grassmann.Types.Multivector",
+    "Grassmann.Types.Couple",
+    "Grassmann.Types.Convert",
+    "Grassmann.Dynamic.Basic",
+    "Grassmann.Algebra.Arith",
+    "Grassmann.Dynamic.Arith",
+    "Grassmann.Types.Show",
+    "Grassmann.Dynamic.Show",
+    "Grassmann.Kernel.Plan",
+    "Grassmann.Kernel.Reference",
+    "Grassmann.Dynamic.Loops",
+    "Grassmann.Kernel.Class",
+    "Grassmann.Algebra.Unary",
+    "Grassmann.Dynamic.Unary",
+    "Grassmann.Algebra.Products",
+    "Grassmann.Dynamic.Products",
+    "Grassmann.Dynamic.Fast",
+    "Grassmann.Dynamic.Norms",
+    "Grassmann.Dynamic.Layout",
+    "Grassmann.Dynamic.Laws",
+    "Grassmann.Dynamic.Equal",
+    "Grassmann.Algebra.Norms",
+    "JuliaBase.IEEE",
+    "JuliaBase.Parse",
+    "JuliaBase.Round",
+    "JuliaBase.Sum",
+    "JuliaBase.Float16",
+    "JuliaBase.Range",
+    "JuliaBase",
+    "Grassmann.Notation",
+    "Grassmann.Algebra.Predicates",
+    "Grassmann.Dynamic.Ops",
+    "Grassmann.Dynamic.Division",
+    "Grassmann.Dynamic.SinglePow",
+    "Grassmann.Dynamic.PowerLaws",
+    "Grassmann.Dynamic.SingleInt",
+    "Grassmann.Dynamic.IntegerPowerLaws",
+    "Grassmann.Dynamic.BladeInverseLaws",
+    "Grassmann.Dynamic.FastLaws",
+    "DirectSum.SignatureLaws",
+    "Grassmann.Dynamic.SignatureLaws",
+    "Grassmann.Composite.Scalar",
+    "Grassmann.Dynamic.Composite",
+    "Grassmann.Dynamic.Project",
+    "Grassmann.Dynamic",
+    "Grassmann.Kernel.Codegen.Plans",
+    "Grassmann.Kernel.Codegen.Emit",
+    "Grassmann.Kernel.Codegen.Sandwich",
+    "Grassmann.Kernel.Codegen",
+    "Grassmann.Kernel.Generated.R3",
+    "Grassmann.Kernel.R3WedgeLaws",
+    "Grassmann.Kernel.R3TopWedgeLaws",
+    "Grassmann.Examples.OrientedVolume"
+  ],
+  "files": [
+    {
+      "path": "DirectSum/Bits.lean",
+      "sha256": "13e11acc77fe888064e3b1325732cb105381fb094be6c03e0a71900c618b493d"
+    },
+    {
+      "path": "Leibniz/Combinatorics.lean",
+      "sha256": "aade5294e12849b4fc3127605cfb80d195c0ffe53c00acccd3adb19aa3575f7d"
+    },
+    {
+      "path": "Leibniz/Generic.lean",
+      "sha256": "b0bc5dd93355623ecc8d4fd01c63c9d3e99faf42529e00588163e854d3a1e589"
+    },
+    {
+      "path": "Leibniz/Indices.lean",
+      "sha256": "cc5ad04c7b3cbbc9c32e2b88050b86394667d35603ad319f3335645c4aaf5dc7"
+    },
+    {
+      "path": "DirectSum/Space.lean",
+      "sha256": "c2d307bf267460c7e66639762ef8c64963c428c601592cdf5b6e2b1a9af36be7"
+    },
+    {
+      "path": "JuliaBase/FloatLit.lean",
+      "sha256": "f9d109e6ba98b9a115e9ce5fe5ea20bea343d0424e119a97d621eaf40517eacb"
+    },
+    {
+      "path": "JuliaBase/Num.lean",
+      "sha256": "8645861afc3c626395ae76ebfeb10debf16ffd41116fd0f9e692ff9174bce48a"
+    },
+    {
+      "path": "JuliaBase/Ryu.lean",
+      "sha256": "748022bcc64d94b1b96885bcfbe7f9046b7f6a846962e179be3a4d94fda343a8"
+    },
+    {
+      "path": "JuliaBase/Float.lean",
+      "sha256": "68c85fa5857804724595457d4408e3bd422a570192166f12386357d0d896c530"
+    },
+    {
+      "path": "DirectSum/Show.lean",
+      "sha256": "b2a394866e0fb8e87eca0a890aa1974ec8f9fe6d5eb9cc068850d11d89dcdc92"
+    },
+    {
+      "path": "DirectSum/SpaceOps.lean",
+      "sha256": "96fa487af0cf1f54be13d28cbd5429c081a9178e71d450807986243bbf29e8f7"
+    },
+    {
+      "path": "DirectSum/Parse.lean",
+      "sha256": "c8efcd78f8b4db2d43fb94be00ad92ac096ee05af65641cf1aecc63c4e4a240a"
+    },
+    {
+      "path": "DirectSum/Common.lean",
+      "sha256": "b10b2b2fc90d8ca6c5c0fc6207aa23cc15dfbed421e3e105c10676f94c844760"
+    },
+    {
+      "path": "DirectSum/Parity.lean",
+      "sha256": "c0e51e38c5f858253e06c499f08cf0fd6bce26bade1fa245c09b2f5626232bfb"
+    },
+    {
+      "path": "DirectSum/BladeAlgebra.lean",
+      "sha256": "15470099a37ec2d48c224f63b7a6d0b1cba368abe0359e10a2118b9d7d196f2f"
+    },
+    {
+      "path": "DirectSum/Compat.lean",
+      "sha256": "e3ba7aa610be7c07f2a2a7777872816afed5beed976874431ad0e82af3e9a90b"
+    },
+    {
+      "path": "DirectSum/Blade.lean",
+      "sha256": "dd32061680cce0c14238d6861bd031806c78e1b9b47203e7b4b148e5dbb7b21c"
+    },
+    {
+      "path": "DirectSum/Names.lean",
+      "sha256": "19dc1183302d4dcde49501f47c908bbdcffb753307bc0f644cc09302861b26a0"
+    },
+    {
+      "path": "DirectSum/SetOps.lean",
+      "sha256": "12693a8ec067142d09abd07616d5fda2ccfd233be37d63b37e389cd63aa0fffb"
+    },
+    {
+      "path": "DirectSum/Basis.lean",
+      "sha256": "3d80df9c926c68da422ec6198590386e7060a65ecf3d49a1b27c23515e456d48"
+    },
+    {
+      "path": "DirectSum/Euler.lean",
+      "sha256": "f2b3d35f4c1204c0abadc3faabe9d40931f77a64de40f9a1a5751642bd34889c"
+    },
+    {
+      "path": "DirectSum/Derived.lean",
+      "sha256": "128ff6e1c4c81aade1d2d650967d981c35bb40750efcb69e7d5db13dec96cdb9"
+    },
+    {
+      "path": "AbstractTensors/Dims.lean",
+      "sha256": "3f737b457d38ee61b7f87640476325def623bf8e1e0f02b67e034c798f563ab1"
+    },
+    {
+      "path": "JuliaBase/MathTables.lean",
+      "sha256": "923178e15f3d71ec03194e8adbecd1426c2e69c08d34d4329da91780204bf801"
+    },
+    {
+      "path": "JuliaBase/Math.lean",
+      "sha256": "51daaeceff64bc67b858c6c7efb5ef3d4a0b5850434e2090c1451da0ea0872a8"
+    },
+    {
+      "path": "JuliaBase/Trig.lean",
+      "sha256": "d8e1866c8d8e33c3a88a6a682b0d183dd3e35500daf5789db32862c9116a05f6"
+    },
+    {
+      "path": "JuliaBase/Hyperbolic.lean",
+      "sha256": "0900fbcf4d083536d479d83a63a43c19e60449a21a12ff84e05ff919fc87f6f1"
+    },
+    {
+      "path": "JuliaBase/Complex.lean",
+      "sha256": "b65dd8bffe915ec759ce8991d5cf177dbd6cb95af1e371c169fb18b78f47ed94"
+    },
+    {
+      "path": "StaticVectors/Packed.lean",
+      "sha256": "f11a0465e8e6ff8a5d3b78fa434f2a362fac92d90c7193d5b331547015d35117"
+    },
+    {
+      "path": "StaticVectors/Scalar.lean",
+      "sha256": "12f01da90aaec7e8e3befe27b398dfa45e07a2b482e023c4da21216b17853558"
+    },
+    {
+      "path": "AbstractTensors/Coeff.lean",
+      "sha256": "308487e99069eb7dfde0fce5319f87c17f17cc5c9a3be6fda7a0b202c7645d1f"
+    },
+    {
+      "path": "AbstractTensors/Alias.lean",
+      "sha256": "4c38f6140821052fbe06f8636f06b89a731e390841c8cf92a599d1b8b1753a54"
+    },
+    {
+      "path": "AbstractLattices/Basic.lean",
+      "sha256": "aa05b96e8d4321d79693d2aec88328c77bf284c629f4eae2aab2e9e23c7a2343"
+    },
+    {
+      "path": "AbstractTensors/Ops.lean",
+      "sha256": "9e69f2efed5e3fc5d6ed2a008fa7ee0b0636da459d16f876486dac6c53592690"
+    },
+    {
+      "path": "DirectSum/Ops.lean",
+      "sha256": "694d5e64dcd0dd7fd345ae097aadf0c56079cd9d2c50426dee58b7f3c1f86212"
+    },
+    {
+      "path": "DirectSum/Proofs/Sign.lean",
+      "sha256": "23755a12e23b61d8f3e8be8f14a7fcdabef0fc2bce310cf6b65fe58acd807e13"
+    },
+    {
+      "path": "DirectSum/Proofs/Metric.lean",
+      "sha256": "14db2502fd7749ca04d30ae85b693bd890a6bff67d5f13dbcbc152394f49f9e8"
+    },
+    {
+      "path": "DirectSum/Proofs/UInt64.lean",
+      "sha256": "72a957ef656f6bd57d479a393bdbba57f22093f31aa93bd564f6619f1bc6f5c6"
+    },
+    {
+      "path": "DirectSum/Proofs/Popcount.lean",
+      "sha256": "868f69862b4342cb04701a4417c723b180873450dc15dad2a520277e0ffa87dc"
+    },
+    {
+      "path": "DirectSum/Proofs/LowestBit.lean",
+      "sha256": "98325df6203378444d452412d3519b2fded2f874a2edfa4d2c9122ba93c6a9b5"
+    },
+    {
+      "path": "DirectSum/Proofs/Complement.lean",
+      "sha256": "73807ba83b83440e6970108ef0e191510bba259e74b6469be2ff898c71a950e3"
+    },
+    {
+      "path": "DirectSum/Proofs.lean",
+      "sha256": "8f9fa1cd160bff1ce3730cf352493ca48f987895c6835636a4f324035fd21b17"
+    },
+    {
+      "path": "DirectSum.lean",
+      "sha256": "794fb31886549200993d4faba72ee10e747696bd53ca854f1f2cbf87b48ee1e4"
+    },
+    {
+      "path": "StaticVectors/Values.lean",
+      "sha256": "a91274f6074810d531025fed3b402042b8f81730fab704475f6e7534a8cfb419"
+    },
+    {
+      "path": "StaticVectors/Reduce.lean",
+      "sha256": "738b185f9762392a8db285c779beb1f6708460773d52a5dd9c177c47aeacfaaf"
+    },
+    {
+      "path": "StaticVectors/LinAlg.lean",
+      "sha256": "9741dbf110d69767ce501bbad773e2e505cc4dc5f91d1cc8c49571e8e99f7768"
+    },
+    {
+      "path": "StaticVectors/Ranges.lean",
+      "sha256": "cb832294d6024fb099210bd46cabacac8a1ae264aaae9ef0fceada48dcbef074"
+    },
+    {
+      "path": "JuliaBase/Show.lean",
+      "sha256": "0d478baef290b018524bb36612e83f00d8f56b13fbb2316ef571c088878b74e9"
+    },
+    {
+      "path": "StaticVectors/Show.lean",
+      "sha256": "d687895b0bb999aca39cd1ddbdb4e87099630503bc7b61e65899f1fe41ae4383"
+    },
+    {
+      "path": "StaticVectors.lean",
+      "sha256": "df1c46c5fac3d595dbacd18c5f282ea12c33e7a98138e27db089f4237c360006"
+    },
+    {
+      "path": "AbstractTensors/Generic.lean",
+      "sha256": "2949a844dddb1d69b71ae98be7fd2663095e266c683476ed198cf90eed0473e0"
+    },
+    {
+      "path": "AbstractTensors/Kinds.lean",
+      "sha256": "969ddf3640c293277bb27674d0f36d74a168ac9835583f097e3dfe5e502de945"
+    },
+    {
+      "path": "AbstractTensors.lean",
+      "sha256": "faa99d39119e60b7ad5d37ec3cbc9f0fe305af8228f1ce9cb2d89f213990ab23"
+    },
+    {
+      "path": "Grassmann/Types/Dims.lean",
+      "sha256": "e0d04f04ececa294d98e89e3c2a29c957673ccf5462e62c1402f617fc040f13f"
+    },
+    {
+      "path": "Grassmann/Types/Single.lean",
+      "sha256": "263ac68c9c01c3fcff7ca26bd83562807450226dec245ee32aa34be374113b08"
+    },
+    {
+      "path": "Grassmann/Types/Chain.lean",
+      "sha256": "3844192cc52140f5e7bfda5730e310f1d30f47667aae34eafc540fd0099cd05d"
+    },
+    {
+      "path": "Grassmann/Types/Half.lean",
+      "sha256": "828a5600ee68e325a6b136df1c11263262e12e24d9a487a7ebaada3c124cd613"
+    },
+    {
+      "path": "Grassmann/Types/Multivector.lean",
+      "sha256": "9a90a583fe7d3d5540d12dcb953c4f5331d9f22b0258560432e4a6e815c2e7ef"
+    },
+    {
+      "path": "Grassmann/Types/Couple.lean",
+      "sha256": "3293e2936b91d798d9c27fdfb4b3bf299d07cf8816c835b602d04a2bb8fc438b"
+    },
+    {
+      "path": "Grassmann/Types/Convert.lean",
+      "sha256": "7c2d943437f60400c1dbc55fee21d7d89e51a293ab27ee238fcabd912cb91105"
+    },
+    {
+      "path": "Grassmann/Dynamic/Basic.lean",
+      "sha256": "4130384b6bcdc875e7047b5fdb0c7879e2ae8a5d696b074fdf47e03b61d4487b"
+    },
+    {
+      "path": "Grassmann/Algebra/Arith.lean",
+      "sha256": "8f5d1195099f90e5cb84b3270af46e3e2c4203e90a24c13c004e54d2b38346be"
+    },
+    {
+      "path": "Grassmann/Dynamic/Arith.lean",
+      "sha256": "3f604a2fa619b75dcbe2876dc42a713b1931641919264097faff8f23d80dc902"
+    },
+    {
+      "path": "Grassmann/Types/Show.lean",
+      "sha256": "cee7b25a6f36ade2d0f35efcd18f2312c18b0501208057d8d59ffdb7b1d4979f"
+    },
+    {
+      "path": "Grassmann/Dynamic/Show.lean",
+      "sha256": "9e79a38676d08fc479ba7939a3a317b4cdbab7feff53b1ab859d398684883b50"
+    },
+    {
+      "path": "Grassmann/Kernel/Plan.lean",
+      "sha256": "21b1a8b315e5567f5c0d06b127d73db9064a2b7f036de47ec17a1ff2532efaa4"
+    },
+    {
+      "path": "Grassmann/Kernel/Reference.lean",
+      "sha256": "c439df7aee36cb8e4c6a3c3d998db0e0efd615f93f941b0040231d505f8e49e1"
+    },
+    {
+      "path": "Grassmann/Dynamic/Loops.lean",
+      "sha256": "924a1a1729ade9cd7be3e1b709b3cdae827a71d35abf3aa2d76eaba8aeddc9d2"
+    },
+    {
+      "path": "Grassmann/Kernel/Class.lean",
+      "sha256": "479a5519b1e45bd81cec1033b3077eebb84fc5cf7515e577751fadad854b7d9a"
+    },
+    {
+      "path": "Grassmann/Algebra/Unary.lean",
+      "sha256": "1122fbfdcf9fa352e2f502f25f6170c95ada4285c89f7487ac08f372a6604291"
+    },
+    {
+      "path": "Grassmann/Dynamic/Unary.lean",
+      "sha256": "7fd52cb880a965718a10470698cef597251ab1ff228a7b08944cfee35c901246"
+    },
+    {
+      "path": "Grassmann/Algebra/Products.lean",
+      "sha256": "3d4135f92b2ab0ae5202e918518ec0c141630b64a43f7a6c6d960a7d1925b725"
+    },
+    {
+      "path": "Grassmann/Dynamic/Products.lean",
+      "sha256": "39bb134460475bf6c6fda530b23149e1f47fc47253e5c487089e934496aad652"
+    },
+    {
+      "path": "Grassmann/Dynamic/Fast.lean",
+      "sha256": "edd6f2940a31413d7c4860c6836922077821f3dd27bdc4b0750cd6b629cae7d5"
+    },
+    {
+      "path": "Grassmann/Dynamic/Norms.lean",
+      "sha256": "2754b8080109c7f028eb21978e0438f2da468d297c09b98125585256c89478e4"
+    },
+    {
+      "path": "Grassmann/Dynamic/Layout.lean",
+      "sha256": "8919a67c7784822d895e7abf6cd3b80a22ccb720119f05d81b8bda0ea6fa81be"
+    },
+    {
+      "path": "Grassmann/Dynamic/Laws.lean",
+      "sha256": "6f9ce677cf348af26f3f8b829a78c5b207541ea63876c7f2a6edd970b9ddaa66"
+    },
+    {
+      "path": "Grassmann/Dynamic/Equal.lean",
+      "sha256": "7247d43cb6a102688bf504e0e41d4e9c4c51383967cb7be7595962bb3341e21e"
+    },
+    {
+      "path": "Grassmann/Algebra/Norms.lean",
+      "sha256": "38c9828dcc9b380baf70228e51642b125da9420c7ce63400920fb55b4c4d07ca"
+    },
+    {
+      "path": "JuliaBase/IEEE.lean",
+      "sha256": "76e6914849c747ac32bde8937b35fdda6c7a490b995a81ae4fe9a40721aa83b4"
+    },
+    {
+      "path": "JuliaBase/Parse.lean",
+      "sha256": "747e302d38984bc9795f5909441ce59e1d247d295d06879b80d4422d0995c821"
+    },
+    {
+      "path": "JuliaBase/Round.lean",
+      "sha256": "af509cc686ebcf15792ee57f1b8b927efb07bfa28fa81dab564368511ffa1d4e"
+    },
+    {
+      "path": "JuliaBase/Sum.lean",
+      "sha256": "a9779128f9cae3c007a96e2f224c5eafcbda8d4640cbac572a26ad3530f42385"
+    },
+    {
+      "path": "JuliaBase/Float16.lean",
+      "sha256": "ef0a9e1906ed470c113263fd1592d8449c0f29e94cca61a312ce0040a16b2f73"
+    },
+    {
+      "path": "JuliaBase/Range.lean",
+      "sha256": "e0b521dee7b0d42a63dfc98121e978d469be04934a8ffe538a114c0c15be98de"
+    },
+    {
+      "path": "JuliaBase.lean",
+      "sha256": "0a3b991eb281ee4f0e693fbf1c689c4f5cf824203fe480edbf99315d3b622a9d"
+    },
+    {
+      "path": "Grassmann/Notation.lean",
+      "sha256": "ab11df19474f4f26a1768abceeae65a3c2f5101b1b7cb79549aa31d631709fdf"
+    },
+    {
+      "path": "Grassmann/Algebra/Predicates.lean",
+      "sha256": "ebe92dd57a76c51960854fcb4e26f562254ac9ab59c030f1c12bfe48a2a78cba"
+    },
+    {
+      "path": "Grassmann/Dynamic/Ops.lean",
+      "sha256": "2009e0b60c476ce7bd37c9c7aa36ce9a16a48151f69de687fbc465991ee018b5"
+    },
+    {
+      "path": "Grassmann/Dynamic/Division.lean",
+      "sha256": "6e6e81485d503bfe335d88b7e418010a0c2be5d0207ce0f3c8b1070945926b2a"
+    },
+    {
+      "path": "Grassmann/Dynamic/SinglePow.lean",
+      "sha256": "45fc553ecdcb3de395f3a0e9247d83a7fc3e8247f10742834186bd55dbd14dcb"
+    },
+    {
+      "path": "Grassmann/Dynamic/PowerLaws.lean",
+      "sha256": "3e0041670ba2557cc464c7d6b38dd42b969505de38ba696bc69eb48d65d215c2"
+    },
+    {
+      "path": "Grassmann/Dynamic/SingleInt.lean",
+      "sha256": "672c11f5fbc90641367cabe42c47e3b549c40a70eb199c97c0358fab2ff39ba5"
+    },
+    {
+      "path": "Grassmann/Dynamic/IntegerPowerLaws.lean",
+      "sha256": "25a01755798fa828d80d7d5d05e5fdcbfdc5899d266ae27a3ff6a1bb9852769d"
+    },
+    {
+      "path": "Grassmann/Dynamic/BladeInverseLaws.lean",
+      "sha256": "d5b96201e21c2707ac21e7fc0f1bdd6edf2a9d351bb7cbe788db9fc7db9c7e32"
+    },
+    {
+      "path": "Grassmann/Dynamic/FastLaws.lean",
+      "sha256": "cfa35c9c5c28e6d5e862505b2aeb9d20839b8ce94c4e38c5015b6bb83fae485d"
+    },
+    {
+      "path": "DirectSum/SignatureLaws.lean",
+      "sha256": "28fa11cd4bcd9b1146575c9be4e7f6de1218f41645531e9c84757d1bc5b46efe"
+    },
+    {
+      "path": "Grassmann/Dynamic/SignatureLaws.lean",
+      "sha256": "b703511129cde94e68d93ae4641c6868fcc6658afa016bc12695d7c946b83836"
+    },
+    {
+      "path": "Grassmann/Composite/Scalar.lean",
+      "sha256": "74a2f9277225dada63272873c5c6d93e5b4e1e13706af8165627a764d03e8608"
+    },
+    {
+      "path": "Grassmann/Dynamic/Composite.lean",
+      "sha256": "c428d3dce5eb07f09fb4337e1286fd15c7faff20a2d0fd5e41d9e05af19ea31f"
+    },
+    {
+      "path": "Grassmann/Dynamic/Project.lean",
+      "sha256": "0fb6b9215e0b7b3fc137aeef9a7cdcdf7140833b89a618c9bb7c18f719193e77"
+    },
+    {
+      "path": "Grassmann/Dynamic.lean",
+      "sha256": "62561bd455b72451a3c184f908e00e54b013b22a37572ee9bbf530385a1785b2"
+    },
+    {
+      "path": "Grassmann/Kernel/Codegen/Plans.lean",
+      "sha256": "643fdddb1ebf9fa2380049be7bd8459c4ba84c122f734df5cf9f8a06380a2f69"
+    },
+    {
+      "path": "Grassmann/Kernel/Codegen/Emit.lean",
+      "sha256": "ec4f4e36e1b36e926a359e95d9882a1774bb12a4f59eb1275577fdacb06a2c03"
+    },
+    {
+      "path": "Grassmann/Kernel/Codegen/Sandwich.lean",
+      "sha256": "bf20311e9dd498451b27d39d311f9a16890e2ae41ef03b3f133d7dddc7634222"
+    },
+    {
+      "path": "Grassmann/Kernel/Codegen.lean",
+      "sha256": "17d89c8124086e49ccb09d755f3d84fc9ecef0453948b81433265884e348e09b"
+    },
+    {
+      "path": "Grassmann/Kernel/Generated/R3.lean",
+      "sha256": "2af6415f7c9ff5d010d5c844bd94c085f1928a941fc7f486d23f07dea493a238"
+    },
+    {
+      "path": "Grassmann/Kernel/R3WedgeLaws.lean",
+      "sha256": "d2954d4a8865d98161d779d839c899c473c93b9600f5719cd41dacc390e40f78"
+    },
+    {
+      "path": "Grassmann/Kernel/R3TopWedgeLaws.lean",
+      "sha256": "3a23c0b9383e4b3a3132fb8ac683c50373d991c91f3fb68b0dbdba6c6d170f51"
+    },
+    {
+      "path": "Grassmann/Examples/OrientedVolume.lean",
+      "sha256": "4b3054eac1fee60561cf3756343a93f258d9f8da2306d1c8d46e823e82eceb40"
+    }
+  ]
+}

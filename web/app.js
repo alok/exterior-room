@@ -21,7 +21,7 @@ const rim=new THREE.PointLight(0x53dfc0,18,18);rim.position.set(-5,2,-2);scene.a
 const world=new THREE.Group();scene.add(world);
 const stage=new THREE.Group();world.add(stage);
 const floor=new THREE.GridHelper(32,64,0x284249,0x172830);floor.position.y=-.65;floor.material.transparent=true;floor.material.opacity=.5;world.add(floor);
-const ground=new THREE.Mesh(new THREE.PlaneGeometry(160,160),new THREE.MeshStandardMaterial({color:0x081218,roughness:1,metalness:0}));ground.rotation.x=-Math.PI/2;ground.position.y=-.66;world.add(ground);
+// A grid supplies orientation without hiding legal geometry below the origin.
 const origin=new THREE.Mesh(new THREE.SphereGeometry(.045,16,12),new THREE.MeshBasicMaterial({color:0xe9f2ed}));stage.add(origin);
 function line(points,color,opacity=1){const g=new THREE.BufferGeometry().setFromPoints(points);const m=new THREE.LineBasicMaterial({color,transparent:opacity<1,opacity});return new THREE.Line(g,m);}
 for(let i=0;i<3;i++){const end=new THREE.Vector3();end.setComponent(i,4.5);stage.add(line([new THREE.Vector3(),end],0x597572,.3));const neg=end.clone().multiplyScalar(-.35);stage.add(line([neg,new THREE.Vector3()],0x597572,.14));}
@@ -37,20 +37,22 @@ for(const name of ['a','b','c']){
   const s=label(name,'#'+colors[name].toString(16),.35);stage.add(s);labels[name]=s;
 }
 const volumeMaterial=new THREE.MeshPhysicalMaterial({color:0x7695a3,transparent:true,opacity:.13,side:THREE.DoubleSide,depthWrite:false,roughness:.25,metalness:.05});
-const volumeGeometry=new THREE.BufferGeometry();const volumeMesh=new THREE.Mesh(volumeGeometry,volumeMaterial);volumeMesh.renderOrder=1;stage.add(volumeMesh);
+const volumeGeometry=new THREE.BufferGeometry();volumeGeometry.setAttribute('position',new THREE.Float32BufferAttribute(new Float32Array(108),3));const volumeMesh=new THREE.Mesh(volumeGeometry,volumeMaterial);volumeMesh.renderOrder=1;stage.add(volumeMesh);
 const areaGeometry=new THREE.BufferGeometry();const areaMesh=new THREE.Mesh(areaGeometry,new THREE.MeshPhysicalMaterial({color:0x69d9c3,transparent:true,opacity:.24,side:THREE.DoubleSide,depthWrite:false,roughness:.4}));areaMesh.renderOrder=2;stage.add(areaMesh);
 const wire=new THREE.LineSegments(new THREE.BufferGeometry(),new THREE.LineBasicMaterial({color:0xb0d9d0,transparent:true,opacity:.48}));stage.add(wire);
 const areaWire=new THREE.LineLoop(new THREE.BufferGeometry(),new THREE.LineBasicMaterial({color:0x6de8c6,transparent:true,opacity:.85}));stage.add(areaWire);
 // Vertex order is exported by Lean: [0,a,b,c,a+b,a+c,b+c,a+b+c].
 const faces=[[0,1,4,2],[0,3,5,1],[0,2,6,3],[3,6,7,5],[2,4,7,6],[1,5,7,4]];
 const edges=[[0,1],[0,2],[0,3],[1,4],[1,5],[2,4],[2,6],[3,5],[3,6],[4,7],[5,7],[6,7]];
-let vectors=clone(PRESETS.skew),selected='a',current=null,lastLatency=0,mode='overview',showVolume=true,savedView=null;
+let vectors=clone(PRESETS.skew),selected='a',current=null,lastLatency=0,mode='overview',showVolume=true,savedView=null,connectionState='pending';
+stage.visible=false;
 function updateGeometry(result){
   const vs=result.vertices.map(p=>new THREE.Vector3(...p.map(n=>n/result.scale)));
   const triangles=[];for(const [a,b,c,d]of faces)for(const i of[a,b,c,a,c,d])triangles.push(...vs[i].toArray());
-  volumeGeometry.setAttribute('position',new THREE.Float32BufferAttribute(triangles,3));volumeGeometry.computeVertexNormals();volumeGeometry.computeBoundingSphere();
+  volumeGeometry.attributes.position.array.set(triangles);volumeGeometry.attributes.position.needsUpdate=true;volumeGeometry.computeVertexNormals();volumeGeometry.computeBoundingSphere();
   areaGeometry.setFromPoints([vs[0],vs[1],vs[4],vs[0],vs[4],vs[2]]);areaGeometry.computeVertexNormals();areaGeometry.computeBoundingSphere();
   wire.geometry.setFromPoints(edges.flatMap(e=>e.map(i=>vs[i])));areaWire.geometry.setFromPoints([vs[0],vs[1],vs[4],vs[2]]);
+  wire.geometry.computeBoundingSphere();areaWire.geometry.computeBoundingSphere();stage.visible=true;
   for(const name of ['a','b','c']){
     const p=new THREE.Vector3(...result[name].map(n=>n/4)),length=p.length(),dir=p.clone().normalize();handles[name].position.copy(p);labels[name].position.copy(p).add(new THREE.Vector3(.13,.23,0));
     const {shaft,tip}=arrows[name];shaft.position.copy(p).multiplyScalar(.5);shaft.scale.y=length;shaft.quaternion.setFromUnitVectors(unitY,dir.lengthSq()?dir:unitY);tip.position.copy(p).addScaledVector(dir,-.12);tip.quaternion.copy(shaft.quaternion);shaft.visible=tip.visible=length>.05;
@@ -67,7 +69,7 @@ function updateGeometry(result){
 const queue=new LeanQueue({
   transport:async request=>{const r=await fetch('/api/evaluate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(request),signal:AbortSignal.timeout(6000)});const data=await r.json();if(!r.ok||!data.ok)throw Error(data.error||`Bridge returned ${r.status}`);return data;},
   onResult:(result,ms)=>{current=result;lastLatency=ms;updateGeometry(result);},
-  onStatus:(status,error)=>{document.body.classList.toggle('pending',status!=='live');$('connection').dataset.state=status;$('connection-text').textContent=status==='live'?`Lean live · ${lastLatency.toFixed(0)} ms`:status==='pending'?'Lean computing · last result shown':'Lean unavailable · result stale';$('error').hidden=status!=='error';if(error)$('error').textContent=`${error} Start the local Lean bridge, then move a vector to retry. Displayed geometry is the last accepted result.`;}
+  onStatus:(status,error)=>{connectionState=status;document.body.classList.toggle('pending',status!=='live');$('connection').dataset.state=status;$('connection-text').textContent=status==='live'?`Lean live · ${lastLatency.toFixed(0)} ms`:status==='pending'?'Lean computing · last result shown':'Lean unavailable · result stale';$('error').hidden=status!=='error';if(error)$('error').textContent=`${error} Start the local Lean bridge, then move a vector to retry. Displayed geometry is the last accepted result.`;drawXRReadout();}
 });
 function submit(){queue.submit(vectors);refreshCoordinates();document.querySelectorAll('[data-preset]').forEach(b=>b.classList.toggle('active',JSON.stringify(vectors)===JSON.stringify(PRESETS[b.dataset.preset])));}
 function select(name){selected=name;document.querySelectorAll('[data-vector]').forEach(b=>{b.classList.toggle('selected',b.dataset.vector===name);b.setAttribute('aria-pressed',b.dataset.vector===name);});for(const k of Object.keys(handles))handles[k].scale.setScalar(k===name?1.25:1);refreshCoordinates();}
@@ -84,7 +86,7 @@ function setView(view){
   world.position.set(0,0,0);world.scale.setScalar(1);
   if(renderer.xr.isPresenting){world.scale.setScalar(mode==='inside'?1.8:.65);world.position.set(mode==='inside'?-1:0,mode==='inside'?.1:.8,mode==='inside'?-1:-2);return;}
   controls.enabled=true;
-  if(mode==='overview'){const mobile=innerWidth<761;camera.position.set(mobile?8:6.9,mobile?5.2:4.8,mobile?9:8);controls.target.set(mobile?-.7:-.6,mobile?.25:1,0);controls.minDistance=2;}
+  if(mode==='overview'){const mobile=innerWidth<761;camera.position.set(mobile?6.4:4.8,mobile?4.2:3.5,mobile?7:5.4);controls.target.set(mobile?-1.1:-1.05,mobile?.1:.85,0);controls.minDistance=2;}
   else {camera.position.set(.8,.85,1.1);controls.target.set(1.8,1.05,.5);controls.minDistance=.15;}
   controls.update();
 }
@@ -109,25 +111,36 @@ renderer.domElement.addEventListener('pointermove',event=>{
 function endDrag(event){if(drag?.id===event.pointerId){drag=null;controls.enabled=true;renderer.domElement.style.cursor='default';}}
 renderer.domElement.addEventListener('pointerup',endDrag);renderer.domElement.addEventListener('pointercancel',endDrag);renderer.domElement.addEventListener('lostpointercapture',endDrag);
 
-const xrControllers=[];let xrSession=null;
+const xrControllers=[];let xrSession=null,xrStarting=false,savedMode='overview';
 for(let i=0;i<2;i++){
   const controller=renderer.xr.getController(i);scene.add(controller);xrControllers.push(controller);
   const laser=line([new THREE.Vector3(),new THREE.Vector3(0,0,-5)],0x96ccc4,.6);controller.add(laser);
-  controller.addEventListener('selectstart',()=>{controllerRay(controller,raycaster);const found=visibleIntersections(raycaster,Object.values(handles))[0];if(found){select(found.object.userData.vector);controller.userData.drag={name:selected,distance:found.distance};}});
+  controller.addEventListener('selectstart',()=>{controllerRay(controller,raycaster);const found=visibleIntersections(raycaster,[...Object.values(handles),...xrButtons])[0];if(!found)return;if(found.object.userData.action){found.object.userData.action();return;}select(found.object.userData.vector);controller.userData.drag={name:selected,distance:found.distance,offset:found.object.getWorldPosition(new THREE.Vector3()).sub(found.point)};});
   controller.addEventListener('selectend',()=>{delete controller.userData.drag;});
 }
 // In-world controls make the important actions usable without DOM overlays.
 const xrPanel=new THREE.Group();scene.add(xrPanel);xrPanel.visible=false;const xrButtons=[];
-function xrButton(text,x,action){const canvas=document.createElement('canvas');canvas.width=512;canvas.height=128;const ctx=canvas.getContext('2d');ctx.fillStyle='#14282e';ctx.fillRect(0,0,512,128);ctx.strokeStyle='#466b6b';ctx.lineWidth=4;ctx.strokeRect(2,2,508,124);ctx.fillStyle='#d9eee7';ctx.font='36px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(text,256,64);const mesh=new THREE.Mesh(new THREE.PlaneGeometry(.46,.115),new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(canvas),side:THREE.DoubleSide}));mesh.position.x=x;mesh.userData.action=action;xrPanel.add(mesh);xrButtons.push(mesh);}
-xrButton('Swap a ↔ b',-.5,()=>$('swap').click());xrButton('Overview / inside',0,()=>setView(mode==='inside'?'overview':'inside'));xrButton('Exit VR',.5,()=>xrSession?.end());
-for(const controller of xrControllers)controller.addEventListener('selectstart',()=>{if(controller.userData.drag)return;controllerRay(controller,raycaster);const b=visibleIntersections(raycaster,xrButtons)[0]?.object;b?.userData.action();});
+function xrButton(text,x,y,action){const canvas=document.createElement('canvas');canvas.width=512;canvas.height=128;const ctx=canvas.getContext('2d');ctx.fillStyle='#14282e';ctx.fillRect(0,0,512,128);ctx.strokeStyle='#466b6b';ctx.lineWidth=4;ctx.strokeRect(2,2,508,124);ctx.fillStyle='#d9eee7';ctx.font='36px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(text,256,64);const mesh=new THREE.Mesh(new THREE.PlaneGeometry(.46,.115),new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(canvas),side:THREE.DoubleSide}));mesh.position.set(x,y,0);mesh.userData.action=action;xrPanel.add(mesh);xrButtons.push(mesh);}
+xrButton('Swap a ↔ b',-.5,0,()=>$('swap').click());xrButton('Flatten',0,0,()=>$('flatten').click());xrButton('Volume on / off',.5,0,()=>$('volume-toggle').click());
+xrButton('Reset',-.5,-.15,()=>$('reset').click());xrButton('Overview / inside',0,-.15,()=>setView(mode==='inside'?'overview':'inside'));xrButton('Exit VR',.5,-.15,()=>xrSession?.end());
+const xrReadout=document.createElement('canvas');xrReadout.width=1536;xrReadout.height=384;
+const xrReadoutTexture=new THREE.CanvasTexture(xrReadout);
+const xrReceipt=new THREE.Mesh(new THREE.PlaneGeometry(1.46,.365),new THREE.MeshBasicMaterial({map:xrReadoutTexture,side:THREE.DoubleSide}));xrReceipt.position.y=.27;xrPanel.add(xrReceipt);
+function drawXRReadout(){const ctx=xrReadout.getContext('2d');ctx.fillStyle='#101f28';ctx.fillRect(0,0,1536,384);ctx.fillStyle=connectionState==='live'?'#6de8c6':'#ffb399';ctx.font='30px sans-serif';ctx.fillText($('connection-text').textContent,42,54);ctx.fillStyle='#e9efec';ctx.font='42px Georgia';ctx.fillText(current?`a ∧ b = (${$('wedge').textContent.slice(1,-1)})   ·   a ∧ b ∧ c = ${$('volume').textContent}`:'Waiting for exact Lean geometry',42,127);ctx.fillStyle='#b5cbc5';ctx.font='27px sans-serif';ctx.fillText('Exact integer algebra on the Mac · floating-point picture',42,188);ctx.fillText('Kernel laws: self-wedge = 0; swapping a, b reverses volume.',42,235);ctx.fillText('Grab a colored tip. Buttons use the same Lean path.',42,287);ctx.fillText(connectionState==='live'?'Live calculation ≠ a new kernel proof.':'Previous result only · reconnect the local Lean bridge.',42,339);xrReadoutTexture.needsUpdate=true;}
 const available=await xrAvailability(navigator.xr,isSecureContext);$('xr-note').textContent=available.message;$('xr-button').disabled=!available.supported;$('xr-button').title=available.message;
-$('xr-button').onclick=async()=>{try{xrSession=await navigator.xr.requestSession('immersive-vr',{optionalFeatures:['local-floor','hand-tracking']});savedView=captureView(camera,controls);controls.enabled=false;await renderer.xr.setSession(xrSession);document.body.classList.add('xr');xrPanel.visible=true;xrPanel.position.set(0,1,-1.5);setView('overview');xrSession.addEventListener('end',()=>{xrSession=null;document.body.classList.remove('xr');xrPanel.visible=false;world.position.set(0,0,0);world.scale.setScalar(1);for(const c of xrControllers)delete c.userData.drag;controls.enabled=true;if(savedView)restoreView(savedView,camera,controls);});}catch(error){$('error').hidden=false;$('error').textContent=`Could not enter VR: ${error.message}`;}};
+function restoreDesktop(){xrSession=null;xrStarting=false;document.body.classList.remove('xr');xrPanel.visible=false;for(const c of xrControllers)delete c.userData.drag;setView(savedMode);world.position.set(0,0,0);world.scale.setScalar(1);controls.enabled=true;if(savedView)restoreView(savedView,camera,controls);$('xr-button').disabled=!available.supported;}
+renderer.xr.addEventListener('sessionend',restoreDesktop);
+$('xr-button').onclick=async()=>{
+  if(xrStarting||xrSession)return;xrStarting=true;$('xr-button').disabled=true;savedView=captureView(camera,controls);savedMode=mode;let requested;
+  try{requested=await navigator.xr.requestSession('immersive-vr',{optionalFeatures:['local-floor','hand-tracking']});xrSession=requested;controls.enabled=false;await renderer.xr.setSession(requested);document.body.classList.add('xr');xrPanel.visible=true;xrPanel.position.set(0,1,-1.8);setView('overview');drawXRReadout();}
+  catch(error){try{await requested?.end();}catch{}restoreDesktop();$('error').hidden=false;$('error').textContent=`Could not enter VR: ${error.message}`;}
+  finally{xrStarting=false;}
+};
 
 let lastXRSubmit=0;
 renderer.setAnimationLoop(time=>{
   if(!renderer.xr.isPresenting)controls.update();
-  else for(const controller of xrControllers){const d=controller.userData.drag;if(!d)continue;controllerRay(controller,raycaster);const p=stage.worldToLocal(raycaster.ray.at(d.distance,new THREE.Vector3()));const next=p.toArray().map(n=>snap(n*4));if(time-lastXRSubmit>65&&next.some((n,i)=>n!==vectors[d.name][i])){vectors[d.name]=next;submit();lastXRSubmit=time;}}
+  else for(const controller of xrControllers){const d=controller.userData.drag;if(!d)continue;controllerRay(controller,raycaster);const p=stage.worldToLocal(raycaster.ray.at(d.distance,new THREE.Vector3()).add(d.offset));const next=p.toArray().map(n=>snap(n*4));if(time-lastXRSubmit>65&&next.some((n,i)=>n!==vectors[d.name][i])){vectors[d.name]=next;submit();lastXRSubmit=time;}}
   renderer.render(scene,camera);
 });
 window.addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);});

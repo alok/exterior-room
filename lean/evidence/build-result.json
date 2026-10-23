@@ -1,0 +1,16 @@
+{
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "command": "python3 lean/build.py",
+  "build": "passed",
+  "warnings": 0,
+  "newTheorems": 9,
+  "auditedDeclarations": 11,
+  "allowedAxioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "executableSha256": "934ff0b8305cd0d76d79bfd06bbca594bf6feb35d72fe0d7a8acaa665906cc68",
+  "executableBytes": 103583696,
+  "sourceCommit": "87e12dcfac41a0703bd0192f5e5a9b5e4c82d610"
+}

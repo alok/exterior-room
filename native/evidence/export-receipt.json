@@ -1,0 +1,10 @@
+{
+  "generator": "lean/.lake/build/bin/wedge_service",
+  "sha256": "934ff0b8305cd0d76d79bfd06bbca594bf6feb35d72fe0d7a8acaa665906cc68",
+  "presets": [
+    "skew",
+    "unit",
+    "plane"
+  ],
+  "outputSha256": "1e7ebfeb14208413084477f77bf1e4f1c400acc85a60669bc85bc8f3ab944974"
+}

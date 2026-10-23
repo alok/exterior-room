@@ -1,0 +1,3 @@
+PASS: native app decoder accepted 3 Lean-generated presets
+PASS: URLSession live bridge round trips match all Lean exports
+PASS: actual native model → Lean unit/swap/flatten/reset/coordinate sequence
