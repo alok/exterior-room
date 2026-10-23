@@ -184,6 +184,11 @@ struct ExteriorSpace: View {
       handle.components.set(InputTargetComponent())
       handle.components.set(CollisionComponent(shapes: [.generateSphere(radius: 0.10)]))
       handle.components.set(HoverEffectComponent())
+      var accessibility = AccessibilityComponent()
+      accessibility.isAccessibilityElement = true
+      accessibility.label = "Vector \(["a", "b", "c"][i]) endpoint"
+      accessibility.value = "Quarter-grid coordinates \(result.vectors[i][0]), \(result.vectors[i][1]), \(result.vectors[i][2])"
+      handle.components.set(accessibility)
       geometry.addChild(handle)
       let text = ModelEntity(mesh: .generateText(["a", "b", "c"][i], extrusionDepth: 0.002,
         font: .systemFont(ofSize: 0.11)), materials: [UnlitMaterial(color: colors[i])])

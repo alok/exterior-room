@@ -1,0 +1,62 @@
+[
+  {
+    "action": "screenshot",
+    "createdAt": 1792743442.8435621,
+    "id": "7779DD38-53F2-48D2-BCD8-431C4FE74010",
+    "name": "polar-snap-01-declared-counterexample",
+    "file": "001-polar-snap-01-declared-counterexample.png",
+    "startedAt": 1792743442.857461,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "d77891d785439764707bbb9509026bc6d2ac00881c09acaa218e00917467da96",
+    "finishedAt": 1792743453.0528781
+  },
+  {
+    "name": "polar-snap-02-t4-absorbed",
+    "id": "B32E5300-9228-40A4-B140-0A3EAC248163",
+    "createdAt": 1792743455.694302,
+    "action": "screenshot",
+    "file": "002-polar-snap-02-t4-absorbed.png",
+    "startedAt": 1792743455.701314,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "976e3288aa6a6fbf1cc994d4eda87d80d09ee700816db83d95f611d40fa5b940",
+    "finishedAt": 1792743465.930392
+  },
+  {
+    "name": "polar-snap-03-canonical-source-t4",
+    "id": "F231F976-4284-4B0A-BA1B-FDE50C115213",
+    "createdAt": 1792743474.441257,
+    "action": "screenshot",
+    "file": "003-polar-snap-03-canonical-source-t4.png",
+    "startedAt": 1792743474.470199,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "17eda98e031d47686ead37f87dd011776cda0fbad7328b0059eba2ab9fa3635e",
+    "finishedAt": 1792743484.689095
+  },
+  {
+    "name": "polar-snap-04-canonical-source-t",
+    "id": "BA506809-7B04-4E9E-A7FB-30C9D216467E",
+    "createdAt": 1792743490.60882,
+    "action": "screenshot",
+    "file": "004-polar-snap-04-canonical-source-t.png",
+    "startedAt": 1792743490.63798,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "350584dc69fba00dae446e3b7d0fd0f55c200a3fb98bbd2681a81d1236be5c72",
+    "finishedAt": 1792743500.828678
+  },
+  {
+    "name": "polar-snap-05-reset",
+    "id": "6DB10D77-A8F4-4E36-AE13-8A5E892F278A",
+    "createdAt": 1792743505.300743,
+    "action": "screenshot",
+    "file": "005-polar-snap-05-reset.png",
+    "startedAt": 1792743505.323118,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "4cb3c7e359897fb2ed3b284b5926b9e9a4979f171b8ef9267beaa25c8dfd9d15",
+    "finishedAt": 1792743515.61117
+  }
+]

@@ -1,0 +1,308 @@
+{
+  "sourceCommit": "6fea557bb0d0c786bed5223dc631cb1c06e94f16",
+  "sourcePath": "Farey/WebXR/mobius.js",
+  "sourceSha256": "1fea68ba211f24914ffd653614c990a239e0b98624193700818ebb48d93cd965",
+  "scope": "Regression values executed from the pinned canonical browser module. Snap is renderer-only approximation, not Lean computation or a kernel theorem.",
+  "cases": [
+    {
+      "name": "identity",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "expected": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "negative-identity",
+      "matrix": [
+        -1,
+        0,
+        0,
+        -1
+      ],
+      "expected": [
+        -1,
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "name": "T",
+      "matrix": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "expected": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "negative-T",
+      "matrix": [
+        -1,
+        -1,
+        0,
+        -1
+      ],
+      "expected": [
+        -1,
+        -1,
+        0,
+        -1
+      ]
+    },
+    {
+      "name": "S",
+      "matrix": [
+        0,
+        -1,
+        1,
+        0
+      ],
+      "expected": [
+        0,
+        -1,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "negative-S",
+      "matrix": [
+        0,
+        1,
+        -1,
+        0
+      ],
+      "expected": [
+        0,
+        1,
+        -1,
+        0
+      ]
+    },
+    {
+      "name": "T-inverse",
+      "matrix": [
+        1,
+        -1,
+        0,
+        1
+      ],
+      "expected": [
+        1,
+        -1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "negative-T-inverse",
+      "matrix": [
+        -1,
+        1,
+        0,
+        -1
+      ],
+      "expected": [
+        -1,
+        1,
+        0,
+        -1
+      ]
+    },
+    {
+      "name": "TS",
+      "matrix": [
+        1,
+        -1,
+        1,
+        0
+      ],
+      "expected": [
+        1,
+        -1,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "negative-TS",
+      "matrix": [
+        -1,
+        1,
+        -1,
+        0
+      ],
+      "expected": [
+        -1,
+        1,
+        -1,
+        0
+      ]
+    },
+    {
+      "name": "TTS",
+      "matrix": [
+        2,
+        -1,
+        1,
+        0
+      ],
+      "expected": [
+        2,
+        -1,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "negative-TTS",
+      "matrix": [
+        -2,
+        1,
+        -1,
+        0
+      ],
+      "expected": [
+        -2,
+        1,
+        -1,
+        0
+      ]
+    },
+    {
+      "name": "near-identity",
+      "matrix": [
+        1.028232933013232,
+        0.047548343723155244,
+        0.047548343723155244,
+        0.9747410463246825
+      ],
+      "expected": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "near-T",
+      "matrix": [
+        1.0496464460006782,
+        1.0723415042925848,
+        0.02269505829190655,
+        0.9758875065519818
+      ],
+      "expected": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "rational-drag-checkpoint",
+      "matrix": [
+        1.3416407864998738,
+        0.4472135954999579,
+        0.4472135954999579,
+        0.8944271909999159
+      ],
+      "expected": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "negative-half-translation",
+      "matrix": [
+        1,
+        -0.5,
+        0,
+        1
+      ],
+      "expected": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "positive-half-translation",
+      "matrix": [
+        1,
+        0.5,
+        0,
+        1
+      ],
+      "expected": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "negative-one-and-half-translation",
+      "matrix": [
+        1,
+        -1.5,
+        0,
+        1
+      ],
+      "expected": [
+        1,
+        -1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "vertical-drag",
+      "matrix": [
+        2,
+        0,
+        0,
+        0.5
+      ],
+      "expected": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "negative-near-T",
+      "matrix": [
+        -1.0496464460006782,
+        -1.0723415042925848,
+        -0.02269505829190655,
+        -0.9758875065519818
+      ],
+      "expected": [
+        -1,
+        -1,
+        0,
+        -1
+      ]
+    }
+  ]
+}

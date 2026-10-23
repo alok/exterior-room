@@ -1,0 +1,161 @@
+Command line invocation:
+    /Applications/Xcode-27.2.0-Beta.2.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/.build/Build/Products/PolynomialRoom-capture.xctestrun -destination "platform=visionOS Simulator,id=1D261881-0A0F-4DE0-B704-12644E606348" -parallel-testing-enabled NO -jobs 2 -collect-test-diagnostics never -resultBundlePath /Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/evidence/NativeUI-20261023T061442Z.xcresult "-only-testing:PolynomialRoomUITests/PolynomialRoomUITests/testSnapSourceFixtureAndIdentity"
+
+Writing result bundle at path:
+	/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/evidence/NativeUI-20261023T061442Z.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:visionOS Simulator, arch:arm64, id:1D261881-0A0F-4DE0-B704-12644E606348, OS:27.2, name:Exterior Room QA 2026-10-23 }
+{ platform:visionOS Simulator, arch:arm64, variant:Designed for [iPad,iPhone], id:1D261881-0A0F-4DE0-B704-12644E606348, OS:27.2, name:Exterior Room QA 2026-10-23 }
+2026-10-22 23:14:46.579057-0700 PolynomialRoomUITests-Runner[82069:9361000] [Default] Running tests...
+2026-10-22 23:14:46.584887-0700 PolynomialRoomUITests-Runner[82069:9361000] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-22 23:14:46.629803-0700 PolynomialRoomUITests-Runner[82069:9361844] [assertions] failed to observe with mask <BLSXPCBacklightProxyObserverMask: 0x105349970; didUpdateToState: YES; eventsArray: YES> error:<XPC error received on message reply handler (3:BSServiceConnectionErrorDomain) "The operation couldn’t be completed. XPC error received on message reply handler">
+2026-10-22 23:14:46.644269-0700 PolynomialRoomUITests-Runner[82069:9361840] [connection] nw_socket_copy_info [C1:2] getsockopt TCP_INFO failed [102: Operation not supported on socket]
+2026-10-22 23:14:46.645851-0700 PolynomialRoomUITests-Runner[82069:9361840] [] nw_socket_copy_info getsockopt TCP_INFO failed [102: Operation not supported on socket]
+2026-10-22 23:14:46.646080-0700 PolynomialRoomUITests-Runner[82069:9361838] [plugin] AddInstanceForFactory: No factory registered for id <CFUUID 0x108571220> F8BB1C28-BAE8-11D6-9C31-00039315CD46
+objc[82069]: Class AXMRUIAccessibilityAssertionService is implemented in both /private/var/run/com.apple.security.cryptexd/mnt/com.apple.XROS.SimulatorRuntime-v24.14.5093.6.tLntQt/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/PrivateFrameworks/AccessibilityUIUtilities.framework/AccessibilityUIUtilities (0x1f00b6278) and /private/var/run/com.apple.security.cryptexd/mnt/com.apple.XROS.SimulatorRuntime-v24.14.5093.6.tLntQt/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/PrivateFrameworks/MuseAccessibilityUI.framework/MuseAccessibilityUI (0x1088c8118). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+2026-10-22 23:14:46.953753-0700 PolynomialRoomUITests-Runner[82069:9361000] [AXCommon] Failed to load auxiliary bundle file:///private/var/run/com.apple.security.cryptexd/mnt/com.apple.XROS.SimulatorRuntime-v24.14.5093.6.tLntQt/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS%2027.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/MuseUIKit: (null)
+    t =      nans Interface orientation changed to Unknown
+Test Suite 'Selected tests' started at 2026-10-22 23:14:47.001.
+Test Suite 'PolynomialRoomUITests.xctest' started at 2026-10-22 23:14:47.001.
+Test Suite 'PolynomialRoomUITests' started at 2026-10-22 23:14:47.001.
+Test Case '-[PolynomialRoomUITests.PolynomialRoomUITests testSnapSourceFixtureAndIdentity]' started.
+    t =     0.00s Start Test at 2026-10-22 23:14:47.004
+    t =     0.02s Set Up
+    t =     0.02s Open com.alok.PolynomialRoom
+    t =     0.02s     Launch com.alok.PolynomialRoom
+2026-10-22 23:14:47.081 xcodebuild[82030:9360600] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-10-22 23:14:47.081 xcodebuild[82030:9360600] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     6.98s         Setting up automation session
+    t =     7.01s         Wait for com.alok.PolynomialRoom to idle
+    t =     8.02s Waiting 20.0s for "poly-connect" Button to exist
+    t =     9.10s     Checking `Expect predicate `existsNoRetry == 1` for object "poly-connect" Button`
+    t =     9.10s         Checking existence of `"poly-connect" Button`
+    t =     9.22s Tap "poly-connect" Button
+    t =     9.22s     Wait for com.alok.PolynomialRoom to idle
+    t =     9.22s     Find the "poly-connect" Button
+    t =     9.25s     Check for interrupting elements affecting "poly-connect" Button
+    t =     9.26s         Wait for com.apple.SurfBoard to idle
+    t =     9.34s     Synthesize event
+    t =     9.79s     Wait for com.alok.PolynomialRoom to idle
+    t =    10.81s Checking `Expect predicate `label BEGINSWITH "Live Lean"` for object "poly-status" StaticText`
+    t =    10.81s     Find the "poly-status" StaticText
+    t =    10.85s Tap "poly-space" Button
+    t =    10.85s     Wait for com.alok.PolynomialRoom to idle
+    t =    10.85s     Find the "poly-space" Button
+    t =    10.88s     Check for interrupting elements affecting "poly-space" Button
+    t =    10.99s         Wait for com.apple.SurfBoard to idle
+    t =    11.06s     Synthesize event
+    t =    11.54s     Wait for com.alok.PolynomialRoom to idle
+    t =    13.54s Checking `Expect predicate `label == "Leave"` for object "poly-space" Button`
+    t =    13.54s     Find the "poly-space" Button
+    t =    13.73s Tap "poly-action-mode" Button
+    t =    13.73s     Wait for com.alok.PolynomialRoom to idle
+    t =    13.73s     Find the "poly-action-mode" Button
+    t =    13.84s     Check for interrupting elements affecting "poly-action-mode" Button
+    t =    13.84s         Wait for com.apple.SurfBoard to idle
+    t =    13.91s     Synthesize event
+    t =    14.32s     Wait for com.alok.PolynomialRoom to idle
+    t =    14.54s Added attachment named 'polynomial-snap-start'
+    t =    14.54s Tap "poly-action-source" Button
+    t =    14.54s     Wait for com.alok.PolynomialRoom to idle
+    t =    14.55s     Find the "poly-action-source" Button
+    t =    14.65s     Check for interrupting elements affecting "poly-action-source" Button
+    t =    14.66s         Wait for com.apple.SurfBoard to idle
+    t =    14.74s     Synthesize event
+    t =    15.13s     Wait for com.alok.PolynomialRoom to idle
+    t =    16.37s Checking `Expect predicate `label BEGINSWITH "Live Lean"` for object "poly-status" StaticText`
+    t =    16.37s     Find the "poly-status" StaticText
+    t =    16.48s Find the "poly-state" StaticText
+    t =    16.56s Checking existence of `"poly-hidden" StaticText`
+    t =    16.65s Find the "poly-inhabit" Button
+    t =    23.74s Added attachment named 'snap-01-source-hidden'
+    t =    23.74s Added attachment named 'snap-01-source-hidden-timing'
+    t =    23.75s Tap "poly-action-t" Button
+    t =    23.75s     Wait for com.alok.PolynomialRoom to idle
+    t =    23.75s     Find the "poly-action-t" Button
+    t =    23.87s     Check for interrupting elements affecting "poly-action-t" Button
+    t =    23.87s         Wait for com.apple.SurfBoard to idle
+    t =    23.94s     Synthesize event
+    t =    24.34s     Wait for com.alok.PolynomialRoom to idle
+    t =    25.57s Checking `Expect predicate `label == "(13, -6, 27) · Δ = -1368"` for object "poly-state" StaticText`
+    t =    25.57s     Find the "poly-state" StaticText
+    t =    25.68s Find the "poly-action-matrix" StaticText
+    t =    25.76s Find the "poly-action-image" StaticText
+    t =    25.85s Checking existence of `"poly-hidden" StaticText`
+    t =    26.51s Added attachment named 'snap-02-t-absorbed'
+    t =    26.51s Added attachment named 'snap-02-t-absorbed-timing'
+    t =    26.51s Tap "poly-action-identity" Button
+    t =    26.51s     Wait for com.alok.PolynomialRoom to idle
+    t =    26.51s     Find the "poly-action-identity" Button
+    t =    26.63s     Check for interrupting elements affecting "poly-action-identity" Button
+    t =    26.64s         Wait for com.apple.SurfBoard to idle
+    t =    26.71s     Synthesize event
+    t =    27.10s     Wait for com.alok.PolynomialRoom to idle
+    t =    28.34s Checking `Expect predicate `label BEGINSWITH "Live Lean"` for object "poly-status" StaticText`
+    t =    28.34s     Find the "poly-status" StaticText
+    t =    28.43s Find the "poly-state" StaticText
+    t =    30.27s Added attachment named 'snap-03-identity-retains'
+    t =    30.27s Added attachment named 'snap-03-identity-retains-timing'
+    t =    30.27s Tap "poly-action-checkpoint" Button
+    t =    30.27s     Wait for com.alok.PolynomialRoom to idle
+    t =    30.27s     Find the "poly-action-checkpoint" Button
+    t =    30.38s     Check for interrupting elements affecting "poly-action-checkpoint" Button
+    t =    30.39s         Wait for com.apple.SurfBoard to idle
+    t =    30.46s     Synthesize event
+    t =    30.86s     Wait for com.alok.PolynomialRoom to idle
+    t =    32.19s Checking `Expect predicate `label BEGINSWITH "Live Lean"` for object "poly-status" StaticText`
+    t =    32.19s     Find the "poly-status" StaticText
+    t =    32.28s Find the "poly-action-matrix" StaticText
+    t =    33.93s Added attachment named 'snap-04-rational-checkpoint'
+    t =    33.93s Added attachment named 'snap-04-rational-checkpoint-timing'
+    t =    33.93s Tap "poly-action-snap" Button
+    t =    33.93s     Wait for com.alok.PolynomialRoom to idle
+    t =    33.94s     Find the "poly-action-snap" Button
+    t =    34.06s     Check for interrupting elements affecting "poly-action-snap" Button
+    t =    34.06s         Wait for com.apple.SurfBoard to idle
+    t =    34.13s     Synthesize event
+    t =    34.53s     Wait for com.alok.PolynomialRoom to idle
+    t =    35.82s Checking `Expect predicate `label BEGINSWITH "Live Lean"` for object "poly-status" StaticText`
+    t =    35.82s     Find the "poly-status" StaticText
+    t =    35.92s Find the "poly-action-matrix" StaticText
+    t =    37.01s Added attachment named 'snap-05-snap-absorbed'
+    t =    37.01s Added attachment named 'snap-05-snap-absorbed-timing'
+    t =    37.01s Tap "poly-reset" Button
+    t =    37.01s     Wait for com.alok.PolynomialRoom to idle
+    t =    37.02s     Find the "poly-reset" Button
+    t =    37.13s     Check for interrupting elements affecting "poly-reset" Button
+    t =    37.24s         Wait for com.apple.SurfBoard to idle
+    t =    37.31s     Synthesize event
+    t =    37.72s     Wait for com.alok.PolynomialRoom to idle
+    t =    38.97s Checking `Expect predicate `label BEGINSWITH "Live Lean"` for object "poly-status" StaticText`
+    t =    38.97s     Find the "poly-status" StaticText
+    t =    39.07s Find the "poly-polynomial" StaticText
+    t =    42.18s Added attachment named 'snap-06-reset'
+    t =    42.18s Added attachment named 'snap-06-reset-timing'
+    t =    42.58s Added attachment named 'polynomial-snap-stop'
+    t =    42.58s Tap "poly-space" Button
+    t =    42.58s     Wait for com.alok.PolynomialRoom to idle
+    t =    42.58s     Find the "poly-space" Button
+    t =    42.69s     Check for interrupting elements affecting "poly-space" Button
+    t =    42.70s         Wait for com.apple.SurfBoard to idle
+    t =    42.77s     Synthesize event
+    t =    43.15s     Wait for com.alok.PolynomialRoom to idle
+    t =    43.32s Tear Down
+Test Case '-[PolynomialRoomUITests.PolynomialRoomUITests testSnapSourceFixtureAndIdentity]' passed (43.968 seconds).
+Test Suite 'PolynomialRoomUITests' passed at 2026-10-22 23:15:30.972.
+	 Executed 1 test, with 0 failures (0 unexpected) in 43.968 (43.970) seconds
+Test Suite 'PolynomialRoomUITests.xctest' passed at 2026-10-22 23:15:30.972.
+	 Executed 1 test, with 0 failures (0 unexpected) in 43.968 (43.971) seconds
+Test Suite 'Selected tests' passed at 2026-10-22 23:15:30.972.
+	 Executed 1 test, with 0 failures (0 unexpected) in 43.968 (43.971) seconds
+2026-10-22 23:15:31.280 xcodebuild[82030:9360600] [MT] IDETestOperationsObserverDebug: 48.284 elapsed -- Testing started completed.
+2026-10-22 23:15:31.280 xcodebuild[82030:9360600] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-22 23:15:31.280 xcodebuild[82030:9360600] [MT] IDETestOperationsObserverDebug: 48.284 sec, +48.284 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/evidence/NativeUI-20261023T061442Z.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

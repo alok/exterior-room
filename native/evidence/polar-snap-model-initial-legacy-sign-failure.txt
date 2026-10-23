@@ -1,0 +1,162 @@
+Building for debugging...
+[1 / 10]
+[2 / 11] ExteriorRoomCore
+[4 / 14] ExteriorRoomCore
+[5 / 14] ExteriorRoomCore
+[10 / 16] ExteriorRoomCore
+[13 / 16] ExteriorRoomCoreTests-product
+[16 / 20] ExteriorRoomCoreTests-product
+[17 / 20] ExteriorRoomCoreTests-product
+[23 / 25] ExteriorRoomCoreTests-product
+Build complete! (3.42 sec)
+Test Suite 'All tests' started at 2026-10-23 01:00:49.183.
+Test Suite 'ExteriorRoomCoreTests.xctest' started at 2026-10-23 01:00:49.184.
+Test Suite 'LeanModelTests' started at 2026-10-23 01:00:49.184.
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testExactFractionPresentation]' started.
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testExactFractionPresentation]' passed (0.001 seconds).
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testFailureAndPreviewNeverRelabelAcceptedMacResponseAsExport]' started.
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testFailureAndPreviewNeverRelabelAcceptedMacResponseAsExport]' passed (0.007 seconds).
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testFailurePreservesPreviousExactResult]' started.
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testFailurePreservesPreviousExactResult]' passed (0.002 seconds).
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testGeneratedPresetsMatchBrowserAndLeanValues]' started.
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testGeneratedPresetsMatchBrowserAndLeanValues]' passed (0.000 seconds).
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testInvalidURLInvalidatesAlreadyPendingResponse]' started.
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testInvalidURLInvalidatesAlreadyPendingResponse]' passed (0.002 seconds).
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testOffCenterDragPreservesGrabOffsetAndSnapsOnlyProposedEndpoint]' started.
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testOffCenterDragPreservesGrabOffsetAndSnapsOnlyProposedEndpoint]' passed (0.000 seconds).
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testPresetAfterFailureRetriesBecauseLiveIntentPersists]' started.
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testPresetAfterFailureRetriesBecauseLiveIntentPersists]' passed (0.004 seconds).
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testPresetDuringPendingRequestKeepsLiveIntentAndRejectsOldReply]' started.
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testPresetDuringPendingRequestKeepsLiveIntentAndRejectsOldReply]' passed (0.005 seconds).
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testQuarterSnapMatchesBrowserAndCannotOverflow]' started.
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testQuarterSnapMatchesBrowserAndCannotOverflow]' passed (0.000 seconds).
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testRapidEditsAccumulateAndLateResponseCannotOverwrite]' started.
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testRapidEditsAccumulateAndLateResponseCannotOverwrite]' passed (0.004 seconds).
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testRejectsFalseOKAndWrongSequence]' started.
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testRejectsFalseOKAndWrongSequence]' passed (0.003 seconds).
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testRejectsInconsistentProofFlagsCoefficientsAndExportedGeometry]' started.
+Test Case '-[ExteriorRoomCoreTests.LeanModelTests testRejectsInconsistentProofFlagsCoefficientsAndExportedGeometry]' passed (0.001 seconds).
+Test Suite 'LeanModelTests' passed at 2026-10-23 01:00:49.217.
+	 Executed 12 tests, with 0 failures (0 unexpected) in 0.031 (0.033) seconds
+Test Suite 'PolynomialActionTests' started at 2026-10-23 01:00:49.217.
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testActionDecoderRejectsMalformedProvenanceNamedChecksBoundsAndMaps]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testActionDecoderRejectsMalformedProvenanceNamedChecksBoundsAndMaps]' passed (0.003 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testActualLeanActionsMatchEveryCanonicalSignedGeneratorFixture]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testActualLeanActionsMatchEveryCanonicalSignedGeneratorFixture]' passed (0.002 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testActualRationalDragCheckpointAndDisplayMappingKeepExactNumerators]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testActualRationalDragCheckpointAndDisplayMappingKeepExactNumerators]' passed (0.001 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testActualSimulatorSwipeReceiptPreservesDiscriminantsAndPairedPlaneIncidence]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testActualSimulatorSwipeReceiptPreservesDiscriminantsAndPairedPlaneIncidence]' passed (0.000 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testPolarSnapFixesRecordedSourceCounterexampleAndSignConvention]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testPolarSnapFixesRecordedSourceCounterexampleAndSignConvention]' passed (0.000 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testPreviewCancellationAndRevisionMismatchCannotProduceACommitValue]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testPreviewCancellationAndRevisionMismatchCannotProduceACommitValue]' passed (0.000 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testPreviewDragComposesOnTheLeftAndKleinChartRoundTrips]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testPreviewDragComposesOnTheLeftAndKleinChartRoundTrips]' passed (0.000 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testPreviewTransvectionMovesItsAnchorAndMatchesDocumentedCheckpoint]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testPreviewTransvectionMovesItsAnchorAndMatchesDocumentedCheckpoint]' passed (0.000 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testQuantizationProducesBoundedPositiveDeterminantRequestsAndRejectsDegeneracy]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testQuantizationProducesBoundedPositiveDeterminantRequestsAndRejectsDegeneracy]' passed (0.000 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testSnapMatchesPinnedCanonicalBrowserFixturesIncludingSignedMatricesAndRoundingTies]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testSnapMatchesPinnedCanonicalBrowserFixturesIncludingSignedMatricesAndRoundingTies]' passed (0.001 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testSnapRejectsNonfiniteDegenerateAndUnboundedRequestsWithoutIntegerOverflow]' started.
+/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/ModelTests/PolynomialActionTests.swift:247: error: -[ExteriorRoomCoreTests.PolynomialActionTests testSnapRejectsNonfiniteDegenerateAndUnboundedRequestsWithoutIntegerOverflow] : XCTAssertEqual failed: ("Optional([1, 999, 0, 1])") is not equal to ("Optional([-1, -999, 0, -1])")
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testSnapRejectsNonfiniteDegenerateAndUnboundedRequestsWithoutIntegerOverflow]' failed (0.217 seconds).
+Test Suite 'PolynomialActionTests' failed at 2026-10-23 01:00:49.443.
+	 Executed 11 tests, with 1 failure (0 unexpected) in 0.225 (0.227) seconds
+Test Suite 'PolynomialAppearanceTests' started at 2026-10-23 01:00:49.444.
+Test Case '-[ExteriorRoomCoreTests.PolynomialAppearanceTests testAcceptedRationalActionTransportsPlaneNormalAndFadeTogether]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialAppearanceTests testAcceptedRationalActionTransportsPlaneNormalAndFadeTogether]' passed (0.001 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialAppearanceTests testDistanceFadeRetainsSelectedAndLeanMembersAndDimsByDistance]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialAppearanceTests testDistanceFadeRetainsSelectedAndLeanMembersAndDimsByDistance]' passed (0.000 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialAppearanceTests testPlaneNormalTransportUsesCovectorSignsAndRejectsNonfiniteInput]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialAppearanceTests testPlaneNormalTransportUsesCovectorSignsAndRejectsNonfiniteInput]' passed (0.001 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialAppearanceTests testReferencePalettePreservesCategorySwatchesAndOptInLowerColoring]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialAppearanceTests testReferencePalettePreservesCategorySwatchesAndOptInLowerColoring]' passed (0.000 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialAppearanceTests testReferencePaletteReturnsTheSixPinnedAnchorsWithinConversionTolerance]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialAppearanceTests testReferencePaletteReturnsTheSixPinnedAnchorsWithinConversionTolerance]' passed (0.000 seconds).
+Test Suite 'PolynomialAppearanceTests' passed at 2026-10-23 01:00:49.447.
+	 Executed 5 tests, with 0 failures (0 unexpected) in 0.003 (0.004) seconds
+Test Suite 'PolynomialModelTests' started at 2026-10-23 01:00:49.447.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testActualLeanCloudMatchesCanonicalOrderAndSignedPopulation]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testActualLeanCloudMatchesCanonicalOrderAndSignedPopulation]' passed (0.005 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testActualLeanInspectionAndAppearanceMatchPinnedCanonicalCases]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testActualLeanInspectionAndAppearanceMatchPinnedCanonicalCases]' passed (0.002 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testActualPlaneLabelsAndMembersAreAcceptedWithoutSwiftPlaneRecomputation]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testActualPlaneLabelsAndMembersAreAcceptedWithoutSwiftPlaneRecomputation]' passed (0.001 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testBaselineIdentityAndInvalidActionInputDoNotRequestATransform]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testBaselineIdentityAndInvalidActionInputDoNotRequestATransform]' passed (0.004 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testBundledInitializationAndLivePairUseActualLeanMembership]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testBundledInitializationAndLivePairUseActualLeanMembership]' passed (0.004 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testCancelledPreviewAndPlacementChangeSendNoTransformAndRestoreAcceptedRows]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testCancelledPreviewAndPlacementChangeSendNoTransformAndRestoreAcceptedRows]' passed (0.004 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testCloudRejectsMalformedArraysCoordinatesPaginationAndKinds]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testCloudRejectsMalformedArraysCoordinatesPaginationAndKinds]' passed (0.014 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testCommittedPreviewWaitsForExactLeanReceiptBeforeChangingAcceptedRows]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testCommittedPreviewWaitsForExactLeanReceiptBeforeChangingAcceptedRows]' passed (0.005 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testEitherAbsorbedPairImageOutsideNativeBoundRejectsWithoutPartialRelabelling]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testEitherAbsorbedPairImageOutsideNativeBoundRejectsWithoutPartialRelabelling]' passed (0.010 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testEnablingSnapImmediatelyAbsorbsAcceptedPairWhileDisablingSendsNoRequest]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testEnablingSnapImmediatelyAbsorbsAcceptedPairWhileDisablingSendsNoRequest]' passed (0.009 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testEntryUsesAcceptedCloudAndRejectsHiddenNextMultipleWithoutChangingSelection]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testEntryUsesAcceptedCloudAndRejectsHiddenNextMultipleWithoutChangingSelection]' passed (0.006 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testFailedAbsorptionRebuildPreservesWholeAcceptedPairScene]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testFailedAbsorptionRebuildPreservesWholeAcceptedPairScene]' passed (0.008 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testFailureKeepsAcceptedSceneAndItsProvenance]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testFailureKeepsAcceptedSceneAndItsProvenance]' passed (0.004 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testGeneratorAbsorbsExactlyDivisibleNormalizedMatrixAndLeavesNonintegralActionsUnabsorbed]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testGeneratorAbsorbsExactlyDivisibleNormalizedMatrixAndLeavesNonintegralActionsUnabsorbed]' passed (0.011 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testInspectionRejectsMalformedPointCoordinatesAndExactDescriptors]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testInspectionRejectsMalformedPointCoordinatesAndExactDescriptors]' passed (0.002 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testIntegralAbsorptionCommitsBothSignedSelectionsPlaneMembersAndIdentityTogether]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testIntegralAbsorptionCommitsBothSignedSelectionsPlaneMembersAndIdentityTogether]' passed (0.009 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testIntegralImageOfOnePointDoesNotAuthorizeNonIntegralGroupAbsorption]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testIntegralImageOfOnePointDoesNotAuthorizeNonIntegralGroupAbsorption]' passed (0.005 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testInvalidBridgeInvalidatesAlreadyPendingResponse]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testInvalidBridgeInvalidatesAlreadyPendingResponse]' passed (0.005 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testLateAbsorptionCannotOverwriteARefreshOfTheSignedSelection]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testLateAbsorptionCannotOverwriteARefreshOfTheSignedSelection]' passed (0.008 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testLateActionCannotReplaceMoreRecentAcceptedTransform]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testLateActionCannotReplaceMoreRecentAcceptedTransform]' passed (0.008 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testLateInspectionCannotReplaceNewSelectionOrAcceptedScene]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testLateInspectionCannotReplaceNewSelectionOrAcceptedScene]' passed (0.007 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testMalformedActionReceiptCannotReplaceAcceptedTransform]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testMalformedActionReceiptCannotReplaceAcceptedTransform]' passed (0.029 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testNewSelectionRefreshesActionReceiptAtSameMatrixAndCancelsPreviewAtomically]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testNewSelectionRefreshesActionReceiptAtSameMatrixAndCancelsPreviewAtomically]' passed (0.006 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testNextDropsThePreviousPairAndPlaneMembers]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testNextDropsThePreviousPairAndPlaneMembers]' passed (0.004 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testNextFollowsCanonicalSequenceWrapsAndPreservesHiddenSelectionAndPlacement]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testNextFollowsCanonicalSequenceWrapsAndPreservesHiddenSelectionAndPlacement]' passed (0.007 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testNudgeRequiresOriginFiniteDiskInputAndIdleStateThenAcceptsAnExactLeanSample]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testNudgeRequiresOriginFiniteDiskInputAndIdleStateThenAcceptsAnExactLeanSample]' passed (0.005 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testPairResponseRequiresEveryIncidenceCheckAndPreservesAcceptedSceneWhenMissing]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testPairResponseRequiresEveryIncidenceCheckAndPreservesAcceptedSceneWhenMissing]' passed (0.010 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testPendingAndFailedActionKeepAcceptedGeometryReceiptAndRequestedMatrixRestores]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testPendingAndFailedActionKeepAcceptedGeometryReceiptAndRequestedMatrixRestores]' passed (0.005 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testPendingAndFailedPairKeepOnlyAcceptedPairVisible]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testPendingAndFailedPairKeepOnlyAcceptedPairVisible]' passed (0.006 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testPlaneRejectsInconsistentCoordinateMapFalseChecksAndBadEndpoints]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testPlaneRejectsInconsistentCoordinateMapFalseChecksAndBadEndpoints]' passed (0.002 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testResetRequestsIdentityAndKeepsAcceptedActionUntilReceiptWhilePreservingAppearancePreferences]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testResetRequestsIdentityAndKeepsAcceptedActionUntilReceiptWhilePreservingAppearancePreferences]' passed (0.006 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testResetRestoresCanonicalSceneAndPreservesPaletteSizeAndPlaneFade]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testResetRestoresCanonicalSceneAndPreservesPaletteSizeAndPlaneFade]' passed (0.004 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testSnapOnReleaseCancellationSendsNoRequestsAndCommitAbsorbsAcceptedPairAtomically]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testSnapOnReleaseCancellationSendsNoRequestsAndCommitAbsorbsAcceptedPairAtomically]' passed (0.007 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testSnapRelabelsHiddenSourceSeedAndIdentityKeepsTheRelabelledSelection]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testSnapRelabelsHiddenSourceSeedAndIdentityKeepsTheRelabelledSelection]' passed (0.007 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testTransportRejectsWrongSchemaRevisionSequenceFalseOKAndGeometry]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialModelTests testTransportRejectsWrongSchemaRevisionSequenceFalseOKAndGeometry]' passed (0.021 seconds).
+Test Suite 'PolynomialModelTests' passed at 2026-10-23 01:00:49.706.
+	 Executed 35 tests, with 0 failures (0 unexpected) in 0.253 (0.259) seconds
+Test Suite 'ExteriorRoomCoreTests.xctest' failed at 2026-10-23 01:00:49.706.
+	 Executed 63 tests, with 1 failure (0 unexpected) in 0.512 (0.522) seconds
+Test Suite 'All tests' failed at 2026-10-23 01:00:49.706.
+	 Executed 63 tests, with 1 failure (0 unexpected) in 0.512 (0.523) seconds
+◇ Test run started.
+↳ Testing Library Version: 2401
+↳ Target Platform: arm64e-apple-macos14.0
+✔ Test run with 0 tests in 0 suites passed after 0.001 seconds.
+Note: Some test targets reported failures:
+  - ExteriorRoomCoreTests (XCTest)

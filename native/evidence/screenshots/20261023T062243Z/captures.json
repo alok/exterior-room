@@ -1,0 +1,62 @@
+[
+  {
+    "id": "848B622C-F512-4E60-9806-3FAB126968C7",
+    "action": "screenshot",
+    "createdAt": 1792736582.776598,
+    "name": "directional-01-checkpoint-origin",
+    "file": "001-directional-01-checkpoint-origin.png",
+    "startedAt": 1792736582.809207,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "3422f4badd7dd07a6c2240c21b24eeb7247055828a32ce2b86c89ed0eceacfe3",
+    "finishedAt": 1792736593.003219
+  },
+  {
+    "createdAt": 1792736594.927851,
+    "action": "screenshot",
+    "id": "718E7D60-25BD-4D53-9D88-EE3C81D42C00",
+    "name": "directional-02-up-accepted",
+    "file": "002-directional-02-up-accepted.png",
+    "startedAt": 1792736594.931745,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "0f1ea70580b3706fb9d3eb96076a1d847e40aeb5787453c3901ee61f45b57e76",
+    "finishedAt": 1792736605.16115
+  },
+  {
+    "id": "69DA5C73-F436-44FA-B7C9-2D6F04552961",
+    "action": "screenshot",
+    "createdAt": 1792736607.175918,
+    "name": "directional-03-right-accepted",
+    "file": "003-directional-03-right-accepted.png",
+    "startedAt": 1792736607.2087,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "20288f46d250e5ed7b8e957f4404f24f6d84b10089676ecfdab91b986f576f7f",
+    "finishedAt": 1792736611.576546
+  },
+  {
+    "id": "7998E976-00E8-4A44-8FB8-7FE2F317E635",
+    "action": "screenshot",
+    "createdAt": 1792736615.467328,
+    "name": "directional-04-snap-identity",
+    "file": "004-directional-04-snap-identity.png",
+    "startedAt": 1792736615.4908018,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "4b78eaaeeef065bcfdc40446c2ddcce10d7e1dbffaa7abbb1498796b546aad8b",
+    "finishedAt": 1792736618.3537579
+  },
+  {
+    "createdAt": 1792736620.44856,
+    "action": "screenshot",
+    "id": "B3091711-C3C9-4498-AB68-ED6A7EF4A466",
+    "name": "directional-05-reset",
+    "file": "005-directional-05-reset.png",
+    "startedAt": 1792736620.573546,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "740d3f14824f35c1fc0a70602fe6d285c5a0d28ee1eb68a2802bf3886737c839",
+    "finishedAt": 1792736622.014316
+  }
+]

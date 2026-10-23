@@ -7,6 +7,7 @@ import XCTest
     let id: String
     let name: String
     let createdAt: TimeInterval
+    let action: String
   }
   private struct Response: Decodable {
     let exitCode: Int
@@ -23,7 +24,7 @@ import XCTest
     let id = UUID().uuidString
     let responseURL = directory.appending(path: id + ".json")
     let imageURL = directory.appending(path: id + ".png")
-    let request = Request(id: id, name: name, createdAt: Date().timeIntervalSince1970)
+    let request = Request(id: id, name: name, createdAt: Date().timeIntervalSince1970, action: "screenshot")
     try JSONEncoder().encode(request).write(to: directory.appending(path: "request.json"), options: .atomic)
     let deadline = Date().addingTimeInterval(30)
     while !FileManager.default.fileExists(atPath: responseURL.path) {
@@ -43,5 +44,26 @@ import XCTest
     timing.name = name + "-timing"
     timing.lifetime = .keepAlways
     test.add(timing)
+  }
+
+  static func video(_ name: String, start: Bool, in test: XCTestCase) throws {
+    guard ProcessInfo.processInfo.environment["EXTERIOR_CAPTURE_HANDSHAKE"] == "1" else { return }
+    let directory = FileManager.default.temporaryDirectory.appending(path: "exterior-capture")
+    try FileManager.default.createDirectory(at:directory,withIntermediateDirectories:true)
+    let id = UUID().uuidString
+    let responseURL = directory.appending(path:id + ".json")
+    let request = Request(id:id,name:name,createdAt:Date().timeIntervalSince1970,action:start ? "video-start" : "video-stop")
+    try JSONEncoder().encode(request).write(to:directory.appending(path:"request.json"),options:.atomic)
+    let deadline = Date().addingTimeInterval(45)
+    while !FileManager.default.fileExists(atPath:responseURL.path) {
+      guard Date() < deadline else { throw Failure.timeout }
+      Thread.sleep(forTimeInterval:0.05)
+    }
+    let data = try Data(contentsOf:responseURL)
+    let response = try JSONDecoder().decode(Response.self,from:data)
+    guard response.exitCode == 0 else { throw Failure.capture(response.error ?? "video capture failed") }
+    let attachment = XCTAttachment(data:data,uniformTypeIdentifier:"public.json")
+    attachment.name = name + (start ? "-start" : "-stop"); attachment.lifetime = .keepAlways
+    test.add(attachment)
   }
 }

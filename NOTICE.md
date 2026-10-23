@@ -30,10 +30,22 @@ adapts FareyVision's primitive placement and immersion lifecycle pattern;
 see `native/README.md`. New scene geometry, exact algebra wiring, interaction
 design, and proof presentation are Exterior Room work.
 
-Katherine Stange's Farey constructions and mathematical attribution belong to
-the reference Farey app. No Stange mathematics or implementation is copied
-into this exterior-algebra exhibit, and no new mathematics here is attributed
-to her. Hévéa meshes, gallery assets, and construction formulas are not used.
+The original exterior-algebra exhibit does not reuse Stange’s mathematics.
+Polynomial Room is a separate adaptation of the coefficient-space construction
+in Katherine Stange’s talk and Starscape / Lattice viewer, with research background
+from Edmund Harriss, Katherine E. Stange and Steve Trettel, *Algebraic Number
+Starscapes*. That attribution is preserved in the application. The new Lean
+implementation and proofs belong to this project and are not attributed to them.
+No source code or media from Stange’s deployed viewer is bundled.
+
+Polynomial Room’s browser renderer starts from FareyVision revision
+`ca809d2975a37a318a425e4b9dd73560b07faf39`. The manifest
+`web/polynomial/PROVENANCE.json` records copied source hashes and adaptations.
+The old JavaScript mathematical modules under `web/polynomial/reference/` are
+test oracles only; the production route obtains its cloud and exact descriptors
+from the native Lean executable. Viridis retains its CC0 license. The Möbius
+formula module is separately pinned to `63ad115422ab1141ca6d06732572385414b7a5cf`;
+it supplies floating-point interaction previews, not proof certificates.
 
 ## Renderer
 

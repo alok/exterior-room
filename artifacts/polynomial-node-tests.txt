@@ -1,0 +1,64 @@
+npm WARN logfile could not be created: Error: EPERM: operation not permitted, open '/Users/alokbeniwal/.npm/_logs/2026-10-23T05_34_53_963Z-debug-0.log'
+
+> exterior-room@0.1.0 test
+> node --test tests/*.test.mjs
+
+✔ lower out-of-crop inspection awaits and caches its positive representative (12.515375ms)
+✔ representative failure preserves signed inspection and a retry fills only missing data (1.373334ms)
+✔ inspection rejects malformed root, representative and primitive metadata before caching (2.167375ms)
+✔ non-interior inspections require null root, projection and representative (0.777083ms)
+✔ request coordinates are fixed before the caller mutates its array (0.765791ms)
+✔ cloud lookups accept canonical pages and reject unordered or duplicate points (0.763125ms)
+✔ cloud validation rejects classification, geometry and inspection-cache conflicts (0.953042ms)
+✔ an obsolete request failure cannot replace a newer accepted cloud or status (0.5905ms)
+✔ a superseded load paused at RAF does not send another stale page (2.36825ms)
+✔ wrong page identity or changing total cannot publish a partial cloud (0.880292ms)
+✔ members must match cloud identity, count and interior ordered indices (2.106667ms)
+✔ membership from a replaced cloud cannot become ready even for the same radius (1.685708ms)
+✔ a valid empty membership is distinct from membership not yet loaded (0.8445ms)
+✔ plane requires named checks, exact identity and typed endpoint descriptors (0.94875ms)
+✔ actual compiled Lean responses pass inspection, cloud and plane validation (191.397292ms)
+✔ packed projection preserves every signed interior image without coefficient lookup (1.441333ms)
+✔ packed colors and plane size factors match canonical semantic appearance (2.825333ms)
+✔ packed radius factors retain origin and nonprimitive semantics for both signs (0.499333ms)
+✔ point geometry sends accepted discriminants as exact float attributes (0.659792ms)
+✔ cone directions distinguish explicit infinity from missing endpoint data (0.520375ms)
+✔ plane tessellation preserves the canonical display plane and finite clipping (0.864917ms)
+✔ scalar adapters consume compiled Lean results and refuse unknown or unsupported exact data (149.342375ms)
+✔ display fractions preserve exact signs, zero, and reduction (1.313417ms)
+✔ display refuses invalid or inexact numeric representations (0.092417ms)
+✔ drag quantization stays on the bounded integer lattice (0.088625ms)
+✔ fixture presets clone independently (0.066209ms)
+✔ accepts a complete response matching the submitted edit (0.192583ms)
+✔ rejects stale IDs, unsuccessful responses and wrong physical scale (0.147417ms)
+✔ rejects responses whose echoed vectors differ from the request (0.263625ms)
+✔ rejects malformed and unsafe exact coefficients (0.218667ms)
+✔ rejects malformed volume and exported geometry (0.17025ms)
+✔ rejects missing or failed Lean checks and inconsistent transported values (0.73775ms)
+✔ rejects exact-looking coefficients and echoed inputs outside the lattice bounds (0.198417ms)
+✔ rejects bounded but wrong exported vertices as well as enormous safe integers (0.14075ms)
+✔ serializes execution, drops intermediate edits, and never renders an old answer (3.131333ms)
+✔ freezes request coordinates before the caller can mutate them (0.522916ms)
+✔ superseded transport errors cannot mark a newer edit as failed (0.312167ms)
+✔ latest transport failure leaves the last result intact and permits retry (0.502583ms)
+✔ invalid server payload cannot become a displayed result (0.31525ms)
+✔ failed checks preserve the last accepted mesh and a subsequent valid result recovers (0.412625ms)
+✔ synthetic tracking reaches real Three controller raycasts, including an input between frames (2.606542ms)
+✔ exit cancels queued frames, releases input, and allows a clean reconnecting session (0.482833ms)
+✔ reference spaces and stereo views have correct rigid transforms and projection depth (1.59125ms)
+✔ disconnect cancels pressed input and removes pose until explicit reconnect (0.291708ms)
+✔ layer renders to the actual default framebuffer with bounded mono/stereo viewports (0.193291ms)
+✔ unsupported capabilities and invalid poses fail instead of pretending hardware support (0.179292ms)
+✔ installation is explicit, page scoped and idempotent; no context is created (0.167584ms)
+✔ unavailable or rejected XR remains an explicit desktop fallback (0.413625ms)
+✔ controller ray consumes current parent and local pose before a rendered frame (0.477125ms)
+✔ desktop view snapshots are independent and restore headset-mutated projection (0.459458ms)
+✔ restore does not let disabled OrbitControls clamp an egocentric pose (0.103917ms)
+ℹ tests 51
+ℹ suites 0
+ℹ pass 51
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 325.697375

@@ -6,9 +6,11 @@ import {PRESETS, clone, snap, fraction, validateResult, LeanQueue} from '../web/
 const response = request => ({
   ok: true, ...clone(request), scale: 4,
   wedge: [16, 0, 0], swappedWedge: [-16, 0, 0], selfWedge: [0, 0, 0],
-  volume: 64,
-  vertices: [[0,0,0], [4,0,0], [0,4,0], [0,0,4], [4,4,0], [4,0,4], [0,4,4], [4,4,4]],
-  checks: {antisymmetric: true, selfZero: true}, engine: 'test fixture', sourceCommit: 'test fixture',
+  volume: 64, swappedVolume: -64, repeatedVolume: 0,
+  vertices: [[0,0,0],request.a,request.b,request.c,
+    request.a.map((n,i)=>n+request.b[i]),request.a.map((n,i)=>n+request.c[i]),
+    request.b.map((n,i)=>n+request.c[i]),request.a.map((n,i)=>n+request.b[i]+request.c[i])],
+  checks: {antisymmetric: true, selfZero: true, volumeAntisymmetric: true, repeatedVolumeZero: true}, engine: 'test fixture', sourceCommit: 'test fixture',
 });
 const request = () => ({...clone(PRESETS.unit), id: 1});
 const tick = () => new Promise(resolve => setImmediate(resolve));
@@ -89,6 +91,47 @@ test('rejects malformed volume and exported geometry', () => {
   }
 });
 
+test('rejects missing or failed Lean checks and inconsistent transported values', () => {
+  const input=request();
+  for(const name of ['antisymmetric','selfZero','volumeAntisymmetric','repeatedVolumeZero']) {
+    for(const value of [false,undefined,1,'true']) {
+      const output=response(input);output.checks[name]=value;
+      assert.throws(()=>validateResult(output,input), /checks failed/);
+    }
+  }
+  for(const change of [{checks:null},{selfWedge:[1,0,0]},{swappedWedge:[16,0,0]},
+    {swappedVolume:64},{repeatedVolume:1}]) {
+    assert.throws(()=>validateResult({...response(input),...change},input), /checks failed/);
+  }
+  for(const name of ['swappedVolume','repeatedVolume']) {
+    for(const value of [undefined,'0',0.25,Infinity]) {
+      assert.throws(()=>validateResult({...response(input),[name]:value},input), /exact volume/);
+    }
+  }
+});
+
+test('rejects exact-looking coefficients and echoed inputs outside the lattice bounds', () => {
+  const input=request();
+  for(const name of ['wedge','swappedWedge','selfWedge']) {
+    assert.throws(()=>validateResult({...response(input),[name]:[289,0,0]},input));
+  }
+  for(const name of ['volume','swappedVolume','repeatedVolume']) {
+    assert.throws(()=>validateResult({...response(input),[name]:10369},input));
+  }
+  const outOfBounds={...input,a:[13,0,0]};
+  assert.throws(()=>validateResult(response(outOfBounds),outOfBounds), /match this edit/);
+});
+
+test('rejects bounded but wrong exported vertices as well as enormous safe integers', () => {
+  const input=request();
+  for(const [index,coordinate,value] of [[0,0,1],[1,1,1],[4,2,1],[7,0,12],[7,0,10**12]]) {
+    const output=response(input);output.vertices=clone(output.vertices);output.vertices[index][coordinate]=value;
+    assert.throws(()=>validateResult(output,input), /geometry does not match/);
+  }
+  const output=response(input);[output.vertices[3],output.vertices[4]]=[output.vertices[4],output.vertices[3]];
+  assert.throws(()=>validateResult(output,input), /geometry does not match/);
+});
+
 test('serializes execution, drops intermediate edits, and never renders an old answer', async () => {
   const calls=[], pending=[], rendered=[], statuses=[];
   const queue=new LeanQueue({
@@ -150,4 +193,18 @@ test('invalid server payload cannot become a displayed result', async () => {
   assert.deepEqual(rendered,[]);
   assert.equal(statuses.at(-1)[0],'error');
   assert.match(statuses.at(-1)[1],/Unexpected Lean response/);
+});
+
+test('failed checks preserve the last accepted mesh and a subsequent valid result recovers', async () => {
+  const rendered=[], statuses=[];let corrupt=false;
+  const queue=new LeanQueue({transport:async input=>{
+    const output=response(input);if(corrupt)output.checks.selfZero=false;return output;
+  },onResult:r=>rendered.push(r),onStatus:(state,message)=>statuses.push([state,message])});
+  queue.submit(PRESETS.unit);await tick();
+  corrupt=true;queue.submit(PRESETS.skew);await tick();
+  assert.deepEqual(rendered.map(r=>r.id),[1]);
+  assert.deepEqual(statuses.at(-1),['error','Lean result checks failed.']);
+  corrupt=false;queue.submit(PRESETS.skew);await tick();
+  assert.deepEqual(rendered.map(r=>r.id),[1,3]);
+  assert.equal(statuses.at(-1)[0],'live');
 });

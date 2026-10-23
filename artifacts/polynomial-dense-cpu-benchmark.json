@@ -1,0 +1,42 @@
+{
+  "scope": "Node CPU microbenchmark, not browser/GPU/frame-rate evidence. Deterministic pinned reference cloud, separately fully matched against Lean by service-tests.json. No sampling. Includes final two-pass primitive-preference picker.",
+  "date": "2026-10-23T06:19:49.761Z",
+  "node": "v26.9.0",
+  "platform": "darwin",
+  "arch": "arm64",
+  "radius": 96,
+  "points": 1852484,
+  "interiorVertices": 540404,
+  "runs": [
+    {
+      "transformMs": 11.259749999999997,
+      "rootsMs": 4.248208000000005,
+      "pickMs": 5.9021669999999915
+    },
+    {
+      "transformMs": 9.307417000000001,
+      "rootsMs": 2.4403329999999954,
+      "pickMs": 3.608125000000001
+    },
+    {
+      "transformMs": 9.448083999999994,
+      "rootsMs": 1.8760839999999916,
+      "pickMs": 2.1093330000000066
+    },
+    {
+      "transformMs": 9.119165999999993,
+      "rootsMs": 1.6755830000000032,
+      "pickMs": 3.2802500000000094
+    },
+    {
+      "transformMs": 8.437542000000008,
+      "rootsMs": 1.9300829999999962,
+      "pickMs": 2.7229580000000055
+    },
+    {
+      "transformMs": 10.473458000000022,
+      "rootsMs": 2.342250000000007,
+      "pickMs": 3.2821670000000154
+    }
+  ]
+}

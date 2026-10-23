@@ -1,0 +1,1136 @@
+[
+  {
+    "label": "reconnect-before-fix",
+    "mode": "overview",
+    "result": {
+      "a": [
+        7,
+        0,
+        0
+      ],
+      "b": [
+        0,
+        4,
+        0
+      ],
+      "c": [
+        0,
+        0,
+        4
+      ],
+      "checks": {
+        "antisymmetric": true,
+        "repeatedVolumeZero": true,
+        "selfZero": true,
+        "volumeAntisymmetric": true
+      },
+      "engine": "Grassmann/Lean 4.35.0-rc3",
+      "id": 7,
+      "ok": true,
+      "repeatedVolume": 0,
+      "scale": 4,
+      "selfWedge": [
+        0,
+        0,
+        0
+      ],
+      "sourceCommit": "87e12dcfac41a0703bd0192f5e5a9b5e4c82d610",
+      "swappedVolume": -112,
+      "swappedWedge": [
+        -28,
+        0,
+        0
+      ],
+      "vertices": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          7,
+          0,
+          0
+        ],
+        [
+          0,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          4
+        ],
+        [
+          7,
+          4,
+          0
+        ],
+        [
+          7,
+          0,
+          4
+        ],
+        [
+          0,
+          4,
+          4
+        ],
+        [
+          7,
+          4,
+          4
+        ]
+      ],
+      "volume": 112,
+      "wedge": [
+        28,
+        0,
+        0
+      ]
+    },
+    "state": {
+      "a": [
+        7,
+        0,
+        0
+      ],
+      "b": [
+        0,
+        4,
+        0
+      ],
+      "c": [
+        0,
+        0,
+        4
+      ]
+    },
+    "view": {
+      "camera": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "controlsEnabled": false,
+      "showVolume": true,
+      "target": [
+        -1.05,
+        0.25,
+        0
+      ],
+      "volumeVisible": true,
+      "wireVisible": true,
+      "xrPresenting": true
+    }
+  },
+  {
+    "label": "unit-after-fix",
+    "mode": "overview",
+    "result": {
+      "a": [
+        4,
+        0,
+        0
+      ],
+      "b": [
+        0,
+        4,
+        0
+      ],
+      "c": [
+        0,
+        0,
+        4
+      ],
+      "checks": {
+        "antisymmetric": true,
+        "repeatedVolumeZero": true,
+        "selfZero": true,
+        "volumeAntisymmetric": true
+      },
+      "engine": "Grassmann/Lean 4.35.0-rc3",
+      "id": 2,
+      "ok": true,
+      "repeatedVolume": 0,
+      "scale": 4,
+      "selfWedge": [
+        0,
+        0,
+        0
+      ],
+      "sourceCommit": "87e12dcfac41a0703bd0192f5e5a9b5e4c82d610",
+      "swappedVolume": -64,
+      "swappedWedge": [
+        -16,
+        0,
+        0
+      ],
+      "vertices": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          4
+        ],
+        [
+          4,
+          4,
+          0
+        ],
+        [
+          4,
+          0,
+          4
+        ],
+        [
+          0,
+          4,
+          4
+        ],
+        [
+          4,
+          4,
+          4
+        ]
+      ],
+      "volume": 64,
+      "wedge": [
+        16,
+        0,
+        0
+      ]
+    },
+    "state": {
+      "a": [
+        4,
+        0,
+        0
+      ],
+      "b": [
+        0,
+        4,
+        0
+      ],
+      "c": [
+        0,
+        0,
+        4
+      ]
+    },
+    "view": {
+      "camera": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "controlsEnabled": false,
+      "showVolume": true,
+      "target": [
+        -1.05,
+        0.25,
+        0
+      ],
+      "volumeVisible": true,
+      "wireVisible": true,
+      "xrPresenting": true
+    }
+  },
+  {
+    "label": "quarter-drag-after-fix",
+    "mode": "overview",
+    "result": {
+      "a": [
+        5,
+        0,
+        0
+      ],
+      "b": [
+        0,
+        4,
+        0
+      ],
+      "c": [
+        0,
+        0,
+        4
+      ],
+      "checks": {
+        "antisymmetric": true,
+        "repeatedVolumeZero": true,
+        "selfZero": true,
+        "volumeAntisymmetric": true
+      },
+      "engine": "Grassmann/Lean 4.35.0-rc3",
+      "id": 3,
+      "ok": true,
+      "repeatedVolume": 0,
+      "scale": 4,
+      "selfWedge": [
+        0,
+        0,
+        0
+      ],
+      "sourceCommit": "87e12dcfac41a0703bd0192f5e5a9b5e4c82d610",
+      "swappedVolume": -80,
+      "swappedWedge": [
+        -20,
+        0,
+        0
+      ],
+      "vertices": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          5,
+          0,
+          0
+        ],
+        [
+          0,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          4
+        ],
+        [
+          5,
+          4,
+          0
+        ],
+        [
+          5,
+          0,
+          4
+        ],
+        [
+          0,
+          4,
+          4
+        ],
+        [
+          5,
+          4,
+          4
+        ]
+      ],
+      "volume": 80,
+      "wedge": [
+        20,
+        0,
+        0
+      ]
+    },
+    "state": {
+      "a": [
+        5,
+        0,
+        0
+      ],
+      "b": [
+        0,
+        4,
+        0
+      ],
+      "c": [
+        0,
+        0,
+        4
+      ]
+    },
+    "view": {
+      "camera": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "controlsEnabled": false,
+      "showVolume": true,
+      "target": [
+        -1.05,
+        0.25,
+        0
+      ],
+      "volumeVisible": true,
+      "wireVisible": true,
+      "xrPresenting": true
+    }
+  },
+  {
+    "label": "reconnect-after-fix",
+    "mode": "overview",
+    "result": {
+      "a": [
+        5,
+        0,
+        0
+      ],
+      "b": [
+        0,
+        4,
+        0
+      ],
+      "c": [
+        0,
+        0,
+        4
+      ],
+      "checks": {
+        "antisymmetric": true,
+        "repeatedVolumeZero": true,
+        "selfZero": true,
+        "volumeAntisymmetric": true
+      },
+      "engine": "Grassmann/Lean 4.35.0-rc3",
+      "id": 3,
+      "ok": true,
+      "repeatedVolume": 0,
+      "scale": 4,
+      "selfWedge": [
+        0,
+        0,
+        0
+      ],
+      "sourceCommit": "87e12dcfac41a0703bd0192f5e5a9b5e4c82d610",
+      "swappedVolume": -80,
+      "swappedWedge": [
+        -20,
+        0,
+        0
+      ],
+      "vertices": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          5,
+          0,
+          0
+        ],
+        [
+          0,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          4
+        ],
+        [
+          5,
+          4,
+          0
+        ],
+        [
+          5,
+          0,
+          4
+        ],
+        [
+          0,
+          4,
+          4
+        ],
+        [
+          5,
+          4,
+          4
+        ]
+      ],
+      "volume": 80,
+      "wedge": [
+        20,
+        0,
+        0
+      ]
+    },
+    "state": {
+      "a": [
+        5,
+        0,
+        0
+      ],
+      "b": [
+        0,
+        4,
+        0
+      ],
+      "c": [
+        0,
+        0,
+        4
+      ]
+    },
+    "view": {
+      "camera": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "controlsEnabled": false,
+      "showVolume": true,
+      "target": [
+        -1.05,
+        0.25,
+        0
+      ],
+      "volumeVisible": true,
+      "wireVisible": true,
+      "xrPresenting": true
+    }
+  },
+  {
+    "label": "record-unit",
+    "mode": "overview",
+    "result": {
+      "a": [
+        4,
+        0,
+        0
+      ],
+      "b": [
+        0,
+        4,
+        0
+      ],
+      "c": [
+        0,
+        0,
+        4
+      ],
+      "checks": {
+        "antisymmetric": true,
+        "repeatedVolumeZero": true,
+        "selfZero": true,
+        "volumeAntisymmetric": true
+      },
+      "engine": "Grassmann/Lean 4.35.0-rc3",
+      "id": 4,
+      "ok": true,
+      "repeatedVolume": 0,
+      "scale": 4,
+      "selfWedge": [
+        0,
+        0,
+        0
+      ],
+      "sourceCommit": "87e12dcfac41a0703bd0192f5e5a9b5e4c82d610",
+      "swappedVolume": -64,
+      "swappedWedge": [
+        -16,
+        0,
+        0
+      ],
+      "vertices": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          4
+        ],
+        [
+          4,
+          4,
+          0
+        ],
+        [
+          4,
+          0,
+          4
+        ],
+        [
+          0,
+          4,
+          4
+        ],
+        [
+          4,
+          4,
+          4
+        ]
+      ],
+      "volume": 64,
+      "wedge": [
+        16,
+        0,
+        0
+      ]
+    },
+    "state": {
+      "a": [
+        4,
+        0,
+        0
+      ],
+      "b": [
+        0,
+        4,
+        0
+      ],
+      "c": [
+        0,
+        0,
+        4
+      ]
+    },
+    "view": {
+      "camera": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "controlsEnabled": false,
+      "showVolume": true,
+      "target": [
+        -1.05,
+        0.25,
+        0
+      ],
+      "volumeVisible": true,
+      "wireVisible": true,
+      "xrPresenting": true
+    }
+  },
+  {
+    "label": "record-swap",
+    "mode": "overview",
+    "result": {
+      "a": [
+        0,
+        4,
+        0
+      ],
+      "b": [
+        4,
+        0,
+        0
+      ],
+      "c": [
+        0,
+        0,
+        4
+      ],
+      "checks": {
+        "antisymmetric": true,
+        "repeatedVolumeZero": true,
+        "selfZero": true,
+        "volumeAntisymmetric": true
+      },
+      "engine": "Grassmann/Lean 4.35.0-rc3",
+      "id": 5,
+      "ok": true,
+      "repeatedVolume": 0,
+      "scale": 4,
+      "selfWedge": [
+        0,
+        0,
+        0
+      ],
+      "sourceCommit": "87e12dcfac41a0703bd0192f5e5a9b5e4c82d610",
+      "swappedVolume": 64,
+      "swappedWedge": [
+        16,
+        0,
+        0
+      ],
+      "vertices": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          4,
+          0
+        ],
+        [
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          4
+        ],
+        [
+          4,
+          4,
+          0
+        ],
+        [
+          0,
+          4,
+          4
+        ],
+        [
+          4,
+          0,
+          4
+        ],
+        [
+          4,
+          4,
+          4
+        ]
+      ],
+      "volume": -64,
+      "wedge": [
+        -16,
+        0,
+        0
+      ]
+    },
+    "state": {
+      "a": [
+        0,
+        4,
+        0
+      ],
+      "b": [
+        4,
+        0,
+        0
+      ],
+      "c": [
+        0,
+        0,
+        4
+      ]
+    },
+    "view": {
+      "camera": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "controlsEnabled": false,
+      "showVolume": true,
+      "target": [
+        -1.05,
+        0.25,
+        0
+      ],
+      "volumeVisible": true,
+      "wireVisible": true,
+      "xrPresenting": true
+    }
+  },
+  {
+    "label": "record-flatten",
+    "mode": "overview",
+    "result": {
+      "a": [
+        0,
+        4,
+        0
+      ],
+      "b": [
+        4,
+        0,
+        0
+      ],
+      "c": [
+        4,
+        0,
+        0
+      ],
+      "checks": {
+        "antisymmetric": true,
+        "repeatedVolumeZero": true,
+        "selfZero": true,
+        "volumeAntisymmetric": true
+      },
+      "engine": "Grassmann/Lean 4.35.0-rc3",
+      "id": 6,
+      "ok": true,
+      "repeatedVolume": 0,
+      "scale": 4,
+      "selfWedge": [
+        0,
+        0,
+        0
+      ],
+      "sourceCommit": "87e12dcfac41a0703bd0192f5e5a9b5e4c82d610",
+      "swappedVolume": 0,
+      "swappedWedge": [
+        16,
+        0,
+        0
+      ],
+      "vertices": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          4,
+          0
+        ],
+        [
+          4,
+          0,
+          0
+        ],
+        [
+          4,
+          0,
+          0
+        ],
+        [
+          4,
+          4,
+          0
+        ],
+        [
+          4,
+          4,
+          0
+        ],
+        [
+          8,
+          0,
+          0
+        ],
+        [
+          8,
+          4,
+          0
+        ]
+      ],
+      "volume": 0,
+      "wedge": [
+        -16,
+        0,
+        0
+      ]
+    },
+    "state": {
+      "a": [
+        0,
+        4,
+        0
+      ],
+      "b": [
+        4,
+        0,
+        0
+      ],
+      "c": [
+        4,
+        0,
+        0
+      ]
+    },
+    "view": {
+      "camera": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "controlsEnabled": false,
+      "showVolume": true,
+      "target": [
+        -1.05,
+        0.25,
+        0
+      ],
+      "volumeVisible": false,
+      "wireVisible": true,
+      "xrPresenting": true
+    }
+  },
+  {
+    "label": "record-inside",
+    "mode": "inside",
+    "result": {
+      "a": [
+        0,
+        4,
+        0
+      ],
+      "b": [
+        4,
+        0,
+        0
+      ],
+      "c": [
+        4,
+        0,
+        0
+      ],
+      "checks": {
+        "antisymmetric": true,
+        "repeatedVolumeZero": true,
+        "selfZero": true,
+        "volumeAntisymmetric": true
+      },
+      "engine": "Grassmann/Lean 4.35.0-rc3",
+      "id": 6,
+      "ok": true,
+      "repeatedVolume": 0,
+      "scale": 4,
+      "selfWedge": [
+        0,
+        0,
+        0
+      ],
+      "sourceCommit": "87e12dcfac41a0703bd0192f5e5a9b5e4c82d610",
+      "swappedVolume": 0,
+      "swappedWedge": [
+        16,
+        0,
+        0
+      ],
+      "vertices": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          4,
+          0
+        ],
+        [
+          4,
+          0,
+          0
+        ],
+        [
+          4,
+          0,
+          0
+        ],
+        [
+          4,
+          4,
+          0
+        ],
+        [
+          4,
+          4,
+          0
+        ],
+        [
+          8,
+          0,
+          0
+        ],
+        [
+          8,
+          4,
+          0
+        ]
+      ],
+      "volume": 0,
+      "wedge": [
+        -16,
+        0,
+        0
+      ]
+    },
+    "state": {
+      "a": [
+        0,
+        4,
+        0
+      ],
+      "b": [
+        4,
+        0,
+        0
+      ],
+      "c": [
+        4,
+        0,
+        0
+      ]
+    },
+    "view": {
+      "camera": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "controlsEnabled": false,
+      "showVolume": true,
+      "target": [
+        -1.05,
+        0.25,
+        0
+      ],
+      "volumeVisible": false,
+      "wireVisible": true,
+      "xrPresenting": true
+    }
+  },
+  {
+    "label": "exit-restores-desktop",
+    "mode": "overview",
+    "result": {
+      "a": [
+        0,
+        4,
+        0
+      ],
+      "b": [
+        4,
+        0,
+        0
+      ],
+      "c": [
+        4,
+        0,
+        0
+      ],
+      "checks": {
+        "antisymmetric": true,
+        "repeatedVolumeZero": true,
+        "selfZero": true,
+        "volumeAntisymmetric": true
+      },
+      "engine": "Grassmann/Lean 4.35.0-rc3",
+      "id": 6,
+      "ok": true,
+      "repeatedVolume": 0,
+      "scale": 4,
+      "selfWedge": [
+        0,
+        0,
+        0
+      ],
+      "sourceCommit": "87e12dcfac41a0703bd0192f5e5a9b5e4c82d610",
+      "swappedVolume": 0,
+      "swappedWedge": [
+        16,
+        0,
+        0
+      ],
+      "vertices": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          4,
+          0
+        ],
+        [
+          4,
+          0,
+          0
+        ],
+        [
+          4,
+          0,
+          0
+        ],
+        [
+          4,
+          4,
+          0
+        ],
+        [
+          4,
+          4,
+          0
+        ],
+        [
+          8,
+          0,
+          0
+        ],
+        [
+          8,
+          4,
+          0
+        ]
+      ],
+      "volume": 0,
+      "wedge": [
+        -16,
+        0,
+        0
+      ]
+    },
+    "state": {
+      "a": [
+        0,
+        4,
+        0
+      ],
+      "b": [
+        4,
+        0,
+        0
+      ],
+      "c": [
+        4,
+        0,
+        0
+      ]
+    },
+    "view": {
+      "camera": [
+        4.800000000000001,
+        3.4999999999999996,
+        5.399999999999999
+      ],
+      "controlsEnabled": true,
+      "showVolume": true,
+      "target": [
+        -1.05,
+        0.25,
+        0
+      ],
+      "volumeVisible": false,
+      "wireVisible": true,
+      "xrPresenting": false
+    }
+  }
+]

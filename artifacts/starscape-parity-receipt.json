@@ -1,0 +1,42 @@
+{
+  "dateUTC": "2026-10-23T08:33:20.079683+00:00",
+  "scope": "Current Lean Starscape continuation; actual IAB, synthetic WebXR, native simulator and exact computation are separate evidence categories.",
+  "canonicalHead": "2cd549a45ddb6056cf3596404754d96ad9e7132c",
+  "tests": {
+    "node": 107,
+    "pythonBridge": 26,
+    "leanBaseRequests": 305,
+    "orderedPoints": 2120040,
+    "leanTransformRequests": 452,
+    "nativeModels": 68,
+    "nativeFocusedUITests": 1
+  },
+  "browser": "IAB actual UI. Chrome tab read succeeded, refresh and URL reattachment timed out; refresh outcome uncertain.",
+  "sourceSHA256": {
+    "web/polynomial/app.js": "caf66df9a6f2773bb829e69fb705d31a7366a783e3b17ecd3a0c1ac1258b74c1",
+    "web/polynomial/klein-view.js": "e56aa63b8f0b03bbd7e06d22ab10ac17d3e7e96abb40479881f4eab7c70c27a3",
+    "web/polynomial/klein-data.js": "708b3b16c378b8c54872652b41e6c2d2fab1ff30c501741482cf762f6187d601",
+    "web/polynomial/mobius-render.js": "3d8e32100a573514d0c837a46efaaa5f508c82915d83c2662117d8d04367c2d9",
+    "web/polynomial/mobius-snap.js": "10caf59887fd1a96b62b5b94cddeab1f1bcec67378097cf86245043a590e559e",
+    "web/polynomial/lean-client.js": "c16a22a2377b3eb1b20f95a75f4ec38add0269969d696866571c560685a2e418",
+    "web/polynomial/display-readouts.js": "ef6790d931341707d81cf9ee97d1a522d2534ece6f493681f000826e09d8c460",
+    "web/qa/xr-controls.js": "13e4594be82093945a2eb2eaecef1462f91d3d52d20799de4b98d87b563dd97f"
+  },
+  "evidenceSHA256": {
+    "artifacts/starscape-final-node-tests.txt": "d3ff3b4ffefa23267d443a05fa3276f670d9cb2e382c441c7789506ec61afa63",
+    "artifacts/screenshots/starscape-parity-20261023/ui-states.json": "2647fd02d2d1b6c52eec70480a369a1b2a3c6e04d6236e908a1a2f3a54f87406",
+    "artifacts/screenshots/starscape-parity-20261023/recorded-source-and-xr-states.json": "5528f5e5b32b85f650760553f4f3d9ee89e32be11e9f3a02da3d31034581dbff",
+    "lean/Polynomial/evidence/service-tests.json": "b76f898fe15e6563f15ed4d7cd3f9e21aedfd4a9a5699eb89193aaa3587c8e73",
+    "lean/Polynomial/evidence/transform-tests.json": "b3a622dc8e6f829b0b70eadcf19088e68bcf323d028f59d9041a782b809c51e1",
+    "native/evidence/polar-snap-native-receipt.json": "bdb2be50fae9a603c1aea1181c967f98cbfa492dec548b0547209e69c945fdc3"
+  },
+  "remaining": [
+    "native upper-half-plane/polynomial hover",
+    "native free-space hand/controller transform",
+    "native density above R12",
+    "simultaneous wide 3D/roots layout",
+    "source dynamic transformed recropping",
+    "all source model/theme choices and hash-URL state sharing",
+    "physical headset acceptance"
+  ]
+}

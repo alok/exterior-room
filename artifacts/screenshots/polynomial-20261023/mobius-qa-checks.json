@@ -1,0 +1,11135 @@
+[
+  {
+    "label": "record-source-roots-before",
+    "action": {
+      "displayedSelection": [
+        -20,
+        47,
+        21
+      ],
+      "g": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "phase": "identity"
+    },
+    "cachedInspections": 2,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 1852484,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": {
+      "before": [
+        13,
+        20,
+        34
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": -1368,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 118,
+        "image": [
+          13,
+          20,
+          34
+        ],
+        "imageNumerator": [
+          13,
+          20,
+          34
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          13,
+          20,
+          34
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -20,
+          47,
+          21
+        ]
+      }
+    },
+    "mobiusMode": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 623.9784873936651,
+      "y": 330.4521585579751
+    },
+    "projectionVisible": false,
+    "radius": 96,
+    "render": {
+      "calls": 10,
+      "points": 1852484
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": true,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      13,
+      20,
+      34
+    ],
+    "sigma": 1,
+    "snapOnRelease": true,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 31.69999998807907,
+      "enumerate": 0,
+      "motion": 3.8999999910593033,
+      "roots": 0.09999999403953552
+    },
+    "view": {
+      "fov": 45,
+      "position": [
+        28.799999999999994,
+        19.4,
+        52.09999999999999
+      ],
+      "quaternion": [
+        -0.13621664265691363,
+        0.2357798000779476,
+        0.03339854476583933,
+        0.9616326998111108
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "record-source-roots-held",
+    "action": {
+      "displayedSelection": [
+        42.61820301549242,
+        61.913103914705616,
+        25.473931932142136
+      ],
+      "g": [
+        1.2862915134851474,
+        1.1025358497468405,
+        0.5936730835683962,
+        1.2862915134851456
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "phase": "preview"
+    },
+    "cachedInspections": 2,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 1852484,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": {
+      "before": [
+        13,
+        20,
+        34
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": -1368,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 118,
+        "image": [
+          13,
+          20,
+          34
+        ],
+        "imageNumerator": [
+          13,
+          20,
+          34
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          13,
+          20,
+          34
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -20,
+          47,
+          21
+        ]
+      }
+    },
+    "mobiusMode": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 716.0469619158351,
+      "y": 313.88722425116964
+    },
+    "projectionVisible": false,
+    "radius": 96,
+    "render": {
+      "calls": 10,
+      "points": 1852484
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": true,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      13,
+      20,
+      34
+    ],
+    "sigma": 1,
+    "snapOnRelease": true,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 31.69999998807907,
+      "enumerate": 0,
+      "motion": 3.799999997019768,
+      "roots": 2.700000002980232
+    },
+    "view": {
+      "fov": 45,
+      "position": [
+        28.799999999999994,
+        19.4,
+        52.09999999999999
+      ],
+      "quaternion": [
+        -0.13621664265691363,
+        0.2357798000779476,
+        0.03339854476583933,
+        0.9616326998111108
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "record-source-roots-snap-accepted",
+    "action": {
+      "displayedSelection": [
+        6,
+        40,
+        14
+      ],
+      "g": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "phase": "identity"
+    },
+    "cachedInspections": 3,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 1852484,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": {
+      "before": [
+        13,
+        20,
+        34
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          -2,
+          1,
+          0,
+          1,
+          -1,
+          1
+        ],
+        "delta": -1368,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 119,
+        "image": [
+          13,
+          -6,
+          27
+        ],
+        "imageNumerator": [
+          13,
+          -6,
+          27
+        ],
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          13,
+          20,
+          34
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          6,
+          40,
+          14
+        ]
+      }
+    },
+    "mobiusMode": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 667.0847873564229,
+      "y": 343.5954284107097
+    },
+    "projectionVisible": false,
+    "radius": 96,
+    "render": {
+      "calls": 10,
+      "points": 1852484
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": true,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      13,
+      -6,
+      27
+    ],
+    "sigma": 1,
+    "snapOnRelease": true,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 31.69999998807907,
+      "enumerate": 0,
+      "motion": 3.8999999910593033,
+      "roots": 0.09999999403953552
+    },
+    "view": {
+      "fov": 45,
+      "position": [
+        28.799999999999994,
+        19.4,
+        52.09999999999999
+      ],
+      "quaternion": [
+        -0.13621664265691363,
+        0.2357798000779476,
+        0.03339854476583933,
+        0.9616326998111108
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "record-source-roots-identity",
+    "action": {
+      "displayedSelection": [
+        6,
+        40,
+        14
+      ],
+      "g": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "phase": "identity"
+    },
+    "cachedInspections": 3,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 1852484,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": {
+      "before": [
+        13,
+        20,
+        34
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          -2,
+          1,
+          0,
+          1,
+          -1,
+          1
+        ],
+        "delta": -1368,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 119,
+        "image": [
+          13,
+          -6,
+          27
+        ],
+        "imageNumerator": [
+          13,
+          -6,
+          27
+        ],
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          13,
+          20,
+          34
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          6,
+          40,
+          14
+        ]
+      }
+    },
+    "mobiusMode": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 667.0847873564229,
+      "y": 343.5954284107097
+    },
+    "projectionVisible": false,
+    "radius": 96,
+    "render": {
+      "calls": 10,
+      "points": 1852484
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": true,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      13,
+      -6,
+      27
+    ],
+    "sigma": 1,
+    "snapOnRelease": true,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 31.69999998807907,
+      "enumerate": 0,
+      "motion": 4,
+      "roots": 3.0999999940395355
+    },
+    "view": {
+      "fov": 45,
+      "position": [
+        28.799999999999994,
+        19.4,
+        52.09999999999999
+      ],
+      "quaternion": [
+        -0.13621664265691363,
+        0.2357798000779476,
+        0.03339854476583933,
+        0.9616326998111108
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "final-dense-root-pick-unit",
+    "action": {
+      "displayedSelection": [
+        0,
+        2,
+        0
+      ],
+      "g": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "phase": "identity"
+    },
+    "cachedInspections": 4,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 1852484,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": {
+      "before": [
+        13,
+        20,
+        34
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          -2,
+          1,
+          0,
+          1,
+          -1,
+          1
+        ],
+        "delta": -1368,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 119,
+        "image": [
+          13,
+          -6,
+          27
+        ],
+        "imageNumerator": [
+          13,
+          -6,
+          27
+        ],
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          13,
+          20,
+          34
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          6,
+          40,
+          14
+        ]
+      }
+    },
+    "mobiusMode": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 669,
+      "y": 397.2657706391145
+    },
+    "projectionVisible": false,
+    "radius": 96,
+    "render": {
+      "calls": 10,
+      "points": 1852484
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": true,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      0,
+      1
+    ],
+    "sigma": 1,
+    "snapOnRelease": true,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 31.69999998807907,
+      "enumerate": 0,
+      "motion": 7.400000005960464,
+      "rootPick": 2.299999997019768,
+      "roots": 0.10000000894069672
+    },
+    "view": {
+      "fov": 45,
+      "position": [
+        28.799999999999994,
+        19.4,
+        52.09999999999999
+      ],
+      "quaternion": [
+        -0.13621664265691363,
+        0.2357798000779476,
+        0.03339854476583933,
+        0.9616326998111108
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "record3d-before",
+    "action": {
+      "displayedSelection": [
+        0,
+        2,
+        0
+      ],
+      "g": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "phase": "identity"
+    },
+    "cachedInspections": 4,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 1852484,
+    "dataBusy": false,
+    "inhabited": true,
+    "lastAbsorption": {
+      "before": [
+        13,
+        20,
+        34
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          -2,
+          1,
+          0,
+          1,
+          -1,
+          1
+        ],
+        "delta": -1368,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 119,
+        "image": [
+          13,
+          -6,
+          27
+        ],
+        "imageNumerator": [
+          13,
+          -6,
+          27
+        ],
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          13,
+          20,
+          34
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          6,
+          40,
+          14
+        ]
+      }
+    },
+    "mobiusMode": true,
+    "originMode": true,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 669,
+      "y": 400.25
+    },
+    "projectionVisible": false,
+    "radius": 96,
+    "render": {
+      "calls": 9,
+      "points": 1852484
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": false,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      0,
+      1
+    ],
+    "sigma": 1,
+    "snapOnRelease": false,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 31.69999998807907,
+      "enumerate": 0,
+      "motion": 3.8999999910593033,
+      "rootPick": 2.299999997019768,
+      "roots": 0.10000000894069672
+    },
+    "view": {
+      "fov": 100,
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0.7071067811865475,
+        0,
+        0,
+        0.7071067811865476
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "record3d-drag-accepted",
+    "action": {
+      "delta": -4,
+      "denominator": 100003244,
+      "displayedSelection": [
+        0.4725116317226669,
+        2.063720982891315,
+        -0.18888370261268703
+      ],
+      "g": [
+        0.9610844113372712,
+        0.1171980990622497,
+        0.1171980990622497,
+        1.0547828915602473
+      ],
+      "imageNumerator": [
+        112633888,
+        -47252696,
+        93744905
+      ],
+      "matrix": [
+        9611,
+        1172,
+        1172,
+        10548
+      ],
+      "phase": "accepted"
+    },
+    "cachedInspections": 4,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 1852484,
+    "dataBusy": false,
+    "inhabited": true,
+    "lastAbsorption": {
+      "before": [
+        13,
+        20,
+        34
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          -2,
+          1,
+          0,
+          1,
+          -1,
+          1
+        ],
+        "delta": -1368,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 119,
+        "image": [
+          13,
+          -6,
+          27
+        ],
+        "imageNumerator": [
+          13,
+          -6,
+          27
+        ],
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          13,
+          20,
+          34
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          6,
+          40,
+          14
+        ]
+      }
+    },
+    "mobiusMode": true,
+    "originMode": true,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 718.9995150869827,
+      "y": 420.2370075241054
+    },
+    "projectionVisible": false,
+    "radius": 96,
+    "render": {
+      "calls": 9,
+      "points": 1852484
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": false,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      0,
+      1
+    ],
+    "sigma": 1,
+    "snapOnRelease": false,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 31.69999998807907,
+      "enumerate": 0,
+      "motion": 4.4000000059604645,
+      "rootPick": 2.299999997019768,
+      "roots": 0.10000000894069672
+    },
+    "view": {
+      "fov": 100,
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0.7071067811865475,
+        0,
+        0,
+        0.7071067811865476
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "record3d-return-overview",
+    "action": {
+      "delta": -4,
+      "denominator": 100003244,
+      "displayedSelection": [
+        0.4725116317226669,
+        2.063720982891315,
+        -0.18888370261268703
+      ],
+      "g": [
+        0.9610844113372712,
+        0.1171980990622497,
+        0.1171980990622497,
+        1.0547828915602473
+      ],
+      "imageNumerator": [
+        112633888,
+        -47252696,
+        93744905
+      ],
+      "matrix": [
+        9611,
+        1172,
+        1172,
+        10548
+      ],
+      "phase": "accepted"
+    },
+    "cachedInspections": 4,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 1852484,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": {
+      "before": [
+        13,
+        20,
+        34
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          -2,
+          1,
+          0,
+          1,
+          -1,
+          1
+        ],
+        "delta": -1368,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 119,
+        "image": [
+          13,
+          -6,
+          27
+        ],
+        "imageNumerator": [
+          13,
+          -6,
+          27
+        ],
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          13,
+          20,
+          34
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          6,
+          40,
+          14
+        ]
+      }
+    },
+    "mobiusMode": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 669.7865138695456,
+      "y": 397.19223279666545
+    },
+    "projectionVisible": false,
+    "radius": 96,
+    "render": {
+      "calls": 10,
+      "points": 1852484
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": false,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      0,
+      1
+    ],
+    "sigma": 1,
+    "snapOnRelease": false,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 31.69999998807907,
+      "enumerate": 0,
+      "motion": 4.299999997019768,
+      "rootPick": 2.299999997019768,
+      "roots": 0.10000000894069672
+    },
+    "view": {
+      "fov": 45,
+      "position": [
+        28.79999999999999,
+        19.399999999999995,
+        52.09999999999997
+      ],
+      "quaternion": [
+        -0.13621664265691363,
+        0.2357798000779476,
+        0.03339854476583933,
+        0.9616326998111108
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "record3d-identity",
+    "action": {
+      "displayedSelection": [
+        0,
+        2,
+        0
+      ],
+      "g": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "phase": "identity"
+    },
+    "cachedInspections": 4,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 1852484,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": {
+      "before": [
+        13,
+        20,
+        34
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          -2,
+          1,
+          0,
+          1,
+          -1,
+          1
+        ],
+        "delta": -1368,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 119,
+        "image": [
+          13,
+          -6,
+          27
+        ],
+        "imageNumerator": [
+          13,
+          -6,
+          27
+        ],
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          13,
+          20,
+          34
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          6,
+          40,
+          14
+        ]
+      }
+    },
+    "mobiusMode": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 669,
+      "y": 397.2657706391145
+    },
+    "projectionVisible": false,
+    "radius": 96,
+    "render": {
+      "calls": 10,
+      "points": 1852484
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": false,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      0,
+      1
+    ],
+    "sigma": 1,
+    "snapOnRelease": false,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 31.69999998807907,
+      "enumerate": 0,
+      "motion": 4.5,
+      "rootPick": 2.299999997019768,
+      "roots": 0.10000000894069672
+    },
+    "view": {
+      "fov": 45,
+      "position": [
+        28.79999999999999,
+        19.399999999999995,
+        52.09999999999997
+      ],
+      "quaternion": [
+        -0.13621664265691363,
+        0.2357798000779476,
+        0.03339854476583933,
+        0.9616326998111108
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "xr-actions-enter",
+    "action": {
+      "displayedSelection": [
+        1,
+        3,
+        1
+      ],
+      "g": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "phase": "identity"
+    },
+    "cachedInspections": 4,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": null,
+    "mobiusMode": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 511.3051884514946,
+      "y": 292.2432351969624
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 37,
+      "points": 480
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": false,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "snapOnRelease": false,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 0.09999999403953552,
+      "enumerate": 0,
+      "motion": 0.10000000894069672,
+      "pick": 0,
+      "rootPick": 2.299999997019768,
+      "roots": 0.10000000894069672
+    },
+    "view": {
+      "fov": 69.99999907664099,
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": true,
+    "xrButtons": [
+      {
+        "label": "Next",
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Projection",
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Reset",
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exit",
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Origin",
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Inhabit",
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Overview",
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Other side",
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "R 6",
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Whole",
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Lower color",
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Cone",
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Pair aim",
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Clear pair",
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Plane fade",
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Colors",
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size −",
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size +",
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Forward",
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Back",
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Left",
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Right",
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Move forms",
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Identity",
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "T: z+1",
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "S: -1/z",
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "T inverse",
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exact move",
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap",
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap release OFF",
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "xr-exact-move-accepted",
+    "action": {
+      "delta": -7,
+      "denominator": 5,
+      "displayedSelection": [
+        4.6000000000000005,
+        6,
+        2.8
+      ],
+      "g": [
+        1.3416407864998738,
+        0.4472135954999579,
+        0.4472135954999579,
+        0.8944271909999159
+      ],
+      "imageNumerator": [
+        8,
+        -23,
+        22
+      ],
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "phase": "accepted"
+    },
+    "cachedInspections": 4,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": null,
+    "mobiusMode": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 619.1445583024176,
+      "y": 199.8133473332568
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 39,
+      "points": 480
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": false,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "snapOnRelease": false,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 0.09999999403953552,
+      "enumerate": 0,
+      "motion": 0.09999999403953552,
+      "pick": 0,
+      "rootPick": 2.299999997019768,
+      "roots": 0.10000000894069672
+    },
+    "view": {
+      "fov": 69.99999907664099,
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": true,
+    "xrButtons": [
+      {
+        "label": "Next",
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Projection",
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Reset",
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exit",
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Origin",
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Inhabit",
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Overview",
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Other side",
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "R 6",
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Whole",
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Lower color",
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Cone",
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Pair aim",
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Clear pair",
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Plane fade",
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Colors",
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size −",
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size +",
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Forward",
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Back",
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Left",
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Right",
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Move forms",
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Identity",
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "T: z+1",
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "S: -1/z",
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "T inverse",
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exact move",
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap",
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap release OFF",
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "xr-identity",
+    "action": {
+      "displayedSelection": [
+        1,
+        3,
+        1
+      ],
+      "g": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "phase": "identity"
+    },
+    "cachedInspections": 4,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": null,
+    "mobiusMode": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 511.3051884514946,
+      "y": 292.2432351969624
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 37,
+      "points": 480
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": false,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "snapOnRelease": false,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 0.09999999403953552,
+      "enumerate": 0,
+      "motion": 0,
+      "pick": 0,
+      "rootPick": 2.299999997019768,
+      "roots": 0.10000000894069672
+    },
+    "view": {
+      "fov": 69.99999907664099,
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": true,
+    "xrButtons": [
+      {
+        "label": "Next",
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Projection",
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Reset",
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exit",
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Origin",
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Inhabit",
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Overview",
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Other side",
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "R 6",
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Whole",
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Lower color",
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Cone",
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Pair aim",
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Clear pair",
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Plane fade",
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Colors",
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size −",
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size +",
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Forward",
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Back",
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Left",
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Right",
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Move forms",
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Identity",
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "T: z+1",
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "S: -1/z",
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "T inverse",
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exact move",
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap",
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap release OFF",
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "xr-T-relabel",
+    "action": {
+      "displayedSelection": [
+        3,
+        5,
+        3
+      ],
+      "g": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "phase": "identity"
+    },
+    "cachedInspections": 5,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": {
+      "before": [
+        1,
+        -1,
+        2
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          -2,
+          1,
+          0,
+          1,
+          -1,
+          1
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 125,
+        "image": [
+          1,
+          -3,
+          4
+        ],
+        "imageNumerator": [
+          1,
+          -3,
+          4
+        ],
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          3,
+          5,
+          3
+        ]
+      }
+    },
+    "mobiusMode": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 573.5541076878555,
+      "y": 227.6230414420691
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 35,
+      "points": 480
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": false,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -3,
+      4
+    ],
+    "sigma": 1,
+    "snapOnRelease": false,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 0.09999999403953552,
+      "enumerate": 0,
+      "motion": 0,
+      "pick": 0,
+      "rootPick": 2.299999997019768,
+      "roots": 0.10000000894069672
+    },
+    "view": {
+      "fov": 69.99999907664099,
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": true,
+    "xrButtons": [
+      {
+        "label": "Next",
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Projection",
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Reset",
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exit",
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Origin",
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Inhabit",
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Overview",
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Other side",
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "R 6",
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Whole",
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Lower color",
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Cone",
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Pair aim",
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Clear pair",
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Plane fade",
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Colors",
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size −",
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size +",
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Forward",
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Back",
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Left",
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Right",
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Move forms",
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Identity",
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "T: z+1",
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "S: -1/z",
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "T inverse",
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exact move",
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap",
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap release OFF",
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "xr-identity-retains-T",
+    "action": {
+      "displayedSelection": [
+        3,
+        5,
+        3
+      ],
+      "g": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "phase": "identity"
+    },
+    "cachedInspections": 5,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": {
+      "before": [
+        1,
+        -1,
+        2
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          -2,
+          1,
+          0,
+          1,
+          -1,
+          1
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 125,
+        "image": [
+          1,
+          -3,
+          4
+        ],
+        "imageNumerator": [
+          1,
+          -3,
+          4
+        ],
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          3,
+          5,
+          3
+        ]
+      }
+    },
+    "mobiusMode": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 573.5541076878555,
+      "y": 227.6230414420691
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 35,
+      "points": 480
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": false,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -3,
+      4
+    ],
+    "sigma": 1,
+    "snapOnRelease": false,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 0.09999999403953552,
+      "enumerate": 0,
+      "motion": 0,
+      "pick": 0,
+      "rootPick": 2.299999997019768,
+      "roots": 0.10000000894069672
+    },
+    "view": {
+      "fov": 69.99999907664099,
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": true,
+    "xrButtons": [
+      {
+        "label": "Next",
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Projection",
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Reset",
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exit",
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Origin",
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Inhabit",
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Overview",
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Other side",
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "R 6",
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Whole",
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Lower color",
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Cone",
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Pair aim",
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Clear pair",
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Plane fade",
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Colors",
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size −",
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size +",
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Forward",
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Back",
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Left",
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Right",
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Move forms",
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Identity",
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "T: z+1",
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "S: -1/z",
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "T inverse",
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exact move",
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap",
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap release OFF",
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "xr-T-inverse-restored",
+    "action": {
+      "displayedSelection": [
+        1,
+        3,
+        1
+      ],
+      "g": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "phase": "identity"
+    },
+    "cachedInspections": 5,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": {
+      "before": [
+        1,
+        -3,
+        4
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 127,
+        "image": [
+          1,
+          -1,
+          2
+        ],
+        "imageNumerator": [
+          1,
+          -1,
+          2
+        ],
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -3,
+          4
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          1,
+          3,
+          1
+        ]
+      }
+    },
+    "mobiusMode": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 511.3051884514946,
+      "y": 292.2432351969624
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 37,
+      "points": 480
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": false,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "snapOnRelease": false,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 0.09999999403953552,
+      "enumerate": 0,
+      "motion": 0,
+      "pick": 0,
+      "rootPick": 2.299999997019768,
+      "roots": 0.10000000894069672
+    },
+    "view": {
+      "fov": 69.99999907664099,
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": true,
+    "xrButtons": [
+      {
+        "label": "Next",
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Projection",
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Reset",
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exit",
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Origin",
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Inhabit",
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Overview",
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Other side",
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "R 6",
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Whole",
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Lower color",
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Cone",
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Pair aim",
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Clear pair",
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Plane fade",
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Colors",
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size −",
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size +",
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Forward",
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Back",
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Left",
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Right",
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Move forms",
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Identity",
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "T: z+1",
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "S: -1/z",
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "T inverse",
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exact move",
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap",
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap release OFF",
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "xr-move-forms-origin",
+    "action": {
+      "displayedSelection": [
+        1,
+        3,
+        1
+      ],
+      "g": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "phase": "identity"
+    },
+    "cachedInspections": 5,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": {
+      "before": [
+        1,
+        -3,
+        4
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 127,
+        "image": [
+          1,
+          -1,
+          2
+        ],
+        "imageNumerator": [
+          1,
+          -1,
+          2
+        ],
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -3,
+          4
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          1,
+          3,
+          1
+        ]
+      }
+    },
+    "mobiusMode": true,
+    "originMode": true,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 1.642162203788757,
+      "y": 1787.4632146954536
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 35,
+      "points": 480
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": false,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "snapOnRelease": false,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 0.09999999403953552,
+      "enumerate": 0,
+      "motion": 0,
+      "pick": 0,
+      "rootPick": 2.299999997019768,
+      "roots": 0.10000000894069672
+    },
+    "view": {
+      "fov": 69.99999907664099,
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": true,
+    "xrButtons": [
+      {
+        "label": "Next",
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Projection",
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Reset",
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exit",
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Origin",
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Inhabit",
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Overview",
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Other side",
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "R 6",
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Whole",
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Lower color",
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Cone",
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Pair aim",
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Clear pair",
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Plane fade",
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Colors",
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size −",
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size +",
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Forward",
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Back",
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Left",
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Right",
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Move forms ON",
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Identity",
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "T: z+1",
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "S: -1/z",
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "T inverse",
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exact move",
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap",
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap release OFF",
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "origin",
+    "xrPair": false
+  },
+  {
+    "label": "xr-direct-drag-preview",
+    "action": {
+      "displayedSelection": [
+        1.8173377831355952,
+        3.4282850049717006,
+        1.2043344457838994
+      ],
+      "g": [
+        1.040763980149021,
+        0.12825335911673186,
+        0.12825335911673186,
+        0.9766373005906548
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "phase": "preview"
+    },
+    "cachedInspections": 5,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": {
+      "before": [
+        1,
+        -3,
+        4
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 127,
+        "image": [
+          1,
+          -1,
+          2
+        ],
+        "imageNumerator": [
+          1,
+          -1,
+          2
+        ],
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -3,
+          4
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          1,
+          3,
+          1
+        ]
+      }
+    },
+    "mobiusMode": true,
+    "originMode": true,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": -244.38581510887212,
+      "y": 1713.3707704637752
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 35,
+      "points": 480
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": false,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "snapOnRelease": false,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 0.09999999403953552,
+      "enumerate": 0,
+      "motion": 0.10000000894069672,
+      "pick": 0,
+      "rootPick": 2.299999997019768,
+      "roots": 0.10000000894069672
+    },
+    "view": {
+      "fov": 69.99999907664099,
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": true,
+    "xrButtons": [
+      {
+        "label": "Next",
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Projection",
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Reset",
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exit",
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Origin",
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Inhabit",
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Overview",
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Other side",
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "R 6",
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Whole",
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Lower color",
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Cone",
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Pair aim",
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Clear pair",
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Plane fade",
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Colors",
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size −",
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size +",
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Forward",
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Back",
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Left",
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Right",
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Move forms ON",
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Identity",
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "T: z+1",
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "S: -1/z",
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "T inverse",
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exact move",
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap",
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap release OFF",
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "origin",
+    "xrPair": false
+  },
+  {
+    "label": "xr-direct-drag-accepted",
+    "action": {
+      "delta": -7,
+      "denominator": 99998439,
+      "displayedSelection": [
+        1.817668663807842,
+        3.428545449594469,
+        1.2045764934390628
+      ],
+      "g": [
+        1.0408081235391062,
+        0.1283010013932238,
+        0.1283010013932238,
+        0.97660762245224
+      ],
+      "imageNumerator": [
+        111196712,
+        -181764029,
+        231652481
+      ],
+      "matrix": [
+        10408,
+        1283,
+        1283,
+        9766
+      ],
+      "phase": "accepted"
+    },
+    "cachedInspections": 5,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": {
+      "before": [
+        1,
+        -3,
+        4
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 127,
+        "image": [
+          1,
+          -1,
+          2
+        ],
+        "imageNumerator": [
+          1,
+          -1,
+          2
+        ],
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -3,
+          4
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          1,
+          3,
+          1
+        ]
+      }
+    },
+    "mobiusMode": true,
+    "originMode": true,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": -244.37202407107455,
+      "y": 1713.1988996891246
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 35,
+      "points": 480
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": false,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "snapOnRelease": false,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 0.09999999403953552,
+      "enumerate": 0,
+      "motion": 0,
+      "pick": 0,
+      "rootPick": 2.299999997019768,
+      "roots": 0.10000000894069672
+    },
+    "view": {
+      "fov": 69.99999907664099,
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": true,
+    "xrButtons": [
+      {
+        "label": "Next",
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Projection",
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Reset",
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exit",
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Origin",
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Inhabit",
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Overview",
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Other side",
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "R 6",
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Whole",
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Lower color",
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Cone",
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Pair aim",
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Clear pair",
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Plane fade",
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Colors",
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size −",
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size +",
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Forward",
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Back",
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Left",
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Right",
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Move forms ON",
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Identity",
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "T: z+1",
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "S: -1/z",
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "T inverse",
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exact move",
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap",
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap release OFF",
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "origin",
+    "xrPair": false
+  },
+  {
+    "label": "xr-second-drag-preview",
+    "action": {
+      "delta": -7,
+      "denominator": 99998439,
+      "displayedSelection": [
+        2.4128930064020957,
+        3.785134912091166,
+        1.2268633348451057
+      ],
+      "g": [
+        1.056041742259069,
+        0.21653056499115897,
+        0.2112955372184252,
+        0.9902562561750246
+      ],
+      "imageNumerator": [
+        111196712,
+        -181764029,
+        231652481
+      ],
+      "matrix": [
+        10408,
+        1283,
+        1283,
+        9766
+      ],
+      "phase": "preview"
+    },
+    "cachedInspections": 5,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": {
+      "before": [
+        1,
+        -3,
+        4
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 127,
+        "image": [
+          1,
+          -1,
+          2
+        ],
+        "imageNumerator": [
+          1,
+          -1,
+          2
+        ],
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -3,
+          4
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          1,
+          3,
+          1
+        ]
+      }
+    },
+    "mobiusMode": true,
+    "originMode": true,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": -465.6280881361277,
+      "y": 1828.6272295333893
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 35,
+      "points": 480
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": false,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "snapOnRelease": false,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 0.09999999403953552,
+      "enumerate": 0,
+      "motion": 0,
+      "pick": 0,
+      "rootPick": 2.299999997019768,
+      "roots": 0.10000000894069672
+    },
+    "view": {
+      "fov": 69.99999907664099,
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": true,
+    "xrButtons": [
+      {
+        "label": "Next",
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Projection",
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Reset",
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exit",
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Origin",
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Inhabit",
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Overview",
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Other side",
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "R 6",
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Whole",
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Lower color",
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Cone",
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Pair aim",
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Clear pair",
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Plane fade",
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Colors",
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size −",
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size +",
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Forward",
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Back",
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Left",
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Right",
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Move forms ON",
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Identity",
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "T: z+1",
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "S: -1/z",
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "T inverse",
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exact move",
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap",
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap release OFF",
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "origin",
+    "xrPair": false
+  },
+  {
+    "label": "xr-disconnect-cancels-preview",
+    "action": {
+      "delta": -7,
+      "denominator": 99998439,
+      "displayedSelection": [
+        1.817668663807842,
+        3.428545449594469,
+        1.2045764934390628
+      ],
+      "g": [
+        1.0408081235391062,
+        0.1283010013932238,
+        0.1283010013932238,
+        0.97660762245224
+      ],
+      "imageNumerator": [
+        111196712,
+        -181764029,
+        231652481
+      ],
+      "matrix": [
+        10408,
+        1283,
+        1283,
+        9766
+      ],
+      "phase": "accepted"
+    },
+    "cachedInspections": 5,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": {
+      "before": [
+        1,
+        -3,
+        4
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 127,
+        "image": [
+          1,
+          -1,
+          2
+        ],
+        "imageNumerator": [
+          1,
+          -1,
+          2
+        ],
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -3,
+          4
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          1,
+          3,
+          1
+        ]
+      }
+    },
+    "mobiusMode": true,
+    "originMode": true,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": -244.37202407107455,
+      "y": 1713.1988996891246
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 34,
+      "points": 480
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": false,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "snapOnRelease": false,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 0.09999999403953552,
+      "enumerate": 0,
+      "motion": 0,
+      "pick": 0.09999999403953552,
+      "rootPick": 2.299999997019768,
+      "roots": 0.10000000894069672
+    },
+    "view": {
+      "fov": 69.99999907664099,
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": true,
+    "xrButtons": [
+      {
+        "label": "Next",
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Projection",
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Reset",
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exit",
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Origin",
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Inhabit",
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Overview",
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Other side",
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "R 6",
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Whole",
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Lower color",
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Cone",
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Pair aim",
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Clear pair",
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Plane fade",
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Colors",
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size −",
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size +",
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Forward",
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Back",
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Left",
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Right",
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Move forms ON",
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Identity",
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "T: z+1",
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "S: -1/z",
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "T inverse",
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exact move",
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap",
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap release OFF",
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "origin",
+    "xrPair": false
+  },
+  {
+    "label": "xr-reconnect-without-press-stable",
+    "action": {
+      "delta": -7,
+      "denominator": 99998439,
+      "displayedSelection": [
+        1.817668663807842,
+        3.428545449594469,
+        1.2045764934390628
+      ],
+      "g": [
+        1.0408081235391062,
+        0.1283010013932238,
+        0.1283010013932238,
+        0.97660762245224
+      ],
+      "imageNumerator": [
+        111196712,
+        -181764029,
+        231652481
+      ],
+      "matrix": [
+        10408,
+        1283,
+        1283,
+        9766
+      ],
+      "phase": "accepted"
+    },
+    "cachedInspections": 5,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": {
+      "before": [
+        1,
+        -3,
+        4
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 127,
+        "image": [
+          1,
+          -1,
+          2
+        ],
+        "imageNumerator": [
+          1,
+          -1,
+          2
+        ],
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -3,
+          4
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          1,
+          3,
+          1
+        ]
+      }
+    },
+    "mobiusMode": true,
+    "originMode": true,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": -244.37202407107455,
+      "y": 1713.1988996891246
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 35,
+      "points": 480
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": false,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "snapOnRelease": false,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 0.09999999403953552,
+      "enumerate": 0,
+      "motion": 0,
+      "pick": 0,
+      "rootPick": 2.299999997019768,
+      "roots": 0.10000000894069672
+    },
+    "view": {
+      "fov": 69.99999907664099,
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": true,
+    "xrButtons": [
+      {
+        "label": "Next",
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Projection",
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Reset",
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exit",
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Origin",
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Inhabit",
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Overview",
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Other side",
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "R 6",
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Whole",
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Lower color",
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Cone",
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Pair aim",
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Clear pair",
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Plane fade",
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Colors",
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size −",
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size +",
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Forward",
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Back",
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Left",
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Right",
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Move forms ON",
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Identity",
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "T: z+1",
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "S: -1/z",
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "T inverse",
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exact move",
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap",
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap release OFF",
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "origin",
+    "xrPair": false
+  },
+  {
+    "label": "xr-snap-button",
+    "action": {
+      "displayedSelection": [
+        1,
+        3,
+        1
+      ],
+      "g": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "phase": "identity"
+    },
+    "cachedInspections": 5,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": {
+      "before": [
+        1,
+        -1,
+        2
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 129,
+        "image": [
+          1,
+          -1,
+          2
+        ],
+        "imageNumerator": [
+          1,
+          -1,
+          2
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          1,
+          3,
+          1
+        ]
+      }
+    },
+    "mobiusMode": true,
+    "originMode": true,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 1.642162203788757,
+      "y": 1787.4632146954536
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 35,
+      "points": 480
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": false,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "snapOnRelease": false,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 0.09999999403953552,
+      "enumerate": 0,
+      "motion": 0.09999999403953552,
+      "pick": 0,
+      "rootPick": 2.299999997019768,
+      "roots": 0.10000000894069672
+    },
+    "view": {
+      "fov": 69.99999907664099,
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": true,
+    "xrButtons": [
+      {
+        "label": "Next",
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Projection",
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Reset",
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exit",
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Origin",
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Inhabit",
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Overview",
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Other side",
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "R 6",
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Whole",
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Lower color",
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Cone",
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Pair aim",
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Clear pair",
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Plane fade",
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Colors",
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size −",
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size +",
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Forward",
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Back",
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Left",
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Right",
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Move forms ON",
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Identity",
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "T: z+1",
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "S: -1/z",
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "T inverse",
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exact move",
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap",
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap release OFF",
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "origin",
+    "xrPair": false
+  },
+  {
+    "label": "xr-return-overview",
+    "action": {
+      "displayedSelection": [
+        1,
+        3,
+        1
+      ],
+      "g": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "phase": "identity"
+    },
+    "cachedInspections": 5,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": {
+      "before": [
+        1,
+        -1,
+        2
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 129,
+        "image": [
+          1,
+          -1,
+          2
+        ],
+        "imageNumerator": [
+          1,
+          -1,
+          2
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          1,
+          3,
+          1
+        ]
+      }
+    },
+    "mobiusMode": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 511.3051884514946,
+      "y": 292.2432351969624
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 37,
+      "points": 480
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": false,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "snapOnRelease": false,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 0.09999999403953552,
+      "enumerate": 0,
+      "motion": 0,
+      "pick": 0,
+      "rootPick": 2.299999997019768,
+      "roots": 0.10000000894069672
+    },
+    "view": {
+      "fov": 69.99999907664099,
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": true,
+    "xrButtons": [
+      {
+        "label": "Next",
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Projection",
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Reset",
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exit",
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Origin",
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Inhabit",
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Overview",
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Other side",
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "R 6",
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Whole",
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Lower color",
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Cone",
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Pair aim",
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Clear pair",
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Plane fade",
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Colors",
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size −",
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size +",
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Forward",
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Back",
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Left",
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Right",
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Move forms",
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Identity",
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "T: z+1",
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "S: -1/z",
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "T inverse",
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exact move",
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap",
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap release OFF",
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "record-xr-exact",
+    "action": {
+      "delta": -7,
+      "denominator": 5,
+      "displayedSelection": [
+        4.6000000000000005,
+        6,
+        2.8
+      ],
+      "g": [
+        1.3416407864998738,
+        0.4472135954999579,
+        0.4472135954999579,
+        0.8944271909999159
+      ],
+      "imageNumerator": [
+        8,
+        -23,
+        22
+      ],
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "phase": "accepted"
+    },
+    "cachedInspections": 5,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": {
+      "before": [
+        1,
+        -1,
+        2
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 129,
+        "image": [
+          1,
+          -1,
+          2
+        ],
+        "imageNumerator": [
+          1,
+          -1,
+          2
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          1,
+          3,
+          1
+        ]
+      }
+    },
+    "mobiusMode": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 619.1445583024176,
+      "y": 199.8133473332568
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 39,
+      "points": 480
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": false,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "snapOnRelease": false,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 0.09999999403953552,
+      "enumerate": 0,
+      "motion": 0,
+      "pick": 0,
+      "rootPick": 2.299999997019768,
+      "roots": 0.10000000894069672
+    },
+    "view": {
+      "fov": 69.99999907664099,
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": true,
+    "xrButtons": [
+      {
+        "label": "Next",
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Projection",
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Reset",
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exit",
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Origin",
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Inhabit",
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Overview",
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Other side",
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "R 6",
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Whole",
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Lower color",
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Cone",
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Pair aim",
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Clear pair",
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Plane fade",
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Colors",
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size −",
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size +",
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Forward",
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Back",
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Left",
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Right",
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Move forms",
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Identity",
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "T: z+1",
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "S: -1/z",
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "T inverse",
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exact move",
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap",
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap release OFF",
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "record-xr-drag-held",
+    "action": {
+      "displayedSelection": [
+        1.8173377831355952,
+        3.4282850049717015,
+        1.204334445783902
+      ],
+      "g": [
+        1.0407639801490214,
+        0.12825335911673183,
+        0.12825335911673186,
+        0.9766373005906543
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "phase": "preview"
+    },
+    "cachedInspections": 5,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": {
+      "before": [
+        1,
+        -1,
+        2
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 129,
+        "image": [
+          1,
+          -1,
+          2
+        ],
+        "imageNumerator": [
+          1,
+          -1,
+          2
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          1,
+          3,
+          1
+        ]
+      }
+    },
+    "mobiusMode": true,
+    "originMode": true,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 741.2285399632439,
+      "y": 168.55024329833842
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 13,
+      "points": 480
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": false,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "snapOnRelease": false,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 0.09999999403953552,
+      "enumerate": 0,
+      "motion": 0.09999999403953552,
+      "pick": 0,
+      "rootPick": 2.299999997019768,
+      "roots": 0.10000000894069672
+    },
+    "view": {
+      "fov": 69.99999907664099,
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0.7071067811865475,
+        0,
+        0,
+        0.7071067811865476
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": true,
+    "xrButtons": [
+      {
+        "label": "Next",
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Projection",
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Reset",
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exit",
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Origin",
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Inhabit",
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Overview",
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Other side",
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "R 6",
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Whole",
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Lower color",
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Cone",
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Pair aim",
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Clear pair",
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Plane fade",
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Colors",
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size −",
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size +",
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Forward",
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Back",
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Left",
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Right",
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Move forms ON",
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Identity",
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "T: z+1",
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "S: -1/z",
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "T inverse",
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exact move",
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap",
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap release OFF",
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "origin",
+    "xrPair": false
+  },
+  {
+    "label": "record-xr-drag-accepted",
+    "action": {
+      "delta": -7,
+      "denominator": 99998439,
+      "displayedSelection": [
+        1.817668663807842,
+        3.428545449594469,
+        1.2045764934390628
+      ],
+      "g": [
+        1.0408081235391062,
+        0.1283010013932238,
+        0.1283010013932238,
+        0.97660762245224
+      ],
+      "imageNumerator": [
+        111196712,
+        -181764029,
+        231652481
+      ],
+      "matrix": [
+        10408,
+        1283,
+        1283,
+        9766
+      ],
+      "phase": "accepted"
+    },
+    "cachedInspections": 5,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": {
+      "before": [
+        1,
+        -1,
+        2
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 129,
+        "image": [
+          1,
+          -1,
+          2
+        ],
+        "imageNumerator": [
+          1,
+          -1,
+          2
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          1,
+          3,
+          1
+        ]
+      }
+    },
+    "mobiusMode": true,
+    "originMode": true,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 741.2557236253077,
+      "y": 168.52903056188808
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 13,
+      "points": 480
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": false,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "snapOnRelease": false,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 0.09999999403953552,
+      "enumerate": 0,
+      "motion": 0,
+      "pick": 0,
+      "rootPick": 2.299999997019768,
+      "roots": 0.10000000894069672
+    },
+    "view": {
+      "fov": 69.99999907664099,
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0.7071067811865475,
+        0,
+        0,
+        0.7071067811865476
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": true,
+    "xrButtons": [
+      {
+        "label": "Next",
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Projection",
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Reset",
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exit",
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Origin",
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Inhabit",
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Overview",
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Other side",
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "R 6",
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Whole",
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Lower color",
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Cone",
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Pair aim",
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Clear pair",
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Plane fade",
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Colors",
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size −",
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size +",
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Forward",
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Back",
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Left",
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Right",
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Move forms ON",
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Identity",
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "T: z+1",
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "S: -1/z",
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "T inverse",
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exact move",
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap",
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap release OFF",
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "origin",
+    "xrPair": false
+  },
+  {
+    "label": "record-xr-overview",
+    "action": {
+      "delta": -7,
+      "denominator": 99998439,
+      "displayedSelection": [
+        1.817668663807842,
+        3.428545449594469,
+        1.2045764934390628
+      ],
+      "g": [
+        1.0408081235391062,
+        0.1283010013932238,
+        0.1283010013932238,
+        0.97660762245224
+      ],
+      "imageNumerator": [
+        111196712,
+        -181764029,
+        231652481
+      ],
+      "matrix": [
+        10408,
+        1283,
+        1283,
+        9766
+      ],
+      "phase": "accepted"
+    },
+    "cachedInspections": 5,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": {
+      "before": [
+        1,
+        -1,
+        2
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 129,
+        "image": [
+          1,
+          -1,
+          2
+        ],
+        "imageNumerator": [
+          1,
+          -1,
+          2
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          1,
+          3,
+          1
+        ]
+      }
+    },
+    "mobiusMode": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 533.3524445564436,
+      "y": 280.3321307535408
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 37,
+      "points": 480
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": false,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "snapOnRelease": false,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 0.09999999403953552,
+      "enumerate": 0,
+      "motion": 0.09999999403953552,
+      "pick": 0,
+      "rootPick": 2.299999997019768,
+      "roots": 0.10000000894069672
+    },
+    "view": {
+      "fov": 69.99999907664099,
+      "position": [
+        0,
+        1.600000023841858,
+        0
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": true,
+    "xrButtons": [
+      {
+        "label": "Next",
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Projection",
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Reset",
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exit",
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Origin",
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Inhabit",
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Overview",
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Other side",
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "R 6",
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Whole",
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Lower color",
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Cone",
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Pair aim",
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Clear pair",
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Plane fade",
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Colors",
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size −",
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size +",
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Forward",
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Back",
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Left",
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Right",
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Move forms",
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Identity",
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "T: z+1",
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "S: -1/z",
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "T inverse",
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exact move",
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap",
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap release OFF",
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "xr-final-exit",
+    "action": {
+      "displayedSelection": [
+        1,
+        3,
+        1
+      ],
+      "g": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "phase": "identity"
+    },
+    "cachedInspections": 5,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": {
+      "before": [
+        1,
+        -1,
+        2
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 129,
+        "image": [
+          1,
+          -1,
+          2
+        ],
+        "imageNumerator": [
+          1,
+          -1,
+          2
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          1,
+          3,
+          1
+        ]
+      }
+    },
+    "mobiusMode": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 677.4236466704001,
+      "y": 350.4399024624327
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 10,
+      "points": 480
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 540404
+    },
+    "rootsView": false,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "snapOnRelease": false,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 0.09999999403953552,
+      "enumerate": 0,
+      "motion": 0,
+      "pick": 0,
+      "rootPick": 2.299999997019768,
+      "roots": 0.10000000894069672
+    },
+    "view": {
+      "fov": 45,
+      "position": [
+        2.4,
+        2.9000000000000004,
+        1.5
+      ],
+      "quaternion": [
+        -0.1362166426569136,
+        0.23577980007794755,
+        0.033398544765839325,
+        0.9616326998111108
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "label": "Next",
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Projection",
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Reset",
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exit",
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Origin",
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Inhabit",
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Overview",
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Other side",
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "R 6",
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Whole",
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Lower color",
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Cone",
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Pair aim",
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Clear pair",
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Plane fade",
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Colors",
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size −",
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size +",
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Forward",
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Back",
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Left",
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Right",
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Move forms",
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Identity",
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "T: z+1",
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "S: -1/z",
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "T inverse",
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exact move",
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap",
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap release OFF",
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "mobile390-exact-action",
+    "action": {
+      "delta": -7,
+      "denominator": 5,
+      "displayedSelection": [
+        4.6000000000000005,
+        6,
+        2.8
+      ],
+      "g": [
+        1.3416407864998738,
+        0.4472135954999579,
+        0.4472135954999579,
+        0.8944271909999159
+      ],
+      "imageNumerator": [
+        8,
+        -23,
+        22
+      ],
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "phase": "accepted"
+    },
+    "cachedInspections": 5,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "lastAbsorption": {
+      "before": [
+        1,
+        -1,
+        2
+      ],
+      "receipt": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 129,
+        "image": [
+          1,
+          -1,
+          2
+        ],
+        "imageNumerator": [
+          1,
+          -1,
+          2
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          1,
+          3,
+          1
+        ]
+      }
+    },
+    "mobiusMode": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 233.72985637670817,
+      "y": 217.04804157004665
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 10,
+      "points": 480
+    },
+    "rootsRender": {
+      "calls": 3,
+      "points": 110
+    },
+    "rootsView": true,
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "snapOnRelease": false,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "timings": {
+      "attributes": 0.09999999403953552,
+      "enumerate": 0,
+      "motion": 0,
+      "pick": 0,
+      "rootPick": 2.299999997019768,
+      "roots": 0.20000000298023224
+    },
+    "view": {
+      "fov": 45,
+      "position": [
+        2.4,
+        2.9000000000000004,
+        1.5
+      ],
+      "quaternion": [
+        -0.1362166426569136,
+        0.23577980007794755,
+        0.033398544765839325,
+        0.9616326998111108
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "label": "Next",
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Projection",
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Reset",
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exit",
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "label": "Origin",
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Inhabit",
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Overview",
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "Other side",
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "label": "R 6",
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Whole",
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Lower color",
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Cone",
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "label": "Pair aim",
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Clear pair",
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Plane fade",
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Colors",
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size −",
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Size +",
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Forward",
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Back",
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "label": "Left",
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Right",
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Move forms",
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "Identity",
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "label": "T: z+1",
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "S: -1/z",
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "T inverse",
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Exact move",
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap",
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "label": "Snap release OFF",
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  }
+]

@@ -1,0 +1,81 @@
+{
+  "status": "passed",
+  "scope": "Bounded Node CPU stages, five R96 action states. Excludes cloud generation, whole-cloud transformation, attribute copy, GPU upload, GPU frame, browser input and display latency; not an FPS claim.",
+  "sourceCommit": "2cd549a45ddb6056cf3596404754d96ad9e7132c",
+  "runtime": "v26.9.0",
+  "platform": "darwin/arm64",
+  "allSignedPoints": 1852484,
+  "upperVertices": 270202,
+  "sourceLatticeSha256": "3a10ed93d0c5ab61e507ab2ebe400668d04e786af4cf8e897101b4b2e7c48259",
+  "implementationSha256": {
+    "web/polynomial/klein-data.js": "708b3b16c378b8c54872652b41e6c2d2fab1ff30c501741482cf762f6187d601",
+    "web/polynomial/mobius-render.js": "3d8e32100a573514d0c837a46efaaa5f508c82915d83c2662117d8d04367c2d9"
+  },
+  "scriptSha256": "7396dda219ef9f7c6f6fd789a6834f79071e7737e4da5f3e728ad43715acb7f1",
+  "orderingPasses": 4,
+  "orderingStorageBytes": 3243448,
+  "samples": [
+    {
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "fillPositionsMs": 2.7596249999999998,
+      "stableOrderingMs": 7.452459000000005,
+      "combinedMs": 10.212084000000004,
+      "permutationAndStableOrderVerified": true
+    },
+    {
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "fillPositionsMs": 1.5073749999999961,
+      "stableOrderingMs": 3.1571250000000077,
+      "combinedMs": 4.664500000000004,
+      "permutationAndStableOrderVerified": true
+    },
+    {
+      "matrix": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "fillPositionsMs": 1.2288329999999945,
+      "stableOrderingMs": 2.2763750000000016,
+      "combinedMs": 3.505207999999996,
+      "permutationAndStableOrderVerified": true
+    },
+    {
+      "matrix": [
+        1,
+        -1,
+        0,
+        1
+      ],
+      "fillPositionsMs": 1.320291999999995,
+      "stableOrderingMs": 2.3952500000000043,
+      "combinedMs": 3.7155419999999992,
+      "permutationAndStableOrderVerified": true
+    },
+    {
+      "matrix": [
+        10741,
+        903,
+        912,
+        9387
+      ],
+      "fillPositionsMs": 2.779375000000016,
+      "stableOrderingMs": 6.244207999999986,
+      "combinedMs": 9.023583000000002,
+      "permutationAndStableOrderVerified": true
+    }
+  ],
+  "maxOrderingMs": 7.452459000000005,
+  "maxCombinedMs": 10.212084000000004
+}

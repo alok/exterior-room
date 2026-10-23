@@ -1,0 +1,79 @@
+{
+  "app": "com.alok.PolynomialRoom",
+  "simulator": "1D261881-0A0F-4DE0-B704-12644E606348",
+  "build": "unsigned arm64 xrsimulator27.2, Xcode27.2 beta2, jobs2",
+  "modelTests": {
+    "total": 59,
+    "failures": 0,
+    "polynomial": 35,
+    "actionAndSnap": 9,
+    "exterior": 12,
+    "appearance": 3
+  },
+  "leanActionFixtures": 69,
+  "uiRuns": [
+    {
+      "run": "20261023T055100Z",
+      "tests": 1,
+      "failures": 0,
+      "seconds": 140.911,
+      "scope": "polynomial baseline",
+      "captures": 14
+    },
+    {
+      "run": "20261023T061442Z",
+      "tests": 1,
+      "failures": 0,
+      "seconds": 43.968,
+      "scope": "exact source fixture, T absorption, Identity retention, checkpoint, Snap, Reset",
+      "captures": 6
+    },
+    {
+      "run": "20261023T062243Z",
+      "tests": 1,
+      "failures": 0,
+      "seconds": 64.04,
+      "scope": "actual directional control input, accepted Lean matrices, visible geometry, immediate Snap toggle, Identity, Reset",
+      "captures": 5
+    }
+  ],
+  "unverifiedInteractions": [
+    {
+      "run": "20261023T055513Z",
+      "scope": "Exterior targeted endpoint drag",
+      "reason": "XCUI invalid activation point transform(nil)"
+    },
+    {
+      "run": "20261023T061602Z",
+      "scope": "immersive Klein disk drag",
+      "reason": "XCUI synthesis produced no accepted drag sample or matrix change. Callback delivery is unresolved because the prior diagnostic was recorded after the Origin/busy guard."
+    },
+    {
+      "run": "20261023T061935Z",
+      "scope": "launch-window Klein disk drag",
+      "reason": "XCUI synthesis produced no accepted drag sample or matrix change. Callback delivery is unresolved because the prior diagnostic was recorded after the Origin/busy guard."
+    },
+    "physical tracked-hand/controller/headset behavior"
+  ],
+  "limitations": [
+    "Native radius cap12; hidden source13,20,34 retained explicitly",
+    "Fixed finite base crop under continuous action, not transformed recropping",
+    "Native free-space SL2 hand/controller gesture is not implemented",
+    "Plane opacity-distance heuristic uses base coordinates under continuous action",
+    "Model tests are not gesture evidence; exact transport receipts are not kernel checks inside Swift"
+  ],
+  "sha256": {
+    "native/Sources/PolynomialAction.swift": "36959d479d781daed8d0c2975801753a158d0f41dea549bdc9158e874e62b8bf",
+    "native/Sources/PolynomialModel.swift": "a1f3d799c800a8d35826e42341c98ad31cc46a1ea3f176d5c34abeff9845edde",
+    "native/Sources/PolynomialSpace.swift": "3ca663a42fc041a4835d4bbe383720ccddffc9aa12229824995007986050c8b1",
+    "native/Sources/PolynomialTransformControls.swift": "fc8605ba9c1099d37fbb7d2a934d1ccf3990667a048165a5475e29c26d67b45b",
+    "native/Sources/PolynomialRoomApp.swift": "1af41dd1093f8354397a4b4bdbcd0f8f3ee1c73fcb14c3199b9cb12199ce09b1",
+    "native/Resources/polynomial-action-cases.json": "7ba87630d81dc3e8fddbc793ed5e5ba6086e364b058780f160775d6613e78c58",
+    "native/Resources/polynomial-action-receipt.json": "a6302a897870ad3b612ae3df642d1938a1a8be13de4836c870ebb50139d4c32d",
+    "native/evidence/action-build-for-testing.txt": "28fd92fe1770cb1d81789bfd6792021a7fed84e50cbb6c0d19e9a7fe7e39ea20",
+    "native/evidence/action-model-tests.txt": "1cf4f49fb4b3156d61c563b88c374c49754dfacbf152f9faea7655cca8c029da",
+    "native/evidence/ui-tests-20261023T061442Z.txt": "8ef1a8b65ab7fedf51a500a9668f0b48db193eadfc0e18a867ea4d39d0c5b5e2",
+    "native/evidence/ui-tests-20261023T062243Z.txt": "abd9903685b07c40ca61fbca436c63401424c2b4fe9eac16977c20ad570ae1b2"
+  },
+  "scope": "Baseline through20261023T062243Z; later local plane-fade validation is recorded separately."
+}

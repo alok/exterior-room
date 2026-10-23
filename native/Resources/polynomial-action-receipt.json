@@ -1,0 +1,1047 @@
+{
+  "generator": "lean/.lake/build/bin/polynomial_service",
+  "generatorSha256": "fdc39244f0d64fd553027b6e8c003cf0d371713224fda068c5d25ef19af7b4c3",
+  "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+  "canonicalFixtureSha256": "cf8faf235b12f2f214e59f67dc4eed0457ec8f349877db00ffc5f2c6d6322456",
+  "requests": [
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "point": [
+        1,
+        -1,
+        2
+      ],
+      "id": 1
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "point": [
+        -1,
+        1,
+        -2
+      ],
+      "id": 2
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "point": [
+        1,
+        0,
+        1
+      ],
+      "id": 3
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "point": [
+        2,
+        0,
+        2
+      ],
+      "id": 4
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "point": [
+        2,
+        -2,
+        4
+      ],
+      "id": 5
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "point": [
+        1,
+        1,
+        1
+      ],
+      "id": 6
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "point": [
+        1,
+        -2,
+        1
+      ],
+      "id": 7
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "point": [
+        0,
+        0,
+        1
+      ],
+      "id": 8
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "point": [
+        0,
+        1,
+        0
+      ],
+      "id": 9
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "point": [
+        1,
+        0,
+        -2
+      ],
+      "id": 10
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "point": [
+        13,
+        20,
+        34
+      ],
+      "id": 11
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        -1,
+        0,
+        1
+      ],
+      "point": [
+        1,
+        -1,
+        2
+      ],
+      "id": 12
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        -1,
+        0,
+        1
+      ],
+      "point": [
+        -1,
+        1,
+        -2
+      ],
+      "id": 13
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        -1,
+        0,
+        1
+      ],
+      "point": [
+        1,
+        0,
+        1
+      ],
+      "id": 14
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        -1,
+        0,
+        1
+      ],
+      "point": [
+        2,
+        0,
+        2
+      ],
+      "id": 15
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        -1,
+        0,
+        1
+      ],
+      "point": [
+        2,
+        -2,
+        4
+      ],
+      "id": 16
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        -1,
+        0,
+        1
+      ],
+      "point": [
+        1,
+        1,
+        1
+      ],
+      "id": 17
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        -1,
+        0,
+        1
+      ],
+      "point": [
+        1,
+        -2,
+        1
+      ],
+      "id": 18
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        -1,
+        0,
+        1
+      ],
+      "point": [
+        0,
+        0,
+        1
+      ],
+      "id": 19
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        -1,
+        0,
+        1
+      ],
+      "point": [
+        0,
+        1,
+        0
+      ],
+      "id": 20
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        -1,
+        0,
+        1
+      ],
+      "point": [
+        1,
+        0,
+        -2
+      ],
+      "id": 21
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        -1,
+        0,
+        1
+      ],
+      "point": [
+        13,
+        20,
+        34
+      ],
+      "id": 22
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        0,
+        -1,
+        1,
+        0
+      ],
+      "point": [
+        1,
+        -1,
+        2
+      ],
+      "id": 23
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        0,
+        -1,
+        1,
+        0
+      ],
+      "point": [
+        -1,
+        1,
+        -2
+      ],
+      "id": 24
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        0,
+        -1,
+        1,
+        0
+      ],
+      "point": [
+        1,
+        0,
+        1
+      ],
+      "id": 25
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        0,
+        -1,
+        1,
+        0
+      ],
+      "point": [
+        2,
+        0,
+        2
+      ],
+      "id": 26
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        0,
+        -1,
+        1,
+        0
+      ],
+      "point": [
+        2,
+        -2,
+        4
+      ],
+      "id": 27
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        0,
+        -1,
+        1,
+        0
+      ],
+      "point": [
+        1,
+        1,
+        1
+      ],
+      "id": 28
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        0,
+        -1,
+        1,
+        0
+      ],
+      "point": [
+        1,
+        -2,
+        1
+      ],
+      "id": 29
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        0,
+        -1,
+        1,
+        0
+      ],
+      "point": [
+        0,
+        0,
+        1
+      ],
+      "id": 30
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        0,
+        -1,
+        1,
+        0
+      ],
+      "point": [
+        0,
+        1,
+        0
+      ],
+      "id": 31
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        0,
+        -1,
+        1,
+        0
+      ],
+      "point": [
+        1,
+        0,
+        -2
+      ],
+      "id": 32
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        0,
+        -1,
+        1,
+        0
+      ],
+      "point": [
+        13,
+        20,
+        34
+      ],
+      "id": 33
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "point": [
+        1,
+        -1,
+        2
+      ],
+      "id": 34
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "point": [
+        -1,
+        1,
+        -2
+      ],
+      "id": 35
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "point": [
+        2,
+        -2,
+        4
+      ],
+      "id": 36
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "point": [
+        1,
+        0,
+        1
+      ],
+      "id": 37
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "point": [
+        13,
+        20,
+        34
+      ],
+      "id": 38
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        6,
+        2,
+        2,
+        4
+      ],
+      "point": [
+        1,
+        -1,
+        2
+      ],
+      "id": 39
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1000000,
+        -1000000,
+        1000000,
+        1000000
+      ],
+      "point": [
+        96,
+        96,
+        96
+      ],
+      "id": 40
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "point": [
+        1,
+        -1,
+        2
+      ],
+      "id": 41
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "point": [
+        2,
+        -2,
+        4
+      ],
+      "id": 42
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "point": [
+        -1,
+        1,
+        -2
+      ],
+      "id": 43
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "point": [
+        -2,
+        2,
+        -4
+      ],
+      "id": 44
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "point": [
+        1,
+        0,
+        1
+      ],
+      "id": 45
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "point": [
+        1,
+        1,
+        1
+      ],
+      "id": 46
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "point": [
+        1,
+        2,
+        1
+      ],
+      "id": 47
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "point": [
+        1,
+        3,
+        1
+      ],
+      "id": 48
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "point": [
+        1,
+        0,
+        -1
+      ],
+      "id": 49
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "point": [
+        0,
+        1,
+        0
+      ],
+      "id": 50
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "point": [
+        0,
+        0,
+        -3
+      ],
+      "id": 51
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "point": [
+        1,
+        8,
+        -1
+      ],
+      "id": 52
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "point": [
+        2,
+        1,
+        1
+      ],
+      "id": 53
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "point": [
+        3,
+        2,
+        2
+      ],
+      "id": 54
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        4,
+        0,
+        0,
+        1
+      ],
+      "point": [
+        1,
+        -1,
+        2
+      ],
+      "id": 55
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        4,
+        4,
+        0,
+        1
+      ],
+      "point": [
+        1,
+        -1,
+        2
+      ],
+      "id": 56
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "point": [
+        13,
+        20,
+        34
+      ],
+      "id": 57
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "point": [
+        13,
+        -6,
+        27
+      ],
+      "id": 58
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "point": [
+        1,
+        -2,
+        2
+      ],
+      "id": 59
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "point": [
+        1,
+        -1,
+        1
+      ],
+      "id": 60
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "point": [
+        96,
+        -96,
+        96
+      ],
+      "id": 61
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "point": [
+        -96,
+        96,
+        -96
+      ],
+      "id": 62
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "point": [
+        96,
+        -96,
+        96
+      ],
+      "id": 63
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "point": [
+        -96,
+        96,
+        -96
+      ],
+      "id": 64
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        2,
+        2,
+        0,
+        2
+      ],
+      "point": [
+        1,
+        -1,
+        2
+      ],
+      "id": 65
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        4,
+        3,
+        1,
+        2
+      ],
+      "point": [
+        1,
+        -1,
+        2
+      ],
+      "id": 66
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        1,
+        1,
+        0,
+        9
+      ],
+      "point": [
+        1,
+        -1,
+        2
+      ],
+      "id": 67
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        3689,
+        0,
+        0,
+        3012
+      ],
+      "point": [
+        1,
+        -1,
+        2
+      ],
+      "id": 68
+    },
+    {
+      "op": "transform",
+      "matrix": [
+        3689,
+        0,
+        0,
+        3012
+      ],
+      "point": [
+        1,
+        0,
+        1
+      ],
+      "id": 69
+    }
+  ],
+  "output": "native/Resources/polynomial-action-cases.json",
+  "outputSha256": "7ba87630d81dc3e8fddbc793ed5e5ba6086e364b058780f160775d6613e78c58",
+  "regeneration": "Send each requests entry as one JSON line to generator; collect actual responses in case order. No Python transformation math.",
+  "scope": "Compiled Lean results including canonical signed generators, rational checkpoints, identity selection/absorption receipts, declared vertical-drag samples and signed coefficient-bound rejection inputs. Approximate preview and physical gesture execution are outside this receipt."
+}

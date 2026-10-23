@@ -1,0 +1,202 @@
+{
+  "scope": "Completed local bounded-target simulator element swipe and refreshed matched-render recording. Earlier59/61-test snapshots and failed coordinate-drag probes remain historical.",
+  "sourceCommit": "2ec43e8879bddb0b17546bc1d9263903e0983e85",
+  "sourceNotes": "Canonical element swipe route was read from pinned source. Current canonical test has unrelated readout assertion edits; its gesture route remains the pinned route. Original checkout was read only.",
+  "canonicalSha256": {
+    "Farey/UITests/StarscapeMobiusUITests.swift": "3342fe971e84789e08b671f1821fdd3dc70b88b91086382a500f6c10018de47d",
+    "Farey/Sources/RootsPaneView.swift": "d2371bb8247bfbdf8ee9b6dd56360e09496c6a054fac302b99155fa07c7b13c4"
+  },
+  "targetChange": "170x170 inner Canvas/GeometryReader, centered by outer full-width frame; unchanged diameter154 drawing and minimumDistance4. Diagnostic local coordinates added. No algebra or preview computation changed.",
+  "modelTests": {
+    "tests": 62,
+    "failures": 0,
+    "polynomial": 35,
+    "actionAndSnap": 10,
+    "appearance": 5,
+    "exterior": 12,
+    "originalLeanActionFixtures": 69,
+    "additionalCapturedSwipeReplay": "native/Resources/polynomial-swipe-case.json",
+    "log": "native/evidence/klein-swipe-model-tests.txt"
+  },
+  "build": "unsigned simulator build-for-testing passed",
+  "uiStatus": "passed",
+  "sha256": {
+    "native/ModelTests/LeanModelTests.swift": "ce4b2e4af9f4b8ec95f407aac4c19673dbb707eb25b19ddfd02fb147ccd3af3f",
+    "native/ModelTests/PolynomialActionTests.swift": "cd8720ba4b21286ebc949dcfeb9ffad64d15dab5932a7a05562d56ab53e36c37",
+    "native/ModelTests/PolynomialAppearanceTests.swift": "ee868526d77c4904e158766f23d91e0ef1a55917e69d539f0c18aa226068b610",
+    "native/ModelTests/PolynomialModelTests.swift": "16dadfe146db38c86b094073de265142a35c0c4af4dc914f6c656a832e701645",
+    "native/PolynomialUITests/PolynomialRoomUITests.swift": "11f820bd12a8d2d04ee40db3281f9926da826830ecf561248968da7a9853c33d",
+    "native/Resources/polynomial-action-cases.json": "7ba87630d81dc3e8fddbc793ed5e5ba6086e364b058780f160775d6613e78c58",
+    "native/Resources/polynomial-action-receipt.json": "a6302a897870ad3b612ae3df642d1938a1a8be13de4836c870ebb50139d4c32d",
+    "native/Resources/polynomial-swipe-case.json": "5d7b6aaa15da8a6d8519e018c186fc3a3a135a5ee2c076302c9ac6f820f7713b",
+    "native/Sources/ExteriorRoomApp.swift": "185fa622d5dc6c3ec4977060a365e7b0e4c277cda058d9cee7afa5cd926f34b6",
+    "native/Sources/ExteriorSpace.swift": "3f9b87c227e7c1c4a77b332a18731820edc4dd4b5a16f2275a2705e44e71d4e4",
+    "native/Sources/LeanModel.swift": "992903c6a9ca6bfb35b64628e3ed7f1717266541f5643850f477b0ce62d42c93",
+    "native/Sources/PolynomialAction.swift": "3fe9e3bc7ad3fd999bc0b07af2ce55c5d0c77601d0db2986410b656b76ebc480",
+    "native/Sources/PolynomialAppearance.swift": "209ad4c7d39f99cc0e397d5bbfc50014dbcb1866c91443c0713b135bc09218e1",
+    "native/Sources/PolynomialModel.swift": "a1f3d799c800a8d35826e42341c98ad31cc46a1ea3f176d5c34abeff9845edde",
+    "native/Sources/PolynomialRoomApp.swift": "1af41dd1093f8354397a4b4bdbcd0f8f3ee1c73fcb14c3199b9cb12199ce09b1",
+    "native/Sources/PolynomialSpace.swift": "aafc25104021d7ac8bd0ab01773fafd21c906317fd4a76db08e056aaee338492",
+    "native/Sources/PolynomialTransformControls.swift": "712e1bd5424262e26896b99d6aa2f2bc726f143a9e6d89eb24bf758f9f6229d3",
+    "native/Sources/PolynomialViridis.swift": "885fae4705ce971eae95a3141313038af79b6bb62215798dcb5725266b95ceed",
+    "native/evidence/klein-swipe-action-model-tests.txt": "8822346a1704ccb5cace072ff5cac94ac3ac0c7f0b08b4913ffdd9ada9f580d9",
+    "native/evidence/klein-swipe-build-for-testing.txt": "2279cdb2488adf0a8b6e141182c922047ff035813b68e55989002068e59afcc3",
+    "native/evidence/klein-swipe-model-tests.txt": "76a1632f1de128aac08d93196eb6745c8587c6c2c607b7e21c29bcf427a3d2fb",
+    "native/evidence/screenshots/20261023T070446Z/001-klein-swipe-01-before.png": "86ff8160a99fda777e5107a9522102e4b3a7259ce10e9d64f8c03059f06d188d",
+    "native/evidence/screenshots/20261023T070446Z/002-klein-swipe-02-accepted-origin.png": "c7a998a350b49b824d5582861e2671690f0aff3395d6bd4329af5043e9de98ab",
+    "native/evidence/screenshots/20261023T070446Z/003-klein-swipe-03-accepted-overview.png": "21efc84511ba7545f2541623c4c070e0bb7e9274131513e6e7563b30a456fc01",
+    "native/evidence/screenshots/20261023T070446Z/captures.json": "ae7be1e0869c03ee6a35b3f541aa90cd5dd2f7efa744a2d80604b4c609bd299a",
+    "native/evidence/screenshots/20261023T070446Z/polynomial-klein-swipe-video-start.json": "22deadc08679df60d540271d8da469cbbddfa105e809f5d5294e36e018995cf4",
+    "native/evidence/screenshots/20261023T070446Z/polynomial-klein-swipe-video-stop.json": "c2a38f038670f1a01332579a377ab4ddf4d7a69c3c5f389f9ad2138ed7a5f7d2",
+    "native/evidence/screenshots/20261023T070446Z/polynomial-klein-swipe.mov": "3d21bd1cfede83c6fa5586016153d9268326393227cf4965fb9b310309c8e6b0",
+    "native/evidence/screenshots/20261023T070602Z/001-plane-fade-01-identity-overview.png": "f96e4af2f043c545fe49d280cfa27021357c11ddb2258e943a205b039b6675dc",
+    "native/evidence/screenshots/20261023T070602Z/002-plane-fade-02-rational-overview.png": "d4f006bfc616ad0ea4e06bab12aa0b1e7f4b40b10175e3d194aab978658a3dc6",
+    "native/evidence/screenshots/20261023T070602Z/003-plane-fade-03-fade-off-overview.png": "0c656135c9625cada053c42cb1a398398722977797799a589fd2112a37f4b444",
+    "native/evidence/screenshots/20261023T070602Z/004-plane-fade-04-rational-projection.png": "9f314c2eaf21e4dc22d7c8f408535c850b69c3b87244e4a1cd77d08ee85aecf5",
+    "native/evidence/screenshots/20261023T070602Z/captures.json": "41fedeb03f7eb5c2a67c90293e9e69b3c1810930ad334276ac98292b6d95572c",
+    "native/evidence/screenshots/20261023T070602Z/polynomial-matched-render-video-start.json": "419bc2b11d59985118938f100e2b25522419694509137bdb2284a24955bfcc57",
+    "native/evidence/screenshots/20261023T070602Z/polynomial-matched-render-video-stop.json": "83274108649ae7dc490dce287a8a0ad909f140c334fbaab2bfdf936a5adab23a",
+    "native/evidence/screenshots/20261023T070602Z/polynomial-matched-render.mov": "c00829b12080da0b2342d4be11774e2f715c30e09d272ebd4675a60fb6148d37",
+    "native/evidence/ui-tests-20261023T070446Z.txt": "b355b9336205d0ea003ccbbaffdc6036538bb18d747b96fb476371daf915b5f9",
+    "native/evidence/ui-tests-20261023T070602Z.txt": "895b1cdee06360ef6ba2eda5375bd71f5383b3efadc711634c27028b9aa52fdd",
+    "native/scripts/run-ui-tests.py": "66ceec4efa6366e573b7000762e626385d122fd8112c3cf737f9656d11e18d01"
+  },
+  "uiRuns": [
+    {
+      "run": "20261023T070446Z",
+      "test": "testKleinDiskSwipeAndAcceptedScene",
+      "tests": 1,
+      "failures": 0,
+      "seconds": 46.194,
+      "captures": 3,
+      "inputRoute": "XCUIElement.swipeRight",
+      "video": "native/evidence/screenshots/20261023T070446Z/polynomial-klein-swipe.mov"
+    },
+    {
+      "run": "20261023T070602Z",
+      "test": "testTransformedPlaneFadeWithFixedReferenceGuides",
+      "tests": 1,
+      "failures": 0,
+      "seconds": 33.101,
+      "captures": 4,
+      "scope": "R6 pair(1,0,1)/(1,1,1), Overview: Identity+fade; D5; fadeoff; fade+projection",
+      "video": "native/evidence/screenshots/20261023T070602Z/polynomial-matched-render.mov"
+    }
+  ],
+  "simulator": "1D261881-0A0F-4DE0-B704-12644E606348",
+  "callbackEvidence": {
+    "recognized": 1,
+    "changed": 2,
+    "ended": 1,
+    "cancelled": 0,
+    "originOrBusyGuard": "none",
+    "initialTargetFrame": [
+      555,
+      736,
+      170,
+      170
+    ],
+    "localStart": [
+      85,
+      85
+    ],
+    "localRelease": [
+      239.1,
+      85
+    ]
+  },
+  "acceptedSample": {
+    "beforeMatrix": [
+      3,
+      1,
+      1,
+      2
+    ],
+    "matrix": [
+      13876,
+      5301,
+      5706,
+      9386
+    ],
+    "denominator": 99992630,
+    "primary": [
+      1,
+      0,
+      1
+    ],
+    "secondary": [
+      1,
+      1,
+      1
+    ],
+    "primaryImageNumerator": [
+      120655432,
+      -257863284,
+      220643977
+    ],
+    "secondaryImageNumerator": [
+      67098916,
+      -97375642,
+      147087301
+    ],
+    "discriminants": [
+      -4,
+      -3
+    ],
+    "transportedPlaneIncidence": [
+      0,
+      0
+    ],
+    "membersAtR6": 22,
+    "fixture": "native/Resources/polynomial-swipe-case.json"
+  },
+  "releaseSemantics": "Release(239.1,85) lies outside the170x170 target/disk. update rejects that Klein point while preserving the last valid in-disk preview. commit submits the preserved sample. The intermediate valid coordinate was not separately logged; the accepted matrix was logged and replayed through the actual Lean bridge.",
+  "causalLimit": "Target bounds and input route changed together. There was no old-wide-target swipe A/B test. Success verifies current wiring and Lean acceptance, but does not isolate why earlier coordinate press-drags failed.",
+  "proofBoundary": "Pointer coordinates, continuous preview and quantization remain floating-point client behavior. Lean computes the exact rational action for the declared integer matrix. Captured fixture discriminant/incidence checks in Python Fraction and bounded Swift Int64 are diagnostics, not additional kernel proofs.",
+  "remainingLimitations": [
+    "Historical coordinate press-drag delivery failures are unresolved and preserved.",
+    "No physical tracked-hand/controller/headset validation.",
+    "No verified actual gesture cancellation; model cancellation is separately tested.",
+    "No native free-space SL2 hand/controller drag implementation.",
+    "Native cloud R12 cap and fixed finite base crop remain."
+  ],
+  "rawVideos": [
+    {
+      "path": "native/evidence/screenshots/20261023T070446Z/polynomial-klein-swipe.mov",
+      "bytes": 2509539,
+      "sha256": "3d21bd1cfede83c6fa5586016153d9268326393227cf4965fb9b310309c8e6b0"
+    },
+    {
+      "path": "native/evidence/screenshots/20261023T070602Z/polynomial-matched-render.mov",
+      "bytes": 5745150,
+      "sha256": "c00829b12080da0b2342d4be11774e2f715c30e09d272ebd4675a60fb6148d37"
+    }
+  ],
+  "visuallyInspectedScreenshots": 7,
+  "reviewedVideoExports": {
+    "metadata": "artifacts/videos/polynomial-current-native-video-metadata.json",
+    "verification": "Parent exported and verified video-only H264; inspected matched projection at14.8s and accepted-swipe Overview at16.3s. No new UI run.",
+    "clips": [
+      {
+        "path": "artifacts/videos/polynomial-native-klein-swipe.mp4",
+        "seconds": 16.816667,
+        "width": 1920,
+        "height": 1080,
+        "codec": "H264",
+        "audioStreams": 0,
+        "bytes": 175801,
+        "sha256": "322f0886a38d2921a2ff0ebcb9e0b322cbe1377deeffc86188ef80f533a80dae"
+      },
+      {
+        "path": "artifacts/videos/polynomial-native-matched-render.mp4",
+        "seconds": 15.133333,
+        "width": 1920,
+        "height": 1080,
+        "codec": "H264",
+        "audioStreams": 0,
+        "bytes": 274129,
+        "sha256": "8037889fb9e24f2b0bba693595e09fdd087699ef2df6943e28261ef7ee2ab35d"
+      }
+    ]
+  }
+}

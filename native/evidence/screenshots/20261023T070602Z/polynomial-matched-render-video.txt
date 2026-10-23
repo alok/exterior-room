@@ -1,0 +1,5 @@
+Note: No display specified. Defaulting to display: 335BC140-F910-4444-B1D6-1921843A5269 (screenID: 1, name: LCD)
+Recording started
+Recording completed. Writing to disk.
+
+Wrote video to: /Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/evidence/screenshots/20261023T070602Z/polynomial-matched-render.mov

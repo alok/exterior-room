@@ -1,0 +1,2035 @@
+{
+  "schema": "exterior-room.polynomial-canonical-contract",
+  "version": 1,
+  "capturedDateUTC": "2026-10-23",
+  "evidenceStatus": "Canonical source observations and pure-function evaluations; not a pass certificate for the new Lean service or UI.",
+  "provenance": {
+    "canonicalCheckoutIdentity": "FareyVision/Farey",
+    "revision": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "browserVersion": "0.14.0",
+    "browserRuntimeRevision": "7be989f53f3ee73fa1e785ec8cd7d38fb12d4382",
+    "nativeVersion": "0.11.0 (14)",
+    "sourceLicense": "GPL-3.0-or-later",
+    "attribution": "Independent canonical coefficient-cone implementation inspired by Katherine Stange. New Lean mathematics is not attributed to her.",
+    "nativeWorkingChanges": "During recon, owner added uncommitted realRootDescription in CuttingPlane.swift and its control usage. Those extra descriptions are not attributed to the pinned revision; numerical baseline remains pinned.",
+    "sourceFiles": [
+      {
+        "path": "Farey/WebXR/starscape-core.js",
+        "pinnedSHA256": "4408afa4d5799aec2adf3e2716ebe42b07a44fd055f197d34ac88b1aca9f1aa5",
+        "workingTreeMatchesPinned": true
+      },
+      {
+        "path": "Farey/WebXR/lattice.js",
+        "pinnedSHA256": "3a10ed93d0c5ab61e507ab2ebe400668d04e786af4cf8e897101b4b2e7c48259",
+        "workingTreeMatchesPinned": true
+      },
+      {
+        "path": "Farey/WebXR/appearance.js",
+        "pinnedSHA256": "8a586faf0cfc9db656041d2b7d204fc06bab03ac3c691842a8988d64a3096894",
+        "workingTreeMatchesPinned": true
+      },
+      {
+        "path": "Farey/WebXR/viridis.js",
+        "pinnedSHA256": "5aad1c686ce1af15d78010bde9da88820cf4d2ec0e3bccd6fcf2b4a22fbd3446",
+        "workingTreeMatchesPinned": true
+      },
+      {
+        "path": "Farey/WebXR/pair-plane.js",
+        "pinnedSHA256": "f5542cad732f3019b9351af07eb50630df7b1dab31ff3544cae0a5fb3cc9f2bc",
+        "workingTreeMatchesPinned": true
+      },
+      {
+        "path": "Farey/WebXR/starscape.js",
+        "pinnedSHA256": "2bd0e1a50c53caba85600c8ea3d68d0b6eebe05f0af27b3bc42d88c3e0282270",
+        "workingTreeMatchesPinned": true
+      },
+      {
+        "path": "Farey/WebXR/point-cloud.js",
+        "pinnedSHA256": "92eb1323449f1f610efcbe6cd0703b3af2abddd5ec6f08edbb7cb38c16114b76",
+        "workingTreeMatchesPinned": true
+      },
+      {
+        "path": "Farey/WebXR/input.js",
+        "pinnedSHA256": "644e26f61390afe876d4063f480e14e57b5ccb5427775a02d187fddd6f43d1e7",
+        "workingTreeMatchesPinned": true
+      },
+      {
+        "path": "Farey/WebXR/hover-queries.js",
+        "pinnedSHA256": "8085db1df18416c7942fa30f3150e1c7fc002ba45f91370a088ee401dcfc9997",
+        "workingTreeMatchesPinned": true
+      },
+      {
+        "path": "Farey/WebXR/camera-planes.js",
+        "pinnedSHA256": "c743bc3dfc822ffcc3ec77f2fb1c110cfce0d1a9028ef9385e38e87c6cdb2b8d",
+        "workingTreeMatchesPinned": true
+      },
+      {
+        "path": "Farey/WebXR/index.html",
+        "pinnedSHA256": "4d524cff2c08b29234c93078e8080cc3af2bb8ebc555c1ba780ce3f2a2dced27",
+        "workingTreeMatchesPinned": true
+      },
+      {
+        "path": "Farey/Packages/FareyCore/Sources/FareyCore/Starscape.swift",
+        "pinnedSHA256": "6bd0dd98adb45d4390bca85ecfc5db09ffb7b6290f585a2a36e185b36cbe1319",
+        "workingTreeMatchesPinned": true
+      },
+      {
+        "path": "Farey/Packages/FareyCore/Sources/FareyCore/CoefficientBall.swift",
+        "pinnedSHA256": "34c7db0b07c0929cfcc1a8422eae0327f811811f53686b0f26ae53c2679e4d29",
+        "workingTreeMatchesPinned": true
+      },
+      {
+        "path": "Farey/Packages/FareyCore/Sources/FareyCore/CoefficientPalette.swift",
+        "pinnedSHA256": "c2931b12afd818a1c65651b08597d72faed288d861258b710fffb06daa261e3b",
+        "workingTreeMatchesPinned": true
+      },
+      {
+        "path": "Farey/Packages/FareyCore/Sources/FareyCore/CuttingPlane.swift",
+        "pinnedSHA256": "cb61d2d0b630abf0f1140c7012a43e9204e9b1e59e0adc44a0a8f9333dc432c9",
+        "workingTreeMatchesPinned": false,
+        "observedWorkingTreeSHA256": "96c163a930adb14013ec667bc7b2130d5d0927bda1a1c57e9b79d2bf660cf8cc"
+      },
+      {
+        "path": "Farey/Sources/FareyVisionApp.swift",
+        "pinnedSHA256": "b64f307eb221f639428348ee78346c6ecdd6424d32bf42e9375f69c90a4b10f0",
+        "workingTreeMatchesPinned": true
+      },
+      {
+        "path": "Farey/Sources/StarscapeRenderer.swift",
+        "pinnedSHA256": "cfbe5d8669697e7d9563bfd71e24e685346c1861cdc7ffd8131c6bdff54ada40",
+        "workingTreeMatchesPinned": true
+      },
+      {
+        "path": "Farey/Sources/StarscapeControls.swift",
+        "pinnedSHA256": "b21c387ff0e26895fbdd875098a9d647a6f1d519281dc95b6843c850d48d4142",
+        "workingTreeMatchesPinned": false,
+        "observedWorkingTreeSHA256": "1f5355356cd384fc1f12788f90cda3e8d9a9e0df60dde02bf025169493e3e94f"
+      }
+    ]
+  },
+  "comparison": {
+    "integerFields": "exact",
+    "polynomialText": "exact Unicode string, signed and unreduced",
+    "colorBytes": "exact rounded sRGB bytes from canonical palette",
+    "approximateAbsoluteTolerance": 1e-12,
+    "infinity": "symbolic endpoint kind, never JSON null as a number",
+    "projectionRationals": "gcd-normalized descriptors derived from canonical integer projection formula; JS returns Number coordinates",
+    "upperRootExact": "real+i*sqrt(imaginarySqrtRadicand)/imaginaryDenominator, unreduced exact descriptor",
+    "enumerationHash": "SHA-256 over signed abc components explicitly encoded little-endian Int16 in a-outer/c-middle/b-inner ascending canonical order"
+  },
+  "conventions": {
+    "polynomial": "a*x^2+b*x+c",
+    "display": "X=-b;Y=a+c;Z=c-a",
+    "discriminant": "b^2-4*a*c=X^2+Z^2-Y^2",
+    "ball": "nonzero and b^2+2*a^2+2*c^2<=radius^2",
+    "height": 4,
+    "kindCodes": {
+      "null": 0,
+      "exterior": 1,
+      "upper": 2,
+      "lower": 3
+    },
+    "zero": "Formatter returns 0; JS kind helper returns null; native kind is nil; zero is excluded from enumeration and selection.",
+    "displayParity": "Y and Z have equal parity; display lattice covolume2.",
+    "selectionIdentity": "Never reduce/sign-flip selected or hovered triple; positive representative applies only to interior root/projection."
+  },
+  "pointCases": [
+    {
+      "id": "default",
+      "abc": [
+        1,
+        -1,
+        2
+      ],
+      "polynomial": "x²−x+2",
+      "displayXYZ": [
+        1,
+        3,
+        1
+      ],
+      "discriminant": -7,
+      "kind": "upper",
+      "kindCode": 2,
+      "divisor": 1,
+      "squaredRadius": 11,
+      "inRadius6": true,
+      "inRadius8": true,
+      "inUpperOnlyRadius6": true,
+      "positiveRepresentative": [
+        1,
+        -1,
+        2
+      ],
+      "rawPositiveOnlyProjection": [
+        1.3333333333333333,
+        4,
+        1.3333333333333333
+      ],
+      "projectedRepresentative": [
+        1.3333333333333333,
+        4,
+        1.3333333333333333
+      ],
+      "projectionRationals": [
+        {
+          "numerator": 4,
+          "denominator": 3
+        },
+        {
+          "numerator": 4,
+          "denominator": 1
+        },
+        {
+          "numerator": 4,
+          "denominator": 3
+        }
+      ],
+      "upperRootApprox": [
+        0.5,
+        1.3228756555322954
+      ],
+      "upperRootExact": {
+        "real": {
+          "numerator": 1,
+          "denominator": 2
+        },
+        "imaginarySqrtRadicand": 7,
+        "imaginaryDenominator": 2
+      },
+      "appearance": {
+        "viridisRGB8": [
+          46,
+          109,
+          142
+        ],
+        "symmetricViridisRGB8": [
+          46,
+          109,
+          142
+        ],
+        "referenceRGB8": [
+          233,
+          147,
+          87
+        ],
+        "overviewRadiusFactor": 1,
+        "symmetricOverviewRadiusFactor": 1,
+        "originRadiusFactor": 0.375641766301501
+      }
+    },
+    {
+      "id": "positive_multiple",
+      "abc": [
+        2,
+        -2,
+        4
+      ],
+      "polynomial": "2x²−2x+4",
+      "displayXYZ": [
+        2,
+        6,
+        2
+      ],
+      "discriminant": -28,
+      "kind": "upper",
+      "kindCode": 2,
+      "divisor": 2,
+      "squaredRadius": 44,
+      "inRadius6": false,
+      "inRadius8": true,
+      "inUpperOnlyRadius6": false,
+      "positiveRepresentative": [
+        2,
+        -2,
+        4
+      ],
+      "rawPositiveOnlyProjection": [
+        1.3333333333333333,
+        4,
+        1.3333333333333333
+      ],
+      "projectedRepresentative": [
+        1.3333333333333333,
+        4,
+        1.3333333333333333
+      ],
+      "projectionRationals": [
+        {
+          "numerator": 4,
+          "denominator": 3
+        },
+        {
+          "numerator": 4,
+          "denominator": 1
+        },
+        {
+          "numerator": 4,
+          "denominator": 3
+        }
+      ],
+      "upperRootApprox": [
+        0.5,
+        1.3228756555322954
+      ],
+      "upperRootExact": {
+        "real": {
+          "numerator": 1,
+          "denominator": 2
+        },
+        "imaginarySqrtRadicand": 28,
+        "imaginaryDenominator": 4
+      },
+      "appearance": {
+        "viridisRGB8": [
+          36,
+          170,
+          131
+        ],
+        "symmetricViridisRGB8": [
+          36,
+          170,
+          131
+        ],
+        "referenceRGB8": [
+          167,
+          187,
+          135
+        ],
+        "overviewRadiusFactor": 0.72,
+        "symmetricOverviewRadiusFactor": 0.72,
+        "originRadiusFactor": 0.37564176630150103
+      }
+    },
+    {
+      "id": "negative_partner",
+      "abc": [
+        -1,
+        1,
+        -2
+      ],
+      "polynomial": "−x²+x−2",
+      "displayXYZ": [
+        -1,
+        -3,
+        -1
+      ],
+      "discriminant": -7,
+      "kind": "lower",
+      "kindCode": 3,
+      "divisor": 1,
+      "squaredRadius": 11,
+      "inRadius6": true,
+      "inRadius8": true,
+      "inUpperOnlyRadius6": false,
+      "positiveRepresentative": [
+        1,
+        -1,
+        2
+      ],
+      "rawPositiveOnlyProjection": null,
+      "projectedRepresentative": [
+        1.3333333333333333,
+        4,
+        1.3333333333333333
+      ],
+      "projectionRationals": [
+        {
+          "numerator": 4,
+          "denominator": 3
+        },
+        {
+          "numerator": 4,
+          "denominator": 1
+        },
+        {
+          "numerator": 4,
+          "denominator": 3
+        }
+      ],
+      "upperRootApprox": [
+        0.5,
+        1.3228756555322954
+      ],
+      "upperRootExact": {
+        "real": {
+          "numerator": 1,
+          "denominator": 2
+        },
+        "imaginarySqrtRadicand": 7,
+        "imaginaryDenominator": 2
+      },
+      "appearance": {
+        "viridisRGB8": [
+          77,
+          58,
+          70
+        ],
+        "symmetricViridisRGB8": [
+          46,
+          109,
+          142
+        ],
+        "referenceRGB8": [
+          100,
+          113,
+          125
+        ],
+        "overviewRadiusFactor": 1,
+        "symmetricOverviewRadiusFactor": 1,
+        "originRadiusFactor": 0.375641766301501
+      }
+    },
+    {
+      "id": "negative_multiple",
+      "abc": [
+        -2,
+        2,
+        -4
+      ],
+      "polynomial": "−2x²+2x−4",
+      "displayXYZ": [
+        -2,
+        -6,
+        -2
+      ],
+      "discriminant": -28,
+      "kind": "lower",
+      "kindCode": 3,
+      "divisor": 2,
+      "squaredRadius": 44,
+      "inRadius6": false,
+      "inRadius8": true,
+      "inUpperOnlyRadius6": false,
+      "positiveRepresentative": [
+        2,
+        -2,
+        4
+      ],
+      "rawPositiveOnlyProjection": null,
+      "projectedRepresentative": [
+        1.3333333333333333,
+        4,
+        1.3333333333333333
+      ],
+      "projectionRationals": [
+        {
+          "numerator": 4,
+          "denominator": 3
+        },
+        {
+          "numerator": 4,
+          "denominator": 1
+        },
+        {
+          "numerator": 4,
+          "denominator": 3
+        }
+      ],
+      "upperRootApprox": [
+        0.5,
+        1.3228756555322954
+      ],
+      "upperRootExact": {
+        "real": {
+          "numerator": 1,
+          "denominator": 2
+        },
+        "imaginarySqrtRadicand": 28,
+        "imaginaryDenominator": 4
+      },
+      "appearance": {
+        "viridisRGB8": [
+          77,
+          58,
+          70
+        ],
+        "symmetricViridisRGB8": [
+          36,
+          170,
+          131
+        ],
+        "referenceRGB8": [
+          100,
+          113,
+          125
+        ],
+        "overviewRadiusFactor": 1,
+        "symmetricOverviewRadiusFactor": 0.72,
+        "originRadiusFactor": 0.37564176630150103
+      }
+    },
+    {
+      "id": "axis_interior",
+      "abc": [
+        1,
+        0,
+        1
+      ],
+      "polynomial": "x²+1",
+      "displayXYZ": [
+        0,
+        2,
+        0
+      ],
+      "discriminant": -4,
+      "kind": "upper",
+      "kindCode": 2,
+      "divisor": 1,
+      "squaredRadius": 4,
+      "inRadius6": true,
+      "inRadius8": true,
+      "inUpperOnlyRadius6": true,
+      "positiveRepresentative": [
+        1,
+        0,
+        1
+      ],
+      "rawPositiveOnlyProjection": [
+        0,
+        4,
+        0
+      ],
+      "projectedRepresentative": [
+        0,
+        4,
+        0
+      ],
+      "projectionRationals": [
+        {
+          "numerator": 0,
+          "denominator": 1
+        },
+        {
+          "numerator": 4,
+          "denominator": 1
+        },
+        {
+          "numerator": 0,
+          "denominator": 1
+        }
+      ],
+      "upperRootApprox": [
+        0,
+        1
+      ],
+      "upperRootExact": {
+        "real": {
+          "numerator": 0,
+          "denominator": 1
+        },
+        "imaginarySqrtRadicand": 4,
+        "imaginaryDenominator": 2
+      },
+      "appearance": {
+        "viridisRGB8": [
+          58,
+          83,
+          139
+        ],
+        "symmetricViridisRGB8": [
+          58,
+          83,
+          139
+        ],
+        "referenceRGB8": [
+          238,
+          121,
+          100
+        ],
+        "overviewRadiusFactor": 1,
+        "symmetricOverviewRadiusFactor": 1,
+        "originRadiusFactor": 0.4
+      }
+    },
+    {
+      "id": "minimum_discriminant",
+      "abc": [
+        1,
+        1,
+        1
+      ],
+      "polynomial": "x²+x+1",
+      "displayXYZ": [
+        -1,
+        2,
+        0
+      ],
+      "discriminant": -3,
+      "kind": "upper",
+      "kindCode": 2,
+      "divisor": 1,
+      "squaredRadius": 5,
+      "inRadius6": true,
+      "inRadius8": true,
+      "inUpperOnlyRadius6": true,
+      "positiveRepresentative": [
+        1,
+        1,
+        1
+      ],
+      "rawPositiveOnlyProjection": [
+        -2,
+        4,
+        0
+      ],
+      "projectedRepresentative": [
+        -2,
+        4,
+        0
+      ],
+      "projectionRationals": [
+        {
+          "numerator": -2,
+          "denominator": 1
+        },
+        {
+          "numerator": 4,
+          "denominator": 1
+        },
+        {
+          "numerator": 0,
+          "denominator": 1
+        }
+      ],
+      "upperRootApprox": [
+        -0.5,
+        0.8660254037844386
+      ],
+      "upperRootExact": {
+        "real": {
+          "numerator": -1,
+          "denominator": 2
+        },
+        "imaginarySqrtRadicand": 3,
+        "imaginaryDenominator": 2
+      },
+      "appearance": {
+        "viridisRGB8": [
+          65,
+          68,
+          135
+        ],
+        "symmetricViridisRGB8": [
+          65,
+          68,
+          135
+        ],
+        "referenceRGB8": [
+          240,
+          106,
+          106
+        ],
+        "overviewRadiusFactor": 1,
+        "symmetricOverviewRadiusFactor": 1,
+        "originRadiusFactor": 0.37224194364083985
+      }
+    },
+    {
+      "id": "null_boundary",
+      "abc": [
+        1,
+        2,
+        1
+      ],
+      "polynomial": "x²+2x+1",
+      "displayXYZ": [
+        -2,
+        2,
+        0
+      ],
+      "discriminant": 0,
+      "kind": "null",
+      "kindCode": 0,
+      "divisor": 1,
+      "squaredRadius": 8,
+      "inRadius6": true,
+      "inRadius8": true,
+      "inUpperOnlyRadius6": false,
+      "positiveRepresentative": null,
+      "rawPositiveOnlyProjection": null,
+      "projectedRepresentative": null,
+      "projectionRationals": null,
+      "upperRootApprox": null,
+      "upperRootExact": null,
+      "appearance": {
+        "viridisRGB8": [
+          244,
+          242,
+          255
+        ],
+        "symmetricViridisRGB8": [
+          244,
+          242,
+          255
+        ],
+        "referenceRGB8": [
+          214,
+          189,
+          105
+        ],
+        "overviewRadiusFactor": 1,
+        "symmetricOverviewRadiusFactor": 1,
+        "originRadiusFactor": 1
+      }
+    },
+    {
+      "id": "exterior",
+      "abc": [
+        1,
+        3,
+        1
+      ],
+      "polynomial": "x²+3x+1",
+      "displayXYZ": [
+        -3,
+        2,
+        0
+      ],
+      "discriminant": 5,
+      "kind": "exterior",
+      "kindCode": 1,
+      "divisor": 1,
+      "squaredRadius": 13,
+      "inRadius6": true,
+      "inRadius8": true,
+      "inUpperOnlyRadius6": false,
+      "positiveRepresentative": null,
+      "rawPositiveOnlyProjection": null,
+      "projectedRepresentative": null,
+      "projectionRationals": null,
+      "upperRootApprox": null,
+      "upperRootExact": null,
+      "appearance": {
+        "viridisRGB8": [
+          122,
+          82,
+          48
+        ],
+        "symmetricViridisRGB8": [
+          122,
+          82,
+          48
+        ],
+        "referenceRGB8": [
+          68,
+          138,
+          187
+        ],
+        "overviewRadiusFactor": 1,
+        "symmetricOverviewRadiusFactor": 1,
+        "originRadiusFactor": 1
+      }
+    },
+    {
+      "id": "exterior_symmetric",
+      "abc": [
+        1,
+        0,
+        -1
+      ],
+      "polynomial": "x²−1",
+      "displayXYZ": [
+        0,
+        0,
+        -2
+      ],
+      "discriminant": 4,
+      "kind": "exterior",
+      "kindCode": 1,
+      "divisor": 1,
+      "squaredRadius": 4,
+      "inRadius6": true,
+      "inRadius8": true,
+      "inUpperOnlyRadius6": false,
+      "positiveRepresentative": null,
+      "rawPositiveOnlyProjection": null,
+      "projectedRepresentative": null,
+      "projectionRationals": null,
+      "upperRootApprox": null,
+      "upperRootExact": null,
+      "appearance": {
+        "viridisRGB8": [
+          122,
+          82,
+          48
+        ],
+        "symmetricViridisRGB8": [
+          122,
+          82,
+          48
+        ],
+        "referenceRGB8": [
+          68,
+          138,
+          187
+        ],
+        "overviewRadiusFactor": 1,
+        "symmetricOverviewRadiusFactor": 1,
+        "originRadiusFactor": 1
+      }
+    },
+    {
+      "id": "linear",
+      "abc": [
+        0,
+        1,
+        0
+      ],
+      "polynomial": "x",
+      "displayXYZ": [
+        -1,
+        0,
+        0
+      ],
+      "discriminant": 1,
+      "kind": "exterior",
+      "kindCode": 1,
+      "divisor": 1,
+      "squaredRadius": 1,
+      "inRadius6": true,
+      "inRadius8": true,
+      "inUpperOnlyRadius6": false,
+      "positiveRepresentative": null,
+      "rawPositiveOnlyProjection": null,
+      "projectedRepresentative": null,
+      "projectionRationals": null,
+      "upperRootApprox": null,
+      "upperRootExact": null,
+      "appearance": {
+        "viridisRGB8": [
+          122,
+          82,
+          48
+        ],
+        "symmetricViridisRGB8": [
+          122,
+          82,
+          48
+        ],
+        "referenceRGB8": [
+          68,
+          138,
+          187
+        ],
+        "overviewRadiusFactor": 1,
+        "symmetricOverviewRadiusFactor": 1,
+        "originRadiusFactor": 1
+      }
+    },
+    {
+      "id": "constant",
+      "abc": [
+        0,
+        0,
+        -3
+      ],
+      "polynomial": "−3",
+      "displayXYZ": [
+        0,
+        -3,
+        -3
+      ],
+      "discriminant": 0,
+      "kind": "null",
+      "kindCode": 0,
+      "divisor": 3,
+      "squaredRadius": 18,
+      "inRadius6": true,
+      "inRadius8": true,
+      "inUpperOnlyRadius6": false,
+      "positiveRepresentative": null,
+      "rawPositiveOnlyProjection": null,
+      "projectedRepresentative": null,
+      "projectionRationals": null,
+      "upperRootApprox": null,
+      "upperRootExact": null,
+      "appearance": {
+        "viridisRGB8": [
+          244,
+          242,
+          255
+        ],
+        "symmetricViridisRGB8": [
+          244,
+          242,
+          255
+        ],
+        "referenceRGB8": [
+          214,
+          189,
+          105
+        ],
+        "overviewRadiusFactor": 1,
+        "symmetricOverviewRadiusFactor": 1,
+        "originRadiusFactor": 1
+      }
+    },
+    {
+      "id": "zero_excluded",
+      "abc": [
+        0,
+        0,
+        0
+      ],
+      "polynomial": "0",
+      "displayXYZ": [
+        0,
+        0,
+        0
+      ],
+      "discriminant": 0,
+      "kind": "null",
+      "kindCode": 0,
+      "divisor": 0,
+      "squaredRadius": 0,
+      "inRadius6": false,
+      "inRadius8": false,
+      "inUpperOnlyRadius6": false,
+      "positiveRepresentative": null,
+      "rawPositiveOnlyProjection": null,
+      "projectedRepresentative": null,
+      "projectionRationals": null,
+      "upperRootApprox": null,
+      "upperRootExact": null,
+      "appearance": {
+        "viridisRGB8": [
+          244,
+          242,
+          255
+        ],
+        "symmetricViridisRGB8": [
+          244,
+          242,
+          255
+        ],
+        "referenceRGB8": [
+          214,
+          189,
+          105
+        ],
+        "overviewRadiusFactor": 1,
+        "symmetricOverviewRadiusFactor": 1,
+        "originRadiusFactor": 1
+      }
+    },
+    {
+      "id": "exterior_large",
+      "abc": [
+        1,
+        8,
+        -1
+      ],
+      "polynomial": "x²+8x−1",
+      "displayXYZ": [
+        -8,
+        0,
+        -2
+      ],
+      "discriminant": 68,
+      "kind": "exterior",
+      "kindCode": 1,
+      "divisor": 1,
+      "squaredRadius": 68,
+      "inRadius6": false,
+      "inRadius8": false,
+      "inUpperOnlyRadius6": false,
+      "positiveRepresentative": null,
+      "rawPositiveOnlyProjection": null,
+      "projectedRepresentative": null,
+      "projectionRationals": null,
+      "upperRootApprox": null,
+      "upperRootExact": null,
+      "appearance": {
+        "viridisRGB8": [
+          122,
+          82,
+          48
+        ],
+        "symmetricViridisRGB8": [
+          122,
+          82,
+          48
+        ],
+        "referenceRGB8": [
+          68,
+          138,
+          187
+        ],
+        "overviewRadiusFactor": 1,
+        "symmetricOverviewRadiusFactor": 1,
+        "originRadiusFactor": 1
+      }
+    }
+  ],
+  "balls": [
+    {
+      "radius": 4,
+      "total": 128,
+      "counts": {
+        "null": 12,
+        "exterior": 88,
+        "upper": 14,
+        "lower": 14
+      },
+      "upperOnlyCount": 14,
+      "maxInteriorMagnitude": 16,
+      "firstABC": [
+        -2,
+        0,
+        -2
+      ],
+      "lastABC": [
+        2,
+        0,
+        2
+      ],
+      "abcInt16LE_SHA256": "5c698f21c26ba8f0249105b5d7ed793e3edf1844ba1589d5f053dc60004ae2e5"
+    },
+    {
+      "radius": 6,
+      "total": 480,
+      "counts": {
+        "null": 24,
+        "exterior": 346,
+        "upper": 55,
+        "lower": 55
+      },
+      "upperOnlyCount": 55,
+      "maxInteriorMagnitude": 36,
+      "firstABC": [
+        -4,
+        -1,
+        -1
+      ],
+      "lastABC": [
+        4,
+        1,
+        1
+      ],
+      "abcInt16LE_SHA256": "3a8951bf38c454b4730f2147b1de7de050401880fd8406fb9b6a97b09aa65343"
+    },
+    {
+      "radius": 8,
+      "total": 1060,
+      "counts": {
+        "null": 36,
+        "exterior": 756,
+        "upper": 134,
+        "lower": 134
+      },
+      "upperOnlyCount": 134,
+      "maxInteriorMagnitude": 64,
+      "firstABC": [
+        -5,
+        -2,
+        -2
+      ],
+      "lastABC": [
+        5,
+        2,
+        2
+      ],
+      "abcInt16LE_SHA256": "b2b4a944cbde577c0adc8bc0d184e6d17db3c1dd623770528a23b96e3a47f734"
+    },
+    {
+      "radius": 10,
+      "total": 2100,
+      "counts": {
+        "null": 48,
+        "exterior": 1502,
+        "upper": 275,
+        "lower": 275
+      },
+      "upperOnlyCount": 275,
+      "maxInteriorMagnitude": 100,
+      "firstABC": [
+        -7,
+        0,
+        -1
+      ],
+      "lastABC": [
+        7,
+        0,
+        1
+      ],
+      "abcInt16LE_SHA256": "c9001c660229da6fe8bd672f04b10bb11199e9ea1ececdec308a5bed9f11c6e5"
+    },
+    {
+      "radius": 12,
+      "total": 3608,
+      "counts": {
+        "null": 56,
+        "exterior": 2584,
+        "upper": 484,
+        "lower": 484
+      },
+      "upperOnlyCount": 484,
+      "maxInteriorMagnitude": 144,
+      "firstABC": [
+        -8,
+        -2,
+        -2
+      ],
+      "lastABC": [
+        8,
+        2,
+        2
+      ],
+      "abcInt16LE_SHA256": "228381dfcad04a9662cfcfc4ebaafa026dcdbb535bc3f0815bfd6f4f7e14c243"
+    },
+    {
+      "radius": 24,
+      "total": 28832,
+      "counts": {
+        "null": 136,
+        "exterior": 20504,
+        "upper": 4096,
+        "lower": 4096
+      },
+      "upperOnlyCount": 4096,
+      "maxInteriorMagnitude": 576,
+      "firstABC": [
+        -16,
+        -3,
+        -5
+      ],
+      "lastABC": [
+        16,
+        3,
+        5
+      ],
+      "abcInt16LE_SHA256": "f9e4ff82bef2eafc6207ce0c357cc839c390f8596b805d271d9a53b5bbc0c93f"
+    },
+    {
+      "radius": 48,
+      "total": 231348,
+      "counts": {
+        "null": 316,
+        "exterior": 163996,
+        "upper": 33518,
+        "lower": 33518
+      },
+      "upperOnlyCount": 33518,
+      "maxInteriorMagnitude": 2304,
+      "firstABC": [
+        -33,
+        -5,
+        -7
+      ],
+      "lastABC": [
+        33,
+        5,
+        7
+      ],
+      "abcInt16LE_SHA256": "6256c343aa9626de0f65f03daacb19559e0ecab4b47133fdd6380142922d4c2d"
+    },
+    {
+      "radius": 96,
+      "total": 1852484,
+      "counts": {
+        "null": 736,
+        "exterior": 1311344,
+        "upper": 270202,
+        "lower": 270202
+      },
+      "upperOnlyCount": 270202,
+      "maxInteriorMagnitude": 9216,
+      "firstABC": [
+        -67,
+        -6,
+        -10
+      ],
+      "lastABC": [
+        67,
+        6,
+        10
+      ],
+      "abcInt16LE_SHA256": "069d4ab4008491dfa26fb881a8d8c0df1004a272fb986e85c721a7b69f5daca5"
+    }
+  ],
+  "pairCases": [
+    {
+      "first": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        1,
+        1,
+        1
+      ],
+      "expected": {
+        "normal": [
+          1,
+          0,
+          -1
+        ],
+        "equation": "2a −2c = 0",
+        "endpoints": [
+          {
+            "label": "-1",
+            "kind": "finite",
+            "approx": -1
+          },
+          {
+            "label": "1",
+            "kind": "finite",
+            "approx": 1
+          }
+        ],
+        "firstPrimitive": [
+          1,
+          0,
+          1
+        ],
+        "secondPrimitive": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "first": [
+        2,
+        0,
+        2
+      ],
+      "second": [
+        -3,
+        -3,
+        -3
+      ],
+      "expected": {
+        "normal": [
+          1,
+          0,
+          -1
+        ],
+        "equation": "2a −2c = 0",
+        "endpoints": [
+          {
+            "label": "-1",
+            "kind": "finite",
+            "approx": -1
+          },
+          {
+            "label": "1",
+            "kind": "finite",
+            "approx": 1
+          }
+        ],
+        "firstPrimitive": [
+          1,
+          0,
+          1
+        ],
+        "secondPrimitive": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "first": [
+        1,
+        1,
+        1
+      ],
+      "second": [
+        1,
+        0,
+        1
+      ],
+      "expected": {
+        "normal": [
+          1,
+          0,
+          -1
+        ],
+        "equation": "2a −2c = 0",
+        "endpoints": [
+          {
+            "label": "-1",
+            "kind": "finite",
+            "approx": -1
+          },
+          {
+            "label": "1",
+            "kind": "finite",
+            "approx": 1
+          }
+        ],
+        "firstPrimitive": [
+          1,
+          1,
+          1
+        ],
+        "secondPrimitive": [
+          1,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "first": [
+        1,
+        -2,
+        2
+      ],
+      "second": [
+        1,
+        -1,
+        1
+      ],
+      "expected": {
+        "normal": [
+          1,
+          -2,
+          0
+        ],
+        "equation": "−2b −2c = 0",
+        "endpoints": [
+          {
+            "label": "0",
+            "kind": "finite",
+            "approx": 0
+          },
+          {
+            "label": "2",
+            "kind": "finite",
+            "approx": 2
+          }
+        ],
+        "firstPrimitive": [
+          1,
+          -2,
+          2
+        ],
+        "secondPrimitive": [
+          1,
+          -1,
+          1
+        ]
+      }
+    },
+    {
+      "first": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        1,
+        0,
+        4
+      ],
+      "expected": {
+        "normal": [
+          0,
+          1,
+          0
+        ],
+        "equation": "b = 0",
+        "endpoints": [
+          {
+            "label": "0",
+            "kind": "finite",
+            "approx": 0
+          },
+          {
+            "label": "∞",
+            "kind": "infinity"
+          }
+        ],
+        "firstPrimitive": [
+          1,
+          0,
+          1
+        ],
+        "secondPrimitive": [
+          1,
+          0,
+          4
+        ]
+      }
+    },
+    {
+      "first": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        2,
+        1,
+        1
+      ],
+      "expected": {
+        "normal": [
+          1,
+          -2,
+          -1
+        ],
+        "equation": "2a −2b −2c = 0",
+        "endpoints": [
+          {
+            "label": "1 − √2",
+            "kind": "finite",
+            "approx": -0.41421356237309515
+          },
+          {
+            "label": "1 + √2",
+            "kind": "finite",
+            "approx": 2.414213562373095
+          }
+        ],
+        "firstPrimitive": [
+          1,
+          0,
+          1
+        ],
+        "secondPrimitive": [
+          2,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "first": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        -2,
+        0,
+        -2
+      ],
+      "expected": {
+        "error": "These triples have the same primitive direction and root. Choose a different root."
+      }
+    },
+    {
+      "first": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        1,
+        2,
+        1
+      ],
+      "expected": {
+        "error": "Pair two complex-root points inside the cone (Δ < 0)."
+      }
+    },
+    {
+      "first": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        1,
+        3,
+        1
+      ],
+      "expected": {
+        "error": "Pair two complex-root points inside the cone (Δ < 0)."
+      }
+    },
+    {
+      "first": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        1.5,
+        0,
+        1
+      ],
+      "expected": {
+        "error": "Use integer coefficient triples."
+      }
+    }
+  ],
+  "normalCases": [
+    {
+      "normal": [
+        1,
+        8,
+        -1
+      ],
+      "expected": {
+        "normal": [
+          1,
+          8,
+          -1
+        ],
+        "equation": "2a +8b −2c = 0",
+        "endpoints": [
+          {
+            "label": "−4 − √17",
+            "kind": "finite",
+            "approx": -8.123105625617661
+          },
+          {
+            "label": "−4 + √17",
+            "kind": "finite",
+            "approx": 0.12310562561766059
+          }
+        ]
+      }
+    },
+    {
+      "normal": [
+        -2,
+        -16,
+        2
+      ],
+      "expected": {
+        "normal": [
+          1,
+          8,
+          -1
+        ],
+        "equation": "2a +8b −2c = 0",
+        "endpoints": [
+          {
+            "label": "−4 − √17",
+            "kind": "finite",
+            "approx": -8.123105625617661
+          },
+          {
+            "label": "−4 + √17",
+            "kind": "finite",
+            "approx": 0.12310562561766059
+          }
+        ]
+      }
+    },
+    {
+      "normal": [
+        2,
+        0,
+        -6
+      ],
+      "expected": {
+        "normal": [
+          1,
+          0,
+          -3
+        ],
+        "equation": "6a −2c = 0",
+        "endpoints": [
+          {
+            "label": "−√3",
+            "kind": "finite",
+            "approx": -1.7320508075688772
+          },
+          {
+            "label": "√3",
+            "kind": "finite",
+            "approx": 1.7320508075688772
+          }
+        ]
+      }
+    },
+    {
+      "normal": [
+        2,
+        2,
+        -1
+      ],
+      "expected": {
+        "normal": [
+          2,
+          2,
+          -1
+        ],
+        "equation": "2a +2b −4c = 0",
+        "endpoints": [
+          {
+            "label": "(−1 − √3)/2",
+            "kind": "finite",
+            "approx": -1.3660254037844386
+          },
+          {
+            "label": "(−1 + √3)/2",
+            "kind": "finite",
+            "approx": 0.3660254037844386
+          }
+        ]
+      }
+    },
+    {
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "expected": {
+        "normal": [
+          0,
+          1,
+          0
+        ],
+        "equation": "b = 0",
+        "endpoints": [
+          {
+            "label": "0",
+            "kind": "finite",
+            "approx": 0
+          },
+          {
+            "label": "∞",
+            "kind": "infinity"
+          }
+        ]
+      }
+    },
+    {
+      "normal": [
+        1,
+        2,
+        1
+      ],
+      "expected": {
+        "error": "These directions do not define a real geodesic."
+      }
+    },
+    {
+      "normal": [
+        1,
+        0,
+        1
+      ],
+      "expected": {
+        "error": "These directions do not define a real geodesic."
+      }
+    },
+    {
+      "normal": [
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "error": "The zero triple has no plane."
+      }
+    }
+  ],
+  "membershipCase": {
+    "normal": [
+      1,
+      0,
+      -1
+    ],
+    "points": [
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        -1,
+        0,
+        -1
+      ],
+      [
+        1,
+        3,
+        1
+      ],
+      [
+        1,
+        2,
+        1
+      ],
+      [
+        1,
+        0,
+        2
+      ]
+    ],
+    "onPlane": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      false
+    ],
+    "necklace": [
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        -1,
+        0,
+        -1
+      ]
+    ],
+    "meaning": "Plane membership is integer equation; necklace additionally requires negative discriminant, retaining signs/multiples."
+  },
+  "appearance": {
+    "paletteRange": [
+      3,
+      240
+    ],
+    "viridisInterval": [
+      0.2,
+      1
+    ],
+    "referenceAnchors": [
+      "#F06A6A",
+      "#E99456",
+      "#D6BD69",
+      "#7AB89B",
+      "#70A6D8",
+      "#AD92D0"
+    ],
+    "categoryPalettes": {
+      "viridis": {
+        "null": "#f4f2ff",
+        "exterior": "#7a5230",
+        "lower": "#4d3a46"
+      },
+      "reference": {
+        "null": "#d6bd69",
+        "exterior": "#448abb",
+        "lower": "#64717d"
+      }
+    },
+    "glyphRadius": 0.013,
+    "sizePixels": {
+      "min": 1,
+      "knee": 2.5,
+      "cap": 9
+    },
+    "outlinePixels": 1.25,
+    "starSizeRange": [
+      0.4,
+      2.5
+    ],
+    "starSizeDefault": 1,
+    "planeEmphasis": 1.35,
+    "nonprimitivePlaneEmphasis": 0.972,
+    "drawnPixelCases": [
+      {
+        "input": -1,
+        "expected": {
+          "px": 1,
+          "dim": 0
+        }
+      },
+      {
+        "input": 0,
+        "expected": {
+          "px": 1,
+          "dim": 0
+        }
+      },
+      {
+        "input": 0.5,
+        "expected": {
+          "px": 1,
+          "dim": 0.25
+        }
+      },
+      {
+        "input": 1,
+        "expected": {
+          "px": 1,
+          "dim": 1
+        }
+      },
+      {
+        "input": 2.5,
+        "expected": {
+          "px": 2.5,
+          "dim": 1
+        }
+      },
+      {
+        "input": 20,
+        "expected": {
+          "px": 5,
+          "dim": 1
+        }
+      },
+      {
+        "input": 1000000,
+        "expected": {
+          "px": 9,
+          "dim": 1
+        }
+      }
+    ],
+    "originFormula": "0.4*abs(discriminant)^(1/4)/sqrt(abs(a+c)) for both interiors; null/exterior factor1",
+    "paletteFormula": "clamp(log(abs(discriminant)/3)/log(240/3),0,1)",
+    "planeFocus": {
+      "fadeFloor": 0.12,
+      "distanceScale": "0.5*radius",
+      "selectedPointExempt": true,
+      "changesMembership": false
+    }
+  },
+  "browserState": {
+    "launch": {
+      "selected": [
+        1,
+        -1,
+        2
+      ],
+      "radius": 6,
+      "whole": true,
+      "symmetricColor": false,
+      "projection": false,
+      "cone": true,
+      "palette": "viridis",
+      "starSize": 1,
+      "planeFocus": false,
+      "pair": null,
+      "mode": "overview"
+    },
+    "nextSequence": [
+      [
+        1,
+        -1,
+        2
+      ],
+      [
+        2,
+        -2,
+        4
+      ],
+      [
+        2,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        3,
+        2,
+        2
+      ],
+      [
+        -1,
+        1,
+        -2
+      ],
+      [
+        1,
+        2,
+        1
+      ],
+      [
+        1,
+        3,
+        1
+      ]
+    ],
+    "resetRestores": [
+      "selected",
+      "radius",
+      "whole",
+      "symmetricColor",
+      "projection",
+      "cone",
+      "pair",
+      "overview"
+    ],
+    "resetPreserves": [
+      "palette",
+      "starSize",
+      "planeFocus"
+    ],
+    "formRequiresCurrentlyShown": true,
+    "filterCropPreservesSelection": true,
+    "primarySelectClearsPair": true,
+    "pairFailurePreservesSelectionAndExistingPair": true,
+    "hiddenExample": {
+      "action": "Next at launch radius6",
+      "selected": [
+        2,
+        -2,
+        4
+      ],
+      "squaredRadius": 44,
+      "shown": false,
+      "inhabitDisabled": true
+    }
+  },
+  "camera": {
+    "browser": {
+      "worldCenter": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "worldScale": 0.16,
+      "overviewFovDegrees": 45,
+      "overviewNear": 0.05,
+      "overviewOffset": [
+        2.4,
+        1.5,
+        4.6
+      ],
+      "overviewOffsetMultiplier": "max(1,radius/8)",
+      "originFovDegrees": 100,
+      "egocentricNear": 0.008,
+      "originEyeDisplay": [
+        0,
+        0,
+        0
+      ],
+      "originLook": "along+Y;EulerYXZ yaw0,pitchpi/2",
+      "inhabitEye": "worldCenter+0.16*display(selected)+(0.10,0.12,0.10)",
+      "inhabitFovDegrees": 45,
+      "movementWorldStep": 0.12,
+      "dragRadiansPerPixel": 0.004,
+      "otherSideYawRadians": 1.0471975511965976,
+      "returnRestoresSavedOverview": true
+    },
+    "native": {
+      "center": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "physicalBallRadius": 0.96,
+      "scale": "0.96/radius",
+      "glyphPhysicalRadius": 0.0075,
+      "viewYaw": [
+        0.4806,
+        1.5277975511965978,
+        0
+      ],
+      "viewPitch": [
+        0.2814,
+        0.2814,
+        0
+      ],
+      "origin": "one-time head-center anchor,Rx(-pi/2) upper or Rx(+pi/2) lower;nappe flip retains anchor",
+      "inhabitPointRelativeToHead": [
+        0,
+        -0.08,
+        -0.35
+      ],
+      "selectionDoesNotMoveInhabitedPlacement": true
+    }
+  },
+  "transforms": {
+    "canonicalCoefficientMobiusActions": [],
+    "implemented": "Display linear coordinates, radial projection, native placement, browser Euclidean camera orbit/movement.",
+    "notCanonical": "No polynomial S/T or z+1/-1/z action; translated-pair fixtures are independent inputs, not exposed transforms."
+  },
+  "input": {
+    "desktopClick": "one primary pointer,<=5px displacement; nearest center within about10 CSS pixels, nearest depth breaks angle tie",
+    "desktopPair": "Shift-click or enter second point then Pair",
+    "desktopHover": "exact signed polynomial,no mutation;fresh for exact pointer/canvas/camera/projection/lattice inputs",
+    "xrAimAngle": 0.02,
+    "xrPreviewStaleAngle": 0.001,
+    "xrWorkerThreshold": 50000,
+    "xrButtons": [
+      "Next",
+      "Projection",
+      "Reset",
+      "Exit"
+    ],
+    "xrSelect": "current-ray recomputation;button priority;otherwise exact signed point;optional haptic0.3/30ms",
+    "xrReadout": [
+      "per-hand aim triple/polynomial/discriminant",
+      "selected triple/polynomial/discriminant",
+      "plane equation"
+    ],
+    "canonicalXRMissing": [
+      "pair creation",
+      "radius/filter selection",
+      "Origin/Inhabit buttons",
+      "palette/star-size/plane-focus controls"
+    ],
+    "nativeSelectableEntityName": "coefficient:a:b:c"
+  },
+  "nativeDifferences": {
+    "radii": [
+      4,
+      6,
+      8,
+      10,
+      12
+    ],
+    "maxRadius": 12,
+    "formAllowsHiddenByUpperOnly": true,
+    "missingControls": [
+      "alternate palette",
+      "star-size slider",
+      "plane-focus fade",
+      "polynomial hover"
+    ],
+    "rendering": "one RealityKit entity per point;physical unlit spheres,not pixel-clamped discs"
+  },
+  "acceptanceCases": [
+    {
+      "id": "signed-multiples",
+      "expect": "Default,double,negative remain distinct selections;root/image shared;delta and default colors differ."
+    },
+    {
+      "id": "invalid-entry-preserves",
+      "expect": "Zero/noninteger/out-of-ball entered point does not replace selection."
+    },
+    {
+      "id": "hidden-selection-retained",
+      "expect": "Crop/filter changes visibility without rewriting selected identity."
+    },
+    {
+      "id": "pair-identity",
+      "expect": "Only derived normal canonicalizes;invalid second preserves selected point and prior pair."
+    },
+    {
+      "id": "hover-freshness",
+      "expect": "Pointer/camera/crop/session changes hide hover;late worker answers cannot relabel new target."
+    },
+    {
+      "id": "view-independence",
+      "expect": "Selecting while inhabiting never relocates eye."
+    },
+    {
+      "id": "reset-subset",
+      "expect": "Restore reset fields but preserve browser palette/star-size/plane-focus."
+    },
+    {
+      "id": "dense-exact",
+      "expect": "R96 count1852484,no sampling or per-point browser entity allocation."
+    },
+    {
+      "id": "controller-equivalence-extension",
+      "expect": "Additional immersive controls must be identified as new parity work,not existing canonical XR behavior."
+    }
+  ]
+}

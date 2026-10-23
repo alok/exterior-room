@@ -1,0 +1,89 @@
+{
+  "scope": "Actual app-only visionOS Simulator controls, current Lean Starscape polar Snap correction. Declared diagnostics preset, not a gesture claim. No audio, desktop, physical headset or root-window parity claim.",
+  "file": "lean-starscape-native-polar-snap.mp4",
+  "sha256": "155ccfca0fa9eb6715ebd40d7377ab9604b926063111ee47b0225c783c4670a1",
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1920,
+        "height": 1080
+      }
+    ],
+    "format": {
+      "duration": "76.200000",
+      "size": "1269454"
+    }
+  },
+  "inputRoute": "Actual XCTest button interactions on existing task-owned simulator1D261881-0A0F-4DE0-B704-12644E606348",
+  "uiRun": "20261023T081658Z",
+  "uiTests": 1,
+  "uiFailures": 0,
+  "uiSeconds": 112.941,
+  "nativeReceipt": "../../native/evidence/polar-snap-native-receipt.json",
+  "canonicalSnapCommit": "2cd549a45ddb6056cf3596404754d96ad9e7132c",
+  "conversion": "ffmpeg -i raw.mov -map 0:v:0 -an -vf scale=1920:-2 -c:v libx264 -preset veryfast -crf 22 -threads 1 -movflags +faststart output.mp4",
+  "timing": "No trimming or speed change. Raw76.170s; export76.200s, 30ms encoded frame-boundary rounding.",
+  "rawVideo": {
+    "path": "native/evidence/screenshots/20261023T081658Z/lean-starscape-polar-snap.mov",
+    "sha256": "bab00436525aabc91ef1e4c4a3098e9ba8d9830f838f3e176aeca634a0472981",
+    "bytes": 26243545,
+    "localOnly": true
+  },
+  "sequence": [
+    "Declared M=[50,18,0,5], D250; shown unitroot3.600+10.000i and pairendpoints\u22126.400,13.600",
+    "Polar Snap chooses T4; selected/pair relabel atomically and action becomes Identity",
+    "Source13,20,34 SnapT4 becomes13,\u221284,162, \u0394\u22121368; hiddenatR12 and retainedbyIdentity",
+    "SourceT becomes13,\u22126,27; Identityretains",
+    "Reset canonical1,\u22121,2 with no pair"
+  ],
+  "audioStreams": 0,
+  "frameInspection": {
+    "method": "Actual decoded export frames inspected via view_image",
+    "frames": [
+      {
+        "seconds": 2,
+        "file": "artifacts/videos/lean-starscape-native-polar-snap-frames/start.png",
+        "state": "Accepted declared matrix; moved pair and shown root/endpoints",
+        "sha256": "522557b58283787b86eae3b6ae56f5dec4a3c7fdb55abb244672a87c632ceca4"
+      },
+      {
+        "seconds": 38,
+        "file": "artifacts/videos/lean-starscape-native-polar-snap-frames/middle.png",
+        "state": "Exact source T4 identity13,\u221284,162 and hidden label",
+        "sha256": "080b482f7a8622952a805a4886f663ec86b988268878bbfb672d8059b735c6eb"
+      },
+      {
+        "seconds": 75,
+        "file": "artifacts/videos/lean-starscape-native-polar-snap-frames/end.png",
+        "state": "Reset canonical1,\u22121,2; identity action; no pair",
+        "sha256": "5079dc17f273a2411201b1472906856e7a953de08e1f1397c607e0958439fcc2"
+      }
+    ]
+  },
+  "poster": {
+    "file": "lean-starscape-native-polar-snap-poster.png",
+    "fromSeconds": 38,
+    "sha256": "080b482f7a8622952a805a4886f663ec86b988268878bbfb672d8059b735c6eb"
+  },
+  "sourceSha256": {
+    "native/Sources/ExteriorRoomApp.swift": "185fa622d5dc6c3ec4977060a365e7b0e4c277cda058d9cee7afa5cd926f34b6",
+    "native/Sources/ExteriorSpace.swift": "3f9b87c227e7c1c4a77b332a18731820edc4dd4b5a16f2275a2705e44e71d4e4",
+    "native/Sources/LeanModel.swift": "992903c6a9ca6bfb35b64628e3ed7f1717266541f5643850f477b0ce62d42c93",
+    "native/Sources/PolynomialAction.swift": "f0543aa9958a0daaeb1482ee73fb70377687c79b6b80ba95bdae698308fe3655",
+    "native/Sources/PolynomialAppearance.swift": "209ad4c7d39f99cc0e397d5bbfc50014dbcb1866c91443c0713b135bc09218e1",
+    "native/Sources/PolynomialModel.swift": "b891cb542116dd710fd27ed01880199730fc132b4e136b2e69decdf00bad8b09",
+    "native/Sources/PolynomialRoomApp.swift": "01bd7450a74a6832c69baa1f80f1cdf822202f49cfe5afee20f50c503b8b1217",
+    "native/Sources/PolynomialSpace.swift": "aafc25104021d7ac8bd0ab01773fafd21c906317fd4a76db08e056aaee338492",
+    "native/Sources/PolynomialTransformControls.swift": "f08896765b6bca640b72574b9c4a76f5f117a823f6fe586b5e05464eb1b70f7a",
+    "native/Sources/PolynomialViridis.swift": "885fae4705ce971eae95a3141313038af79b6bb62215798dcb5725266b95ceed",
+    "native/ModelTests/LeanModelTests.swift": "ce4b2e4af9f4b8ec95f407aac4c19673dbb707eb25b19ddfd02fb147ccd3af3f",
+    "native/ModelTests/PolynomialActionTests.swift": "e0e8b314b6cb86dfd1570313b6963a736f544549426be6b9c3f56a7b147bb6f1",
+    "native/ModelTests/PolynomialAppearanceTests.swift": "ee868526d77c4904e158766f23d91e0ef1a55917e69d539f0c18aa226068b610",
+    "native/ModelTests/PolynomialModelTests.swift": "f729435b4415eeee8b98268bec9315f68204cbb838220c19e5db59999e179345",
+    "native/PolynomialUITests/PolynomialRoomUITests.swift": "6337bae7c08ddb7457a284508c5864640d7557e308e02799e01a7197d7d5300f"
+  }
+}

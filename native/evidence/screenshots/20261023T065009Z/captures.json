@@ -1,0 +1,50 @@
+[
+  {
+    "id": "109ED21D-4EF9-4EF3-8E7C-872DAA8A3832",
+    "createdAt": 1792738233.016217,
+    "action": "screenshot",
+    "name": "plane-fade-01-identity-overview",
+    "file": "001-plane-fade-01-identity-overview.png",
+    "startedAt": 1792738233.041475,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "cb97208464a38c11cf881f74599cfe347c82dceb9df065b2881a7aaad389acba",
+    "finishedAt": 1792738237.074718
+  },
+  {
+    "createdAt": 1792738239.660091,
+    "name": "plane-fade-02-rational-overview",
+    "action": "screenshot",
+    "id": "AE10BE62-CAF6-42BC-9CA2-019AEA87F4B6",
+    "file": "002-plane-fade-02-rational-overview.png",
+    "startedAt": 1792738239.686721,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "d4f006bfc616ad0ea4e06bab12aa0b1e7f4b40b10175e3d194aab978658a3dc6",
+    "finishedAt": 1792738244.024163
+  },
+  {
+    "createdAt": 1792738246.4263868,
+    "name": "plane-fade-03-fade-off-overview",
+    "action": "screenshot",
+    "id": "D3727A8A-C10B-4EAF-842E-A99F09A766A4",
+    "file": "003-plane-fade-03-fade-off-overview.png",
+    "startedAt": 1792738246.4546628,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "90ce13005be61ab54f6217b6609537a7c23651cbd3a62d64f36f7542585efd35",
+    "finishedAt": 1792738247.685441
+  },
+  {
+    "id": "6BF7FDA3-593F-4369-A144-DCE7AB0D3869",
+    "createdAt": 1792738251.382028,
+    "action": "screenshot",
+    "name": "plane-fade-04-rational-projection",
+    "file": "004-plane-fade-04-rational-projection.png",
+    "startedAt": 1792738251.402025,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "0d8b8515498e3701c877c1b66eb0b2ad494ea73d5d3887a18d5106bd1861ec43",
+    "finishedAt": 1792738253.260294
+  }
+]

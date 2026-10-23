@@ -1,0 +1,14 @@
+[
+  {
+    "id": "C4F5BC00-4F2F-47C2-8535-E65DEBC669AC",
+    "createdAt": 1792734928.7042131,
+    "name": "drag-before",
+    "action": "screenshot",
+    "file": "001-drag-before.png",
+    "startedAt": 1792734928.7245061,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "f7d63fe0aac1b5c12e33dba19374eac3f6c395e72564386179157d0b0c689969",
+    "finishedAt": 1792734929.2503989
+  }
+]

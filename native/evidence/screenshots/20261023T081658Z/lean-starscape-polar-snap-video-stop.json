@@ -1,0 +1,12 @@
+{
+  "action": "video-stop",
+  "createdAt": 1792743515.628137,
+  "id": "333E31EF-F9DC-4AEF-93F3-D1D53FC5F97A",
+  "name": "lean-starscape-polar-snap",
+  "startedAt": 1792743516.527392,
+  "exitCode": 0,
+  "error": null,
+  "sha256": "bab00436525aabc91ef1e4c4a3098e9ba8d9830f838f3e176aeca634a0472981",
+  "file": "lean-starscape-polar-snap.mov",
+  "finishedAt": 1792743526.731405
+}

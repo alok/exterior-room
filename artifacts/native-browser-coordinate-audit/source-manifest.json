@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-23",
+  "sourceSelection": "Frozen original numerical audit, not an assertion about later native renderer edits. Original Swift source recovered read-only from git index and matched to its recorded SHA256. No index mutation.",
+  "toolchain": {
+    "swift": "swift-driver1.168.6 AppleSwift6.4 swiftlang-6.4.0.34.1 clang-2100.3.34.1",
+    "target": "arm64-apple-macosx27.0.0",
+    "node": "v26.9.0"
+  },
+  "files": {
+    "inputs/PolynomialAction.swift": {
+      "source": "native/Sources/PolynomialAction.swift",
+      "selection": "git index snapshot; SHA256 matches the original read-only audit and native/evidence/final-native-receipt.json, before the later working-tree normal/fade changes",
+      "sha256": "36959d479d781daed8d0c2975801753a158d0f41dea549bdc9158e874e62b8bf"
+    },
+    "inputs/polynomial-action-cases.json": {
+      "source": "native/Resources/polynomial-action-cases.json",
+      "selection": "69 actual compiled-Lean action fixtures; copied unchanged",
+      "sha256": "7ba87630d81dc3e8fddbc793ed5e5ba6086e364b058780f160775d6613e78c58"
+    },
+    "inputs/mobius-render.js": {
+      "source": "web/polynomial/mobius-render.js",
+      "selection": "actual browser adapter copied unchanged",
+      "sha256": "46147fcd2c533b6884b778c9f0f9a95add5f4360cff4542684aa3bbd57d1a3bf"
+    },
+    "inputs/mobius.js": {
+      "source": "web/polynomial/mobius.js",
+      "selection": "byte-identical canonical63ad115422ab1141ca6d06732572385414b7a5cf module, unchanged",
+      "sha256": "d2dbc833ca29bf7160e99f976aa433ca8a274a612d0e9f5d95b82aa6803f6886"
+    },
+    "original-native-positions.json": {
+      "source": "/tmp/polynomial-parity-audit/native-positions.json",
+      "selection": "original successful standalone native output",
+      "sha256": "57ea5b837bca9edfa8928e314d85f8cdadbfe30d5d093a79c33fb88dabbec260"
+    },
+    "scripts/main.swift": {
+      "source": "/tmp/polynomial-parity-audit/main.swift",
+      "selection": "original native harness",
+      "sha256": "171df39f50b3da7cd9360b92347b011faf5c7bb21c59fdca553cbbcb0414fa91"
+    },
+    "scripts/compare.mjs": {
+      "source": "new audit harness",
+      "selection": "hash verification, browser comparison and D5 renderer math checks",
+      "sha256": "8ca696f210864d7d079db7a444b63a581dc825957d0d6ed3db095db5f478d538"
+    },
+    "scripts/run.sh": {
+      "source": "new audit harness",
+      "selection": "offline reproducible command wrapper",
+      "sha256": "2cb18828285cf63e57fe97cca73f2500a19172020102e6afab71fc1a4ac84b5b"
+    }
+  }
+}

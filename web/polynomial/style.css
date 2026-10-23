@@ -1,0 +1,97 @@
+:root { color-scheme: dark; font: 15px/1.5 system-ui, sans-serif; color: #e6f1f6; background: #000; }
+* { box-sizing: border-box; }
+body { margin: 0; overflow: hidden; }
+#viewport { position: fixed; inset: 0; }
+canvas { display: block; touch-action: none; }
+canvas:focus-visible { outline: 2px solid #87e9fc; outline-offset: -3px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.graphics-notice { position: absolute; inset: 12px; z-index: 1; display: grid; align-content: center; justify-items: start; gap: 10px; padding: 20px; overflow: auto; background: #0d1620f5; border: 1px solid #426278; border-radius: 12px; }
+.graphics-notice[hidden] { display: none; }
+.graphics-notice p { margin: 0; }
+header, .controls { z-index: 2; }
+header { position: absolute; top: 24px; left: 32px; pointer-events: none; }
+header a { pointer-events: auto; }
+.eyebrow { color: #65d8e9; font-size: 11px; letter-spacing: .2em; margin: 0; }
+h1 { font: 300 clamp(26px, 4vw, 44px)/1.1 Georgia, serif; margin: 10px 0 12px; }
+.credit { margin: 0; color: #9aaebc; font-size: 13px; }
+a { color: #80dfea; text-underline-offset: 3px; }
+.controls { position: absolute; bottom: 22px; left: 24px; width: min(670px, calc(100% - 48px)); padding: 18px 20px; background: #0d1620ed; border: 1px solid #263743; border-radius: 16px; box-shadow: 0 16px 50px #0008; }
+.state, .row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.state { justify-content: space-between; font-family: ui-monospace, monospace; margin-bottom: 12px; }
+.selection-head { position: sticky; top: -1px; z-index: 3; background: #0d1620; padding: 1px 0 8px; }
+#word { max-width: 45%; overflow-wrap: anywhere; }
+#fraction { color: #ffb05d; font-size: 17px; }
+button, select, input { font: inherit; border: 1px solid #3c5362; border-radius: 8px; color: #eef8ff; background: #172a37; padding: 8px 13px; }
+button { cursor: pointer; }
+button:hover { background: #284454; }
+button:disabled { opacity: .45; cursor: default; }
+button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid #87e9fc; outline-offset: 3px; }
+.cyan { background: #176576; } .purple { background: #684d97; }
+.secondary { margin-top: 10px; font-size: 13px; }
+#lesson { border-top: 1px solid #345; padding-top: 10px; margin-top: 10px; font-size: 13px; }
+#construction { font-size: 12px; border-top: 1px solid #345; margin-top: 10px; padding-top: 10px; }
+#construction input { width: auto; }
+#construction .row { margin-bottom: 8px; }
+#projected-choice { font-size: 12px; border-top: 1px solid #345; margin-top: 10px; padding-top: 10px; }
+#projected-choice .row { margin-bottom: 8px; }
+#projected-preview { color: #80dfea; font-size: 22px; margin: 8px 0; }
+.choosing #construction { display: none; }
+.controls:has(#construction:not([hidden])) { width: min(480px, calc(100% - 48px)); }
+#lesson .row { margin-top: 8px; }
+#lesson p { color: #c1d3dd; }
+#lesson button[aria-pressed="true"] { background: #326879; }
+.controls { max-height: calc(100vh - 165px); overflow-y: auto; }
+.controls:has(#lesson:not([hidden])), .controls:has(#cf-inspector[open]) { width: min(480px, calc(100% - 48px)); }
+form { display: flex; gap: 7px; align-items: center; } input { width: 76px; padding: 5px; } select { padding: 5px; }
+#matrix, #vector-state { font: 12px ui-monospace, monospace; color: #adc1cf; margin: 8px 0 6px; }
+#receipt, .hint, details { color: #9cabb7; font-size: 12px; margin: 6px 0 0; }
+#precision-notice { color: #becbd5; font-size: 12px; margin: 6px 0 0; }
+summary { cursor: pointer; color: #8bd7e3; }
+#point-equation { font-family: ui-monospace, monospace; }
+#cf-inspector input { width: auto; }
+#cf-inspector li { font-family: ui-monospace, monospace; }
+#cf-inspector .convergent { color: #ffd54f; }
+#cf-inspector .intermediate { color: #b0b9c3; }
+#cf-path button { color: inherit; width: 100%; text-align: left; padding: 4px 6px; background: transparent; border-color: transparent; }
+#cf-path button[aria-pressed="true"] { border-color: white; }
+#spotlight-readout { color: white; font-size: 12px; margin-top: 8px; }
+#spotlight-readout button { padding: 4px 7px; font-size: 12px; }
+#cf-inspector[open] { max-height: none; overflow: visible; }
+#cf-path { max-height: 170px; overflow-y: auto; margin: 8px 0; padding-left: 28px; }
+details p { max-width: 60ch; } details[open] { max-height: 200px; overflow-y: auto; }
+#fatal, .startup-error { position: absolute; top: 160px; left: 32px; right: 32px; background: #452526; padding: 20px; }
+body:has(.startup-error) .controls { display: none; }
+#hover { position: fixed; pointer-events: none; background: #11232fec; border: 1px solid #5a8099; border-radius: 7px; padding: 5px 10px; font: 13px ui-monospace, monospace; }
+body.immersive header, body.immersive .controls { display: none; }
+@media(max-width: 700px) { header { left: 20px; top: 18px; right: 16px; } .credit { font-size: 11px; } .controls { left: 12px; bottom: 12px; width: calc(100% - 24px); padding: 13px; } .hint { display: none; } .row { gap: 6px; } button { padding: 7px 10px; } }
+@media(max-width: 700px), (pointer: coarse) { #rational, #bound { font-size: 16px; } }
+@media(max-width: 700px) {
+  .controls, .controls:has(#lesson:not([hidden])), .controls:has(#cf-inspector[open]), .controls:has(#construction:not([hidden])) { width: calc(100% - 24px); max-height: min(48svh, calc(100svh - 220px)); }
+  .learning .controls > .row, .learning #matrix, .learning #receipt { display: none; }
+  .learning .state { margin-bottom: 4px; }
+  .constructing .controls { height: min(48svh, calc(100svh - 220px)); }
+  .constructing .controls > .row, .constructing #matrix, .constructing #vector-state,
+  .constructing #point-inspection, .constructing #cf-inspector, .constructing #receipt { display: none; }
+}
+@media(max-height: 700px) and (min-width: 701px) {
+  header { top: 12px; left: 20px; }
+  .eyebrow, .hint { display: none; }
+  h1 { font-size: 28px; margin: 0 0 6px; }
+  .credit { font-size: 11px; }
+  #viewport { left: 46vw; right: 12px; }
+  .controls, .controls:has(#lesson:not([hidden])), .controls:has(#cf-inspector[open]), .controls:has(#construction:not([hidden])) { left: 12px; bottom: 12px; width: calc(46vw - 24px); max-height: calc(100svh - 112px); padding: 12px; }
+}
+/* Pointer hover: a ring on the hovered center and its exact polynomial beside it; never intercepts input. */
+#hover-label { position: fixed; left: 0; top: 0; z-index: 3; pointer-events: none; }
+#hover-label[hidden] { display: none; }
+.hover-ring { position: absolute; left: -7px; top: -7px; width: 14px; height: 14px; box-sizing: border-box; border: 1.5px solid #9fdcff; border-radius: 50%; }
+/* Plain source-style polynomial typography, FareyVision 2cd549a WebXR/style.css. */
+#hover-text { position: absolute; left: 9px; top: -8px; white-space: nowrap; font: 12px ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace; line-height: 16px; color: #f0f5f8d9;
+  text-shadow: 0 0 2px #05090cf0, 0 0 3px #05090cf0, 0 0 4px #05090ceb, 1px 1px 2px #05090ceb, -1px -1px 2px #05090ceb; }
+#klein-canvas { position:absolute;inset:0;width:100%;height:100%; }
+#klein-canvas[hidden] { display:none; }
+#mobius-controls { border-top:1px solid #28404c;border-bottom:1px solid #28404c;padding:9px 0;margin:10px 0; }
+#mobius-status { font-size:12px;color:#8de2d4;margin:6px 0; }
+#mobius-result { overflow-wrap:anywhere;color:#f4d4a6; }
+button[aria-pressed="true"] { background:#23616c;border-color:#72c9d2; }
+body.immersive #klein-canvas { display:none; }

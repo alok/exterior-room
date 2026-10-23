@@ -1,0 +1,319 @@
+{
+  "generator": "lean/.lake/build/bin/polynomial_service",
+  "generatorSha256": "fdc39244f0d64fd553027b6e8c003cf0d371713224fda068c5d25ef19af7b4c3",
+  "scriptSha256": "89ed68ffa81ebb7757cb4157e9a67d716aa0b7629abfb5905fb7b36a87507463",
+  "canonicalContractSha256": "f77e034a5268edb700ea2ce7e1683b8d6586c40f173c0807aac466271dbded31",
+  "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+  "requests": [
+    {
+      "op": "cloud",
+      "radius": 6,
+      "upperOnly": false,
+      "offset": 0,
+      "limit": 16384,
+      "id": 1
+    },
+    {
+      "op": "inspect",
+      "point": [
+        1,
+        -1,
+        2
+      ],
+      "id": 2
+    },
+    {
+      "op": "inspect",
+      "point": [
+        1,
+        -1,
+        2
+      ],
+      "id": 3
+    },
+    {
+      "op": "inspect",
+      "point": [
+        2,
+        -2,
+        4
+      ],
+      "id": 4
+    },
+    {
+      "op": "inspect",
+      "point": [
+        -1,
+        1,
+        -2
+      ],
+      "id": 5
+    },
+    {
+      "op": "inspect",
+      "point": [
+        -2,
+        2,
+        -4
+      ],
+      "id": 6
+    },
+    {
+      "op": "inspect",
+      "point": [
+        1,
+        0,
+        1
+      ],
+      "id": 7
+    },
+    {
+      "op": "inspect",
+      "point": [
+        1,
+        1,
+        1
+      ],
+      "id": 8
+    },
+    {
+      "op": "inspect",
+      "point": [
+        1,
+        2,
+        1
+      ],
+      "id": 9
+    },
+    {
+      "op": "inspect",
+      "point": [
+        1,
+        3,
+        1
+      ],
+      "id": 10
+    },
+    {
+      "op": "inspect",
+      "point": [
+        1,
+        0,
+        -1
+      ],
+      "id": 11
+    },
+    {
+      "op": "inspect",
+      "point": [
+        0,
+        1,
+        0
+      ],
+      "id": 12
+    },
+    {
+      "op": "inspect",
+      "point": [
+        0,
+        0,
+        -3
+      ],
+      "id": 13
+    },
+    {
+      "op": "inspect",
+      "point": [
+        1,
+        8,
+        -1
+      ],
+      "id": 14
+    },
+    {
+      "op": "inspect",
+      "point": [
+        2,
+        1,
+        1
+      ],
+      "id": 15
+    },
+    {
+      "op": "inspect",
+      "point": [
+        3,
+        2,
+        2
+      ],
+      "id": 16
+    },
+    {
+      "op": "pair",
+      "first": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        1,
+        1,
+        1
+      ],
+      "id": 17
+    },
+    {
+      "op": "plane",
+      "normal": [
+        1,
+        0,
+        -1
+      ],
+      "id": 18
+    },
+    {
+      "op": "members",
+      "radius": 6,
+      "upperOnly": false,
+      "normal": [
+        1,
+        0,
+        -1
+      ],
+      "id": 19
+    },
+    {
+      "op": "plane",
+      "normal": [
+        1,
+        3,
+        1
+      ],
+      "id": 20
+    },
+    {
+      "op": "members",
+      "radius": 6,
+      "upperOnly": false,
+      "normal": [
+        1,
+        3,
+        1
+      ],
+      "id": 21
+    },
+    {
+      "op": "inspect",
+      "point": [
+        13,
+        20,
+        34
+      ],
+      "id": 22
+    },
+    {
+      "op": "inspect",
+      "point": [
+        13,
+        -6,
+        27
+      ],
+      "id": 23
+    },
+    {
+      "op": "inspect",
+      "point": [
+        1,
+        -2,
+        2
+      ],
+      "id": 24
+    },
+    {
+      "op": "inspect",
+      "point": [
+        1,
+        -1,
+        1
+      ],
+      "id": 25
+    },
+    {
+      "op": "pair",
+      "first": [
+        1,
+        -2,
+        2
+      ],
+      "second": [
+        1,
+        -1,
+        1
+      ],
+      "id": 26
+    },
+    {
+      "op": "members",
+      "radius": 6,
+      "upperOnly": false,
+      "normal": [
+        1,
+        -2,
+        0
+      ],
+      "id": 27
+    },
+    {
+      "op": "inspect",
+      "point": [
+        96,
+        -96,
+        96
+      ],
+      "id": 28
+    },
+    {
+      "op": "inspect",
+      "point": [
+        -96,
+        96,
+        -96
+      ],
+      "id": 29
+    },
+    {
+      "op": "pair",
+      "first": [
+        96,
+        -96,
+        96
+      ],
+      "second": [
+        1,
+        0,
+        1
+      ],
+      "id": 30
+    },
+    {
+      "op": "pair",
+      "first": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        -96,
+        96,
+        -96
+      ],
+      "id": 31
+    }
+  ],
+  "outputSha256": {
+    "polynomial-cloud-r6.json": "6b08b557bf04d34e702715ca418bdcead57bf22647c66ed51bef7b0a527a0820",
+    "polynomial-default.json": "8396a083472ce3650fbf049c8ebf7b6736e5d52477cf0bc4b9b05d1f6262f379",
+    "polynomial-test-cases.json": "95dab6170b8404c0e7524cfb80915afb2889f3482526048a4ae43b9acc3d5ff3"
+  },
+  "scope": "Actual compiled Lean JSON responses; no renderer or headset verification."
+}

@@ -30,6 +30,9 @@ private actor Gate {
     output["id"] = mismatch ? id + 100 : id
     output["ok"] = ok
     for axis in ["a", "b", "c"] { output[axis] = input[axis] }
+    let a = input["a"] as! [Int], b = input["b"] as! [Int], c = input["c"] as! [Int]
+    func add(_ x: [Int], _ y: [Int]) -> [Int] { zip(x, y).map(+) }
+    output["vertices"] = [[0,0,0], a, b, c, add(a,b), add(a,c), add(b,c), add(add(a,b),c)]
     let bytes = try JSONSerialization.data(withJSONObject: output)
     suspended.removeValue(forKey: id)!.resume(returning: (bytes, HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: nil, headerFields: nil)!))
   }
@@ -173,5 +176,34 @@ private actor Gate {
       SIMD3<Float>(3, -3, 0.25))
     XCTAssertNil(drag.endpoint(at: SIMD3<Float>(.nan, 0, 0), displayOffset: offset))
     XCTAssertEqual(drag.initialTip, tip)
+  }
+  func testRejectsInconsistentProofFlagsCoefficientsAndExportedGeometry() throws {
+    let fixture = (try JSONSerialization.jsonObject(with: fixtureData()) as! [[String: Any]])[0]
+    let corruptions: [(String, Any)] = [
+      ("selfWedge", [1,0,0]), ("swappedWedge", [44,9,-5]), ("wedge", [Int.min,9,-5]),
+      ("swappedVolume", 294), ("repeatedVolume", 1), ("volume", Int.min),
+      ("a", [13,1,1]), ("b", [0,0]), ("id", -1),
+      ("vertices", Array(repeating: [0,0,0], count: 8)),
+    ]
+    for (field, value) in corruptions {
+      var corrupt = fixture; corrupt[field] = value
+      let decoded = try JSONDecoder().decode(LeanResult.self, from: JSONSerialization.data(withJSONObject: corrupt))
+      XCTAssertFalse(decoded.isValid, "accepted invalid \(field)")
+    }
+    for flag in ["antisymmetric", "selfZero", "volumeAntisymmetric", "repeatedVolumeZero"] {
+      var corrupt = fixture, checks = fixture["checks"] as! [String: Bool]
+      checks[flag] = false; corrupt["checks"] = checks
+      let decoded = try JSONDecoder().decode(LeanResult.self, from: JSONSerialization.data(withJSONObject: corrupt))
+      XCTAssertFalse(decoded.isValid, "accepted false \(flag)")
+    }
+    for field in ["checks", "swappedVolume", "repeatedVolume"] {
+      var corrupt = fixture; corrupt.removeValue(forKey: field)
+      XCTAssertThrowsError(try JSONDecoder().decode(LeanResult.self,
+        from: JSONSerialization.data(withJSONObject: corrupt)), "accepted missing \(field)")
+    }
+    var corrupt = fixture, vertices = fixture["vertices"] as! [[Int]]
+    vertices[4][0] += 1; corrupt["vertices"] = vertices
+    let decoded = try JSONDecoder().decode(LeanResult.self, from: JSONSerialization.data(withJSONObject: corrupt))
+    XCTAssertFalse(decoded.isValid, "accepted inconsistent a+b vertex")
   }
 }

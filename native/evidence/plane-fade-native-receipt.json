@@ -1,0 +1,124 @@
+{
+  "scope": "Local renderer correction and diagnostic instrumentation after the preserved 59-test action baseline. No publication or physical-device validation.",
+  "app": "com.alok.PolynomialRoom",
+  "simulator": "1D261881-0A0F-4DE0-B704-12644E606348",
+  "baselineReceipt": "native/evidence/final-native-receipt.json",
+  "changes": [
+    "Plane fade uses transformed display positions and covector normal Q F Q n for the normalized Lorentz action.",
+    "Reference cone rings, spokes and fans remain fixed; cloud and cutting plane transform; radial projection is recomputed after the action.",
+    "Opt-in drag diagnostics distinguish changed/end callbacks and Origin/busy guard rejection; this is instrumentation, not a verified gesture fix."
+  ],
+  "modelTests": {
+    "total": 61,
+    "failures": 0,
+    "polynomial": 35,
+    "actionAndSnap": 9,
+    "exterior": 12,
+    "appearance": 5,
+    "log": "native/evidence/plane-fade-model-tests.txt"
+  },
+  "build": {
+    "result": "passed",
+    "configuration": "unsigned arm64 xrsimulator27.2, Xcode27.2 beta2, jobs2",
+    "log": "native/evidence/plane-fade-build-for-testing.txt"
+  },
+  "ui": {
+    "run": "20261023T065009Z",
+    "test": "testTransformedPlaneFadeWithFixedReferenceGuides",
+    "tests": 1,
+    "failures": 0,
+    "seconds": 37.921,
+    "log": "native/evidence/ui-tests-20261023T065009Z.txt",
+    "captureManifest": "native/evidence/screenshots/20261023T065009Z/captures.json",
+    "visuallyInspectedCaptures": 4,
+    "newVideo": false
+  },
+  "fixture": {
+    "radius": 6,
+    "first": [
+      1,
+      0,
+      1
+    ],
+    "second": [
+      1,
+      1,
+      1
+    ],
+    "plane": "2a − 2c = 0",
+    "members": 22,
+    "view": "Overview",
+    "matrix": [
+      3,
+      1,
+      1,
+      2
+    ],
+    "denominator": 5,
+    "capturedStates": [
+      "identity with plane fade",
+      "rational action with plane fade",
+      "rational action with fade disabled",
+      "rational action with fade and radial projection"
+    ]
+  },
+  "numericRegression": {
+    "baseNormal": [
+      0,
+      0,
+      -2
+    ],
+    "transformedNormal": [
+      -0.4,
+      1,
+      -2.2
+    ],
+    "point": [
+      1,
+      0,
+      2
+    ],
+    "transformedXYZ": [
+      3.2,
+      5,
+      2.6
+    ],
+    "fadeAtRadius6": 0.8399267649983406
+  },
+  "proofBoundary": "Existing Lean-exported exact coefficient rows are converted to floating-point rendering coordinates. The renderer correction and Swift tests add no theorem or Swift kernel check.",
+  "limitations": [
+    "Earlier immersive and launch-window drag probes produced no accepted sample or accepted-matrix change. Callback delivery is unresolved because old status instrumentation occurred after the Origin/busy guard.",
+    "New callback/guard diagnostics compile but have not been exercised by another drag probe.",
+    "No verified endpoint drag/cancel, physical tracked-hand, controller or hardware interaction.",
+    "Native cap is R12; the exact source selection (13,20,34) is retained explicitly as hidden.",
+    "Continuous action transforms a fixed finite base crop rather than re-cropping transformed coordinates.",
+    "Native and browser camera placement and materials differ."
+  ],
+  "sha256": {
+    "native/ModelTests/LeanModelTests.swift": "ce4b2e4af9f4b8ec95f407aac4c19673dbb707eb25b19ddfd02fb147ccd3af3f",
+    "native/ModelTests/PolynomialActionTests.swift": "701758487e0c6c03020772bd088697ca357db9b06cd2dc42cda5805012c9e3aa",
+    "native/ModelTests/PolynomialAppearanceTests.swift": "ee868526d77c4904e158766f23d91e0ef1a55917e69d539f0c18aa226068b610",
+    "native/ModelTests/PolynomialModelTests.swift": "16dadfe146db38c86b094073de265142a35c0c4af4dc914f6c656a832e701645",
+    "native/PolynomialUITests/PolynomialRoomUITests.swift": "60aaac6924778c0bc35025c72bed971448f6257b0dfa26252a74e27eccd002a2",
+    "native/Resources/polynomial-action-cases.json": "7ba87630d81dc3e8fddbc793ed5e5ba6086e364b058780f160775d6613e78c58",
+    "native/Resources/polynomial-action-receipt.json": "a6302a897870ad3b612ae3df642d1938a1a8be13de4836c870ebb50139d4c32d",
+    "native/Sources/ExteriorRoomApp.swift": "185fa622d5dc6c3ec4977060a365e7b0e4c277cda058d9cee7afa5cd926f34b6",
+    "native/Sources/ExteriorSpace.swift": "3f9b87c227e7c1c4a77b332a18731820edc4dd4b5a16f2275a2705e44e71d4e4",
+    "native/Sources/LeanModel.swift": "992903c6a9ca6bfb35b64628e3ed7f1717266541f5643850f477b0ce62d42c93",
+    "native/Sources/PolynomialAction.swift": "3fe9e3bc7ad3fd999bc0b07af2ce55c5d0c77601d0db2986410b656b76ebc480",
+    "native/Sources/PolynomialAppearance.swift": "209ad4c7d39f99cc0e397d5bbfc50014dbcb1866c91443c0713b135bc09218e1",
+    "native/Sources/PolynomialModel.swift": "a1f3d799c800a8d35826e42341c98ad31cc46a1ea3f176d5c34abeff9845edde",
+    "native/Sources/PolynomialRoomApp.swift": "1af41dd1093f8354397a4b4bdbcd0f8f3ee1c73fcb14c3199b9cb12199ce09b1",
+    "native/Sources/PolynomialSpace.swift": "aafc25104021d7ac8bd0ab01773fafd21c906317fd4a76db08e056aaee338492",
+    "native/Sources/PolynomialTransformControls.swift": "c29a7e54e9c6e14c041e4fd7c707a25602deac31f08e030644b038f40844a4be",
+    "native/Sources/PolynomialViridis.swift": "885fae4705ce971eae95a3141313038af79b6bb62215798dcb5725266b95ceed",
+    "native/evidence/plane-fade-build-for-testing.txt": "41bfd54541f81245925309f34e1cce32d84222794b084c8781ae239a2cf497b8",
+    "native/evidence/plane-fade-model-tests.txt": "dc83f1f1fa288b36daccb2bc96ce43607b671e7976f44e8d3f2eec61aff5fc49",
+    "native/evidence/screenshots/20261023T065009Z/001-plane-fade-01-identity-overview.png": "cb97208464a38c11cf881f74599cfe347c82dceb9df065b2881a7aaad389acba",
+    "native/evidence/screenshots/20261023T065009Z/002-plane-fade-02-rational-overview.png": "d4f006bfc616ad0ea4e06bab12aa0b1e7f4b40b10175e3d194aab978658a3dc6",
+    "native/evidence/screenshots/20261023T065009Z/003-plane-fade-03-fade-off-overview.png": "90ce13005be61ab54f6217b6609537a7c23651cbd3a62d64f36f7542585efd35",
+    "native/evidence/screenshots/20261023T065009Z/004-plane-fade-04-rational-projection.png": "0d8b8515498e3701c877c1b66eb0b2ad494ea73d5d3887a18d5106bd1861ec43",
+    "native/evidence/screenshots/20261023T065009Z/captures.json": "f1e84f8ecd362f02425a954a8c34f291b986612553bee45ae5bfc39386520647",
+    "native/evidence/ui-tests-20261023T065009Z.txt": "044cb17b3a4df396330e35fb2e448ab5a8482d288973d7a39c41588c6371144b"
+  }
+}

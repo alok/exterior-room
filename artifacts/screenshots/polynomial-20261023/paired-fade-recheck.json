@@ -1,0 +1,1272 @@
+{
+  "date": "2026-10-23T06:46:29.118Z",
+  "route": "IAB actual production UI + live Lean bridge",
+  "fixture": "R6 unit pair, Overview, plane focus",
+  "identity": {
+    "schema": "polynomial-space-v1",
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "cloudCount": 480,
+    "cachedInspections": 4,
+    "cachedPlanes": 1,
+    "selected": [
+      1,
+      0,
+      1
+    ],
+    "second": [
+      1,
+      1,
+      1
+    ],
+    "radius": 6,
+    "whole": true,
+    "projectionVisible": false,
+    "inhabited": false,
+    "originMode": false,
+    "categories": "viridis",
+    "sigma": 1,
+    "planeFocus": true,
+    "dataBusy": false,
+    "xr": false,
+    "xrMode": "overview",
+    "xrPair": false,
+    "rootsView": false,
+    "mobiusMode": false,
+    "snapOnRelease": false,
+    "lastAbsorption": null,
+    "timings": {
+      "enumerate": 0.29999999701976776,
+      "attributes": 0.29999999701976776,
+      "motion": 0.10000000894069672,
+      "roots": 0,
+      "factors": 0.09999999403953552
+    },
+    "rootsRender": {
+      "points": 110,
+      "calls": 3
+    },
+    "action": {
+      "phase": "identity",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "g": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "displayedSelection": [
+        0,
+        2,
+        0
+      ]
+    },
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "view": {
+      "position": [
+        2.4,
+        2.9000000000000004,
+        1.4999999999999996
+      ],
+      "quaternion": [
+        -0.1362166426569136,
+        0.23577980007794755,
+        0.033398544765839325,
+        0.9616326998111108
+      ],
+      "fov": 45
+    },
+    "render": {
+      "points": 480,
+      "calls": 16
+    },
+    "projectedSelection": {
+      "x": 824,
+      "y": 382.60131275223046
+    }
+  },
+  "exactD5": {
+    "schema": "polynomial-space-v1",
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "cloudCount": 480,
+    "cachedInspections": 4,
+    "cachedPlanes": 1,
+    "selected": [
+      1,
+      0,
+      1
+    ],
+    "second": [
+      1,
+      1,
+      1
+    ],
+    "radius": 6,
+    "whole": true,
+    "projectionVisible": false,
+    "inhabited": false,
+    "originMode": false,
+    "categories": "viridis",
+    "sigma": 1,
+    "planeFocus": true,
+    "dataBusy": false,
+    "xr": false,
+    "xrMode": "overview",
+    "xrPair": false,
+    "rootsView": false,
+    "mobiusMode": false,
+    "snapOnRelease": false,
+    "lastAbsorption": null,
+    "timings": {
+      "enumerate": 0.29999999701976776,
+      "attributes": 0.29999999701976776,
+      "motion": 0.10000000894069672,
+      "roots": 0,
+      "factors": 0.09999999403953552
+    },
+    "rootsRender": {
+      "points": 110,
+      "calls": 3
+    },
+    "action": {
+      "phase": "accepted",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "g": [
+        1.3416407864998738,
+        0.4472135954999579,
+        0.4472135954999579,
+        0.8944271909999159
+      ],
+      "imageNumerator": [
+        5,
+        -10,
+        10
+      ],
+      "denominator": 5,
+      "delta": -4,
+      "displayedSelection": [
+        2,
+        3,
+        1
+      ]
+    },
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "view": {
+      "position": [
+        2.4,
+        2.9000000000000004,
+        1.4999999999999996
+      ],
+      "quaternion": [
+        -0.1362166426569136,
+        0.23577980007794755,
+        0.033398544765839325,
+        0.9616326998111108
+      ],
+      "fov": 45
+    },
+    "render": {
+      "points": 480,
+      "calls": 16
+    },
+    "projectedSelection": {
+      "x": 852.6147575389281,
+      "y": 370.06283350253085
+    }
+  },
+  "claim": "Captures and accepted state; exact pixel opacity is not measured by this UI check.",
+  "fadeOff": {
+    "schema": "polynomial-space-v1",
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "cloudCount": 480,
+    "cachedInspections": 4,
+    "cachedPlanes": 1,
+    "selected": [
+      1,
+      0,
+      1
+    ],
+    "second": [
+      1,
+      1,
+      1
+    ],
+    "radius": 6,
+    "whole": true,
+    "projectionVisible": false,
+    "inhabited": false,
+    "originMode": false,
+    "categories": "viridis",
+    "sigma": 1,
+    "planeFocus": false,
+    "dataBusy": false,
+    "xr": false,
+    "xrMode": "overview",
+    "xrPair": false,
+    "rootsView": false,
+    "mobiusMode": false,
+    "snapOnRelease": false,
+    "lastAbsorption": null,
+    "timings": {
+      "enumerate": 0.29999999701976776,
+      "attributes": 0.29999999701976776,
+      "motion": 0.10000000894069672,
+      "roots": 0,
+      "factors": 0.09999999403953552
+    },
+    "rootsRender": {
+      "points": 110,
+      "calls": 3
+    },
+    "action": {
+      "phase": "accepted",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "g": [
+        1.3416407864998738,
+        0.4472135954999579,
+        0.4472135954999579,
+        0.8944271909999159
+      ],
+      "imageNumerator": [
+        5,
+        -10,
+        10
+      ],
+      "denominator": 5,
+      "delta": -4,
+      "displayedSelection": [
+        2,
+        3,
+        1
+      ]
+    },
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "view": {
+      "position": [
+        2.4,
+        2.9000000000000004,
+        1.4999999999999996
+      ],
+      "quaternion": [
+        -0.1362166426569136,
+        0.23577980007794755,
+        0.033398544765839325,
+        0.9616326998111108
+      ],
+      "fov": 45
+    },
+    "render": {
+      "points": 480,
+      "calls": 16
+    },
+    "projectedSelection": {
+      "x": 852.6147575389281,
+      "y": 370.06283350253085
+    }
+  },
+  "projection": {
+    "schema": "polynomial-space-v1",
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "cloudCount": 480,
+    "cachedInspections": 4,
+    "cachedPlanes": 1,
+    "selected": [
+      1,
+      0,
+      1
+    ],
+    "second": [
+      1,
+      1,
+      1
+    ],
+    "radius": 6,
+    "whole": true,
+    "projectionVisible": true,
+    "inhabited": false,
+    "originMode": false,
+    "categories": "viridis",
+    "sigma": 1,
+    "planeFocus": true,
+    "dataBusy": false,
+    "xr": false,
+    "xrMode": "overview",
+    "xrPair": false,
+    "rootsView": false,
+    "mobiusMode": false,
+    "snapOnRelease": false,
+    "lastAbsorption": null,
+    "timings": {
+      "enumerate": 0.29999999701976776,
+      "attributes": 0.29999999701976776,
+      "motion": 0.10000000894069672,
+      "roots": 0,
+      "factors": 0.09999999403953552,
+      "images": 0.19999998807907104
+    },
+    "rootsRender": {
+      "points": 110,
+      "calls": 3
+    },
+    "action": {
+      "phase": "accepted",
+      "matrix": [
+        3,
+        1,
+        1,
+        2
+      ],
+      "g": [
+        1.3416407864998738,
+        0.4472135954999579,
+        0.4472135954999579,
+        0.8944271909999159
+      ],
+      "imageNumerator": [
+        5,
+        -10,
+        10
+      ],
+      "denominator": 5,
+      "delta": -4,
+      "displayedSelection": [
+        2,
+        3,
+        1
+      ]
+    },
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.6499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.5499999999999999,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.5499999999999999,
+          -1.15
+        ]
+      }
+    ],
+    "view": {
+      "position": [
+        2.4,
+        2.9000000000000004,
+        1.4999999999999996
+      ],
+      "quaternion": [
+        -0.1362166426569136,
+        0.23577980007794755,
+        0.033398544765839325,
+        0.9616326998111108
+      ],
+      "fov": 45
+    },
+    "render": {
+      "points": 590,
+      "calls": 23
+    },
+    "projectedSelection": {
+      "x": 852.6147575389281,
+      "y": 370.06283350253085
+    }
+  }
+}

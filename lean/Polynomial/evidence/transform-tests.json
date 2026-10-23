@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "requests": 452,
+  "canonicalGeneratorCases": 33,
+  "exactDragCases": 3,
+  "extremeCases": 12,
+  "randomMatrices": 100,
+  "compositionInverseIncidenceCases": 30,
+  "invalidCases": 13,
+  "fixtureSHA256": "112967a1451a251d26224021036e144db2f0db41cd0ea30c5f435d5ddd2920dd",
+  "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+  "maxResponseBytes": 758,
+  "snap": {
+    "requests": 70,
+    "sourceCommit": "6fea557bb0d0c786bed5223dc631cb1c06e94f16",
+    "nearestIntegerCandidates": 8,
+    "absorptionCases": 6,
+    "pairedCases": 5,
+    "outOfBoundsImagesRejectedByInspect": 0,
+    "historicalIdentityBound": 96,
+    "currentIdentityBound": 1024,
+    "fixtureSHA256": "78f1f53a562cc8067432a96d02b7e0a68a1c81d54443a8a50ad0fc1368982146",
+    "boundary": "Exact service transitions only; nearestIntegral is pinned floating-point fixture data. Client atomic rollback and actual UI input are not exercised here."
+  },
+  "identityBounds": {
+    "requests": 69,
+    "sourceCommit": "2cd549a45ddb6056cf3596404754d96ad9e7132c",
+    "identityBound": 1024,
+    "cloudRadiusBound": 96,
+    "normalBound": 4194304,
+    "absorptionCases": 8,
+    "pairedOutOfBoundCases": 4,
+    "maxTransformNumeratorBound": 6144000000000000,
+    "fixtureSHA256": "575dbdb4ccd8105e70e8d4fa69eb37255f3d7fa9ebc4b5100385d3648908f477",
+    "boundary": "Exact service results and bounds. Atomic client publication is tested separately."
+  },
+  "boundary": "Exact committed rational action; no proof or test of continuous pointer trajectory or rendering."
+}

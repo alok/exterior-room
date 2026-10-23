@@ -1,0 +1,2550 @@
+{
+  "scope": "Actual desktop controls and synthetic-device controller ray intersections; no headset evidence",
+  "states": [
+    {
+      "step": "recorded actual source vertical drag",
+      "state": {
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "cloudCount": 480,
+        "cachedInspections": 2,
+        "cachedPlanes": 0,
+        "selected": [
+          13,
+          20,
+          34
+        ],
+        "second": null,
+        "radius": 6,
+        "whole": true,
+        "projectionVisible": false,
+        "inhabited": false,
+        "originMode": false,
+        "categories": "viridis",
+        "sigma": 1,
+        "planeFocus": false,
+        "dataBusy": false,
+        "xr": false,
+        "xrMode": "overview",
+        "xrPair": false,
+        "rootsView": true,
+        "mobiusMode": false,
+        "snapOnRelease": false,
+        "lastAbsorption": null,
+        "rootsChart": {
+          "model": "half-plane",
+          "zoom": 1,
+          "pan": [
+            0,
+            0
+          ],
+          "padding": 20
+        },
+        "timings": {
+          "enumerate": 0,
+          "attributes": 0.3999999910593033,
+          "motion": 0,
+          "roots": 0.09999999403953552,
+          "rootPick": 0.29999999701976776
+        },
+        "rootsRender": {
+          "points": 55,
+          "calls": 7
+        },
+        "action": {
+          "phase": "accepted",
+          "matrix": [
+            31633,
+            11349,
+            0,
+            3161
+          ],
+          "g": [
+            3.1634279157939655,
+            1.1349458924650115,
+            0,
+            0.3161127822787824
+          ],
+          "imageNumerator": [
+            129894973,
+            1067109346,
+            28516326499
+          ],
+          "denominator": 99991913,
+          "delta": -1368,
+          "displayedSelection": [
+            -10.671956501122246,
+            286.4853827929064,
+            283.88727322378566
+          ]
+        },
+        "world": {
+          "position": [
+            0,
+            1.4,
+            -3.1
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "xrButtons": [
+          {
+            "position": [
+              -0.36,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.12,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.12,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.36,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.36,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.12,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.12,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.36,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.36,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.12,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.12,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.36,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.36,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.12,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.12,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.36,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.36,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.12,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.12,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.36,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.36,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.12,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.12,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.36,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.36,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.12,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.12,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.36,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.36,
+              0.5499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.12,
+              0.5499999999999999,
+              -1.15
+            ]
+          }
+        ],
+        "view": {
+          "position": [
+            2.4,
+            2.9000000000000004,
+            1.4999999999999996
+          ],
+          "quaternion": [
+            -0.1362166426569136,
+            0.23577980007794755,
+            0.033398544765839325,
+            0.9616326998111108
+          ],
+          "fov": 45
+        },
+        "render": {
+          "points": 480,
+          "calls": 8
+        },
+        "projectedSelection": {
+          "x": 981.7061424132979,
+          "y": 859.3503029215652
+        }
+      }
+    },
+    {
+      "step": "Snap T4",
+      "state": {
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "cloudCount": 480,
+        "cachedInspections": 3,
+        "cachedPlanes": 0,
+        "selected": [
+          13,
+          -84,
+          162
+        ],
+        "second": null,
+        "radius": 6,
+        "whole": true,
+        "projectionVisible": false,
+        "inhabited": false,
+        "originMode": false,
+        "categories": "viridis",
+        "sigma": 1,
+        "planeFocus": false,
+        "dataBusy": false,
+        "xr": false,
+        "xrMode": "overview",
+        "xrPair": false,
+        "rootsView": true,
+        "mobiusMode": false,
+        "snapOnRelease": false,
+        "lastAbsorption": {
+          "before": [
+            13,
+            20,
+            34
+          ],
+          "receipt": {
+            "actionSchema": "polynomial-mobius-v1",
+            "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+            "checks": {
+              "discriminantPreserved": true,
+              "positiveDeterminant": true
+            },
+            "coefficientRows": [
+              1,
+              0,
+              0,
+              -8,
+              1,
+              0,
+              16,
+              -4,
+              1
+            ],
+            "delta": -1368,
+            "denominator": 1,
+            "engine": "Lean 4.35.0-rc3",
+            "id": 5,
+            "image": [
+              13,
+              -84,
+              162
+            ],
+            "imageNumerator": [
+              13,
+              -84,
+              162
+            ],
+            "matrix": [
+              1,
+              4,
+              0,
+              1
+            ],
+            "ok": true,
+            "point": [
+              13,
+              20,
+              34
+            ],
+            "schema": "polynomial-space-v1",
+            "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+            "xyzNumerator": [
+              84,
+              175,
+              149
+            ]
+          }
+        },
+        "rootsChart": {
+          "model": "half-plane",
+          "zoom": 1,
+          "pan": [
+            0,
+            0
+          ],
+          "padding": 20
+        },
+        "timings": {
+          "enumerate": 0,
+          "attributes": 0.3999999910593033,
+          "motion": 0,
+          "roots": 0.20000000298023224,
+          "rootPick": 0.29999999701976776
+        },
+        "rootsRender": {
+          "points": 55,
+          "calls": 7
+        },
+        "action": {
+          "phase": "identity",
+          "matrix": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "g": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "displayedSelection": [
+            84,
+            175,
+            149
+          ]
+        },
+        "world": {
+          "position": [
+            0,
+            1.4,
+            -3.1
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "xrButtons": [
+          {
+            "position": [
+              -0.36,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.12,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.12,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.36,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.36,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.12,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.12,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.36,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.36,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.12,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.12,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.36,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.36,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.12,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.12,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.36,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.36,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.12,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.12,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.36,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.36,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.12,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.12,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.36,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.36,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.12,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.12,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.36,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.36,
+              0.5499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.12,
+              0.5499999999999999,
+              -1.15
+            ]
+          }
+        ],
+        "view": {
+          "position": [
+            2.4,
+            2.9000000000000004,
+            1.4999999999999996
+          ],
+          "quaternion": [
+            -0.1362166426569136,
+            0.23577980007794755,
+            0.033398544765839325,
+            0.9616326998111108
+          ],
+          "fov": 45
+        },
+        "render": {
+          "points": 480,
+          "calls": 8
+        },
+        "projectedSelection": {
+          "x": 649.5249346780481,
+          "y": 823.5021384044259
+        }
+      }
+    },
+    {
+      "step": "Identity retains T4 relabeling",
+      "state": {
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "cloudCount": 480,
+        "cachedInspections": 3,
+        "cachedPlanes": 0,
+        "selected": [
+          13,
+          -84,
+          162
+        ],
+        "second": null,
+        "radius": 6,
+        "whole": true,
+        "projectionVisible": false,
+        "inhabited": false,
+        "originMode": false,
+        "categories": "viridis",
+        "sigma": 1,
+        "planeFocus": false,
+        "dataBusy": false,
+        "xr": false,
+        "xrMode": "overview",
+        "xrPair": false,
+        "rootsView": true,
+        "mobiusMode": false,
+        "snapOnRelease": false,
+        "lastAbsorption": {
+          "before": [
+            13,
+            20,
+            34
+          ],
+          "receipt": {
+            "actionSchema": "polynomial-mobius-v1",
+            "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+            "checks": {
+              "discriminantPreserved": true,
+              "positiveDeterminant": true
+            },
+            "coefficientRows": [
+              1,
+              0,
+              0,
+              -8,
+              1,
+              0,
+              16,
+              -4,
+              1
+            ],
+            "delta": -1368,
+            "denominator": 1,
+            "engine": "Lean 4.35.0-rc3",
+            "id": 5,
+            "image": [
+              13,
+              -84,
+              162
+            ],
+            "imageNumerator": [
+              13,
+              -84,
+              162
+            ],
+            "matrix": [
+              1,
+              4,
+              0,
+              1
+            ],
+            "ok": true,
+            "point": [
+              13,
+              20,
+              34
+            ],
+            "schema": "polynomial-space-v1",
+            "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+            "xyzNumerator": [
+              84,
+              175,
+              149
+            ]
+          }
+        },
+        "rootsChart": {
+          "model": "half-plane",
+          "zoom": 1,
+          "pan": [
+            0,
+            0
+          ],
+          "padding": 20
+        },
+        "timings": {
+          "enumerate": 0,
+          "attributes": 0.3999999910593033,
+          "motion": 0,
+          "roots": 0.7000000029802322,
+          "rootPick": 0.29999999701976776
+        },
+        "rootsRender": {
+          "points": 55,
+          "calls": 7
+        },
+        "action": {
+          "phase": "identity",
+          "matrix": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "g": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "displayedSelection": [
+            84,
+            175,
+            149
+          ]
+        },
+        "world": {
+          "position": [
+            0,
+            1.4,
+            -3.1
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "xrButtons": [
+          {
+            "position": [
+              -0.36,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.12,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.12,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.36,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.36,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.12,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.12,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.36,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.36,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.12,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.12,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.36,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.36,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.12,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.12,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.36,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.36,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.12,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.12,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.36,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.36,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.12,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.12,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.36,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.36,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.12,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.12,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              0.36,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.36,
+              0.5499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "position": [
+              -0.12,
+              0.5499999999999999,
+              -1.15
+            ]
+          }
+        ],
+        "view": {
+          "position": [
+            2.4,
+            2.9000000000000004,
+            1.4999999999999996
+          ],
+          "quaternion": [
+            -0.1362166426569136,
+            0.23577980007794755,
+            0.033398544765839325,
+            0.9616326998111108
+          ],
+          "fov": 45
+        },
+        "render": {
+          "points": 480,
+          "calls": 8
+        },
+        "projectedSelection": {
+          "x": 649.5249346780481,
+          "y": 823.5021384044259
+        }
+      }
+    },
+    {
+      "step": "synthetic controller Exact move",
+      "state": {
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "cloudCount": 480,
+        "cachedInspections": 3,
+        "cachedPlanes": 0,
+        "selected": [
+          1,
+          -1,
+          2
+        ],
+        "second": null,
+        "radius": 6,
+        "whole": true,
+        "projectionVisible": false,
+        "inhabited": false,
+        "originMode": false,
+        "categories": "viridis",
+        "sigma": 1,
+        "planeFocus": false,
+        "dataBusy": false,
+        "xr": true,
+        "xrMode": "overview",
+        "xrPair": false,
+        "rootsView": false,
+        "mobiusMode": false,
+        "snapOnRelease": false,
+        "lastAbsorption": null,
+        "rootsChart": {
+          "model": "half-plane",
+          "zoom": 1,
+          "pan": [
+            0,
+            0
+          ],
+          "padding": 20
+        },
+        "timings": {
+          "enumerate": 0,
+          "attributes": 0.19999998807907104,
+          "motion": 0.09999999403953552,
+          "roots": 0.10000000894069672,
+          "rootPick": 0.29999999701976776,
+          "pick": 0
+        },
+        "rootsRender": {
+          "points": 55,
+          "calls": 8
+        },
+        "action": {
+          "phase": "accepted",
+          "matrix": [
+            3,
+            1,
+            1,
+            2
+          ],
+          "g": [
+            1.3416407864998738,
+            0.4472135954999579,
+            0.4472135954999579,
+            0.8944271909999159
+          ],
+          "imageNumerator": [
+            8,
+            -23,
+            22
+          ],
+          "denominator": 5,
+          "delta": -7,
+          "displayedSelection": [
+            4.6000000000000005,
+            6,
+            2.8
+          ]
+        },
+        "world": {
+          "position": [
+            0,
+            1.4,
+            -3.1
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "xrButtons": [
+          {
+            "label": "Next",
+            "position": [
+              -0.36,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "label": "Projection",
+            "position": [
+              -0.12,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "label": "Reset",
+            "position": [
+              0.12,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "label": "Exit",
+            "position": [
+              0.36,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "label": "Origin",
+            "position": [
+              -0.36,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "label": "Inhabit",
+            "position": [
+              -0.12,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "label": "Overview",
+            "position": [
+              0.12,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "label": "Other side",
+            "position": [
+              0.36,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "label": "R 6",
+            "position": [
+              -0.36,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "label": "Whole",
+            "position": [
+              -0.12,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "label": "Lower color",
+            "position": [
+              0.12,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "label": "Cone",
+            "position": [
+              0.36,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "label": "Pair aim",
+            "position": [
+              -0.36,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "label": "Clear pair",
+            "position": [
+              -0.12,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "label": "Plane fade",
+            "position": [
+              0.12,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "label": "Colors",
+            "position": [
+              0.36,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "label": "Size −",
+            "position": [
+              -0.36,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "label": "Size +",
+            "position": [
+              -0.12,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "label": "Forward",
+            "position": [
+              0.12,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "label": "Back",
+            "position": [
+              0.36,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "label": "Left",
+            "position": [
+              -0.36,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "label": "Right",
+            "position": [
+              -0.12,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "label": "Move forms",
+            "position": [
+              0.12,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "label": "Identity",
+            "position": [
+              0.36,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "label": "T: z+1",
+            "position": [
+              -0.36,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "label": "S: -1/z",
+            "position": [
+              -0.12,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "label": "T inverse",
+            "position": [
+              0.12,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "label": "Exact move",
+            "position": [
+              0.36,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "label": "Snap",
+            "position": [
+              -0.36,
+              0.5499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "label": "Snap release OFF",
+            "position": [
+              -0.12,
+              0.5499999999999999,
+              -1.15
+            ]
+          }
+        ],
+        "view": {
+          "position": [
+            0,
+            1.600000023841858,
+            0
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "fov": 69.99999907664099
+        },
+        "render": {
+          "points": 480,
+          "calls": 39
+        },
+        "projectedSelection": {
+          "x": 619.1445583024176,
+          "y": 199.8133473332568
+        }
+      }
+    },
+    {
+      "step": "synthetic controller Snap",
+      "state": {
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "cloudCount": 480,
+        "cachedInspections": 4,
+        "cachedPlanes": 0,
+        "selected": [
+          1,
+          -3,
+          4
+        ],
+        "second": null,
+        "radius": 6,
+        "whole": true,
+        "projectionVisible": false,
+        "inhabited": false,
+        "originMode": false,
+        "categories": "viridis",
+        "sigma": 1,
+        "planeFocus": false,
+        "dataBusy": false,
+        "xr": true,
+        "xrMode": "overview",
+        "xrPair": false,
+        "rootsView": false,
+        "mobiusMode": false,
+        "snapOnRelease": false,
+        "lastAbsorption": {
+          "before": [
+            1,
+            -1,
+            2
+          ],
+          "receipt": {
+            "actionSchema": "polynomial-mobius-v1",
+            "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+            "checks": {
+              "discriminantPreserved": true,
+              "positiveDeterminant": true
+            },
+            "coefficientRows": [
+              1,
+              0,
+              0,
+              -2,
+              1,
+              0,
+              1,
+              -1,
+              1
+            ],
+            "delta": -7,
+            "denominator": 1,
+            "engine": "Lean 4.35.0-rc3",
+            "id": 9,
+            "image": [
+              1,
+              -3,
+              4
+            ],
+            "imageNumerator": [
+              1,
+              -3,
+              4
+            ],
+            "matrix": [
+              1,
+              1,
+              0,
+              1
+            ],
+            "ok": true,
+            "point": [
+              1,
+              -1,
+              2
+            ],
+            "schema": "polynomial-space-v1",
+            "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+            "xyzNumerator": [
+              3,
+              5,
+              3
+            ]
+          }
+        },
+        "rootsChart": {
+          "model": "half-plane",
+          "zoom": 1,
+          "pan": [
+            0,
+            0
+          ],
+          "padding": 20
+        },
+        "timings": {
+          "enumerate": 0,
+          "attributes": 0.19999998807907104,
+          "motion": 0,
+          "roots": 0.10000000894069672,
+          "rootPick": 0.29999999701976776,
+          "pick": 0.10000000894069672
+        },
+        "rootsRender": {
+          "points": 55,
+          "calls": 8
+        },
+        "action": {
+          "phase": "identity",
+          "matrix": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "g": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "displayedSelection": [
+            3,
+            5,
+            3
+          ]
+        },
+        "world": {
+          "position": [
+            0,
+            1.4,
+            -3.1
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "xrButtons": [
+          {
+            "label": "Next",
+            "position": [
+              -0.36,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "label": "Projection",
+            "position": [
+              -0.12,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "label": "Reset",
+            "position": [
+              0.12,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "label": "Exit",
+            "position": [
+              0.36,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "label": "Origin",
+            "position": [
+              -0.36,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "label": "Inhabit",
+            "position": [
+              -0.12,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "label": "Overview",
+            "position": [
+              0.12,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "label": "Other side",
+            "position": [
+              0.36,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "label": "R 6",
+            "position": [
+              -0.36,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "label": "Whole",
+            "position": [
+              -0.12,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "label": "Lower color",
+            "position": [
+              0.12,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "label": "Cone",
+            "position": [
+              0.36,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "label": "Pair aim",
+            "position": [
+              -0.36,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "label": "Clear pair",
+            "position": [
+              -0.12,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "label": "Plane fade",
+            "position": [
+              0.12,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "label": "Colors",
+            "position": [
+              0.36,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "label": "Size −",
+            "position": [
+              -0.36,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "label": "Size +",
+            "position": [
+              -0.12,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "label": "Forward",
+            "position": [
+              0.12,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "label": "Back",
+            "position": [
+              0.36,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "label": "Left",
+            "position": [
+              -0.36,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "label": "Right",
+            "position": [
+              -0.12,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "label": "Move forms",
+            "position": [
+              0.12,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "label": "Identity",
+            "position": [
+              0.36,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "label": "T: z+1",
+            "position": [
+              -0.36,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "label": "S: -1/z",
+            "position": [
+              -0.12,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "label": "T inverse",
+            "position": [
+              0.12,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "label": "Exact move",
+            "position": [
+              0.36,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "label": "Snap",
+            "position": [
+              -0.36,
+              0.5499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "label": "Snap release OFF",
+            "position": [
+              -0.12,
+              0.5499999999999999,
+              -1.15
+            ]
+          }
+        ],
+        "view": {
+          "position": [
+            0,
+            1.600000023841858,
+            0
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "fov": 69.99999907664099
+        },
+        "render": {
+          "points": 480,
+          "calls": 35
+        },
+        "projectedSelection": {
+          "x": 573.5541076878555,
+          "y": 227.6230414420691
+        }
+      }
+    },
+    {
+      "step": "synthetic controller Reset",
+      "state": {
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "cloudCount": 480,
+        "cachedInspections": 4,
+        "cachedPlanes": 0,
+        "selected": [
+          1,
+          -1,
+          2
+        ],
+        "second": null,
+        "radius": 6,
+        "whole": true,
+        "projectionVisible": false,
+        "inhabited": false,
+        "originMode": false,
+        "categories": "viridis",
+        "sigma": 1,
+        "planeFocus": false,
+        "dataBusy": false,
+        "xr": true,
+        "xrMode": "overview",
+        "xrPair": false,
+        "rootsView": false,
+        "mobiusMode": false,
+        "snapOnRelease": false,
+        "lastAbsorption": null,
+        "rootsChart": {
+          "model": "half-plane",
+          "zoom": 1,
+          "pan": [
+            0,
+            0
+          ],
+          "padding": 20
+        },
+        "timings": {
+          "enumerate": 0,
+          "attributes": 0.20000000298023224,
+          "motion": 0,
+          "roots": 0.10000000894069672,
+          "rootPick": 0.29999999701976776,
+          "pick": 0
+        },
+        "rootsRender": {
+          "points": 55,
+          "calls": 8
+        },
+        "action": {
+          "phase": "identity",
+          "matrix": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "g": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "displayedSelection": [
+            1,
+            3,
+            1
+          ]
+        },
+        "world": {
+          "position": [
+            0,
+            1.4,
+            -3.1
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "xrButtons": [
+          {
+            "label": "Next",
+            "position": [
+              -0.36,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "label": "Projection",
+            "position": [
+              -0.12,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "label": "Reset",
+            "position": [
+              0.12,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "label": "Exit",
+            "position": [
+              0.36,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "label": "Origin",
+            "position": [
+              -0.36,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "label": "Inhabit",
+            "position": [
+              -0.12,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "label": "Overview",
+            "position": [
+              0.12,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "label": "Other side",
+            "position": [
+              0.36,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "label": "R 6",
+            "position": [
+              -0.36,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "label": "Whole",
+            "position": [
+              -0.12,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "label": "Lower color",
+            "position": [
+              0.12,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "label": "Cone",
+            "position": [
+              0.36,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "label": "Pair aim",
+            "position": [
+              -0.36,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "label": "Clear pair",
+            "position": [
+              -0.12,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "label": "Plane fade",
+            "position": [
+              0.12,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "label": "Colors",
+            "position": [
+              0.36,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "label": "Size −",
+            "position": [
+              -0.36,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "label": "Size +",
+            "position": [
+              -0.12,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "label": "Forward",
+            "position": [
+              0.12,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "label": "Back",
+            "position": [
+              0.36,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "label": "Left",
+            "position": [
+              -0.36,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "label": "Right",
+            "position": [
+              -0.12,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "label": "Move forms",
+            "position": [
+              0.12,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "label": "Identity",
+            "position": [
+              0.36,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "label": "T: z+1",
+            "position": [
+              -0.36,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "label": "S: -1/z",
+            "position": [
+              -0.12,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "label": "T inverse",
+            "position": [
+              0.12,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "label": "Exact move",
+            "position": [
+              0.36,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "label": "Snap",
+            "position": [
+              -0.36,
+              0.5499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "label": "Snap release OFF",
+            "position": [
+              -0.12,
+              0.5499999999999999,
+              -1.15
+            ]
+          }
+        ],
+        "view": {
+          "position": [
+            0,
+            1.600000023841858,
+            0
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "fov": 69.99999907664099
+        },
+        "render": {
+          "points": 480,
+          "calls": 37
+        },
+        "projectedSelection": {
+          "x": 511.30518845149453,
+          "y": 292.2432351969624
+        }
+      }
+    },
+    {
+      "step": "synthetic controller Exit restores desktop",
+      "state": {
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "cloudCount": 480,
+        "cachedInspections": 4,
+        "cachedPlanes": 0,
+        "selected": [
+          1,
+          -1,
+          2
+        ],
+        "second": null,
+        "radius": 6,
+        "whole": true,
+        "projectionVisible": false,
+        "inhabited": false,
+        "originMode": false,
+        "categories": "viridis",
+        "sigma": 1,
+        "planeFocus": false,
+        "dataBusy": false,
+        "xr": false,
+        "xrMode": "overview",
+        "xrPair": false,
+        "rootsView": false,
+        "mobiusMode": false,
+        "snapOnRelease": false,
+        "lastAbsorption": null,
+        "rootsChart": {
+          "model": "half-plane",
+          "zoom": 1,
+          "pan": [
+            0,
+            0
+          ],
+          "padding": 20
+        },
+        "timings": {
+          "enumerate": 0,
+          "attributes": 0.20000000298023224,
+          "motion": 0,
+          "roots": 0.10000000894069672,
+          "rootPick": 0.29999999701976776,
+          "pick": 0
+        },
+        "rootsRender": {
+          "points": 55,
+          "calls": 8
+        },
+        "action": {
+          "phase": "identity",
+          "matrix": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "g": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "displayedSelection": [
+            1,
+            3,
+            1
+          ]
+        },
+        "world": {
+          "position": [
+            0,
+            1.4,
+            -3.1
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "xrButtons": [
+          {
+            "label": "Next",
+            "position": [
+              -0.36,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "label": "Projection",
+            "position": [
+              -0.12,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "label": "Reset",
+            "position": [
+              0.12,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "label": "Exit",
+            "position": [
+              0.36,
+              1.25,
+              -1.15
+            ]
+          },
+          {
+            "label": "Origin",
+            "position": [
+              -0.36,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "label": "Inhabit",
+            "position": [
+              -0.12,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "label": "Overview",
+            "position": [
+              0.12,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "label": "Other side",
+            "position": [
+              0.36,
+              1.15,
+              -1.15
+            ]
+          },
+          {
+            "label": "R 6",
+            "position": [
+              -0.36,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "label": "Whole",
+            "position": [
+              -0.12,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "label": "Lower color",
+            "position": [
+              0.12,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "label": "Cone",
+            "position": [
+              0.36,
+              1.05,
+              -1.15
+            ]
+          },
+          {
+            "label": "Pair aim",
+            "position": [
+              -0.36,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "label": "Clear pair",
+            "position": [
+              -0.12,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "label": "Plane fade",
+            "position": [
+              0.12,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "label": "Colors",
+            "position": [
+              0.36,
+              0.95,
+              -1.15
+            ]
+          },
+          {
+            "label": "Size −",
+            "position": [
+              -0.36,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "label": "Size +",
+            "position": [
+              -0.12,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "label": "Forward",
+            "position": [
+              0.12,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "label": "Back",
+            "position": [
+              0.36,
+              0.85,
+              -1.15
+            ]
+          },
+          {
+            "label": "Left",
+            "position": [
+              -0.36,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "label": "Right",
+            "position": [
+              -0.12,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "label": "Move forms",
+            "position": [
+              0.12,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "label": "Identity",
+            "position": [
+              0.36,
+              0.75,
+              -1.15
+            ]
+          },
+          {
+            "label": "T: z+1",
+            "position": [
+              -0.36,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "label": "S: -1/z",
+            "position": [
+              -0.12,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "label": "T inverse",
+            "position": [
+              0.12,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "label": "Exact move",
+            "position": [
+              0.36,
+              0.6499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "label": "Snap",
+            "position": [
+              -0.36,
+              0.5499999999999999,
+              -1.15
+            ]
+          },
+          {
+            "label": "Snap release OFF",
+            "position": [
+              -0.12,
+              0.5499999999999999,
+              -1.15
+            ]
+          }
+        ],
+        "view": {
+          "position": [
+            2.4,
+            2.9000000000000004,
+            1.5
+          ],
+          "quaternion": [
+            -0.1362166426569136,
+            0.23577980007794755,
+            0.033398544765839325,
+            0.9616326998111108
+          ],
+          "fov": 45
+        },
+        "render": {
+          "points": 480,
+          "calls": 10
+        },
+        "projectedSelection": {
+          "x": 677.4236466704001,
+          "y": 350.4399024624327
+        }
+      }
+    }
+  ]
+}

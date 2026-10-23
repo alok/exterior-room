@@ -1,0 +1,4984 @@
+{
+  "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+  "cases": [
+    {
+      "name": "T/default",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "id": 1
+      },
+      "canonicalImage": [
+        1,
+        -3,
+        4
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          -2,
+          1,
+          0,
+          1,
+          -1,
+          1
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 1,
+        "image": [
+          1,
+          -3,
+          4
+        ],
+        "imageNumerator": [
+          1,
+          -3,
+          4
+        ],
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          3,
+          5,
+          3
+        ]
+      }
+    },
+    {
+      "name": "T/default-sign-partner",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "point": [
+          -1,
+          1,
+          -2
+        ],
+        "id": 2
+      },
+      "canonicalImage": [
+        -1,
+        3,
+        -4
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          -2,
+          1,
+          0,
+          1,
+          -1,
+          1
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 2,
+        "image": [
+          -1,
+          3,
+          -4
+        ],
+        "imageNumerator": [
+          -1,
+          3,
+          -4
+        ],
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          -1,
+          1,
+          -2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -3,
+          -5,
+          -3
+        ]
+      }
+    },
+    {
+      "name": "T/x2+1",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "point": [
+          1,
+          0,
+          1
+        ],
+        "id": 3
+      },
+      "canonicalImage": [
+        1,
+        -2,
+        2
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          -2,
+          1,
+          0,
+          1,
+          -1,
+          1
+        ],
+        "delta": -4,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 3,
+        "image": [
+          1,
+          -2,
+          2
+        ],
+        "imageNumerator": [
+          1,
+          -2,
+          2
+        ],
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          0,
+          1
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          2,
+          3,
+          1
+        ]
+      }
+    },
+    {
+      "name": "T/2x2+2",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "point": [
+          2,
+          0,
+          2
+        ],
+        "id": 4
+      },
+      "canonicalImage": [
+        2,
+        -4,
+        4
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          -2,
+          1,
+          0,
+          1,
+          -1,
+          1
+        ],
+        "delta": -16,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 4,
+        "image": [
+          2,
+          -4,
+          4
+        ],
+        "imageNumerator": [
+          2,
+          -4,
+          4
+        ],
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          2,
+          0,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          4,
+          6,
+          2
+        ]
+      }
+    },
+    {
+      "name": "T/default-multiple",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "point": [
+          2,
+          -2,
+          4
+        ],
+        "id": 5
+      },
+      "canonicalImage": [
+        2,
+        -6,
+        8
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          -2,
+          1,
+          0,
+          1,
+          -1,
+          1
+        ],
+        "delta": -28,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 5,
+        "image": [
+          2,
+          -6,
+          8
+        ],
+        "imageNumerator": [
+          2,
+          -6,
+          8
+        ],
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          2,
+          -2,
+          4
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          6,
+          10,
+          6
+        ]
+      }
+    },
+    {
+      "name": "T/x2+x+1",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "point": [
+          1,
+          1,
+          1
+        ],
+        "id": 6
+      },
+      "canonicalImage": [
+        1,
+        -1,
+        1
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          -2,
+          1,
+          0,
+          1,
+          -1,
+          1
+        ],
+        "delta": -3,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 6,
+        "image": [
+          1,
+          -1,
+          1
+        ],
+        "imageNumerator": [
+          1,
+          -1,
+          1
+        ],
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          1,
+          1
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          1,
+          2,
+          0
+        ]
+      }
+    },
+    {
+      "name": "T/(x-1)2",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "point": [
+          1,
+          -2,
+          1
+        ],
+        "id": 7
+      },
+      "canonicalImage": [
+        1,
+        -4,
+        4
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          -2,
+          1,
+          0,
+          1,
+          -1,
+          1
+        ],
+        "delta": 0,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 7,
+        "image": [
+          1,
+          -4,
+          4
+        ],
+        "imageNumerator": [
+          1,
+          -4,
+          4
+        ],
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -2,
+          1
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          4,
+          5,
+          3
+        ]
+      }
+    },
+    {
+      "name": "T/constant-1",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "point": [
+          0,
+          0,
+          1
+        ],
+        "id": 8
+      },
+      "canonicalImage": [
+        0,
+        0,
+        1
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          -2,
+          1,
+          0,
+          1,
+          -1,
+          1
+        ],
+        "delta": 0,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 8,
+        "image": [
+          0,
+          0,
+          1
+        ],
+        "imageNumerator": [
+          0,
+          0,
+          1
+        ],
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          0,
+          0,
+          1
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          0,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "name": "T/x",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "point": [
+          0,
+          1,
+          0
+        ],
+        "id": 9
+      },
+      "canonicalImage": [
+        0,
+        1,
+        -1
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          -2,
+          1,
+          0,
+          1,
+          -1,
+          1
+        ],
+        "delta": 1,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 9,
+        "image": [
+          0,
+          1,
+          -1
+        ],
+        "imageNumerator": [
+          0,
+          1,
+          -1
+        ],
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          0,
+          1,
+          0
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -1,
+          -1,
+          -1
+        ]
+      }
+    },
+    {
+      "name": "T/x2-2",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "point": [
+          1,
+          0,
+          -2
+        ],
+        "id": 10
+      },
+      "canonicalImage": [
+        1,
+        -2,
+        -1
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          -2,
+          1,
+          0,
+          1,
+          -1,
+          1
+        ],
+        "delta": 8,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 10,
+        "image": [
+          1,
+          -2,
+          -1
+        ],
+        "imageNumerator": [
+          1,
+          -2,
+          -1
+        ],
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          0,
+          -2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          2,
+          0,
+          -2
+        ]
+      }
+    },
+    {
+      "name": "T/user-seed",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "point": [
+          13,
+          20,
+          34
+        ],
+        "id": 11
+      },
+      "canonicalImage": [
+        13,
+        -6,
+        27
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          -2,
+          1,
+          0,
+          1,
+          -1,
+          1
+        ],
+        "delta": -1368,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 11,
+        "image": [
+          13,
+          -6,
+          27
+        ],
+        "imageNumerator": [
+          13,
+          -6,
+          27
+        ],
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          13,
+          20,
+          34
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          6,
+          40,
+          14
+        ]
+      }
+    },
+    {
+      "name": "T⁻¹/default",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "id": 12
+      },
+      "canonicalImage": [
+        1,
+        1,
+        2
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 12,
+        "image": [
+          1,
+          1,
+          2
+        ],
+        "imageNumerator": [
+          1,
+          1,
+          2
+        ],
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -1,
+          3,
+          1
+        ]
+      }
+    },
+    {
+      "name": "T⁻¹/default-sign-partner",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "point": [
+          -1,
+          1,
+          -2
+        ],
+        "id": 13
+      },
+      "canonicalImage": [
+        -1,
+        -1,
+        -2
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 13,
+        "image": [
+          -1,
+          -1,
+          -2
+        ],
+        "imageNumerator": [
+          -1,
+          -1,
+          -2
+        ],
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          -1,
+          1,
+          -2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          1,
+          -3,
+          -1
+        ]
+      }
+    },
+    {
+      "name": "T⁻¹/x2+1",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "point": [
+          1,
+          0,
+          1
+        ],
+        "id": 14
+      },
+      "canonicalImage": [
+        1,
+        2,
+        2
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        "delta": -4,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 14,
+        "image": [
+          1,
+          2,
+          2
+        ],
+        "imageNumerator": [
+          1,
+          2,
+          2
+        ],
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          0,
+          1
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -2,
+          3,
+          1
+        ]
+      }
+    },
+    {
+      "name": "T⁻¹/2x2+2",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "point": [
+          2,
+          0,
+          2
+        ],
+        "id": 15
+      },
+      "canonicalImage": [
+        2,
+        4,
+        4
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        "delta": -16,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 15,
+        "image": [
+          2,
+          4,
+          4
+        ],
+        "imageNumerator": [
+          2,
+          4,
+          4
+        ],
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          2,
+          0,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -4,
+          6,
+          2
+        ]
+      }
+    },
+    {
+      "name": "T⁻¹/default-multiple",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "point": [
+          2,
+          -2,
+          4
+        ],
+        "id": 16
+      },
+      "canonicalImage": [
+        2,
+        2,
+        4
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        "delta": -28,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 16,
+        "image": [
+          2,
+          2,
+          4
+        ],
+        "imageNumerator": [
+          2,
+          2,
+          4
+        ],
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          2,
+          -2,
+          4
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -2,
+          6,
+          2
+        ]
+      }
+    },
+    {
+      "name": "T⁻¹/x2+x+1",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "point": [
+          1,
+          1,
+          1
+        ],
+        "id": 17
+      },
+      "canonicalImage": [
+        1,
+        3,
+        3
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        "delta": -3,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 17,
+        "image": [
+          1,
+          3,
+          3
+        ],
+        "imageNumerator": [
+          1,
+          3,
+          3
+        ],
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          1,
+          1
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -3,
+          4,
+          2
+        ]
+      }
+    },
+    {
+      "name": "T⁻¹/(x-1)2",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "point": [
+          1,
+          -2,
+          1
+        ],
+        "id": 18
+      },
+      "canonicalImage": [
+        1,
+        0,
+        0
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        "delta": 0,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 18,
+        "image": [
+          1,
+          0,
+          0
+        ],
+        "imageNumerator": [
+          1,
+          0,
+          0
+        ],
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -2,
+          1
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          0,
+          1,
+          -1
+        ]
+      }
+    },
+    {
+      "name": "T⁻¹/constant-1",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "point": [
+          0,
+          0,
+          1
+        ],
+        "id": 19
+      },
+      "canonicalImage": [
+        0,
+        0,
+        1
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        "delta": 0,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 19,
+        "image": [
+          0,
+          0,
+          1
+        ],
+        "imageNumerator": [
+          0,
+          0,
+          1
+        ],
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          0,
+          0,
+          1
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          0,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "name": "T⁻¹/x",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "point": [
+          0,
+          1,
+          0
+        ],
+        "id": 20
+      },
+      "canonicalImage": [
+        0,
+        1,
+        1
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        "delta": 1,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 20,
+        "image": [
+          0,
+          1,
+          1
+        ],
+        "imageNumerator": [
+          0,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          0,
+          1,
+          0
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "name": "T⁻¹/x2-2",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "point": [
+          1,
+          0,
+          -2
+        ],
+        "id": 21
+      },
+      "canonicalImage": [
+        1,
+        2,
+        -1
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        "delta": 8,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 21,
+        "image": [
+          1,
+          2,
+          -1
+        ],
+        "imageNumerator": [
+          1,
+          2,
+          -1
+        ],
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          0,
+          -2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -2,
+          0,
+          -2
+        ]
+      }
+    },
+    {
+      "name": "T⁻¹/user-seed",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "point": [
+          13,
+          20,
+          34
+        ],
+        "id": 22
+      },
+      "canonicalImage": [
+        13,
+        46,
+        67
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        "delta": -1368,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 22,
+        "image": [
+          13,
+          46,
+          67
+        ],
+        "imageNumerator": [
+          13,
+          46,
+          67
+        ],
+        "matrix": [
+          1,
+          -1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          13,
+          20,
+          34
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -46,
+          80,
+          54
+        ]
+      }
+    },
+    {
+      "name": "S/default",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          0,
+          -1,
+          1,
+          0
+        ],
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "id": 23
+      },
+      "canonicalImage": [
+        2,
+        1,
+        1
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          0,
+          0,
+          1,
+          0,
+          -1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 23,
+        "image": [
+          2,
+          1,
+          1
+        ],
+        "imageNumerator": [
+          2,
+          1,
+          1
+        ],
+        "matrix": [
+          0,
+          -1,
+          1,
+          0
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -1,
+          3,
+          -1
+        ]
+      }
+    },
+    {
+      "name": "S/default-sign-partner",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          0,
+          -1,
+          1,
+          0
+        ],
+        "point": [
+          -1,
+          1,
+          -2
+        ],
+        "id": 24
+      },
+      "canonicalImage": [
+        -2,
+        -1,
+        -1
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          0,
+          0,
+          1,
+          0,
+          -1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 24,
+        "image": [
+          -2,
+          -1,
+          -1
+        ],
+        "imageNumerator": [
+          -2,
+          -1,
+          -1
+        ],
+        "matrix": [
+          0,
+          -1,
+          1,
+          0
+        ],
+        "ok": true,
+        "point": [
+          -1,
+          1,
+          -2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          1,
+          -3,
+          1
+        ]
+      }
+    },
+    {
+      "name": "S/x2+1",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          0,
+          -1,
+          1,
+          0
+        ],
+        "point": [
+          1,
+          0,
+          1
+        ],
+        "id": 25
+      },
+      "canonicalImage": [
+        1,
+        0,
+        1
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          0,
+          0,
+          1,
+          0,
+          -1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "delta": -4,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 25,
+        "image": [
+          1,
+          0,
+          1
+        ],
+        "imageNumerator": [
+          1,
+          0,
+          1
+        ],
+        "matrix": [
+          0,
+          -1,
+          1,
+          0
+        ],
+        "ok": true,
+        "point": [
+          1,
+          0,
+          1
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          0,
+          2,
+          0
+        ]
+      }
+    },
+    {
+      "name": "S/2x2+2",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          0,
+          -1,
+          1,
+          0
+        ],
+        "point": [
+          2,
+          0,
+          2
+        ],
+        "id": 26
+      },
+      "canonicalImage": [
+        2,
+        0,
+        2
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          0,
+          0,
+          1,
+          0,
+          -1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "delta": -16,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 26,
+        "image": [
+          2,
+          0,
+          2
+        ],
+        "imageNumerator": [
+          2,
+          0,
+          2
+        ],
+        "matrix": [
+          0,
+          -1,
+          1,
+          0
+        ],
+        "ok": true,
+        "point": [
+          2,
+          0,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          0,
+          4,
+          0
+        ]
+      }
+    },
+    {
+      "name": "S/default-multiple",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          0,
+          -1,
+          1,
+          0
+        ],
+        "point": [
+          2,
+          -2,
+          4
+        ],
+        "id": 27
+      },
+      "canonicalImage": [
+        4,
+        2,
+        2
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          0,
+          0,
+          1,
+          0,
+          -1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "delta": -28,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 27,
+        "image": [
+          4,
+          2,
+          2
+        ],
+        "imageNumerator": [
+          4,
+          2,
+          2
+        ],
+        "matrix": [
+          0,
+          -1,
+          1,
+          0
+        ],
+        "ok": true,
+        "point": [
+          2,
+          -2,
+          4
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -2,
+          6,
+          -2
+        ]
+      }
+    },
+    {
+      "name": "S/x2+x+1",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          0,
+          -1,
+          1,
+          0
+        ],
+        "point": [
+          1,
+          1,
+          1
+        ],
+        "id": 28
+      },
+      "canonicalImage": [
+        1,
+        -1,
+        1
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          0,
+          0,
+          1,
+          0,
+          -1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "delta": -3,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 28,
+        "image": [
+          1,
+          -1,
+          1
+        ],
+        "imageNumerator": [
+          1,
+          -1,
+          1
+        ],
+        "matrix": [
+          0,
+          -1,
+          1,
+          0
+        ],
+        "ok": true,
+        "point": [
+          1,
+          1,
+          1
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          1,
+          2,
+          0
+        ]
+      }
+    },
+    {
+      "name": "S/(x-1)2",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          0,
+          -1,
+          1,
+          0
+        ],
+        "point": [
+          1,
+          -2,
+          1
+        ],
+        "id": 29
+      },
+      "canonicalImage": [
+        1,
+        2,
+        1
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          0,
+          0,
+          1,
+          0,
+          -1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "delta": 0,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 29,
+        "image": [
+          1,
+          2,
+          1
+        ],
+        "imageNumerator": [
+          1,
+          2,
+          1
+        ],
+        "matrix": [
+          0,
+          -1,
+          1,
+          0
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -2,
+          1
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -2,
+          2,
+          0
+        ]
+      }
+    },
+    {
+      "name": "S/constant-1",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          0,
+          -1,
+          1,
+          0
+        ],
+        "point": [
+          0,
+          0,
+          1
+        ],
+        "id": 30
+      },
+      "canonicalImage": [
+        1,
+        0,
+        0
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          0,
+          0,
+          1,
+          0,
+          -1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "delta": 0,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 30,
+        "image": [
+          1,
+          0,
+          0
+        ],
+        "imageNumerator": [
+          1,
+          0,
+          0
+        ],
+        "matrix": [
+          0,
+          -1,
+          1,
+          0
+        ],
+        "ok": true,
+        "point": [
+          0,
+          0,
+          1
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          0,
+          1,
+          -1
+        ]
+      }
+    },
+    {
+      "name": "S/x",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          0,
+          -1,
+          1,
+          0
+        ],
+        "point": [
+          0,
+          1,
+          0
+        ],
+        "id": 31
+      },
+      "canonicalImage": [
+        0,
+        -1,
+        0
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          0,
+          0,
+          1,
+          0,
+          -1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "delta": 1,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 31,
+        "image": [
+          0,
+          -1,
+          0
+        ],
+        "imageNumerator": [
+          0,
+          -1,
+          0
+        ],
+        "matrix": [
+          0,
+          -1,
+          1,
+          0
+        ],
+        "ok": true,
+        "point": [
+          0,
+          1,
+          0
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          1,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "name": "S/x2-2",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          0,
+          -1,
+          1,
+          0
+        ],
+        "point": [
+          1,
+          0,
+          -2
+        ],
+        "id": 32
+      },
+      "canonicalImage": [
+        -2,
+        0,
+        1
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          0,
+          0,
+          1,
+          0,
+          -1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "delta": 8,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 32,
+        "image": [
+          -2,
+          0,
+          1
+        ],
+        "imageNumerator": [
+          -2,
+          0,
+          1
+        ],
+        "matrix": [
+          0,
+          -1,
+          1,
+          0
+        ],
+        "ok": true,
+        "point": [
+          1,
+          0,
+          -2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          0,
+          -1,
+          3
+        ]
+      }
+    },
+    {
+      "name": "S/user-seed",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          0,
+          -1,
+          1,
+          0
+        ],
+        "point": [
+          13,
+          20,
+          34
+        ],
+        "id": 33
+      },
+      "canonicalImage": [
+        34,
+        -20,
+        13
+      ],
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          0,
+          0,
+          1,
+          0,
+          -1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "delta": -1368,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 33,
+        "image": [
+          34,
+          -20,
+          13
+        ],
+        "imageNumerator": [
+          34,
+          -20,
+          13
+        ],
+        "matrix": [
+          0,
+          -1,
+          1,
+          0
+        ],
+        "ok": true,
+        "point": [
+          13,
+          20,
+          34
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          20,
+          47,
+          -21
+        ]
+      }
+    },
+    {
+      "name": "rational/default",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "id": 34
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          4,
+          -2,
+          1,
+          -4,
+          7,
+          -6,
+          1,
+          -3,
+          9
+        ],
+        "delta": -7,
+        "denominator": 5,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 34,
+        "image": null,
+        "imageNumerator": [
+          8,
+          -23,
+          22
+        ],
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          23,
+          30,
+          14
+        ]
+      }
+    },
+    {
+      "name": "rational/default-sign-partner",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "point": [
+          -1,
+          1,
+          -2
+        ],
+        "id": 35
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          4,
+          -2,
+          1,
+          -4,
+          7,
+          -6,
+          1,
+          -3,
+          9
+        ],
+        "delta": -7,
+        "denominator": 5,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 35,
+        "image": null,
+        "imageNumerator": [
+          -8,
+          23,
+          -22
+        ],
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "ok": true,
+        "point": [
+          -1,
+          1,
+          -2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -23,
+          -30,
+          -14
+        ]
+      }
+    },
+    {
+      "name": "rational/default-multiple",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "point": [
+          2,
+          -2,
+          4
+        ],
+        "id": 36
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          4,
+          -2,
+          1,
+          -4,
+          7,
+          -6,
+          1,
+          -3,
+          9
+        ],
+        "delta": -28,
+        "denominator": 5,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 36,
+        "image": null,
+        "imageNumerator": [
+          16,
+          -46,
+          44
+        ],
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "ok": true,
+        "point": [
+          2,
+          -2,
+          4
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          46,
+          60,
+          28
+        ]
+      }
+    },
+    {
+      "name": "rational/x2+1",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "point": [
+          1,
+          0,
+          1
+        ],
+        "id": 37
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          4,
+          -2,
+          1,
+          -4,
+          7,
+          -6,
+          1,
+          -3,
+          9
+        ],
+        "delta": -4,
+        "denominator": 5,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 37,
+        "image": [
+          1,
+          -2,
+          2
+        ],
+        "imageNumerator": [
+          5,
+          -10,
+          10
+        ],
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "ok": true,
+        "point": [
+          1,
+          0,
+          1
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          10,
+          15,
+          5
+        ]
+      }
+    },
+    {
+      "name": "rational/user-seed",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "point": [
+          13,
+          20,
+          34
+        ],
+        "id": 38
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          4,
+          -2,
+          1,
+          -4,
+          7,
+          -6,
+          1,
+          -3,
+          9
+        ],
+        "delta": -1368,
+        "denominator": 5,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 38,
+        "image": null,
+        "imageNumerator": [
+          46,
+          -116,
+          259
+        ],
+        "matrix": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "ok": true,
+        "point": [
+          13,
+          20,
+          34
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          116,
+          305,
+          213
+        ]
+      }
+    },
+    {
+      "name": "rational-scaled/default",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          6,
+          2,
+          2,
+          4
+        ],
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "id": 39
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          16,
+          -8,
+          4,
+          -16,
+          28,
+          -24,
+          4,
+          -12,
+          36
+        ],
+        "delta": -7,
+        "denominator": 20,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 39,
+        "image": null,
+        "imageNumerator": [
+          32,
+          -92,
+          88
+        ],
+        "matrix": [
+          6,
+          2,
+          2,
+          4
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          92,
+          120,
+          56
+        ]
+      }
+    },
+    {
+      "name": "bounds/maximum",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1000000,
+          -1000000,
+          1000000,
+          1000000
+        ],
+        "point": [
+          96,
+          96,
+          96
+        ],
+        "id": 40
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1000000000000,
+          -1000000000000,
+          1000000000000,
+          2000000000000,
+          0,
+          -2000000000000,
+          1000000000000,
+          1000000000000,
+          1000000000000
+        ],
+        "delta": -27648,
+        "denominator": 2000000000000,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 40,
+        "image": [
+          48,
+          0,
+          144
+        ],
+        "imageNumerator": [
+          96000000000000,
+          0,
+          288000000000000
+        ],
+        "matrix": [
+          1000000,
+          -1000000,
+          1000000,
+          1000000
+        ],
+        "ok": true,
+        "point": [
+          96,
+          96,
+          96
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          0,
+          384000000000000,
+          192000000000000
+        ]
+      }
+    },
+    {
+      "name": "identity/default",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "id": 41
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 41,
+        "image": [
+          1,
+          -1,
+          2
+        ],
+        "imageNumerator": [
+          1,
+          -1,
+          2
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          1,
+          3,
+          1
+        ]
+      }
+    },
+    {
+      "name": "identity/positive_multiple",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "point": [
+          2,
+          -2,
+          4
+        ],
+        "id": 42
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": -28,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 42,
+        "image": [
+          2,
+          -2,
+          4
+        ],
+        "imageNumerator": [
+          2,
+          -2,
+          4
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          2,
+          -2,
+          4
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          2,
+          6,
+          2
+        ]
+      }
+    },
+    {
+      "name": "identity/negative_partner",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "point": [
+          -1,
+          1,
+          -2
+        ],
+        "id": 43
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 43,
+        "image": [
+          -1,
+          1,
+          -2
+        ],
+        "imageNumerator": [
+          -1,
+          1,
+          -2
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          -1,
+          1,
+          -2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -1,
+          -3,
+          -1
+        ]
+      }
+    },
+    {
+      "name": "identity/negative_multiple",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "point": [
+          -2,
+          2,
+          -4
+        ],
+        "id": 44
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": -28,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 44,
+        "image": [
+          -2,
+          2,
+          -4
+        ],
+        "imageNumerator": [
+          -2,
+          2,
+          -4
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          -2,
+          2,
+          -4
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -2,
+          -6,
+          -2
+        ]
+      }
+    },
+    {
+      "name": "identity/axis_interior",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "point": [
+          1,
+          0,
+          1
+        ],
+        "id": 45
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": -4,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 45,
+        "image": [
+          1,
+          0,
+          1
+        ],
+        "imageNumerator": [
+          1,
+          0,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          0,
+          1
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          0,
+          2,
+          0
+        ]
+      }
+    },
+    {
+      "name": "identity/minimum_discriminant",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "point": [
+          1,
+          1,
+          1
+        ],
+        "id": 46
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": -3,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 46,
+        "image": [
+          1,
+          1,
+          1
+        ],
+        "imageNumerator": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          1,
+          1
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -1,
+          2,
+          0
+        ]
+      }
+    },
+    {
+      "name": "identity/null_boundary",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "point": [
+          1,
+          2,
+          1
+        ],
+        "id": 47
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": 0,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 47,
+        "image": [
+          1,
+          2,
+          1
+        ],
+        "imageNumerator": [
+          1,
+          2,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          2,
+          1
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -2,
+          2,
+          0
+        ]
+      }
+    },
+    {
+      "name": "identity/exterior",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "point": [
+          1,
+          3,
+          1
+        ],
+        "id": 48
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": 5,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 48,
+        "image": [
+          1,
+          3,
+          1
+        ],
+        "imageNumerator": [
+          1,
+          3,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          3,
+          1
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -3,
+          2,
+          0
+        ]
+      }
+    },
+    {
+      "name": "identity/exterior_symmetric",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "point": [
+          1,
+          0,
+          -1
+        ],
+        "id": 49
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": 4,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 49,
+        "image": [
+          1,
+          0,
+          -1
+        ],
+        "imageNumerator": [
+          1,
+          0,
+          -1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          0,
+          -1
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          0,
+          0,
+          -2
+        ]
+      }
+    },
+    {
+      "name": "identity/linear",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "point": [
+          0,
+          1,
+          0
+        ],
+        "id": 50
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": 1,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 50,
+        "image": [
+          0,
+          1,
+          0
+        ],
+        "imageNumerator": [
+          0,
+          1,
+          0
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          0,
+          1,
+          0
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -1,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "name": "identity/constant",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "point": [
+          0,
+          0,
+          -3
+        ],
+        "id": 51
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": 0,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 51,
+        "image": [
+          0,
+          0,
+          -3
+        ],
+        "imageNumerator": [
+          0,
+          0,
+          -3
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          0,
+          0,
+          -3
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          0,
+          -3,
+          -3
+        ]
+      }
+    },
+    {
+      "name": "identity/exterior_large",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "point": [
+          1,
+          8,
+          -1
+        ],
+        "id": 52
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": 68,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 52,
+        "image": [
+          1,
+          8,
+          -1
+        ],
+        "imageNumerator": [
+          1,
+          8,
+          -1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          8,
+          -1
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -8,
+          0,
+          -2
+        ]
+      }
+    },
+    {
+      "name": "identity/next-third",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "point": [
+          2,
+          1,
+          1
+        ],
+        "id": 53
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": -7,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 53,
+        "image": [
+          2,
+          1,
+          1
+        ],
+        "imageNumerator": [
+          2,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          2,
+          1,
+          1
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -1,
+          3,
+          -1
+        ]
+      }
+    },
+    {
+      "name": "identity/next-fifth",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "point": [
+          3,
+          2,
+          2
+        ],
+        "id": 54
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": -20,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 54,
+        "image": [
+          3,
+          2,
+          2
+        ],
+        "imageNumerator": [
+          3,
+          2,
+          2
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          3,
+          2,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -2,
+          5,
+          -1
+        ]
+      }
+    },
+    {
+      "name": "vertical-drag/default",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          4,
+          0,
+          0,
+          1
+        ],
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "id": 55
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          4,
+          0,
+          0,
+          0,
+          16
+        ],
+        "delta": -7,
+        "denominator": 4,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 55,
+        "image": null,
+        "imageNumerator": [
+          1,
+          -4,
+          32
+        ],
+        "matrix": [
+          4,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          4,
+          33,
+          31
+        ]
+      }
+    },
+    {
+      "name": "vertical-drag-after-T/default",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          4,
+          4,
+          0,
+          1
+        ],
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "id": 56
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          -8,
+          4,
+          0,
+          16,
+          -16,
+          16
+        ],
+        "delta": -7,
+        "denominator": 4,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 56,
+        "image": null,
+        "imageNumerator": [
+          1,
+          -12,
+          64
+        ],
+        "matrix": [
+          4,
+          4,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          12,
+          65,
+          63
+        ]
+      }
+    },
+    {
+      "name": "identity/source-seed",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "point": [
+          13,
+          20,
+          34
+        ],
+        "id": 57
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": -1368,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 57,
+        "image": [
+          13,
+          20,
+          34
+        ],
+        "imageNumerator": [
+          13,
+          20,
+          34
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          13,
+          20,
+          34
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -20,
+          47,
+          21
+        ]
+      }
+    },
+    {
+      "name": "identity/source-seed-T",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "point": [
+          13,
+          -6,
+          27
+        ],
+        "id": 58
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": -1368,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 58,
+        "image": [
+          13,
+          -6,
+          27
+        ],
+        "imageNumerator": [
+          13,
+          -6,
+          27
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          13,
+          -6,
+          27
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          6,
+          40,
+          14
+        ]
+      }
+    },
+    {
+      "name": "identity/pair-T-first",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "point": [
+          1,
+          -2,
+          2
+        ],
+        "id": 59
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": -4,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 59,
+        "image": [
+          1,
+          -2,
+          2
+        ],
+        "imageNumerator": [
+          1,
+          -2,
+          2
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -2,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          2,
+          3,
+          1
+        ]
+      }
+    },
+    {
+      "name": "identity/pair-T-second",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "point": [
+          1,
+          -1,
+          1
+        ],
+        "id": 60
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": -3,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 60,
+        "image": [
+          1,
+          -1,
+          1
+        ],
+        "imageNumerator": [
+          1,
+          -1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -1,
+          1
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          1,
+          2,
+          0
+        ]
+      }
+    },
+    {
+      "name": "identity/action-bound",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "point": [
+          96,
+          -96,
+          96
+        ],
+        "id": 61
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": -27648,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 61,
+        "image": [
+          96,
+          -96,
+          96
+        ],
+        "imageNumerator": [
+          96,
+          -96,
+          96
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          96,
+          -96,
+          96
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          96,
+          192,
+          0
+        ]
+      }
+    },
+    {
+      "name": "identity/action-bound-negative",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "point": [
+          -96,
+          96,
+          -96
+        ],
+        "id": 62
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "delta": -27648,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 62,
+        "image": [
+          -96,
+          96,
+          -96
+        ],
+        "imageNumerator": [
+          -96,
+          96,
+          -96
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          -96,
+          96,
+          -96
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -96,
+          -192,
+          0
+        ]
+      }
+    },
+    {
+      "name": "T/action-bound",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "point": [
+          96,
+          -96,
+          96
+        ],
+        "id": 63
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          -2,
+          1,
+          0,
+          1,
+          -1,
+          1
+        ],
+        "delta": -27648,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 63,
+        "image": [
+          96,
+          -288,
+          288
+        ],
+        "imageNumerator": [
+          96,
+          -288,
+          288
+        ],
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          96,
+          -96,
+          96
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          288,
+          384,
+          192
+        ]
+      }
+    },
+    {
+      "name": "T/action-bound-negative",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "point": [
+          -96,
+          96,
+          -96
+        ],
+        "id": 64
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          1,
+          0,
+          0,
+          -2,
+          1,
+          0,
+          1,
+          -1,
+          1
+        ],
+        "delta": -27648,
+        "denominator": 1,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 64,
+        "image": [
+          -96,
+          288,
+          -288
+        ],
+        "imageNumerator": [
+          -96,
+          288,
+          -288
+        ],
+        "matrix": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "ok": true,
+        "point": [
+          -96,
+          96,
+          -96
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          -288,
+          -384,
+          -192
+        ]
+      }
+    },
+    {
+      "name": "scaled-T/default",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          2,
+          2,
+          0,
+          2
+        ],
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "id": 65
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          4,
+          0,
+          0,
+          -8,
+          4,
+          0,
+          4,
+          -4,
+          4
+        ],
+        "delta": -7,
+        "denominator": 4,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 65,
+        "image": [
+          1,
+          -3,
+          4
+        ],
+        "imageNumerator": [
+          4,
+          -12,
+          16
+        ],
+        "matrix": [
+          2,
+          2,
+          0,
+          2
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          12,
+          20,
+          12
+        ]
+      }
+    },
+    {
+      "name": "T-after-rational/default",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          4,
+          3,
+          1,
+          2
+        ],
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "id": 66
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          4,
+          -2,
+          1,
+          -12,
+          11,
+          -8,
+          9,
+          -12,
+          16
+        ],
+        "delta": -7,
+        "denominator": 5,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 66,
+        "image": null,
+        "imageNumerator": [
+          8,
+          -39,
+          53
+        ],
+        "matrix": [
+          4,
+          3,
+          1,
+          2
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          39,
+          61,
+          45
+        ]
+      }
+    },
+    {
+      "name": "square-determinant-nonintegral/default",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          1,
+          1,
+          0,
+          9
+        ],
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "id": 67
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          81,
+          0,
+          0,
+          -18,
+          9,
+          0,
+          1,
+          -1,
+          1
+        ],
+        "delta": -7,
+        "denominator": 9,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 67,
+        "image": null,
+        "imageNumerator": [
+          81,
+          -27,
+          4
+        ],
+        "matrix": [
+          1,
+          1,
+          0,
+          9
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          27,
+          85,
+          -77
+        ]
+      }
+    },
+    {
+      "name": "nudge-up/default",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          3689,
+          0,
+          0,
+          3012
+        ],
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "id": 68
+      },
+      "previewSample": {
+        "space": "Klein",
+        "from": [
+          0,
+          0
+        ],
+        "to": [
+          0,
+          0.2
+        ],
+        "sourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "sourceSha256": "d2dbc833ca29bf7160e99f976aa433ca8a274a612d0e9f5d95b82aa6803f6886",
+        "scope": "Renderer-only transvection and quantization proposal; the response is computed by Lean for this declared matrix."
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          9072144,
+          0,
+          0,
+          0,
+          11111268,
+          0,
+          0,
+          0,
+          13608721
+        ],
+        "delta": -7,
+        "denominator": 11111268,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 68,
+        "image": null,
+        "imageNumerator": [
+          9072144,
+          -11111268,
+          27217442
+        ],
+        "matrix": [
+          3689,
+          0,
+          0,
+          3012
+        ],
+        "ok": true,
+        "point": [
+          1,
+          -1,
+          2
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          11111268,
+          36289586,
+          18145298
+        ]
+      }
+    },
+    {
+      "name": "nudge-up/unit",
+      "request": {
+        "op": "transform",
+        "matrix": [
+          3689,
+          0,
+          0,
+          3012
+        ],
+        "point": [
+          1,
+          0,
+          1
+        ],
+        "id": 69
+      },
+      "previewSample": {
+        "space": "Klein",
+        "from": [
+          0,
+          0
+        ],
+        "to": [
+          0,
+          0.2
+        ],
+        "sourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "sourceSha256": "d2dbc833ca29bf7160e99f976aa433ca8a274a612d0e9f5d95b82aa6803f6886",
+        "scope": "Renderer-only transvection and quantization proposal; the response is computed by Lean for this declared matrix."
+      },
+      "response": {
+        "actionSchema": "polynomial-mobius-v1",
+        "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+        "checks": {
+          "discriminantPreserved": true,
+          "positiveDeterminant": true
+        },
+        "coefficientRows": [
+          9072144,
+          0,
+          0,
+          0,
+          11111268,
+          0,
+          0,
+          0,
+          13608721
+        ],
+        "delta": -4,
+        "denominator": 11111268,
+        "engine": "Lean 4.35.0-rc3",
+        "id": 69,
+        "image": null,
+        "imageNumerator": [
+          9072144,
+          0,
+          13608721
+        ],
+        "matrix": [
+          3689,
+          0,
+          0,
+          3012
+        ],
+        "ok": true,
+        "point": [
+          1,
+          0,
+          1
+        ],
+        "schema": "polynomial-space-v1",
+        "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+        "xyzNumerator": [
+          0,
+          22680865,
+          4536577
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "result": "passed",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "warnings": 0,
+  "generalIntegerTheorems": 17,
+  "auditedDeclarations": 16,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+  "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+  "binarySHA256": "9b0f4bbc3b1f2fb85d0137d321188165dccd14086e395d8d6a3580b440ce8ed4",
+  "binaryBytes": 101616912,
+  "sources": [
+    {
+      "path": "lean/Polynomial/Core.lean",
+      "sha256": "9c534e70fbd0b3d48068da84beeff6c4771c8406d5bf86df42ee5eef153a7f75"
+    },
+    {
+      "path": "lean/Polynomial/Transform.lean",
+      "sha256": "bedd7d1c4476a90e8b4e6a026a4b1a7d348a097d0eac02aa5e418f38a26f68dd"
+    },
+    {
+      "path": "lean/Polynomial/TransformProofs.lean",
+      "sha256": "50f1d4a165d601026818b2888bfd0d7ba3f65c0405cdd1f7cda6b1c97529a874"
+    },
+    {
+      "path": "lean/Polynomial/Proofs.lean",
+      "sha256": "728f62ba63538040c7edbfe00c750d45adcc692d2b1c68f2fc57794b8529c13b"
+    },
+    {
+      "path": "lean/Polynomial/Main.lean",
+      "sha256": "57f09873cbcd2b277439ec4bdc2fb4b8ac6e449af52e114c716a72d02f705a17"
+    }
+  ]
+}

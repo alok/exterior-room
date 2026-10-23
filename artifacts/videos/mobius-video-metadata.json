@@ -1,0 +1,92 @@
+[
+  {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 888,
+        "height": 836
+      }
+    ],
+    "format": {
+      "duration": "11.483984",
+      "size": "1197804"
+    },
+    "file": "polynomial-roots-snap.mp4",
+    "sha256": "c3127acb299825b4d6eed997735c62366ca6fe9deb673a31ad437de3ab70d247"
+  },
+  {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 888,
+        "height": 836
+      }
+    ],
+    "format": {
+      "duration": "18.816992",
+      "size": "1674812"
+    },
+    "file": "polynomial-origin-drag.mp4",
+    "sha256": "03abc45f176e267d13c51afb03273c88dd7dcb3dbcff547e5da4b34ba72e2bae"
+  },
+  {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1146,
+        "height": 836
+      }
+    ],
+    "format": {
+      "duration": "25.083984",
+      "size": "242904"
+    },
+    "file": "polynomial-xr-mobius.mp4",
+    "sha256": "29e25b6fc1bc7881857d13d7dc6bcdcd9f4dfa38bd81351dc652a7026d52965c"
+  },
+  {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1920,
+        "height": 1080
+      }
+    ],
+    "format": {
+      "duration": "27.866667",
+      "size": "455464"
+    },
+    "file": "polynomial-native-snap.mp4",
+    "sha256": "c83315f9660116b874282843fc5df99ecd8625ac8e2607ea3778ba143959e5fd"
+  },
+  {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1920,
+        "height": 1080
+      }
+    ],
+    "format": {
+      "duration": "39.466667",
+      "size": "326070"
+    },
+    "file": "polynomial-native-directional.mp4",
+    "sha256": "361a00fee090a5d6a28f30449150fd241cbb8619560d99a016921f9747670e6c"
+  }
+]

@@ -1,0 +1,208 @@
+{
+  "scope": "Current Lean Starscape native polar Snap correction, separated exact identity bounds, accepted/preview shown readouts, and spaced polynomial typography. Historical receipts and fixture hashes remain unchanged.",
+  "createdUTC": "2026-10-23T08:22:00.998941+00:00",
+  "displayName": "Lean Starscape",
+  "scheme": "PolynomialRoom",
+  "bundleID": "com.alok.PolynomialRoom",
+  "sourceCommit": "2cd549a45ddb6056cf3596404754d96ad9e7132c",
+  "canonicalSha256": {
+    "Farey/WebXR/mobius.js": "193a0df167da6ab54f9c496ef736df15326fc5db67dcea0087cee760577e32de",
+    "Farey/parity/fixtures.json": "d8b87fd9e65b5db6240cf2d30b9c0bf6c476dcfb39155d91b7c3e6c0e16bc3a9"
+  },
+  "snapCriterion": "Canonical modular reduction followed by minimum absolute polar angle of inverse(candidate)*g, tolerance1e-12 and canonical sign. The source vertical transvection chooses T^4; old entrywise-distance fixtures remain historical.",
+  "modelTests": {
+    "tests": 68,
+    "failures": 0,
+    "polynomial": 39,
+    "actionAndSnap": 12,
+    "appearance": 5,
+    "exterior": 12,
+    "currentCanonicalCases": 34,
+    "newActualLeanResponses": 27,
+    "log": "native/evidence/polar-snap-model-tests.txt"
+  },
+  "build": {
+    "status": "passed",
+    "unsigned": true,
+    "sdk": "xrsimulator27.2",
+    "log": "native/evidence/polar-snap-build-for-testing.txt"
+  },
+  "ui": {
+    "status": "passed",
+    "tests": 1,
+    "failures": 0,
+    "seconds": 112.941,
+    "run": "20261023T081658Z",
+    "test": "testPolarSnapAndShownReadoutsFromDeclaredSourceFixture",
+    "simulator": "1D261881-0A0F-4DE0-B704-12644E606348",
+    "inputRoute": "Actual XCTest button interactions with a diagnostics-only declared matrix preset; no gesture claim. Background-only existing simulator harness.",
+    "captures": 5,
+    "visuallyInspectedCaptures": 5,
+    "log": "native/evidence/ui-tests-20261023T081658Z.txt"
+  },
+  "declaredFixture": {
+    "matrix": [
+      50,
+      18,
+      0,
+      5
+    ],
+    "determinant": 250,
+    "polarSnap": [
+      1,
+      4,
+      0,
+      1
+    ],
+    "unitShownRoot": [
+      3.6,
+      10.0
+    ],
+    "pairShownEndpoints": [
+      -6.4,
+      13.6
+    ],
+    "unitAbsorbed": [
+      1,
+      -8,
+      17
+    ],
+    "pairAbsorbed": [
+      1,
+      -7,
+      13
+    ],
+    "pairNormal": [
+      1,
+      -8,
+      15
+    ],
+    "source": [
+      13,
+      20,
+      34
+    ],
+    "sourceAbsorbed": [
+      13,
+      -84,
+      162
+    ],
+    "sourceDiscriminant": -1368,
+    "identityRetained": true,
+    "nativeHidden": true,
+    "sourceT": [
+      13,
+      -6,
+      27
+    ],
+    "reset": [
+      1,
+      -1,
+      2
+    ]
+  },
+  "bounds": {
+    "exactIdentity": 1024,
+    "nativeCloudRadius": 12,
+    "serviceCloudRadius": 96,
+    "matrixEntry": 1000000,
+    "pairNormal": 4194304,
+    "endpointDiscriminant": 1000000000000,
+    "actionNumerator": 6144000000000000
+  },
+  "leanGenerator": {
+    "path": "lean/.lake/build/bin/polynomial_service",
+    "sha256": "9b0f4bbc3b1f2fb85d0137d321188165dccd14086e395d8d6a3580b440ce8ed4"
+  },
+  "rawVideo": {
+    "path": "native/evidence/screenshots/20261023T081658Z/lean-starscape-polar-snap.mov",
+    "bytes": 26243545,
+    "sha256": "bab00436525aabc91ef1e4c4a3098e9ba8d9830f838f3e176aeca634a0472981",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "format": {
+        "duration": "76.170000",
+        "size": "26243545"
+      }
+    }
+  },
+  "proofBoundary": "Generic Lean proofs are checked at module build; the Mac executable returns exact bounded action/inspection/pair data. Native polar Snap proposal, root/endpoint approximation, pointer mapping, rendering and typography are not kernel proofs. Neither native app nor simulator runs the Lean kernel.",
+  "remainingLimitations": [
+    "Native canonical upper-half-plane Roots window, root picking and hover-polynomial readouts are not implemented.",
+    "Native cloud cap R12 and fixed base crop remain distinct from browser R96 and canonical transformed recrop.",
+    "No physical headset, tracked hands/controller, free-space SL2 action or actual gesture-cancellation verification.",
+    "Current focused UI test is a declared-matrix/button sequence; the earlier actual element swipe has its own preserved receipt.",
+    "Point picking remains Overview-only; placement/material/pixel-size behavior differs from browser."
+  ],
+  "sha256": {
+    "native/Sources/ExteriorRoomApp.swift": "185fa622d5dc6c3ec4977060a365e7b0e4c277cda058d9cee7afa5cd926f34b6",
+    "native/Sources/ExteriorSpace.swift": "3f9b87c227e7c1c4a77b332a18731820edc4dd4b5a16f2275a2705e44e71d4e4",
+    "native/Sources/LeanModel.swift": "992903c6a9ca6bfb35b64628e3ed7f1717266541f5643850f477b0ce62d42c93",
+    "native/Sources/PolynomialAction.swift": "f0543aa9958a0daaeb1482ee73fb70377687c79b6b80ba95bdae698308fe3655",
+    "native/Sources/PolynomialAppearance.swift": "209ad4c7d39f99cc0e397d5bbfc50014dbcb1866c91443c0713b135bc09218e1",
+    "native/Sources/PolynomialModel.swift": "b891cb542116dd710fd27ed01880199730fc132b4e136b2e69decdf00bad8b09",
+    "native/Sources/PolynomialRoomApp.swift": "01bd7450a74a6832c69baa1f80f1cdf822202f49cfe5afee20f50c503b8b1217",
+    "native/Sources/PolynomialSpace.swift": "aafc25104021d7ac8bd0ab01773fafd21c906317fd4a76db08e056aaee338492",
+    "native/Sources/PolynomialTransformControls.swift": "f08896765b6bca640b72574b9c4a76f5f117a823f6fe586b5e05464eb1b70f7a",
+    "native/Sources/PolynomialViridis.swift": "885fae4705ce971eae95a3141313038af79b6bb62215798dcb5725266b95ceed",
+    "native/ModelTests/LeanModelTests.swift": "ce4b2e4af9f4b8ec95f407aac4c19673dbb707eb25b19ddfd02fb147ccd3af3f",
+    "native/ModelTests/PolynomialActionTests.swift": "e0e8b314b6cb86dfd1570313b6963a736f544549426be6b9c3f56a7b147bb6f1",
+    "native/ModelTests/PolynomialAppearanceTests.swift": "ee868526d77c4904e158766f23d91e0ef1a55917e69d539f0c18aa226068b610",
+    "native/ModelTests/PolynomialModelTests.swift": "f729435b4415eeee8b98268bec9315f68204cbb838220c19e5db59999e179345",
+    "native/PolynomialUITests/PolynomialRoomUITests.swift": "6337bae7c08ddb7457a284508c5864640d7557e308e02799e01a7197d7d5300f",
+    "native/project.yml": "30b343c71bf728409360888e6b72d2f1a2f285ca8036c26fb5c2806aab9866e4",
+    "native/ExteriorRoom.xcodeproj/project.pbxproj": "19546fc2f5033c5eda11d3e323fa2094fbe2d6e77c9fb5435fe7834280c23b19",
+    "native/Package.swift": "68fd39301ecb530657b63bee955bf83b78607b822290ce07bc2733a92d0944d6",
+    "native/README.md": "3d715b78852037b627be0e480e0b2ffd6cf9777a452ce7caf242bf4ab5330be1",
+    "docs/native.md": "3f94958a4e70ae5a076a2796f5f435c106f7a0524a21812adc36d091f3760f3c",
+    "native/scripts/export-polar-lean.py": "63ad687e3a65673c06a2a4794d66de046c257d740d0abb322f05346cae5d23aa",
+    "native/scripts/export-polar-snap.py": "477b18f0e2fcfbc58bb16c73ccf072498cea7aedaeeb35823ef8eaf99cbe2065",
+    "native/scripts/run-ui-tests.py": "66ceec4efa6366e573b7000762e626385d122fd8112c3cf737f9656d11e18d01",
+    "native/Resources/polynomial-polar-snap-cases.json": "63a99765258d368dbb440bb3d8b7f873fb7c3946c5023eb059473d5760d12541",
+    "native/Resources/polynomial-polar-lean-cases.json": "f2bf0f5e2fc82e3115f6862d32867d37eed90ae2154083aabf0b5153c3032ae6",
+    "native/evidence/polar-snap-model-tests.txt": "3a733b235dc6a91c5753d04b93ec3d60abe569e095e6f38cecd4d27538542e20",
+    "native/evidence/polar-snap-build-for-testing.txt": "767e3597cee60fe76ff465384e3335ceb882e09051e6a9c0ee421109badfb705",
+    "native/evidence/ui-tests-20261023T081658Z.txt": "0f2b5d9f6afef5c156c6d23d2713499ac2bac00aba97f3e518ab87dfb8def8df",
+    "native/evidence/screenshots/20261023T081658Z/001-polar-snap-01-declared-counterexample.png": "d77891d785439764707bbb9509026bc6d2ac00881c09acaa218e00917467da96",
+    "native/evidence/screenshots/20261023T081658Z/002-polar-snap-02-t4-absorbed.png": "976e3288aa6a6fbf1cc994d4eda87d80d09ee700816db83d95f611d40fa5b940",
+    "native/evidence/screenshots/20261023T081658Z/003-polar-snap-03-canonical-source-t4.png": "17eda98e031d47686ead37f87dd011776cda0fbad7328b0059eba2ab9fa3635e",
+    "native/evidence/screenshots/20261023T081658Z/004-polar-snap-04-canonical-source-t.png": "350584dc69fba00dae446e3b7d0fd0f55c200a3fb98bbd2681a81d1236be5c72",
+    "native/evidence/screenshots/20261023T081658Z/005-polar-snap-05-reset.png": "4cb3c7e359897fb2ed3b284b5926b9e9a4979f171b8ef9267beaa25c8dfd9d15",
+    "native/evidence/screenshots/20261023T081658Z/captures.json": "8efee012bf285a985fa7091a34e84b4634b1ed09c26b384dfbb609668880d66b",
+    "native/evidence/screenshots/20261023T081658Z/lean-starscape-polar-snap-video-start.json": "f86e01b88179a5454ff91ea4ea20c60809c73e0fed07c87df25c801b82c1c1c2",
+    "native/evidence/screenshots/20261023T081658Z/lean-starscape-polar-snap-video-stop.json": "66426c92a6b389b439232e213ca34f1eeddd8b93cc7afb9cf550c540aa0b2d10",
+    "native/evidence/screenshots/20261023T081658Z/lean-starscape-polar-snap-video.txt": "d60322ea0cce67721b2407885a6d8a2258ff3c65bf75dc770c9bb23ebfbbe20a",
+    "native/evidence/screenshots/20261023T081658Z/lean-starscape-polar-snap.mov": "bab00436525aabc91ef1e4c4a3098e9ba8d9830f838f3e176aeca634a0472981",
+    "native/evidence/screenshots/20261023T081658Z/video-metadata.json": "710326bce1f060aef8dbf9438ff27f5fe8fbc5ba437f1e15055c97b475b07941",
+    "artifacts/videos/lean-starscape-native-polar-snap.mp4": "155ccfca0fa9eb6715ebd40d7377ab9604b926063111ee47b0225c783c4670a1",
+    "artifacts/videos/lean-starscape-native-polar-snap-metadata.json": "efa854f056b0012ce86fb13f7c5104e773d9994cbf5dbf055f14a59ce6376cea",
+    "artifacts/videos/lean-starscape-native-polar-snap-poster.png": "080b482f7a8622952a805a4886f663ec86b988268878bbfb672d8059b735c6eb",
+    "artifacts/videos/lean-starscape-native-polar-snap-frames/end.png": "5079dc17f273a2411201b1472906856e7a953de08e1f1397c607e0958439fcc2",
+    "artifacts/videos/lean-starscape-native-polar-snap-frames/middle.png": "080b482f7a8622952a805a4886f663ec86b988268878bbfb672d8059b735c6eb",
+    "artifacts/videos/lean-starscape-native-polar-snap-frames/start.png": "522557b58283787b86eae3b6ae56f5dec4a3c7fdb55abb244672a87c632ceca4"
+  },
+  "reviewedVideoExport": {
+    "path": "artifacts/videos/lean-starscape-native-polar-snap.mp4",
+    "metadata": "artifacts/videos/lean-starscape-native-polar-snap-metadata.json",
+    "sha256": "155ccfca0fa9eb6715ebd40d7377ab9604b926063111ee47b0225c783c4670a1",
+    "seconds": 76.2,
+    "width": 1920,
+    "height": 1080,
+    "audioStreams": 0,
+    "inspectedSeconds": [
+      2,
+      38,
+      75
+    ],
+    "sourceFreeze": "No app or test sources changed after passing model/build/UI; export and docs only."
+  }
+}

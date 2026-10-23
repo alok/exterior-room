@@ -1,0 +1,12 @@
+{
+  "createdAt": 1792739128.674691,
+  "action": "video-stop",
+  "id": "19110FB6-1885-4C76-8617-FDA85FEF7C4B",
+  "name": "polynomial-klein-swipe",
+  "startedAt": 1792739128.813053,
+  "exitCode": 0,
+  "error": null,
+  "sha256": "3d21bd1cfede83c6fa5586016153d9268326393227cf4965fb9b310309c8e6b0",
+  "file": "polynomial-klein-swipe.mov",
+  "finishedAt": 1792739136.1980522
+}

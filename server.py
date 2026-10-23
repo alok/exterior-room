@@ -20,13 +20,18 @@ import subprocess
 import threading
 import time
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
-from typing import Any, Sequence
+from typing import Any, Callable, Sequence
 from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parent
 MAX_REQUEST = 65_536
 MAX_RESPONSE = 65_536
 DEFAULT_ENGINE = ROOT / "lean/.lake/build/bin/wedge_service"
+DEFAULT_POLYNOMIAL_ENGINE = ROOT / "lean/.lake/build/bin/polynomial_service"
+POLYNOMIAL_MAX_RESPONSE = 2 * 1024 * 1024
+POLYNOMIAL_CLOUD_TIMEOUT = 10.0
+POLYNOMIAL_IDENTITY_BOUND = 1024
+POLYNOMIAL_NORMAL_BOUND = 4 * POLYNOMIAL_IDENTITY_BOUND ** 2
 
 
 class BridgeError(Exception):
@@ -58,12 +63,83 @@ def validate_request(value: Any) -> dict[str, Any]:
     return value
 
 
+def validate_polynomial_request(value: Any) -> dict[str, Any]:
+    if not isinstance(value, dict):
+        raise ValueError("Request must be a JSON object.")
+    request_id = value.get("id")
+    if not isinstance(request_id, (str, int, float, bool, type(None))) or (
+        isinstance(request_id, float) and not math.isfinite(request_id)
+    ):
+        raise ValueError("id must be a finite JSON scalar.")
+    fields = {
+        "cloud": {"radius", "upperOnly", "offset", "limit", "normal"},
+        "members": {"radius", "upperOnly", "normal"},
+        "inspect": {"point", "height"}, "pair": {"first", "second"}, "plane": {"normal"},
+        "transform": {"point", "matrix"},
+    }
+    operation = value.get("op")
+    if not isinstance(operation, str) or operation not in fields:
+        raise ValueError("op must be cloud, members, inspect, pair, plane or transform.")
+    if any(key not in fields[operation] | {"id", "op"} for key in value):
+        raise ValueError(f"Unexpected field for {operation}.")
+
+    def integer(name: str, minimum: int, maximum: int, default: int | None = None) -> None:
+        item = value.get(name, default)
+        if type(item) is not int or not minimum <= item <= maximum:
+            raise ValueError(f"{name} must be an integer from {minimum} to {maximum}.")
+
+    def triple(name: str, bound: int) -> None:
+        item = value.get(name)
+        if not isinstance(item, list) or len(item) != 3 or any(
+            type(component) is not int or not -bound <= component <= bound for component in item
+        ):
+            raise ValueError(f"{name} must contain three integers from {-bound} to {bound}.")
+
+    if operation in {"cloud", "members"}:
+        integer("radius", 4, 96)
+        if operation == "cloud":
+            integer("limit", 1, 16384, 16384)
+            integer("offset", 0, 2_000_000, 0)
+        if type(value.get("upperOnly", False)) is not bool:
+            raise ValueError("upperOnly must be a boolean.")
+        if "normal" in value or operation == "members":
+            triple("normal", POLYNOMIAL_NORMAL_BOUND)
+    elif operation == "inspect":
+        triple("point", POLYNOMIAL_IDENTITY_BOUND)
+        integer("height", 1, 24, 4)
+    elif operation == "pair":
+        triple("first", POLYNOMIAL_IDENTITY_BOUND)
+        triple("second", POLYNOMIAL_IDENTITY_BOUND)
+    elif operation == "transform":
+        triple("point", POLYNOMIAL_IDENTITY_BOUND)
+        if not any(value["point"]):
+            raise ValueError("The zero polynomial has no transform point.")
+        matrix = value.get("matrix")
+        if not isinstance(matrix, list) or len(matrix) != 4 or any(
+            type(component) is not int or not -1_000_000 <= component <= 1_000_000 for component in matrix
+        ):
+            raise ValueError("matrix must contain four integers from -1000000 to 1000000.")
+        if matrix[0] * matrix[3] - matrix[1] * matrix[2] <= 0:
+            raise ValueError("matrix must have a positive determinant.")
+    else:
+        triple("normal", POLYNOMIAL_NORMAL_BOUND)
+    return value
+
+
+def decode_request(body: bytes, validator: Callable[[Any], dict[str, Any]] = validate_request) -> dict[str, Any]:
+    try:
+        return validator(json.loads(body, parse_constant=reject_constant))
+    except RecursionError as error:
+        raise ValueError("JSON nesting is too deep.") from error
+
+
 class LeanEngine:
     """Serialize requests through a persistent executable; restart after failure."""
 
-    def __init__(self, command: Sequence[str], timeout: float = 3.0) -> None:
+    def __init__(self, command: Sequence[str], timeout: float = 3.0, max_response: int = MAX_RESPONSE) -> None:
         self.command = list(command)
         self.timeout = timeout
+        self.max_response = max_response
         self._lock = threading.Lock()
         self._process: subprocess.Popen[bytes] | None = None
         self._pending = bytearray()
@@ -116,9 +192,10 @@ class LeanEngine:
             raise BridgeError(503, "Lean executable could not be started.") from error
         return self._process
 
-    def evaluate(self, request: dict[str, Any]) -> dict[str, Any]:
-        deadline = time.monotonic() + self.timeout
-        if not self._lock.acquire(timeout=self.timeout):
+    def evaluate(self, request: dict[str, Any], timeout: float | None = None) -> dict[str, Any]:
+        request_timeout = self.timeout if timeout is None else timeout
+        deadline = time.monotonic() + request_timeout
+        if not self._lock.acquire(timeout=request_timeout):
             raise BridgeError(504, "Lean request queue timed out; try again.")
         try:
             process = self._start()
@@ -130,7 +207,7 @@ class LeanEngine:
                 while written < len(message):
                     remaining = deadline - time.monotonic()
                     if remaining <= 0 or not selector.select(remaining):
-                        raise BridgeError(504, "Lean input timed out; its process was restarted.")
+                        raise BridgeError(504, "Lean input timed out; retry will start a fresh process.")
                     try:
                         written += os.write(process.stdin.fileno(), message[written:])
                     except BlockingIOError:
@@ -140,12 +217,12 @@ class LeanEngine:
                 while b"\n" not in self._pending:
                     remaining = deadline - time.monotonic()
                     if remaining <= 0 or not selector.select(remaining):
-                        raise BridgeError(504, "Lean computation timed out; its process was restarted.")
+                        raise BridgeError(504, "Lean computation timed out; retry will start a fresh process.")
                     chunk = os.read(process.stdout.fileno(), 8192)
                     if not chunk:
                         raise BridgeError(502, "Lean process exited without a result.")
                     self._pending.extend(chunk)
-                    if len(self._pending) > MAX_RESPONSE:
+                    if len(self._pending) > self.max_response:
                         raise BridgeError(502, "Lean response exceeded the transport limit.")
             line, _, rest = self._pending.partition(b"\n")
             self._pending = bytearray(rest)
@@ -158,9 +235,9 @@ class LeanEngine:
         except BridgeError:
             self._stop()
             raise
-        except (OSError, ValueError, UnicodeError) as error:
+        except (OSError, ValueError, UnicodeError, RecursionError) as error:
             self._stop()
-            raise BridgeError(502, "The Lean transport failed; its process was restarted.") from error
+            raise BridgeError(502, "The Lean transport failed; retry will start a fresh process.") from error
         finally:
             self._lock.release()
 
@@ -168,9 +245,16 @@ class LeanEngine:
 class ExteriorServer(ThreadingHTTPServer):
     daemon_threads = True
     allow_reuse_address = True
+    # A cold browser import graph can open more than the stdlib's five queued
+    # connections before the serving thread accepts them.
+    request_queue_size = 64
 
-    def __init__(self, address: tuple[str, int], engine: LeanEngine, web_root: Path = ROOT / "web") -> None:
+    def __init__(self, address: tuple[str, int], engine: LeanEngine, web_root: Path = ROOT / "web",
+                 polynomial_engine: LeanEngine | None = None) -> None:
         self.engine = engine
+        self.polynomial_engine = polynomial_engine or LeanEngine(
+            [str(DEFAULT_POLYNOMIAL_ENGINE)], max_response=POLYNOMIAL_MAX_RESPONSE,
+        )
         self.web_root = web_root
         self.lan_enabled = address[0] not in {"127.0.0.1", "localhost", "::1"}
         super().__init__(address, ExteriorHandler)
@@ -178,6 +262,7 @@ class ExteriorServer(ThreadingHTTPServer):
     def server_close(self) -> None:
         super().server_close()
         self.engine.close()
+        self.polynomial_engine.close()
 
 
 class ExteriorHandler(SimpleHTTPRequestHandler):
@@ -231,17 +316,33 @@ class ExteriorHandler(SimpleHTTPRequestHandler):
         path = urlsplit(self.path).path
         if path == "/api/health":
             engine = self.server.engine
-            digest = hashlib.sha256(engine.executable.read_bytes()).hexdigest() if engine.available() else None
+            polynomial = self.server.polynomial_engine
+
+            def digest(executable: LeanEngine) -> str | None:
+                try:
+                    if not executable.available():
+                        return None
+                    result = hashlib.sha256()
+                    with executable.executable.open("rb") as stream:
+                        while chunk := stream.read(1024 * 1024):
+                            result.update(chunk)
+                    return result.hexdigest()
+                except OSError:
+                    return None
+
             self._json(200, {
                 "ok": True, "engineAvailable": engine.available(),
-                "engineSha256": digest, "engine": "compiled Lean executable",
+                "engineSha256": digest(engine), "engine": "compiled Lean executable",
                 "hashScope": "executable on disk; next evaluation restarts after a binary change",
                 "protocol": "exterior-room/1", "maxRequestBytes": MAX_REQUEST,
                 "componentBounds": [-12, 12], "scale": 4,
+                "polynomialEngineAvailable": polynomial.available(),
+                "polynomialEngineSha256": digest(polynomial),
+                "polynomialMaxResponseBytes": POLYNOMIAL_MAX_RESPONSE,
             })
         elif path == "/api/provenance":
             documents = {}
-            for name in ("SPEC.md", "docs/lean-provenance.md", "docs/native.md", "NOTICE.md"):
+            for name in ("SPEC.md", "docs/lean-provenance.md", "docs/native.md", "NOTICE.md", "lean/Polynomial/PROTOCOL.md"):
                 document = ROOT / name
                 if document.is_file():
                     documents[name] = document.read_text()
@@ -258,7 +359,8 @@ class ExteriorHandler(SimpleHTTPRequestHandler):
     def do_POST(self) -> None:
         if not self._trusted_request():
             return
-        if urlsplit(self.path).path != "/api/evaluate":
+        path = urlsplit(self.path).path
+        if path not in {"/api/evaluate", "/api/polynomial"}:
             self._json(404, {"ok": False, "error": "Unknown API route."})
             return
         if self.headers.get("Transfer-Encoding"):
@@ -281,7 +383,7 @@ class ExteriorHandler(SimpleHTTPRequestHandler):
             body = self.rfile.read(size)
             if len(body) != size:
                 raise ValueError("Incomplete request body.")
-            request = validate_request(json.loads(body, parse_constant=reject_constant))
+            request = decode_request(body, validate_polynomial_request if path == "/api/polynomial" else validate_request)
         except (ValueError, UnicodeError) as error:
             self._json(400, {"ok": False, "error": str(error)})
             return
@@ -289,7 +391,11 @@ class ExteriorHandler(SimpleHTTPRequestHandler):
             self._json(408, {"ok": False, "error": "Request body timed out."})
             return
         try:
-            response = self.server.engine.evaluate(request)
+            if path == "/api/polynomial":
+                timeout = max(POLYNOMIAL_CLOUD_TIMEOUT, self.server.polynomial_engine.timeout) if request["op"] in {"cloud", "members"} else None
+                response = self.server.polynomial_engine.evaluate(request, timeout=timeout)
+            else:
+                response = self.server.engine.evaluate(request)
             self._json(200 if response["ok"] else 400, response)
         except BridgeError as error:
             self._json(error.status, {"ok": False, "id": request.get("id"), "error": str(error)})
@@ -300,14 +406,17 @@ def main() -> None:
     parser.add_argument("--host", default="127.0.0.1", help="Default loopback; 0.0.0.0 intentionally exposes the bridge to your LAN.")
     parser.add_argument("--port", type=int, default=8787)
     parser.add_argument("--engine", type=Path, default=DEFAULT_ENGINE)
+    parser.add_argument("--polynomial-engine", type=Path, default=DEFAULT_POLYNOMIAL_ENGINE)
     parser.add_argument("--timeout", type=float, default=3.0)
     args = parser.parse_args()
     if args.port == 8778:
         parser.error("Port 8778 is reserved for the existing FareyVision app.")
     engine = LeanEngine([str(args.engine.resolve())], args.timeout)
-    with ExteriorServer((args.host, args.port), engine) as server:
+    polynomial = LeanEngine([str(args.polynomial_engine.resolve())], args.timeout, POLYNOMIAL_MAX_RESPONSE)
+    with ExteriorServer((args.host, args.port), engine, polynomial_engine=polynomial) as server:
         print(f"Exterior Room: http://{args.host}:{server.server_port}", flush=True)
         print(f"Lean executable: {'ready' if engine.available() else 'missing — run scripts/run.sh to build'}", flush=True)
+        print(f"Polynomial executable: {'ready' if polynomial.available() else 'missing — run scripts/run.sh to build'}", flush=True)
         try:
             server.serve_forever()
         except KeyboardInterrupt:

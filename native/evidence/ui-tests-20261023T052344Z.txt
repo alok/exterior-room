@@ -1,0 +1,75 @@
+Command line invocation:
+    /Applications/Xcode-27.2.0-Beta.2.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/.build/Build/Products/PolynomialRoom-capture.xctestrun -destination "platform=visionOS Simulator,id=1D261881-0A0F-4DE0-B704-12644E606348" -parallel-testing-enabled NO -jobs 2 -collect-test-diagnostics never -resultBundlePath /Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/evidence/NativeUI-20261023T052344Z.xcresult
+
+Writing result bundle at path:
+	/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/evidence/NativeUI-20261023T052344Z.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:visionOS Simulator, arch:arm64, id:1D261881-0A0F-4DE0-B704-12644E606348, OS:27.2, name:Exterior Room QA 2026-10-23 }
+{ platform:visionOS Simulator, arch:arm64, variant:Designed for [iPad,iPhone], id:1D261881-0A0F-4DE0-B704-12644E606348, OS:27.2, name:Exterior Room QA 2026-10-23 }
+2026-10-22 22:23:53.263025-0700 PolynomialRoomUITests-Runner[79173:8887187] [Default] Running tests...
+2026-10-22 22:23:53.283019-0700 PolynomialRoomUITests-Runner[79173:8887187] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-22 22:23:53.426321-0700 PolynomialRoomUITests-Runner[79173:8889299] [connection] nw_socket_copy_info [C1:2] getsockopt TCP_INFO failed [102: Operation not supported on socket]
+2026-10-22 22:23:53.426381-0700 PolynomialRoomUITests-Runner[79173:8889299] [] nw_socket_copy_info getsockopt TCP_INFO failed [102: Operation not supported on socket]
+2026-10-22 22:23:53.478484-0700 PolynomialRoomUITests-Runner[79173:8889276] [plugin] AddInstanceForFactory: No factory registered for id <CFUUID 0x108170ea0> F8BB1C28-BAE8-11D6-9C31-00039315CD46
+objc[79173]: Class AXMRUIAccessibilityAssertionService is implemented in both /private/var/run/com.apple.security.cryptexd/mnt/com.apple.XROS.SimulatorRuntime-v24.14.5093.6.tLntQt/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/PrivateFrameworks/AccessibilityUIUtilities.framework/AccessibilityUIUtilities (0x1f00b6278) and /private/var/run/com.apple.security.cryptexd/mnt/com.apple.XROS.SimulatorRuntime-v24.14.5093.6.tLntQt/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/PrivateFrameworks/MuseAccessibilityUI.framework/MuseAccessibilityUI (0x1084c8118). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+2026-10-22 22:23:54.575498-0700 PolynomialRoomUITests-Runner[79173:8887187] [AXCommon] Failed to load auxiliary bundle file:///private/var/run/com.apple.security.cryptexd/mnt/com.apple.XROS.SimulatorRuntime-v24.14.5093.6.tLntQt/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS%2027.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/MuseUIKit: (null)
+2026-10-22 22:23:54.579802-0700 PolynomialRoomUITests-Runner[79173:8889276] [AMCP]          HALC_ProxyObjectMap.cpp:175   HALC_ProxyObjectMap::_CopyObjectByObjectID: failed to create the local object
+2026-10-22 22:23:54.579926-0700 PolynomialRoomUITests-Runner[79173:8889276] [AMCP]             HALC_ShellDevice.cpp:2674  HALC_ShellDevice::RebuildControlList: couldn't find the control object
+    t =      nans Interface orientation changed to Unknown
+Test Suite 'All tests' started at 2026-10-22 22:23:55.578.
+Test Suite 'PolynomialRoomUITests.xctest' started at 2026-10-22 22:23:55.579.
+Test Suite 'PolynomialRoomUITests' started at 2026-10-22 22:23:55.581.
+Test Case '-[PolynomialRoomUITests.PolynomialRoomUITests testSignedPointsPlanesAndPlacements]' started.
+    t =     0.02s Start Test at 2026-10-22 22:23:55.598
+    t =     0.06s Set Up
+    t =     0.12s Open com.alok.PolynomialRoom
+    t =     0.13s     Launch com.alok.PolynomialRoom
+2026-10-22 22:23:56.100 xcodebuild[79090:8886705] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-10-22 22:23:56.100 xcodebuild[79090:8886705] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     5.00s         Setting up automation session
+    t =     8.41s         Wait for com.alok.PolynomialRoom to idle
+    t =     9.97s Waiting 20.0s for "poly-connect" Button to exist
+    t =    10.99s     Checking `Expect predicate `existsNoRetry == 1` for object "poly-connect" Button`
+    t =    10.99s         Checking existence of `"poly-connect" Button`
+    t =    11.31s Find the "poly-polynomial" StaticText
+    t =    11.38s Tap "poly-connect" Button
+    t =    11.38s     Wait for com.alok.PolynomialRoom to idle
+    t =    11.39s     Find the "poly-connect" Button
+    t =    11.54s     Check for interrupting elements affecting "poly-connect" Button
+    t =    11.57s         Wait for com.apple.SurfBoard to idle
+    t =    11.69s     Synthesize event
+    t =    12.21s     Wait for com.alok.PolynomialRoom to idle
+    t =    13.27s Checking `Expect predicate `label BEGINSWITH "Live Lean"` for object "poly-status" StaticText`
+    t =    13.27s     Find the "poly-status" StaticText
+    t =    13.41s Tap "poly-space" Button
+    t =    13.41s     Wait for com.alok.PolynomialRoom to idle
+    t =    13.42s     Find the "poly-space" Button
+    t =    13.48s     Check for interrupting elements affecting "poly-space" Button
+    t =    13.49s         Wait for com.apple.SurfBoard to idle
+    t =    13.60s     Synthesize event
+    t =    14.07s     Wait for com.alok.PolynomialRoom to idle
+    t =    16.14s Checking `Expect predicate `label == "Leave"` for object "poly-space" Button`
+    t =    16.14s     Find the "poly-space" Button
+/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/UITests/SimulatorCapture.swift:59: error: -[PolynomialRoomUITests.PolynomialRoomUITests testSignedPointsPlanesAndPlacements] : failed: caught error: "timeout"
+    t =    61.57s Tear Down
+Test Case '-[PolynomialRoomUITests.PolynomialRoomUITests testSignedPointsPlanesAndPlacements]' failed (69.549 seconds).
+Test Suite 'PolynomialRoomUITests' failed at 2026-10-22 22:25:05.147.
+	 Executed 1 test, with 1 failure (1 unexpected) in 69.549 (69.567) seconds
+Test Suite 'PolynomialRoomUITests.xctest' failed at 2026-10-22 22:25:05.148.
+	 Executed 1 test, with 1 failure (1 unexpected) in 69.549 (69.569) seconds
+Test Suite 'All tests' failed at 2026-10-22 22:25:05.149.
+	 Executed 1 test, with 1 failure (1 unexpected) in 69.549 (69.571) seconds
+2026-10-22 22:25:05.541 xcodebuild[79090:8886705] [MT] IDETestOperationsObserverDebug: 80.501 elapsed -- Testing started completed.
+2026-10-22 22:25:05.541 xcodebuild[79090:8886705] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-22 22:25:05.541 xcodebuild[79090:8886705] [MT] IDETestOperationsObserverDebug: 80.501 sec, +80.501 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/evidence/NativeUI-20261023T052344Z.xcresult
+
+Failing tests:
+	PolynomialRoomUITests.testSignedPointsPlanesAndPlacements()
+
+** TEST EXECUTE FAILED **
+
+Testing started

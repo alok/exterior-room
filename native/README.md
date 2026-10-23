@@ -1,4 +1,168 @@
-# Exterior Room · visionOS
+# Lean Starscape · visionOS
+
+## Lean Starscape
+
+The app's display name is **Lean Starscape**. Its stable Xcode scheme remains
+`PolynomialRoom` and its bundle identifier remains `com.alok.PolynomialRoom`.
+Use `-scheme PolynomialRoom` in the build command
+below. Its Mac bridge is `/api/polynomial` on port 8787. `python3
+native/scripts/export-polynomial.py` regenerates the bundled R6 cloud and signed
+quadratic inspection from the actual Lean executable, with hashes and requests
+in `native/Resources/polynomial-export-receipt.json`.
+
+The native route draws 480 signed triples at R6 and 3,608 at its explicit R12 cap;
+the crop choices are R4, R6, R8, R10 and R12. Dense selects R12. The browser's R96
+mode is separate. This route concerns quadratics `ax²+bx+c`, not arbitrary-degree
+polynomials.
+
+Launch and Reset select `(1,-1,2)`, displaying `x² − x + 2`. Spacing is presentation
+only; Lean's raw polynomial label remains unchanged. Next follows the canonical cycle:
+`(1,-1,2) → (2,-2,4) → (2,1,1) → (1,0,1) → (3,2,2) → (−1,1,−2) → (1,2,1) → (1,3,1)`.
+Next can retain an inspected point hidden by the current crop, including
+`(2,-2,4)` at R6. The panel labels a hidden selection and disables Inhabit for it.
+Manual Select and Pair accept only points in the currently accepted cloud;
+invalid entry leaves the selection unchanged. A requested larger crop does not
+make its points available before Lean accepts it.
+
+Controls include signed selection and exact polynomial readouts, exterior and
+paired cutting planes with Lean membership, radial projection, Viridis and the
+six-anchor Stange reference palette, lower-half coloring, a 0.4–2.5 sphere-size
+multiplier, cone visibility and plane-distance fade. The fade is approximate
+renderer behavior; it retains the selected point and Lean-identified interior
+plane members at full brightness. Glyphs have physical size and perspective;
+they are not the browser's pixel-clamped point sprites.
+
+Overview offers three stationary object orientations. Origin places the
+coefficient origin once at the head center; its nappe toggle changes orientation.
+The zero polynomial is not a selectable projective point. Inhabit places the
+chosen point 35 cm ahead and 8 cm below the head center once, using native offset
+`(0,−0.08,−0.35)` metres; later selection does not move the viewer. This differs
+from the browser's `(0.1,0.12,0.1)` scene-coordinate offset.
+Reset restores the canonical default, R6 and Overview, clears the pair and
+filters, disables lower-half coloring, hides projection, and restores the cone.
+It preserves the chosen palette, sphere-size multiplier and plane-fade setting,
+matching the browser's Reset behavior.
+
+Open **SL₂ transform** for T, T⁻¹, S, the `i → 1+i` checkpoint, Identity and Snap.
+The checkpoint submits `M = [3,1,1,2]`, with determinant 5: Lean returns the exact
+image of the default as `(8,−23,22)/5`. Continuous actions move the drawn geometry
+while retaining its signed base triples and fixed coefficient-ball crop. Choose
+Origin to enable the Canvas Klein disk. Its implemented drag path previews an
+approximate transvection; release proposes a bounded integer matrix to Lean.
+Until that request is accepted, the previous exact action remains authoritative.
+An actual simulator element swipe on the Klein disk now has verified callbacks,
+Lean acceptance and visible 3D changes. Coordinate press-drags remain historically
+unsuccessful, and physical input is unverified. The Move arrow buttons in Origin
+remain a tested fallback through the same quantization and Lean acceptance path.
+
+Snap proposes an integer determinant-one matrix using the canonical floating-point
+modular-cell reduction and **residual polar-angle** comparison, including its
+tie tolerance and sign convention. This corrects the earlier entrywise-distance
+criterion: the recorded vertical transvection selects T⁴, not T⁴S.
+It is not a proved globally
+nearest-matrix algorithm. Lean computes the exact images of both selected and
+paired signed triples. The app validates both bounds, refreshed inspections,
+pair plane, membership and identity receipt before publishing the new scene
+together. A failed request, either image outside the exact identity bound ±1024,
+or a stale reply preserves
+the entire previous pair and action. An integer image of one point alone does
+not establish an SL₂(ℤ) action. Integer generators relabel selections only when
+the combined normalized matrix is exactly integral with determinant one;
+otherwise they retain a continuous action. **Snap on release** chooses this
+relabeling path instead of a continuous commit; enabling it also Snaps immediately. Reset turns it off. **Identity** resets the action
+and keeps already relabeled selections; Reset restores the canonical default.
+
+**Source (13,20,34)** inspects the recorded source point even though it is hidden
+at every native crop up to R12. Starting from Identity, T relabels it to
+`(13,−6,27)` with the same discriminant −1368; Identity keeps that new label.
+The recorded vertical transvection Snaps to T⁴ and produces `(13,−84,162)`;
+Identity preserves this label too. Exact identities can range to ±1024 while
+the native cloud remains capped at R12. These points remain outside R12.
+The Source control does not enlarge the native cloud or make Inhabit
+available for a hidden point.
+
+Under a nonidentity action, root and cutting-plane readouts retain the exact
+**Base** values and append approximate **shown** roots/endpoints. A drag preview
+is labeled **preview**. Pending or failed actions retain the last accepted
+readout; cancellation restores it. These shown values are renderer conversions
+of Lean descriptors, not new exact Lean results.
+
+Exact classification, gcd/sign representatives, projection ratios, plane normals,
+endpoints and interior membership come from Lean. RealityKit draws approximate
+root/projection positions, sampled cone/plane meshes, colors and physical sphere
+sizes. It performs no discriminant, gcd, pair-plane or membership fallback.
+The decoder rejects unrecognized schema/source revisions, mismatched request
+IDs, malformed arrays and inconsistent coordinate maps or descriptors. Pending
+or failed requests preserve the accepted geometry and provenance; only an
+accepted pair is drawn. These transport checks are not additional Lean proofs.
+
+For a declared matrix M with positive determinant D, executable Lean returns the
+integer rows and image numerators of the rational action `J(M)/D`. The eight
+generic theorems in `lean/Polynomial/TransformProofs.lean` kernel-check the integer
+action laws, including composition, discriminant scaling and plane-incidence
+covariance. They do not prove pointer mapping, transvection, Snap choice,
+quantization, Swift transport, renderer geometry or physical gestures. A rounded
+drag sample is exact for the declared M only. The native fixtures are actual
+compiled Lean exports; `Resources/polynomial-action-receipt.json` records their
+requests and hashes. Canonical Snap fixture values are separately labeled as
+browser floating-point regressions, not Lean results. See
+[`lean/Polynomial/README.md`](../lean/Polynomial/README.md) for the full proof and
+execution boundary.
+
+Rendering and placement adapt the pinned FareyVision native sources at
+`ca809d2975a37a318a425e4b9dd73560b07faf39`; source-file hashes are recorded in
+`native/evidence/polynomial-source-manifest.json`. Transvection and coefficient
+action conventions adapt `Farey/WebXR/mobius.js` at
+`63ad115422ab1141ca6d06732572385414b7a5cf`. Historical Snap/absorption fixtures
+at `6fea557bb0d0c786bed5223dc631cb1c06e94f16` are preserved; the corrected
+polar criterion is pinned to `2cd549a45ddb6056cf3596404754d96ad9e7132c` in
+`Resources/polynomial-polar-snap-cases.json` and its separate fresh receipt.
+The manifest records earlier borrowed files and hashes separately. The underlying visualization
+credits Katherine Stange and Harriss–Stange–Trettel's *Algebraic Number Starscapes*.
+The Lean adaptation is independent. Viridis credits Smith, van der Walt and
+Firing (CC0). Source headers preserve GPL attribution.
+
+RealityKit's hover effect supplies a visual highlight; polynomial inspection
+requires selection. The canonical upper-half-plane Roots window, its root picking
+and hover-polynomial readouts are not implemented in this native route. The Klein
+disk is a transformation surface, not a replacement for that Roots view.
+Tracked controller support and free-space point dragging are also absent. Actual entity
+gaze/pinch selection, physical-headset hand input, comfort and performance remain
+unverified. The separate Exterior Room endpoint drag/cancellation also lacks
+successful actual-gesture verification: its XCUI endpoint probe failed to
+synthesize an event because Accessibility returned
+`Received invalid activation point transform (nil)` in
+[`ui-tests-20261023T055513Z.txt`](evidence/ui-tests-20261023T055513Z.txt).
+The earlier Polynomial Room coordinate-drag failures remain recorded separately
+from the successful element-swipe test `20261023T070446Z`. Model tests alone do
+not establish gesture execution.
+
+The current [`polar-snap-model-tests.txt`](evidence/polar-snap-model-tests.txt)
+receipt records **68 tests passed, zero failures**: 39 polynomial model tests,
+12 action math/decoder tests, five appearance tests and 12 Exterior Room tests. Coverage
+includes real Lean fixtures, exact and nonintegral actions, canonical Snap
+candidates (34 current canonical cases), hidden-source T⁴ relabeling, the separated
+identity/cloud bounds, safe-integer edge receipts, spaced labels, accepted/preview
+readouts, atomic pair rollback, stale responses and cancellation of preview values.
+The 27 new Lean receipts preserve earlier fixture sets. This is model/transport evidence, not an executed
+gesture or headset receipt.
+
+Run its existing-simulator UI checks with `python3 native/scripts/run-ui-tests.py
+--scheme PolynomialRoom` after `build-for-testing`. The silent simulator recording
+begins after entering the app's immersive space and stops before leaving it.
+See `docs/native.md` for dated verification receipts. A build or button-driven
+simulator capture does not establish physical interaction. The latest polar-Snap
+UI run passed one test with zero failures in 112.941 seconds, covering declared
+M=(50,18,0,5), corrected T⁴ absorption, the true source point's T⁴/Identity result,
+shown root/endpoints, T and Reset. Its five images were visually inspected.
+See [the current receipt](evidence/polar-snap-native-receipt.json) and
+[silent raw recording](evidence/screenshots/20261023T081658Z/lean-starscape-polar-snap.mov).
+The diagnostics-only matrix preset is not a drag-gesture claim.
+The [reviewed silent 1080p export](../artifacts/videos/lean-starscape-native-polar-snap.mp4)
+and [metadata](../artifacts/videos/lean-starscape-native-polar-snap-metadata.json)
+preserve this simulator sequence without trimming or a speed change.
+
+## Exterior Room
 
 This separate RealityKit app consumes the same exact integer response as the browser.
 It has two explicit modes: **Lean export · preset playback** uses bundled JSON produced
@@ -87,3 +251,46 @@ application patterns only and does not attribute the new algebra scene to her.
 
 The existing Lean Calculator and its Clifford bridge were located as background
 context but were not copied: its iCloud-local source reads timed out.
+
+The focused Snap UI run `evidence/ui-tests-20261023T061442Z.txt` passed in
+43.968 seconds (six images). The later directional-action/Snap-toggle UI run
+`evidence/ui-tests-20261023T062243Z.txt` passed in 64.040 seconds (five images),
+including actual accepted-matrix and visible 3D changes from Up/Right buttons.
+Both have silent app-only videos and metadata beside their screenshots.
+
+The immersive disk probe `061602Z` and launch-window probe `061935Z` produced
+no accepted drag sample or matrix change; callback delivery is unresolved. They are retained as opt-in diagnostics, not passes. Select
+one explicitly using `--test-name testActionCheckpointAndOriginDrag` or
+`--test-name testWindowDiskDragAndImmersiveResult`; ordinary UI runs skip them.
+The tested native interaction route uses the exact action/Snap and Move buttons.
+See [the full native receipt](../docs/native.md) for evidence and remaining gaps.
+
+The earlier local plane-fade follow-up passed **61 model tests**, an unsigned simulator
+build and one focused UI test (**37.921 seconds**, zero failures). Plane fade now
+uses transformed positions and the transported normal; cone reference guides
+stay fixed while the cloud and cutting plane move. Four visually inspected
+Identity/action/fade-off/projection captures and fresh source/evidence hashes
+are linked in [the follow-up receipt](evidence/plane-fade-native-receipt.json).
+The earlier 59-test baseline is preserved separately.
+
+The subsequent bounded-target swipe follow-up passed **62 model tests**, an
+unsigned build and two focused simulator UI tests: actual element swipe
+(46.194 seconds) and matched rendering (33.101 seconds). The disk's interaction
+target is now a centered 170×170 square matching its visible area. The probe used
+`XCUIElement.swipeRight()` and recorded one recognized gesture, two change
+callbacks and one release, with a newly accepted Lean matrix and the exact pair
+retained. Bounds and input route changed together; this does not isolate the
+cause of earlier coordinate-drag failures. The out-of-disk release committed the
+last valid in-disk sample, not its final pointer coordinate.
+
+See [the swipe receipt](evidence/klein-swipe-native-receipt.json),
+[the actual Lean replay fixture](Resources/polynomial-swipe-case.json),
+[the silent swipe recording](evidence/screenshots/20261023T070446Z/polynomial-klein-swipe.mov)
+and [the refreshed matched-render recording](evidence/screenshots/20261023T070602Z/polynomial-matched-render.mov).
+Tracked hands, controllers, physical headsets and actual gesture cancellation
+remain unverified. No older failed probe has been relabeled as a pass.
+
+Reviewed silent 1080p exports:
+[actual disk swipe](../artifacts/videos/polynomial-native-klein-swipe.mp4),
+[matched rendering](../artifacts/videos/polynomial-native-matched-render.mp4),
+and [video metadata](../artifacts/videos/polynomial-current-native-video-metadata.json).

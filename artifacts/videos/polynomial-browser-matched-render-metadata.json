@@ -1,0 +1,50 @@
+{
+  "programs": [],
+  "stream_groups": [],
+  "streams": [
+    {
+      "codec_name": "h264",
+      "codec_type": "video",
+      "width": 888,
+      "height": 836
+    }
+  ],
+  "format": {
+    "duration": "53.883984",
+    "size": "293815"
+  },
+  "file": "polynomial-browser-matched-render.mp4",
+  "sha256": "534216f311450d1af9dd3437cbfcd742150fdcb669ae94de40b3ab4dd59bfde4",
+  "route": "Actual desktop UI in IAB; production canvas; no XR session",
+  "scope": "Silent canvas-only recording; desktop DOM controls excluded; no host desktop or headset evidence",
+  "sequence": [
+    "R6 unit pair, Identity, plane fade on",
+    "D5 exact action",
+    "plane fade off",
+    "plane fade on, radial projection"
+  ],
+  "sourceSha256": {
+    "web/polynomial/app.js": "dd5524bb35d66e13cfbb55aa9c3683c00eadda3b9ab57d7db2ac6e2d6fea653f",
+    "web/polynomial/mobius-render.js": "46147fcd2c533b6884b778c9f0f9a95add5f4360cff4542684aa3bbd57d1a3bf",
+    "web/polynomial/point-cloud.js": "c60f9482c6eeb4ccc97d2677d14bc52d032277b5721449b5003552db89c8f491",
+    "web/polynomial/appearance.js": "b100e06391936d7142853db7afc294b8c83c121d71b8b3f6f0d9a6e847cef9b1"
+  },
+  "frameInspection": {
+    "extractionFilter": "fps=1/5,scale=640:-2",
+    "inspectedOutputOrdinals": [
+      1,
+      4,
+      7,
+      8,
+      10
+    ],
+    "states": {
+      "1": "Identity with fade on",
+      "4": "D5 with fade on",
+      "7": "D5 with fade on",
+      "8": "D5 with fade off",
+      "10": "D5 with fade on and radial projection"
+    },
+    "timingNote": "Output ordinals from fps sampling, not claimed original-frame timestamps. Saved state observation offsets are also not video PTS."
+  }
+}

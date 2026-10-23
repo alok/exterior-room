@@ -1,0 +1,12 @@
+{
+  "id": "A2B8F0D9-99C0-4CAD-AE44-56949F308B2C",
+  "action": "video-stop",
+  "name": "polynomial-snap",
+  "createdAt": 1792736129.178797,
+  "startedAt": 1792736129.3242,
+  "exitCode": 0,
+  "error": null,
+  "sha256": "ed3b3b55852f2d719a5b9f6a3068783e1a3b670ad2c926ef431baba7cfa1333e",
+  "file": "polynomial-snap.mov",
+  "finishedAt": 1792736129.566377
+}

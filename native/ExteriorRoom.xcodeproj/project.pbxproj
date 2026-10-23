@@ -8,14 +8,43 @@
 
 /* Begin PBXBuildFile section */
 		0C125A66B1C8BBA196AC0377 /* ExteriorRoomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191E427B39895A47D5BFAA24 /* ExteriorRoomApp.swift */; };
+		135F05209688123262BA47B7 /* polynomial-action-cases.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DB8FE52AC27F42A6348F1A3 /* polynomial-action-cases.json */; };
+		186D8A84F35D6B3901714F73 /* polynomial-test-cases.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BE00D30AE5C614D1DE7C894 /* polynomial-test-cases.json */; };
+		19FC9319C0D65BA07D34D1F8 /* polynomial-default.json in Resources */ = {isa = PBXBuildFile; fileRef = 96354C34E98C320B9286C8FE /* polynomial-default.json */; };
+		2EB6050E37AC89D3FC1C173B /* PolynomialRoomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5563AE84371E63A82B3C5F69 /* PolynomialRoomUITests.swift */; };
 		33DE466043214461952020E2 /* ExteriorRoomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339B63D12BC52434920A7638 /* ExteriorRoomUITests.swift */; };
+		4FD733AF793BB84A28C732F3 /* polynomial-export-receipt.json in Resources */ = {isa = PBXBuildFile; fileRef = E2C2BBC2863FD250E8F6D489 /* polynomial-export-receipt.json */; };
+		59502650CF1C188D3B3D09DC /* polynomial-export-receipt.json in Resources */ = {isa = PBXBuildFile; fileRef = E2C2BBC2863FD250E8F6D489 /* polynomial-export-receipt.json */; };
+		5ADE8D6248852511B77C7747 /* PolynomialAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36C0C9846474138FF9D8FC4 /* PolynomialAppearance.swift */; };
+		5C866116BB4005DE9B186A92 /* polynomial-action-cases.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DB8FE52AC27F42A6348F1A3 /* polynomial-action-cases.json */; };
+		5DFA26BE02B709B8F76843B9 /* PolynomialViridis.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D96380DEBA366D83D8CE6D /* PolynomialViridis.swift */; };
+		65F4D11055F034CE58671102 /* polynomial-cloud-r6.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D1125617602A7C3976E1646 /* polynomial-cloud-r6.json */; };
 		6811205F76A2BFCC76A6B3F0 /* ExteriorSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C37C7FC5CD632979BE9E697 /* ExteriorSpace.swift */; };
 		793D8DE4850C8F8A1DB30B32 /* LeanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF104AF681A926D688035E /* LeanModel.swift */; };
+		8FB09B7A7DFCF0C0D4049AE3 /* PolynomialSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD102383C5058F5F71EF4C43 /* PolynomialSpace.swift */; };
 		90325A618B43A8C73F3558A0 /* presets.json in Resources */ = {isa = PBXBuildFile; fileRef = B6D08F4D34C27C68D894A576 /* presets.json */; };
+		9EEF5CA420B42FA0111180C6 /* PolynomialAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9446F04D88C5F8780ED8391F /* PolynomialAction.swift */; };
+		A222147B6C168A1B3DE437D7 /* SimulatorCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10FAE16EC1A894EF25B21CE /* SimulatorCapture.swift */; };
+		A45410BD8EB7EA0DD1398D07 /* PolynomialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3704BC174D87770542FC3 /* PolynomialModel.swift */; };
+		AEDE03D08985D2DFF73ECA13 /* PolynomialRoomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D9A7AC7242AD59FE61899 /* PolynomialRoomApp.swift */; };
+		B441B792C72FF52C04D2FC06 /* polynomial-action-receipt.json in Resources */ = {isa = PBXBuildFile; fileRef = 360482516E0B7032BFD3D6FA /* polynomial-action-receipt.json */; };
+		BA030C25F4CDEF64CF6CCBC2 /* PolynomialTransformControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEF36B1640E131A1316BD2B /* PolynomialTransformControls.swift */; };
+		BE8FC96EAF4ABC45A580D6A9 /* polynomial-default.json in Resources */ = {isa = PBXBuildFile; fileRef = 96354C34E98C320B9286C8FE /* polynomial-default.json */; };
 		BF5BC117F6C83684A46CA458 /* SimulatorCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10FAE16EC1A894EF25B21CE /* SimulatorCapture.swift */; };
+		C752BA73245B74451930FC8D /* polynomial-cloud-r6.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D1125617602A7C3976E1646 /* polynomial-cloud-r6.json */; };
+		CA3B37262A8D5524DA13F9AC /* polynomial-test-cases.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BE00D30AE5C614D1DE7C894 /* polynomial-test-cases.json */; };
+		CF4B0935C5E8591AB474B8AE /* presets.json in Resources */ = {isa = PBXBuildFile; fileRef = B6D08F4D34C27C68D894A576 /* presets.json */; };
+		D423DDF11EC38B57F043227D /* polynomial-action-receipt.json in Resources */ = {isa = PBXBuildFile; fileRef = 360482516E0B7032BFD3D6FA /* polynomial-action-receipt.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		090B3A9983B64A8E166D7DA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA598693AF0DDC038811C8D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 413A74F48EB63CAF1A91447B;
+			remoteInfo = PolynomialRoom;
+		};
 		8341A48B82DB00C226DE5BDB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AA598693AF0DDC038811C8D6 /* Project object */;
@@ -26,12 +55,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0DB8FE52AC27F42A6348F1A3 /* polynomial-action-cases.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "polynomial-action-cases.json"; sourceTree = "<group>"; };
 		191E427B39895A47D5BFAA24 /* ExteriorRoomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExteriorRoomApp.swift; sourceTree = "<group>"; };
 		339B63D12BC52434920A7638 /* ExteriorRoomUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExteriorRoomUITests.swift; sourceTree = "<group>"; };
+		360482516E0B7032BFD3D6FA /* polynomial-action-receipt.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "polynomial-action-receipt.json"; sourceTree = "<group>"; };
+		3AB3704BC174D87770542FC3 /* PolynomialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialModel.swift; sourceTree = "<group>"; };
+		3DEF36B1640E131A1316BD2B /* PolynomialTransformControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialTransformControls.swift; sourceTree = "<group>"; };
+		5563AE84371E63A82B3C5F69 /* PolynomialRoomUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialRoomUITests.swift; sourceTree = "<group>"; };
+		566A08A555BEB3872E73B8F0 /* PolynomialRoom.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = PolynomialRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		589D9A7AC7242AD59FE61899 /* PolynomialRoomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialRoomApp.swift; sourceTree = "<group>"; };
+		5A4E6E208CFA18CDB520E045 /* PolynomialRoomUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = PolynomialRoomUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BE00D30AE5C614D1DE7C894 /* polynomial-test-cases.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "polynomial-test-cases.json"; sourceTree = "<group>"; };
 		6C37C7FC5CD632979BE9E697 /* ExteriorSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExteriorSpace.swift; sourceTree = "<group>"; };
+		9446F04D88C5F8780ED8391F /* PolynomialAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialAction.swift; sourceTree = "<group>"; };
+		96354C34E98C320B9286C8FE /* polynomial-default.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "polynomial-default.json"; sourceTree = "<group>"; };
+		9D1125617602A7C3976E1646 /* polynomial-cloud-r6.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "polynomial-cloud-r6.json"; sourceTree = "<group>"; };
 		9D6B0B4D85F50C0A4349DE96 /* ExteriorRoom.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ExteriorRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A36C0C9846474138FF9D8FC4 /* PolynomialAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialAppearance.swift; sourceTree = "<group>"; };
+		AD102383C5058F5F71EF4C43 /* PolynomialSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialSpace.swift; sourceTree = "<group>"; };
 		B6D08F4D34C27C68D894A576 /* presets.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = presets.json; sourceTree = "<group>"; };
+		B7D96380DEBA366D83D8CE6D /* PolynomialViridis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialViridis.swift; sourceTree = "<group>"; };
 		E10FAE16EC1A894EF25B21CE /* SimulatorCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorCapture.swift; sourceTree = "<group>"; };
+		E2C2BBC2863FD250E8F6D489 /* polynomial-export-receipt.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "polynomial-export-receipt.json"; sourceTree = "<group>"; };
 		E8AF104AF681A926D688035E /* LeanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanModel.swift; sourceTree = "<group>"; };
 		E9997D7E0D9CABE49C25EE86 /* ExteriorRoomUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ExteriorRoomUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -40,9 +85,23 @@
 		4433D495FC0CB99CFD01C1D6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0DB8FE52AC27F42A6348F1A3 /* polynomial-action-cases.json */,
+				360482516E0B7032BFD3D6FA /* polynomial-action-receipt.json */,
+				9D1125617602A7C3976E1646 /* polynomial-cloud-r6.json */,
+				96354C34E98C320B9286C8FE /* polynomial-default.json */,
+				E2C2BBC2863FD250E8F6D489 /* polynomial-export-receipt.json */,
+				6BE00D30AE5C614D1DE7C894 /* polynomial-test-cases.json */,
 				B6D08F4D34C27C68D894A576 /* presets.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		7283B5BA740BEAB3180DAB86 /* PolynomialUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5563AE84371E63A82B3C5F69 /* PolynomialRoomUITests.swift */,
+			);
+			path = PolynomialUITests;
 			sourceTree = "<group>";
 		};
 		7C6FB65CB08BD6819F12674C /* Sources */ = {
@@ -51,6 +110,13 @@
 				191E427B39895A47D5BFAA24 /* ExteriorRoomApp.swift */,
 				6C37C7FC5CD632979BE9E697 /* ExteriorSpace.swift */,
 				E8AF104AF681A926D688035E /* LeanModel.swift */,
+				9446F04D88C5F8780ED8391F /* PolynomialAction.swift */,
+				A36C0C9846474138FF9D8FC4 /* PolynomialAppearance.swift */,
+				3AB3704BC174D87770542FC3 /* PolynomialModel.swift */,
+				589D9A7AC7242AD59FE61899 /* PolynomialRoomApp.swift */,
+				AD102383C5058F5F71EF4C43 /* PolynomialSpace.swift */,
+				3DEF36B1640E131A1316BD2B /* PolynomialTransformControls.swift */,
+				B7D96380DEBA366D83D8CE6D /* PolynomialViridis.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -60,6 +126,8 @@
 			children = (
 				9D6B0B4D85F50C0A4349DE96 /* ExteriorRoom.app */,
 				E9997D7E0D9CABE49C25EE86 /* ExteriorRoomUITests.xctest */,
+				566A08A555BEB3872E73B8F0 /* PolynomialRoom.app */,
+				5A4E6E208CFA18CDB520E045 /* PolynomialRoomUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,6 +144,7 @@
 		D281DD71938F343CF5F3CE60 = {
 			isa = PBXGroup;
 			children = (
+				7283B5BA740BEAB3180DAB86 /* PolynomialUITests */,
 				4433D495FC0CB99CFD01C1D6 /* Resources */,
 				7C6FB65CB08BD6819F12674C /* Sources */,
 				CC4259EA97854F9E62422B3D /* UITests */,
@@ -86,6 +155,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		413A74F48EB63CAF1A91447B /* PolynomialRoom */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAECBB5B3385B62B8CAA7ACE /* Build configuration list for PBXNativeTarget "PolynomialRoom" */;
+			buildPhases = (
+				144AF742093F0B0FEB546599 /* Sources */,
+				E98FC0A8DCC491E5B4A894FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PolynomialRoom;
+			packageProductDependencies = (
+			);
+			productName = PolynomialRoom;
+			productReference = 566A08A555BEB3872E73B8F0 /* PolynomialRoom.app */;
+			productType = "com.apple.product-type.application";
+		};
 		763F0D9CFE697079127BF033 /* ExteriorRoomUITests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1C788CB5E155BE5FC46C8978 /* Build configuration list for PBXNativeTarget "ExteriorRoomUITests" */;
@@ -122,6 +209,24 @@
 			productReference = 9D6B0B4D85F50C0A4349DE96 /* ExteriorRoom.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D1D43ED5F180280E45B0E40E /* PolynomialRoomUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3EBC3C26AFAFD07C7EECAE1 /* Build configuration list for PBXNativeTarget "PolynomialRoomUITests" */;
+			buildPhases = (
+				907EF6D7C54CE721089949F3 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2047C31F409D532EA57AC13 /* PBXTargetDependency */,
+			);
+			name = PolynomialRoomUITests;
+			packageProductDependencies = (
+			);
+			productName = PolynomialRoomUITests;
+			productReference = 5A4E6E208CFA18CDB520E045 /* PolynomialRoomUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -133,6 +238,9 @@
 				TargetAttributes = {
 					763F0D9CFE697079127BF033 = {
 						TestTargetID = 94350F197FB116FEF63F52F9;
+					};
+					D1D43ED5F180280E45B0E40E = {
+						TestTargetID = 413A74F48EB63CAF1A91447B;
 					};
 				};
 			};
@@ -152,6 +260,8 @@
 			targets = (
 				94350F197FB116FEF63F52F9 /* ExteriorRoom */,
 				763F0D9CFE697079127BF033 /* ExteriorRoomUITests */,
+				413A74F48EB63CAF1A91447B /* PolynomialRoom */,
+				D1D43ED5F180280E45B0E40E /* PolynomialRoomUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -161,19 +271,62 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				135F05209688123262BA47B7 /* polynomial-action-cases.json in Resources */,
+				B441B792C72FF52C04D2FC06 /* polynomial-action-receipt.json in Resources */,
+				65F4D11055F034CE58671102 /* polynomial-cloud-r6.json in Resources */,
+				19FC9319C0D65BA07D34D1F8 /* polynomial-default.json in Resources */,
+				4FD733AF793BB84A28C732F3 /* polynomial-export-receipt.json in Resources */,
+				186D8A84F35D6B3901714F73 /* polynomial-test-cases.json in Resources */,
 				90325A618B43A8C73F3558A0 /* presets.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E98FC0A8DCC491E5B4A894FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C866116BB4005DE9B186A92 /* polynomial-action-cases.json in Resources */,
+				D423DDF11EC38B57F043227D /* polynomial-action-receipt.json in Resources */,
+				C752BA73245B74451930FC8D /* polynomial-cloud-r6.json in Resources */,
+				BE8FC96EAF4ABC45A580D6A9 /* polynomial-default.json in Resources */,
+				59502650CF1C188D3B3D09DC /* polynomial-export-receipt.json in Resources */,
+				CA3B37262A8D5524DA13F9AC /* polynomial-test-cases.json in Resources */,
+				CF4B0935C5E8591AB474B8AE /* presets.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		144AF742093F0B0FEB546599 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EEF5CA420B42FA0111180C6 /* PolynomialAction.swift in Sources */,
+				5ADE8D6248852511B77C7747 /* PolynomialAppearance.swift in Sources */,
+				A45410BD8EB7EA0DD1398D07 /* PolynomialModel.swift in Sources */,
+				AEDE03D08985D2DFF73ECA13 /* PolynomialRoomApp.swift in Sources */,
+				8FB09B7A7DFCF0C0D4049AE3 /* PolynomialSpace.swift in Sources */,
+				BA030C25F4CDEF64CF6CCBC2 /* PolynomialTransformControls.swift in Sources */,
+				5DFA26BE02B709B8F76843B9 /* PolynomialViridis.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		307856F24FEA4BD070520D0A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				33DE466043214461952020E2 /* ExteriorRoomUITests.swift in Sources */,
 				BF5BC117F6C83684A46CA458 /* SimulatorCapture.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		907EF6D7C54CE721089949F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EB6050E37AC89D3FC1C173B /* PolynomialRoomUITests.swift in Sources */,
+				A222147B6C168A1B3DE437D7 /* SimulatorCapture.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +347,11 @@
 			isa = PBXTargetDependency;
 			target = 94350F197FB116FEF63F52F9 /* ExteriorRoom */;
 			targetProxy = 8341A48B82DB00C226DE5BDB /* PBXContainerItemProxy */;
+		};
+		D2047C31F409D532EA57AC13 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 413A74F48EB63CAF1A91447B /* PolynomialRoom */;
+			targetProxy = 090B3A9983B64A8E166D7DA2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -279,6 +437,46 @@
 			};
 			name = Release;
 		};
+		36D8435856093227114BD6E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alok.PolynomialRoomUITests;
+				SDKROOT = xros;
+				TARGETED_DEVICE_FAMILY = 7;
+				TEST_TARGET_NAME = PolynomialRoom;
+			};
+			name = Debug;
+		};
+		484C971EB08EDB2FB1B10815 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PolynomialInfo.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Lean Starscape";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Connect to your Mac's local Lean computation bridge.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alok.PolynomialRoom;
+				SDKROOT = xros;
+				TARGETED_DEVICE_FAMILY = 7;
+			};
+			name = Debug;
+		};
 		6A996FC5F0F29C71376BC774 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -333,6 +531,23 @@
 				SDKROOT = xros;
 				TARGETED_DEVICE_FAMILY = 7;
 				TEST_TARGET_NAME = ExteriorRoom;
+			};
+			name = Release;
+		};
+		EFE53C892964F24C202D408B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alok.PolynomialRoomUITests;
+				SDKROOT = xros;
+				TARGETED_DEVICE_FAMILY = 7;
+				TEST_TARGET_NAME = PolynomialRoom;
 			};
 			name = Release;
 		};
@@ -401,6 +616,29 @@
 			};
 			name = Debug;
 		};
+		FFFE5972525BFF01AE8F8010 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PolynomialInfo.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Lean Starscape";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Connect to your Mac's local Lean computation bridge.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alok.PolynomialRoom;
+				SDKROOT = xros;
+				TARGETED_DEVICE_FAMILY = 7;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -418,6 +656,24 @@
 			buildConfigurations = (
 				FD9FA3CFCF6F1D97B12A43C3 /* Debug */,
 				2D82AF8FB7F91B03B7150055 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A3EBC3C26AFAFD07C7EECAE1 /* Build configuration list for PBXNativeTarget "PolynomialRoomUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36D8435856093227114BD6E8 /* Debug */,
+				EFE53C892964F24C202D408B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AAECBB5B3385B62B8CAA7ACE /* Build configuration list for PBXNativeTarget "PolynomialRoom" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				484C971EB08EDB2FB1B10815 /* Debug */,
+				FFFE5972525BFF01AE8F8010 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

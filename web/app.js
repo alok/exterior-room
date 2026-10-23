@@ -119,6 +119,7 @@ for(let i=0;i<2;i++){
   const laser=line([new THREE.Vector3(),new THREE.Vector3(0,0,-5)],0x96ccc4,.6);controller.add(laser);
   controller.addEventListener('selectstart',()=>{controllerRay(controller,raycaster);const found=visibleIntersections(raycaster,[...Object.values(handles),...xrButtons])[0];if(!found)return;if(found.object.userData.action){found.object.userData.action();return;}select(found.object.userData.vector);controller.userData.drag={name:selected,distance:found.distance,offset:found.object.getWorldPosition(new THREE.Vector3()).sub(found.point)};});
   controller.addEventListener('selectend',()=>{updateXRDrag(controller);delete controller.userData.drag;});
+  controller.addEventListener('disconnected',()=>{delete controller.userData.drag;});
 }
 // In-world controls make the important actions usable without DOM overlays.
 const xrPanel=new THREE.Group();scene.add(xrPanel);xrPanel.visible=false;const xrButtons=[];

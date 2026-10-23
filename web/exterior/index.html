@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#081018">
+  <title>Exterior Room · Lean spatial laboratory</title>
+  <link rel="stylesheet" href="../style.css">
+  <script type="importmap">{"imports":{"three":"../vendor/three.module.js"}}</script>
+</head>
+<body>
+  <canvas id="scene" aria-label="Interactive three dimensional exterior algebra. Drag the colored vector tips or use the vector coordinate controls."></canvas>
+  <header>
+    <a class="wordmark" href="./"><span class="logo">⋀</span> EXTERIOR ROOM <span class="version">01</span></a>
+    <div id="connection" role="status" aria-live="polite"><span class="dot"></span><span id="connection-text">Connecting to Lean</span></div>
+  </header>
+  <main>
+    <section class="intro">
+      <div class="eyebrow">ARCHIVED EXTERIOR-ALGEBRA EXPERIMENT</div><a href="../polynomial/" style="display:inline-block;margin-top:8px;color:#8ee9d7">Lean Starscape →</a>
+      <h1>Give algebra<br>some room.</h1>
+      <p>Grab a vector. Shape an area.<br>Turn it into a volume.</p>
+    </section>
+    <aside class="controls panel" aria-label="Shape controls">
+      <div class="panel-heading"><span>SHAPE THE SPACE</span><span class="small">¼-unit grid</span></div>
+      <div class="vector-tabs" role="group" aria-label="Choose vector">
+        <button data-vector="a" class="selected" aria-pressed="true"><i class="swatch a"></i>a</button>
+        <button data-vector="b" aria-pressed="false"><i class="swatch b"></i>b</button>
+        <button data-vector="c" aria-pressed="false"><i class="swatch c"></i>c</button>
+      </div>
+      <div id="coordinates"></div>
+      <div class="actions"><button id="swap">Swap a ↔ b</button><button id="flatten">Flatten</button></div>
+      <div class="presets" role="group" aria-label="Presets"><button data-preset="skew" class="active">Skew</button><button data-preset="unit">Unit</button><button data-preset="plane">Plane</button><button id="reset">Reset ↺</button></div>
+    </aside>
+  </main>
+  <nav class="view-controls panel" aria-label="View controls">
+    <button id="overview" class="active" aria-pressed="true">◇ Overview</button><button id="inside" aria-pressed="false">◎ Inside</button>
+    <span class="divider"></span><button id="volume-toggle" aria-pressed="true">Volume</button><button id="xr-button" disabled>Enter VR</button>
+  </nav>
+  <div id="spatial-hint">Drag colored tips · drag space to orbit · scroll to move closer</div>
+  <section class="metrics panel" aria-label="Exact Lean results">
+    <div class="metric"><span class="eyebrow">ORIENTED AREA · a ∧ b</span><div id="wedge" class="formula">…</div><span class="small">coefficients of e₁₂, e₁₃, e₂₃</span></div>
+    <div class="metric"><span class="eyebrow">SIGNED VOLUME · a ∧ b ∧ c</span><div class="volume-value"><span id="volume">…</span><span id="orientation" class="orientation">waiting</span></div><span class="small">exact cubic units</span></div>
+    <button id="proof-toggle" aria-expanded="false" aria-controls="proof-panel"><span class="proof-icon">✓</span><span>Open the proof boundary<small>What Lean checks. What you see.</small></span><span class="chevron">↗</span></button>
+  </section>
+  <section id="proof-panel" class="panel" hidden aria-label="Proof boundary">
+    <button id="proof-close" aria-label="Close proof boundary">×</button>
+    <div class="eyebrow">THE PROOF BOUNDARY</div><h2>Exact algebra. Approximate picture.</h2>
+    <div class="boundary"><strong>Kernel-checked</strong><p>General Grassmann identities: self-wedge is zero; the 3D wedge and triple product agree with their coordinate formulas. See the precise theorem names and axiom audit in the source receipt.</p></div>
+    <div class="boundary"><strong>Executable Lean</strong><p>Every accepted edit runs the actual Grassmann wedge operations in a native Lean process on this Mac. Integers are exact. Length, area, and volume use scales 4, 16, and 64.</p></div>
+    <div class="boundary"><strong>Renderer only</strong><p>Three.js draws floating-point meshes. Dragging, lighting, camera motion, HTTP transport, and the compiled runtime are not kernel-verified. A live result is a calculation, not a fresh kernel proof.</p></div>
+    <div id="proof-checks" class="checks">Waiting for Lean</div>
+    <div class="receipt-links"><a href="/receipt.html" target="_blank" rel="noopener">Source &amp; proof receipt ↗</a><button id="download">Save this result ↓</button></div>
+    <p id="xr-note" class="small"></p>
+  </section>
+  <div id="error" role="alert" hidden></div>
+  <script type="module">if(new URLSearchParams(location.search).get('qaXR')==='1')await import('/qa/xr-bootstrap.js');await import('../app.js');</script>
+</body>
+</html>

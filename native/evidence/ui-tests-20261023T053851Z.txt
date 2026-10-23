@@ -1,0 +1,224 @@
+Command line invocation:
+    /Applications/Xcode-27.2.0-Beta.2.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/.build/Build/Products/PolynomialRoom-capture.xctestrun -destination "platform=visionOS Simulator,id=1D261881-0A0F-4DE0-B704-12644E606348" -parallel-testing-enabled NO -jobs 2 -collect-test-diagnostics never -resultBundlePath /Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/evidence/NativeUI-20261023T053851Z.xcresult
+
+Writing result bundle at path:
+	/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/evidence/NativeUI-20261023T053851Z.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:visionOS Simulator, arch:arm64, id:1D261881-0A0F-4DE0-B704-12644E606348, OS:27.2, name:Exterior Room QA 2026-10-23 }
+{ platform:visionOS Simulator, arch:arm64, variant:Designed for [iPad,iPhone], id:1D261881-0A0F-4DE0-B704-12644E606348, OS:27.2, name:Exterior Room QA 2026-10-23 }
+2026-10-22 22:38:56.312551-0700 PolynomialRoomUITests-Runner[23576:9059928] [Default] Running tests...
+2026-10-22 22:38:56.319479-0700 PolynomialRoomUITests-Runner[23576:9059928] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-22 22:38:56.371114-0700 PolynomialRoomUITests-Runner[23576:9060854] [assertions] failed to observe with mask <BLSXPCBacklightProxyObserverMask: 0x10775da10; didUpdateToState: YES; eventsArray: YES> error:<XPC error received on message reply handler (3:BSServiceConnectionErrorDomain) "The operation couldn’t be completed. XPC error received on message reply handler">
+2026-10-22 22:38:56.383830-0700 PolynomialRoomUITests-Runner[23576:9060853] [plugin] AddInstanceForFactory: No factory registered for id <CFUUID 0x10a9891e0> F8BB1C28-BAE8-11D6-9C31-00039315CD46
+2026-10-22 22:38:56.404305-0700 PolynomialRoomUITests-Runner[23576:9060850] [connection] nw_socket_copy_info [C1:2] getsockopt TCP_INFO failed [102: Operation not supported on socket]
+2026-10-22 22:38:56.404346-0700 PolynomialRoomUITests-Runner[23576:9060850] [] nw_socket_copy_info getsockopt TCP_INFO failed [102: Operation not supported on socket]
+    t =      nans Interface orientation changed to Unknown
+objc[23576]: Class AXMRUIAccessibilityAssertionService is implemented in both /private/var/run/com.apple.security.cryptexd/mnt/com.apple.XROS.SimulatorRuntime-v24.14.5093.6.tLntQt/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/PrivateFrameworks/AccessibilityUIUtilities.framework/AccessibilityUIUtilities (0x1f00b6278) and /private/var/run/com.apple.security.cryptexd/mnt/com.apple.XROS.SimulatorRuntime-v24.14.5093.6.tLntQt/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/PrivateFrameworks/MuseAccessibilityUI.framework/MuseAccessibilityUI (0x1073bc118). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+2026-10-22 22:38:56.720020-0700 PolynomialRoomUITests-Runner[23576:9059928] [AXCommon] Failed to load auxiliary bundle file:///private/var/run/com.apple.security.cryptexd/mnt/com.apple.XROS.SimulatorRuntime-v24.14.5093.6.tLntQt/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS%2027.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/MuseUIKit: (null)
+Test Suite 'All tests' started at 2026-10-22 22:38:56.822.
+Test Suite 'PolynomialRoomUITests.xctest' started at 2026-10-22 22:38:56.822.
+Test Suite 'PolynomialRoomUITests' started at 2026-10-22 22:38:56.822.
+Test Case '-[PolynomialRoomUITests.PolynomialRoomUITests testSignedPointsPlanesAndPlacements]' started.
+    t =     0.00s Start Test at 2026-10-22 22:38:56.826
+    t =     0.02s Set Up
+    t =     0.02s Open com.alok.PolynomialRoom
+    t =     0.02s     Launch com.alok.PolynomialRoom
+2026-10-22 22:38:56.903 xcodebuild[23533:9059508] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-10-22 22:38:56.903 xcodebuild[23533:9059508] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     0.49s         Setting up automation session
+    t =     3.84s         Wait for com.alok.PolynomialRoom to idle
+    t =     5.56s Waiting 20.0s for "poly-connect" Button to exist
+    t =     6.57s     Checking `Expect predicate `existsNoRetry == 1` for object "poly-connect" Button`
+    t =     6.57s         Checking existence of `"poly-connect" Button`
+    t =     6.70s Find the "poly-polynomial" StaticText
+    t =     6.73s Tap "poly-connect" Button
+    t =     6.73s     Wait for com.alok.PolynomialRoom to idle
+    t =     6.73s     Find the "poly-connect" Button
+    t =     6.76s     Check for interrupting elements affecting "poly-connect" Button
+    t =     6.76s         Wait for com.apple.SurfBoard to idle
+    t =     6.83s     Synthesize event
+    t =     7.33s     Wait for com.alok.PolynomialRoom to idle
+    t =     8.38s Checking `Expect predicate `label BEGINSWITH "Live Lean"` for object "poly-status" StaticText`
+    t =     8.38s     Find the "poly-status" StaticText
+    t =     8.42s Tap "poly-space" Button
+    t =     8.42s     Wait for com.alok.PolynomialRoom to idle
+    t =     8.42s     Find the "poly-space" Button
+    t =     8.44s     Check for interrupting elements affecting "poly-space" Button
+    t =     8.45s         Wait for com.apple.SurfBoard to idle
+    t =     8.52s     Synthesize event
+    t =     8.98s     Wait for com.alok.PolynomialRoom to idle
+    t =    10.88s Checking `Expect predicate `label == "Leave"` for object "poly-space" Button`
+    t =    10.88s     Find the "poly-space" Button
+    t =    11.27s Added attachment named 'polynomial-parity-start'
+    t =    21.52s Added attachment named 'poly-00-canonical-default'
+    t =    21.52s Added attachment named 'poly-00-canonical-default-timing'
+    t =    21.52s Tap "poly-next" Button
+    t =    21.52s     Wait for com.alok.PolynomialRoom to idle
+    t =    21.52s     Find the "poly-next" Button
+    t =    21.63s     Check for interrupting elements affecting "poly-next" Button
+    t =    21.63s         Wait for com.apple.SurfBoard to idle
+    t =    21.70s     Synthesize event
+    t =    22.09s     Wait for com.alok.PolynomialRoom to idle
+    t =    23.19s Checking `Expect predicate `label BEGINSWITH "Live Lean"` for object "poly-status" StaticText`
+    t =    23.19s     Find the "poly-status" StaticText
+    t =    23.29s Find the "poly-state" StaticText
+    t =    23.39s Checking existence of `"poly-hidden" StaticText`
+    t =    23.48s Find the "poly-inhabit" Button
+    t =    33.99s Added attachment named 'poly-00-hidden-multiple'
+    t =    33.99s Added attachment named 'poly-00-hidden-multiple-timing'
+    t =    33.99s Tap "poly-upper" Button
+    t =    33.99s     Wait for com.alok.PolynomialRoom to idle
+    t =    34.00s     Find the "poly-upper" Button
+    t =    34.10s     Check for interrupting elements affecting "poly-upper" Button
+    t =    34.11s         Wait for com.apple.SurfBoard to idle
+    t =    34.18s     Synthesize event
+    t =    34.56s     Wait for com.alok.PolynomialRoom to idle
+    t =    35.60s Checking `Expect predicate `label BEGINSWITH "Live Lean"` for object "poly-status" StaticText`
+    t =    35.60s     Find the "poly-status" StaticText
+    t =    46.00s Added attachment named 'poly-01-upper'
+    t =    46.01s Added attachment named 'poly-01-upper-timing'
+    t =    46.01s Find the "poly-root" StaticText
+    t =    46.10s Tap "poly-lower" Button
+    t =    46.10s     Wait for com.alok.PolynomialRoom to idle
+    t =    46.10s     Find the "poly-lower" Button
+    t =    46.21s     Check for interrupting elements affecting "poly-lower" Button
+    t =    46.21s         Wait for com.apple.SurfBoard to idle
+    t =    46.28s     Synthesize event
+    t =    46.66s     Wait for com.alok.PolynomialRoom to idle
+    t =    47.70s Checking `Expect predicate `label BEGINSWITH "Live Lean"` for object "poly-status" StaticText`
+    t =    47.70s     Find the "poly-status" StaticText
+    t =    47.80s Find the "poly-state" StaticText
+    t =    47.89s Find the "poly-root" StaticText
+    t =    58.27s Added attachment named 'poly-02-lower'
+    t =    58.27s Added attachment named 'poly-02-lower-timing'
+    t =    58.27s Tap "poly-exterior" Button
+    t =    58.27s     Wait for com.alok.PolynomialRoom to idle
+    t =    58.28s     Find the "poly-exterior" Button
+    t =    58.38s     Check for interrupting elements affecting "poly-exterior" Button
+    t =    58.39s         Wait for com.apple.SurfBoard to idle
+    t =    58.46s     Synthesize event
+    t =    58.84s     Wait for com.alok.PolynomialRoom to idle
+    t =    59.88s Checking `Expect predicate `label BEGINSWITH "Live Lean"` for object "poly-status" StaticText`
+    t =    59.89s     Find the "poly-status" StaticText
+    t =    59.99s Find the "poly-state" StaticText
+    t =    60.09s Checking existence of `"poly-plane" StaticText`
+    t =    70.46s Added attachment named 'poly-03-exterior-plane'
+    t =    70.46s Added attachment named 'poly-03-exterior-plane-timing'
+    t =    70.46s Tap "poly-upper" Button
+    t =    70.46s     Wait for com.alok.PolynomialRoom to idle
+    t =    70.46s     Find the "poly-upper" Button
+    t =    70.57s     Check for interrupting elements affecting "poly-upper" Button
+    t =    70.58s         Wait for com.apple.SurfBoard to idle
+    t =    70.65s     Synthesize event
+    t =    71.05s     Wait for com.alok.PolynomialRoom to idle
+    t =    72.14s Checking `Expect predicate `label BEGINSWITH "Live Lean"` for object "poly-status" StaticText`
+    t =    72.14s     Find the "poly-status" StaticText
+    t =    72.24s Tap "poly-pair" Button
+    t =    72.24s     Wait for com.alok.PolynomialRoom to idle
+    t =    72.24s     Find the "poly-pair" Button
+    t =    72.34s     Check for interrupting elements affecting "poly-pair" Button
+    t =    72.35s         Wait for com.apple.SurfBoard to idle
+    t =    72.42s     Synthesize event
+    t =    72.84s     Wait for com.alok.PolynomialRoom to idle
+    t =    73.92s Checking `Expect predicate `label BEGINSWITH "Live Lean"` for object "poly-status" StaticText`
+    t =    73.92s     Find the "poly-status" StaticText
+    t =    74.03s Checking existence of `"poly-plane" StaticText`
+    t =    74.13s Checking existence of `"poly-members" StaticText`
+    t =    81.27s Added attachment named 'poly-04-pair'
+    t =    81.27s Added attachment named 'poly-04-pair-timing'
+    t =    81.27s Tap "poly-palette" Button
+    t =    81.27s     Wait for com.alok.PolynomialRoom to idle
+    t =    81.28s     Find the "poly-palette" Button
+    t =    81.39s     Check for interrupting elements affecting "poly-palette" Button
+    t =    81.40s         Wait for com.apple.SurfBoard to idle
+    t =    81.47s     Synthesize event
+    t =    82.36s     Wait for com.alok.PolynomialRoom to idle
+    t =    82.36s Find the "poly-palette" Button
+    t =    82.49s Find the "poly-size" Slider
+    t =    82.59s Set normalized position of "poly-size" Slider to 0.70
+    t =    82.59s     Wait for com.alok.PolynomialRoom to idle
+    t =    82.59s     Find the "poly-size" Slider
+    t =    82.69s     Check for interrupting elements affecting "poly-size" Slider
+    t =    82.70s         Wait for com.apple.SurfBoard to idle
+    t =    82.77s     Synthesize event
+    t =    82.77s         Failed: Unable to get expected attributes for slider, found {
+    "XC_kAXXCAttributeMaxScrubberPosition" =     {
+        X = 0;
+        Y = 0;
+    };
+    "XC_kAXXCAttributeMinScrubberPosition" =     {
+        X = 0;
+        Y = 0;
+    };
+}.
+    t =    82.77s         Requesting snapshot of accessibility hierarchy for app with pid 23903
+    t =    84.92s     Wait for com.alok.PolynomialRoom to idle
+    t =    85.93s     Retrying `Set normalized position of "poly-size" Slider to 0.70` (attempt #2)
+    t =    85.93s         Wait for com.alok.PolynomialRoom to idle
+    t =    85.94s         Find the "poly-size" Slider
+    t =    86.04s         Check for interrupting elements affecting "poly-size" Slider
+    t =    86.04s             Wait for com.apple.SurfBoard to idle
+    t =    86.11s         Synthesize event
+    t =    86.11s             Failed: Unable to get expected attributes for slider, found {
+    "XC_kAXXCAttributeMaxScrubberPosition" =     {
+        X = 0;
+        Y = 0;
+    };
+    "XC_kAXXCAttributeMinScrubberPosition" =     {
+        X = 0;
+        Y = 0;
+    };
+}.
+    t =    86.12s             Requesting snapshot of accessibility hierarchy for app with pid 23903
+    t =    88.25s         Wait for com.alok.PolynomialRoom to idle
+    t =    89.26s     Retrying `Set normalized position of "poly-size" Slider to 0.70` (attempt #3)
+    t =    89.26s         Wait for com.alok.PolynomialRoom to idle
+    t =    89.27s         Find the "poly-size" Slider
+    t =    89.37s         Check for interrupting elements affecting "poly-size" Slider
+    t =    89.49s             Wait for com.apple.SurfBoard to idle
+    t =    89.56s         Synthesize event
+    t =    89.56s             Failed: Unable to get expected attributes for slider, found {
+    "XC_kAXXCAttributeMaxScrubberPosition" =     {
+        X = 0;
+        Y = 0;
+    };
+    "XC_kAXXCAttributeMinScrubberPosition" =     {
+        X = 0;
+        Y = 0;
+    };
+}.
+    t =    89.56s             Requesting snapshot of accessibility hierarchy for app with pid 23903
+    t =    91.58s         Wait for com.alok.PolynomialRoom to idle
+    t =    91.58s     Requesting snapshot of accessibility hierarchy for app with pid 23903
+/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/PolynomialUITests/PolynomialRoomUITests.swift:43: error: -[PolynomialRoomUITests.PolynomialRoomUITests testSignedPointsPlanesAndPlacements] : Failed to synthesize event: Unable to get expected attributes for slider, found {
+    "XC_kAXXCAttributeMaxScrubberPosition" =     {
+        X = 0;
+        Y = 0;
+    };
+    "XC_kAXXCAttributeMinScrubberPosition" =     {
+        X = 0;
+        Y = 0;
+    };
+}.
+    t =    93.70s Tear Down
+Test Case '-[PolynomialRoomUITests.PolynomialRoomUITests testSignedPointsPlanesAndPlacements]' failed (94.369 seconds).
+Test Suite 'PolynomialRoomUITests' failed at 2026-10-22 22:40:31.195.
+	 Executed 1 test, with 1 failure (0 unexpected) in 94.369 (94.373) seconds
+Test Suite 'PolynomialRoomUITests.xctest' failed at 2026-10-22 22:40:31.195.
+	 Executed 1 test, with 1 failure (0 unexpected) in 94.369 (94.373) seconds
+Test Suite 'All tests' failed at 2026-10-22 22:40:31.195.
+	 Executed 1 test, with 1 failure (0 unexpected) in 94.369 (94.374) seconds
+2026-10-22 22:40:31.518 xcodebuild[23533:9059508] [MT] IDETestOperationsObserverDebug: 99.314 elapsed -- Testing started completed.
+2026-10-22 22:40:31.518 xcodebuild[23533:9059508] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-22 22:40:31.518 xcodebuild[23533:9059508] [MT] IDETestOperationsObserverDebug: 99.314 sec, +99.314 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/evidence/NativeUI-20261023T053851Z.xcresult
+
+Failing tests:
+	PolynomialRoomUITests.testSignedPointsPlanesAndPlacements()
+
+** TEST EXECUTE FAILED **
+
+Testing started

@@ -1,0 +1,122 @@
+Command line invocation:
+    /Applications/Xcode-27.2.0-Beta.2.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/.build/Build/Products/ExteriorRoom-capture.xctestrun -destination "platform=visionOS Simulator,id=1D261881-0A0F-4DE0-B704-12644E606348" -parallel-testing-enabled NO -jobs 2 -collect-test-diagnostics never -resultBundlePath /Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/evidence/NativeUI-20261023T055513Z.xcresult "-only-testing:ExteriorRoomUITests/ExteriorRoomUITests/testTargetedEndpointDragRoundTrip"
+
+Writing result bundle at path:
+	/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/evidence/NativeUI-20261023T055513Z.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:visionOS Simulator, arch:arm64, id:1D261881-0A0F-4DE0-B704-12644E606348, OS:27.2, name:Exterior Room QA 2026-10-23 }
+{ platform:visionOS Simulator, arch:arm64, variant:Designed for [iPad,iPhone], id:1D261881-0A0F-4DE0-B704-12644E606348, OS:27.2, name:Exterior Room QA 2026-10-23 }
+2026-10-22 22:55:18.714381-0700 ExteriorRoomUITests-Runner[56667:9201996] [Default] Running tests...
+2026-10-22 22:55:18.721401-0700 ExteriorRoomUITests-Runner[56667:9201996] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-22 22:55:18.801537-0700 ExteriorRoomUITests-Runner[56667:9203043] [plugin] AddInstanceForFactory: No factory registered for id <CFUUID 0x109d84ce0> F8BB1C28-BAE8-11D6-9C31-00039315CD46
+2026-10-22 22:55:18.801550-0700 ExteriorRoomUITests-Runner[56667:9203084] [connection] nw_socket_copy_info [C1:2] getsockopt TCP_INFO failed [102: Operation not supported on socket]
+2026-10-22 22:55:18.801616-0700 ExteriorRoomUITests-Runner[56667:9203084] [] nw_socket_copy_info getsockopt TCP_INFO failed [102: Operation not supported on socket]
+objc[56667]: Class AXMRUIAccessibilityAssertionService is implemented in both /private/var/run/com.apple.security.cryptexd/mnt/com.apple.XROS.SimulatorRuntime-v24.14.5093.6.tLntQt/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/PrivateFrameworks/AccessibilityUIUtilities.framework/AccessibilityUIUtilities (0x1f00b6278) and /private/var/run/com.apple.security.cryptexd/mnt/com.apple.XROS.SimulatorRuntime-v24.14.5093.6.tLntQt/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/PrivateFrameworks/MuseAccessibilityUI.framework/MuseAccessibilityUI (0x1096b4118). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+2026-10-22 22:55:19.119277-0700 ExteriorRoomUITests-Runner[56667:9201996] [AXCommon] Failed to load auxiliary bundle file:///private/var/run/com.apple.security.cryptexd/mnt/com.apple.XROS.SimulatorRuntime-v24.14.5093.6.tLntQt/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS%2027.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/MuseUIKit: (null)
+    t =      nans Interface orientation changed to Unknown
+Test Suite 'Selected tests' started at 2026-10-22 22:55:19.173.
+Test Suite 'ExteriorRoomUITests.xctest' started at 2026-10-22 22:55:19.173.
+Test Suite 'ExteriorRoomUITests' started at 2026-10-22 22:55:19.173.
+Test Case '-[ExteriorRoomUITests.ExteriorRoomUITests testTargetedEndpointDragRoundTrip]' started.
+    t =     0.00s Start Test at 2026-10-22 22:55:19.175
+    t =     0.01s Set Up
+    t =     0.02s Open com.alok.ExteriorRoom
+    t =     0.02s     Launch com.alok.ExteriorRoom
+2026-10-22 22:55:19.265 xcodebuild[56623:9201607] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-10-22 22:55:19.266 xcodebuild[56623:9201607] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     0.50s         Setting up automation session
+    t =     4.00s         Wait for com.alok.ExteriorRoom to idle
+    t =     5.59s Waiting 20.0s for "connect" Button to exist
+    t =     6.63s     Checking `Expect predicate `existsNoRetry == 1` for object "connect" Button`
+    t =     6.63s         Checking existence of `"connect" Button`
+    t =     6.74s Tap "connect" Button
+    t =     6.74s     Wait for com.alok.ExteriorRoom to idle
+    t =     6.74s     Find the "connect" Button
+    t =     6.78s     Check for interrupting elements affecting "connect" Button
+    t =     6.79s         Wait for com.apple.SurfBoard to idle
+    t =     6.92s     Synthesize event
+    t =     7.46s     Wait for com.alok.ExteriorRoom to idle
+    t =     8.54s Checking `Expect predicate `label == "Live Lean · Mac bridge"` for object "lean-status" StaticText`
+    t =     8.55s     Find the "lean-status" StaticText
+    t =     8.57s Tap "toggle-space" Button
+    t =     8.57s     Wait for com.alok.ExteriorRoom to idle
+    t =     8.57s     Find the "toggle-space" Button
+    t =     8.59s     Check for interrupting elements affecting "toggle-space" Button
+    t =     8.59s         Wait for com.apple.SurfBoard to idle
+    t =     8.66s     Synthesize event
+    t =     9.11s     Wait for com.alok.ExteriorRoom to idle
+    t =    10.12s Added attachment named 'drag-before'
+    t =    10.12s Added attachment named 'drag-before-timing'
+    t =    10.12s Waiting 15.0s for Any (First Match) to exist
+    t =    11.17s     Checking `Expect predicate `existsNoRetry == 1` for object Any (First Match)`
+    t =    11.17s         Checking existence of `Any (First Match)`
+    t =    11.20s Find the "coordinate-x" StaticText
+    t =    11.25s Find the "coordinate-y" StaticText
+    t =    11.27s Find the "coordinate-z" StaticText
+    t =    11.30s Find the Any (First Match)
+    t =    11.32s Find the "Vector a endpoint" Other
+    t =    11.34s Find the "Vector a endpoint" Other
+    t =    11.36s Find the "Vector a endpoint" Other
+    t =    11.38s Added attachment named 'drag-route'
+    t =    11.38s Press "Vector a endpoint" Other[0.50, 0.50] for 0.2 seconds, then drag to "Vector a endpoint" Other[0.50, 0.50] -> (100.0, 0.0) with velocity of 250.00 pixels per second, and then hold for 0.2 seconds 
+    t =    11.38s     Wait for com.alok.ExteriorRoom to idle
+    t =    11.39s     Find the "Vector a endpoint" Other
+    t =    11.40s     Check for interrupting elements affecting "Vector a endpoint" Other
+    t =    11.41s         Wait for com.apple.SurfBoard to idle
+    t =    11.48s     Synthesize event
+    t =    11.48s         Find the "Vector a endpoint" Other
+    t =    11.50s         Find the "Vector a endpoint" Other
+    t =    11.52s         Find the "Vector a endpoint" Other
+    t =    11.54s         Find the "Vector a endpoint" Other
+    t =    11.56s         Find the "Vector a endpoint" Other
+    t =    17.68s         Failed: Received invalid activation point transform (nil) from Accessibility.
+    t =    17.69s     Wait for com.alok.ExteriorRoom to idle
+    t =    18.70s     Retrying `Press "Vector a endpoint" Other[0.50, 0.50] for 0.2 seconds, then drag to "Vector a endpoint" Other[0.50, 0.50] -> (100.0, 0.0) with velocity of 250.00 pixels per second, and then hold for 0.2 seconds ` (attempt #2)
+    t =    18.70s         Wait for com.alok.ExteriorRoom to idle
+    t =    18.70s         Find the "Vector a endpoint" Other
+    t =    18.72s         Check for interrupting elements affecting "Vector a endpoint" Other
+    t =    18.72s             Wait for com.apple.SurfBoard to idle
+    t =    18.80s         Synthesize event
+    t =    18.80s             Find the "Vector a endpoint" Other
+    t =    18.82s             Find the "Vector a endpoint" Other
+    t =    18.84s             Find the "Vector a endpoint" Other
+    t =    18.86s             Find the "Vector a endpoint" Other
+    t =    18.89s             Find the "Vector a endpoint" Other
+    t =    25.00s             Failed: Received invalid activation point transform (nil) from Accessibility.
+    t =    25.00s         Wait for com.alok.ExteriorRoom to idle
+    t =    26.01s     Retrying `Press "Vector a endpoint" Other[0.50, 0.50] for 0.2 seconds, then drag to "Vector a endpoint" Other[0.50, 0.50] -> (100.0, 0.0) with velocity of 250.00 pixels per second, and then hold for 0.2 seconds ` (attempt #3)
+    t =    26.01s         Wait for com.alok.ExteriorRoom to idle
+    t =    26.02s         Find the "Vector a endpoint" Other
+    t =    26.04s         Check for interrupting elements affecting "Vector a endpoint" Other
+    t =    26.04s             Wait for com.apple.SurfBoard to idle
+    t =    26.12s         Synthesize event
+    t =    26.12s             Find the "Vector a endpoint" Other
+    t =    26.25s             Find the "Vector a endpoint" Other
+    t =    26.27s             Find the "Vector a endpoint" Other
+    t =    26.29s             Find the "Vector a endpoint" Other
+    t =    26.42s             Find the "Vector a endpoint" Other
+    t =    32.53s             Failed: Received invalid activation point transform (nil) from Accessibility.
+    t =    32.54s         Wait for com.alok.ExteriorRoom to idle
+/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/UITests/ExteriorRoomUITests.swift:82: error: -[ExteriorRoomUITests.ExteriorRoomUITests testTargetedEndpointDragRoundTrip] : Failed to synthesize event: Received invalid activation point transform (nil) from Accessibility.
+    t =    32.58s Tear Down
+Test Case '-[ExteriorRoomUITests.ExteriorRoomUITests testTargetedEndpointDragRoundTrip]' failed (33.663 seconds).
+Test Suite 'ExteriorRoomUITests' failed at 2026-10-22 22:55:52.842.
+	 Executed 1 test, with 1 failure (0 unexpected) in 33.663 (33.669) seconds
+Test Suite 'ExteriorRoomUITests.xctest' failed at 2026-10-22 22:55:52.844.
+	 Executed 1 test, with 1 failure (0 unexpected) in 33.663 (33.671) seconds
+Test Suite 'Selected tests' failed at 2026-10-22 22:55:52.845.
+	 Executed 1 test, with 1 failure (0 unexpected) in 33.663 (33.672) seconds
+2026-10-22 22:55:53.162 xcodebuild[56623:9201607] [MT] IDETestOperationsObserverDebug: 38.750 elapsed -- Testing started completed.
+2026-10-22 22:55:53.162 xcodebuild[56623:9201607] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-22 22:55:53.162 xcodebuild[56623:9201607] [MT] IDETestOperationsObserverDebug: 38.750 sec, +38.750 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/evidence/NativeUI-20261023T055513Z.xcresult
+
+Failing tests:
+	ExteriorRoomUITests.testTargetedEndpointDragRoundTrip()
+
+** TEST EXECUTE FAILED **
+
+Testing started

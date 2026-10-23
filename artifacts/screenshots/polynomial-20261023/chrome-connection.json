@@ -1,0 +1,9 @@
+{
+  "date": "2026-10-23",
+  "action": "Recover existing demo tab by URL through supported Chrome connection",
+  "url": "http://127.0.0.1:8787/",
+  "result": "Debugger is not attached to the tab with id: 921248758.",
+  "status": "blocked; connection failure, no browser acceptance claimed",
+  "permissions": "No new access requested or granted",
+  "fallback": "Existing in-app browser for actual UI and WebGL tests"
+}

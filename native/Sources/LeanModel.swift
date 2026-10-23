@@ -4,6 +4,13 @@ import Observation
 import simd
 
 struct LeanResult: Decodable, Sendable {
+  struct Checks: Decodable, Sendable {
+    let antisymmetric: Bool
+    let selfZero: Bool
+    let volumeAntisymmetric: Bool
+    let repeatedVolumeZero: Bool
+    var allPassed: Bool { antisymmetric && selfZero && volumeAntisymmetric && repeatedVolumeZero }
+  }
   let ok: Bool
   let id: Int
   let scale: Int
@@ -14,6 +21,9 @@ struct LeanResult: Decodable, Sendable {
   let swappedWedge: [Int]
   let selfWedge: [Int]
   let volume: Int
+  let swappedVolume: Int
+  let repeatedVolume: Int
+  let checks: Checks
   let vertices: [[Int]]
   var vectors: [[Int]] { [a, b, c] }
   var wedgeText: String { "(" + wedge.map { Self.fraction($0, 16) }.joined(separator: ", ") + ")" }
@@ -26,9 +36,16 @@ struct LeanResult: Decodable, Sendable {
     return d == 1 ? String(n) : "\(n)/\(d)"
   }
   var isValid: Bool {
-    ok && scale == 4 && vectors.allSatisfy { $0.count == 3 && $0.allSatisfy { (-12...12).contains($0) } }
-      && wedge.count == 3 && swappedWedge.count == 3 && selfWedge.count == 3
-      && vertices.count == 8 && vertices.allSatisfy { $0.count == 3 && $0.allSatisfy { (-36...36).contains($0) } }
+    guard ok, id >= 0, scale == 4, checks.allPassed,
+      vectors.allSatisfy({ $0.count == 3 && $0.allSatisfy { (-12...12).contains($0) } }),
+      wedge.count == 3, wedge.allSatisfy({ (-288...288).contains($0) }),
+      swappedWedge == wedge.map({ -$0 }), selfWedge == [0,0,0],
+      (-10_368...10_368).contains(volume), swappedVolume == -volume, repeatedVolume == 0,
+      vertices.count == 8, vertices.allSatisfy({ $0.count == 3 && $0.allSatisfy { (-36...36).contains($0) } })
+    else { return false }
+    // Transport/renderer consistency only: no wedge or determinant recomputation.
+    func add(_ x: [Int], _ y: [Int]) -> [Int] { zip(x, y).map(+) }
+    return vertices == [[0,0,0], a, b, c, add(a,b), add(a,c), add(b,c), add(add(a,b),c)]
   }
   func point(_ values: [Int]) -> SIMD3<Float> {
     SIMD3<Float>(Float(values[0]), Float(values[1]), Float(values[2])) / Float(scale)

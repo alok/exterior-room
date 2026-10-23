@@ -1,168 +1,161 @@
-# Exterior Room
+# Lean Starscape
 
-**Grab a vector. Shape an area. Turn it into a volume.**
+**Starscape’s signed polynomial space, driven by executable Lean.**
 
-Exterior Room is an interactive spatial demonstration of exact exterior algebra
-computed by Lean. Three vectors define an oriented area and volume; moving their
-tips sends integer coordinates to a native Lean process and draws its response
-in a browser or a separate visionOS app.
+This project implements Katherine Stange’s Starscape/Lattice interactions with
+an exact Lean computation service, a browser/WebXR renderer, and a native
+visionOS renderer. The target is the same Starscape functionality: signed
+polynomial selection, linked roots and coefficient space, cutting planes,
+Möbius transformations, Snap, and spatial navigation.
 
-The algebra comes from a pinned snapshot of the Grassmann Lean codebase. The
-browser and RealityKit app are renderers and input clients. Neither substitutes
-JavaScript or Swift exterior-product calculations for Lean.
+The app opens at **[http://127.0.0.1:8787](http://127.0.0.1:8787)**.
+The existing `/polynomial/` URL and `PolynomialRoom` Xcode scheme remain valid.
+The repository name stays `alok/exterior-room`; its earlier vector/wedge
+experiment is preserved separately at `/exterior/` and is not part of the
+Starscape parity claim.
 
-![Exterior Room in the browser](artifacts/screenshots/parity-20261023/iab-skew-overview.png)
+![Lean-backed Starscape coefficient space](artifacts/screenshots/starscape-parity-20261023/11-current-spatial-pair.png)
 
-Live browser controls, coordinate editing, pointer dragging, and responsive
-layouts were exercised in the in-app browser. The native simulator sequence also
-passes. Inspected matching states agree on exact readouts, vector colors, and
-geometry. Main Chrome interaction acceptance, immersive WebXR, and physical
-Vision Pro testing remain pending. See the [validation receipt](docs/VALIDATION.md).
+## Run locally
 
-## Run on a Mac
-
-Install Python 3.10 or newer, the Xcode Command Line Tools, and Lean through elan
-using its standard `~/.elan` toolchain directory. Install the pinned compiler if
-it is not already present:
+Use Python 3.10+, Xcode Command Line Tools, and elan with the pinned Lean compiler:
 
 ```sh
 elan toolchain install leanprover/lean4:v4.35.0-rc3
-```
-
-From this checkout:
-
-```sh
 ./scripts/run.sh
 ```
 
-Open **[http://127.0.0.1:8787](http://127.0.0.1:8787)**. Keep the terminal running;
-`Ctrl-C` stops the server. The script builds the Lean executable before starting
-the local bridge. Its sequential build limits concurrency to keep the Mac
-responsive. Subsequent runs reuse local build artifacts.
+Open port **8787** and keep the terminal running. `Ctrl-C` stops the bridge.
+The script builds the Lean executables sequentially; subsequent runs reuse their
+artifacts. There are no external Lake/Python packages or browser CDN dependencies.
+Three.js and OrbitControls are bundled. After compiler installation, the demo
+runs without an external network connection. Node.js is only needed for tests.
 
-There are no external Lake packages, Python packages, or browser CDN dependencies
-to install. Three.js and OrbitControls are bundled. After the compiler is
-installed, building and running require no external network access. Node.js is
-needed only for the JavaScript tests.
+With executables already built, `python3 server.py` starts the bridge directly.
+It binds to loopback by default. Port 8778 is reserved for the separate canonical
+FareyVision checkout and is rejected here. GitHub contains source and evidence;
+this is **not a hosted app or Lean compiled to WebAssembly**.
 
-If the executable is already built, start just the bridge with:
+## Try the same Starscape operations
 
-```sh
-python3 server.py
-```
+1. Inspect the default signed form `(1,−1,2)`, Δ = −7. **Next point** preserves
+   a multiple’s distinct coefficients even when it shares another form’s root.
+2. Select `(1,0,1)`, enter `(1,1,1)`, then **Pair entered point**. Lean returns
+   `2a − 2c = 0`, endpoints −1 and 1, and 22 interior triples in the R6 crop.
+3. Toggle projection, **Origin**, **Other side**, **Inhabit**, and Overview.
+   Change size, palette and plane fade; Reset retains appearance preferences.
+4. Choose **2D roots** and drag; **Move forms** enables the corresponding
+   coefficient-space manipulation in Origin. The accepted action moves the
+   points, roots and cutting plane together. **Exact move** gives a repeatable
+   rational checkpoint.
+5. **Snap** absorbs the chosen integer symmetry into the signed identities.
+   **Identity** resets the viewing action while preserving those new labels.
+   Select `(13,20,34)` and apply **T** to obtain `(13,−6,27)`. The source
+   vertical-drag counterexample followed by **Snap** instead absorbs **T⁴**,
+   giving `(13,−84,162)`, still with Δ = −1368. Exact identities may be outside
+   the displayed crop; the app retains them and explicitly marks them hidden.
 
-The server binds to loopback by default. Port 8778 is reserved for the separate
-FareyVision application and is rejected by this server.
+[Two-minute guide](docs/SHOWCASE.md) · [behavior/parity matrix](docs/FUNCTIONAL_PARITY.md)
 
-## Explore
+## What matches, and what is still missing
 
-- Drag a colored vector tip, or select **a**, **b**, or **c** and use its coordinate
-  controls. Inputs snap to quarter-unit coordinates in the range −3 to 3 per axis.
-- **Swap a ↔ b** reverses the oriented area and signed volume.
-- **Flatten** sets `c = b`; Lean computes the resulting zero volume.
-- **Skew**, **Unit**, and **Plane** provide reproducible starting configurations.
-- **Overview** frames the shape; **Inside** moves the view into its space. Drag
-  empty space to orbit and scroll to change distance.
-- Open **the proof boundary** for the current exact coefficients, source receipt,
-  and JSON export.
+The [current parity update](docs/STARSCAPE_PARITY_UPDATE.md) and
+[earlier validation receipt](docs/POLYNOMIAL_VALIDATION.md) separate arithmetic
+checks, actual browser interactions, simulator interactions and synthetic XR.
+Full functional or visual parity has **not** been established.
 
-The highlighted face represents `a ∧ b`; its three coefficients use the ordered
-basis `[e₁₂, e₁₃, e₂₃]`. The full parallelepiped represents `a ∧ b ∧ c`; its
-`e₁₂₃` coefficient is signed volume. The area readout is a bivector, not its
-Euclidean magnitude.
-
-**Enter VR** becomes available when the browser reports an immersive WebXR
-device. Headset-browser use requires a secure context; plain HTTP at a Mac's LAN
-address is not sufficient for WebXR. The local server does not configure HTTPS.
-Physical-headset interaction and performance have not been verified.
-
-## What Lean proves, computes, and exports
-
-| Layer | Actual boundary |
+| Behavior | Current evidence and limits |
 | --- | --- |
-| Kernel-checked statements | General integer identities and agreement between the generated Grassmann kernels and their coordinate/reference formulas. The service-wrapper theorems include self-wedge zero, swapping the first two vectors negating volume, and zero volume for `c = a + b`. |
-| Executable Lean | Each accepted live request runs Grassmann's generated wedge and triple-wedge operations in a native Lean process. The service returns exact integer coefficients and eight vertices. |
-| Exported data | The native app bundles three JSON presets generated by that executable. Preset playback is labeled separately from a live calculation. |
-| Rendering and interaction | Three.js and RealityKit convert coordinates to floating point and handle meshes, cameras, pointer/controller input, and lighting. These parts are not kernel-verified. |
+| Signed points, exact selection, pairs and cutting planes | Lean output compared against canonical fixtures. Both renderers show the same R6 pair, plane and 22 members. |
+| Colors, size, fade and projection | Corresponding states visually inspected. Native physical spheres and browser pixel-sized discs differ; no pixel equality claim. |
+| Linked Möbius motion, Snap and Identity | Browser 2D/3D pointer motion and synthetic controller motion tested. Native disk swipe and directional controls tested; native free-space hand/controller dragging remains missing. |
+| Roots chart | Browser now defaults to the canonical upper half-plane, with an optional Klein disk. Native still has only a Klein disk. Simultaneous wide 3D/roots layout, other source models and theme controls remain gaps. |
+| Selection and hover | Browser has exact polynomial hover and picking. Native polynomial hover and explicit controller bindings remain missing; physical gaze/pinch is unverified. |
+| Density and crop | Browser R96 has 1,852,484 signed forms. Native caps at R12/3,608. The transformed finite base crop stays fixed; source-style transformed recropping is missing. |
+| Origin, Inhabit, Overview, Reset | Tested on each route. Camera offsets, field of view, materials and control layouts differ. |
+| Headsets | Synthetic WebXR runs real Three.js rendering/handlers with supplied poses. visionOS Simulator runs the native app. Neither establishes physical tracking, compositor behavior, comfort or hardware performance. |
 
-A live result is a Lean calculation, **not a new kernel proof attached to that
-request**. The compiler/runtime and JSON/HTTP transport are also outside the
-kernel proof boundary. The imported code includes implementation caches and
-`unsafe` helpers; runtime tests therefore complement the logical axiom audit.
+Main Chrome allowed one existing-tab read, but refresh and subsequent URL-based
+attachment timed out. Its refresh outcome remains uncertain; current actual
+browser interaction evidence uses the in-app browser. All limitations
+remain visible rather than being inferred away from a successful Lean response.
 
-Lengths use integer coordinates divided by 4, area coefficients by 16, and
-volume by 64. For example, the unit-world-cube request uses vectors
-`[4,0,0]`, `[0,4,0]`, and `[0,0,4]`; Lean returns wedge `[16,0,0]` and volume `64`.
-Those are displayed as area coefficient 1 and volume 1. When the bridge fails,
-the interface retains the last accepted geometry and marks it as previous data.
+## Proof and execution boundary
 
-See the [Lean source and proof receipt](docs/lean-provenance.md),
-[service-wrapper proofs](lean/Exact/Proofs.lean), and
-[axiom audit](lean/evidence/axiom-audit.txt) for precise statements and dependencies.
+| Layer | What actually happens |
+| --- | --- |
+| Kernel-checked | 17 general integer identities cover coordinate/discriminant formulas, plane incidence and Möbius action laws. Sixteen axiom audits use only standard Lean axioms. |
+| Executable Lean | A native Mac process enumerates signed clouds and computes inspections, symbolic roots, exact planes/membership and the rational action `J(M)/det(M)`. |
+| Client preview and Snap choice | Floating-point dragging, quantization and choosing a candidate integer symmetry occur in the client. Lean computes the exact action of the submitted matrix. |
+| Exported fixtures | Native preset data are generated by the actual executable with receipts. Live computations require the Mac bridge. |
+| Rendering and transport | Three.js/RealityKit handle floating-point coordinates, meshes, colors, cameras and input. JSON, HTTP, compiler/runtime execution and renderers are outside the kernel proof boundary. |
 
-## Native visionOS route
+A live result is an exact Lean calculation, **not a new proof certificate for
+that request**. Enumeration completeness, gcd/radical normalization and the
+compiler/runtime have tests; the 17 identities do not prove them.
+[Proof source and receipts](lean/Polynomial/README.md) ·
+[JSON protocol](lean/Polynomial/PROTOCOL.md) ·
+[interactive boundary](web/polynomial/boundary.html).
 
-The separate `com.alok.ExteriorRoom` application uses RealityKit and the same
-Lean response schema. It offers two explicit modes:
+## Native visionOS
 
-- **Lean export · preset playback:** bundled Lean-generated data, usable without
-  the Mac bridge.
-- **Live Lean · Mac bridge:** exact calculations run on the Mac. Coordinate
-  controls and released endpoint drags request new results.
+Open `native/ExteriorRoom.xcodeproj` and choose **PolynomialRoom**. Bundle and
+scheme names remain stable. The app uses RealityKit and the same Lean schemas.
+Bundled preset playback works without the bridge; live results run on the Mac.
+Lean does not execute inside visionOS. See [native instructions](native/README.md)
+for the simulator build and existing test routes.
 
-![Exterior Room in the visionOS Simulator](native/evidence/screenshots/20261023T031413Z/002-02-skew-overview.png)
+Device loopback refers to the device, not the Mac. A physical native route needs
+a reachable Mac bridge; device signing/installation and physical acceptance are
+not established here. WebXR also needs a secure context on a headset; the local
+server does not configure HTTPS or public hosting.
 
-The screenshot is a simulator capture, not evidence of physical Vision Pro use.
-The native UI test passed with nine captured stages. The browser and native Skew
-views both show wedge `(11/4, 9/16, -5/16)`, volume `147/32`, the same vector
-colors, and an eight-vertex solid with the highlighted area face. Cameras,
-scales, materials, and interface layouts differ; pixel-identical rendering is
-not a goal. The recorded Unit, swapped, flattened, Plane, and coordinate-edited
-states also agree on exact values. See [validation status](docs/VALIDATION.md)
-for the tested workflows and remaining Chrome and hardware checks.
+## Tested evidence
 
-Follow [native/README.md](native/README.md) for Xcode build and decoder/bridge test
-commands. The recorded unsigned simulator build used Xcode 27.2 beta and the
-visionOS 27.2 Simulator SDK. Lean is not embedded in, or executed on, visionOS.
+- [Current UHP drag/Snap video](artifacts/videos/lean-starscape-browser-polar-snap.mp4)
+  and [native polar-Snap video](artifacts/videos/lean-starscape-native-polar-snap.mp4):
+  the same T⁴ result through browser pointer motion versus a declared native
+  matrix preset plus actual Snap controls. Input routes and charts differ.
 
-For a physical device's native app, loopback addresses refer to that device.
-The Mac bridge must instead be explicitly bound to a reachable interface, for
-example `./scripts/run.sh --host 0.0.0.0`, and the app must use the Mac's private
-IP address. This exposes the local demo bridge to the LAN; it is not a public
-hosting configuration. Device signing, installation, and hardware testing are
-not included in the recorded validation.
+- [Matched browser sequence](artifacts/videos/polynomial-browser-matched-render.mp4)
+  and [native sequence](artifacts/videos/polynomial-native-matched-render.mp4):
+  Identity → D5 → fade off → fade on with projection, using the same R6 pair.
+- [Native disk swipe](artifacts/videos/polynomial-native-klein-swipe.mp4): actual
+  simulator gesture, accepted Lean matrix, return to Overview.
+- [Browser roots/Snap](artifacts/videos/polynomial-roots-snap.mp4) and
+  [3D Origin motion](artifacts/videos/polynomial-origin-drag.mp4).
+- [Synthetic XR motion](artifacts/videos/polynomial-xr-mobius.mp4): supplied
+  controller poses, real application rendering and event handlers.
 
-## Tests and evidence
+These silent app-only clips have dated [metadata and limits](artifacts/videos/README.md).
+Older clips retain their original “Polynomial Room” label. They are not current
+hardware evidence. The current update passes **107 Node tests, 26 bridge tests,
+68 native model tests**, and one focused native polar-Snap UI test. Historical
+62-test/swipe receipts remain dated records, not retested source hashes.
 
 ```sh
-python3 lean/build.py
-python3 lean/test_service.py
+python3 lean/Polynomial/build.py
+python3 lean/Polynomial/test_service.py
+python3 lean/Polynomial/test_transform.py
 python3 -m unittest discover -s tests -p 'test_*.py'
 node --test tests/*.test.mjs
 swift test --package-path native --scratch-path native/.build/swift-tests -j 2
 ```
 
-Recorded checks pass for the Lean build and axiom audit, 255 valid plus 8 invalid
-Lean service cases, 16 bridge tests, 18 JavaScript tests, and 11 native model tests.
-Native decoding and live bridge sequences also pass. The native simulator UI
-test passed with zero failures in 126.317 seconds, covering connection,
-entry/exit, presets, swap, flatten, coordinate editing, inside view, volume
-visibility, and reset. Supplemental in-app-browser checks cover presets, swap,
-flatten, a quarter-step keyboard edit, pointer dragging, inside view, volume
-visibility, reset, and the proof panel. Saved 390×844 and 900×500 viewport captures
-cover the responsive layouts. Main Chrome automation still blocks completion of
-its interaction checks; immersive WebXR and tracked-hand dragging remain
-unverified. These checks do not establish physical-device behavior.
+The polynomial service comparison covers 305 requests and 2,120,040 ordered
+points across tested crops. Another 452 requests cover rational transformations,
+composition and pinned Snap absorption fixtures. These arithmetic tests are
+separate from rendering and interaction acceptance.
 
-## Source and licensing
+## Attribution and preserved work
 
-Grassmann is pinned at `87e12dcfac41a0703bd0192f5e5a9b5e4c82d610`.
-The [vendor manifest](lean/vendor/PROVENANCE.json) records all 110 copied modules
-and their SHA-256 hashes. Browser XR/input helpers and native application patterns
-come from FareyVision at `8b32d7ae8f67fc47f381407bbcdf6f24e28de771`.
+The polynomial-space construction follows **Katherine Stange** and the
+Harriss–Stange–Trettel *Algebraic Number Starscapes* work. Pinned FareyVision
+renderer modules and control patterns retain their notices and provenance;
+see [the manifest](web/polynomial/PROVENANCE.json) and [NOTICE](NOTICE.md).
+New Lean implementation and proofs are this project’s work, not attributed to Stange.
 
-The combined distribution is **AGPL-3.0-or-later**. Grassmann retains its AGPL
-license, FareyVision-derived files retain their GPL notices, and Three.js retains
-its MIT license. See [LICENSE](LICENSE) and [NOTICE.md](NOTICE.md).
-Katherine Stange's attribution belongs to the reference Farey exhibit; this
-application does not attribute its new exterior-algebra scene to her.
+The combined distribution is **AGPL-3.0-or-later**; borrowed FareyVision files
+retain GPL notices and Three.js retains MIT. The earlier Grassmann experiment
+and its provenance remain in [the archive guide](EXTERIOR_ROOM_ARCHIVE.md).
+No exterior-algebra feature is counted as Starscape functionality.

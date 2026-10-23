@@ -1,0 +1,12 @@
+{
+  "id": "7F34D2F9-EB39-4F8A-BD96-022FFF409CC3",
+  "action": "video-stop",
+  "createdAt": 1792736622.047597,
+  "name": "polynomial-directional-action",
+  "startedAt": 1792736622.186039,
+  "exitCode": 0,
+  "error": null,
+  "sha256": "8bf6ac2c84111182fc59cb81e540c95550cae7654531c8b55e40fe4c0d0162e4",
+  "file": "polynomial-directional-action.mov",
+  "finishedAt": 1792736628.622828
+}

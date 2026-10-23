@@ -1,0 +1,510 @@
+{
+  "sourceCommit": "2cd549a45ddb6056cf3596404754d96ad9e7132c",
+  "sourcePath": "Farey/WebXR/mobius.js",
+  "sourceSha256": "193a0df167da6ab54f9c496ef736df15326fc5db67dcea0087cee760577e32de",
+  "sharedFixturePath": "Farey/parity/fixtures.json",
+  "sharedFixtureSha256": "d8b87fd9e65b5db6240cf2d30b9c0bf6c476dcfb39155d91b7c3e6c0e16bc3a9",
+  "scope": "Executed pinned canonical JavaScript polar-Snap proposals. Floating-point renderer regressions, not Lean computations or kernel theorems. Historical entrywise fixtures are preserved separately.",
+  "cases": [
+    {
+      "name": "identity",
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "expected": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "negative-identity",
+      "matrix": [
+        -1,
+        0,
+        0,
+        -1
+      ],
+      "expected": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "T",
+      "matrix": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "expected": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "negative-T",
+      "matrix": [
+        -1,
+        -1,
+        0,
+        -1
+      ],
+      "expected": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "S",
+      "matrix": [
+        0,
+        -1,
+        1,
+        0
+      ],
+      "expected": [
+        0,
+        -1,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "negative-S",
+      "matrix": [
+        0,
+        1,
+        -1,
+        0
+      ],
+      "expected": [
+        0,
+        -1,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "T-inverse",
+      "matrix": [
+        1,
+        -1,
+        0,
+        1
+      ],
+      "expected": [
+        1,
+        -1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "negative-T-inverse",
+      "matrix": [
+        -1,
+        1,
+        0,
+        -1
+      ],
+      "expected": [
+        1,
+        -1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "TS",
+      "matrix": [
+        1,
+        -1,
+        1,
+        0
+      ],
+      "expected": [
+        1,
+        -1,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "negative-TS",
+      "matrix": [
+        -1,
+        1,
+        -1,
+        0
+      ],
+      "expected": [
+        1,
+        -1,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "TTS",
+      "matrix": [
+        2,
+        -1,
+        1,
+        0
+      ],
+      "expected": [
+        2,
+        -1,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "negative-TTS",
+      "matrix": [
+        -2,
+        1,
+        -1,
+        0
+      ],
+      "expected": [
+        2,
+        -1,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "near-identity",
+      "matrix": [
+        1.028232933013232,
+        0.047548343723155244,
+        0.047548343723155244,
+        0.9747410463246825
+      ],
+      "expected": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "near-T",
+      "matrix": [
+        1.0496464460006782,
+        1.0723415042925848,
+        0.02269505829190655,
+        0.9758875065519818
+      ],
+      "expected": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "rational-drag-checkpoint",
+      "matrix": [
+        1.3416407864998738,
+        0.4472135954999579,
+        0.4472135954999579,
+        0.8944271909999159
+      ],
+      "expected": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "negative-half-translation",
+      "matrix": [
+        1,
+        -0.5,
+        0,
+        1
+      ],
+      "expected": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "positive-half-translation",
+      "matrix": [
+        1,
+        0.5,
+        0,
+        1
+      ],
+      "expected": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "negative-one-and-half-translation",
+      "matrix": [
+        1,
+        -1.5,
+        0,
+        1
+      ],
+      "expected": [
+        1,
+        -1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "vertical-drag",
+      "matrix": [
+        2,
+        0,
+        0,
+        0.5
+      ],
+      "expected": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "negative-near-T",
+      "matrix": [
+        -1.0496464460006782,
+        -1.0723415042925848,
+        -0.02269505829190655,
+        -0.9758875065519818
+      ],
+      "expected": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "recorded-source-0",
+      "matrix": [
+        3.162278103784889,
+        1.1384199665329495,
+        4.0371747379733554e-16,
+        0.31622772165519336
+      ],
+      "expected": [
+        1,
+        4,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "recorded-source-1",
+      "matrix": [
+        1,
+        -0.5,
+        0,
+        1
+      ],
+      "expected": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "recorded-source-2",
+      "matrix": [
+        1,
+        0.5,
+        0,
+        1
+      ],
+      "expected": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "recorded-source-3",
+      "matrix": [
+        1,
+        -1.5,
+        0,
+        1
+      ],
+      "expected": [
+        1,
+        -1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "negative-recorded-source",
+      "matrix": [
+        -3.162278103784889,
+        -1.1384199665329495,
+        -4.0371747379733554e-16,
+        -0.31622772165519336
+      ],
+      "expected": [
+        1,
+        4,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "nonfinite-image-of-i",
+      "matrix": [
+        1e+200,
+        0,
+        0,
+        1e-200
+      ],
+      "expected": null
+    },
+    {
+      "name": "unbounded-translation",
+      "matrix": [
+        1,
+        1e+300,
+        0,
+        1
+      ],
+      "expected": null
+    },
+    {
+      "name": "rotation-0.3",
+      "matrix": [
+        0.955336489125606,
+        -0.29552020666133955,
+        0.29552020666133955,
+        0.955336489125606
+      ],
+      "expected": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "rotation-0.7853981633974483",
+      "matrix": [
+        0.7071067811865476,
+        -0.7071067811865475,
+        0.7071067811865475,
+        0.7071067811865476
+      ],
+      "expected": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "rotation-0.7853981633994482",
+      "matrix": [
+        0.7071067811851334,
+        -0.7071067811879617,
+        0.7071067811879617,
+        0.7071067811851334
+      ],
+      "expected": [
+        0,
+        -1,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "rotation-0.7853981633954483",
+      "matrix": [
+        0.7071067811879617,
+        -0.7071067811851334,
+        0.7071067811851334,
+        0.7071067811879617
+      ],
+      "expected": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "rotation--0.7853981633974483",
+      "matrix": [
+        0.7071067811865476,
+        0.7071067811865475,
+        -0.7071067811865475,
+        0.7071067811865476
+      ],
+      "expected": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "declared-vertical-counterexample",
+      "matrix": [
+        3.162277660168379,
+        1.1384199576606164,
+        0,
+        0.3162277660168379
+      ],
+      "expected": [
+        1,
+        4,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "computed-source-counterexample",
+      "matrix": [
+        3.1622776601683795,
+        1.1384199576606167,
+        0,
+        0.316227766016838
+      ],
+      "expected": [
+        1,
+        4,
+        0,
+        1
+      ]
+    }
+  ]
+}

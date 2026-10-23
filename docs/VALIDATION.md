@@ -173,3 +173,25 @@ playback rather than live computation.
   this demo's interface.
 - Simulator builds, model tests, and screenshots do not imply physical-device
   compatibility, frame rate, gesture quality, accessibility, or comfort.
+
+## Synthetic WebXR follow-up — 2026-10-23
+
+Actual production Three.js rendering and controller handlers were exercised in
+IAB using the explicit `/qa/xr.html` synthetic-device harness. This closes the
+previous *emulated session* gap, while real headset testing remains unperformed.
+
+The controller sequence accepted Unit (volume1), Swap (−1), Flatten (0, solid
+hidden), Inside/Overview, and Exit with the desktop camera restored. A held ray
+drag moved `a` from `[4,0,0]` to `[5,0,0]`; executable Lean returned volume80,
+displayed as5/4. A real defect was reproduced: controller reconnection continued
+a previous held drag. The app now discards the drag on `disconnected`; the
+repeated interaction retained `[5,0,0]` and volume80 after reconnection and
+controller movement without a new press.
+
+[Accepted state receipt](../artifacts/screenshots/polynomial-20261023/exterior-xr-checks.json)
+· [Flatten capture](../artifacts/screenshots/polynomial-20261023/exterior-xr-flatten.png)
+· [Silent app-canvas clip](../artifacts/videos/exterior-controller-sequence.mp4).
+The clip records supplied device input, not a physical headset or tracked hand.
+The main Chrome connection was rechecked after environment reconnection; recovery
+by the existing8787URL still failed to attach its debugger. No new grant was
+requested and no Chrome interaction pass is claimed.

@@ -1,0 +1,12 @@
+{
+  "action": "video-stop",
+  "createdAt": 1792734801.2068958,
+  "name": "polynomial-parity",
+  "id": "35345D17-7A46-416A-AF43-F3A972EDEB08",
+  "startedAt": 1792734801.3388119,
+  "exitCode": 0,
+  "error": null,
+  "sha256": "705aa9d862247ac957d6b61199483056b056d878707b2dd11cd0b46d68461b3a",
+  "file": "polynomial-parity.mov",
+  "finishedAt": 1792734802.860631
+}

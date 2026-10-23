@@ -1,0 +1,38 @@
+[
+  {
+    "action": "screenshot",
+    "id": "8E979374-76C1-4CDA-959C-7F8F74B31C3E",
+    "createdAt": 1792739111.9177032,
+    "name": "klein-swipe-01-before",
+    "file": "001-klein-swipe-01-before.png",
+    "startedAt": 1792739111.936498,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "86ff8160a99fda777e5107a9522102e4b3a7259ce10e9d64f8c03059f06d188d",
+    "finishedAt": 1792739117.449217
+  },
+  {
+    "createdAt": 1792739121.205902,
+    "action": "screenshot",
+    "id": "8E4F166D-B2FC-4FF4-959F-7E2F608C2F16",
+    "name": "klein-swipe-02-accepted-origin",
+    "file": "002-klein-swipe-02-accepted-origin.png",
+    "startedAt": 1792739121.2264378,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "c7a998a350b49b824d5582861e2671690f0aff3395d6bd4329af5043e9de98ab",
+    "finishedAt": 1792739126.026593
+  },
+  {
+    "action": "screenshot",
+    "id": "81FF049B-4B5D-460E-A7AC-C47A9B63F3E9",
+    "createdAt": 1792739126.8900928,
+    "name": "klein-swipe-03-accepted-overview",
+    "file": "003-klein-swipe-03-accepted-overview.png",
+    "startedAt": 1792739126.910502,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "21efc84511ba7545f2541623c4c070e0bb7e9274131513e6e7563b30a456fc01",
+    "finishedAt": 1792739128.648362
+  }
+]

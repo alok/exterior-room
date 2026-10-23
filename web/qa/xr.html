@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lean Starscape · EMULATED WEBXR QA</title>
+  <link rel="stylesheet" href="xr.css">
+</head>
+<body>
+  <header><strong>EMULATED WEBXR</strong><span>Real app + WebGL · synthetic devices · no headset evidence</span><a href="README.md" target="_blank">Scope &amp; limitations</a></header>
+  <main>
+    <aside aria-label="Synthetic XR device controls">
+      <label>Production route <select id="route"><option value="polynomial">Lean Starscape</option><option value="exterior">Archived Exterior Room</option></select></label>
+      <div class="row"><button id="load">Load route</button><a id="standalone" href="/?qaXR=1" target="_blank">Open standalone ↗</a></div>
+      <p>Enter VR using the app’s own button. These controls supply device poses and XR input events only.</p>
+      <label>App viewport <select id="viewport"><option value="fit">Fit available area</option><option value="1280,800">1280 × 800</option><option value="800,800">800 × 800</option><option value="390,844">390 × 844</option></select></label>
+      <label><input id="stereo" type="checkbox"> Side-by-side stereo (exit session first)</label>
+      <fieldset><legend>Viewer pose · meters / degrees</legend>
+        <div class="triple"><label>X<input id="viewer-x" type="number" step="0.1" value="0"></label><label>Y<input id="viewer-y" type="number" step="0.1" value="1.6"></label><label>Z<input id="viewer-z" type="number" step="0.1" value="0"></label></div>
+        <div class="row"><label>Yaw<input id="viewer-yaw" type="number" step="5" value="0"></label><label>Pitch<input id="viewer-pitch" type="number" step="5" value="0"></label></div>
+        <div class="row"><button id="viewer-apply">Apply viewer pose</button><button id="viewer-home">Viewer home</button></div>
+      </fieldset>
+      <fieldset><legend>Tracked controller</legend>
+        <label>Device <select id="controller"><option value="0">Right · index 0</option><option value="1">Left · index 1</option></select></label>
+        <span class="caption">Ray origin (world meters)</span>
+        <div class="triple"><label>X<input id="origin-x" type="number" step="0.05" value="0.25"></label><label>Y<input id="origin-y" type="number" step="0.05" value="1.35"></label><label>Z<input id="origin-z" type="number" step="0.05" value="-0.1"></label></div>
+        <span class="caption">Ray target (world meters)</span>
+        <div class="triple"><label>X<input id="target-x" type="number" step="0.05" value="-0.65"></label><label>Y<input id="target-y" type="number" step="0.05" value="0.88"></label><label>Z<input id="target-z" type="number" step="0.05" value="-1.55"></label></div>
+        <label>Known panel coordinate <select id="fixture"><option value="exterior-flatten">Exterior · Flatten</option><option value="exterior-view">Exterior · Inside/Overview</option><option value="exterior-reset">Exterior · Reset</option><option value="exterior-exit">Exterior · Exit</option></select></label>
+        <div class="row"><button id="fixture-load">Load coordinates</button><button id="aim">Aim controller</button></div>
+        <div class="row"><button id="press">Trigger down</button><button id="release">Trigger up</button><button id="click">Click trigger</button></div>
+        <div class="row"><button id="squeeze-down">Squeeze down</button><button id="squeeze-up">Squeeze up</button></div>
+        <div class="row"><button id="disconnect">Disconnect</button><button id="reconnect">Reconnect</button></div>
+      </fieldset>
+      <div class="row"><button id="end">End synthetic session</button></div>
+      <fieldset><legend>Silent app-canvas video</legend>
+        <p>Records the visible roots or 3D canvas, labelled desktop or emulated XR according to the active session. Switching canvases stops the clip. DOM controls outside the canvas are excluded. No audio or screen capture.</p>
+        <div class="row"><button id="record">Start recording</button><button id="stop" disabled>Stop</button></div>
+        <a id="download" hidden>Download silent app clip</a><span id="recording-status" class="caption"></span>
+      </fieldset>
+      <output id="status" role="status">Loading QA page…</output>
+      <details><summary>Read-only runtime diagnostics</summary><pre id="diagnostics"></pre></details>
+    </aside>
+    <section id="stage" aria-label="Production app under test"><iframe id="app" title="Production app with emulated WebXR"></iframe></section>
+  </main>
+  <script type="module" src="xr-controls.js"></script>
+</body>
+</html>

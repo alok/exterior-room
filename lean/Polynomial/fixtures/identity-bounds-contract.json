@@ -1,0 +1,28 @@
+{
+  "identityBound": 1024,
+  "cloudRadiusBound": 96,
+  "normalBound": 4194304,
+  "sourceCommit": "2cd549a45ddb6056cf3596404754d96ad9e7132c",
+  "sourceModule": "Farey/WebXR/mobius.js",
+  "sourceModuleSHA256": "193a0df167da6ab54f9c496ef736df15326fc5db67dcea0087cee760577e32de",
+  "boundary": "Pinned source polar-Snap counterexample plus new bounded-service regressions. Expected integer images are regression data; the generic action laws are checked separately by Lean.",
+  "polarSnap": {
+    "from": [-0.4, 0.1],
+    "to": [-0.4, 1],
+    "recordedMatrix": [3.162278103784889, 1.1384199665329495, 4.037e-16, 0.31622772165519336],
+    "gamma": [1, 4, 0, 1],
+    "oldIncorrectGamma": [4, -1, 1, 0]
+  },
+  "absorptions": [
+    {"id":"source-seed-T4","matrix":[1,4,0,1],"point":[13,20,34],"image":[13,-84,162],"second":null,"accepted":true},
+    {"id":"source-pair-T4","matrix":[1,4,0,1],"point":[13,20,34],"image":[13,-84,162],"second":[1,0,1],"secondImage":[1,-8,17],"normal":[10,-59,66],"accepted":true},
+    {"id":"source-negative-multiple-T4","matrix":[1,4,0,1],"point":[-26,-40,-68],"image":[-26,168,-324],"second":[-2,0,-2],"secondImage":[-2,16,-34],"normal":[10,-59,66],"accepted":true},
+    {"id":"inside-bound-T9","matrix":[1,9,0,1],"point":[13,20,34],"image":[13,-214,907],"second":null,"accepted":true},
+    {"id":"primary-outside-bound-T10","matrix":[1,10,0,1],"point":[13,20,34],"image":[13,-240,1134],"second":[1,0,1],"secondImage":[1,-20,101],"accepted":false},
+    {"id":"partner-outside-bound-T10","matrix":[1,10,0,1],"point":[1,0,1],"image":[1,-20,101],"second":[13,20,34],"secondImage":[13,-240,1134],"accepted":false},
+    {"id":"primary-outside-bound-T","matrix":[1,1,0,1],"point":[-400,400,-400],"image":[-400,1200,-1200],"second":[1,0,1],"secondImage":[1,-2,2],"accepted":false},
+    {"id":"partner-outside-bound-T","matrix":[1,1,0,1],"point":[1,0,1],"image":[1,-2,2],"second":[-400,400,-400],"secondImage":[-400,1200,-1200],"accepted":false}
+  ],
+  "expandedNormalPair": {"first":[957,361,180],"second":[983,640,735],"normal":[257617,1052910,150135]},
+  "endpointBudgetRejectedPair": {"first":[664,713,945],"second":[725,-705,1009],"normal":[985045,30298,-1385642],"discriminant":5460596864364}
+}

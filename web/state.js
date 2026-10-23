@@ -15,9 +15,20 @@ export function fraction(n, d) {
 export function validateResult(result, request) {
   if (!result || result.ok !== true || result.id !== request.id || result.scale !== 4) throw Error('Unexpected Lean response.');
   const triple = a => Array.isArray(a) && a.length===3 && a.every(Number.isSafeInteger);
-  for(const k of ['a','b','c']) if(!triple(result[k]) || JSON.stringify(result[k])!==JSON.stringify(request[k])) throw Error('Lean response does not match this edit.');
-  for(const k of ['wedge','swappedWedge','selfWedge']) if(!triple(result[k])) throw Error('Invalid exact coefficients.');
-  if(!Number.isSafeInteger(result.volume) || !Array.isArray(result.vertices) || result.vertices.length!==8 || !result.vertices.every(triple)) throw Error('Invalid geometry from Lean.');
+  for(const k of ['a','b','c']) if(!triple(result[k]) || result[k].some(n=>Math.abs(n)>12) || JSON.stringify(result[k])!==JSON.stringify(request[k])) throw Error('Lean response does not match this edit.');
+  // Protocol bounds follow the input box. These checks do not compute an exterior product.
+  for(const k of ['wedge','swappedWedge','selfWedge']) if(!triple(result[k]) || result[k].some(n=>Math.abs(n)>288)) throw Error('Invalid exact coefficients.');
+  for(const k of ['volume','swappedVolume','repeatedVolume']) if(!Number.isSafeInteger(result[k]) || Math.abs(result[k])>10368) throw Error('Invalid exact volume.');
+  const checks=['antisymmetric','selfZero','volumeAntisymmetric','repeatedVolumeZero'];
+  if(!checks.every(name=>result.checks?.[name]===true)
+    || result.selfWedge.some(n=>n!==0) || result.repeatedVolume!==0
+    || result.swappedWedge.some((n,i)=>n!==-result.wedge[i]) || result.swappedVolume!==-result.volume) throw Error('Lean result checks failed.');
+  if(!Array.isArray(result.vertices) || result.vertices.length!==8 || !result.vertices.every(triple)) throw Error('Invalid geometry from Lean.');
+  // Check the exported vertex ordering and echoed inputs before accepting a mesh.
+  // The renderer still uses the exported vertices; this is not a fallback result.
+  const {a,b,c}=result, add=(u,v)=>u.map((n,i)=>n+v[i]);
+  const expected=[[0,0,0],a,b,c,add(a,b),add(a,c),add(b,c),add(add(a,b),c)];
+  if(result.vertices.some((vertex,i)=>vertex.some((n,j)=>n!==expected[i][j]))) throw Error('Lean geometry does not match this edit.');
   return result;
 }
 // A single active request; edits coalesce. A superseded answer never renders.

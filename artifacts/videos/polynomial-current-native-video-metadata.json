@@ -1,0 +1,90 @@
+{
+  "scope": "Local silent app-only visionOS Simulator recordings, after transformed plane fade/fixed cone guides and bounded disk target changes. No physical-headset, host desktop or audio evidence.",
+  "conversion": "ffmpeg -an -vf scale=1920:-2 -c:v libx264 -preset veryfast -crf 22 -threads 1; no trimming or retiming",
+  "nativeReceipt": "../../native/evidence/klein-swipe-native-receipt.json",
+  "clips": [
+    {
+      "file": "polynomial-native-klein-swipe.mp4",
+      "sha256": "322f0886a38d2921a2ff0ebcb9e0b322cbe1377deeffc86188ef80f533a80dae",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1920,
+            "height": 1080
+          }
+        ],
+        "format": {
+          "duration": "16.816667",
+          "size": "175801"
+        }
+      },
+      "inputRoute": "actual XCUIElement controls on task-owned visionOS Simulator",
+      "run": "20261023T070446Z",
+      "sequence": [
+        "D5 pair in Origin",
+        "actual disk swipe; Lean accepts last valid in-disk preview",
+        "accepted geometry in Overview"
+      ],
+      "frameInspection": {
+        "extractionFilter": "fps=1/4,scale=640:-2",
+        "inspectedOutputOrdinals": [
+          1,
+          3
+        ],
+        "additionalSeekSeconds": 16.3,
+        "additionalState": "accepted Overview"
+      },
+      "audioStreams": 0
+    },
+    {
+      "file": "polynomial-native-matched-render.mp4",
+      "sha256": "8037889fb9e24f2b0bba693595e09fdd087699ef2df6943e28261ef7ee2ab35d",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1920,
+            "height": 1080
+          }
+        ],
+        "format": {
+          "duration": "15.133333",
+          "size": "274129"
+        }
+      },
+      "inputRoute": "actual XCUIElement controls on task-owned visionOS Simulator",
+      "run": "20261023T070602Z",
+      "sequence": [
+        "R6 unit pair; Identity; fade on",
+        "D5 action",
+        "fade off",
+        "fade on and radial projection"
+      ],
+      "frameInspection": {
+        "extractionFilter": "fps=1/4,scale=640:-2",
+        "inspectedOutputOrdinals": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "additionalSeekSeconds": 14.8,
+        "additionalState": "projection"
+      },
+      "audioStreams": 0
+    }
+  ],
+  "sourceSha256": {
+    "native/Sources/PolynomialTransformControls.swift": "712e1bd5424262e26896b99d6aa2f2bc726f143a9e6d89eb24bf758f9f6229d3",
+    "native/Sources/PolynomialSpace.swift": "aafc25104021d7ac8bd0ab01773fafd21c906317fd4a76db08e056aaee338492",
+    "native/Sources/PolynomialAppearance.swift": "209ad4c7d39f99cc0e397d5bbfc50014dbcb1866c91443c0713b135bc09218e1",
+    "native/Sources/PolynomialAction.swift": "3fe9e3bc7ad3fd999bc0b07af2ce55c5d0c77601d0db2986410b656b76ebc480"
+  }
+}

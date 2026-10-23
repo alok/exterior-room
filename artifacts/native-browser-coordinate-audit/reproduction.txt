@@ -1,0 +1,11 @@
+All pinned input/script hashes verified.
+{
+  "passed": true,
+  "fixtureCount": 69,
+  "signedZeroDifferenceCount": 11,
+  "maxNativeBrowserDifference": 0,
+  "maxAbsoluteFromRational": 0.0000015258789076710855,
+  "maxRelativeFromRational": 3.581875370119919e-8,
+  "output": "/var/folders/gn/1hqqc7pn3nz5s_p0dxnn9h300000gp/T//polynomial-coordinate-audit.Q4nmnB/result.json"
+}
+Reproduction output retained at /var/folders/gn/1hqqc7pn3nz5s_p0dxnn9h300000gp/T//polynomial-coordinate-audit.Q4nmnB

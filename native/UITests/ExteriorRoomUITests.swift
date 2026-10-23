@@ -51,4 +51,42 @@ import XCTest
     XCTAssertTrue(app.buttons["preset-0"].exists)
     capture("09-returned")
   }
+
+  func testTargetedEndpointDragRoundTrip() throws {
+    try XCTSkipUnless(ProcessInfo.processInfo.environment["EXTERIOR_GESTURE_PROBE"] == "1",
+      "Opt-in screen-projected simulator drag probe; this does not test tracked-hand input.")
+    let app = XCUIApplication()
+    app.launch()
+    XCTAssertTrue(app.buttons["connect"].waitForExistence(timeout: 20))
+    app.buttons["connect"].tap()
+    expectation(for: NSPredicate(format: "label == %@", "Live Lean · Mac bridge"),
+      evaluatedWith: app.staticTexts["lean-status"])
+    waitForExpectations(timeout: 15)
+    app.buttons["toggle-space"].tap()
+    defer {
+      if app.buttons["toggle-space"].exists && app.buttons["toggle-space"].label == "Leave space" {
+        app.buttons["toggle-space"].tap()
+      }
+    }
+    capture("drag-before")
+    let endpoint = app.descendants(matching: .any).matching(NSPredicate(format: "label == %@", "Vector a endpoint")).firstMatch
+    guard endpoint.waitForExistence(timeout: 15) else {
+      XCTFail("RealityKit endpoint is not accessible to the public XCUI driver; no gesture was sent.")
+      return
+    }
+    let before = ["x", "y", "z"].map { app.staticTexts["coordinate-\($0)"].label }
+    let start = endpoint.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
+    let end = start.withOffset(CGVector(dx: 100, dy: 0))
+    let route = XCTAttachment(string: "Public XCUI screen-projected drag from \(start.screenPoint) to \(end.screenPoint); initial coordinates \(before)")
+    route.name = "drag-route"; route.lifetime = .keepAlways; add(route)
+    start.press(forDuration: 0.2, thenDragTo: end, withVelocity: .slow, thenHoldForDuration: 0.2)
+    expectation(for: NSPredicate(format: "label != %@", before[0]),
+      evaluatedWith: app.staticTexts["coordinate-x"])
+    waitForExpectations(timeout: 15)
+    expectation(for: NSPredicate(format: "label == %@", "Live Lean · Mac bridge"),
+      evaluatedWith: app.staticTexts["lean-status"])
+    waitForExpectations(timeout: 15)
+    XCTAssertEqual(app.staticTexts["result-provenance"].label, "Result source: Lean response from Mac")
+    capture("drag-after")
+  }
 }

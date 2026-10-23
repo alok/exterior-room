@@ -18,3 +18,23 @@ native/evidence/screenshots/20261023T030048Z/
 native/evidence/ui-tests.txt
 native/evidence/ui-tests-20261023T025855Z.txt
 native/evidence/ui-tests-20261023T030048Z.txt
+
+# Raw/interrupted simulator recordings remain local; publish curated MP4 evidence.
+native/evidence/screenshots/**/*.mov
+native/evidence/screenshots/**/*.mov.sb-*
+artifacts/videos/*.webm
+native/evidence/polynomial-baseline-055100.zip
+
+# Intermediate simulator captures stay local; final passing runs are curated.
+native/evidence/screenshots/20261023T052344Z/
+native/evidence/screenshots/20261023T052520Z/
+native/evidence/screenshots/20261023T053349Z/
+native/evidence/screenshots/20261023T053851Z/
+native/evidence/screenshots/20261023T054247Z/
+native/evidence/screenshots/20261023T060432Z/
+native/evidence/screenshots/20261023T061243Z/
+native/evidence/screenshots/20261023T061602Z/
+native/evidence/screenshots/20261023T061935Z/
+
+# Local task coordination receipt; not application evidence.
+artifacts/local-overnight-receipt.json

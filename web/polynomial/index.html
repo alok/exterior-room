@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lean Starscape · exact coefficient space</title>
+  <link rel="icon" href="data:,"><link rel="stylesheet" href="style.css">
+  <script type="importmap">{"imports":{"three":"../vendor/three.module.js","three/addons/controls/OrbitControls.js":"../vendor/OrbitControls.js"}}</script>
+  <style>
+    body.immersive #viewport { inset: 0; }
+    body.immersive #debug-toggle { display: none; }
+    header { right: 20px; top: 18px; }
+    #lean-status { margin: 6px 0; color: #a7e6cf; font-size: 13px; }
+    #lean-status[data-error="true"] { color: #ffae98; }
+    header h1 { margin: 7px 0; }
+    header .credit { font-size: 11px; }
+    .controls { width: 350px; max-height: calc(100svh - 175px); }
+    #viewport { left: 380px; top: 140px; bottom: 16px; right: 12px; }
+    #point-state { color: #f0f5f8; font: 18px ui-monospace,monospace; }
+    .formula { font: 13px ui-monospace,monospace; }
+    #coefficient { width: 120px; }
+    input[type="checkbox"] { width: auto; }
+    #palette-legend { font-size:12px;color:#b8c9d2;margin:12px 0; }
+    #palette-bar { height:9px;border-radius:3px;margin-top:5px; }
+    #debug-toggle { position:fixed; top:12px; right:12px; z-index:5; font-size:12px; padding:4px 8px; }
+    #debug { position:fixed; top:44px; right:12px; z-index:5; width:420px; max-width:calc(100vw - 24px); box-sizing:border-box; max-height:70svh; overflow:auto; background:#0d1820ee; border:1px solid #2b3d48; border-radius:8px; padding:10px 12px; font-size:12px; }
+    #debug dl { display:grid; grid-template-columns:auto auto; gap:2px 10px; margin:0; }
+    #debug dt { color:#9fb2bd; } #debug dd { margin:0; font:12px ui-monospace,monospace; text-align:right; }
+    #debug-close { float:right; padding:0 6px; }
+    #category-key { display:flex;gap:12px;margin-top:6px; }
+    #category-key i { display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px; }
+    #palette-ticks { display:flex;justify-content:space-between;font:11px ui-monospace,monospace; }
+    @media(max-width: 800px) {
+      header { left: 16px; top: 12px; }
+      h1 { font-size: 28px; margin: 4px 0 8px; }
+      #viewport { left: 0; right: 0; top: 120px; bottom: 48svh; }
+      .controls { left: 12px; right: 12px; bottom: 12px; width: auto; max-height: 46svh; }
+    }
+  </style>
+</head>
+<body>
+  <noscript><style>.controls,#debug-toggle{display:none}</style><p class="startup-error">JavaScript is needed for the spatial scene. <a href="https://www.katestange.net/starscape-lattice/">See Katherine Stange’s original viewer.</a></p></noscript>
+  <main id="viewport" aria-label="Three-dimensional coefficient lattice and its projection"></main>
+  <div id="hover-label" hidden aria-hidden="true"><span class="hover-ring"></span><span id="hover-text"></span></div>
+  <button id="debug-toggle" aria-expanded="false" aria-controls="debug">☰ Debug</button>
+  <section id="debug" role="dialog" aria-label="Debug counts and performance" hidden>
+    <p><strong>Debug</strong> <button id="debug-close" aria-label="Close debug">×</button></p>
+    <dl id="debug-rows"></dl>
+    <p><button id="debug-frames">Measure 60 frames</button></p>
+    <p class="hint">Exact = counted from the lattice. Measured = this browser, last frame or last action. Estimated = computed from array sizes. Desktop browser only; not a headset measurement.</p>
+  </section>
+  <header><p class="eyebrow">STARSCAPE · EXACT COEFFICIENT SPACE FROM LEAN</p>
+    <h1>Lean Starscape</h1><p id="lean-status" role="status">Connecting to Lean…</p>
+    <p class="credit">After <strong>Katherine Stange</strong> · <a href="https://katestange.net/talks/math-exploration/">Original talk ↗</a> · <a href="https://www.katestange.net/starscape-lattice/">Original 3D viewer ↗</a></p>
+  </header>
+  <section class="controls" aria-label="Coefficient space controls">
+    <p id="point-state" aria-live="polite"></p>
+    <p id="polynomial-state" class="formula"></p>
+    <p id="root-state" class="formula"></p>
+    <div class="row" aria-label="Presentation"><button id="space-view" aria-pressed="true">3D space</button><button id="roots-view" aria-pressed="false">2D roots</button></div>
+    <p><label>Roots model <select id="roots-model"><option value="half-plane">Upper half-plane</option><option value="klein">Klein disk</option></select></label></p>
+    <section id="mobius-controls" aria-label="Möbius action">
+      <div class="row"><button id="mobius-drag" aria-pressed="false">Move forms</button><button id="mobius-demo">Exact move</button><button id="mobius-clear">Identity</button></div>
+      <div class="row" aria-label="Exact action presets"><button id="mobius-t">T: z+1</button><button id="mobius-s">S: −1/z</button><button id="mobius-t-inverse">T⁻¹: z−1</button></div>
+      <div class="row"><button id="mobius-snap">Snap</button><label><input id="snap-release" type="checkbox"> Snap on release</label></div>
+      <p id="mobius-status" role="status">Identity action · base integer labels</p>
+      <p id="mobius-result" class="formula"></p>
+      <p class="hint">2D: drag roots; Shift-drag pans; wheel zooms. 3D: Move forms enters Origin; toggle it off to look. Release asks Lean to accept a quantized matrix. T/S compose on the left; Snap relabels integer forms after Lean validates both selections. Identity clears motion and preserves relabelled forms. Exact move is an absolute fixture. Motion retains the fixed base crop; dense previews update at most 10 times/s.</p>
+    </section>
+    <div class="row" aria-label="View"><button id="inhabit">Inhabit</button><button id="origin" aria-pressed="false">Origin</button><button id="next">Next point</button><button id="view">Other side</button><button id="reset">Reset</button></div>
+    <section id="navigation" hidden>
+      <p id="location" class="formula" aria-live="polite"></p>
+      <details><summary>Orientation convention</summary><p>Right-handed display basis X = −b, Y = a+c, Z = c−a, with e_x × e_y = e_z; local camera forward is −e_z. ZX turns about +Y, YZ about +X, XY about +Z. The existing ordered camera factorization is C = R_ZX(θ) R_YZ(φ) R_XY(ψ), equivalent to Euler YXZ. The rightmost factor acts first on column vectors. After ZX, the YZ and XY plane labels use the successively rotated camera basis. Drag changes the first two factors. These factors do not commute.</p></details>
+      <p id="origin-note" hidden>Eye at (0,0,0), the zero polynomial: no unique root or projective point; radial projection is undefined. Each line of sight is one class of nonzero forms; k·(a,b,c) share a ray, and ±(a,b,c), with the same roots, lie opposite. Looking up, the upper nappe appears as the Klein disk.</p>
+      <div class="row"><button data-look="up">Look up</button><button data-look="level">Level</button><button data-look="down">Look down</button></div>
+      <div class="row"><button data-move="forward">Forward</button><button data-move="back">Back</button><button data-move="left">Left</button><button data-move="right">Right</button><button data-move="up">Up</button><button data-move="down">Down</button></div>
+      <p>With Move forms off, drag to look; W/A/S/D and Q/E move the eye. Move forms changes the lattice by a Möbius action from Origin.</p>
+    </section>
+    <form id="coefficient-form"><label>(a,b,c) <input id="coefficient" value="1,-1,2" aria-label="Integer coefficients a, b, c"></label><button>Select</button></form>
+    <p class="hint">Shift-click a second interior point, or enter its coefficients and pair it with the selection.</p>
+    <div class="row"><button id="pair-add" type="button">Pair entered point</button><button id="pair-clear" type="button" hidden>Clear pair</button></div>
+    <p id="pair-status" role="status" hidden></p>
+    <section id="pair-details" aria-label="Selected geodesic plane" hidden>
+      <p id="pair-second" class="formula"></p><p id="pair-equation" class="formula"></p><p id="pair-endpoints" class="formula"></p>
+      <p id="pair-count"></p>
+      <p class="hint">Select an exterior point (Δ&gt;0) to cut by its Lorentz-orthogonal plane, or Shift-click two interior points. The cone intersection gives the boundary directions; the Klein-disk slice is a geodesic chord. Euclidean Inhabit motion is not hyperbolic.</p>
+      <p><label><input type="checkbox" id="plane-focus"> Fade points away from the plane</label> <span class="hint">Viewing aid: opacity falls with Euclidean distance to the plane (to 12%); color and size are unchanged.</span></p>
+    </section>
+    <div class="row"><label>Radius <select id="radius"><option>4</option><option selected>6</option><option>8</option><option>10</option><option>12</option><optgroup label="Dense (explicit)"><option value="24">24</option><option value="48">48</option><option value="96">96</option></optgroup></select></label></div>
+    <label>Star size <input type="range" id="star-size" min="0.4" max="2.5" step="0.01" value="1" style="width:120px;vertical-align:middle"> <span id="star-size-value">1.00</span></label>
+    <label>Colors <select id="palette"><option value="viridis">Viridis</option><option value="reference">Stange anchors</option></select></label>
+    <div id="palette-legend"><span id="palette-label"></span><div id="palette-bar"></div><div id="palette-ticks"><span id="palette-low"></span><span id="palette-high"></span></div><div id="category-key"><span><i id="swatch-exterior"></i>exterior Δ&gt;0</span><span><i id="swatch-null"></i>cone Δ=0</span><span><i id="swatch-lower"></i>lower interior</span></div></div>
+    <p><label><input type="checkbox" id="whole" checked> Whole coefficient lattice</label></p>
+    <p><label><input type="checkbox" id="cone" checked> Show double cone</label></p>
+    <p><label><input type="checkbox" id="symmetric-color"> Color lower half too (our extension)</label></p>
+    <p><label><input type="checkbox" id="projection"> Project to Klein disk</label></p>
+    <p id="status" role="status"></p>
+    <details><summary>What am I seeing?</summary>
+      <p>Each triple is ax²+bx+c, drawn at (X,Y,Z) = (−b, a+c, c−a), so Δ = b²−4ac = X²+Z²−Y². Upper interior (Δ&lt;0, a&gt;0) is colored by |Δ|: one color per sheet Y²−X²−Z² = |Δ|, a level set preserved by SL₂(ℤ). Exterior (Δ&gt;0) has real roots, the cone (Δ=0) a double root; the lower interior repeats the upper roots with opposite sign. A white ring marks the selection.</p>
+      <p class="formula">x = −b, y = a+c, z = c−a<br>Δ = b²−4ac = x²+z²−y²</p>
+      <p>The whole lattice shows integer coefficient triples in a finite ball x²+y²+z²≤R², including both signs. Turn Whole coefficient lattice off to keep only a&gt;0, Δ&lt;0. The full transformed grid is not arbitrary integer (x,y,z).</p>
+      <p>The optional screen y=4 cuts the upper cone in a disk. A lower-half triple is sign-flipped first; a polynomial and its negative have the same roots. Radial projection multiplies every coordinate by 4/(a+c). Multiples, such as (1,−1,2) and (2,−2,4), lie at different depths but share one image and one quadratic root.</p>
+      <p>The normalized disk coordinates u=−b/(a+c), v=(c−a)/(a+c) map to the upper half-plane by u/(1−v) + i√(1−u²−v²)/(1−v), the quadratic root shown above.</p>
+    </details>
+    <p class="hint">Hover a point to read its exact polynomial; click to select it. Drag to orbit · scroll to zoom · right-drag to pan. Focus the scene and use arrows to pan, +/− to zoom, Home to reset. No automatic motion.</p>
+    <p><button id="xr" disabled>Checking WebXR…</button></p><p id="xr-status" class="hint"></p>
+    <p><a href="boundary.html">Proof boundary →</a></p>
+    <details><summary>Sources and scope</summary><p>Separate Lean-backed adaptation of FareyVision’s coefficient-cone construction in Katherine Stange’s talk and Starscape / Lattice viewer. Our symmetric cone extent and origin-centered crop differ from the original viewer’s asymmetric framing. Interior color uses her fixed logarithmic 3–240 |Δ| range, so equal Δ has equal position in both viewers; nonprimitive multiples keep their own Δ. The default maps it onto Viridis (Smith, van der Walt and Firing; CC0, <a href="VIRIDIS-LICENSE.txt">license</a>) from 0.2 to 1, skipping the darkest fifth, which is too dark for single-pixel dots on black; its exterior, cone and lower colors are our choice, each at least 0.1 in OKLab from the ramp under normal, protan and deutan simulation. <em>Stange anchors</em> uses her six anchors with OKLab interpolation and the earlier gold, blue and gray categories; her viewer derives category colors from OKLCH lightness and chroma, and those exact values are not verified here. Lower-half coloring is an opt-in extension. Dots are flat, unlit discs with centers derived from Lean data and converted to floating-point renderer coordinates. Dot size follows the causes in her viewer: perspective and a fixed star radius (nonprimitive upper stars 0.72×, upper stars on a selected plane 1.35×), overview fog, and in Origin her eye-at-origin radius ∝ |Δ|^¼/√(a+c), so apparent size there is 1/√|Δ| times a Klein-position factor. Ours: radii above 2.5 px grow only as the cube root, capped at 9 px; below 1 px a dot keeps 1 px and dims; at the origin off-cone points stay visible. A click selects the nearest center within about 10 pixels. No source code or media from her viewer is bundled. FareyVision renderer modules are reused at pinned commit ca809d2; new Lean code and proofs are by this project, not Stange.</p><p>The separate Farey L/R demonstration credits <a href="https://doi.org/10.1112/jlms/s2-31.1.69">Caroline Series (1985)</a>. The two lattices have distinct meanings. Research background: <a href="https://arxiv.org/abs/2008.07655">Algebraic Number Starscapes — Harriss, Stange and Trettel</a>.</p></details>
+  </section>
+  <p id="fatal" role="alert" hidden></p>
+
+  <script type="module">if(new URLSearchParams(location.search).get('qaXR')==='1')await import('/qa/xr-bootstrap.js');await import('./app.js');</script>
+</body></html>

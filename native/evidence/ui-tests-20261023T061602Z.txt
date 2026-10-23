@@ -1,0 +1,313 @@
+Command line invocation:
+    /Applications/Xcode-27.2.0-Beta.2.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/.build/Build/Products/PolynomialRoom-capture.xctestrun -destination "platform=visionOS Simulator,id=1D261881-0A0F-4DE0-B704-12644E606348" -parallel-testing-enabled NO -jobs 2 -collect-test-diagnostics never -resultBundlePath /Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/evidence/NativeUI-20261023T061602Z.xcresult "-only-testing:PolynomialRoomUITests/PolynomialRoomUITests/testActionCheckpointAndOriginDrag"
+
+Writing result bundle at path:
+	/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/evidence/NativeUI-20261023T061602Z.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:visionOS Simulator, arch:arm64, id:1D261881-0A0F-4DE0-B704-12644E606348, OS:27.2, name:Exterior Room QA 2026-10-23 }
+{ platform:visionOS Simulator, arch:arm64, variant:Designed for [iPad,iPhone], id:1D261881-0A0F-4DE0-B704-12644E606348, OS:27.2, name:Exterior Room QA 2026-10-23 }
+2026-10-22 23:16:06.969753-0700 PolynomialRoomUITests-Runner[84231:9372478] [Default] Running tests...
+2026-10-22 23:16:06.975785-0700 PolynomialRoomUITests-Runner[84231:9372478] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-22 23:16:07.024574-0700 PolynomialRoomUITests-Runner[84231:9372877] [assertions] failed to observe with mask <BLSXPCBacklightProxyObserverMask: 0x104b49a10; didUpdateToState: YES; eventsArray: YES> error:<XPC error received on message reply handler (3:BSServiceConnectionErrorDomain) "The operation couldn’t be completed. XPC error received on message reply handler">
+2026-10-22 23:16:07.036043-0700 PolynomialRoomUITests-Runner[84231:9372873] [plugin] AddInstanceForFactory: No factory registered for id <CFUUID 0x107d71020> F8BB1C28-BAE8-11D6-9C31-00039315CD46
+2026-10-22 23:16:07.039250-0700 PolynomialRoomUITests-Runner[84231:9372871] [connection] nw_socket_copy_info [C1:2] getsockopt TCP_INFO failed [102: Operation not supported on socket]
+2026-10-22 23:16:07.058250-0700 PolynomialRoomUITests-Runner[84231:9372871] [] nw_socket_copy_info getsockopt TCP_INFO failed [102: Operation not supported on socket]
+objc[84231]: Class AXMRUIAccessibilityAssertionService is implemented in both /private/var/run/com.apple.security.cryptexd/mnt/com.apple.XROS.SimulatorRuntime-v24.14.5093.6.tLntQt/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/PrivateFrameworks/AccessibilityUIUtilities.framework/AccessibilityUIUtilities (0x1f00b6278) and /private/var/run/com.apple.security.cryptexd/mnt/com.apple.XROS.SimulatorRuntime-v24.14.5093.6.tLntQt/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS 27.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/PrivateFrameworks/MuseAccessibilityUI.framework/MuseAccessibilityUI (0x107738118). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+2026-10-22 23:16:07.336205-0700 PolynomialRoomUITests-Runner[84231:9372478] [AXCommon] Failed to load auxiliary bundle file:///private/var/run/com.apple.security.cryptexd/mnt/com.apple.XROS.SimulatorRuntime-v24.14.5093.6.tLntQt/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS%2027.2.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/MuseUIKit: (null)
+    t =      nans Interface orientation changed to Unknown
+Test Suite 'Selected tests' started at 2026-10-22 23:16:07.383.
+Test Suite 'PolynomialRoomUITests.xctest' started at 2026-10-22 23:16:07.383.
+Test Suite 'PolynomialRoomUITests' started at 2026-10-22 23:16:07.383.
+Test Case '-[PolynomialRoomUITests.PolynomialRoomUITests testActionCheckpointAndOriginDrag]' started.
+    t =     0.00s Start Test at 2026-10-22 23:16:07.386
+    t =     0.02s Set Up
+    t =     0.02s Open com.alok.PolynomialRoom
+    t =     0.02s     Launch com.alok.PolynomialRoom
+2026-10-22 23:16:07.461 xcodebuild[84155:9371787] [MT] IDELaunchParametersSnapshot: debugger version lookup failed for path '<nil>': noURL
+2026-10-22 23:16:07.461 xcodebuild[84155:9371787] [MT] IDELaunchParametersSnapshot: no debugger version
+    t =     0.51s         Setting up automation session
+    t =     3.92s         Wait for com.alok.PolynomialRoom to idle
+    t =     5.74s Waiting 20.0s for "poly-connect" Button to exist
+    t =     6.83s     Checking `Expect predicate `existsNoRetry == 1` for object "poly-connect" Button`
+    t =     6.83s         Checking existence of `"poly-connect" Button`
+    t =     6.96s Tap "poly-connect" Button
+    t =     6.96s     Wait for com.alok.PolynomialRoom to idle
+    t =     6.96s     Find the "poly-connect" Button
+    t =     7.00s     Check for interrupting elements affecting "poly-connect" Button
+    t =     7.00s         Wait for com.apple.SurfBoard to idle
+    t =     7.08s     Synthesize event
+    t =     7.54s     Wait for com.alok.PolynomialRoom to idle
+    t =     8.57s Checking `Expect predicate `label BEGINSWITH "Live Lean"` for object "poly-status" StaticText`
+    t =     8.57s     Find the "poly-status" StaticText
+    t =     8.61s Tap "poly-space" Button
+    t =     8.61s     Wait for com.alok.PolynomialRoom to idle
+    t =     8.61s     Find the "poly-space" Button
+    t =     8.64s     Check for interrupting elements affecting "poly-space" Button
+    t =     8.64s         Wait for com.apple.SurfBoard to idle
+    t =     8.71s     Synthesize event
+    t =     9.16s     Wait for com.alok.PolynomialRoom to idle
+    t =    11.14s Checking `Expect predicate `label == "Leave"` for object "poly-space" Button`
+    t =    11.14s     Find the "poly-space" Button
+    t =    11.32s Tap "poly-action-mode" Button
+    t =    11.32s     Wait for com.alok.PolynomialRoom to idle
+    t =    11.33s     Find the "poly-action-mode" Button
+    t =    11.43s     Check for interrupting elements affecting "poly-action-mode" Button
+    t =    11.44s         Wait for com.apple.SurfBoard to idle
+    t =    11.51s     Synthesize event
+    t =    11.92s     Wait for com.alok.PolynomialRoom to idle
+    t =    12.16s Added attachment named 'polynomial-action-start'
+    t =    12.16s Tap "poly-action-checkpoint" Button
+    t =    12.16s     Wait for com.alok.PolynomialRoom to idle
+    t =    12.17s     Find the "poly-action-checkpoint" Button
+    t =    12.27s     Check for interrupting elements affecting "poly-action-checkpoint" Button
+    t =    12.27s         Wait for com.apple.SurfBoard to idle
+    t =    12.35s     Synthesize event
+    t =    12.75s     Wait for com.alok.PolynomialRoom to idle
+    t =    14.03s Checking `Expect predicate `label == "Image: (8/5, -23/5, 22/5)"` for object "poly-action-image" StaticText`
+    t =    14.03s     Find the "poly-action-image" StaticText
+    t =    14.12s Find the "poly-polynomial" StaticText
+    t =    18.21s Added attachment named 'action-01-rational-overview'
+    t =    18.21s Added attachment named 'action-01-rational-overview-timing'
+    t =    18.22s Tap "poly-origin" Button
+    t =    18.22s     Wait for com.alok.PolynomialRoom to idle
+    t =    18.22s     Find the "poly-origin" Button
+    t =    18.32s     Check for interrupting elements affecting "poly-origin" Button
+    t =    18.33s         Wait for com.apple.SurfBoard to idle
+    t =    18.40s     Synthesize event
+    t =    19.02s     Wait for com.alok.PolynomialRoom to idle
+    t =    24.06s Added attachment named 'action-02-origin'
+    t =    24.06s Added attachment named 'action-02-origin-timing'
+    t =    24.06s Find the "poly-action-matrix" StaticText
+    t =    24.08s Checking existence of `"poly-action-disk" Any`
+    t =    24.13s Find the "poly-action-disk" Any
+    t =    24.23s Added attachment named 'disk-coordinate-receipt'
+    t =    24.23s Press "poly-action-disk" Other[0.50, 0.50] for 0.2 seconds, then drag to "poly-action-disk" Other[0.57, 0.45] with velocity of 250.00 pixels per second, and then hold for 0.2 seconds 
+    t =    24.23s     Wait for com.alok.PolynomialRoom to idle
+    t =    24.23s     Find the "poly-action-disk" Other
+    t =    24.28s     Check for interrupting elements affecting "poly-action-disk" Other
+    t =    24.29s         Wait for com.apple.SurfBoard to idle
+    t =    24.36s     Synthesize event
+    t =    24.36s         Find the "poly-action-disk" Other
+    t =    24.42s         Find the "poly-action-disk" Other
+    t =    24.47s         Find the "poly-action-disk" Other
+    t =    24.53s         Find the "poly-action-disk" Other
+    t =    24.59s         Find the "poly-action-disk" Other
+    t =    25.51s     Wait for com.alok.PolynomialRoom to idle
+    t =    26.59s Checking `Expect predicate `label != "M = [3, 1, 1, 2] · D = 5"` for object "poly-action-matrix" StaticText`
+    t =    26.60s     Find the "poly-action-matrix" StaticText
+    t =    26.62s     Capturing element debug description
+    t =    26.68s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    26.80s         Find: Descendants matching type StaticText
+    t =    26.80s         Find: Elements matching predicate '"poly-action-matrix" IN identifiers'
+    t =    26.80s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    26.91s         Find: Descendants matching type StaticText
+    t =    26.91s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    27.58s Checking `Expect predicate `label != "M = [3, 1, 1, 2] · D = 5"` for object "poly-action-matrix" StaticText`
+    t =    27.58s     Find the "poly-action-matrix" StaticText
+    t =    27.61s     Capturing element debug description
+    t =    27.67s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    27.76s         Find: Descendants matching type StaticText
+    t =    27.76s         Find: Elements matching predicate '"poly-action-matrix" IN identifiers'
+    t =    27.77s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    27.88s         Find: Descendants matching type StaticText
+    t =    27.88s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    28.56s Checking `Expect predicate `label != "M = [3, 1, 1, 2] · D = 5"` for object "poly-action-matrix" StaticText`
+    t =    28.56s     Find the "poly-action-matrix" StaticText
+    t =    28.59s     Capturing element debug description
+    t =    28.65s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    28.74s         Find: Descendants matching type StaticText
+    t =    28.74s         Find: Elements matching predicate '"poly-action-matrix" IN identifiers'
+    t =    28.74s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    28.85s         Find: Descendants matching type StaticText
+    t =    28.85s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    29.53s Checking `Expect predicate `label != "M = [3, 1, 1, 2] · D = 5"` for object "poly-action-matrix" StaticText`
+    t =    29.54s     Find the "poly-action-matrix" StaticText
+    t =    29.57s     Capturing element debug description
+    t =    29.74s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    29.84s         Find: Descendants matching type StaticText
+    t =    29.84s         Find: Elements matching predicate '"poly-action-matrix" IN identifiers'
+    t =    29.84s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    29.93s         Find: Descendants matching type StaticText
+    t =    29.94s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    30.61s Checking `Expect predicate `label != "M = [3, 1, 1, 2] · D = 5"` for object "poly-action-matrix" StaticText`
+    t =    30.61s     Find the "poly-action-matrix" StaticText
+    t =    30.63s     Capturing element debug description
+    t =    30.70s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    30.80s         Find: Descendants matching type StaticText
+    t =    30.80s         Find: Elements matching predicate '"poly-action-matrix" IN identifiers'
+    t =    30.80s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    30.90s         Find: Descendants matching type StaticText
+    t =    30.90s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    31.57s Checking `Expect predicate `label != "M = [3, 1, 1, 2] · D = 5"` for object "poly-action-matrix" StaticText`
+    t =    31.57s     Find the "poly-action-matrix" StaticText
+    t =    31.60s     Capturing element debug description
+    t =    31.67s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    31.77s         Find: Descendants matching type StaticText
+    t =    31.77s         Find: Elements matching predicate '"poly-action-matrix" IN identifiers'
+    t =    31.77s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    31.88s         Find: Descendants matching type StaticText
+    t =    31.88s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    32.56s Checking `Expect predicate `label != "M = [3, 1, 1, 2] · D = 5"` for object "poly-action-matrix" StaticText`
+    t =    32.56s     Find the "poly-action-matrix" StaticText
+    t =    32.58s     Capturing element debug description
+    t =    32.64s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    32.74s         Find: Descendants matching type StaticText
+    t =    32.74s         Find: Elements matching predicate '"poly-action-matrix" IN identifiers'
+    t =    32.74s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    32.84s         Find: Descendants matching type StaticText
+    t =    32.84s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    33.61s Checking `Expect predicate `label != "M = [3, 1, 1, 2] · D = 5"` for object "poly-action-matrix" StaticText`
+    t =    33.61s     Find the "poly-action-matrix" StaticText
+    t =    33.63s     Capturing element debug description
+    t =    33.69s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    33.80s         Find: Descendants matching type StaticText
+    t =    33.80s         Find: Elements matching predicate '"poly-action-matrix" IN identifiers'
+    t =    33.80s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    33.89s         Find: Descendants matching type StaticText
+    t =    33.89s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    34.56s Checking `Expect predicate `label != "M = [3, 1, 1, 2] · D = 5"` for object "poly-action-matrix" StaticText`
+    t =    34.56s     Find the "poly-action-matrix" StaticText
+    t =    34.58s     Capturing element debug description
+    t =    34.64s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    34.75s         Find: Descendants matching type StaticText
+    t =    34.75s         Find: Elements matching predicate '"poly-action-matrix" IN identifiers'
+    t =    34.75s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    34.86s         Find: Descendants matching type StaticText
+    t =    34.86s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    35.54s Checking `Expect predicate `label != "M = [3, 1, 1, 2] · D = 5"` for object "poly-action-matrix" StaticText`
+    t =    35.54s     Find the "poly-action-matrix" StaticText
+    t =    35.56s     Capturing element debug description
+    t =    35.63s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    35.73s         Find: Descendants matching type StaticText
+    t =    35.73s         Find: Elements matching predicate '"poly-action-matrix" IN identifiers'
+    t =    35.73s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    35.83s         Find: Descendants matching type StaticText
+    t =    35.83s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    36.62s Checking `Expect predicate `label != "M = [3, 1, 1, 2] · D = 5"` for object "poly-action-matrix" StaticText`
+    t =    36.62s     Find the "poly-action-matrix" StaticText
+    t =    36.64s     Capturing element debug description
+    t =    36.70s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    36.80s         Find: Descendants matching type StaticText
+    t =    36.80s         Find: Elements matching predicate '"poly-action-matrix" IN identifiers'
+    t =    36.80s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    36.89s         Find: Descendants matching type StaticText
+    t =    36.89s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    37.52s Checking `Expect predicate `label != "M = [3, 1, 1, 2] · D = 5"` for object "poly-action-matrix" StaticText`
+    t =    37.53s     Find the "poly-action-matrix" StaticText
+    t =    37.55s     Capturing element debug description
+    t =    37.61s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    37.72s         Find: Descendants matching type StaticText
+    t =    37.72s         Find: Elements matching predicate '"poly-action-matrix" IN identifiers'
+    t =    37.72s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    37.82s         Find: Descendants matching type StaticText
+    t =    37.82s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    38.60s Checking `Expect predicate `label != "M = [3, 1, 1, 2] · D = 5"` for object "poly-action-matrix" StaticText`
+    t =    38.60s     Find the "poly-action-matrix" StaticText
+    t =    38.63s     Capturing element debug description
+    t =    38.69s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    38.80s         Find: Descendants matching type StaticText
+    t =    38.80s         Find: Elements matching predicate '"poly-action-matrix" IN identifiers'
+    t =    38.80s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    38.90s         Find: Descendants matching type StaticText
+    t =    38.90s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    39.55s Checking `Expect predicate `label != "M = [3, 1, 1, 2] · D = 5"` for object "poly-action-matrix" StaticText`
+    t =    39.55s     Find the "poly-action-matrix" StaticText
+    t =    39.58s     Capturing element debug description
+    t =    39.64s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    39.74s         Find: Descendants matching type StaticText
+    t =    39.74s         Find: Elements matching predicate '"poly-action-matrix" IN identifiers'
+    t =    39.74s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    39.85s         Find: Descendants matching type StaticText
+    t =    39.85s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    40.53s Checking `Expect predicate `label != "M = [3, 1, 1, 2] · D = 5"` for object "poly-action-matrix" StaticText`
+    t =    40.53s     Find the "poly-action-matrix" StaticText
+    t =    40.55s     Capturing element debug description
+    t =    40.61s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    40.72s         Find: Descendants matching type StaticText
+    t =    40.72s         Find: Elements matching predicate '"poly-action-matrix" IN identifiers'
+    t =    40.72s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    40.82s         Find: Descendants matching type StaticText
+    t =    40.82s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    41.58s Checking `Expect predicate `label != "M = [3, 1, 1, 2] · D = 5"` for object "poly-action-matrix" StaticText`
+    t =    41.58s     Find the "poly-action-matrix" StaticText
+    t =    41.61s     Capturing element debug description
+    t =    41.68s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    41.79s         Find: Descendants matching type StaticText
+    t =    41.79s         Find: Elements matching predicate '"poly-action-matrix" IN identifiers'
+    t =    41.79s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    41.90s         Find: Descendants matching type StaticText
+    t =    41.90s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    42.55s Checking `Expect predicate `label != "M = [3, 1, 1, 2] · D = 5"` for object "poly-action-matrix" StaticText`
+    t =    42.55s     Find the "poly-action-matrix" StaticText
+    t =    42.58s     Capturing element debug description
+    t =    42.65s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    42.75s         Find: Descendants matching type StaticText
+    t =    42.75s         Find: Elements matching predicate '"poly-action-matrix" IN identifiers'
+    t =    42.75s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    42.85s         Find: Descendants matching type StaticText
+    t =    42.85s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    43.53s Checking `Expect predicate `label != "M = [3, 1, 1, 2] · D = 5"` for object "poly-action-matrix" StaticText`
+    t =    43.53s     Find the "poly-action-matrix" StaticText
+    t =    43.55s     Capturing element debug description
+    t =    43.61s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    43.72s         Find: Descendants matching type StaticText
+    t =    43.72s         Find: Elements matching predicate '"poly-action-matrix" IN identifiers'
+    t =    43.72s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    43.82s         Find: Descendants matching type StaticText
+    t =    43.83s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    44.60s Checking `Expect predicate `label != "M = [3, 1, 1, 2] · D = 5"` for object "poly-action-matrix" StaticText`
+    t =    44.60s     Find the "poly-action-matrix" StaticText
+    t =    44.63s     Capturing element debug description
+    t =    44.69s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    44.79s         Find: Descendants matching type StaticText
+    t =    44.79s         Find: Elements matching predicate '"poly-action-matrix" IN identifiers'
+    t =    44.79s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    44.89s         Find: Descendants matching type StaticText
+    t =    44.89s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    45.52s Checking `Expect predicate `label != "M = [3, 1, 1, 2] · D = 5"` for object "poly-action-matrix" StaticText`
+    t =    45.52s     Find the "poly-action-matrix" StaticText
+    t =    45.55s     Capturing element debug description
+    t =    45.61s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    45.71s         Find: Descendants matching type StaticText
+    t =    45.71s         Find: Elements matching predicate '"poly-action-matrix" IN identifiers'
+    t =    45.72s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    45.81s         Find: Descendants matching type StaticText
+    t =    45.81s         Requesting snapshot of accessibility hierarchy for app with pid 84342
+    t =    45.83s Find the "poly-action-drag-state" StaticText
+    t =    45.91s Find the "poly-action-disk" Other
+    t =    45.98s Added attachment named 'disk-gesture-receipt'
+    t =    46.38s Added attachment named 'action-03-drag-unconfirmed'
+    t =    46.38s Added attachment named 'action-03-drag-unconfirmed-timing'
+    t =    51.48s Added attachment named 'polynomial-action-stop'
+    t =    51.48s Tap "poly-space" Button
+    t =    51.48s     Wait for com.alok.PolynomialRoom to idle
+    t =    51.49s     Find the "poly-space" Button
+    t =    51.51s     Check for interrupting elements affecting "poly-space" Button
+    t =    51.51s         Wait for com.apple.SurfBoard to idle
+    t =    51.59s     Synthesize event
+    t =    52.09s     Wait for com.alok.PolynomialRoom to idle
+    t =    52.24s Checking existence of `"poly-action-drag-state" StaticText`
+    t =    52.34s Find the "poly-action-drag-state" StaticText
+/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/PolynomialUITests/PolynomialRoomUITests.swift:41: error: -[PolynomialRoomUITests.PolynomialRoomUITests testActionCheckpointAndOriginDrag] : failed - Disk drag did not change the Lean matrix: No drag sample yet
+    t =    52.42s Tear Down
+Test Case '-[PolynomialRoomUITests.PolynomialRoomUITests testActionCheckpointAndOriginDrag]' failed (53.133 seconds).
+Test Suite 'PolynomialRoomUITests' failed at 2026-10-22 23:17:00.519.
+	 Executed 1 test, with 1 failure (0 unexpected) in 53.133 (53.136) seconds
+Test Suite 'PolynomialRoomUITests.xctest' failed at 2026-10-22 23:17:00.520.
+	 Executed 1 test, with 1 failure (0 unexpected) in 53.133 (53.136) seconds
+Test Suite 'Selected tests' failed at 2026-10-22 23:17:00.520.
+	 Executed 1 test, with 1 failure (0 unexpected) in 53.133 (53.137) seconds
+2026-10-22 23:17:00.814 xcodebuild[84155:9371787] [MT] IDETestOperationsObserverDebug: 57.266 elapsed -- Testing started completed.
+2026-10-22 23:17:00.814 xcodebuild[84155:9371787] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-22 23:17:00.814 xcodebuild[84155:9371787] [MT] IDETestOperationsObserverDebug: 57.266 sec, +57.266 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/alokbeniwal/Documents/Codex/2026-10-22/task-11/native/evidence/NativeUI-20261023T061602Z.xcresult
+
+Failing tests:
+	PolynomialRoomUITests.testActionCheckpointAndOriginDrag()
+
+** TEST EXECUTE FAILED **
+
+Testing started

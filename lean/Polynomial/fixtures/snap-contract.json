@@ -1,0 +1,635 @@
+{
+  "sourceCommit": "6fea557bb0d0c786bed5223dc631cb1c06e94f16",
+  "sourceFileSHA256": {
+    "WebXR/mobius.js": "1fea68ba211f24914ffd653614c990a239e0b98624193700818ebb48d93cd965",
+    "WebXR/mobius.test.js": "ac8f6076d6888ab36ff00cf498126e306421aaaa3ff3fbfc6103d03499f806e6",
+    "WebXR/starscape.js": "52cf13c31d1ec35a44c3d4508484cb93e426fb4f0c6cc4f78afe8d6acc62b2fa",
+    "WebXR/mobius-checks.js": "cd8b3ec89e3b297d73534a82f3cfbdf13e5e9647013b771474700a1323f0c53a",
+    "WebXR/starscape-core.js": "07b08e1329f7d98596a2a1adf88192437b3f01839d7909463d46b3fe4b4b41c8",
+    "WebXR/pair-plane.js": "f5542cad732f3019b9351af07eb50630df7b1dab31ff3544cae0a5fb3cc9f2bc",
+    "BEHAVIOR_NOTEBOOK.md": "607da385b2d10ef5dc87d347a7d0f616f313cf49bfd298f55e025a32963633a0",
+    "parity/fixtures.json": "cf8faf235b12f2f214e59f67dc4eed0457ec8f349877db00ffc5f2c6d6322456"
+  },
+  "generation": "Pinned canonical nearestIntegral and actual absorb function; renderer callback replaced by a state sink. No UI execution.",
+  "boundary": "Snap candidate selection is floating-point canonical regression data, not a Lean theorem or proof of globally nearest SL2Z.",
+  "nearestIntegral": [
+    {
+      "id": "identity",
+      "matrixApprox": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "gamma": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "T",
+      "matrixApprox": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "gamma": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "S",
+      "matrixApprox": [
+        0,
+        -1,
+        1,
+        0
+      ],
+      "gamma": [
+        0,
+        -1,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "T-inverse",
+      "matrixApprox": [
+        1,
+        -1,
+        0,
+        1
+      ],
+      "gamma": [
+        1,
+        -1,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "T-S",
+      "matrixApprox": [
+        1,
+        -1,
+        1,
+        0
+      ],
+      "gamma": [
+        1,
+        -1,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "T-T-S",
+      "matrixApprox": [
+        2,
+        -1,
+        1,
+        0
+      ],
+      "gamma": [
+        2,
+        -1,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "small-drag",
+      "matrixApprox": [
+        1.028232933013232,
+        0.047548343723155244,
+        0.047548343723155244,
+        0.9747410463246825
+      ],
+      "gamma": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "near-T",
+      "matrixApprox": [
+        1.0496464460006782,
+        1.0723415042925848,
+        0.02269505829190655,
+        0.9758875065519818
+      ],
+      "gamma": [
+        1,
+        1,
+        0,
+        1
+      ]
+    }
+  ],
+  "absorbFunction": "function absorb(gamma){\n  if(!isIntegral(gamma))return setGroup(gamma);\n  selected=pushforwardExact(gamma,selected).map(Number);\n  if(secondSelection)secondSelection=pushforwardExact(gamma,secondSelection).map(Number);\n  setGroup(identity);\n}",
+  "identityHandler": "$('g-identity').onclick=()=>setGroup(identity);",
+  "absorptions": [
+    {
+      "id": "recorded-user-seed",
+      "gamma": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "before": {
+        "selected": [
+          13,
+          20,
+          34
+        ],
+        "second": null,
+        "group": [
+          1,
+          1,
+          0,
+          1
+        ]
+      },
+      "afterAbsorb": {
+        "selected": [
+          13,
+          -6,
+          27
+        ],
+        "second": null,
+        "group": [
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "afterIdentity": {
+        "selected": [
+          13,
+          -6,
+          27
+        ],
+        "second": null,
+        "group": [
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "planeBefore": null,
+      "planeAfter": null,
+      "serviceInputsWithin96": true
+    },
+    {
+      "id": "user-seed-paired",
+      "gamma": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "before": {
+        "selected": [
+          13,
+          20,
+          34
+        ],
+        "second": [
+          1,
+          0,
+          1
+        ],
+        "group": [
+          1,
+          1,
+          0,
+          1
+        ]
+      },
+      "afterAbsorb": {
+        "selected": [
+          13,
+          -6,
+          27
+        ],
+        "second": [
+          1,
+          -2,
+          2
+        ],
+        "group": [
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "afterIdentity": {
+        "selected": [
+          13,
+          -6,
+          27
+        ],
+        "second": [
+          1,
+          -2,
+          2
+        ],
+        "group": [
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "planeBefore": {
+        "normal": [
+          10,
+          21,
+          -10
+        ],
+        "equation": "20a +21b −20c = 0",
+        "endpoints": [
+          "-5/2",
+          "2/5"
+        ]
+      },
+      "planeAfter": {
+        "normal": [
+          10,
+          1,
+          -21
+        ],
+        "equation": "42a +b −20c = 0",
+        "endpoints": [
+          "-3/2",
+          "7/5"
+        ]
+      },
+      "serviceInputsWithin96": true
+    },
+    {
+      "id": "negative-multiple-pair",
+      "gamma": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "before": {
+        "selected": [
+          -26,
+          -40,
+          -68
+        ],
+        "second": [
+          -2,
+          0,
+          -2
+        ],
+        "group": [
+          1,
+          1,
+          0,
+          1
+        ]
+      },
+      "afterAbsorb": {
+        "selected": [
+          -26,
+          12,
+          -54
+        ],
+        "second": [
+          -2,
+          4,
+          -4
+        ],
+        "group": [
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "afterIdentity": {
+        "selected": [
+          -26,
+          12,
+          -54
+        ],
+        "second": [
+          -2,
+          4,
+          -4
+        ],
+        "group": [
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "planeBefore": {
+        "normal": [
+          10,
+          21,
+          -10
+        ],
+        "equation": "20a +21b −20c = 0",
+        "endpoints": [
+          "-5/2",
+          "2/5"
+        ]
+      },
+      "planeAfter": {
+        "normal": [
+          10,
+          1,
+          -21
+        ],
+        "equation": "42a +b −20c = 0",
+        "endpoints": [
+          "-3/2",
+          "7/5"
+        ]
+      },
+      "serviceInputsWithin96": true
+    },
+    {
+      "id": "mixed-sign-pair",
+      "gamma": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "before": {
+        "selected": [
+          13,
+          20,
+          34
+        ],
+        "second": [
+          -2,
+          0,
+          -2
+        ],
+        "group": [
+          1,
+          1,
+          0,
+          1
+        ]
+      },
+      "afterAbsorb": {
+        "selected": [
+          13,
+          -6,
+          27
+        ],
+        "second": [
+          -2,
+          4,
+          -4
+        ],
+        "group": [
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "afterIdentity": {
+        "selected": [
+          13,
+          -6,
+          27
+        ],
+        "second": [
+          -2,
+          4,
+          -4
+        ],
+        "group": [
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "planeBefore": {
+        "normal": [
+          10,
+          21,
+          -10
+        ],
+        "equation": "20a +21b −20c = 0",
+        "endpoints": [
+          "-5/2",
+          "2/5"
+        ]
+      },
+      "planeAfter": {
+        "normal": [
+          10,
+          1,
+          -21
+        ],
+        "equation": "42a +b −20c = 0",
+        "endpoints": [
+          "-3/2",
+          "7/5"
+        ]
+      },
+      "serviceInputsWithin96": true
+    },
+    {
+      "id": "first-image-out-of-bounds",
+      "gamma": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "before": {
+        "selected": [
+          96,
+          -96,
+          96
+        ],
+        "second": [
+          1,
+          0,
+          1
+        ],
+        "group": [
+          1,
+          1,
+          0,
+          1
+        ]
+      },
+      "afterAbsorb": {
+        "selected": [
+          96,
+          -288,
+          288
+        ],
+        "second": [
+          1,
+          -2,
+          2
+        ],
+        "group": [
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "afterIdentity": {
+        "selected": [
+          96,
+          -288,
+          288
+        ],
+        "second": [
+          1,
+          -2,
+          2
+        ],
+        "group": [
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "planeBefore": {
+        "normal": [
+          1,
+          0,
+          -1
+        ],
+        "equation": "2a −2c = 0",
+        "endpoints": [
+          "-1",
+          "1"
+        ]
+      },
+      "planeAfter": {
+        "normal": [
+          1,
+          -2,
+          0
+        ],
+        "equation": "−2b −2c = 0",
+        "endpoints": [
+          "0",
+          "2"
+        ]
+      },
+      "serviceInputsWithin96": false
+    },
+    {
+      "id": "second-image-out-of-bounds",
+      "gamma": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "before": {
+        "selected": [
+          1,
+          0,
+          1
+        ],
+        "second": [
+          -96,
+          96,
+          -96
+        ],
+        "group": [
+          1,
+          1,
+          0,
+          1
+        ]
+      },
+      "afterAbsorb": {
+        "selected": [
+          1,
+          -2,
+          2
+        ],
+        "second": [
+          -96,
+          288,
+          -288
+        ],
+        "group": [
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "afterIdentity": {
+        "selected": [
+          1,
+          -2,
+          2
+        ],
+        "second": [
+          -96,
+          288,
+          -288
+        ],
+        "group": [
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "planeBefore": {
+        "normal": [
+          1,
+          0,
+          -1
+        ],
+        "equation": "2a −2c = 0",
+        "endpoints": [
+          "-1",
+          "1"
+        ]
+      },
+      "planeAfter": {
+        "normal": [
+          1,
+          -2,
+          0
+        ],
+        "equation": "−2b −2c = 0",
+        "endpoints": [
+          "0",
+          "2"
+        ]
+      },
+      "serviceInputsWithin96": false
+    }
+  ]
+}

@@ -21,6 +21,7 @@ targets:
           NSAllowsLocalNetworking: true
     sources:
       - path: Sources
+        excludes: ["Polynomial*.swift"]
       - path: Resources
         buildPhase: resources
     settings:
@@ -44,6 +45,48 @@ targets:
     sources: [UITests]
     dependencies:
       - target: ExteriorRoom
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+
+  PolynomialRoom:
+    type: application
+    platform: visionOS
+    info:
+      path: PolynomialInfo.plist
+      properties:
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        NSAppTransportSecurity:
+          NSAllowsLocalNetworking: true
+    sources:
+      - path: Sources
+        excludes: ["ExteriorRoomApp.swift", "ExteriorSpace.swift", "LeanModel.swift"]
+      - path: Resources
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.alok.PolynomialRoom
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: Lean Starscape
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_NSLocalNetworkUsageDescription: Connect to your Mac's local Lean computation bridge.
+        CURRENT_PROJECT_VERSION: 1
+        MARKETING_VERSION: '0.1.0'
+        TARGETED_DEVICE_FAMILY: '7'
+    scheme:
+      testTargets: [PolynomialRoomUITests]
+
+  PolynomialRoomUITests:
+    type: bundle.ui-testing
+    platform: visionOS
+    sources:
+      - path: PolynomialUITests
+      - path: UITests/SimulatorCapture.swift
+    dependencies:
+      - target: PolynomialRoom
     settings:
       base:
         GENERATE_INFOPLIST_FILE: YES

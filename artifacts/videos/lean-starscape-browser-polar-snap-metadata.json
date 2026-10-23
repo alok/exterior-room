@@ -1,0 +1,49 @@
+{
+  "programs": [],
+  "stream_groups": [],
+  "streams": [
+    {
+      "codec_name": "h264",
+      "codec_type": "video",
+      "width": 888,
+      "height": 836
+    }
+  ],
+  "format": {
+    "duration": "45.616992",
+    "size": "135529"
+  },
+  "recordedUTC": "2026-10-23T08:27:58.888Z",
+  "scope": "Actual desktop pointer/controls; visible UHP WebGL canvas only; no DOM labels, audio, desktop capture or physical headset. Native comparison uses declared matrix preset plus actual Snap controls, not the same gesture.",
+  "sequence": [
+    "Identity source (13,20,34)",
+    "Vertical UHP drag near -0.4+0.1i to -0.4+i",
+    "Snap T4 -> (13,-84,162), discriminant -1368",
+    "Identity retains signed form",
+    "Reset"
+  ],
+  "inspection": {
+    "decodedFrameSeconds": [
+      1,
+      22.808496,
+      44.616992
+    ],
+    "result": "Actual stars at start; vertical dilation puts R6 roots outside this chart at midpoint; restored roots at end. Full screenshots and diagnostic state separately verify labels."
+  },
+  "sha256": "f6759e9f06b4b1d56ca94d5ddcfac72fdacbeece1892677023c213aeda3807a8",
+  "sourceSHA256": {
+    "web/polynomial/app.js": "caf66df9a6f2773bb829e69fb705d31a7366a783e3b17ecd3a0c1ac1258b74c1",
+    "web/polynomial/klein-view.js": "e56aa63b8f0b03bbd7e06d22ab10ac17d3e7e96abb40479881f4eab7c70c27a3",
+    "web/polynomial/klein-data.js": "708b3b16c378b8c54872652b41e6c2d2fab1ff30c501741482cf762f6187d601",
+    "web/polynomial/mobius-render.js": "3d8e32100a573514d0c837a46efaaa5f508c82915d83c2662117d8d04367c2d9",
+    "web/polynomial/mobius-snap.js": "10caf59887fd1a96b62b5b94cddeab1f1bcec67378097cf86245043a590e559e",
+    "web/polynomial/lean-client.js": "c16a22a2377b3eb1b20f95a75f4ec38add0269969d696866571c560685a2e418",
+    "web/polynomial/display-readouts.js": "ef6790d931341707d81cf9ee97d1a522d2534ece6f493681f000826e09d8c460",
+    "web/qa/xr-controls.js": "13e4594be82093945a2eb2eaecef1462f91d3d52d20799de4b98d87b563dd97f"
+  },
+  "frameSHA256": {
+    "artifacts/videos/lean-starscape-browser-polar-snap-end.png": "da23b0cf4128a5a6e894b4d5babe743a8893f62faf1bc37216a896cafde336ed",
+    "artifacts/videos/lean-starscape-browser-polar-snap-middle.png": "cbc8671a79bd34daa32483e5191a6e96c7cbf6b26f3c7070de4477102095a547",
+    "artifacts/videos/lean-starscape-browser-polar-snap-start.png": "7d3ec44ae6ebf75a44e727d634ddb2100e0f8854a4bb6a591abcb24f7d6bb489"
+  }
+}

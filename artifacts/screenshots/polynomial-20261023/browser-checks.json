@@ -1,0 +1,3883 @@
+[
+  {
+    "label": "next-hidden-multiple",
+    "cachedInspections": 2,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 843.5730409228152,
+      "y": 306.2621116934947
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 8,
+      "points": 480
+    },
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      2,
+      -2,
+      4
+    ],
+    "sigma": 1,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "view": {
+      "fov": 45,
+      "position": [
+        2.4,
+        2.9000000000000004,
+        1.4999999999999996
+      ],
+      "quaternion": [
+        -0.1362166426569136,
+        0.23577980007794755,
+        0.033398544765839325,
+        0.9616326998111108
+      ]
+    },
+    "whole": true
+  },
+  {
+    "label": "next-visible",
+    "cachedInspections": 3,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 815.5638009279243,
+      "y": 357.2057617534964
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 10,
+      "points": 480
+    },
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      2,
+      1,
+      1
+    ],
+    "sigma": 1,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "view": {
+      "fov": 45,
+      "position": [
+        2.4,
+        2.9000000000000004,
+        1.4999999999999996
+      ],
+      "quaternion": [
+        -0.1362166426569136,
+        0.23577980007794755,
+        0.033398544765839325,
+        0.9616326998111108
+      ]
+    },
+    "whole": true
+  },
+  {
+    "label": "select-unit-quadratic",
+    "cachedInspections": 4,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 824,
+      "y": 382.60131275223046
+    },
+    "projectionVisible": true,
+    "radius": 6,
+    "render": {
+      "calls": 16,
+      "points": 590
+    },
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      0,
+      1
+    ],
+    "sigma": 1,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "view": {
+      "fov": 45,
+      "position": [
+        2.4,
+        2.9000000000000004,
+        1.4999999999999996
+      ],
+      "quaternion": [
+        -0.1362166426569136,
+        0.23577980007794755,
+        0.033398544765839325,
+        0.9616326998111108
+      ]
+    },
+    "whole": true
+  },
+  {
+    "label": "pair-exact-plane",
+    "cachedInspections": 5,
+    "cachedPlanes": 1,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 824,
+      "y": 382.60131275223046
+    },
+    "projectionVisible": true,
+    "radius": 6,
+    "render": {
+      "calls": 23,
+      "points": 590
+    },
+    "schema": "polynomial-space-v1",
+    "second": [
+      1,
+      1,
+      1
+    ],
+    "selected": [
+      1,
+      0,
+      1
+    ],
+    "sigma": 1,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "view": {
+      "fov": 45,
+      "position": [
+        2.4,
+        2.9000000000000004,
+        1.4999999999999996
+      ],
+      "quaternion": [
+        -0.1362166426569136,
+        0.23577980007794755,
+        0.033398544765839325,
+        0.9616326998111108
+      ]
+    },
+    "whole": true
+  },
+  {
+    "label": "updated-overview",
+    "cachedInspections": 1,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 833.1276401961683,
+      "y": 368.02709892182907
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 10,
+      "points": 480
+    },
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "view": {
+      "fov": 45,
+      "position": [
+        2.4,
+        2.9000000000000004,
+        1.4999999999999996
+      ],
+      "quaternion": [
+        -0.1362166426569136,
+        0.23577980007794755,
+        0.033398544765839325,
+        0.9616326998111108
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "negative-signed-selection",
+    "cachedInspections": 2,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 815.9555496110519,
+      "y": 469.56786154357985
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 10,
+      "points": 480
+    },
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      -1,
+      1,
+      -2
+    ],
+    "sigma": 1,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "view": {
+      "fov": 45,
+      "position": [
+        2.4,
+        2.9000000000000004,
+        1.4999999999999996
+      ],
+      "quaternion": [
+        -0.1362166426569136,
+        0.23577980007794755,
+        0.033398544765839325,
+        0.9616326998111108
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "upper-filter-preserves-negative",
+    "cachedInspections": 2,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 55,
+    "dataBusy": false,
+    "inhabited": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 815.9555496110519,
+      "y": 469.56786154357985
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 8,
+      "points": 55
+    },
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      -1,
+      1,
+      -2
+    ],
+    "sigma": 1,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "view": {
+      "fov": 45,
+      "position": [
+        2.4,
+        2.9000000000000004,
+        1.4999999999999996
+      ],
+      "quaternion": [
+        -0.1362166426569136,
+        0.23577980007794755,
+        0.033398544765839325,
+        0.9616326998111108
+      ]
+    },
+    "whole": false,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "reset",
+    "cachedInspections": 2,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 833.1276401961683,
+      "y": 368.02709892182907
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 10,
+      "points": 480
+    },
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "view": {
+      "fov": 45,
+      "position": [
+        2.4,
+        2.9000000000000004,
+        1.4999999999999996
+      ],
+      "quaternion": [
+        -0.1362166426569136,
+        0.23577980007794755,
+        0.033398544765839325,
+        0.9616326998111108
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "origin",
+    "cachedInspections": 2,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": true,
+    "originMode": true,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 902.8753653306644,
+      "y": 343.1246346693356
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 9,
+      "points": 480
+    },
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "view": {
+      "fov": 100,
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0.7071067811865475,
+        0,
+        0,
+        0.7071067811865476
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "origin-pointer-look",
+    "cachedInspections": 2,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": true,
+    "originMode": true,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 918.2246941397603,
+      "y": 324.93623386023444
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 9,
+      "points": 480
+    },
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "view": {
+      "fov": 100,
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0.6613115602531774,
+        -0.0597949971246605,
+        0.053018078341716325,
+        0.7458422500524636
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "dense-radius96",
+    "cachedInspections": 2,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 1852484,
+    "dataBusy": false,
+    "inhabited": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 824.7164227643921,
+      "y": 417.7637007855646
+    },
+    "projectionVisible": false,
+    "radius": 96,
+    "render": {
+      "calls": 10,
+      "points": 1852484
+    },
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "view": {
+      "fov": 45,
+      "position": [
+        28.799999999999994,
+        19.4,
+        52.09999999999999
+      ],
+      "quaternion": [
+        -0.13621664265691363,
+        0.2357798000779476,
+        0.03339854476583933,
+        0.9616326998111108
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "reset-after-dense",
+    "cachedInspections": 2,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 833.1276401961683,
+      "y": 368.02709892182907
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 10,
+      "points": 480
+    },
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "view": {
+      "fov": 45,
+      "position": [
+        2.4,
+        2.9000000000000004,
+        1.4999999999999996
+      ],
+      "quaternion": [
+        -0.1362166426569136,
+        0.23577980007794755,
+        0.033398544765839325,
+        0.9616326998111108
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "inhabit",
+    "cachedInspections": 2,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": true,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 824.0000000000022,
+      "y": 999.6849347535274
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 8,
+      "points": 480
+    },
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "view": {
+      "fov": 45,
+      "position": [
+        0.26,
+        2,
+        -2.84
+      ],
+      "quaternion": [
+        0,
+        0.3826834323650896,
+        0,
+        0.9238795325112868
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "mobile390",
+    "cachedInspections": 1,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 200.16072265468475,
+      "y": 248.925394734767
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 10,
+      "points": 480
+    },
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "view": {
+      "fov": 45,
+      "position": [
+        2.4,
+        2.9000000000000004,
+        1.4999999999999996
+      ],
+      "quaternion": [
+        -0.1362166426569136,
+        0.23577980007794755,
+        0.033398544765839325,
+        0.9616326998111108
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "mobile-next",
+    "cachedInspections": 2,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 206.06650060043424,
+      "y": 214.00377622165024
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 8,
+      "points": 480
+    },
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      2,
+      -2,
+      4
+    ],
+    "sigma": 1,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "view": {
+      "fov": 45,
+      "position": [
+        2.4,
+        2.9000000000000004,
+        1.4999999999999996
+      ],
+      "quaternion": [
+        -0.1362166426569136,
+        0.23577980007794755,
+        0.033398544765839325,
+        0.9616326998111108
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "final-default",
+    "cachedInspections": 1,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 833.1276401961683,
+      "y": 368.02709892182907
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 10,
+      "points": 480
+    },
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "view": {
+      "fov": 45,
+      "position": [
+        2.4,
+        2.9000000000000004,
+        1.4999999999999996
+      ],
+      "quaternion": [
+        -0.1362166426569136,
+        0.23577980007794755,
+        0.033398544765839325,
+        0.9616326998111108
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "pair-regression-unit",
+    "cachedInspections": 2,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 824,
+      "y": 382.60131275223046
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 10,
+      "points": 480
+    },
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      0,
+      1
+    ],
+    "sigma": 1,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "view": {
+      "fov": 45,
+      "position": [
+        2.4,
+        2.9000000000000004,
+        1.4999999999999996
+      ],
+      "quaternion": [
+        -0.1362166426569136,
+        0.23577980007794755,
+        0.033398544765839325,
+        0.9616326998111108
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "pair-regression-valid",
+    "cachedInspections": 3,
+    "cachedPlanes": 1,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 824,
+      "y": 382.60131275223046
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 16,
+      "points": 480
+    },
+    "schema": "polynomial-space-v1",
+    "second": [
+      1,
+      1,
+      1
+    ],
+    "selected": [
+      1,
+      0,
+      1
+    ],
+    "sigma": 1,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "view": {
+      "fov": 45,
+      "position": [
+        2.4,
+        2.9000000000000004,
+        1.4999999999999996
+      ],
+      "quaternion": [
+        -0.1362166426569136,
+        0.23577980007794755,
+        0.033398544765839325,
+        0.9616326998111108
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "reject-proportional-pair",
+    "cachedInspections": 4,
+    "cachedPlanes": 1,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 824,
+      "y": 382.60131275223046
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 16,
+      "points": 480
+    },
+    "schema": "polynomial-space-v1",
+    "second": [
+      1,
+      1,
+      1
+    ],
+    "selected": [
+      1,
+      0,
+      1
+    ],
+    "sigma": 1,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "view": {
+      "fov": 45,
+      "position": [
+        2.4,
+        2.9000000000000004,
+        1.4999999999999996
+      ],
+      "quaternion": [
+        -0.1362166426569136,
+        0.23577980007794755,
+        0.033398544765839325,
+        0.9616326998111108
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "reset-preserves-renderer-preferences",
+    "cachedInspections": 4,
+    "cachedPlanes": 1,
+    "categories": "reference",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "originMode": false,
+    "planeFocus": true,
+    "projectedSelection": {
+      "x": 833.1276401961683,
+      "y": 368.02709892182907
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 10,
+      "points": 480
+    },
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 2.5,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "view": {
+      "fov": 45,
+      "position": [
+        2.4,
+        2.9000000000000004,
+        1.4999999999999996
+      ],
+      "quaternion": [
+        -0.1362166426569136,
+        0.23577980007794755,
+        0.033398544765839325,
+        0.9616326998111108
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  },
+  {
+    "label": "clean-default",
+    "cachedInspections": 1,
+    "cachedPlanes": 0,
+    "categories": "viridis",
+    "cloudCount": 480,
+    "dataBusy": false,
+    "inhabited": false,
+    "originMode": false,
+    "planeFocus": false,
+    "projectedSelection": {
+      "x": 833.1276401961683,
+      "y": 368.02709892182907
+    },
+    "projectionVisible": false,
+    "radius": 6,
+    "render": {
+      "calls": 10,
+      "points": 480
+    },
+    "schema": "polynomial-space-v1",
+    "second": null,
+    "selected": [
+      1,
+      -1,
+      2
+    ],
+    "sigma": 1,
+    "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+    "view": {
+      "fov": 45,
+      "position": [
+        2.4,
+        2.9000000000000004,
+        1.4999999999999996
+      ],
+      "quaternion": [
+        -0.1362166426569136,
+        0.23577980007794755,
+        0.033398544765839325,
+        0.9616326998111108
+      ]
+    },
+    "whole": true,
+    "world": {
+      "position": [
+        0,
+        1.4,
+        -3.1
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "xr": false,
+    "xrButtons": [
+      {
+        "position": [
+          -0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.25,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.15,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          1.05,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.95,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.12,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          0.36,
+          0.85,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.36,
+          0.75,
+          -1.15
+        ]
+      },
+      {
+        "position": [
+          -0.12,
+          0.75,
+          -1.15
+        ]
+      }
+    ],
+    "xrMode": "overview",
+    "xrPair": false
+  }
+]

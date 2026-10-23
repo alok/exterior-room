@@ -1,0 +1,40 @@
+Building for debugging...
+[Planning deferred tasks]
+[7 / 28]
+[8 / 29] ExteriorRoomCore
+[11 / 33] ExteriorRoomCore
+[12 / 33] ExteriorRoomCore
+[17 / 30] ExteriorRoomCore
+[21 / 30] ExteriorRoomCoreTests-product
+[24 / 35] ExteriorRoomCoreTests-product
+[26 / 34] ExteriorRoomCoreTests-product
+[30 / 34] ExteriorRoomCoreTests-product
+[32 / 34] ExteriorRoomCoreTests-product
+Build complete! (5.37 sec)
+Test Suite 'Selected tests' started at 2026-10-23 00:01:54.876.
+Test Suite 'ExteriorRoomCoreTests.xctest' started at 2026-10-23 00:01:54.878.
+Test Suite 'PolynomialActionTests' started at 2026-10-23 00:01:54.878.
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testActionDecoderRejectsMalformedProvenanceNamedChecksBoundsAndMaps]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testActionDecoderRejectsMalformedProvenanceNamedChecksBoundsAndMaps]' passed (0.005 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testActualLeanActionsMatchEveryCanonicalSignedGeneratorFixture]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testActualLeanActionsMatchEveryCanonicalSignedGeneratorFixture]' passed (0.002 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testActualRationalDragCheckpointAndDisplayMappingKeepExactNumerators]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testActualRationalDragCheckpointAndDisplayMappingKeepExactNumerators]' passed (0.001 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testPreviewCancellationAndRevisionMismatchCannotProduceACommitValue]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testPreviewCancellationAndRevisionMismatchCannotProduceACommitValue]' passed (0.000 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testPreviewDragComposesOnTheLeftAndKleinChartRoundTrips]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testPreviewDragComposesOnTheLeftAndKleinChartRoundTrips]' passed (0.000 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testPreviewTransvectionMovesItsAnchorAndMatchesDocumentedCheckpoint]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testPreviewTransvectionMovesItsAnchorAndMatchesDocumentedCheckpoint]' passed (0.001 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testQuantizationProducesBoundedPositiveDeterminantRequestsAndRejectsDegeneracy]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testQuantizationProducesBoundedPositiveDeterminantRequestsAndRejectsDegeneracy]' passed (0.000 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testSnapMatchesPinnedCanonicalBrowserFixturesIncludingSignedMatricesAndRoundingTies]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testSnapMatchesPinnedCanonicalBrowserFixturesIncludingSignedMatricesAndRoundingTies]' passed (0.001 seconds).
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testSnapRejectsNonfiniteDegenerateAndUnboundedRequestsWithoutIntegerOverflow]' started.
+Test Case '-[ExteriorRoomCoreTests.PolynomialActionTests testSnapRejectsNonfiniteDegenerateAndUnboundedRequestsWithoutIntegerOverflow]' passed (0.000 seconds).
+Test Suite 'PolynomialActionTests' passed at 2026-10-23 00:01:54.889.
+	 Executed 9 tests, with 0 failures (0 unexpected) in 0.010 (0.011) seconds
+Test Suite 'ExteriorRoomCoreTests.xctest' passed at 2026-10-23 00:01:54.889.
+	 Executed 9 tests, with 0 failures (0 unexpected) in 0.010 (0.012) seconds
+Test Suite 'Selected tests' passed at 2026-10-23 00:01:54.889.
+	 Executed 9 tests, with 0 failures (0 unexpected) in 0.010 (0.013) seconds

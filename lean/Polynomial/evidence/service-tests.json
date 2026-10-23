@@ -1,0 +1,111 @@
+{
+  "result": "passed",
+  "requests": 305,
+  "pointFixtures": 13,
+  "pairFixtures": 10,
+  "normalFixtures": 8,
+  "cloudRadii": 8,
+  "validatedPoints": 2120040,
+  "randomPoints": 100,
+  "invalidCases": 12,
+  "maxResponseBytes": 494816,
+  "benchmarks": [
+    {
+      "radius": 4,
+      "count": 128,
+      "pages": 1,
+      "firstPageMs": 0.18545899365562946,
+      "maxCachedPageMs": 0,
+      "membersMs": 0.06175000453367829,
+      "membersCount": 8,
+      "upperCloudFirstMs": 0.02824999683070928,
+      "allPagesAndValidationMs": 0.5425829876912758,
+      "canonicalOrderSha256": "5c698f21c26ba8f0249105b5d7ed793e3edf1844ba1589d5f053dc60004ae2e5"
+    },
+    {
+      "radius": 6,
+      "count": 480,
+      "pages": 1,
+      "firstPageMs": 0.44829200487583876,
+      "maxCachedPageMs": 0,
+      "membersMs": 0.04733398964162916,
+      "membersCount": 22,
+      "upperCloudFirstMs": 0.09370800398755819,
+      "allPagesAndValidationMs": 1.0639590036589652,
+      "canonicalOrderSha256": "3a8951bf38c454b4730f2147b1de7de050401880fd8406fb9b6a97b09aa65343"
+    },
+    {
+      "radius": 8,
+      "count": 1060,
+      "pages": 1,
+      "firstPageMs": 1.1179159919265658,
+      "maxCachedPageMs": 0,
+      "membersMs": 0.42970800132025033,
+      "membersCount": 44,
+      "upperCloudFirstMs": 0.08479099778924137,
+      "allPagesAndValidationMs": 2.7023329894291237,
+      "canonicalOrderSha256": "b2b4a944cbde577c0adc8bc0d184e6d17db3c1dd623770528a23b96e3a47f734"
+    },
+    {
+      "radius": 10,
+      "count": 2100,
+      "pages": 1,
+      "firstPageMs": 2.411833993392065,
+      "maxCachedPageMs": 0,
+      "membersMs": 0.08595800318289548,
+      "membersCount": 70,
+      "upperCloudFirstMs": 0.07541700324509293,
+      "allPagesAndValidationMs": 4.278790991520509,
+      "canonicalOrderSha256": "c9001c660229da6fe8bd672f04b10bb11199e9ea1ececdec308a5bed9f11c6e5"
+    },
+    {
+      "radius": 12,
+      "count": 3608,
+      "pages": 1,
+      "firstPageMs": 3.48754100559745,
+      "maxCachedPageMs": 0,
+      "membersMs": 0.15541700122412294,
+      "membersCount": 100,
+      "upperCloudFirstMs": 0.11025001003872603,
+      "allPagesAndValidationMs": 7.872667003539391,
+      "canonicalOrderSha256": "228381dfcad04a9662cfcfc4ebaafa026dcdbb535bc3f0815bfd6f4f7e14c243"
+    },
+    {
+      "radius": 24,
+      "count": 28832,
+      "pages": 2,
+      "firstPageMs": 15.555249992758036,
+      "maxCachedPageMs": 14.147124995361082,
+      "membersMs": 0.6602080102311447,
+      "membersCount": 428,
+      "upperCloudFirstMs": 0.6142089987406507,
+      "allPagesAndValidationMs": 58.171291995677166,
+      "canonicalOrderSha256": "f9e4ff82bef2eafc6207ce0c357cc839c390f8596b805d271d9a53b5bbc0c93f"
+    },
+    {
+      "radius": 48,
+      "count": 231348,
+      "pages": 15,
+      "firstPageMs": 23.86445899901446,
+      "maxCachedPageMs": 33.09237500070594,
+      "membersMs": 1.357000001007691,
+      "membersCount": 1768,
+      "upperCloudFirstMs": 6.024750007782131,
+      "allPagesAndValidationMs": 575.0398750096792,
+      "canonicalOrderSha256": "6256c343aa9626de0f65f03daacb19559e0ecab4b47133fdd6380142922d4c2d"
+    },
+    {
+      "radius": 96,
+      "count": 1852484,
+      "pages": 114,
+      "firstPageMs": 47.40820800361689,
+      "maxCachedPageMs": 71.98737499129493,
+      "membersMs": 12.996125005884096,
+      "membersCount": 7156,
+      "upperCloudFirstMs": 27.368915994884446,
+      "allPagesAndValidationMs": 3912.061666007503,
+      "canonicalOrderSha256": "069d4ab4008491dfa26fb881a8d8c0df1004a272fb986e85c721a7b69f5daca5"
+    }
+  ],
+  "scope": "Compiled Lean service and JSON transport; no renderer or headset performance claim."
+}

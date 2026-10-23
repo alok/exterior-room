@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "scope": "Numerical differential against actual pinned computeStars; no GPU, UI, visual or Lean-proof assertion.",
+  "sourceCommit": "2cd549a45ddb6056cf3596404754d96ad9e7132c",
+  "sourcePathPrefix": "Farey/WebXR/",
+  "sourceSha256": {
+    "mobius.js": "193a0df167da6ab54f9c496ef736df15326fc5db67dcea0087cee760577e32de",
+    "roots-pane.js": "cbbbb4f0415d9cc534f5c0f4fd7287e5279c50bfb56581a1243fabb97ee1e87b",
+    "lattice.js": "3a10ed93d0c5ab61e507ab2ebe400668d04e786af4cf8e897101b4b2e7c48259"
+  },
+  "implementationSha256": {
+    "web/polynomial/klein-data.js": "708b3b16c378b8c54872652b41e6c2d2fab1ff30c501741482cf762f6187d601",
+    "web/polynomial/mobius-render.js": "3d8e32100a573514d0c837a46efaaa5f508c82915d83c2662117d8d04367c2d9",
+    "web/polynomial/mobius.js": "d2dbc833ca29bf7160e99f976aa433ca8a274a612d0e9f5d95b82aa6803f6886"
+  },
+  "scriptSha256": "fa9bf4814411ed00c06135ed4b55e1b130cebcd197b72c5d790978a1658ab58b",
+  "runtime": "v26.9.0",
+  "platform": "darwin/arm64",
+  "fixture": {
+    "radius": 6,
+    "matrix": [
+      3,
+      1,
+      1,
+      2
+    ],
+    "denominator": 5,
+    "viewport": {
+      "left": 0,
+      "top": 0,
+      "width": 600,
+      "height": 400
+    },
+    "sigma": 1,
+    "model": "half-plane"
+  },
+  "allSignedPoints": 480,
+  "upperVertices": 55,
+  "canonicalVisible": 32,
+  "compared": 32,
+  "maxPixelError": 0.000017524483610031893,
+  "tolerancePixels": 0.001
+}
