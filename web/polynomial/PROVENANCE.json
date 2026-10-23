@@ -104,11 +104,27 @@
       "license": "GPL-3.0-or-later"
     },
     {
-      "commit": "6fea557bb0d0c786bed5223dc631cb1c06e94f16",
+      "commit": "2cd549a45ddb6056cf3596404754d96ad9e7132c",
       "path": "Farey/WebXR/mobius.js",
       "destination": "web/polynomial/mobius-snap.js",
-      "sha256": "1fea68ba211f24914ffd653614c990a239e0b98624193700818ebb48d93cd965",
-      "role": "adapted numerical nearest-integral choice and root action; exact chosen-matrix application goes through Lean",
+      "sha256": "193a0df167da6ab54f9c496ef736df15326fc5db67dcea0087cee760577e32de",
+      "role": "adapted current residual polar-angle Snap candidate choice and real root action; exact chosen-matrix application goes through Lean",
+      "license": "GPL-3.0-or-later"
+    },
+    {
+      "commit": "2cd549a45ddb6056cf3596404754d96ad9e7132c",
+      "path": "Farey/WebXR/roots-pane.js",
+      "destination": "web/polynomial/klein-view.js",
+      "sha256": "cbbbb4f0415d9cc534f5c0f4fd7287e5279c50bfb56581a1243fabb97ee1e87b",
+      "role": "Adapted UHP projection, footprint, marker text, picking and resize conventions; WebGL implementation and Lean data adapter are project changes",
+      "license": "GPL-3.0-or-later"
+    },
+    {
+      "commit": "2cd549a45ddb6056cf3596404754d96ad9e7132c",
+      "path": "Farey/WebXR/index.html",
+      "destination": "web/polynomial/index.html",
+      "sha256": "c475b15d4fda1d5336d13d28c87f17d9897fb31c301f2e2742f740584684b4a6",
+      "role": "Adapted simultaneous wide diagram / compact pane-switch layout; project control geometry remains distinct",
       "license": "GPL-3.0-or-later"
     }
   ]

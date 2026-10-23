@@ -90,8 +90,8 @@ struct PolynomialTransformControls: View {
             endedCallbacks += 1
             if diagnosticsEnabled { diagnosticLocation = value.location }
             model.updateActionDrag(to:klein(value.location,size:geometry.size),force:true)
-            dragState = model.actionPreview == nil ? "Drag ended without sample" : "Released sample to Lean"
-            attempted = false; model.commitActionDrag()
+            attempted = false
+            dragState = model.commitActionDrag() ? "Released sample to Lean" : "Drag ended without owned sample"
           })
         .allowsHitTesting(model.placement.isOrigin && !model.busy)
       // Match the interaction and accessibility bounds to the visible disk. A wide, shallow
@@ -126,12 +126,12 @@ struct PolynomialTransformControls: View {
           await Task.yield()
           if !gestureActive && attempted {
             cancelledGestures += 1
-            attempted = false; model.cancelActionDrag(); dragState = "Drag cancelled · accepted scene retained"
+            attempted = false; model.cancelKleinDrag(); dragState = "Drag cancelled · accepted scene retained"
           }
         }
       }
     }
-    .onDisappear { attempted = false; model.cancelActionDrag() }
+    .onDisappear { attempted = false; model.cancelKleinDrag() }
   }
   private func klein(_ point: CGPoint,size:CGSize) -> SIMD2<Double> {
     let radius = max(1,(min(size.width,size.height)-16)/2)

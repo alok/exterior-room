@@ -168,9 +168,11 @@ enum PolynomialPlacement: Equatable {
   var placement = PolynomialPlacement.overview
   var placementEpoch = 0
   var spaceOpen = false
+  var rootsOpen = false
   var transitioning = false
   var points: [PolynomialPoint] = []
   var inspection: PolynomialInspection?
+  private(set) var pairedInspection: PolynomialInspection?
   var plane: PolynomialPlane?
   var selected = [1,-1,2]
   var paired: [Int]?
@@ -184,6 +186,15 @@ enum PolynomialPlacement: Equatable {
   private(set) var action: PolynomialAction?
   private(set) var actionPreview: PolynomialActionPreview?
   private(set) var actionRevision = 0
+  private enum DragSurface { case klein, roots }
+  private var dragSurface: DragSurface?
+  var rootsResetRevision = 0
+  private(set) var hoveredPoint: [Int]?
+  private(set) var hoverInspection: PolynomialInspection?
+  private(set) var hoverStatus = ""
+  private var hoverGeneration = 0
+  private var hoverPending: Task<Void, Never>?
+  private var inspectionCache: [String:PolynomialInspection] = [:]
   private var lastPreviewTime = 0.0
   var source = "Bundled Lean export"
   private var cached: [PolynomialPoint] = []
@@ -210,6 +221,7 @@ enum PolynomialPlacement: Equatable {
         })
       else { throw URLError(.cannotParseResponse) }
       cached = cloud.points; points = cached; cacheKey = "6-false"; inspection = detail
+      inspectionCache[detail.point.map(String.init).joined(separator:":")] = detail
     } catch { self.error = "Bundled Lean data unavailable: \(error.localizedDescription)" }
   }
 
@@ -228,6 +240,35 @@ enum PolynomialPlacement: Equatable {
     select(asPair ? selected : point, pair: asPair ? point : nil)
   }
   var selectionShown: Bool { points.contains { $0.abc == inspection?.point } }
+  /// Hover is a separate, cancellable Lean inspection. It never changes selection or scene acceptance.
+  func hover(_ point: [Int]?) {
+    guard hoveredPoint != point else { return }
+    hoverPending?.cancel(); hoverGeneration += 1; hoveredPoint = nil; hoverInspection = nil; hoverStatus = ""
+    guard let point, points.contains(where: { $0.abc == point }) else { return }
+    hoveredPoint = point
+    let key = point.map(String.init).joined(separator:":")
+    if let detail = inspectionCache[key] { hoverInspection = detail; hoverStatus = "Exact Lean inspection"; return }
+    hoverStatus = "Inspecting in Lean…"
+    let version = hoverGeneration
+    hoverPending = Task {
+      do {
+        let detail: PolynomialInspection = try await call(["op":"inspect","point":point])
+        guard detail.isValid, detail.point == point else { throw URLError(.cannotParseResponse) }
+        guard !Task.isCancelled, version == hoverGeneration, hoveredPoint == point else { return }
+        if inspectionCache.count >= 128 { inspectionCache.removeAll(keepingCapacity:true) }
+        inspectionCache[key] = detail; hoverInspection = detail; hoverStatus = "Exact Lean inspection"
+      } catch {
+        guard !Task.isCancelled, version == hoverGeneration else { return }
+        hoverStatus = "Hover inspection unavailable · selection unchanged"
+      }
+    }
+  }
+  func polynomialLabel(for point: [Int]) -> String? {
+    if inspection?.point == point { return inspection?.displayPolynomial }
+    if pairedInspection?.point == point { return pairedInspection?.displayPolynomial }
+    return inspectionCache[point.map(String.init).joined(separator:":")]?.displayPolynomial
+  }
+  func waitForHover() async { await hoverPending?.value }
   func nextCoefficient() {
     let index = Self.nextSequence.firstIndex(of: selected) ?? -1
     select(Self.nextSequence[(index + 1) % Self.nextSequence.count])
@@ -277,11 +318,13 @@ enum PolynomialPlacement: Equatable {
   }
   func beginActionDrag(at point: SIMD2<Double>) {
     guard placement.isOrigin, !busy else { return }
+    cancelActionDrag(); hover(nil); dragSurface = .klein
     actionPreview = PolynomialActionPreview(matrix:(action?.matrix ?? [1,0,0,1]).map(Double.init),
       kleinPoint:point,inputRevision:sceneRevision)
     lastPreviewTime = 0; actionRevision += 1
   }
   func updateActionDrag(to point: SIMD2<Double>, force: Bool = false) {
+    guard dragSurface == .klein else { return }
     guard placement.isOrigin, !busy, var preview = actionPreview,
       preview.inputRevision == sceneRevision else { cancelActionDrag(); return }
     // Bound rendering work on the Mac; this is an approximate interactive preview.
@@ -291,23 +334,45 @@ enum PolynomialPlacement: Equatable {
       actionPreview = preview; actionRevision += 1; lastPreviewTime = now
     }
   }
+  /// Upper-half-plane dragging is independent of the ambient 3D viewpoint, as in the source Roots window.
+  func beginRootsDrag(at point: SIMD2<Double>) {
+    guard !busy else { return }
+    cancelActionDrag(); hover(nil); dragSurface = .roots
+    actionPreview = PolynomialActionPreview(matrix:(action?.matrix ?? [1,0,0,1]).map(Double.init),
+      upperPoint:point,inputRevision:sceneRevision)
+    lastPreviewTime = 0; actionRevision += 1
+  }
+  func updateRootsDrag(to point: SIMD2<Double>, force: Bool = false) {
+    guard dragSurface == .roots else { return }
+    guard !busy, var preview = actionPreview, preview.inputRevision == sceneRevision else { cancelActionDrag(); return }
+    let now = Date.timeIntervalSinceReferenceDate
+    guard force || now-lastPreviewTime >= 0.08 else { return }
+    if preview.update(upperPoint:point) { actionPreview = preview; actionRevision += 1; lastPreviewTime = now }
+  }
   func cancelActionDrag() {
+    dragSurface = nil
     if actionPreview != nil { actionPreview = nil; actionRevision += 1 }
   }
-  func commitActionDrag() {
-    guard let preview = actionPreview else { return }
+  func cancelRootsDrag() { if dragSurface == .roots { cancelActionDrag() } }
+  func cancelKleinDrag() { if dragSurface == .klein { cancelActionDrag() } }
+  @discardableResult func commitRootsDrag() -> Bool { commitDrag(from:.roots) }
+  @discardableResult func commitActionDrag() -> Bool { commitDrag(from:.klein) }
+  private func commitDrag(from surface:DragSurface) -> Bool {
+    guard dragSurface == surface, let preview = actionPreview else { return false }
     let matrix = snapOnRelease && preview.inputRevision == sceneRevision
       ? PolynomialMobius.nearestIntegral(preview.matrix) : preview.commitMatrix(ifRevision:sceneRevision)
     cancelActionDrag()
-    guard let matrix else { error = "Drag sample could not be committed; accepted transform retained."; return }
+    guard let matrix else { error = "Drag sample could not be committed; accepted transform retained."; return false }
     if snapOnRelease { absorbAction(matrix) } else { requestAction(matrix) }
+    return true
   }
   var displayActionRows: [Double] {
     if let preview = actionPreview, let rows = PolynomialMobius.coefficientRows(preview.matrix) { return rows }
     return action?.coefficientRowsApprox ?? [1,0,0,0,1,0,0,0,1]
   }
   /// Labels distinguish exact base descriptors from the currently drawn approximate image.
-  private var readoutMatrix: [Double] { actionPreview?.matrix ?? action?.matrix.map(Double.init) ?? PolynomialMobius.identity }
+  var displayActionMatrix: [Double] { actionPreview?.matrix ?? action?.matrix.map(Double.init) ?? PolynomialMobius.identity }
+  private var readoutMatrix: [Double] { displayActionMatrix }
   private var hasReadoutTransform: Bool {
     let g = readoutMatrix
     return g[1] != 0 || g[2] != 0 || g[0] != g[3]
@@ -346,7 +411,7 @@ enum PolynomialPlacement: Equatable {
   }
   func reset() {
     radius = 6; upperOnly = false; colorLower = false; showProjection = false; viewpoint = 0
-    showCone = true; snapOnRelease = false
+    showCone = true; snapOnRelease = false; rootsResetRevision += 1; hover(nil)
     actionMatrix = [1,0,0,1]; place(.overview); select(Self.nextSequence[0])
   }
   func waitForPending() async { await pending?.value }
@@ -365,6 +430,7 @@ enum PolynomialPlacement: Equatable {
         guard [4,6,8,10,12].contains(radius) else { throw URLError(.badURL) }
         var desired = original, second = originalSecond
         var absorbedDelta: Int?
+        var secondDetail: PolynomialInspection?
         if let gamma {
           func boundedImage(_ receipt: PolynomialAction, point: [Int]) throws -> [Int] {
             guard receipt.matches(matrix:gamma,point:point), receipt.denominator == 1,
@@ -379,10 +445,11 @@ enum PolynomialPlacement: Equatable {
           if let originalSecond {
             let secondary: PolynomialAction = try await call(["op":"transform","matrix":gamma,"point":originalSecond])
             let secondImage = try boundedImage(secondary,point:originalSecond); second = secondImage
-            let secondDetail: PolynomialInspection = try await call(["op":"inspect","point":secondImage])
-            guard secondDetail.isValid, secondDetail.point == secondImage, secondDetail.delta == secondary.delta else {
+            let inspected: PolynomialInspection = try await call(["op":"inspect","point":secondImage])
+            guard inspected.isValid, inspected.point == secondImage, inspected.delta == secondary.delta else {
               throw URLError(.cannotParseResponse)
             }
+            secondDetail = inspected
           }
         }
         var cloud = cached
@@ -399,6 +466,11 @@ enum PolynomialPlacement: Equatable {
         }
         let detail: PolynomialInspection = try await call(["op":"inspect", "point":desired])
         guard detail.isValid, detail.point == desired, absorbedDelta == nil || absorbedDelta == detail.delta else { throw URLError(.cannotParseResponse) }
+        if let second, secondDetail == nil {
+          if let cached = inspectionCache[second.map(String.init).joined(separator:":")] { secondDetail = cached }
+          else { secondDetail = try await call(["op":"inspect","point":second]) }
+          guard secondDetail?.isValid == true, secondDetail?.point == second else { throw URLError(.cannotParseResponse) }
+        }
         var acceptedAction: PolynomialAction?
         if needsAction {
           acceptedAction = try await call(["op":"transform", "matrix":desiredMatrix, "point":desired])
@@ -427,7 +499,10 @@ enum PolynomialPlacement: Equatable {
           PolynomialPoint(abc: p.abc, xyz: p.xyz, delta: p.delta, kind: p.kind, divisor: p.divisor,
             onPlane: members.contains(index), necklace: members.contains(index))
         }
-        inspection = detail; plane = cutting; displayedPair = second; displayedRadius = radius; sceneRevision += 1
+        hover(nil)
+        inspectionCache[detail.point.map(String.init).joined(separator:":")] = detail
+        if let secondDetail { inspectionCache[secondDetail.point.map(String.init).joined(separator:":")] = secondDetail }
+        inspection = detail; pairedInspection = secondDetail; plane = cutting; displayedPair = second; displayedRadius = radius; sceneRevision += 1
         action = acceptedAction; actionRevision += 1
         selected = desired; paired = second; actionMatrix = desiredMatrix
         source = "Lean response from Mac"; status = "Live Lean · \(points.count) signed triples"; busy = false

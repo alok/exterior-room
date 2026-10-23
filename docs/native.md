@@ -6,10 +6,11 @@ identifier `com.alok.PolynomialRoom`. It consumes the exact polynomial service
 on the Mac. The earlier Exterior Room scheme remains a separate archived demo.
 The full instructions and provenance are in `native/README.md`.
 
-The latest polar-Snap follow-up below separates current behavior from the
-historical build/UI receipts. Native upper-half-plane Roots, hover polynomial
-readouts and free-space controller SL₂ dragging remain gaps; this is not a claim
-of complete canonical Starscape parity.
+The latest linked Roots follow-up below separates current behavior from historical
+build/UI receipts. The native upper-half-plane window now shares selection,
+pairing and action state with the 3D scene. Actual pointer hover, physical input
+and free-space controller SL₂ dragging remain unverified or absent; this is not a
+claim of complete canonical Starscape parity.
 
 ## Archived Exterior Room
 
@@ -136,11 +137,11 @@ The pinned source commit and original file hashes are recorded in
 `native/evidence/polynomial-source-manifest.json`, and all reused code retains
 its GPL/CC0 attribution.
 
-The native route exposes system hover highlighting and selection inspection.
-It does not yet expose the canonical upper-half-plane Roots window, root picking,
-a hover-polynomial readout or explicit GameController bindings. The Klein disk
-is an action surface, not that missing Roots view. Simulator panel interactions are not evidence of tracked-hand,
-physical-controller, headset comfort or hardware-performance parity.
+The original native baseline exposed system hover highlighting and selection
+inspection, but lacked the upper-half-plane window. The linked Roots follow-up
+below adds that window and retains the Klein disk separately. Explicit
+GameController bindings remain absent. Simulator interactions are not evidence
+of tracked-hand, physical-controller, headset comfort or hardware-performance parity.
 
 Build receipt: `native/evidence/polynomial-build-for-testing.txt` (unsigned
 arm64 simulator build). That initial baseline had 32 passing native tests: 17 polynomial model tests, 3 presentation tests and
@@ -438,8 +439,9 @@ records the delivery hashes and inspection details.
 
 The app is now displayed as **Lean Starscape**, while its scheme and bundle ID
 remain `PolynomialRoom` and `com.alok.PolynomialRoom`. This change accompanies a
-behavior correction, not a full-parity claim: the native upper-half-plane Roots
-window and its picking/hover readouts are still absent.
+behavior correction, not a full-parity claim. At this historical polar-Snap
+checkpoint the upper-half-plane Roots window and its picking/hover readouts were
+absent; the subsequent linked Roots section records the new implementation.
 
 Canonical commit `2cd549a45ddb6056cf3596404754d96ad9e7132c` corrects Snap to
 compare the absolute polar angle of the residual action, with its tie tolerance
@@ -487,8 +489,9 @@ and [capture hashes/timings](../native/evidence/screenshots/20261023T081658Z/cap
 are preserved. The [fresh receipt](../native/evidence/polar-snap-native-receipt.json)
 hashes the changed sources, fixtures, model/build/UI logs and these captures.
 This run verifies panel controls and displayed results on a simulator. Physical
-input, actual gesture cancellation, free-space controller SL₂ action and native
-Roots-window parity remain unverified or unimplemented as stated above.
+input, actual gesture cancellation and free-space controller SL₂ action remain
+unverified or unimplemented. This historical run did not exercise the subsequent
+native Roots window.
 
 The [reviewed 1080p export](../artifacts/videos/lean-starscape-native-polar-snap.mp4)
 is H.264 video only, 76.20 seconds and 1,269,454 bytes. Actual frames at 2, 38
@@ -497,3 +500,79 @@ identity and Reset. [Export metadata](../artifacts/videos/lean-starscape-native-
 records hashes, source receipt, exact conversion and inspection details. There
 is no trim or speed change; frame-boundary duration rounding adds 30 milliseconds
 relative to the raw MOV. No app sources changed for this export.
+
+### Linked upper-half-plane Roots window
+
+Open **Roots…** from the native controls to show the upper-half-plane chart
+alongside the shared immersive scene. Move applies the same action to both
+views; Select/Pair pick exact signed base identities; Pan, zoom and Fit affect
+only the chart. The accepted Lean pair endpoints supply the orange geodesic.
+The chart shares palette, size and transformed plane-distance fade, retains
+selected/pair labels outside the hover cache, and flips labels at the right edge.
+Only upper-positive roots are plotted; hidden and negative selections remain
+exact and explicitly labeled. The earlier Klein disk is still available.
+
+The geometry and window adapt `Farey/Sources/RootsPaneView.swift` and
+`Farey/WebXR/roots-pane.js` at `2a0ef3216a931bdcf6cdd9ba89a1baf6f4cfa46a`, with
+original attribution. The [Roots receipt](../native/evidence/roots-native-receipt.json)
+records their pinned hashes and the new native source hashes. Root positions,
+star footprints, hit-testing, pan/zoom and previews are approximate renderer
+behavior. Exact identities, discriminants, plane membership and accepted
+rational action receipts still come from executable Lean on the Mac. The proof
+boundary and 17 generic integer laws are unchanged; the app does not run a
+kernel proof for a pointer event.
+
+The [88-test model suite](../native/evidence/roots-model-tests.txt) passed with
+zero failures, and the [unsigned simulator build](../native/evidence/roots-build-for-testing.txt)
+succeeded. Cross-surface end/cancel guards prevent an old Klein callback from
+committing or cancelling a Roots preview, and vice versa. Hover responses are
+separately validated and cancelled when chart geometry or scene state changes.
+These tests establish model behavior, not physical gesture execution.
+
+The [actual Roots UI run 092615Z](../native/evidence/ui-tests-20261023T092615Z.txt)
+passed **one test, zero failures, 72.046 seconds**, using only the existing
+task-owned simulator through the background XCTest route. It verifies actual
+chart taps selecting `(1,0,1)` and pairing `(1,1,1)`, the 22 interior plane
+members, D5 root `1+i` and endpoints `−2,4/3`, actual Move and Pan swipes,
+zoom buttons, Fit, Identity, and asynchronous Close/reopen with selection retained.
+Six screenshots were visually inspected:
+
+1. [Opened window](../native/evidence/screenshots/20261023T092615Z/001-roots-00-window-open.png).
+2. [Actual picked pair and identity geodesic](../native/evidence/screenshots/20261023T092615Z/002-roots-01-picked-pair.png).
+3. [D5 in both views](../native/evidence/screenshots/20261023T092615Z/003-roots-02-d5-linked-views.png), after three actual Zoom out presses to show both roots and the full arc.
+4. [Actual Roots swipe accepted by Lean](../native/evidence/screenshots/20261023T092615Z/004-roots-03-actual-drag-linked-scene.png).
+5. [Pan and zoom with action retained](../native/evidence/screenshots/20261023T092615Z/005-roots-04-pan-zoom-action-retained.png).
+6. [Reopened Identity with pair retained](../native/evidence/screenshots/20261023T092615Z/006-roots-05-reopened-identity-pair.png).
+
+The accepted swipe matrix is `(24959,10694,18805,12064)`, determinant
+`100004706`. A [fresh compiled-Lean replay](../native/evidence/roots-accepted-action-lean-replay.json)
+returns selected image `(499168121,−1196732822,737313317)/100004706` and paired
+image `(272304601,−694526776,470401771)/100004706`, preserving discriminants
+−4 and −3. This matrix came from actual UI input; it was not a diagnostic preset.
+The [raw silent app-only movie](../native/evidence/screenshots/20261023T092615Z/lean-starscape-native-roots.mov)
+and [capture timings/hashes](../native/evidence/screenshots/20261023T092615Z/captures.json)
+remain local evidence.
+
+The test-driver coordinate conversion was established from actual tap diagnostics:
+this visionOS route uses a centered origin with upward Y. The production SwiftUI
+hit-test remains in local points. Earlier failed runs retain the initial placement,
+coordinate hypothesis and test-assertion failures; none are reclassified as passes.
+The final run waits for actual window disappearance before reopening it.
+
+The Roots window is a floating native window in front of the immersive cloud and
+partly occludes it; the browser's panes are adjacent. These are matched mathematical
+states, not matching cameras or pixels. `onContinuousHover` and physical magnify
+are implemented, but actual pointer-hover/pinch input remains unverified. The
+visionOS public XCTest API excludes its pointer-hover command, so the dedicated
+hover UI test explicitly skips on that platform. Actual interrupted-gesture
+cancellation, targeted spatial gaze/pinch, hardware hand/controller input and
+headset performance remain unverified. Spatial selection now uses accepted-cloud,
+Overview, busy and preview guards; spatial pairing, hover-polynomial readout and
+free-space controller SL₂ dragging remain gaps. No physical device was installed
+or modified for this verification.
+
+The [delivered silent recording](../artifacts/videos/lean-starscape-native-linked-roots.mp4)
+is H.264 video only, 3840×2160, 50.716667 seconds and 2,787,605 bytes. Its
+[video metadata](../artifacts/videos/lean-starscape-native-linked-roots-metadata.json)
+records the export and frame review; the native receipt hashes the movie and
+links that metadata separately to avoid circular receipt hashes.

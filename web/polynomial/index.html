@@ -15,6 +15,13 @@
     header .credit { font-size: 11px; }
     .controls { width: 350px; max-height: calc(100svh - 175px); }
     #viewport { left: 380px; top: 140px; bottom: 16px; right: 12px; }
+    /* Pinned canonical 2cd549a layout: both linked diagrams above 1000 px. */
+    @media(min-width: 1000px) {
+      #viewport { right: calc(12px + (100vw - 404px) / 2); }
+      #klein-canvas { left: auto; right: 12px; top: 140px; bottom: 16px; width: calc((100vw - 404px) / 2); height: calc(100svh - 156px); border-left: 1px solid #1d2a33; }
+      #presentation-switch { display: none; }
+    }
+    body.immersive #viewport { left: 0; right: 0; top: 0; bottom: 0; }
     #point-state { color: #f0f5f8; font: 18px ui-monospace,monospace; }
     .formula { font: 13px ui-monospace,monospace; }
     #coefficient { width: 120px; }
@@ -32,7 +39,7 @@
     @media(max-width: 800px) {
       header { left: 16px; top: 12px; }
       h1 { font-size: 28px; margin: 4px 0 8px; }
-      #viewport { left: 0; right: 0; top: 120px; bottom: 48svh; }
+      #viewport { left: 0; right: 0; top: 148px; bottom: 48svh; }
       .controls { left: 12px; right: 12px; bottom: 12px; width: auto; max-height: 46svh; }
     }
   </style>
@@ -56,7 +63,7 @@
     <p id="point-state" aria-live="polite"></p>
     <p id="polynomial-state" class="formula"></p>
     <p id="root-state" class="formula"></p>
-    <div class="row" aria-label="Presentation"><button id="space-view" aria-pressed="true">3D space</button><button id="roots-view" aria-pressed="false">2D roots</button></div>
+    <div class="row" id="presentation-switch" aria-label="Presentation"><button id="space-view" aria-pressed="true">3D space</button><button id="roots-view" aria-pressed="false">2D roots</button></div>
     <p><label>Roots model <select id="roots-model"><option value="half-plane">Upper half-plane</option><option value="klein">Klein disk</option></select></label></p>
     <section id="mobius-controls" aria-label="Möbius action">
       <div class="row"><button id="mobius-drag" aria-pressed="false">Move forms</button><button id="mobius-demo">Exact move</button><button id="mobius-clear">Identity</button></div>

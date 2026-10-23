@@ -285,12 +285,20 @@ struct PolynomialActionPreview: Sendable, Equatable {
   private var lastUpper: SIMD2<Double>
 
   init?(matrix: [Double], kleinPoint: SIMD2<Double>, inputRevision: Int) {
+    guard let start = PolynomialMobius.kleinToUpper(kleinPoint) else { return nil }
+    self.init(matrix:matrix,upperPoint:start,inputRevision:inputRevision)
+  }
+  init?(matrix: [Double], upperPoint: SIMD2<Double>, inputRevision: Int) {
     guard inputRevision >= 0, let initial = PolynomialMobius.normalize(matrix),
-      let start = PolynomialMobius.kleinToUpper(kleinPoint) else { return nil }
-    self.inputRevision = inputRevision; initialMatrix = initial; self.matrix = initial; lastUpper = start
+      upperPoint.x.isFinite, upperPoint.y.isFinite, upperPoint.y > 1e-6 else { return nil }
+    self.inputRevision = inputRevision; initialMatrix = initial; self.matrix = initial; lastUpper = upperPoint
   }
   @discardableResult mutating func update(kleinPoint: SIMD2<Double>) -> Bool {
-    guard !isCancelled, let next = PolynomialMobius.kleinToUpper(kleinPoint),
+    guard let next = PolynomialMobius.kleinToUpper(kleinPoint) else { return false }
+    return update(upperPoint:next)
+  }
+  @discardableResult mutating func update(upperPoint next: SIMD2<Double>) -> Bool {
+    guard !isCancelled, next.x.isFinite, next.y.isFinite, next.y > 1e-6,
       let moved = PolynomialMobius.dragStep(matrix,from:lastUpper,to:next) else { return false }
     matrix = moved; lastUpper = next; return true
   }

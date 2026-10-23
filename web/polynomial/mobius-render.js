@@ -184,6 +184,20 @@ export function zoomChartAt(clientX,clientY,rect,options,nextZoom) {
   return {zoom:nextZoom,pan:[clientX-after.cx-x*after.scale,clientY-after.cy+y*after.scale]};
 }
 
+/** Resize a visible chart without moving its model-space center. Canonical
+ * UHP keeps cx/cy and scales by newWidth/oldWidth; our dimensionless zoom
+ * therefore stays unchanged. Klein keeps the same zoom relative to its fitted
+ * disk and the same model-space center. Hidden/zero rectangles are rejected:
+ * callers retain the last visible rectangle and reset fit separately. */
+export function resizeChart(oldRect,newRect,options={}) {
+  const before=chartTransform(oldRect,options),zoom=options.zoom??1;
+  const centerX=(oldRect.left+oldRect.width/2-before.cx)/before.scale;
+  const centerY=(before.cy-oldRect.top-oldRect.height/2)/before.scale;
+  const after=chartTransform(newRect,{...options,zoom,pan:[0,0]});
+  return {zoom,pan:[newRect.left+newRect.width/2-after.cx-centerX*after.scale,
+    newRect.top+newRect.height/2-after.cy+centerY*after.scale]};
+}
+
 /** Transformed null-cone directions → a UHP semicircle, or a vertical line if
  * one projective endpoint is infinity. Input retains homogeneous coordinates;
  * no finite stand-in is used for ∞. Returned samples are renderer-only. */

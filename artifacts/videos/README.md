@@ -6,6 +6,41 @@ clips use a generic emulation stripe; their actual input route is specified belo
 The production application, WebGL rendering, raycasts and compiled Lean requests
 are real. No audio, private browser tabs or host desktop were recorded.
 
+## Linked browser panes — 2026-10-23 continuation
+
+[Simultaneous 3D and upper-half-plane roots](lean-starscape-linked-panes.mp4):
+24.150 seconds, 1104×836, silent actual desktop input. The R6 unit/pair is
+transformed by the declared determinant-five control, followed by a real root
+drag, Snap and Identity. This sequence absorbs T into the unit/pair; it is not
+the different source-seed vertical-drag T⁴ sequence below.
+
+The refreshed recorder composites the two production canvas streams with
+aspect preserved and a desktop-input stripe. It excludes DOM controls and
+does not synchronize the independent source frames. The decoded five-second
+frame was inspected and shows both transformed diagrams, labels and geodesic.
+[Receipt and source hashes](../linked-roots-browser-receipt.json) and
+[accepted interaction states](../screenshots/linked-roots-20261023/final-video-states.json).
+
+## Linked native Roots window — 2026-10-23 continuation
+
+[Native upper-half-plane and 3D sequence](lean-starscape-native-linked-roots.mp4):
+50.717 seconds, 3840×2160, video-only. Actual simulator taps select the unit root
+and its pair; controls apply D5 and zoom out; a Move swipe submits the accepted
+matrix `[24959,10694,18805,12064]`; Pan, zoom, Fit, Identity and reopening follow.
+The final UI test passed in 72.046 seconds; recording covers its app-only segment.
+
+[Metadata](lean-starscape-native-linked-roots-metadata.json) records hashes and
+container checks. There is no trim or speed change; the encoded duration differs
+from the raw MOV by 15 milliseconds at the frame boundary. Decoded frames at
+18 and 50 seconds were visually inspected: the live drag preview moves both
+views, and the reopened window retains the unit/pair at Identity.
+
+The current [D5 screenshots and visual comparison](../../docs/LINKED_ROOTS_UPDATE.md#matched-visual-inspection)
+match the accepted mathematical state. Native uses a floating window over its
+3D scene; browser uses adjacent panes. The free drags reach different matrices,
+and these clips are not synchronized or physical-headset evidence. The older
+polar-Snap native clip below still uses the historical Klein chart.
+
 ## Current Lean Starscape polar Snap
 
 [Native polar Snap sequence](lean-starscape-native-polar-snap.mp4) is a silent

@@ -14,7 +14,7 @@ The repository name stays `alok/exterior-room`; its earlier vector/wedge
 experiment is preserved separately at `/exterior/` and is not part of the
 Starscape parity claim.
 
-![Lean-backed Starscape coefficient space](artifacts/screenshots/starscape-parity-20261023/11-current-spatial-pair.png)
+![Linked Lean-backed coefficient space and roots](artifacts/screenshots/linked-roots-20261023/01-paired-wide.png)
 
 ## Run locally
 
@@ -44,7 +44,7 @@ this is **not a hosted app or Lean compiled to WebAssembly**.
    `2a − 2c = 0`, endpoints −1 and 1, and 22 interior triples in the R6 crop.
 3. Toggle projection, **Origin**, **Other side**, **Inhabit**, and Overview.
    Change size, palette and plane fade; Reset retains appearance preferences.
-4. Choose **2D roots** and drag; **Move forms** enables the corresponding
+4. Drag the roots pane (choose **2D roots** in a narrow window); **Move forms** enables the corresponding
    coefficient-space manipulation in Origin. The accepted action moves the
    points, roots and cutting plane together. **Exact move** gives a repeatable
    rational checkpoint.
@@ -59,7 +59,8 @@ this is **not a hosted app or Lean compiled to WebAssembly**.
 
 ## What matches, and what is still missing
 
-The [current parity update](docs/STARSCAPE_PARITY_UPDATE.md) and
+The [linked-roots update](docs/LINKED_ROOTS_UPDATE.md),
+[polar-Snap checkpoint](docs/STARSCAPE_PARITY_UPDATE.md) and
 [earlier validation receipt](docs/POLYNOMIAL_VALIDATION.md) separate arithmetic
 checks, actual browser interactions, simulator interactions and synthetic XR.
 Full functional or visual parity has **not** been established.
@@ -69,15 +70,15 @@ Full functional or visual parity has **not** been established.
 | Signed points, exact selection, pairs and cutting planes | Lean output compared against canonical fixtures. Both renderers show the same R6 pair, plane and 22 members. |
 | Colors, size, fade and projection | Corresponding states visually inspected. Native physical spheres and browser pixel-sized discs differ; no pixel equality claim. |
 | Linked Möbius motion, Snap and Identity | Browser 2D/3D pointer motion and synthetic controller motion tested. Native disk swipe and directional controls tested; native free-space hand/controller dragging remains missing. |
-| Roots chart | Browser now defaults to the canonical upper half-plane, with an optional Klein disk. Native still has only a Klein disk. Simultaneous wide 3D/roots layout, other source models and theme controls remain gaps. |
-| Selection and hover | Browser has exact polynomial hover and picking. Native polynomial hover and explicit controller bindings remain missing; physical gaze/pinch is unverified. |
-| Density and crop | Browser R96 has 1,852,484 signed forms. Native caps at R12/3,608. The transformed finite base crop stays fixed; source-style transformed recropping is missing. |
+| Roots chart | Browser shows linked 3D/UHP panes together on wide windows, with an optional Klein model. Native now has a separate linked UHP Roots window with selection, pairing, labels and geodesics. Other source models and theme controls remain gaps. |
+| Selection and hover | Browser polynomial hover and picking are exercised. Native Roots has actual simulator tap/pair evidence and a cancellable Lean hover inspector; its pointer-hover callback remains unverified because visionOS XCUI excludes hover. Physical gaze/pinch and explicit controller bindings are unverified. |
+| Density and crop | Browser R96 has 1,852,484 signed forms; this simultaneous layout was exercised at R24/28,832. Native caps at R12/3,608. The fixed base crop differs from original Starscape's trace/other-point catalogues; [exact recrop specification and fixtures](docs/source-recrop-audit.md) are recorded, implementation remains missing. |
 | Origin, Inhabit, Overview, Reset | Tested on each route. Camera offsets, field of view, materials and control layouts differ. |
 | Headsets | Synthetic WebXR runs real Three.js rendering/handlers with supplied poses. visionOS Simulator runs the native app. Neither establishes physical tracking, compositor behavior, comfort or hardware performance. |
 
-Main Chrome allowed one existing-tab read, but refresh and subsequent URL-based
-attachment timed out. Its refresh outcome remains uncertain; current actual
-browser interaction evidence uses the in-app browser. All limitations
+Main Chrome's existing URL-based connection was rechecked and failed with
+`Debugger unattached`; current actual browser interaction evidence uses the
+in-app browser. All limitations
 remain visible rather than being inferred away from a successful Lean response.
 
 ## Proof and execution boundary
@@ -104,6 +105,8 @@ scheme names remain stable. The app uses RealityKit and the same Lean schemas.
 Bundled preset playback works without the bridge; live results run on the Mac.
 Lean does not execute inside visionOS. See [native instructions](native/README.md)
 for the simulator build and existing test routes.
+Use **Roots…** to open the linked upper-half-plane window; choose Select, Pair,
+Move or Pan. Zoom/Fit changes the chart without changing the accepted action.
 
 Device loopback refers to the device, not the Mac. A physical native route needs
 a reachable Mac bridge; device signing/installation and physical acceptance are
@@ -112,6 +115,13 @@ server does not configure HTTPS or public hosting.
 
 ## Tested evidence
 
+- [Simultaneous 3D and roots video](artifacts/videos/lean-starscape-linked-panes.mp4):
+  actual desktop D5, root drag, Snap and Identity on the shared unit/pair.
+  [Current screenshots and states](artifacts/screenshots/linked-roots-20261023/)
+  also cover hover, responsive layout, R24 and synthetic XR restoration.
+- [Native linked Roots sequence](artifacts/videos/lean-starscape-native-linked-roots.mp4):
+  actual simulator taps/pairing, D5, free root swipe, pan/zoom/Fit and reopening.
+  [Matched D5 visual inspection and limits](docs/LINKED_ROOTS_UPDATE.md#matched-visual-inspection).
 - [Current UHP drag/Snap video](artifacts/videos/lean-starscape-browser-polar-snap.mp4)
   and [native polar-Snap video](artifacts/videos/lean-starscape-native-polar-snap.mp4):
   the same T⁴ result through browser pointer motion versus a declared native
@@ -129,8 +139,10 @@ server does not configure HTTPS or public hosting.
 
 These silent app-only clips have dated [metadata and limits](artifacts/videos/README.md).
 Older clips retain their original “Polynomial Room” label. They are not current
-hardware evidence. The current update passes **107 Node tests, 26 bridge tests,
-68 native model tests**, and one focused native polar-Snap UI test. Historical
+hardware evidence. This continuation passes **115 Node tests**, **88 native model
+tests** (76 polynomial, 12 archive), one actual native Roots UI test and the
+five-case source-catalogue audit.
+The preceding checkpoint passed 26 bridge tests and the focused native polar-Snap UI test. Historical
 62-test/swipe receipts remain dated records, not retested source hashes.
 
 ```sh

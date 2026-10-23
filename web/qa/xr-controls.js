@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 import { Euler, Quaternion } from '../vendor/three.module.js';
+import { captureLayout, fitCaptureSource, sameCanvasSet } from './capture-layout.js';
 
 const $ = id => document.getElementById(id), frame = $('app');
 const routes = { exterior: '/exterior/?qaXR=1', polynomial: '/polynomial/?qaXR=1' };
@@ -98,77 +99,116 @@ action('disconnect', () => runtime().setControllerConnected(index(), false));
 action('reconnect', () => runtime().setControllerConnected(index(), true));
 action('end', () => runtime().activeSession?.end());
 
-// This records only the real app canvas. The extra stripe is a disclosed evidence label, never invented UI.
+// This records only the real app canvases. The extra stripe is a disclosed evidence label, never invented UI.
 // There are no getUserMedia/getDisplayMedia calls, audio tracks, networking, or uploads.
 let capture = null, captureStarting = false, downloadURL = null;
-function stopRecording() { if (capture && capture.recorder.state !== 'inactive') capture.recorder.stop(); }
-function visibleAppCanvas() {
+function stopRecording(reason) {
+  if (!capture) return;
+  if (reason) capture.stopReason = reason;
+  if (captureStarting) capture.cancelStart?.(new Error(reason || 'Recording stopped before every canvas supplied a frame.'));
+  else if (capture.recorder?.state !== 'inactive') capture.recorder.stop();
+}
+function visibleAppCanvases() {
   const doc = frame.contentDocument, view = frame.contentWindow;
-  if (!doc || !view) return null;
-  // The roots pane and 3D pane have distinct canvases. Prefer the visible roots pane,
-  // then the known production scene, and never capture an offscreen texture/readout canvas.
-  const candidates = [...new Set(['#klein-canvas', 'canvas#scene', 'canvas#canvas', '#viewport canvas', 'canvas']
+  if (!doc || !view) return [];
+  // Stable composition order is 3D then roots, including roots mounted beside #viewport.
+  // Restrict capture to known app canvases; texture/readout canvases are not evidence sources.
+  const candidates = [...new Set(['canvas#scene', 'canvas#canvas', '#viewport canvas', '#klein-canvas']
     .flatMap(selector => [...doc.querySelectorAll(selector)]))];
-  return candidates.find(canvas => {
+  return candidates.filter(canvas => {
     const rect = canvas.getBoundingClientRect(), style = view.getComputedStyle(canvas);
     return canvas.width > 0 && canvas.height > 0 && rect.width > 0 && rect.height > 0 &&
+      rect.bottom > 0 && rect.right > 0 && rect.top < view.innerHeight && rect.left < view.innerWidth &&
       style.display !== 'none' && style.visibility !== 'hidden' && style.visibility !== 'collapse' && Number(style.opacity) !== 0;
-  }) ?? null;
+  });
+}
+const captureMode = () => frame.contentWindow?.xrTestRuntime?.activeSession ? 'xr' : 'desktop';
+const sourceName = source => source.id === 'klein-canvas' ? '2D roots' : '3D scene';
+function changedCapture(record) {
+  if (!sameCanvasSet(record.sources, visibleAppCanvases())) return 'The visible app canvas set changed. Recording stopped; start a new clip for the current view.';
+  if (captureMode() !== record.mode) return 'The app entered or exited XR. Recording stopped; start a new clip for the current mode.';
+  return null;
+}
+function releaseCapture(record) {
+  cancelAnimationFrame(record.raf);clearTimeout(record.timeout);clearTimeout(record.startTimeout);
+  for (const input of record.inputs) {
+    input.stream.getTracks().forEach(track => track.stop());input.video.pause();input.video.srcObject = null;
+  }
+  record.stream?.getTracks().forEach(track => track.stop());
+  if (capture === record) { capture = null;captureStarting = false;$('record').disabled = false;$('stop').disabled = true; }
 }
 action('record', async () => {
   if (capture || captureStarting) throw new Error('A recording is already running or starting.');
-  const source = visibleAppCanvas();
-  if (!source) throw new Error('No visible rendered app canvas found.');
+  const sources = visibleAppCanvases();
+  if (!sources.length) throw new Error('No visible rendered app canvas found.');
+  if (sources.length > 2) throw new Error('More than two visible app canvases found. No clip has been captured.');
   if (!window.MediaRecorder || !HTMLCanvasElement.prototype.captureStream) throw new Error('This browser does not support canvas MediaRecorder. No clip has been captured.');
-  // Read via the canvas's video track. Direct drawImage(WebGLCanvas) in the parent RAF can race
+  // Read each canvas through its own video track. Direct drawImage(WebGLCanvas) in the parent RAF can race
   // the child's renderer and copy an already-discarded backbuffer when preserveDrawingBuffer is false.
-  captureStarting = true; $('record').disabled = true;
-  $('recording-status').textContent = 'Waiting for the next rendered app frame; interact with the scene to begin.';
-  const sourceStream = source.captureStream(24);
-  const video = document.createElement('video'); video.muted = true; video.playsInline = true; video.srcObject = sourceStream;
-  try { await video.play(); } catch (error) { sourceStream.getTracks().forEach(track => track.stop()); captureStarting = false; $('record').disabled = false; throw error; }
-  const maxScale = Math.min(1, 1280 / source.width, 800 / source.height);
-  const canvas = document.createElement('canvas'); canvas.width = Math.round(source.width * maxScale); canvas.height = Math.round(source.height * maxScale) + 36;
-  const context = canvas.getContext('2d');
-  const stream = canvas.captureStream(24);
-  const mime = ['video/webm;codecs=vp9', 'video/webm;codecs=vp8', 'video/webm', 'video/mp4'].find(type => MediaRecorder.isTypeSupported(type));
-  let recorder;
-  try { recorder = new MediaRecorder(stream, mime ? { mimeType: mime, videoBitsPerSecond: 2_500_000 } : {}); }
-  catch (error) { [...stream.getTracks(), ...sourceStream.getTracks()].forEach(track => track.stop()); video.pause(); video.srcObject = null; captureStarting = false; $('record').disabled = false; throw error; }
-  const record = { recorder, stream, sourceStream, video, chunks: [], bytes: 0, raf: null, timeout: null, source, route: $('route').value };
-  capture = record; captureStarting = false;
-  function draw() {
-    if (visibleAppCanvas() !== source) {
-      record.stopReason = 'The visible app canvas changed. Recording stopped; start a new clip for the current view.';
-      stopRecording(); return;
+  const record = {sources,inputs:[],mode:captureMode(),chunks:[],bytes:0,raf:null,timeout:null,startTimeout:null,route:$('route').value};
+  capture = record;captureStarting = true;$('record').disabled = true;$('stop').disabled = false;
+  $('recording-status').textContent = `Waiting for a rendered frame from ${sources.map(sourceName).join(' + ')}; interact with the scene to begin (30-second limit).`;
+  let canvas, context, layout, recorder;
+  try {
+    for (const source of sources) {
+      const stream = source.captureStream(24), video = document.createElement('video');
+      video.muted = true;video.playsInline = true;video.srcObject = stream;record.inputs.push({source,stream,video});
     }
+    const canceled = new Promise((_, reject) => { record.cancelStart = reject; });
+    const timedOut = new Promise((_, reject) => { record.startTimeout = setTimeout(() => reject(new Error('A visible canvas did not supply a frame within 30 seconds. No clip was captured; interact with both views and try again.')), 30_000); });
+    function watchStart() {
+      const reason = changedCapture(record);if (reason) { stopRecording(reason);return; }
+      record.raf = requestAnimationFrame(watchStart);
+    }
+    watchStart();
+    await Promise.race([Promise.all(record.inputs.map(input => input.video.play())),canceled,timedOut]);
+    cancelAnimationFrame(record.raf);clearTimeout(record.startTimeout);
+    const reason = changedCapture(record);if (reason) throw new Error(reason);
+    layout = captureLayout(record.inputs.map(({video,source}) => ({width:video.videoWidth || source.width,height:video.videoHeight || source.height})));
+    canvas = document.createElement('canvas');canvas.width = layout.width;canvas.height = layout.height + 36;
+    context = canvas.getContext('2d');if (!context) throw new Error('The recording compositor could not create a 2D canvas.');
+    const stream = record.stream = canvas.captureStream(24);
+    const mime = ['video/webm;codecs=vp9', 'video/webm;codecs=vp8', 'video/webm', 'video/mp4'].find(type => MediaRecorder.isTypeSupported(type));
+    recorder = record.recorder = new MediaRecorder(stream,mime ? {mimeType:mime,videoBitsPerSecond:2_500_000} : {});
+    captureStarting = false;
+  } catch (error) {
+    releaseCapture(record);$('recording-status').textContent = 'No clip captured.';throw error;
+  }
+  function draw() {
+    const reason = changedCapture(record);if (reason) { stopRecording(reason);return; }
     context.fillStyle = '#080f16'; context.fillRect(0, 0, canvas.width, canvas.height);
-    if (video.readyState >= 2) context.drawImage(video, 0, 36, canvas.width, canvas.height - 36);
+    record.inputs.forEach(({video,source},i) => {
+      if (video.readyState < 2) return;
+      const rect = fitCaptureSource({width:video.videoWidth || source.width,height:video.videoHeight || source.height},layout.slots[i]);
+      context.drawImage(video,rect.x,rect.y + 36,rect.width,rect.height);
+    });
     context.fillStyle = '#4a2c00'; context.fillRect(0, 0, canvas.width, 36);
     context.fillStyle = '#fff3cd'; context.font = 'bold 12px system-ui';
-    const emulatedSession = !!frame.contentWindow?.xrTestRuntime?.activeSession;
-    context.fillText(emulatedSession ? 'EMULATED WEBXR · no headset evidence' : 'DESKTOP BROWSER · no headset evidence', 10, 14);
-    context.font = '11px system-ui'; context.fillText(emulatedSession ? 'Actual app canvas · synthetic device input' : 'Actual app canvas · desktop input', 10, 29);
+    const emulatedSession = record.mode === 'xr';
+    context.fillText(emulatedSession ? 'EMULATED WEBXR · no headset evidence' : 'DESKTOP BROWSER · no headset evidence',10,14,canvas.width - 20);
+    context.font = '11px system-ui';
+    const description = sources.length === 2 ? 'Actual paired canvases · 3D left / roots right' : `Actual ${sourceName(sources[0])} canvas`;
+    context.fillText(`${description} · ${emulatedSession ? 'synthetic device' : 'desktop'} input`,10,29,canvas.width - 20);
     if (recorder.state !== 'inactive') record.raf = requestAnimationFrame(draw);
   }
   recorder.ondataavailable = e => { if (e.data.size) { record.chunks.push(e.data); record.bytes += e.data.size; } if (record.bytes > 64 * 1024 * 1024) stopRecording(); };
   recorder.onstop = () => {
-    cancelAnimationFrame(record.raf); clearTimeout(record.timeout);
-    [...stream.getTracks(), ...sourceStream.getTracks()].forEach(track => track.stop()); video.pause(); video.srcObject = null; capture = null;
+    releaseCapture(record);
     const blob = new Blob(record.chunks, { type: recorder.mimeType || 'video/webm' });
     if (downloadURL) URL.revokeObjectURL(downloadURL);
     downloadURL = URL.createObjectURL(blob); const link = $('download');
     link.textContent = 'Download silent app clip';
-    link.href = downloadURL; link.download = `exterior-room-${record.route}-APP-CANVAS-${new Date().toISOString().replaceAll(':', '-')}.${blob.type.includes('mp4') ? 'mp4' : 'webm'}`; link.hidden = false;
-    $('recording-status').textContent = `${(blob.size / 1024 / 1024).toFixed(2)} MB · ${blob.type} · no audio · canvas ${source.id || '(unnamed)'}`;
+    link.href = downloadURL; link.download = `exterior-room-${record.route}-APP-CANVAS${sources.length === 2 ? 'ES' : ''}-${new Date().toISOString().replaceAll(':', '-')}.${blob.type.includes('mp4') ? 'mp4' : 'webm'}`; link.hidden = false;
+    $('recording-status').textContent = `${(blob.size / 1024 / 1024).toFixed(2)} MB · ${blob.type} · no audio · ${sources.map(sourceName).join(' + ')} · ${canvas.width} × ${canvas.height}`;
     if (record.stopReason) status(record.stopReason);
     $('record').disabled = false; $('stop').disabled = true;
   };
   recorder.onerror = e => { status(`Recording failed: ${e.error?.message ?? 'MediaRecorder error'}`); stopRecording(); };
-  recorder.start(1000); draw(); record.timeout = setTimeout(stopRecording, 120_000);
+  try { recorder.start(1000); } catch (error) { releaseCapture(record);throw error; }
+  draw(); record.timeout = setTimeout(stopRecording, 120_000);
   $('record').disabled = true; $('stop').disabled = false; $('download').hidden = true;
-  $('recording-status').textContent = 'Recording canvas only, silent · automatically stops at 120 seconds / 64 MB.';
-  return 'Recording the actual app canvas. The evidence stripe identifies desktop or emulated XR frames.';
+  $('recording-status').textContent = `Recording ${sources.map(sourceName).join(' + ')} only, silent · automatically stops at 120 seconds / 64 MB.`;
+  return 'Recording the actual visible app canvases. The evidence stripe identifies the sources and desktop or emulated XR mode.';
 });
 action('stop', () => { stopRecording(); return 'Stopping the silent app-canvas recording.'; });
 window.addEventListener('pagehide', () => { stopRecording(); if (downloadURL) URL.revokeObjectURL(downloadURL); });

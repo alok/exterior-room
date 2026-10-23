@@ -11,6 +11,7 @@
 		135F05209688123262BA47B7 /* polynomial-action-cases.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DB8FE52AC27F42A6348F1A3 /* polynomial-action-cases.json */; };
 		186D8A84F35D6B3901714F73 /* polynomial-test-cases.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BE00D30AE5C614D1DE7C894 /* polynomial-test-cases.json */; };
 		19FC9319C0D65BA07D34D1F8 /* polynomial-default.json in Resources */ = {isa = PBXBuildFile; fileRef = 96354C34E98C320B9286C8FE /* polynomial-default.json */; };
+		1FAB36CD5448A4DE4D02B334 /* polynomial-swipe-case.json in Resources */ = {isa = PBXBuildFile; fileRef = 388C96A4CDFD4395B7B6DEEE /* polynomial-swipe-case.json */; };
 		2EB6050E37AC89D3FC1C173B /* PolynomialRoomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5563AE84371E63A82B3C5F69 /* PolynomialRoomUITests.swift */; };
 		33DE466043214461952020E2 /* ExteriorRoomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339B63D12BC52434920A7638 /* ExteriorRoomUITests.swift */; };
 		4FD733AF793BB84A28C732F3 /* polynomial-export-receipt.json in Resources */ = {isa = PBXBuildFile; fileRef = E2C2BBC2863FD250E8F6D489 /* polynomial-export-receipt.json */; };
@@ -21,6 +22,7 @@
 		65F4D11055F034CE58671102 /* polynomial-cloud-r6.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D1125617602A7C3976E1646 /* polynomial-cloud-r6.json */; };
 		6811205F76A2BFCC76A6B3F0 /* ExteriorSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C37C7FC5CD632979BE9E697 /* ExteriorSpace.swift */; };
 		793D8DE4850C8F8A1DB30B32 /* LeanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF104AF681A926D688035E /* LeanModel.swift */; };
+		7B978C7AC0A0F76D6BA228DA /* polynomial-swipe-case.json in Resources */ = {isa = PBXBuildFile; fileRef = 388C96A4CDFD4395B7B6DEEE /* polynomial-swipe-case.json */; };
 		8FB09B7A7DFCF0C0D4049AE3 /* PolynomialSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD102383C5058F5F71EF4C43 /* PolynomialSpace.swift */; };
 		90325A618B43A8C73F3558A0 /* presets.json in Resources */ = {isa = PBXBuildFile; fileRef = B6D08F4D34C27C68D894A576 /* presets.json */; };
 		9EEF5CA420B42FA0111180C6 /* PolynomialAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9446F04D88C5F8780ED8391F /* PolynomialAction.swift */; };
@@ -33,8 +35,16 @@
 		BF5BC117F6C83684A46CA458 /* SimulatorCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10FAE16EC1A894EF25B21CE /* SimulatorCapture.swift */; };
 		C752BA73245B74451930FC8D /* polynomial-cloud-r6.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D1125617602A7C3976E1646 /* polynomial-cloud-r6.json */; };
 		CA3B37262A8D5524DA13F9AC /* polynomial-test-cases.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BE00D30AE5C614D1DE7C894 /* polynomial-test-cases.json */; };
+		CBA00B24E28748ED1658E3A4 /* PolynomialRootsGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4DBBD0B47409A390D166D1 /* PolynomialRootsGeometry.swift */; };
 		CF4B0935C5E8591AB474B8AE /* presets.json in Resources */ = {isa = PBXBuildFile; fileRef = B6D08F4D34C27C68D894A576 /* presets.json */; };
+		D1F41348337656BB2CAC24BD /* polynomial-polar-snap-cases.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C3BE2E7AD4490BF07A5A475 /* polynomial-polar-snap-cases.json */; };
 		D423DDF11EC38B57F043227D /* polynomial-action-receipt.json in Resources */ = {isa = PBXBuildFile; fileRef = 360482516E0B7032BFD3D6FA /* polynomial-action-receipt.json */; };
+		DAB0D3D0907035D5E1630EF2 /* polynomial-polar-snap-cases.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C3BE2E7AD4490BF07A5A475 /* polynomial-polar-snap-cases.json */; };
+		E25AFC0BA7D6D3A1A45C140B /* polynomial-snap-cases.json in Resources */ = {isa = PBXBuildFile; fileRef = 526B0ECAB3194B7CC442F670 /* polynomial-snap-cases.json */; };
+		E2DDC75F6CA2F4485F2C0026 /* polynomial-polar-lean-cases.json in Resources */ = {isa = PBXBuildFile; fileRef = 25E5EF6B8B72DC50FAA6FAEA /* polynomial-polar-lean-cases.json */; };
+		F230135E43DD4CE69D5177F2 /* polynomial-snap-cases.json in Resources */ = {isa = PBXBuildFile; fileRef = 526B0ECAB3194B7CC442F670 /* polynomial-snap-cases.json */; };
+		FB5442D0CA9233E2E6D03BC7 /* PolynomialRootsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5A1453EA53382645D249B /* PolynomialRootsView.swift */; };
+		FC567D43C48F5DCB9CD30EA8 /* polynomial-polar-lean-cases.json in Resources */ = {isa = PBXBuildFile; fileRef = 25E5EF6B8B72DC50FAA6FAEA /* polynomial-polar-lean-cases.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,16 +67,21 @@
 /* Begin PBXFileReference section */
 		0DB8FE52AC27F42A6348F1A3 /* polynomial-action-cases.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "polynomial-action-cases.json"; sourceTree = "<group>"; };
 		191E427B39895A47D5BFAA24 /* ExteriorRoomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExteriorRoomApp.swift; sourceTree = "<group>"; };
+		1C3BE2E7AD4490BF07A5A475 /* polynomial-polar-snap-cases.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "polynomial-polar-snap-cases.json"; sourceTree = "<group>"; };
+		25E5EF6B8B72DC50FAA6FAEA /* polynomial-polar-lean-cases.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "polynomial-polar-lean-cases.json"; sourceTree = "<group>"; };
 		339B63D12BC52434920A7638 /* ExteriorRoomUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExteriorRoomUITests.swift; sourceTree = "<group>"; };
 		360482516E0B7032BFD3D6FA /* polynomial-action-receipt.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "polynomial-action-receipt.json"; sourceTree = "<group>"; };
+		388C96A4CDFD4395B7B6DEEE /* polynomial-swipe-case.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "polynomial-swipe-case.json"; sourceTree = "<group>"; };
 		3AB3704BC174D87770542FC3 /* PolynomialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialModel.swift; sourceTree = "<group>"; };
 		3DEF36B1640E131A1316BD2B /* PolynomialTransformControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialTransformControls.swift; sourceTree = "<group>"; };
+		526B0ECAB3194B7CC442F670 /* polynomial-snap-cases.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "polynomial-snap-cases.json"; sourceTree = "<group>"; };
 		5563AE84371E63A82B3C5F69 /* PolynomialRoomUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialRoomUITests.swift; sourceTree = "<group>"; };
 		566A08A555BEB3872E73B8F0 /* PolynomialRoom.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = PolynomialRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		589D9A7AC7242AD59FE61899 /* PolynomialRoomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialRoomApp.swift; sourceTree = "<group>"; };
 		5A4E6E208CFA18CDB520E045 /* PolynomialRoomUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = PolynomialRoomUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BE00D30AE5C614D1DE7C894 /* polynomial-test-cases.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "polynomial-test-cases.json"; sourceTree = "<group>"; };
 		6C37C7FC5CD632979BE9E697 /* ExteriorSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExteriorSpace.swift; sourceTree = "<group>"; };
+		82E5A1453EA53382645D249B /* PolynomialRootsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialRootsView.swift; sourceTree = "<group>"; };
 		9446F04D88C5F8780ED8391F /* PolynomialAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialAction.swift; sourceTree = "<group>"; };
 		96354C34E98C320B9286C8FE /* polynomial-default.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "polynomial-default.json"; sourceTree = "<group>"; };
 		9D1125617602A7C3976E1646 /* polynomial-cloud-r6.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "polynomial-cloud-r6.json"; sourceTree = "<group>"; };
@@ -79,6 +94,7 @@
 		E2C2BBC2863FD250E8F6D489 /* polynomial-export-receipt.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "polynomial-export-receipt.json"; sourceTree = "<group>"; };
 		E8AF104AF681A926D688035E /* LeanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanModel.swift; sourceTree = "<group>"; };
 		E9997D7E0D9CABE49C25EE86 /* ExteriorRoomUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ExteriorRoomUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED4DBBD0B47409A390D166D1 /* PolynomialRootsGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialRootsGeometry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -90,6 +106,10 @@
 				9D1125617602A7C3976E1646 /* polynomial-cloud-r6.json */,
 				96354C34E98C320B9286C8FE /* polynomial-default.json */,
 				E2C2BBC2863FD250E8F6D489 /* polynomial-export-receipt.json */,
+				25E5EF6B8B72DC50FAA6FAEA /* polynomial-polar-lean-cases.json */,
+				1C3BE2E7AD4490BF07A5A475 /* polynomial-polar-snap-cases.json */,
+				526B0ECAB3194B7CC442F670 /* polynomial-snap-cases.json */,
+				388C96A4CDFD4395B7B6DEEE /* polynomial-swipe-case.json */,
 				6BE00D30AE5C614D1DE7C894 /* polynomial-test-cases.json */,
 				B6D08F4D34C27C68D894A576 /* presets.json */,
 			);
@@ -114,6 +134,8 @@
 				A36C0C9846474138FF9D8FC4 /* PolynomialAppearance.swift */,
 				3AB3704BC174D87770542FC3 /* PolynomialModel.swift */,
 				589D9A7AC7242AD59FE61899 /* PolynomialRoomApp.swift */,
+				ED4DBBD0B47409A390D166D1 /* PolynomialRootsGeometry.swift */,
+				82E5A1453EA53382645D249B /* PolynomialRootsView.swift */,
 				AD102383C5058F5F71EF4C43 /* PolynomialSpace.swift */,
 				3DEF36B1640E131A1316BD2B /* PolynomialTransformControls.swift */,
 				B7D96380DEBA366D83D8CE6D /* PolynomialViridis.swift */,
@@ -276,6 +298,10 @@
 				65F4D11055F034CE58671102 /* polynomial-cloud-r6.json in Resources */,
 				19FC9319C0D65BA07D34D1F8 /* polynomial-default.json in Resources */,
 				4FD733AF793BB84A28C732F3 /* polynomial-export-receipt.json in Resources */,
+				E2DDC75F6CA2F4485F2C0026 /* polynomial-polar-lean-cases.json in Resources */,
+				D1F41348337656BB2CAC24BD /* polynomial-polar-snap-cases.json in Resources */,
+				F230135E43DD4CE69D5177F2 /* polynomial-snap-cases.json in Resources */,
+				7B978C7AC0A0F76D6BA228DA /* polynomial-swipe-case.json in Resources */,
 				186D8A84F35D6B3901714F73 /* polynomial-test-cases.json in Resources */,
 				90325A618B43A8C73F3558A0 /* presets.json in Resources */,
 			);
@@ -290,6 +316,10 @@
 				C752BA73245B74451930FC8D /* polynomial-cloud-r6.json in Resources */,
 				BE8FC96EAF4ABC45A580D6A9 /* polynomial-default.json in Resources */,
 				59502650CF1C188D3B3D09DC /* polynomial-export-receipt.json in Resources */,
+				FC567D43C48F5DCB9CD30EA8 /* polynomial-polar-lean-cases.json in Resources */,
+				DAB0D3D0907035D5E1630EF2 /* polynomial-polar-snap-cases.json in Resources */,
+				E25AFC0BA7D6D3A1A45C140B /* polynomial-snap-cases.json in Resources */,
+				1FAB36CD5448A4DE4D02B334 /* polynomial-swipe-case.json in Resources */,
 				CA3B37262A8D5524DA13F9AC /* polynomial-test-cases.json in Resources */,
 				CF4B0935C5E8591AB474B8AE /* presets.json in Resources */,
 			);
@@ -306,6 +336,8 @@
 				5ADE8D6248852511B77C7747 /* PolynomialAppearance.swift in Sources */,
 				A45410BD8EB7EA0DD1398D07 /* PolynomialModel.swift in Sources */,
 				AEDE03D08985D2DFF73ECA13 /* PolynomialRoomApp.swift in Sources */,
+				CBA00B24E28748ED1658E3A4 /* PolynomialRootsGeometry.swift in Sources */,
+				FB5442D0CA9233E2E6D03BC7 /* PolynomialRootsView.swift in Sources */,
 				8FB09B7A7DFCF0C0D4049AE3 /* PolynomialSpace.swift in Sources */,
 				BA030C25F4CDEF64CF6CCBC2 /* PolynomialTransformControls.swift in Sources */,
 				5DFA26BE02B709B8F76843B9 /* PolynomialViridis.swift in Sources */,

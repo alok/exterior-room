@@ -12,7 +12,7 @@ import { pointCloudMaterial, pointCloud, fillColors, fillFactors } from './point
 import { pairPlane, planeFromNormal, planeSection, coneDirections, inPairPlane } from './pair-plane.js';
 import {IDENTITY_BOUND,loadCloud, inspectWithRepresentative, preparePlane, memberIndices, status as leanStatus, diagnostics, commitTransform, cancelTransformCommit} from './lean-client.js';
 import {identity,kleinToUpper} from './mobius.js';
-import {matrixFromIntegers,pointerToUpper,chartTransform,rootToClient,zoomChartAt} from './mobius-render.js';
+import {matrixFromIntegers,pointerToUpper,chartTransform,rootToClient,zoomChartAt,resizeChart} from './mobius-render.js';
 import {MobiusAction} from './mobius-ui.js';
 import {nearestIntegral,composeInteger} from './mobius-snap.js';
 import {prepareAbsorption,integralRepresentative} from './mobius-absorb.js';
@@ -32,6 +32,9 @@ let dataBusy=false, initialized=false,operationError='';
 const action=new MobiusAction(commitTransform,cancelTransformCommit);
 let displayXYZ=null,pickLattice=null,actionGeometryLattice=null,actionGeometryRevision=-1,renderRows=null;
 let rootsView=false,mobiusMode=false,mobiusGesture=null,mobiusFrame=0,lastActionPaint=0;
+const rootsVisible=()=>!session&&(rootsView||innerWidth>=1000);
+const spaceVisible=()=>!!session||!rootsView||innerWidth>=1000;
+let rootsRect=null;
 let motionTicket=0,lastAbsorption=null,snapOnRelease=false;
 const diskView={model:'half-plane',zoom:1,pan:[0,0],padding:20};
 const dataControls=['next','whole','radius','reset','coefficient','pair-add','pair-clear','mobius-demo'];
@@ -55,7 +58,7 @@ async function changeCloud(nextRadius,nextWhole,reset=false){
     await inspectWithRepresentative(next);
     await loadCloud(nextRadius,!nextWhole);
     radius=nextRadius;whole=nextWhole;
-    if(reset){action.reset();mobiusMode=false;lastAbsorption=null;snapOnRelease=false;diskView.zoom=1;diskView.pan=[0,0];diskHoverIndex=null;}
+    if(reset){action.reset();mobiusMode=false;lastAbsorption=null;snapOnRelease=false;resetRootsChart();}
     if(reset){if(!session)leaveInhabit();selected=next;secondSelection=null;pairMessage='';symmetricColor=false;projectionVisible=false;$('cone').checked=true;$('symmetric-color').checked=false;}
     $('radius').value=String(radius);$('whole').checked=whole;
     rebuild();const plane=await prepareSelection(next,second);if(plane?.error)pairMessage=plane.error;
@@ -75,7 +78,7 @@ catch {
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 renderer.xr.enabled = true; renderer.xr.setReferenceSpaceType('local-floor');
 $('viewport').append(renderer.domElement);
-const kleinCanvas=document.createElement('canvas');kleinCanvas.id='klein-canvas';kleinCanvas.hidden=true;kleinCanvas.tabIndex=0;kleinCanvas.setAttribute('aria-label','Upper half-plane of roots. Drag to move forms; Shift-drag to pan; wheel to zoom.');$('viewport').append(kleinCanvas);
+const kleinCanvas=document.createElement('canvas');kleinCanvas.id='klein-canvas';kleinCanvas.hidden=true;kleinCanvas.tabIndex=0;kleinCanvas.setAttribute('aria-label','Upper half-plane of roots. Drag to move forms; Shift-drag to pan; wheel to zoom.');document.body.append(kleinCanvas);
 const kleinView=new KleinView(kleinCanvas);
 renderer.domElement.tabIndex = 0;
 renderer.domElement.setAttribute('role', 'img');
@@ -303,6 +306,7 @@ function queueActionRender(){
 }
 function cancelMobiusInteraction(){
   motionTicket++;mobiusGesture=null;absorptionPending=false;action.cancel();clearHover();diskHoverIndex=null;
+  kleinCanvas.classList.remove('is-dragging');
   lookDrag=null;tap.active.clear();tap.candidate=null;
   if(initialized){refreshActionGeometry();queueActionRender();}
 }
@@ -336,13 +340,13 @@ function finishMobiusGesture(){
   });
 }
 function setRootsView(value){
-  cancelMobiusInteraction();rootsView=value;kleinCanvas.hidden=!value;renderer.domElement.style.visibility=value?'hidden':'visible';
+  cancelMobiusInteraction();rootsView=value;
   $('roots-view').setAttribute('aria-pressed',String(value));$('space-view').setAttribute('aria-pressed',String(!value));
-  controls.enabled=!value&&!inhabited&&!session;resize();
+  controls.enabled=spaceVisible()&&!inhabited&&!session;resize();
 }
 function setMobiusMode(value){
   if(dataBusy)return;cancelMobiusInteraction();mobiusMode=value;
-  if(value&&!rootsView){if(session)spatialMode('origin');else enterOrigin();}
+  if(value&&spaceVisible()){if(session)spatialMode('origin');else enterOrigin();}
   updateMobiusReadout();
 }
 function commitPreset(M){
@@ -373,37 +377,45 @@ function diskPick(x,y){
   const index=pickRoot(lattice,displayXYZ,kleinView.indices,scale,cx-x,cy-y,diskView.model==='half-plane'?7:10,{model:diskView.model,sigma});timings.rootPick=performance.now()-started;return index;
 }
 function drawKlein(){
-  if(!displayXYZ||!rootsView||session||kleinView.renderer.getContext().isContextLost())return;
+  if(!displayXYZ||!rootsVisible()||kleinView.renderer.getContext().isContextLost())return;
   const started=performance.now(),r=kleinCanvas.getBoundingClientRect(),plane=currentPlane();
+  if(r.width<=0||r.height<=0)return;
   kleinView.update({lattice,xyz:displayXYZ,colors:cloudMesh.geometry.attributes.color.array,revision:actionGeometryRevision,colorKey,model:diskView.model});
-  kleinView.render({width:r.width,height:r.height,...diskView,sigma,markers:[selected,secondSelection].map(p=>p&&shown(p)&&positiveRepresentative(p)?{xyz:displayedVector(p),delta:discriminant(p)}:null),ends:plane?coneDirections(plane).map(movedXYZ):null,focus:cloudMaterial.uniforms.uFocus.value,fade:cloudMaterial.uniforms.uFocusFade.value,keep:cloudMaterial.uniforms.uKeep.value});
+  const marker=p=>({xyz:displayedVector(p),delta:discriminant(p),label:spacedPolynomial(polynomial(p))});
+  const hover=diskHoverIndex!==null&&diskHoverIndex>=0&&diskHoverIndex<lattice.count?marker(tripleAt(lattice,diskHoverIndex)):null;
+  kleinView.render({width:r.width,height:r.height,...diskView,sigma,markers:[selected,secondSelection].map(p=>p&&shown(p)&&positiveRepresentative(p)?marker(p):null),hover,ends:plane?coneDirections(plane).map(movedXYZ):null,focus:cloudMaterial.uniforms.uFocus.value,fade:cloudMaterial.uniforms.uFocusFade.value,keep:cloudMaterial.uniforms.uKeep.value});
   timings.roots=performance.now()-started;
-  if(diskHoverIndex!==null&&diskHoverIndex>=0&&diskHoverIndex<lattice.count){
-    const p=tripleAt(lattice,diskHoverIndex),[x,y]=diskPixel(diskHoverIndex),label=$('hover-label');
-    $('hover-text').textContent=spacedPolynomial(polynomial(p));$('hover-text').style.left='9px';$('hover-text').style.top='-8px';label.dataset.point=p.join();label.style.transform=`translate(${x}px,${y}px)`;label.hidden=false;
-  }else showHover(null);
+  if(!hoverPointer)showHover(null);
 }
 kleinCanvas.addEventListener('pointerdown',e=>{
-  if(dataBusy||e.button!==0)return;e.preventDefault();clearHover();kleinCanvas.setPointerCapture(e.pointerId);
+  if(dataBusy||e.button!==0)return;e.preventDefault();clearHover();diskHoverIndex=null;drawKlein();kleinCanvas.setPointerCapture(e.pointerId);
   const anchor=pointerToUpper(e.clientX,e.clientY,kleinCanvas.getBoundingClientRect(),diskView);
-  mobiusGesture={source:'disk',pointer:e.pointerId,start:[e.clientX,e.clientY],last:[e.clientX,e.clientY],anchor,moved:false,pan:e.shiftKey};
+  mobiusGesture={source:'disk',pointer:e.pointerId,start:[e.clientX,e.clientY],last:[e.clientX,e.clientY],anchor,moved:false,pan:e.shiftKey};kleinCanvas.classList.add('is-dragging');
 });
 kleinCanvas.addEventListener('pointermove',e=>{
   if(mobiusGesture?.source==='disk'&&mobiusGesture.pointer===e.pointerId){
     if(mobiusGesture.pan){if(!mobiusGesture.moved&&Math.hypot(e.clientX-mobiusGesture.start[0],e.clientY-mobiusGesture.start[1])<4)return;diskView.pan[0]+=e.clientX-mobiusGesture.last[0];diskView.pan[1]+=e.clientY-mobiusGesture.last[1];mobiusGesture.last=[e.clientX,e.clientY];mobiusGesture.moved=true;drawKlein();return;}
     if(mobiusGesture.anchor&&Math.hypot(e.clientX-mobiusGesture.start[0],e.clientY-mobiusGesture.start[1])>=4)previewTo(pointerToUpper(e.clientX,e.clientY,kleinCanvas.getBoundingClientRect(),diskView));
-  }else if(!dataBusy&&(radius<=12||performance.now()-diskHoverTime>=100)){diskHoverTime=performance.now();diskHoverIndex=diskPick(e.clientX,e.clientY);drawKlein();}
+  }else if(!dataBusy&&(radius<=12||performance.now()-diskHoverTime>=100)){hoverPointer=null;diskHoverTime=performance.now();diskHoverIndex=diskPick(e.clientX,e.clientY);drawKlein();}
 });
 kleinCanvas.addEventListener('pointerup',e=>{
   const g=mobiusGesture;if(!g||g.source!=='disk'||g.pointer!==e.pointerId)return;
+  kleinCanvas.classList.remove('is-dragging');
   if(g.pan&&g.moved){mobiusGesture=null;return;}
   if(g.moved){previewTo(pointerToUpper(e.clientX,e.clientY,kleinCanvas.getBoundingClientRect(),diskView));finishMobiusGesture();}
   else{mobiusGesture=null;const i=diskPick(e.clientX,e.clientY);if(i>=0)selectPoint(tripleAt(lattice,i),e.shiftKey);}
 });
 kleinCanvas.addEventListener('pointercancel',cancelMobiusInteraction);
 kleinCanvas.addEventListener('pointerleave',()=>{diskHoverIndex=null;drawKlein();});
-kleinCanvas.addEventListener('wheel',e=>{e.preventDefault();if(mobiusGesture)return;Object.assign(diskView,zoomChartAt(e.clientX,e.clientY,kleinCanvas.getBoundingClientRect(),diskView,THREE.MathUtils.clamp(diskView.zoom*Math.exp(-e.deltaY*.0015),.5,8)));drawKlein();},{passive:false});
-$('roots-model').onchange=()=>{cancelMobiusInteraction();diskView.model=$('roots-model').value;diskView.zoom=1;diskView.pan=[0,0];diskHoverIndex=null;kleinCanvas.setAttribute('aria-label',`${diskView.model==='half-plane'?'Upper half-plane':'Klein disk'} of roots. Drag to move forms; Shift-drag to pan; wheel to zoom.`);drawKlein();};
+kleinCanvas.addEventListener('wheel',e=>{e.preventDefault();if(mobiusGesture)return;diskHoverIndex=null;Object.assign(diskView,zoomChartAt(e.clientX,e.clientY,kleinCanvas.getBoundingClientRect(),diskView,THREE.MathUtils.clamp(diskView.zoom*Math.exp(-e.deltaY*.0015),.5,8)));drawKlein();},{passive:false});
+function resetRootsChart(){
+  diskView.zoom=1;diskView.pan=[0,0];diskHoverIndex=null;rootsRect=null;
+  if(rootsVisible()){
+    const r=kleinCanvas.getBoundingClientRect();
+    if(r.width>0&&r.height>0)rootsRect={left:r.left,top:r.top,width:r.width,height:r.height};
+  }
+}
+$('roots-model').onchange=()=>{cancelMobiusInteraction();diskView.model=$('roots-model').value;resetRootsChart();kleinCanvas.setAttribute('aria-label',`${diskView.model==='half-plane'?'Upper half-plane':'Klein disk'} of roots. Drag to move forms; Shift-drag to pan; wheel to zoom.`);resize();};
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mobiusGesture){e.preventDefault();cancelMobiusInteraction();}});
 const tempLocal=new THREE.Vector3(),tempWorld=new THREE.Vector3();
 // Which of her size causes applies: the origin-eye rule in Origin mode, plane emphasis for upper members.
@@ -433,7 +445,7 @@ function updateGlyphSizes(){
     item.mesh.scale.setScalar(session?(item.extra?1.4:1):glyphScale(-tempWorld.z,height,camera.fov,camera.zoom,item.extra,item.point?radiusFactor(item.point):1));
   }
 }
-function render(){if(!initialized)return;if(rootsView&&!session){drawKlein();return;}if(dataBusy){if(session)updateAims();renderer.render(scene,camera);return;}if(!renderer.getContext().isContextLost()){updateGlyphSizes();if(session){updateMobiusController();updateAims();}renderer.render(scene,camera);if(!$('debug').hidden)showDebug();if(hoverPointer&&!session){if(hoverShown&&hoverShown!==hoverKey(hoverPointer.x,hoverPointer.y))showHover(null);scheduleHover();}}}
+function render(){if(!initialized)return;if(rootsVisible())drawKlein();if(!spaceVisible())return;if(dataBusy){if(session)updateAims();renderer.render(scene,camera);return;}if(!renderer.getContext().isContextLost()){updateGlyphSizes();if(session){updateMobiusController();updateAims();}renderer.render(scene,camera);if(!$('debug').hidden)showDebug();if(hoverPointer&&!session){if(hoverShown&&hoverShown!==hoverKey(hoverPointer.x,hoverPointer.y))showHover(null);scheduleHover();}}}
 // Debug overlay: closed by default; reads only counters that already exist, and only while open.
 let frameMeasure=null, frameRequest=null;
 function showDebug(){
@@ -542,7 +554,24 @@ $('origin').onclick=enterOrigin;
 for(const button of document.querySelectorAll('[data-look]'))button.onclick=()=>{look.pitch={up:Math.PI/2,level:0,down:-Math.PI/2}[button.dataset.look];applyLook();renderer.domElement.focus({preventScroll:true});};
 for(const button of document.querySelectorAll('[data-move]'))button.onclick=()=>{moveEye(button.dataset.move);renderer.domElement.focus({preventScroll:true});};
 function resetView(){controls.target.copy(world.position);camera.position.copy(world.position).add(new THREE.Vector3(2.4,1.5,4.6).multiplyScalar(Math.max(1,radius/8)));controls.update();}
-function resize(){if(session)return;const r=$('viewport').getBoundingClientRect();if(r.width<=0||r.height<=0)return;camera.aspect=r.width/r.height;camera.updateProjectionMatrix();renderer.setSize(r.width,r.height);render();}
+function resize(){
+  if(session)return;
+  const r=$('viewport').getBoundingClientRect();if(r.width<=0||r.height<=0)return;
+  for(const key of ['left','top','width','height','right','bottom'])kleinCanvas.style[key]='';
+  if(innerWidth<1000)Object.assign(kleinCanvas.style,{left:`${r.left}px`,top:`${r.top}px`,width:`${r.width}px`,height:`${r.height}px`,right:'auto',bottom:'auto'});
+  kleinCanvas.hidden=!rootsVisible();renderer.domElement.style.visibility=spaceVisible()?'visible':'hidden';
+  if(!rootsVisible()&&mobiusGesture?.source==='disk')cancelMobiusInteraction();
+  controls.enabled=spaceVisible()&&!inhabited;
+  if(rootsVisible()){
+    const next=kleinCanvas.getBoundingClientRect();
+    if(rootsRect&&mobiusGesture?.source==='disk'&&['left','top','width','height'].some(key=>next[key]!==rootsRect[key]))cancelMobiusInteraction();
+    if(rootsRect&&(next.width!==rootsRect.width||next.height!==rootsRect.height)){
+      Object.assign(diskView,resizeChart(rootsRect,next,diskView));
+    }
+    rootsRect={left:next.left,top:next.top,width:next.width,height:next.height};
+  }
+  camera.aspect=r.width/r.height;camera.updateProjectionMatrix();renderer.setSize(r.width,r.height);render();
+}
 $('next').onclick=()=>{const sequence=[...examples,[-1,1,-2],[1,2,1],[1,3,1]];const i=sequence.findIndex(p=>p.every((x,j)=>x===selected[j]));selectPoint(sequence[(i+1)%sequence.length]);};
 // Her Star size control (0.4–2.5) scales every star radius.
 $('star-size').oninput=()=>{sigma=Number($('star-size').value);$('star-size-value').textContent=sigma.toFixed(2);glyphKey=null;render();};
@@ -597,6 +626,7 @@ renderer.domElement.addEventListener('pointerdown',e=>{
   }
   if(inhabited){lookDrag={x:e.clientX,y:e.clientY};renderer.domElement.setPointerCapture(e.pointerId);}
 });renderer.domElement.addEventListener('pointermove',e=>{
+  diskHoverIndex=null;
   tap.move(e);
   if(mobiusGesture?.source==='space'&&mobiusGesture.pointer===e.pointerId){
     if(Math.hypot(e.clientX-mobiusGesture.start[0],e.clientY-mobiusGesture.start[1])>=4)previewTo(upperFromRay(pointerRay(e.clientX,e.clientY).ray));return;
@@ -696,7 +726,8 @@ function hoverKey(x,y){
 function scheduleHover(){if(!hoverFrame)hoverFrame=requestAnimationFrame(refreshHover);}
 function refreshHover(){
   hoverFrame=0;
-  if(dataBusy||!initialized||!hoverPointer||rootsView||session||startingXR||lookDrag||mobiusGesture||tap.active.size||renderer.getContext().isContextLost()){showHover(null);return;}
+  if(!hoverPointer&&diskHoverIndex!==null)return;
+  if(dataBusy||!initialized||!hoverPointer||!spaceVisible()||session||startingXR||lookDrag||mobiusGesture||tap.active.size||renderer.getContext().isContextLost()){showHover(null);return;}
   const {ray,angle}=pointerRay(hoverPointer.x,hoverPointer.y);
   if(lattice.count>=hoverWorkerPoints&&hoverQueries.available){
     const key=hoverKey(hoverPointer.x,hoverPointer.y), result=hoverQueries.result(pointerSlot);
@@ -831,9 +862,9 @@ function restoreDesktopFromXR(){
   cancelMobiusInteraction();
   session=null;clearHover();hoverQueries.reset();for(const aim of aims){aim.target=null;aim.line.visible=aim.ring.visible=false;}
   if(xrInteractionSaved){rootsView=xrInteractionSaved.rootsView;mobiusMode=xrInteractionSaved.mobiusMode;xrInteractionSaved=null;}
-  kleinCanvas.hidden=!rootsView;renderer.domElement.style.visibility=rootsView?'hidden':'visible';
+  kleinCanvas.hidden=!rootsVisible();renderer.domElement.style.visibility=spaceVisible()?'visible':'hidden';
   $('roots-view').setAttribute('aria-pressed',String(rootsView));$('space-view').setAttribute('aria-pressed',String(!rootsView));
-  controls.enabled=!rootsView&&!inhabited;
+  controls.enabled=spaceVisible()&&!inhabited;
   if(xrWorldSaved){world.position.copy(xrWorldSaved.position);world.quaternion.copy(xrWorldSaved.quaternion);originMode=xrWorldSaved.originMode;}
   xrWorldSaved=null;xrPair=false;xrPanel.visible=false;document.body.classList.remove('immersive');renderer.setAnimationLoop(null);
   if(savedView)restoreView(savedView,camera,controls);savedView=null;resize();checkXR();
@@ -853,7 +884,7 @@ $('xr').onclick=async()=>{
 };
 renderer.xr.addEventListener('sessionend',restoreDesktopFromXR);
 renderer.domElement.addEventListener('webglcontextlost',e=>{e.preventDefault();cancelMobiusInteraction();hoverQueries.reset();$('fatal').hidden=false;$('fatal').textContent='3D graphics paused. Waiting for the browser to restore the graphics context; reload if it does not recover.';controls.enabled=false;$('xr').disabled=true;session?.end().catch(()=>{});});
-renderer.domElement.addEventListener('webglcontextrestored',()=>{$('fatal').hidden=true;controls.enabled=!rootsView&&!session&&!inhabited;resize();update();checkXR();});
+renderer.domElement.addEventListener('webglcontextrestored',()=>{$('fatal').hidden=true;controls.enabled=spaceVisible()&&!session&&!inhabited;resize();update();checkXR();});
 kleinCanvas.addEventListener('webglcontextlost',e=>{e.preventDefault();cancelMobiusInteraction();$('fatal').hidden=false;$('fatal').textContent='2D graphics paused. Waiting for the browser to restore the graphics context; reload if it does not recover.';});
 kleinCanvas.addEventListener('webglcontextrestored',()=>{$('fatal').hidden=true;update();});
 for(const canvas of [renderer.domElement,kleinCanvas])canvas.addEventListener('lostpointercapture',e=>{if(mobiusGesture?.pointer===e.pointerId)cancelMobiusInteraction();else tap.cancel(e);});
@@ -863,4 +894,4 @@ const fixtureCounts={24:28832,48:231348,96:1852484};
 for(const option of $('radius').querySelectorAll('optgroup option'))option.textContent=`${option.value} · ${fixtureCounts[option.value].toLocaleString()} points`;
 await changeCloud(6,true);resize();checkXR();
 // Read-only diagnostics for reproducible app acceptance, never a second implementation.
-window.polynomialDiagnostics=()=>({...diagnostics(),selected:[...selected],second:secondSelection?[...secondSelection]:null,radius,whole,projectionVisible,inhabited,originMode,categories,sigma,planeFocus,dataBusy,xr:!!session,xrMode,xrPair,rootsView,mobiusMode,snapOnRelease,lastAbsorption,rootsChart:{...diskView,pan:[...diskView.pan]},timings:{...timings},rootsRender:{points:kleinView.renderer.info.render.points,calls:kleinView.renderer.info.render.calls},action:{phase:action.phase,matrix:[...action.matrix],g:[...action.g],imageNumerator:action.receipt?.imageNumerator,denominator:action.receipt?.denominator,delta:action.receipt?.delta,displayedSelection:displayedVector(selected)},world:{position:world.position.toArray(),quaternion:world.quaternion.toArray()},xrButtons:xrTargets.map(b=>({label:b.userData.label,position:b.getWorldPosition(new THREE.Vector3()).toArray()})),view:{position:camera.position.toArray(),quaternion:camera.quaternion.toArray(),fov:camera.fov},render:{points:renderer.info.render.points,calls:renderer.info.render.calls},projectedSelection:(()=>{const r=renderer.domElement.getBoundingClientRect(),v=physical(displayedVector(selected)).applyMatrix4(world.matrixWorld).project(camera);return{x:r.left+(v.x+1)*r.width/2,y:r.top+(1-v.y)*r.height/2};})()});
+window.polynomialDiagnostics=()=>({...diagnostics(),selected:[...selected],second:secondSelection?[...secondSelection]:null,radius,whole,projectionVisible,inhabited,originMode,categories,sigma,planeFocus,dataBusy,xr:!!session,xrMode,xrPair,rootsView,panes:{space:spaceVisible(),roots:rootsVisible(),wide:innerWidth>=1000},mobiusMode,snapOnRelease,lastAbsorption,rootsChart:{...diskView,pan:[...diskView.pan]},timings:{...timings},rootsRender:{points:kleinView.renderer.info.render.points,calls:kleinView.renderer.info.render.calls},action:{phase:action.phase,matrix:[...action.matrix],g:[...action.g],imageNumerator:action.receipt?.imageNumerator,denominator:action.receipt?.denominator,delta:action.receipt?.delta,displayedSelection:displayedVector(selected)},world:{position:world.position.toArray(),quaternion:world.quaternion.toArray()},xrButtons:xrTargets.map(b=>({label:b.userData.label,position:b.getWorldPosition(new THREE.Vector3()).toArray()})),view:{position:camera.position.toArray(),quaternion:camera.quaternion.toArray(),fov:camera.fov},render:{points:renderer.info.render.points,calls:renderer.info.render.calls},projectedSelection:(()=>{const r=renderer.domElement.getBoundingClientRect(),v=physical(displayedVector(selected)).applyMatrix4(world.matrixWorld).project(camera);return{x:r.left+(v.x+1)*r.width/2,y:r.top+(1-v.y)*r.height/2};})()});

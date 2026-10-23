@@ -1,0 +1,191 @@
+{
+  "schema": "lean-starscape-native-roots-verification-v1",
+  "generatedUTC": "2026-10-23T09:31:03.172679+00:00",
+  "scope": "Linked native upper-half-plane Roots follow-up; historical receipts preserved unchanged.",
+  "app": {
+    "displayName": "Lean Starscape",
+    "scheme": "PolynomialRoom",
+    "bundleIdentifier": "com.alok.PolynomialRoom",
+    "bridge": "http://127.0.0.1:8787/api/polynomial",
+    "nativeRadiusCap": 12
+  },
+  "canonicalSource": {
+    "commit": "2a0ef3216a931bdcf6cdd9ba89a1baf6f4cfa46a",
+    "readOnly": true,
+    "filesSha256": {
+      "Farey/Sources/RootsPaneView.swift": "d2371bb8247bfbdf8ee9b6dd56360e09496c6a054fac302b99155fa07c7b13c4",
+      "Farey/WebXR/roots-pane.js": "cbbbb4f0415d9cc534f5c0f4fd7287e5279c50bfb56581a1243fabb97ee1e87b"
+    },
+    "reuse": "Upper-half-plane display, star footprints, nearest-root picking, pan/zoom/fit/resize and label placement. GPL headers and Stange attribution retained."
+  },
+  "modelTests": {
+    "passed": 88,
+    "failed": 0,
+    "categories": {
+      "polynomialModel": 45,
+      "rootsGeometry": 14,
+      "actionMathDecoder": 12,
+      "appearance": 5,
+      "exteriorModel": 12
+    },
+    "log": "native/evidence/roots-model-tests.txt",
+    "command": "cd native && swift test -j 2"
+  },
+  "build": {
+    "result": "TEST BUILD SUCCEEDED",
+    "log": "native/evidence/roots-build-for-testing.txt",
+    "sdk": "xrsimulator27.2",
+    "architecture": "arm64",
+    "xcode": "27.2 beta 2",
+    "codeSigningAllowed": false,
+    "jobs": 2
+  },
+  "ui": {
+    "run": "20261023T092615Z",
+    "test": "testRootsWindowPickingPairDragAndChartNavigation",
+    "passed": 1,
+    "failed": 0,
+    "seconds": 72.046,
+    "simulator": "1D261881-0A0F-4DE0-B704-12644E606348",
+    "route": "Existing background-only XCTest/simctl capture runner; no Simulator foreground interaction.",
+    "log": "native/evidence/ui-tests-20261023T092615Z.txt",
+    "screenshotCount": 6,
+    "allSixScreenshotsVisuallyInspected": true,
+    "acceptedActionReadback": {
+      "gesture": "Changed 2 · ended 1 · Released declared sample to Lean",
+      "matrix": "M = [24959, 10694, 18805, 12064]",
+      "members": "22 displayed interior triples on the plane",
+      "plane": "Base 2a −2c = 0 · -1 and 1 · shown ≈ 2.116 and 1.155",
+      "selection": "x² + 1 · (1, 0, 1) · Δ = -4",
+      "viewport": "Chart center 0.0000, 0.5504 · scale 221.6667"
+    },
+    "checks": [
+      "Real chart tap selected (1,0,1)",
+      "Real chart tap in Pair mode paired (1,1,1)",
+      "Exact plane2a−2c=0 and22 interior members",
+      "D5 shown unit1+i and endpoints−2,4/3",
+      "Three actual Zoom out buttons frame both roots/full geodesic without changingM",
+      "Actual Move swipe changes shared accepted action",
+      "Actual Pan swipe and zoom+ change chart only",
+      "Fit restores chart viewport",
+      "Identity retains base pair",
+      "Close waits for actual disappearance; reopen retains accepted selection; Leave succeeds"
+    ],
+    "coordinateDriver": "Two actual diagnostics established center-origin/upward-Y XCUI window offsets: local=(w/2+w*u,h/2−h*v). Test conversion corrects driver coordinates only; production SwiftUI local hit-testing unchanged.",
+    "noActionInjection": true
+  },
+  "actualLeanReplay": {
+    "path": "native/evidence/roots-accepted-action-lean-replay.json",
+    "matrix": [
+      24959,
+      10694,
+      18805,
+      12064
+    ],
+    "denominator": 100004706,
+    "selectedImageNumerator": [
+      499168121,
+      -1196732822,
+      737313317
+    ],
+    "pairedImageNumerator": [
+      272304601,
+      -694526776,
+      470401771
+    ],
+    "baseDeltas": [
+      -4,
+      -3
+    ],
+    "pairNormal": [
+      1,
+      0,
+      -1
+    ],
+    "origin": "Actual accepted UI matrix replayed through compiled Lean executable; not a UI preset."
+  },
+  "proofBoundary": {
+    "kernelChecked": "Existing17 general integer polynomial/plane/action laws at Lean build; no new theorem claim in this UI follow-up.",
+    "executableLean": "Signed cloud identities, categories, exact inspections/descriptors, pair plane/membership and rationalJ(M)/det(M) action receipt on Mac.",
+    "exportedData": "Bundled actual Lean responses used by model/geometry tests; fresh accepted-action replay is actual executable output.",
+    "rendererOnly": "Float root/plane display, geodesic sampling, colors/size/fade, hit-testing, chart pan/zoom/fit, approximate transvection preview and quantization.",
+    "notProved": "Swift transport/UI, sampling, pointer mapping, Snap choice, gesture lifecycle, renderer or hardware behavior."
+  },
+  "currentLimits": [
+    "Actual pointer hover remains unverified: public visionOS XCTest excludes hover; the dedicated test explicitly skips on visionOS. Hover transport/cache/staleness is model-tested.",
+    "Physical magnify/pinch zoom and actual interrupted-gesture cancellation are unverified.",
+    "Targeted spatial gaze/pinch selection, tracked hands/controllers, headset comfort and performance are unverified; no physical device install.",
+    "Spatial pairing, spatial hover-polynomial readout and free-space controllerSL2 drag remain absent.",
+    "Native cloud capR12 and fixed base crop remain different from browserR96.",
+    "Floating Roots window partly occludes immersive cloud; browser panes are adjacent. Camera/materials/framing differ; captures compare matched states, not pixels.",
+    "Lean runs on Mac; native app does not embed Lean runtime or kernel-check pointer events."
+  ],
+  "localHistoricalRuns": [
+    "20261023T090148Z: low window placement and initial tap targeting failure",
+    "20261023T091032Z: first pre-guard tap diagnostic",
+    "20261023T091523Z: disproved2x-scale hypothesis; center/upward-Y mapping established",
+    "20261023T091750Z: actual picks succeeded; test-only endpoint-minus andToggle-selector failures",
+    "20261023T092223Z: all interactions succeeded; immediate asynchronousClose assertion failed"
+  ],
+  "video": {
+    "raw": "native/evidence/screenshots/20261023T092615Z/lean-starscape-native-roots.mov",
+    "rawSha256": "b5154b694a60c0410fda65538bfaf2f2eae97a1c70a0a6929c4790e0251294dd",
+    "delivery": "artifacts/videos/lean-starscape-native-linked-roots.mp4",
+    "metadata": "artifacts/videos/lean-starscape-native-linked-roots-metadata.json",
+    "deliveryStatus": "Export complete; H.264 video-only container verified. Frame inspection is recorded separately in the linked video metadata.",
+    "deliverySha256": "e1f7aa951a317b09eb88a28ba300a4e3db2ce6f1bfd9571b61a826ec4f2ba842",
+    "durationSeconds": 50.716667,
+    "dimensions": [
+      3840,
+      2160
+    ],
+    "bytes": 2787605,
+    "audioStreams": 0,
+    "metadataHashDirection": "Video metadata may hash this frozen native receipt; this receipt deliberately links metadata without hashing it."
+  },
+  "filesSha256": {
+    "native/Sources/PolynomialSpace.swift": "bedf1f39b7c47ab236d63fc1087abbaddffc30974b44f91708db493e4b3bb004",
+    "native/Sources/PolynomialTransformControls.swift": "032c95311c6cae8bde6646d71152ac0794ea0c2d849bfd421280b67bc1912422",
+    "native/Sources/PolynomialModel.swift": "f7189e1de077cc86b82cca233a20e44b2485dd6297e3c5df67c4371f3ab57192",
+    "native/Sources/PolynomialAppearance.swift": "209ad4c7d39f99cc0e397d5bbfc50014dbcb1866c91443c0713b135bc09218e1",
+    "native/Sources/PolynomialRootsView.swift": "2e20119fad239138a282cea567440b4c48bda181127565c0ede3391fa893ce76",
+    "native/Sources/PolynomialAction.swift": "f0a361b821fbec3747e0828809368ab60591ba3be54d325d294ad3b442b19a92",
+    "native/Sources/PolynomialViridis.swift": "885fae4705ce971eae95a3141313038af79b6bb62215798dcb5725266b95ceed",
+    "native/Sources/PolynomialRoomApp.swift": "d00a3d006f5b9aca827d008be6cf7bcc35624a440d64cb9fb006fdb23f761346",
+    "native/Sources/PolynomialRootsGeometry.swift": "2d982c71ef151fc6949ca9f92bb60f8fb7e33fe81ca00683083a65574cb6d08a",
+    "native/ModelTests/PolynomialAppearanceTests.swift": "ee868526d77c4904e158766f23d91e0ef1a55917e69d539f0c18aa226068b610",
+    "native/ModelTests/PolynomialModelTests.swift": "f74683aa8615c3888b14479723f9c341063e8445a9e2353312c0e26017d56680",
+    "native/ModelTests/PolynomialActionTests.swift": "e0e8b314b6cb86dfd1570313b6963a736f544549426be6b9c3f56a7b147bb6f1",
+    "native/ModelTests/PolynomialRootsGeometryTests.swift": "0289df8774869b4d79ae74dc9073515b4026e0fce20b33761a1e3094380d81f5",
+    "native/PolynomialUITests/PolynomialRoomUITests.swift": "fd66bcb0288389fe953915ca2eb2f071de6b5c089086a1c25480d4109c3086a0",
+    "native/ExteriorRoom.xcodeproj/project.pbxproj": "51e0e765cf49c3618d36b5594a3e669d1f85aaa6fdc59b22471162021338e272",
+    "native/Package.swift": "b04e414b388622edc9410dcca93c4db31fa4870c3eca160408ba22485bb4f891",
+    "native/project.yml": "30b343c71bf728409360888e6b72d2f1a2f285ca8036c26fb5c2806aab9866e4",
+    "native/README.md": "cd5f729fb072eac0a061f4eaab0f1b219da3058e3ff658faa1a65bea3139c0f5",
+    "docs/native.md": "095c17fe1d2505f28e66e4fe8acff5428778a6bc3979949d04df7581ffddd28d",
+    "native/scripts/run-ui-tests.py": "66ceec4efa6366e573b7000762e626385d122fd8112c3cf737f9656d11e18d01",
+    "native/scripts/capture_coordinator.py": "30ea5485c3258accdeb93f1336d2f1bce4d45fef3b7573ed9c3d4ae3588d998e",
+    "native/evidence/roots-model-tests.txt": "927f7a9f66888f72cfa1fca17f7bfbfab161775ac06cb2af54db4020cf633977",
+    "native/evidence/roots-build-for-testing.txt": "aea9d910dd4ab8b4564c370e6ee81c272d2641b0e97c11b9e34126bd2453d723",
+    "native/evidence/ui-tests-20261023T092615Z.txt": "091fd1e4f2fc608c80f43bf88204bc63669e8485fb3e708affa5f717c8689918",
+    "native/evidence/roots-accepted-action-lean-replay.json": "3f16d98d05be93123cf475d4c474630bdf90da1c6eb7169d1db1aa8dffb27abe",
+    "native/evidence/screenshots/20261023T092615Z/001-roots-00-window-open.png": "0b000a975e71095749ced383492e956460b0741a83aacb2ceb267eb93b6c0504",
+    "native/evidence/screenshots/20261023T092615Z/002-roots-01-picked-pair.png": "7a1cfbee17c5ffda214bd5df7f15f67f4231115a9caa0ecd9a83a748653baa4f",
+    "native/evidence/screenshots/20261023T092615Z/003-roots-02-d5-linked-views.png": "53a993146f395f2251676476c956fc739ab889c30bd70bcdf838557ff9f1d13f",
+    "native/evidence/screenshots/20261023T092615Z/004-roots-03-actual-drag-linked-scene.png": "11b4c48a5f5e37b88e094927390d4370625b88c0a4869be43c45671bbf77622b",
+    "native/evidence/screenshots/20261023T092615Z/005-roots-04-pan-zoom-action-retained.png": "761203ce1f11fe1a0e47595c2025dfc0bcfe3e3be8ae9bfb9a13b1b031db68a0",
+    "native/evidence/screenshots/20261023T092615Z/006-roots-05-reopened-identity-pair.png": "03a4ca73262898c61a943d15339b5a586265135803c2ba45348cc8dc4b0fbea2",
+    "native/evidence/screenshots/20261023T092615Z/captures.json": "c84ae09bdb9be683848fc757775e2601755848b316409e1849f79645817d00d4",
+    "native/evidence/screenshots/20261023T092615Z/lean-starscape-native-roots-video-start.json": "e0e64f64577b3d448d5b29c24e5b078cf1461bd29a7d33f131f2b4cda58bdfee",
+    "native/evidence/screenshots/20261023T092615Z/lean-starscape-native-roots-video-stop.json": "4667b43997ad1a52f955f2acacb1f099a2d7dcd39ac09df1f94f02b03830f598",
+    "native/evidence/screenshots/20261023T092615Z/lean-starscape-native-roots.mov": "b5154b694a60c0410fda65538bfaf2f2eae97a1c70a0a6929c4790e0251294dd",
+    "native/Resources/polynomial-test-cases.json": "95dab6170b8404c0e7524cfb80915afb2889f3482526048a4ae43b9acc3d5ff3",
+    "native/Resources/polynomial-action-cases.json": "7ba87630d81dc3e8fddbc793ed5e5ba6086e364b058780f160775d6613e78c58",
+    "native/Resources/polynomial-polar-snap-cases.json": "63a99765258d368dbb440bb3d8b7f873fb7c3946c5023eb059473d5760d12541",
+    "native/Resources/polynomial-polar-lean-cases.json": "f2bf0f5e2fc82e3115f6862d32867d37eed90ae2154083aabf0b5153c3032ae6",
+    "native/Resources/polynomial-swipe-case.json": "5d7b6aaa15da8a6d8519e018c186fc3a3a135a5ee2c076302c9ac6f820f7713b",
+    "native/Resources/polynomial-cloud-r6.json": "6b08b557bf04d34e702715ca418bdcead57bf22647c66ed51bef7b0a527a0820",
+    "native/Resources/polynomial-default.json": "8396a083472ce3650fbf049c8ebf7b6736e5d52477cf0bc4b9b05d1f6262f379",
+    "artifacts/videos/lean-starscape-native-linked-roots.mp4": "e1f7aa951a317b09eb88a28ba300a4e3db2ce6f1bfd9571b61a826ec4f2ba842"
+  }
+}

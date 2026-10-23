@@ -11,6 +11,9 @@ not satisfy or replace this Starscape goal.
 
 The dated [validation receipt](POLYNOMIAL_VALIDATION.md) distinguishes exact-data
 tests, real browser interaction, synthetic XR and native simulator results.
+The [linked-roots continuation](LINKED_ROOTS_UPDATE.md) adds current simultaneous
+browser panes, native UHP taps/drag and matched D5 visual inspection; earlier
+receipts below retain their dates and source pins.
 
 The canonical application also has a separate rational Farey L/R page at
 `Farey/WebXR/farey.html`. Its mediants, continued fractions, projected selection,
@@ -91,10 +94,10 @@ has an explicitly labelled bundled Lean export for initial R6 playback.
 | Origin, Inhabit and Overview | IAB controls and pointer look observed; synthetic XR Origin/Overview and desktop-Origin restoration observed. | One-time head-relative placement is implemented. Native and browser Inhabit offsets differ. |
 | Appearance and Reset | IAB Reset restored the base scene while retaining reference palette, size 2.5 and plane focus. The later R6 paired D5 sequence covers fade on/off and projection. | Final base simulator run passed palette, size, fade and Reset retaining these preferences; controls remain usable after Inhabit. The later 065009Z run verifies transformed plane fade and fixed cone guides through four matched captures; see the validation receipt. |
 | Dense cloud | IAB rendered all 1,852,484 R96 points; exact ordered cloud matches the reference fixture. | Explicit R12 cap, 3,608 points. This does not meet browser dense-range parity. |
-| Linked roots chart | Actual IAB UHP Shift-click formed `(1,0,1)/(1,1,1)` with 22 members; its semicircle was visible. Direct UHP drag committed `[10741,903,912,9387]`, determinant 100002231. D5 displayed the unit root `1+i` and endpoints `−2, 1.333`. Earlier root-drag receipts used Klein and remain separate. | The verified bounded-target swipe used a Klein disk. It does not establish a source-style upper-half-plane native chart. |
-| Hover and selection | Browser owner observed a real pointer hover showing `x²−x+2`; synthetic rays selected and paired actual stars. | Visual hover highlighting only; no hover polynomial inspector or explicit controller bindings. Physical gaze/pinch selection unverified. |
+| Linked roots chart | Actual IAB UHP Shift-click formed `(1,0,1)/(1,1,1)` with 22 members; its semicircle was visible. Direct UHP drag committed `[10741,903,912,9387]`, determinant 100002231. D5 displayed the unit root `1+i` and endpoints `−2, 1.333`. Earlier root-drag receipts used Klein and remain separate. | A separate linked UHP Roots window now supports actual tap/pair, Move swipe, Pan swipe, zoom/Fit and reopening. Final simulator run `092615Z` passed; D5 roots/geodesic and 3D were visually compared with browser. Earlier Klein swipe evidence remains separate. |
+| Hover and selection | Browser owner observed a real pointer hover showing `x²−x+2`; synthetic rays selected and paired actual stars. | Cancellable Lean-backed Roots hover inspector implemented and model-tested; actual pointer hover unverified because visionOS XCUI excludes it. Actual Roots tap/pair passed. Spatial pair input and explicit controller bindings remain missing; physical gaze/pinch unverified. |
 | XR controls | 30 in-world buttons implemented. Separate synthetic tests now cover Exact move, T/T inverse, Identity, Snap, trigger drag/release and disconnect rollback, alongside the base controls; the full set is not exhaustively tested. | Native controls use SwiftUI/RealityKit rather than this controller panel. Neither route has physical-headset acceptance. |
-| Source SL₂ motion | Exact rational action and atomic integer Snap are implemented. IAB directly dragged 2D roots and 3D Origin, and the R96 requested seed snapped to T; final regression coverage is tracked in the validation receipt. | The current polar-Snap model receipt passes 68 tests. Focused simulator run `081658Z` passed one test in 112.941s: declared action, paired T⁴ absorption, requested seed `(13,-84,162)` hidden with Δ−1368, Identity/source T/Reset and transformed readouts. The earlier `070446Z` bounded-target swipe produced callbacks and an accepted exact matrix, preserving both discriminants and plane incidence. Earlier coordinate press-drags remain unresolved; physical hands and native free-space dragging are unverified. |
+| Source SL₂ motion | Exact rational action and atomic integer Snap are implemented. IAB directly dragged 2D roots and 3D Origin, and the R96 requested seed snapped to T; final regression coverage is tracked in the validation receipt. | Current model tests pass 88 cases, and `092615Z` verifies an actual UHP swipe accepted as `[24959,10694,18805,12064]`. The earlier polar-Snap model receipt passed 68 tests. Focused simulator run `081658Z` passed one test in 112.941s: declared action, paired T⁴ absorption, requested seed `(13,-84,162)` hidden with Δ−1368, Identity/source T/Reset and transformed readouts. The earlier `070446Z` bounded-target swipe produced callbacks and an accepted exact matrix, preserving both discriminants and plane incidence. Earlier coordinate press-drags remain unresolved; physical hands and native free-space dragging are unverified. |
 
 The exact shared comparison is R6, full signed cloud, first `(1,0,1)` and second
 `(1,1,1)`: canonical normal `(1,0,-1)`, plane **`2a − 2c = 0`**, endpoints
@@ -105,7 +108,7 @@ show that same state, amber plane/member emphasis and projected disk. Camera
 pose, scale, point shape, materials and control placement differ; this is not
 pixel-identical rendering.
 
-The current IAB UHP check used real pointer input: `(824,306)→(900,260)`
+The preceding IAB UHP checkpoint used real pointer input: `(824,306)→(900,260)`
 produced the accepted matrix above. A vertical drag `(676,639)→(676,306)`
 produced `[31623,11384,0,3162]`, determinant `99991926`; actual Snap then chose
 `T⁴`, relabelled the requested seed to **`(13,-84,162)`**, and Identity retained
@@ -380,11 +383,13 @@ outside the mathematical proof boundary. See [the proof source](../lean/Polynomi
 and [service protocol](../lean/Polynomial/PROTOCOL.md).
 
 Remaining acceptance includes unexercised XR controls/failure combinations,
-native physical/free-space drag and gesture cancellation, broader dense hover/transform freshness, and actual headset input, compositor behavior and comfort. The native
-R12 limit, missing native hover-polynomial/controller interface, fixed transformed
-crop and native Klein-only chart remain explicit parity gaps. Browser UHP has
-the observed pointer/pair/Snap cases above; unexercised combinations still need
-acceptance. URL state sharing, source theme choices and simultaneous wide-screen
-3D/roots presentation are not implemented here. Main Chrome interaction
-acceptance remains blocked by observed attachment/reload timeouts; IAB evidence
-is explicitly a different browser surface.
+native physical/free-space drag, spatial pairing, broader dense hover/transform
+freshness and actual headset input, compositor behavior and comfort. Native
+R12 density, actual native hover and explicit controller bindings remain gaps.
+Browser now shows simultaneous 3D/UHP panes at widths of at least 1,000 pixels;
+native now has a separately movable UHP window. URL state sharing, other source
+models and theme choices remain missing. Original-source recataloguing is
+precisely specified in the [source audit](source-recrop-audit.md), but is not
+implemented; the fixed canonical signed ball is still used. Main Chrome was
+rechecked by URL and failed with `Debugger unattached`; IAB acceptance is
+explicitly a different browser surface.

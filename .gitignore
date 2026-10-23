@@ -38,3 +38,22 @@ native/evidence/screenshots/20261023T061935Z/
 
 # Local task coordination receipt; not application evidence.
 artifacts/local-overnight-receipt.json
+
+# Local diagnostics from the linked-roots implementation; curated receipts below are separate.
+artifacts/linked-roots-video-encode.txt
+native/evidence/roots-model-initial-coregraphics-failure.txt
+native/evidence/roots-model-before-label-fix.txt
+native/evidence/roots-build-initial-hover-api-failure.txt
+native/evidence/roots-build-initial-text-measure-failure.txt
+native/evidence/ui-tests-20261023T090148Z.txt
+native/evidence/screenshots/20261023T090148Z/
+native/evidence/ui-tests-20261023T091032Z.txt
+native/evidence/screenshots/20261023T091032Z/
+native/evidence/roots-tap-diagnostics-091032/
+native/evidence/ui-tests-20261023T091523Z.txt
+native/evidence/screenshots/20261023T091523Z/
+native/evidence/roots-build-before-visual-fix.txt
+native/evidence/ui-tests-20261023T091750Z.txt
+native/evidence/screenshots/20261023T091750Z/
+native/evidence/ui-tests-20261023T092223Z.txt
+native/evidence/screenshots/20261023T092223Z/

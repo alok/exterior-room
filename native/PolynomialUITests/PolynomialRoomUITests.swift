@@ -6,6 +6,115 @@ import XCTest
     expectation(for:NSPredicate(format:"label BEGINSWITH %@","Live Lean"),evaluatedWith:app.staticTexts["poly-status"])
     waitForExpectations(timeout:20)
   }
+  private func rootsPoint(_ chart:XCUIElement, real:Double, imaginary:Double) -> XCUICoordinate {
+    if let value = chart.value as? String, let data = value.data(using:.utf8),
+      let object = try? JSONSerialization.jsonObject(with:data) as? [String:Any],
+      let location = object[real == 0 ? "unit" : "pair"] as? [Double], location.count == 2 {
+      // visionOS27.2 window coordinates are centered with upward Y in this route.
+      // Two actual probes: offset(.5,.16778)→local(532,99.67), and
+      // (.25,.08389)→(399,124.83), for a532×300chart. The mapping is
+      // local=(w/2+w*u,h/2−h*v). Production picking stays in SwiftUI points.
+      return chart.coordinate(withNormalizedOffset:CGVector(dx:location[0]-0.5,dy:0.5-location[1]))
+    }
+    let size = chart.frame.size, scale = size.width/2.4
+    return chart.coordinate(withNormalizedOffset:CGVector(dx:(size.width/2+real*scale)/size.width,
+      dy:(size.height-28-imaginary*scale)/size.height))
+  }
+  func testRootsWindowPickingPairDragAndChartNavigation() throws {
+    let app = XCUIApplication(); app.launchEnvironment["POLYNOMIAL_GESTURE_DIAGNOSTICS"] = "1"; app.launch()
+    XCTAssertTrue(app.buttons["poly-connect"].waitForExistence(timeout:20))
+    XCTAssertFalse(app.otherElements["poly-roots-chart"].exists,"Roots must not auto-open at launch")
+    app.buttons["poly-connect"].tap(); live(app)
+    app.buttons["poly-space"].tap()
+    XCTAssertTrue(app.buttons["poly-roots-open"].waitForExistence(timeout:15))
+    app.buttons["poly-roots-open"].tap()
+    let chart = app.descendants(matching:.any)["poly-roots-chart"].firstMatch
+    XCTAssertTrue(chart.waitForExistence(timeout:15))
+    try SimulatorCapture.video("lean-starscape-native-roots",start:true,in:self)
+    try capture("roots-00-window-open")
+    rootsPoint(chart,real:0,imaginary:1).tap()
+    let selection = XCTNSPredicateExpectation(predicate:NSPredicate(format:"label == %@","x² + 1 · (1, 0, 1) · Δ = -4"),object:app.staticTexts["poly-roots-selection"])
+    if XCTWaiter.wait(for:[selection],timeout:12) != .completed {
+      let info = XCTAttachment(string:"frame \(chart.frame); layout \(chart.value ?? "none"); \(app.staticTexts["poly-roots-tap"].label)")
+      info.name = "roots-tap-diagnostic"; info.lifetime = .keepAlways; add(info)
+      try capture("roots-tap-unconfirmed")
+      try SimulatorCapture.video("lean-starscape-native-roots",start:false,in:self)
+      XCTFail("Actual Roots tap did not select the displayed unit: \(app.staticTexts["poly-roots-tap"].label)"); return
+    }
+    let modes = app.segmentedControls["poly-roots-mode"]
+    modes.buttons["Pair"].tap()
+    rootsPoint(chart,real:-0.5,imaginary:sqrt(3)/2).tap()
+    expectation(for:NSPredicate(format:"label == %@","2a −2c = 0 · -1 and 1"),evaluatedWith:app.staticTexts["poly-roots-plane"])
+    waitForExpectations(timeout:20)
+    XCTAssertEqual(app.staticTexts["poly-members"].label,"22 displayed interior triples on the plane")
+    app.buttons["poly-roots-fit"].tap()
+    let originalViewport = app.staticTexts["poly-roots-viewport"].label
+    try capture("roots-01-picked-pair")
+    app.buttons["poly-roots-checkpoint"].tap(); live(app)
+    app.descendants(matching:.any)["poly-roots-plane-focus"].firstMatch.tap()
+    XCTAssertTrue(app.staticTexts["poly-roots-readout"].label.contains("shown ≈ 1.000 + 1.000i"))
+    XCTAssertTrue(app.staticTexts["poly-roots-plane"].label.contains("shown ≈ -2.000 and 1.333"))
+    for _ in 0..<3 { app.buttons["poly-roots-zoom-out"].tap() }
+    XCTAssertEqual(app.staticTexts["poly-roots-matrix"].label,"M = [3, 1, 1, 2]","Chart framing must not change the accepted action")
+    try capture("roots-02-d5-linked-views")
+    app.buttons["poly-roots-fit"].tap()
+    modes.buttons["Move"].tap()
+    let before = app.staticTexts["poly-roots-matrix"].label
+    chart.swipeRight()
+    expectation(for:NSPredicate(format:"label != %@",before),evaluatedWith:app.staticTexts["poly-roots-matrix"])
+    waitForExpectations(timeout:20)
+    live(app)
+    XCTAssertEqual(app.staticTexts["poly-roots-selection"].label,"x² + 1 · (1, 0, 1) · Δ = -4")
+    XCTAssertTrue(app.staticTexts["poly-roots-plane"].label.hasPrefix("Base 2a −2c = 0"))
+    XCTAssertEqual(app.staticTexts["poly-members"].label,"22 displayed interior triples on the plane")
+    try capture("roots-03-actual-drag-linked-scene")
+    let moved = app.staticTexts["poly-roots-matrix"].label
+    let receipt:[String:String] = ["matrix":moved,"gesture":app.staticTexts["poly-roots-gesture"].label,
+      "selection":app.staticTexts["poly-roots-selection"].label,"plane":app.staticTexts["poly-roots-plane"].label,
+      "members":app.staticTexts["poly-members"].label,"viewport":app.staticTexts["poly-roots-viewport"].label]
+    if let data = try? JSONSerialization.data(withJSONObject:receipt,options:.sortedKeys),let text = String(data:data,encoding:.utf8) {
+      print("ROOTS_UI_ACCEPTED_RECEIPT: \(text)")
+    }
+    modes.buttons["Pan"].tap(); chart.swipeLeft()
+    XCTAssertNotEqual(app.staticTexts["poly-roots-viewport"].label,originalViewport)
+    XCTAssertEqual(app.staticTexts["poly-roots-matrix"].label,moved)
+    let panned = app.staticTexts["poly-roots-viewport"].label
+    app.buttons["poly-roots-zoom-in"].tap()
+    XCTAssertNotEqual(app.staticTexts["poly-roots-viewport"].label,panned)
+    XCTAssertEqual(app.staticTexts["poly-roots-matrix"].label,moved)
+    try capture("roots-04-pan-zoom-action-retained")
+    app.buttons["poly-roots-fit"].tap()
+    XCTAssertEqual(app.staticTexts["poly-roots-viewport"].label,originalViewport)
+    app.buttons["poly-roots-identity"].tap(); live(app)
+    XCTAssertEqual(app.staticTexts["poly-roots-matrix"].label,"M = [1, 0, 0, 1]")
+    XCTAssertEqual(app.staticTexts["poly-roots-plane"].label,"2a −2c = 0 · -1 and 1")
+    app.buttons["poly-roots-close"].tap()
+    let dismissed = XCTNSPredicateExpectation(predicate:NSPredicate(format:"exists == false"),object:chart)
+    XCTAssertEqual(XCTWaiter.wait(for:[dismissed],timeout:10),.completed,"Wait for the asynchronous window dismissal")
+    app.buttons["poly-roots-open"].tap(); XCTAssertTrue(chart.waitForExistence(timeout:10))
+    XCTAssertEqual(app.staticTexts["poly-roots-selection"].label,"x² + 1 · (1, 0, 1) · Δ = -4")
+    try capture("roots-05-reopened-identity-pair")
+    try SimulatorCapture.video("lean-starscape-native-roots",start:false,in:self)
+    app.buttons["poly-roots-close"].tap(); app.buttons["poly-space"].tap()
+  }
+  func testRootsPointerHoverUsesLeanPolynomialWithoutSelection() throws {
+    #if os(visionOS)
+    throw XCTSkip("Public visionOS XCUI excludes pointer hover. onContinuousHover needs a supported host-pointer or hardware probe; model tests are not actual hover evidence.")
+    #else
+    let app = XCUIApplication(); app.launchEnvironment["POLYNOMIAL_GESTURE_DIAGNOSTICS"] = "1"; app.launch()
+    XCTAssertTrue(app.buttons["poly-connect"].waitForExistence(timeout:20))
+    app.buttons["poly-connect"].tap(); live(app)
+    app.buttons["poly-roots-open"].tap()
+    let chart = app.descendants(matching:.any)["poly-roots-chart"].firstMatch
+    XCTAssertTrue(chart.waitForExistence(timeout:15))
+    rootsPoint(chart,real:0,imaginary:1).hover()
+    expectation(for:NSPredicate(format:"label == %@","x² + 1 · (1, 0, 1) · Δ = -4"),evaluatedWith:app.staticTexts["poly-roots-hover"])
+    waitForExpectations(timeout:15)
+    XCTAssertEqual(app.staticTexts["poly-roots-selection"].label,"x² − x + 2 · (1, -1, 2) · Δ = -7")
+    try capture("roots-hover-01-unit-without-selection")
+    app.buttons["poly-roots-close"].tap()
+    #endif
+  }
   func testActionCheckpointAndOriginDrag() throws {
     try XCTSkipUnless(ProcessInfo.processInfo.environment["EXTERIOR_GESTURE_PROBE"] == "1",
       "Opt-in diagnostic: previous visionOS XCUI probes produced no accepted drag sample; callback delivery is unresolved.")

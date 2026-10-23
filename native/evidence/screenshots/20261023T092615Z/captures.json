@@ -1,0 +1,74 @@
+[
+  {
+    "id": "006B0952-C40D-4D4C-B83F-A3DE462ED1C6",
+    "name": "roots-00-window-open",
+    "createdAt": 1792747593.357729,
+    "action": "screenshot",
+    "file": "001-roots-00-window-open.png",
+    "startedAt": 1792747593.37482,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "0b000a975e71095749ced383492e956460b0741a83aacb2ceb267eb93b6c0504",
+    "finishedAt": 1792747596.04494
+  },
+  {
+    "id": "F65F7985-A70C-497D-B779-30EECFFA49BF",
+    "name": "roots-01-picked-pair",
+    "createdAt": 1792747601.714468,
+    "action": "screenshot",
+    "file": "002-roots-01-picked-pair.png",
+    "startedAt": 1792747601.737183,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "7a1cfbee17c5ffda214bd5df7f15f67f4231115a9caa0ecd9a83a748653baa4f",
+    "finishedAt": 1792747602.410167
+  },
+  {
+    "action": "screenshot",
+    "id": "DAD1E772-20DF-41F5-82FA-452C145924C5",
+    "name": "roots-02-d5-linked-views",
+    "createdAt": 1792747607.9253402,
+    "file": "003-roots-02-d5-linked-views.png",
+    "startedAt": 1792747607.9403598,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "53a993146f395f2251676476c956fc739ab889c30bd70bcdf838557ff9f1d13f",
+    "finishedAt": 1792747608.444743
+  },
+  {
+    "id": "2A2278F0-05A8-435A-AFA8-DE1949AE0D87",
+    "name": "roots-03-actual-drag-linked-scene",
+    "createdAt": 1792747614.777981,
+    "action": "screenshot",
+    "file": "004-roots-03-actual-drag-linked-scene.png",
+    "startedAt": 1792747614.799777,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "11b4c48a5f5e37b88e094927390d4370625b88c0a4869be43c45671bbf77622b",
+    "finishedAt": 1792747625.132056
+  },
+  {
+    "id": "FE4014FB-8D5B-460F-894B-A20A4D19E3CB",
+    "name": "roots-04-pan-zoom-action-retained",
+    "createdAt": 1792747628.300997,
+    "action": "screenshot",
+    "file": "005-roots-04-pan-zoom-action-retained.png",
+    "startedAt": 1792747628.378741,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "761203ce1f11fe1a0e47595c2025dfc0bcfe3e3be8ae9bfb9a13b1b031db68a0",
+    "finishedAt": 1792747633.8551161
+  },
+  {
+    "id": "CCC82904-6005-4C0C-AD64-5A5C3AFDB4D0",
+    "name": "roots-05-reopened-identity-pair",
+    "createdAt": 1792747641.9158978,
+    "action": "screenshot",
+    "file": "006-roots-05-reopened-identity-pair.png",
+    "startedAt": 1792747641.945299,
+    "exitCode": 0,
+    "error": null,
+    "sha256": "03a4ca73262898c61a943d15339b5a586265135803c2ba45348cc8dc4b0fbea2",
+    "finishedAt": 1792747643.8029382
+  }
+]

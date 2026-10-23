@@ -163,6 +163,104 @@ private actor PolynomialTransport {
       transport: { try await transport.send($0) })
   }
 
+  func testRootsDragAtOverviewUsesSameDeclaredActionAndKeepsBasePair() async throws {
+    let fixture = try PolynomialFixtures(), transport = PolynomialTransport(fixture), model = model(fixture,transport)
+    model.select([1,0,1],pair:[1,1,1]); await model.waitForPending()
+    XCTAssertEqual(model.placement,.overview)
+    model.beginRootsDrag(at:[0,1]); model.updateRootsDrag(to:[1,1],force:true)
+    XCTAssertNotNil(model.actionPreview)
+    XCTAssertEqual(model.inspection?.point,[1,0,1]); XCTAssertNil(model.action)
+    model.commitRootsDrag(); await model.waitForPending()
+    XCTAssertNil(model.error); XCTAssertEqual(model.action?.matrix,[3,1,1,2])
+    XCTAssertEqual(model.inspection?.point,[1,0,1]); XCTAssertEqual(model.displayedPair,[1,1,1])
+    XCTAssertEqual(model.plane?.normal,[1,0,-1]); XCTAssertEqual(model.points.filter(\.necklace).count,22)
+    XCTAssertEqual(model.placement,.overview)
+  }
+
+  func testRootsAndKleinPreviewOwnershipCancellationAndInvalidAxis() async throws {
+    let fixture = try PolynomialFixtures(), transport = PolynomialTransport(fixture), model = model(fixture,transport)
+    model.beginRootsDrag(at:[0,0]); XCTAssertNil(model.actionPreview)
+    model.beginRootsDrag(at:[0,1]); model.updateRootsDrag(to:[1,1],force:true)
+    let preview = try XCTUnwrap(model.actionPreview)
+    model.updateRootsDrag(to:[1,0],force:true); XCTAssertEqual(model.actionPreview,preview)
+    model.updateActionDrag(to:[0,0],force:true); XCTAssertEqual(model.actionPreview,preview,"Other surface cannot mutate a Roots preview")
+    model.cancelActionDrag(); model.commitRootsDrag()
+    XCTAssertNil(model.actionPreview); XCTAssertNil(model.action)
+    let calls = await transport.totalCount(); XCTAssertEqual(calls,0)
+    model.beginRootsDrag(at:[0,1]); model.place(.origin(lower:false)); XCTAssertNil(model.actionPreview)
+    model.beginActionDrag(at:[0,0]); let klein = model.actionPreview
+    model.updateRootsDrag(to:[1,1],force:true); XCTAssertEqual(model.actionPreview,klein)
+    model.reset(); await model.waitForPending(); XCTAssertNil(model.actionPreview)
+    XCTAssertEqual(model.rootsResetRevision,1)
+  }
+
+  func testEndingOldSurfaceCannotCommitOrCancelNewSurfacePreview() async throws {
+    let fixture = try PolynomialFixtures(), transport = PolynomialTransport(fixture), model = model(fixture,transport)
+    model.place(.origin(lower:false))
+    model.beginActionDrag(at:[0,0])
+    model.beginRootsDrag(at:[0,1]); model.updateRootsDrag(to:[1,1],force:true)
+    let roots = try XCTUnwrap(model.actionPreview)
+    XCTAssertFalse(model.commitActionDrag()); model.cancelKleinDrag()
+    XCTAssertEqual(model.actionPreview,roots); XCTAssertFalse(model.busy)
+    model.beginActionDrag(at:[0,0]); model.updateActionDrag(to:[0.1,0],force:true)
+    let klein = try XCTUnwrap(model.actionPreview)
+    XCTAssertFalse(model.commitRootsDrag()); model.cancelRootsDrag()
+    XCTAssertEqual(model.actionPreview,klein); XCTAssertFalse(model.busy)
+    let calls = await transport.totalCount(); XCTAssertEqual(calls,0)
+    model.cancelKleinDrag(); XCTAssertNil(model.actionPreview)
+  }
+
+  func testHoverInspectionHasIndependentLeanProvenanceAndCache() async throws {
+    let fixture = try PolynomialFixtures(), transport = PolynomialTransport(fixture), model = model(fixture,transport)
+    let selected = model.selected, revision = model.sceneRevision
+    model.hover([1,0,1]); await model.waitForHover()
+    XCTAssertEqual(model.hoverInspection?.displayPolynomial,"x² + 1")
+    XCTAssertEqual(model.hoverInspection?.delta,-4); XCTAssertEqual(model.hoverStatus,"Exact Lean inspection")
+    XCTAssertEqual(model.selected,selected); XCTAssertEqual(model.sceneRevision,revision); XCTAssertFalse(model.busy)
+    let before = await transport.count(operation:"inspect")
+    model.hover(nil); model.hover([1,0,1]); await model.waitForHover()
+    let after = await transport.count(operation:"inspect"); XCTAssertEqual(after,before)
+    XCTAssertEqual(model.polynomialLabel(for:[1,0,1]),"x² + 1")
+    model.hover([13,20,34]); XCTAssertNil(model.hoveredPoint,"Hidden forms cannot become a root hover target")
+    XCTAssertNil(model.hoverInspection)
+  }
+
+  func testPairLabelsAreAcceptedTogetherAndMalformedSecondaryInspectionRollsBack() async throws {
+    let fixture = try PolynomialFixtures(), transport = PolynomialTransport(fixture), model = model(fixture,transport)
+    model.select([1,0,1]); await model.waitForPending()
+    await transport.hold()
+    model.select([1,0,1],pair:[1,1,1])
+    let first = try await transport.waitForHeld(1); try await transport.reply(first[0])
+    let both = try await transport.waitForHeld(2)
+    XCTAssertNil(model.pairedInspection); XCTAssertNil(model.displayedPair)
+    try await transport.reply(both[1],corrupt:.wrongGeometry); await model.waitForPending()
+    XCTAssertNotNil(model.error); XCTAssertNil(model.pairedInspection); XCTAssertNil(model.displayedPair)
+    XCTAssertEqual(model.inspection?.point,[1,0,1]); XCTAssertNil(model.plane)
+    let goodTransport = PolynomialTransport(fixture), good = self.model(fixture,goodTransport)
+    good.select([1,0,1],pair:[1,1,1]); await good.waitForPending()
+    XCTAssertNil(good.error); XCTAssertEqual(good.pairedInspection?.point,[1,1,1])
+    XCTAssertEqual(good.polynomialLabel(for:[1,0,1]),"x² + 1")
+    XCTAssertEqual(good.polynomialLabel(for:[1,1,1]),"x² + x + 1")
+    good.hover(nil); XCTAssertEqual(good.polynomialLabel(for:[1,1,1]),"x² + x + 1")
+    good.select([1,0,1]); await good.waitForPending(); XCTAssertNil(good.pairedInspection)
+  }
+
+  func testLateOrMalformedHoverNeverChangesSelectionOrCurrentHover() async throws {
+    let fixture = try PolynomialFixtures(), transport = PolynomialTransport(fixture), model = model(fixture,transport)
+    await transport.hold()
+    model.hover([1,0,1]); let first = try await transport.waitForHeld(1)
+    model.hover([-1,1,-2]); let both = try await transport.waitForHeld(2)
+    try await transport.reply(both[1]); await model.waitForHover()
+    XCTAssertEqual(model.hoverInspection?.point,[-1,1,-2])
+    try await transport.reply(first[0]); await Task.yield()
+    XCTAssertEqual(model.hoverInspection?.point,[-1,1,-2]); XCTAssertEqual(model.selected,[1,-1,2])
+    model.hover([1,0,-1]); let third = try await transport.waitForHeld(3)
+    try await transport.reply(third[2],corrupt:.wrongGeometry); await model.waitForHover()
+    XCTAssertNil(model.hoverInspection); XCTAssertTrue(model.hoverStatus.contains("unavailable"))
+    XCTAssertEqual(model.selected,[1,-1,2]); XCTAssertNil(model.error)
+    model.hover(nil); XCTAssertNil(model.hoveredPoint); XCTAssertEqual(model.hoverStatus,"")
+  }
+
   func testSpacedPolynomialTypographyPreservesLeadingSignAndRawLeanLabel() throws {
     for (raw,shown) in [("x²−x+2","x² − x + 2"),("−x²+x−2","−x² + x − 2"),
       ("2x²+2","2x² + 2"),("−1","−1"),("x","x"),("0","0"),("x² − x + 2","x² − x + 2")] {

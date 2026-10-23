@@ -43,6 +43,25 @@ filters, disables lower-half coloring, hides projection, and restores the cone.
 It preserves the chosen palette, sphere-size multiplier and plane-fade setting,
 matching the browser's Reset behavior.
 
+Open **Roots…** for the linked upper-half-plane window. **Move** drags the shared
+Möbius action; **Select** and **Pair** pick signed base identities from the drawn
+roots. **Pan**, zoom buttons, pinch magnification and **Fit** change only the chart.
+The window shares the accepted cloud, pair, palette, size and plane fade with the
+3D scene. The orange semicircle or vertical geodesic comes from the accepted
+Lean plane endpoints, then the current approximate display action. Selected,
+paired and hovered roots show polynomial labels from validated Lean inspections.
+Only upper-positive roots are drawn; a hidden or negative signed selection is
+retained and labeled. Close/reopen preserves the accepted action and selection.
+The Klein disk remains available separately.
+
+The Roots plot adapts the source's upper-half-plane coordinates, star-size rule,
+brightness attenuation, nearest-root selection, chart fit/pan/zoom and label
+placement. Picking and continuous previews are floating-point UI behavior. A
+release submits a declared bounded matrix to Lean, and the accepted response
+updates the Roots window and 3D scene together. A cancelled preview restores the
+accepted scene. Separate gesture ownership prevents a stale end/cancel from the
+Klein disk from committing or cancelling a Roots preview, and vice versa.
+
 Open **SL₂ transform** for T, T⁻¹, S, the `i → 1+i` checkpoint, Identity and Snap.
 The checkpoint submits `M = [3,1,1,2]`, with determinant 5: Lean returns the exact
 image of the default as `(8,−23,22)/5`. Continuous actions move the drawn geometry
@@ -117,16 +136,23 @@ action conventions adapt `Farey/WebXR/mobius.js` at
 at `6fea557bb0d0c786bed5223dc631cb1c06e94f16` are preserved; the corrected
 polar criterion is pinned to `2cd549a45ddb6056cf3596404754d96ad9e7132c` in
 `Resources/polynomial-polar-snap-cases.json` and its separate fresh receipt.
-The manifest records earlier borrowed files and hashes separately. The underlying visualization
+The Roots geometry/window additionally adapt `Farey/Sources/RootsPaneView.swift`
+and `Farey/WebXR/roots-pane.js` at
+`2a0ef3216a931bdcf6cdd9ba89a1baf6f4cfa46a`; their exact file hashes are recorded in
+the new Roots receipt. The manifest records earlier borrowed files and hashes separately. The underlying visualization
 credits Katherine Stange and Harriss–Stange–Trettel's *Algebraic Number Starscapes*.
 The Lean adaptation is independent. Viridis credits Smith, van der Walt and
 Firing (CC0). Source headers preserve GPL attribution.
 
-RealityKit's hover effect supplies a visual highlight; polynomial inspection
-requires selection. The canonical upper-half-plane Roots window, its root picking
-and hover-polynomial readouts are not implemented in this native route. The Klein
-disk is a transformation surface, not a replacement for that Roots view.
-Tracked controller support and free-space point dragging are also absent. Actual entity
+RealityKit's hover effect supplies a visual highlight; spatial polynomial inspection
+requires selection. The Roots window implements an independent hover-polynomial
+readout through `onContinuousHover`; actual pointer hover remains unverified
+because public visionOS XCTest excludes its pointer-hover command. The model
+suite tests validated hover responses, stale-response cancellation and cache
+retention; those are not actual hover input tests.
+Tracked controller support, spatial point pairing and free-space SL₂ dragging
+are absent. Targeted spatial selection is gated to the accepted cloud in Overview
+and rejects busy or preview states. Actual entity
 gaze/pinch selection, physical-headset hand input, comfort and performance remain
 unverified. The separate Exterior Room endpoint drag/cancellation also lacks
 successful actual-gesture verification: its XCUI endpoint probe failed to
@@ -137,7 +163,7 @@ The earlier Polynomial Room coordinate-drag failures remain recorded separately
 from the successful element-swipe test `20261023T070446Z`. Model tests alone do
 not establish gesture execution.
 
-The current [`polar-snap-model-tests.txt`](evidence/polar-snap-model-tests.txt)
+The historical polar-Snap [`polar-snap-model-tests.txt`](evidence/polar-snap-model-tests.txt)
 receipt records **68 tests passed, zero failures**: 39 polynomial model tests,
 12 action math/decoder tests, five appearance tests and 12 Exterior Room tests. Coverage
 includes real Lean fixtures, exact and nonintegral actions, canonical Snap
@@ -146,6 +172,36 @@ identity/cloud bounds, safe-integer edge receipts, spaced labels, accepted/previ
 readouts, atomic pair rollback, stale responses and cancellation of preview values.
 The 27 new Lean receipts preserve earlier fixture sets. This is model/transport evidence, not an executed
 gesture or headset receipt.
+
+The current [Roots model suite](evidence/roots-model-tests.txt) passed **88 tests,
+zero failures**: 45 polynomial model tests, 14 Roots geometry tests, 12 action
+math/decoder tests, five appearance tests and 12 Exterior Room tests. The new
+coverage includes source fit/pan/zoom/resize/picking, signed base identities,
+paired geodesics, accepted label retention, independent hover cancellation,
+atomic pair inspection and cross-surface gesture ownership. The
+[unsigned build](evidence/roots-build-for-testing.txt) succeeded. The
+[focused Roots UI run](evidence/ui-tests-20261023T092615Z.txt) passed **one test,
+zero failures in 72.046 seconds**, with six actual simulator screenshots and a
+silent app-only recording. It used real chart taps to select `(1,0,1)` and pair
+`(1,1,1)`, real chart swipes for Move and Pan, and actual zoom/Fit/Identity and
+Close/reopen controls. The actual accepted swipe matrix was
+`[24959,10694,18805,12064]`, determinant **100004706**; a
+[separate compiled-Lean replay](evidence/roots-accepted-action-lean-replay.json)
+confirms both images and discriminants −4/−3. No diagnostic action injection was
+used. The [fresh Roots receipt](evidence/roots-native-receipt.json) records source,
+model, build, UI and capture hashes.
+
+The [silent Roots recording](../artifacts/videos/lean-starscape-native-linked-roots.mp4)
+contains video only (H.264, 3840×2160, 50.716667 seconds); the
+[video metadata](../artifacts/videos/lean-starscape-native-linked-roots-metadata.json)
+records export and frame-review details.
+
+The native Roots window floats in front of the immersive scene, partly covering
+it; the browser uses adjacent panes. Three actual Zoom out presses frame both
+D5 roots and the full geodesic in the comparison capture. Camera, physical sphere
+sizes and window framing differ; these are matched states, not pixel parity.
+Actual pointer hover, physical pinch zoom, interrupted-gesture cancellation,
+physical tracked-hand/controller input and headset performance remain unverified.
 
 Run its existing-simulator UI checks with `python3 native/scripts/run-ui-tests.py
 --scheme PolynomialRoom` after `build-for-testing`. The silent simulator recording

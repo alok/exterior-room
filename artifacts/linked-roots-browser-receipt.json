@@ -1,0 +1,66 @@
+{
+  "schema": "lean-starscape-linked-roots-browser-v1",
+  "recordedAt": "2026-10-23T09:32:53.665691+00:00",
+  "baseCommit": "3771975fcca57d34eacbfbea4d42f0d8fa74de0b",
+  "browser": "ChatGPT in-app browser",
+  "mainChrome": {
+    "status": "unavailable",
+    "action": "bind existing production tab by URL",
+    "reason": "Debugger unattached",
+    "newAccessRequested": false
+  },
+  "nodeTests": {
+    "passed": 115,
+    "failed": 0
+  },
+  "verified": [
+    "unit-pair-from-actual-root-clicks",
+    "actual-uhp-drag",
+    "exact-d5-wide",
+    "shift-pan-wheel-preserve-action",
+    "900px-roots-toggle",
+    "390px-roots",
+    "restored-wide-both-compact-choice-retained",
+    "R24-simultaneous-exact-move",
+    "hidden-roots-resize-reset-fit-regression",
+    "fixed-resize-cancels-live-root-drag",
+    "aimed synthetic XR Exact move and Snap",
+    "wide and compact XR restoration within 1e-12",
+    "D5-matched-native-plane-fade-full-geodesic-chart-zoom-only"
+  ],
+  "knownPreFixFailure": "pre-fix-resize-after-visible-reset-incorrectly-committed is retained as failure evidence, superseded by fixed-resize-cancels-live-root-drag",
+  "video": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_type": "video",
+        "width": 1104,
+        "height": 836
+      }
+    ],
+    "format": {
+      "duration": "24.150000"
+    }
+  },
+  "physicalHeadsetVerified": false,
+  "sourceRecropImplemented": false,
+  "kernelProofCountUnchanged": 17,
+  "sourceAndEvidenceSHA256": {
+    "web/polynomial/app.js": "d6ae0aef847d2edb693397c34747ab02cefb20bdf0c4c917699c9279a266967b",
+    "web/polynomial/index.html": "f34d5da2b9d14a74be58f3dcb7b99634ca5fb2d4fa68e5a9b1a3df7d40b00242",
+    "web/polynomial/style.css": "093d8d2b6315e8a50b89d80be0e2591ad1918cb59c7c69e88e607c1b6da3d445",
+    "web/polynomial/klein-view.js": "e94734cf8a195b37ca2d4e7d3bef9eec52cb8e5b53d889847a59139425c3469d",
+    "web/polynomial/mobius-render.js": "d35b2e79d132b0ec5146938de21185172a914ca145cff7f499cf90df023117fc",
+    "web/qa/xr-controls.js": "a7c0795fef8ad31778cf59f81ddeec99655d4c381970366e432ac7e1e92f004a",
+    "web/qa/capture-layout.js": "2edcc691c866999bce416f0ad2ab7cdd74dae09d9803aca0e7d1f01d7ab70c74",
+    "web/qa/xr.html": "965ac1a1859610412f50e2c354d868567dd8e18d1b73b8560c5cdf9a7d12c30a",
+    "artifacts/linked-roots-node-tests.txt": "f4fbd341facba01f84c6d158df17aed9bf8487bf3163d1b93f86d83d52ed81c4",
+    "artifacts/videos/lean-starscape-linked-panes.mp4": "585d22fc3e52adef0d8ee9984034ab9dc7f4a7f81bfc410bf97260427344884f",
+    "artifacts/screenshots/linked-roots-20261023/xr-states.json": "c17ae3c3f16b5722b3308fb8045354574e8a2f02a4a97ee5b532c5d7db685618",
+    "artifacts/screenshots/linked-roots-20261023/interaction-states.json": "a92a31c9c825f3e99b7882886e1d07682c49d52971b72f1d3f859081aa5e47c7",
+    "artifacts/screenshots/linked-roots-20261023/final-video-states.json": "30cb24db2838fa157509518f51e895aeaf6f25e3469d411a766f264e88e86231",
+    "web/polynomial/PROVENANCE.json": "5f41b1b9f6125748b955aa27fc210123fdf7ceec7736d1e7a48e4a2383c8b04d",
+    "artifacts/screenshots/linked-roots-20261023/11-d5-full-geodesic-matched.png": "4a9a6304d3178a49bf362f9de08a34da4a166a4d9c2d3ff379ac01590b7bde28"
+  }
+}

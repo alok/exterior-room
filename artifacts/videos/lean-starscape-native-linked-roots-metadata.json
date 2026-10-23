@@ -1,0 +1,84 @@
+{
+  "schema": "lean-starscape-native-linked-roots-video-v1",
+  "recordedRun": "20261023T092615Z",
+  "surface": "task-owned visionOS Simulator app only",
+  "input": "actual XCTest taps, swipe and controls; no action injection",
+  "raw": {
+    "path": "native/evidence/screenshots/20261023T092615Z/lean-starscape-native-roots.mov",
+    "sha256": "b5154b694a60c0410fda65538bfaf2f2eae97a1c70a0a6929c4790e0251294dd",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "format": {
+        "duration": "50.701667"
+      }
+    }
+  },
+  "export": {
+    "path": "artifacts/videos/lean-starscape-native-linked-roots.mp4",
+    "sha256": "e1f7aa951a317b09eb88a28ba300a4e3db2ce6f1bfd9571b61a826ec4f2ba842",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 3840,
+          "height": 2160
+        }
+      ],
+      "format": {
+        "duration": "50.716667"
+      }
+    }
+  },
+  "conversion": {
+    "videoOnly": true,
+    "audio": false,
+    "trimmed": false,
+    "speedChanged": false,
+    "codec": "H.264",
+    "threads": 2
+  },
+  "sequence": [
+    "open Roots",
+    "unit tap",
+    "pair tap",
+    "D5",
+    "Zoom out x3 preserving matrix",
+    "Fit",
+    "Move swipe accepted by Lean",
+    "Pan swipe",
+    "Zoom in",
+    "Fit",
+    "Identity",
+    "Close and reopen retaining pair"
+  ],
+  "uiReceipt": "native/evidence/roots-native-receipt.json",
+  "physicalHeadsetEvidence": false,
+  "comparisonLimits": [
+    "Native window floats over 3D; browser panes are adjacent.",
+    "D5 is matched; independent free drags reach different matrices.",
+    "Video timing differs; this is not a synchronized pixel comparison."
+  ],
+  "visuallyInspectedDecodedFrames": [
+    {
+      "seconds": 18,
+      "observed": "Live approximate drag preview changes roots and 3D; accepted matrix still D5 during preview."
+    },
+    {
+      "seconds": 50,
+      "observed": "Reopened Roots window retains unit/pair and Identity; matching semicircle and 3D plane."
+    }
+  ],
+  "uiReceiptSHA256": "0227887c36a1bc1ec669de5d0d85b5eb6427468b73c8f550238db601adea665f"
+}

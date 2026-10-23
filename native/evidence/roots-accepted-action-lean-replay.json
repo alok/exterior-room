@@ -1,0 +1,203 @@
+{
+  "purpose": "Replay of actual092615Z native Roots swipe accepted matrix; actual compiled Lean output, not UI injection.",
+  "binarySha256": "9b0f4bbc3b1f2fb85d0137d321188165dccd14086e395d8d6a3580b440ce8ed4",
+  "requests": [
+    {
+      "id": 1,
+      "op": "transform",
+      "matrix": [
+        24959,
+        10694,
+        18805,
+        12064
+      ],
+      "point": [
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 2,
+      "op": "transform",
+      "matrix": [
+        24959,
+        10694,
+        18805,
+        12064
+      ],
+      "point": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 3,
+      "op": "pair",
+      "first": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "responses": [
+    {
+      "actionSchema": "polynomial-mobius-v1",
+      "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+      "checks": {
+        "discriminantPreserved": true,
+        "positiveDeterminant": true
+      },
+      "coefficientRows": [
+        145540096,
+        -226863520,
+        353628025,
+        -258024832,
+        502206046,
+        -938707990,
+        114361636,
+        -266911546,
+        622951681
+      ],
+      "delta": -4,
+      "denominator": 100004706,
+      "engine": "Lean 4.35.0-rc3",
+      "id": 1,
+      "image": null,
+      "imageNumerator": [
+        499168121,
+        -1196732822,
+        737313317
+      ],
+      "matrix": [
+        24959,
+        10694,
+        18805,
+        12064
+      ],
+      "ok": true,
+      "point": [
+        1,
+        0,
+        1
+      ],
+      "schema": "polynomial-space-v1",
+      "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+      "xyzNumerator": [
+        1196732822,
+        1236481438,
+        238145196
+      ]
+    },
+    {
+      "actionSchema": "polynomial-mobius-v1",
+      "actionSourceCommit": "63ad115422ab1141ca6d06732572385414b7a5cf",
+      "checks": {
+        "discriminantPreserved": true,
+        "positiveDeterminant": true
+      },
+      "coefficientRows": [
+        145540096,
+        -226863520,
+        353628025,
+        -258024832,
+        502206046,
+        -938707990,
+        114361636,
+        -266911546,
+        622951681
+      ],
+      "delta": -3,
+      "denominator": 100004706,
+      "engine": "Lean 4.35.0-rc3",
+      "id": 2,
+      "image": null,
+      "imageNumerator": [
+        272304601,
+        -694526776,
+        470401771
+      ],
+      "matrix": [
+        24959,
+        10694,
+        18805,
+        12064
+      ],
+      "ok": true,
+      "point": [
+        1,
+        1,
+        1
+      ],
+      "schema": "polynomial-space-v1",
+      "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39",
+      "xyzNumerator": [
+        694526776,
+        742706372,
+        198097170
+      ]
+    },
+    {
+      "cartesianNormal": [
+        0,
+        0,
+        -2
+      ],
+      "checks": {
+        "exterior": true,
+        "firstOnPlane": true,
+        "primitive": true,
+        "rawFirstOnPlane": true,
+        "rawSecondOnPlane": true,
+        "secondOnPlane": true
+      },
+      "endpoints": [
+        {
+          "denominator": 1,
+          "kind": "rational",
+          "label": "-1",
+          "numerator": -1
+        },
+        {
+          "denominator": 1,
+          "kind": "rational",
+          "label": "1",
+          "numerator": 1
+        }
+      ],
+      "engine": "Lean 4.35.0-rc3",
+      "equation": "2a \u22122c = 0",
+      "firstPrimitive": [
+        1,
+        0,
+        1
+      ],
+      "id": 3,
+      "normal": [
+        1,
+        0,
+        -1
+      ],
+      "ok": true,
+      "planeCoefficients": [
+        2,
+        0,
+        -2
+      ],
+      "schema": "polynomial-space-v1",
+      "secondPrimitive": [
+        1,
+        1,
+        1
+      ],
+      "sourceCommit": "ca809d2975a37a318a425e4b9dd73560b07faf39"
+    }
+  ]
+}

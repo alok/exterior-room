@@ -7,7 +7,7 @@ import { identity, multiply, determinant, act, transvection, dragStep, pushforwa
 import { coefficientsToDisplay, displayToCoefficients, coefficientRowsToDisplay, displayPushforward, displayMatrix4,
   transformDisplay, transformPackedPositions, projectedPositions, rootDiskPosition, rootDiskPositions,
   pointerToKlein, kleinToClient, pointerToUpper, quantizeMatrix, matrixFromIntegers, displayRowsFromReceipt, displayMatrix4FromReceipt,
-  chartTransform, rootCoordinates, rootToClient, zoomChartAt, halfPlaneGeodesic } from '../web/polynomial/mobius-render.js';
+  chartTransform, rootCoordinates, rootToClient, zoomChartAt, resizeChart, halfPlaneGeodesic } from '../web/polynomial/mobius-render.js';
 
 const near = (a, b, tolerance = 1e-9) => {
   assert.equal(a.length, b.length);
@@ -135,6 +135,44 @@ test('UHP pointer-anchor zoom and transvection move the selected root without ch
   const g=dragStep(identity,from,target);
   near(rootCoordinates(transformDisplay(g,xyz),d),[target.x,target.y]);
   assert.deepEqual(xyz,[-20,47,21]);
+});
+
+test('UHP wide/compact resize preserves canonical center and scales root offsets by width', () => {
+  const wide={left:720,top:140,width:600,height:400},compact={left:12,top:100,width:300,height:600};
+  const options={model:'half-plane',zoom:1.7,pan:[31,-12],padding:20},originalPan=[...options.pan];
+  const resized={...options,...resizeChart(wide,compact,options)};
+  assert.equal(resized.zoom,1.7);near(resized.pan,[15.5,-322.2]);
+  assert.deepEqual(options.pan,originalPan);
+  const oldChart=chartTransform(wide,options),newChart=chartTransform(compact,resized);
+  assert.equal(newChart.scale,oldChart.scale*compact.width/wide.width);
+  const oldCenter=pointerToUpper(wide.left+wide.width/2,wide.top+wide.height/2,wide,options);
+  const newCenter=pointerToUpper(compact.left+compact.width/2,compact.top+compact.height/2,compact,resized);
+  near([newCenter.x,newCenter.y],[oldCenter.x,oldCenter.y]);
+  for(const [xyz,d] of [[[0,2,0],-4],[[23/5,6,14/5],-7]]){
+    const before=rootToClient(xyz,d,wide,options),after=rootToClient(xyz,d,compact,resized),factor=compact.width/wide.width;
+    near([after[0]-compact.left-compact.width/2,after[1]-compact.top-compact.height/2],
+      [(before[0]-wide.left-wide.width/2)*factor,(before[1]-wide.top-wide.height/2)*factor]);
+  }
+  near(resizeChart(compact,wide,resized).pan,options.pan);
+});
+
+test('Klein resize retains relative fit zoom and model center independently of page position', () => {
+  const oldRect={left:500,top:60,width:600,height:400},newRect={left:12,top:200,width:300,height:600};
+  const options={model:'klein',zoom:2,pan:[31,-12],padding:16};
+  const resized={...options,...resizeChart(oldRect,newRect,options)};
+  assert.equal(resized.zoom,2);
+  const oldCenter=pointerToKlein(oldRect.left+oldRect.width/2,oldRect.top+oldRect.height/2,oldRect,options);
+  const newCenter=pointerToKlein(newRect.left+newRect.width/2,newRect.top+newRect.height/2,newRect,resized);
+  near(newCenter,oldCenter);near(resized.pan,options.pan.map(x=>x*134/184));
+  const onlyMoved={...oldRect,left:12,top:250};near(resizeChart(oldRect,onlyMoved,options).pan,options.pan);
+  near(resizeChart(newRect,oldRect,resized).pan,options.pan);
+});
+
+test('chart resize rejects hidden rectangles and does not invent a visible fit', () => {
+  const rect={left:0,top:0,width:600,height:400};
+  assert.throws(()=>resizeChart(rect,{...rect,width:0}),/positive rectangle/);
+  assert.throws(()=>resizeChart({...rect,height:0},rect),/positive rectangle/);
+  assert.throws(()=>resizeChart(rect,{...rect,width:10,height:10},{model:'klein',padding:16}),/no disk/);
 });
 
 test('UHP plane rendering uses moved semicircles and a symbolic infinite endpoint', () => {

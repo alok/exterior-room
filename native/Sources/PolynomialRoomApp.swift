@@ -9,6 +9,13 @@ import SwiftUI
     Window("Lean Starscape", id: "polynomial-launch") { PolynomialControls().environment(model) }
       .defaultSize(width: 660,height: 900)
       .defaultWindowPlacement { _, _ in WindowPlacement(.utilityPanel) }
+    Window("Roots · Lean Starscape",id:"polynomial-roots") { PolynomialRootsView().environment(model) }
+      .defaultSize(width:560,height:760)
+      .defaultWindowPlacement { _, context in
+        if let launch = context.windows.first(where: { $0.id == "polynomial-launch" }) { return WindowPlacement(.trailing(launch)) }
+        return WindowPlacement()
+      }
+      .defaultLaunchBehavior(.suppressed).restorationBehavior(.disabled)
     ImmersiveSpace(id: "polynomial-space") { PolynomialSpace().environment(model) }
       .immersionStyle(selection: .constant(.full),in: .full)
   }
@@ -68,6 +75,7 @@ struct PolynomialControls: View {
       }
       Text(placementText).font(.caption).foregroundStyle(.secondary).accessibilityIdentifier("poly-placement")
       HStack {
+        Button("Roots…") { openWindow(id:"polynomial-roots") }.accessibilityIdentifier("poly-roots-open")
         Button(transforms ? "Point controls" : "SL₂ transform") { transforms.toggle() }
           .accessibilityIdentifier("poly-action-mode")
         if !transforms, model.action != nil {

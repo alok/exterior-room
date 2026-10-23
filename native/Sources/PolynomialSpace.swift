@@ -36,11 +36,11 @@ import SwiftUI
     }
   }
   private static func select(_ entity: Entity, model: PolynomialModel) {
-    guard model.placement == .overview else { return }
+    guard model.placement == .overview, !model.busy, model.actionPreview == nil else { return }
     let pieces = entity.name.split(separator: ":")
     guard pieces.count == 4, pieces[0] == "polynomial",
       let a = Int(pieces[1]), let b = Int(pieces[2]), let c = Int(pieces[3]) else { return }
-    model.select([a,b,c])
+    model.enter([a,b,c])
   }
 }
 

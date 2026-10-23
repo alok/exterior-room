@@ -8,6 +8,9 @@ import * as THREE from 'three';
 import {interiorIndices,fillRootPositions,orderRootsByRadius,rootSortWorkspace} from './klein-data.js';
 import {chartTransform,rootCoordinates,halfPlaneGeodesic} from './mobius-render.js';
 
+const labelFont='12px ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace';
+const markerColors=['#f0f5f8','#ffba6b'],hoverColor='#f0f5f8bf';
+
 export class KleinView {
   constructor(canvas) {
     this.renderer=new THREE.WebGLRenderer({canvas,antialias:true});
@@ -45,8 +48,22 @@ export class KleinView {
       const ctx=canvas.getContext('2d');ctx.font='22px system-ui,-apple-system,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle='#9fb2bd';ctx.fillText(text,48,20);
       const sprite=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(canvas),...overlay}));sprite.renderOrder=1;sprite.userData.x=x;this.axes.add(sprite);return sprite;
     });
-    this.markers=[0xffffff,0xffba6b].map(color=>{const line=new THREE.Line(circle(),new THREE.LineBasicMaterial({color,...overlay}));line.renderOrder=2;this.scene.add(line);return line;});
+    this.markers=markerColors.map(color=>{const line=new THREE.Line(circle(),new THREE.LineBasicMaterial({color,...overlay}));line.renderOrder=2;this.scene.add(line);return line;});
+    this.hoverMarker=new THREE.Line(circle(),new THREE.LineBasicMaterial({color:0xf0f5f8,opacity:.75,...overlay}));this.hoverMarker.renderOrder=2;this.scene.add(this.hoverMarker);
+    this.labels=new Map();
     this.chord=new THREE.Line(new THREE.BufferGeometry(),new THREE.LineBasicMaterial({color:0xffba6b,...overlay}));this.chord.renderOrder=1;this.scene.add(this.chord);
+  }
+  labelSprite(text,color) {
+    const key=JSON.stringify([text,color]);let label=this.labels.get(key);
+    if(label)return [key,label];
+    const canvas=document.createElement('canvas'),ctx=canvas.getContext('2d'),dpr=this.renderer.getPixelRatio(),pad=4,height=24;
+    ctx.font=labelFont;const textWidth=ctx.measureText(text).width,width=Math.ceil(textWidth)+2*pad;
+    canvas.width=Math.ceil(width*dpr);canvas.height=Math.ceil(height*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);ctx.font=labelFont;ctx.textAlign='left';ctx.textBaseline='middle';ctx.lineWidth=4;ctx.lineJoin='round';
+    ctx.strokeStyle='rgba(5,9,12,0.92)';ctx.strokeText(text,pad,height/2);ctx.fillStyle=color;ctx.fillText(text,pad,height/2);
+    const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
+    const sprite=new THREE.Sprite(new THREE.SpriteMaterial({map:texture,transparent:true,depthTest:false,depthWrite:false,toneMapped:false}));
+    sprite.renderOrder=3;this.scene.add(sprite);label={sprite,texture,width,height,textWidth,pad};this.labels.set(key,label);return [key,label];
   }
   update({lattice,xyz,colors,revision,colorKey,model='half-plane'}) {
     if(this.lattice!==lattice||this.model!==model){
@@ -78,7 +95,7 @@ export class KleinView {
       attr.needsUpdate=true;this.colorKey=colorKey;
     }
   }
-  render({width,height,zoom,pan,padding,sigma,markers,ends,focus,fade,keep,model='half-plane'}) {
+  render({width,height,zoom,pan,padding,sigma,markers,hover=null,ends,focus,fade,keep,model='half-plane'}) {
     if(width<1||height<1)return;
     if(this.width!==width||this.height!==height){this.renderer.setSize(width,height,false);this.width=width;this.height=height;}
     const {cx,cy,scale}=chartTransform({left:0,top:0,width,height},{model,zoom,pan,padding});
@@ -93,12 +110,26 @@ export class KleinView {
       for(const sprite of this.ticks){const x=sprite.userData.x;points.push(new THREE.Vector3(x,0,0),new THREE.Vector3(x,-5/scale,0));sprite.position.set(x,-17/scale,0);sprite.scale.set(48/scale,20/scale,1);}
       this.axis.geometry.dispose();this.axis.geometry=new THREE.BufferGeometry().setFromPoints(points);
     }
-    this.markers.forEach((marker,i)=>{
-      const item=markers[i],xyz=item?.xyz||item,delta=item?.delta;
+    const usedLabels=new Set();
+    const drawMarker=(marker,item,color)=>{
+      const xyz=item?.xyz||item,delta=item?.delta;
       const p=xyz&&(upper?xyz[1]>0:true)?(upper?rootCoordinates(xyz,delta,model):[xyz[0]/xyz[1],xyz[2]/xyz[1]]):null;
-      marker.visible=!!p;
-      if(p){marker.position.set(p[0],p[1],0);const radius=upper?Math.max(.06*sigma*scale/Math.abs(xyz[1]-xyz[2]),.6)+3:6;marker.scale.setScalar(radius/scale);}
-    });
+      marker.visible=!!p&&p.every(Number.isFinite);if(!marker.visible)return;
+      const radius=upper?.06*sigma*scale/Math.abs(xyz[1]-xyz[2]):3;
+      marker.position.set(p[0],p[1],0);marker.scale.setScalar((Math.max(radius,.6)+3)/scale);
+      const sx=cx+p[0]*scale,sy=cy-p[1]*scale;
+      if(!item?.label||sx< -radius||sx>width+radius||sy< -radius||sy>height+radius)return;
+      const [key,label]=this.labelSprite(item.label,color),offset=Math.max(8,radius+7);
+      const x=sx+offset+label.textWidth>width-4?sx-offset-label.textWidth:sx+offset,y=sy+Math.max(8,radius+6);
+      label.sprite.position.set((x+label.width/2-label.pad-cx)/scale,(cy-y)/scale,0);
+      label.sprite.scale.set(label.width/scale,label.height/scale,1);usedLabels.add(key);
+    };
+    this.markers.forEach((marker,i)=>drawMarker(marker,markers[i],markerColors[i]));
+    // A selected star already has its persistent label; do not paint the same
+    // hover text over it. Distinct coincident forms retain distinct identities.
+    const duplicate=hover&&markers.some(item=>item?.label===hover.label&&item?.xyz?.every((v,i)=>v===hover.xyz[i]));
+    drawMarker(this.hoverMarker,duplicate?null:hover,hoverColor);
+    for(const [key,label] of this.labels)if(!usedLabels.has(key)){this.scene.remove(label.sprite);label.texture.dispose();label.sprite.material.dispose();this.labels.delete(key);}
     this.chord.visible=!!ends;
     if(ends){
       const points=upper?halfPlaneGeodesic(ends,{top:Math.max(1,this.camera.top)}):ends.map(p=>[p[0]/p[1],p[2]/p[1]]);
