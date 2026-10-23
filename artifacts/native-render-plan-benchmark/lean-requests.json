@@ -1,0 +1,148 @@
+[
+  {
+    "id": 1,
+    "op": "pair",
+    "first": [
+      1,
+      0,
+      1
+    ],
+    "second": [
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "id": 2,
+    "op": "catalogue",
+    "depth": 16,
+    "matrix": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "whole": true,
+    "dust": false,
+    "offset": 0,
+    "limit": 16384
+  },
+  {
+    "id": 3,
+    "op": "membersCatalogue",
+    "depth": 16,
+    "matrix": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "whole": true,
+    "dust": false,
+    "normal": [
+      1,
+      0,
+      -1
+    ]
+  },
+  {
+    "id": 4,
+    "op": "catalogue",
+    "depth": 16,
+    "matrix": [
+      16491,
+      8977,
+      16312,
+      14943
+    ],
+    "whole": true,
+    "dust": false,
+    "offset": 0,
+    "limit": 16384
+  },
+  {
+    "id": 5,
+    "op": "membersCatalogue",
+    "depth": 16,
+    "matrix": [
+      16491,
+      8977,
+      16312,
+      14943
+    ],
+    "whole": true,
+    "dust": false,
+    "normal": [
+      1,
+      0,
+      -1
+    ]
+  },
+  {
+    "id": 6,
+    "op": "catalogue",
+    "depth": 24,
+    "matrix": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "whole": true,
+    "dust": false,
+    "offset": 0,
+    "limit": 16384
+  },
+  {
+    "id": 7,
+    "op": "membersCatalogue",
+    "depth": 24,
+    "matrix": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "whole": true,
+    "dust": false,
+    "normal": [
+      1,
+      0,
+      -1
+    ]
+  },
+  {
+    "id": 8,
+    "op": "catalogue",
+    "depth": 24,
+    "matrix": [
+      16491,
+      8977,
+      16312,
+      14943
+    ],
+    "whole": true,
+    "dust": false,
+    "offset": 0,
+    "limit": 16384
+  },
+  {
+    "id": 9,
+    "op": "membersCatalogue",
+    "depth": 24,
+    "matrix": [
+      16491,
+      8977,
+      16312,
+      14943
+    ],
+    "whole": true,
+    "dust": false,
+    "normal": [
+      1,
+      0,
+      -1
+    ]
+  }
+]

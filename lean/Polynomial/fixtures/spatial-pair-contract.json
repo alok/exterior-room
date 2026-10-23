@@ -1,0 +1,772 @@
+{
+  "schema": "canonical-spatial-pair-contract-v1",
+  "provenance": {
+    "sourceDirectory": "/Users/alokbeniwal/Documents/Codex/2026-10-21/task-7/FareyVision/Farey",
+    "observedSourceCommit": "65d50122cfefac86e7626308eaa189dbf5878a7c",
+    "sourceSHA256": {
+      "WebXR/pair-plane.js": "f5542cad732f3019b9351af07eb50630df7b1dab31ff3544cae0a5fb3cc9f2bc",
+      "WebXR/lattice.js": "3a10ed93d0c5ab61e507ab2ebe400668d04e786af4cf8e897101b4b2e7c48259",
+      "WebXR/starscape-core.js": "07b08e1329f7d98596a2a1adf88192437b3f01839d7909463d46b3fe4b4b41c8",
+      "parity/fixtures.json": "d8b87fd9e65b5db6240cf2d30b9c0bf6c476dcfb39155d91b7c3e6c0e16bc3a9"
+    },
+    "machineFixtureGeneratedFrom": "browser 0.15.2 modules",
+    "scope": "New actual-sphere cases evaluated from canonical modules; existing machine planes included separately. No UI or kernel-proof claim."
+  },
+  "machinePlanes": [
+    {
+      "id": "pair x²+1 / x²+x+1",
+      "first": [
+        1,
+        0,
+        1
+      ],
+      "second": [
+        1,
+        1,
+        1
+      ],
+      "normal": [
+        1,
+        0,
+        -1
+      ],
+      "equation": "2a −2c = 0",
+      "endpoints": [
+        "-1",
+        "1"
+      ],
+      "endpointsExact": [
+        {
+          "kind": "rational",
+          "p": -1,
+          "q": 1
+        },
+        {
+          "kind": "rational",
+          "p": 1,
+          "q": 1
+        }
+      ],
+      "interiorTriplesR6": 22,
+      "upperR6": 11,
+      "lowerR6": 11
+    },
+    {
+      "id": "normal x",
+      "normalInput": [
+        0,
+        1,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "equation": "b = 0",
+      "endpoints": [
+        "0",
+        "∞"
+      ],
+      "endpointsExact": [
+        {
+          "kind": "rational",
+          "p": 0,
+          "q": 1
+        },
+        {
+          "kind": "infinity"
+        }
+      ],
+      "interiorTriplesR6": 22,
+      "upperR6": 11,
+      "lowerR6": 11
+    },
+    {
+      "id": "normal x²−2",
+      "normalInput": [
+        1,
+        0,
+        -2
+      ],
+      "normal": [
+        1,
+        0,
+        -2
+      ],
+      "equation": "4a −2c = 0",
+      "endpoints": [
+        "−√2",
+        "√2"
+      ],
+      "endpointsExact": [
+        {
+          "kind": "quadratic",
+          "numerator": 0,
+          "sign": -1,
+          "radicand": 8,
+          "denominator": 2
+        },
+        {
+          "kind": "quadratic",
+          "numerator": 0,
+          "sign": 1,
+          "radicand": 8,
+          "denominator": 2
+        }
+      ],
+      "interiorTriplesR6": 10,
+      "upperR6": 5,
+      "lowerR6": 5
+    }
+  ],
+  "cases": [
+    {
+      "name": "actual-spatial-sphere",
+      "first": [
+        1,
+        -1,
+        2
+      ],
+      "second": [
+        3,
+        0,
+        3
+      ],
+      "expected": {
+        "normal": [
+          1,
+          -2,
+          -1
+        ],
+        "equation": "2a −2b −2c = 0",
+        "endpoints": [
+          {
+            "label": "1 − √2",
+            "value": -0.41421356237309515
+          },
+          {
+            "label": "1 + √2",
+            "value": 2.414213562373095
+          }
+        ],
+        "firstPrimitive": [
+          1,
+          -1,
+          2
+        ],
+        "secondPrimitive": [
+          1,
+          0,
+          1
+        ]
+      },
+      "inspections": [
+        {
+          "point": [
+            1,
+            -1,
+            2
+          ],
+          "polynomial": "x² − x + 2",
+          "delta": -7,
+          "xyz": [
+            1,
+            3,
+            1
+          ]
+        },
+        {
+          "point": [
+            3,
+            0,
+            3
+          ],
+          "polynomial": "3x² + 3",
+          "delta": -36,
+          "xyz": [
+            0,
+            6,
+            0
+          ]
+        }
+      ],
+      "radius": 6,
+      "cloudTotal": 480,
+      "indices": [
+        11,
+        14,
+        21,
+        58,
+        65,
+        74,
+        128,
+        137,
+        147,
+        332,
+        342,
+        351,
+        405,
+        414,
+        421,
+        458,
+        465,
+        468
+      ],
+      "members": [
+        [
+          -3,
+          0,
+          -3
+        ],
+        [
+          -3,
+          -1,
+          -2
+        ],
+        [
+          -3,
+          -2,
+          -1
+        ],
+        [
+          -2,
+          1,
+          -3
+        ],
+        [
+          -2,
+          0,
+          -2
+        ],
+        [
+          -2,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          2,
+          -3
+        ],
+        [
+          -1,
+          1,
+          -2
+        ],
+        [
+          -1,
+          0,
+          -1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          -1,
+          2
+        ],
+        [
+          1,
+          -2,
+          3
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          2,
+          0,
+          2
+        ],
+        [
+          2,
+          -1,
+          3
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          1,
+          2
+        ],
+        [
+          3,
+          0,
+          3
+        ]
+      ]
+    },
+    {
+      "name": "signed-primary",
+      "first": [
+        -1,
+        1,
+        -2
+      ],
+      "second": [
+        3,
+        0,
+        3
+      ],
+      "expected": {
+        "normal": [
+          1,
+          -2,
+          -1
+        ],
+        "equation": "2a −2b −2c = 0",
+        "endpoints": [
+          {
+            "label": "1 − √2",
+            "value": -0.41421356237309515
+          },
+          {
+            "label": "1 + √2",
+            "value": 2.414213562373095
+          }
+        ],
+        "firstPrimitive": [
+          1,
+          -1,
+          2
+        ],
+        "secondPrimitive": [
+          1,
+          0,
+          1
+        ]
+      },
+      "inspections": [
+        {
+          "point": [
+            -1,
+            1,
+            -2
+          ],
+          "polynomial": "−x² + x − 2",
+          "delta": -7,
+          "xyz": [
+            -1,
+            -3,
+            -1
+          ]
+        },
+        {
+          "point": [
+            3,
+            0,
+            3
+          ],
+          "polynomial": "3x² + 3",
+          "delta": -36,
+          "xyz": [
+            0,
+            6,
+            0
+          ]
+        }
+      ],
+      "radius": 6,
+      "cloudTotal": 480,
+      "indices": [
+        11,
+        14,
+        21,
+        58,
+        65,
+        74,
+        128,
+        137,
+        147,
+        332,
+        342,
+        351,
+        405,
+        414,
+        421,
+        458,
+        465,
+        468
+      ],
+      "members": [
+        [
+          -3,
+          0,
+          -3
+        ],
+        [
+          -3,
+          -1,
+          -2
+        ],
+        [
+          -3,
+          -2,
+          -1
+        ],
+        [
+          -2,
+          1,
+          -3
+        ],
+        [
+          -2,
+          0,
+          -2
+        ],
+        [
+          -2,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          2,
+          -3
+        ],
+        [
+          -1,
+          1,
+          -2
+        ],
+        [
+          -1,
+          0,
+          -1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          -1,
+          2
+        ],
+        [
+          1,
+          -2,
+          3
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          2,
+          0,
+          2
+        ],
+        [
+          2,
+          -1,
+          3
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          1,
+          2
+        ],
+        [
+          3,
+          0,
+          3
+        ]
+      ]
+    },
+    {
+      "name": "signed-multiple-secondary",
+      "first": [
+        1,
+        -1,
+        2
+      ],
+      "second": [
+        -3,
+        0,
+        -3
+      ],
+      "expected": {
+        "normal": [
+          1,
+          -2,
+          -1
+        ],
+        "equation": "2a −2b −2c = 0",
+        "endpoints": [
+          {
+            "label": "1 − √2",
+            "value": -0.41421356237309515
+          },
+          {
+            "label": "1 + √2",
+            "value": 2.414213562373095
+          }
+        ],
+        "firstPrimitive": [
+          1,
+          -1,
+          2
+        ],
+        "secondPrimitive": [
+          1,
+          0,
+          1
+        ]
+      },
+      "inspections": [
+        {
+          "point": [
+            1,
+            -1,
+            2
+          ],
+          "polynomial": "x² − x + 2",
+          "delta": -7,
+          "xyz": [
+            1,
+            3,
+            1
+          ]
+        },
+        {
+          "point": [
+            -3,
+            0,
+            -3
+          ],
+          "polynomial": "−3x² − 3",
+          "delta": -36,
+          "xyz": [
+            0,
+            -6,
+            0
+          ]
+        }
+      ],
+      "radius": 6,
+      "cloudTotal": 480,
+      "indices": [
+        11,
+        14,
+        21,
+        58,
+        65,
+        74,
+        128,
+        137,
+        147,
+        332,
+        342,
+        351,
+        405,
+        414,
+        421,
+        458,
+        465,
+        468
+      ],
+      "members": [
+        [
+          -3,
+          0,
+          -3
+        ],
+        [
+          -3,
+          -1,
+          -2
+        ],
+        [
+          -3,
+          -2,
+          -1
+        ],
+        [
+          -2,
+          1,
+          -3
+        ],
+        [
+          -2,
+          0,
+          -2
+        ],
+        [
+          -2,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          2,
+          -3
+        ],
+        [
+          -1,
+          1,
+          -2
+        ],
+        [
+          -1,
+          0,
+          -1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          -1,
+          2
+        ],
+        [
+          1,
+          -2,
+          3
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          2,
+          0,
+          2
+        ],
+        [
+          2,
+          -1,
+          3
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          1,
+          2
+        ],
+        [
+          3,
+          0,
+          3
+        ]
+      ]
+    },
+    {
+      "name": "same-direction",
+      "first": [
+        3,
+        0,
+        3
+      ],
+      "second": [
+        1,
+        0,
+        1
+      ],
+      "expected": {
+        "error": "These triples have the same primitive direction and root. Choose a different root."
+      },
+      "inspections": [
+        {
+          "point": [
+            3,
+            0,
+            3
+          ],
+          "polynomial": "3x² + 3",
+          "delta": -36,
+          "xyz": [
+            0,
+            6,
+            0
+          ]
+        },
+        {
+          "point": [
+            1,
+            0,
+            1
+          ],
+          "polynomial": "x² + 1",
+          "delta": -4,
+          "xyz": [
+            0,
+            2,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "same-direction-opposite-sign",
+      "first": [
+        3,
+        0,
+        3
+      ],
+      "second": [
+        -1,
+        0,
+        -1
+      ],
+      "expected": {
+        "error": "These triples have the same primitive direction and root. Choose a different root."
+      },
+      "inspections": [
+        {
+          "point": [
+            3,
+            0,
+            3
+          ],
+          "polynomial": "3x² + 3",
+          "delta": -36,
+          "xyz": [
+            0,
+            6,
+            0
+          ]
+        },
+        {
+          "point": [
+            -1,
+            0,
+            -1
+          ],
+          "polynomial": "−x² − 1",
+          "delta": -4,
+          "xyz": [
+            0,
+            -2,
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

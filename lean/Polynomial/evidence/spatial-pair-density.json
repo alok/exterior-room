@@ -1,0 +1,341 @@
+{
+  "result": "passed",
+  "checkoutCommit": "42f7ec0925ea5a33af9bfcfada0e2d355b0dd40a",
+  "binarySHA256": "d6f909065f501b827c8d5646aebe4b2dd723d06a6e9d5ba3ad2f183f6ede44c4",
+  "fixtureSHA256": "8118808848f5a1583d0b06233e06bc28b967067573252c63f00f928518810edb",
+  "canonicalProvenance": {
+    "sourceDirectory": "/Users/alokbeniwal/Documents/Codex/2026-10-21/task-7/FareyVision/Farey",
+    "observedSourceCommit": "65d50122cfefac86e7626308eaa189dbf5878a7c",
+    "sourceSHA256": {
+      "WebXR/pair-plane.js": "f5542cad732f3019b9351af07eb50630df7b1dab31ff3544cae0a5fb3cc9f2bc",
+      "WebXR/lattice.js": "3a10ed93d0c5ab61e507ab2ebe400668d04e786af4cf8e897101b4b2e7c48259",
+      "WebXR/starscape-core.js": "07b08e1329f7d98596a2a1adf88192437b3f01839d7909463d46b3fe4b4b41c8",
+      "parity/fixtures.json": "d8b87fd9e65b5db6240cf2d30b9c0bf6c476dcfb39155d91b7c3e6c0e16bc3a9"
+    },
+    "machineFixtureGeneratedFrom": "browser 0.15.2 modules",
+    "scope": "New actual-sphere cases evaluated from canonical modules; existing machine planes included separately. No UI or kernel-proof claim."
+  },
+  "scope": "One fresh Lean process with one worker thread per scenario, sequential. No UI, server, build, R96, or headset claim.",
+  "pairing": {
+    "requests": 24,
+    "canonicalMachinePlanes": 3,
+    "polynomialComparison": "Exact after removing canonical operator spaces; raw signed coefficients compared without normalization.",
+    "cases": [
+      {
+        "name": "actual-spatial-sphere",
+        "normal": [
+          1,
+          -2,
+          -1
+        ],
+        "members": 18,
+        "milliseconds": 0.08
+      },
+      {
+        "name": "signed-primary",
+        "normal": [
+          1,
+          -2,
+          -1
+        ],
+        "members": 18,
+        "milliseconds": 0.063
+      },
+      {
+        "name": "signed-multiple-secondary",
+        "normal": [
+          1,
+          -2,
+          -1
+        ],
+        "members": 18,
+        "milliseconds": 0.043
+      },
+      {
+        "name": "same-direction",
+        "rejected": true,
+        "error": "These triples have the same primitive direction and root. Choose a different root."
+      },
+      {
+        "name": "same-direction-opposite-sign",
+        "rejected": true,
+        "error": "These triples have the same primitive direction and root. Choose a different root."
+      }
+    ]
+  },
+  "density": [
+    {
+      "name": "identity",
+      "depth": 16,
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "whole": true,
+      "dust": false,
+      "total": 4406,
+      "upperCount": 3725,
+      "otherCount": 681,
+      "complete": true,
+      "sourceLimited": {
+        "otherScanBound": false,
+        "upperCap": false
+      },
+      "otherScanBound": 10,
+      "coldPageMs": 23.262,
+      "cachedPageMs": [],
+      "warmFirstPageMs": 3.836,
+      "membersMs": 0.164,
+      "members": 148,
+      "pages": 1,
+      "requests": 3,
+      "orderedBaseTriplesSHA256": "bed23bf3097a20c4fcd9c118f810eeee0ec0640f860a1ec830fc85481af9a9c1",
+      "membersNormal": [
+        1,
+        -2,
+        -1
+      ]
+    },
+    {
+      "name": "held-first-115041",
+      "depth": 16,
+      "matrix": [
+        15192,
+        7950,
+        14719,
+        14285
+      ],
+      "whole": true,
+      "dust": false,
+      "total": 4215,
+      "upperCount": 3515,
+      "otherCount": 700,
+      "complete": true,
+      "sourceLimited": {
+        "otherScanBound": false,
+        "upperCap": false
+      },
+      "otherScanBound": 43,
+      "coldPageMs": 174.372,
+      "cachedPageMs": [],
+      "warmFirstPageMs": 4.12,
+      "membersMs": 0.222,
+      "members": 34,
+      "pages": 1,
+      "requests": 3,
+      "orderedBaseTriplesSHA256": "c02c8f6a006899cbde1c5031c19aae12d380a2664c9cc900bc26b54531527c32",
+      "membersNormal": [
+        1,
+        -2,
+        -1
+      ]
+    },
+    {
+      "name": "held-latest-115041",
+      "depth": 16,
+      "matrix": [
+        16478,
+        8954,
+        16361,
+        14960
+      ],
+      "whole": true,
+      "dust": false,
+      "total": 4204,
+      "upperCount": 3530,
+      "otherCount": 674,
+      "complete": true,
+      "sourceLimited": {
+        "otherScanBound": false,
+        "upperCap": false
+      },
+      "otherScanBound": 51,
+      "coldPageMs": 274.245,
+      "cachedPageMs": [],
+      "warmFirstPageMs": 3.867,
+      "membersMs": 0.165,
+      "members": 28,
+      "pages": 1,
+      "requests": 3,
+      "orderedBaseTriplesSHA256": "17b13f7263ede54ad685d523ee846767daf2d9069aec69bb8ce4417946f246b2",
+      "membersNormal": [
+        1,
+        -2,
+        -1
+      ]
+    },
+    {
+      "name": "held-published-120502",
+      "depth": 16,
+      "matrix": [
+        16491,
+        8977,
+        16312,
+        14943
+      ],
+      "whole": true,
+      "dust": false,
+      "total": 4205,
+      "upperCount": 3529,
+      "otherCount": 676,
+      "complete": true,
+      "sourceLimited": {
+        "otherScanBound": false,
+        "upperCap": false
+      },
+      "otherScanBound": 51,
+      "coldPageMs": 272.864,
+      "cachedPageMs": [],
+      "warmFirstPageMs": 3.877,
+      "membersMs": 0.154,
+      "members": 28,
+      "pages": 1,
+      "requests": 3,
+      "orderedBaseTriplesSHA256": "57cd8bda03ab9cf201497a6330da35eeaf9f11aaafd0ffa9b8163cf54be0f280",
+      "membersNormal": [
+        1,
+        -2,
+        -1
+      ]
+    },
+    {
+      "name": "identity",
+      "depth": 24,
+      "matrix": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "whole": true,
+      "dust": false,
+      "total": 14966,
+      "upperCount": 11842,
+      "otherCount": 3124,
+      "complete": true,
+      "sourceLimited": {
+        "otherScanBound": false,
+        "upperCap": false
+      },
+      "otherScanBound": 16,
+      "coldPageMs": 36.125,
+      "cachedPageMs": [],
+      "warmFirstPageMs": 13.22,
+      "membersMs": 0.279,
+      "members": 326,
+      "pages": 1,
+      "requests": 3,
+      "orderedBaseTriplesSHA256": "0efab71f95f684afdbafc3a0d0a4c7609dd79cfd89700268e49a9feebcd1b55b",
+      "membersNormal": [
+        1,
+        -2,
+        -1
+      ]
+    },
+    {
+      "name": "held-first-115041",
+      "depth": 24,
+      "matrix": [
+        15192,
+        7950,
+        14719,
+        14285
+      ],
+      "whole": true,
+      "dust": false,
+      "total": 12150,
+      "upperCount": 12150,
+      "otherCount": 0,
+      "complete": false,
+      "sourceLimited": {
+        "otherScanBound": true,
+        "upperCap": false
+      },
+      "otherScanBound": 72,
+      "coldPageMs": 34.043,
+      "cachedPageMs": [],
+      "warmFirstPageMs": 10.758,
+      "membersMs": 0.242,
+      "members": 73,
+      "pages": 1,
+      "requests": 3,
+      "orderedBaseTriplesSHA256": "9abc386000385af08354a2f8feeb4fd83786ac791dca188209ce3424e12e2193",
+      "membersNormal": [
+        1,
+        -2,
+        -1
+      ]
+    },
+    {
+      "name": "held-latest-115041",
+      "depth": 24,
+      "matrix": [
+        16478,
+        8954,
+        16361,
+        14960
+      ],
+      "whole": true,
+      "dust": false,
+      "total": 12177,
+      "upperCount": 12177,
+      "otherCount": 0,
+      "complete": false,
+      "sourceLimited": {
+        "otherScanBound": true,
+        "upperCap": false
+      },
+      "otherScanBound": 85,
+      "coldPageMs": 34.967,
+      "cachedPageMs": [],
+      "warmFirstPageMs": 11.662,
+      "membersMs": 0.234,
+      "members": 60,
+      "pages": 1,
+      "requests": 3,
+      "orderedBaseTriplesSHA256": "cb3dc7df6e1fb66461ca4f2526226309a33efedab81f78a94c6ffc8eeb09ccd9",
+      "membersNormal": [
+        1,
+        -2,
+        -1
+      ]
+    },
+    {
+      "name": "held-published-120502",
+      "depth": 24,
+      "matrix": [
+        16491,
+        8977,
+        16312,
+        14943
+      ],
+      "whole": true,
+      "dust": false,
+      "total": 12176,
+      "upperCount": 12176,
+      "otherCount": 0,
+      "complete": false,
+      "sourceLimited": {
+        "otherScanBound": true,
+        "upperCap": false
+      },
+      "otherScanBound": 85,
+      "coldPageMs": 33.899,
+      "cachedPageMs": [],
+      "warmFirstPageMs": 11.361,
+      "membersMs": 0.242,
+      "members": 60,
+      "pages": 1,
+      "requests": 3,
+      "orderedBaseTriplesSHA256": "1d7feb30a0a88c687201b18323d3cfb20f89a6abb444258a41c9f77b474f44d5",
+      "membersNormal": [
+        1,
+        -2,
+        -1
+      ]
+    }
+  ],
+  "existingPublicLawsUnchanged": 17
+}

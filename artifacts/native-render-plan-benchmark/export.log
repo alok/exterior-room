@@ -1,0 +1,4 @@
+identity-d16: total=4406 upper=3725 other=681 complete=True otherScanBound=10 pages=1
+released-d16: total=4205 upper=3529 other=676 complete=True otherScanBound=51 pages=1
+identity-d24: total=14966 upper=11842 other=3124 complete=True otherScanBound=16 pages=1
+released-d24: total=12176 upper=12176 other=0 complete=False otherScanBound=85 pages=1
